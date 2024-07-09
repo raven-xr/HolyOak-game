@@ -11,5 +11,18 @@ config_version=5
 [application]
 
 config/name="Holy Oak"
+config/version="0.1"
+run/main_scene="res://scenes/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/mode=3
+window/stretch/mode="canvas_items"
+
+[filesystem]
+
+import/blender/enabled=false
