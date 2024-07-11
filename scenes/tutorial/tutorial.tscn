@@ -1,3 +1,16 @@
-[gd_scene format=3 uid="uid://3lquoy3mkrss"]
+[gd_scene load_steps=3 format=3 uid="uid://3lquoy3mkrss"]
+
+[ext_resource type="AudioStream" uid="uid://b4ct4b03ouqvg" path="res://audio/music/alexander_nakarada-traveler.mp3" id="4_f16wc"]
+[ext_resource type="AudioStream" uid="uid://dx2gq0qwtk4a4" path="res://audio/music/alexander_nakarada-leaving_for_valhalla.mp3" id="5_3hklw"]
 
 [node name="Tutorial" type="Node2D"]
+
+[node name="SFX" type="Node2D" parent="."]
+
+[node name="RadioIdle" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("4_f16wc")
+volume_db = -30.0
+
+[node name="RadioFight" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("5_3hklw")
+volume_db = -30.0
