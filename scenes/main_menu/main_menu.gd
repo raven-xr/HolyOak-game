@@ -13,13 +13,13 @@ func _ready():
 func _on_play_texture_button_pressed():
 	click_2d.play()
 	change_level()
-	await get_tree().create_timer(6.0).timeout
+	await get_tree().create_timer(4.0).timeout
 	get_tree().change_scene_to_file("res://scenes/levels/levels.tscn")
 
 func _on_tutorial_texture_button_pressed():
 	click_2d.play()
 	change_level()
-	await get_tree().create_timer(6.0).timeout
+	await get_tree().create_timer(4.0).timeout
 	get_tree().change_scene_to_file("res://scenes/tutorial/tutorial.tscn")
 
 func _on_settings_texture_button_pressed():
@@ -39,6 +39,6 @@ func change_level():
 	quit_texture_button.disabled = true
 	
 	var tween_1 = get_tree().create_tween()
-	tween_1.parallel().tween_property(self, "modulate", Color(0, 0, 0, 1), 3.0)
+	tween_1.parallel().tween_property(self, "modulate", Color(0, 0, 0, 1), 2.0)
 	var tween_2 = get_tree().create_tween()
-	tween_2.parallel().tween_property(radio, "volume_db", -100, 6.0)
+	tween_2.parallel().tween_property(radio, "volume_db", -100, 4.0)
