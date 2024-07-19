@@ -34,9 +34,6 @@ func attack_state():
 func cooldown_state():
 	animation_player.play("D_Preattack")
 	await animation_player.animation_finished
-	#if len(enemies) > 0:
-		#state = ATTACK
-	#else:
 	if len(enemies) >= 1:
 		state = ATTACK
 	else:
