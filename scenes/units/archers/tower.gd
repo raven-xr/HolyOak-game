@@ -4,8 +4,8 @@ extends Node2D
 @onready var animation_player = $AnimationPlayer
 @onready var unit_preload = preload("res://scenes/units/archers/unit.tscn")
 
-@export var type: String # The type of tower: Upper (U), Side (S) or Down (D)
-@export var flip_h = false # If the tower is side, then it needs to be flipped or not; basic off
+@export var type: String = "D" # The type of tower: Upper (U), Side (S) or Down (D)
+@export var flip_h: bool = false # If the tower is side, then it needs to be flipped or not; basic off
 
 func _ready():
 	animation_player.play("Level_1")
