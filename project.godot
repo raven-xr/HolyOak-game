@@ -16,6 +16,10 @@ run/main_scene="res://scenes/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Signals="*res://scenes/global/signals.gd"
+
 [display]
 
 window/size/viewport_width=1280
@@ -30,6 +34,10 @@ enabled=PackedStringArray("res://addons/AS2P/plugin.cfg")
 [filesystem]
 
 import/blender/enabled=false
+
+[layer_names]
+
+2d_physics/layer_1="Enemies"
 
 [rendering]
 

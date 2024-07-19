@@ -9,6 +9,8 @@ enum {
 	ATTACK,
 	COOLDOWN
 }
+
+var enemies = []
 var state:
 	set(value):
 		state = value
@@ -35,22 +37,21 @@ func cooldown_state():
 	#if len(enemies) > 0:
 		#state = ATTACK
 	#else:
-	state = IDLE
+	if len(enemies) >= 1:
+		state = ATTACK
+	else:
+		state = IDLE
 
 func shoot():
-	#if len(enemies) > 0:
-	var arrow = arrow_preload.instantiate()
-	#arrow.enemy = enemies[0]
-	arrows.add_child(arrow)
+	if len(enemies) > 0:
+		var arrow = arrow_preload.instantiate()
+		arrow.enemy = enemies[0]
+		arrows.add_child(arrow)
 	state = COOLDOWN
 
-func _on_area_2d_body_entered(_body):
-	#if body.name != 'Arrow':
+func _on_area_2d_body_entered(body):
 	state = ATTACK
-		#enemies.append(body)
+	enemies.append(body)
 
-#func _on_area_2d_body_exited(body):
-	#if body.name != 'Arrow':
-		#enemies.erase(body)
-	#else:
-		#body.self_destruction()
+func _on_area_2d_body_exited(body):
+	enemies.erase(body)

@@ -155,6 +155,20 @@ tracks/1/keys = {
 "update": 1,
 "values": ["D_Attack"]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"shoot"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_aajes"]
 length = 0.666667
@@ -418,3 +432,4 @@ shape = SubResource("CircleShape2D_c221k")
 [node name="Arrows" type="Node2D" parent="."]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
