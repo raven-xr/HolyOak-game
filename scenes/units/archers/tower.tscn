@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://d1c8k3cvpn00c"]
+[gd_scene load_steps=13 format=3 uid="uid://d1c8k3cvpn00c"]
 
 [ext_resource type="Script" path="res://scenes/units/archers/tower.gd" id="1_hw0rl"]
 [ext_resource type="Texture2D" uid="uid://dyj1b8lqm8l5x" path="res://models/units/archers/upgrade/1.png" id="2_6xap5"]
+[ext_resource type="Texture2D" uid="uid://bqk852lqxeo15" path="res://models/units/archers/idle/1.png" id="3_y15kc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x23wb"]
 atlas = ExtResource("2_6xap5")
@@ -18,6 +19,10 @@ region = Rect2(140, 65, 70, 65)
 [sub_resource type="AtlasTexture" id="AtlasTexture_rjrrm"]
 atlas = ExtResource("2_6xap5")
 region = Rect2(210, 65, 70, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pstu"]
+atlas = ExtResource("3_y15kc")
+region = Rect2(0, 65, 70, 65)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0bfev"]
 animations = [{
@@ -37,6 +42,14 @@ animations = [{
 "loop": false,
 "name": &"Level_1",
 "speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4pstu")
+}],
+"loop": true,
+"name": &"Level_1_Idle",
+"speed": 5.0
 }]
 
 [sub_resource type="Animation" id="Animation_7y2w1"]
@@ -60,25 +73,54 @@ tracks/1/path = NodePath("AnimatedSprite2D:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["Level_1", &"Level_1_Idle"]
+}
+
+[sub_resource type="Animation" id="Animation_lrf6k"]
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["Level_1"]
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Level_1_Idle"]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mo32q"]
 _data = {
-"Level_1": SubResource("Animation_7y2w1")
+"Level_1": SubResource("Animation_7y2w1"),
+"Level_1_Idle": SubResource("Animation_lrf6k")
 }
 
 [node name="TowerOfArchers" type="Node2D"]
 script = ExtResource("1_hw0rl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-5.96046e-08, -5.96046e-08)
-scale = Vector2(2.46154, 2.46154)
+position = Vector2(-7.62939e-06, -7.62939e-06)
+scale = Vector2(1.72308, 1.72308)
 sprite_frames = SubResource("SpriteFrames_0bfev")
-animation = &"Level_1"
+animation = &"Level_1_Idle"
 autoplay = "Idle"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
