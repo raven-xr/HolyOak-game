@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://bnggbrmme1ed4"]
+[gd_scene load_steps=56 format=3 uid="uid://y05e6sdmr7sl"]
 
 [ext_resource type="Texture2D" uid="uid://cv7vs3dhkjnjh" path="res://models/units/archers/units/1/D_Idle.png" id="1_7l5hy"]
 [ext_resource type="Script" path="res://scenes/units/archers/unit.gd" id="1_oq73t"]

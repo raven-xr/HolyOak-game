@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d1c8k3cvpn00c"]
+[gd_scene load_steps=13 format=3 uid="uid://bwmpliwlaw5id"]
 
 [ext_resource type="Script" path="res://scenes/units/archers/tower.gd" id="1_hw0rl"]
 [ext_resource type="Texture2D" uid="uid://dyj1b8lqm8l5x" path="res://models/units/archers/upgrade/1.png" id="2_6xap5"]
