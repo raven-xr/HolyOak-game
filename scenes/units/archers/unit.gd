@@ -1,10 +1,5 @@
 extends Node2D
 
-@onready var animation_player = $AnimationPlayer
-@onready var arrows = $Arrows
-@onready var arrow_preload = preload("res://scenes/units/archers/arrow.tscn")
-@onready var animated_sprite_2d = $AnimatedSprite2D
-
 enum {
 	IDLE,
 	ATTACK,
@@ -22,20 +17,26 @@ var state:
 				attack_state()
 			COOLDOWN:
 				cooldown_state()
-@onready var default_view_direction # The value is given by the tower
-@onready var flip_h: bool # The value is given by the tower
 var current_view_direction
+
+@onready var animation_player = $AnimationPlayer
+@onready var arrows = $Arrows
+@onready var arrow_preload = preload("res://scenes/units/archers/arrow.tscn")
+@onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var default_view_direction: String # The value is given by the tower
+@onready var default_flip_h: bool # The value is given by the tower
 
 func _ready():
 	state = IDLE
 
 func idle_state():
 	current_view_direction = default_view_direction
+	animated_sprite_2d.flip_h = default_flip_h
 	animation_player.play(str(current_view_direction, "_Idle"))
-	animated_sprite_2d.flip_h = flip_h
 
 func attack_state():
-	change_view_direction()
+	current_view_direction = change_view_direction()[0]
+	animated_sprite_2d.flip_h = change_view_direction()[1]
 	animation_player.play(str(current_view_direction, "_Attack"))
 
 func cooldown_state():
@@ -55,24 +56,20 @@ func shoot():
 	state = COOLDOWN
 
 func _on_area_2d_body_entered(body):
-	state = ATTACK
 	enemies.append(body)
+	state = ATTACK
 
 func _on_area_2d_body_exited(body):
 	enemies.erase(body)
 
-func change_view_direction():
-	if len(enemies) >= 1:
-		var angle_to_enemy = rad_to_deg(get_angle_to(enemies[0].position))
-		if 45 < angle_to_enemy and angle_to_enemy <= 135:
-			current_view_direction = "D"
-			animated_sprite_2d.flip_h = false
-		elif 135 < angle_to_enemy or angle_to_enemy <= -135:
-			current_view_direction = "S"
-			animated_sprite_2d.flip_h = false
-		elif -135 < angle_to_enemy and angle_to_enemy <= -45:
-			current_view_direction = "U"
-			animated_sprite_2d.flip_h = false
-		elif -45 < angle_to_enemy or angle_to_enemy <= 45:
-			current_view_direction = "S"
-			animated_sprite_2d.flip_h = true
+func change_view_direction() -> Array:
+	var angle_to_enemy = rad_to_deg(get_angle_to(enemies[0].position))
+	if 45 < angle_to_enemy and angle_to_enemy <= 135:
+		return ["D", false]
+	elif 135 < angle_to_enemy or angle_to_enemy <= -135:
+		return ["S", false]
+	elif -135 < angle_to_enemy and angle_to_enemy <= -45:
+		return ["U", false]
+	else:
+		animated_sprite_2d.flip_h = true
+		return ["S", true]

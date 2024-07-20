@@ -4,8 +4,8 @@ extends Node2D
 @onready var animation_player = $AnimationPlayer
 @onready var unit_preload = preload("res://scenes/units/archers/unit.tscn")
 
-@export var type: String = "D" # The type of tower: Upper (U), Side (S) or Down (D)
-@export var flip_h: bool = false # If the tower is side, then it needs to be flipped or not; basic off
+@export var default_view_direction: String = "D" # The type of tower: Upper (U), Side (S) or Down (D)
+@export var default_flip_h: bool = false # If the tower is side, then it needs to be flipped or not; basic off
 
 func _ready():
 	animation_player.play("Level_1")
@@ -15,7 +15,8 @@ func _ready():
 func new_unit():
 	var unit = unit_preload.instantiate()
 	unit.modulate = Color(1, 1, 1, 0)
-	unit.default_view_direction = type
+	unit.default_view_direction = default_view_direction
+	unit.default_flip_h = default_flip_h
 	tower.add_child(unit)
 	var tween = get_tree().create_tween()
 	tween.tween_property(unit, "modulate", Color(1, 1, 1, 1), 0.15)
