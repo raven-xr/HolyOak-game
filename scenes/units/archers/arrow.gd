@@ -9,6 +9,7 @@ var enemy_available = true:
 		if not enemy_available:
 			self_destruction()
 var distance_to_archer
+
 @onready var enemy # The value is given by the archer
 @onready var tower_position = get_parent().get_parent().get_parent().global_position
 
@@ -28,8 +29,9 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func _on_area_2d_body_entered(body):
-	body.health -= damage
-	queue_free()
+	if body == enemy:
+		body.health -= damage
+		queue_free()
 
 func _on_enemy_die(died_enemy):
 	if enemy == died_enemy:
