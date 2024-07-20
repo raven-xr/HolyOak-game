@@ -25,7 +25,7 @@ func _physics_process(_delta):
 		distance_to_archer = sqrt((tower_position - self.global_position).x**2 + (tower_position - self.global_position).y**2)
 		if distance_to_archer > 300: # If the distance to the tower more than 300,
 			enemy_available = false  # then the arrow selfdestroys
-	velocity = direction * speed
+		velocity = direction * speed
 	move_and_slide()
 
 func _on_area_2d_body_entered(body):
