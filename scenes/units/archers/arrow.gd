@@ -5,9 +5,7 @@ var damage = 10.0
 var direction
 var enemy_available = true:
 	set(value):
-		enemy_available = value
-		if not enemy_available:
-			self_destruction()
+		self_destruction()
 var distance_to_archer
 
 @onready var enemy # The value is given by the archer
