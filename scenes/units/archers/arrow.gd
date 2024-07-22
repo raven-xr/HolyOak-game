@@ -14,7 +14,6 @@ var distance_to_archer
 # get_parent().get_parent().get_parent().get_parent() is a tower
 
 func _ready():
-	print(damage)
 	Signals.connect("enemy_die", Callable(self, "_on_enemy_die"))
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "modulate", Color(1, 1, 1, 1), 0.67)
