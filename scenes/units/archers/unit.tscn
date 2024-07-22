@@ -593,9 +593,10 @@ script = ExtResource("1_oq73t")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1.4013e-45, -8)
-scale = Vector2(1.66667, 1.66667)
+scale = Vector2(1.125, 1.125)
 sprite_frames = SubResource("SpriteFrames_82ogq")
-animation = &"S_Attack"
+animation = &"D_Idle"
+frame_progress = 0.177936
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

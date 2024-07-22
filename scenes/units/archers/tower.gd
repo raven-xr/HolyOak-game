@@ -2,6 +2,7 @@ extends Node2D
 
 const BUILD_COST = 300.0
 const MAX_LEVEL = 7
+const SPAWNPOINTS = [Vector2(-12, -4), Vector2(14, -4), Vector2(0, 8)]
 
 var upgrade_cost = 0.0
 var level = 0:
@@ -30,6 +31,7 @@ func new_unit():
 	unit.modulate = Color(1, 1, 1, 0)
 	unit.default_view_direction = default_view_direction
 	unit.default_flip_h = default_flip_h
+	unit.position = SPAWNPOINTS[units.get_child_count()]
 	units.add_child(unit)
 	var tween = get_tree().create_tween()
 	tween.tween_property(unit, "modulate", Color(1, 1, 1, 1), 0.15)
