@@ -1,17 +1,20 @@
 extends CharacterBody2D
 
 var speed = 100.0
-var damage = 10.0
 var direction
 var enemy_available = true:
 	set(value):
+		enemy_available = value
 		self_destruction()
 var distance_to_archer
 
 @onready var enemy # The value is given by the archer
-@onready var tower_position = get_parent().get_parent().get_parent().global_position
+@onready var damage = get_parent().get_parent().get_parent().get_parent().damage
+@onready var tower_position = get_parent().get_parent().get_parent().get_parent().global_position
+# get_parent().get_parent().get_parent().get_parent() is a tower
 
 func _ready():
+	print(damage)
 	Signals.connect("enemy_die", Callable(self, "_on_enemy_die"))
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "modulate", Color(1, 1, 1, 1), 0.67)

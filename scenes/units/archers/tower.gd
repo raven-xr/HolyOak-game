@@ -1,6 +1,15 @@
 extends Node2D
 
-@onready var tower = $"."
+const BUILD_COST = 300.0
+
+var upgrade_cost = 0.0
+var level = 0:
+	set(value):
+		level = value
+		level_up()
+var damage = 0.0
+
+@onready var units = $Units
 @onready var animation_player = $AnimationPlayer
 @onready var unit_preload = preload("res://scenes/units/archers/unit.tscn")
 
@@ -10,13 +19,22 @@ extends Node2D
 func _ready():
 	animation_player.play("Level_1")
 	await animation_player.animation_finished
-	new_unit()
+	# Enabling UpgradeTextureButton
+	get_parent().get_parent().get_node("Menu/UpgradeTextureButton").disabled = false
+	# get_parent().get_parent() is a tower
+	level = 1
 
 func new_unit():
 	var unit = unit_preload.instantiate()
 	unit.modulate = Color(1, 1, 1, 0)
 	unit.default_view_direction = default_view_direction
 	unit.default_flip_h = default_flip_h
-	tower.add_child(unit)
+	units.add_child(unit)
 	var tween = get_tree().create_tween()
 	tween.tween_property(unit, "modulate", Color(1, 1, 1, 1), 0.15)
+
+func level_up():
+	if level in [1]:
+		new_unit()
+	damage += 10.0
+	upgrade_cost += 150.0 * level

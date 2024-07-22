@@ -127,3 +127,5 @@ autoplay = "Idle"
 libraries = {
 "": SubResource("AnimationLibrary_mo32q")
 }
+
+[node name="Units" type="Node2D" parent="."]

@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://dsawmhlx7pd62"]
+
+[ext_resource type="Script" path="res://scenes/units/platform.gd" id="1_n25rn"]
+[ext_resource type="Texture2D" uid="uid://r4hn5ljs3vlx" path="res://ui/build_default.png" id="2_x8e24"]
+[ext_resource type="Texture2D" uid="uid://db6p04lqhwwf7" path="res://ui/build_hover.png" id="3_mmrqd"]
+[ext_resource type="Texture2D" uid="uid://c8fbq7o0ggmvy" path="res://ui/build_disabled.png" id="4_orhma"]
+[ext_resource type="Texture2D" uid="uid://bjyagoxg427n1" path="res://ui/upgrade_default.png" id="5_ecwmm"]
+[ext_resource type="Texture2D" uid="uid://b7o74p0ihh582" path="res://ui/upgrade_hover.png" id="6_evvam"]
+[ext_resource type="Texture2D" uid="uid://dosd2fh2vr8vu" path="res://ui/upgrade_disabled.png" id="7_hhufg"]
+[ext_resource type="AudioStream" uid="uid://c67yq2gixjlbo" path="res://audio/sfx/click.mp3" id="8_aghbs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fil16"]
+radius = 54.0
+
+[node name="Platform" type="Node2D"]
+script = ExtResource("1_n25rn")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+shape = SubResource("CircleShape2D_fil16")
+
+[node name="Menu" type="Node2D" parent="."]
+
+[node name="BuildTextureButton" type="TextureButton" parent="Menu"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = 64.0
+offset_right = 108.0
+offset_bottom = 148.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("2_x8e24")
+texture_pressed = ExtResource("2_x8e24")
+texture_hover = ExtResource("3_mmrqd")
+texture_disabled = ExtResource("4_orhma")
+
+[node name="UpgradeTextureButton" type="TextureButton" parent="Menu"]
+offset_left = 8.0
+offset_top = 64.0
+offset_right = 204.0
+offset_bottom = 148.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("5_ecwmm")
+texture_pressed = ExtResource("5_ecwmm")
+texture_hover = ExtResource("6_evvam")
+texture_disabled = ExtResource("7_hhufg")
+
+[node name="Towers" type="Node2D" parent="."]
+
+[node name="SFX" type="Node2D" parent="."]
+
+[node name="Click2D" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("8_aghbs")
+
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
+[connection signal="pressed" from="Menu/BuildTextureButton" to="." method="_on_build_texture_button_pressed"]
+[connection signal="pressed" from="Menu/UpgradeTextureButton" to="." method="_on_upgrade_texture_button_pressed"]

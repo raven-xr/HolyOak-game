@@ -1,4 +1,5 @@
 extends Node2D
+
 @onready var click_2d = $SFX/Click2D
 @onready var radio = $SFX/Radio
 @onready var play_texture_button = $UserInterface/VBoxContainer/Play_TextureButton
@@ -11,7 +12,6 @@ func _ready():
 	tween.tween_property(radio, "volume_db", -4.0, 4.0)
 	#await tween.finished # DEBUG
 	#get_tree().call_deferred("change_scene_to_file", "res://test_scene.tscn") # DEBUG
-
 
 func _on_play_texture_button_pressed():
 	click_2d.play()
