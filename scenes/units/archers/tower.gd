@@ -35,7 +35,7 @@ func new_unit():
 	tween.tween_property(unit, "modulate", Color(1, 1, 1, 1), 0.15)
 
 func level_up():
-	damage = UnitStats.archers[str('level_', level)][damage]
-	upgrade_cost = UnitStats.archers[str('level_', level)][upgrade_cost]
-	if units.get_child_count() < UnitStats.archers[str('level_', level)][units]:
+	damage = UnitStats.archers[str('level_', level)]['damage']
+	upgrade_cost = UnitStats.archers[str('level_', level)]['upgrade_cost']
+	if units.get_child_count() < UnitStats.archers[str('level_', level)]['units']:
 		new_unit()
