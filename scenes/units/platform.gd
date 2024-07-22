@@ -31,7 +31,7 @@ func _on_touch_screen_button_pressed():
 	menu.visible = true
 	if free:
 		build_texture_button.disabled = false
-	elif towers.get_child(0).level >= 1:
+	elif towers.get_child(0).level >= 1 and towers.get_child(0).MAX_LEVEL != towers.get_child(0).level:
 		# towers.get_child(0) is a tower
 		upgrade_texture_button.disabled = false
 

@@ -122,6 +122,7 @@ scale = Vector2(1.72308, 1.72308)
 sprite_frames = SubResource("SpriteFrames_0bfev")
 animation = &"Level_1"
 autoplay = "Idle"
+frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
