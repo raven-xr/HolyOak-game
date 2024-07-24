@@ -586,7 +586,6 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c221k"]
-radius = 300.0
 
 [node name="Archer" type="Node2D"]
 script = ExtResource("1_oq73t")
@@ -596,7 +595,7 @@ position = Vector2(1.4013e-45, -8)
 scale = Vector2(1.125, 1.125)
 sprite_frames = SubResource("SpriteFrames_82ogq")
 animation = &"D_Idle"
-frame_progress = 0.177936
+frame_progress = 0.529031
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

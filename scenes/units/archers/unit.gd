@@ -19,15 +19,20 @@ var state:
 				cooldown_state()
 var current_view_direction
 
+@onready var collision_shape_2d = $Area2D/CollisionShape2D
 @onready var animation_player = $AnimationPlayer
 @onready var arrows = $Arrows
 @onready var arrow_preload = preload("res://scenes/units/archers/arrow.tscn")
 @onready var animated_sprite_2d = $AnimatedSprite2D
-@onready var default_view_direction: String # The value is given by the tower
-@onready var default_flip_h: bool # The value is given by the tower
+
+@onready var default_view_direction = get_parent().get_parent().get_parent().get_parent().default_view_direction
+@onready var default_flip_h = get_parent().get_parent().get_parent().get_parent().default_flip_h
+
+@onready var attack_range = get_parent().get_parent().attack_range
 
 func _ready():
 	state = IDLE
+	collision_shape_2d.shape.radius = attack_range
 
 func idle_state():
 	current_view_direction = default_view_direction
@@ -50,7 +55,6 @@ func cooldown_state():
 func shoot():
 	if len(enemies) >= 1:
 		var arrow = arrow_preload.instantiate()
-		arrow.enemy = enemies[0]
 		arrow.position = Vector2(0.0, -24.0)
 		arrows.add_child(arrow)
 	state = COOLDOWN

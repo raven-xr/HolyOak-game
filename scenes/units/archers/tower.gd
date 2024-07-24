@@ -2,42 +2,61 @@ extends Node2D
 
 const BUILD_COST = 300.0
 const MAX_LEVEL = 7
-const SPAWNPOINTS = [Vector2(-12, -4), Vector2(14, -4), Vector2(0, 8)]
 
-var upgrade_cost = 0.0
 var level = 0:
 	set(value):
 		level = value
 		level_up()
-var damage = 0.0
+var is_upgrading = false
+var damage = 0
+var attack_range = 10 # Default collision shape's radius
+var upgrade_cost = 0
+var unit_count = 0
+var spawnpoints = []
 
 @onready var units = $Units
 @onready var animation_player = $AnimationPlayer
 @onready var unit_preload = preload("res://scenes/units/archers/unit.tscn")
 
-@export var default_view_direction: String = "D" # The type of tower: Upper (U), Side (S) or Down (D)
-@export var default_flip_h: bool = false # If the tower is side, then it needs to be flipped or not; basic off
-
 func _ready():
-	animation_player.play("Level_1")
-	await animation_player.animation_finished
-	# Enabling UpgradeTextureButton
-	get_parent().get_parent().get_node("Menu/UpgradeTextureButton").disabled = false
-	# get_parent().get_parent() is a tower
 	level = 1
 
 func new_unit():
 	var unit = unit_preload.instantiate()
-	unit.modulate = Color(1, 1, 1, 0)
-	unit.default_view_direction = default_view_direction
-	unit.default_flip_h = default_flip_h
-	unit.position = SPAWNPOINTS[units.get_child_count()]
+	unit.position = spawnpoints[units.get_child_count()]
 	units.add_child(unit)
 	var tween = get_tree().create_tween()
-	tween.tween_property(unit, "modulate", Color(1, 1, 1, 1), 0.15)
+	tween.tween_property(units, "modulate", Color(1, 1, 1, 1), 0.15)
 
 func level_up():
+	# Inform the platform that the tower is being upgraded
+	is_upgrading = true
+	# Remove units
+	var tween = get_tree().create_tween()
+	tween.tween_property(units, "modulate", Color(1, 1, 1, 0), 0.15)
+	await tween.finished
+	for child in units.get_children():
+		child.queue_free()
+	# Upgrade stats
 	damage = UnitStats.archers[str('level_', level)]['damage']
 	upgrade_cost = UnitStats.archers[str('level_', level)]['upgrade_cost']
-	if units.get_child_count() < UnitStats.archers[str('level_', level)]['units']:
+	unit_count = UnitStats.archers[str('level_', level)]['unit_count']
+	spawnpoints = UnitStats.archers[str('level_', level)]['spawnpoints']
+	attack_range = UnitStats.archers[str('level_', level)]['attack_range']
+	# Play animation
+	animation_player.play(str("Level_", level))
+	await animation_player.animation_finished
+	# Add new units
+	for i in range(unit_count):
 		new_unit()
+	# Inform the platform that the tower finsihed upgrading
+	is_upgrading = false
+	# If the platform's interface is opened, then enable upgrade button
+	if can_be_upgraded():
+		get_parent().get_parent().upgrade_texture_button.disabled = false
+
+func can_be_upgraded():
+	if is_upgrading or MAX_LEVEL == level:
+		return false
+	else:
+		return true
