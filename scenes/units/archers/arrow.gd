@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 100.0
+const SPEED = 6000.0
 var direction
 var enemy_available = true:
 	set(value):
@@ -19,14 +19,14 @@ func _ready():
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "modulate", Color(1, 1, 1, 1), 0.67)
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	if enemy_available:
 		direction = (enemy.position - self.global_position).normalized()
 		look_at(enemy.position)
 		distance_to_archer = sqrt((unit_global_position - self.global_position).x**2 + (unit_global_position - self.global_position).y**2)
 		if distance_to_archer > attack_range: # If the distance to the unit more than 300,
 			enemy_available = false  # then the arrow self-destruct
-		velocity = direction * SPEED
+		velocity = direction * SPEED * delta
 	move_and_slide()
 
 func _on_area_2d_body_entered(body):
