@@ -55,7 +55,7 @@ func cooldown_state():
 func shoot():
 	if len(enemies) >= 1:
 		var arrow = arrow_preload.instantiate()
-		arrow.position = Vector2(0.0, -24.0)
+		arrow.position = Vector2(0.0, -13.0)
 		arrows.add_child(arrow)
 	state = COOLDOWN
 
