@@ -7,6 +7,8 @@ enum {
 }
 
 var enemies = []
+var enemy
+var is_looking_for_enemy = true
 var state:
 	set(value):
 		state = value
@@ -40,6 +42,8 @@ func idle_state():
 	animation_player.play(str(current_view_direction, "_Idle"))
 
 func attack_state():
+	if is_looking_for_enemy:
+		enemy = enemies[0]
 	current_view_direction = change_view_direction()[0]
 	animated_sprite_2d.flip_h = change_view_direction()[1]
 	animation_player.play(str(current_view_direction, "_Attack"))
@@ -47,13 +51,13 @@ func attack_state():
 func cooldown_state():
 	animation_player.play(str(current_view_direction, "_Preattack"))
 	await animation_player.animation_finished
-	if len(enemies) >= 1:
+	if len(enemies) > 0:
 		state = ATTACK
 	else:
 		state = IDLE
 
 func shoot():
-	if len(enemies) >= 1:
+	if len(enemies) > 0:
 		var arrow = arrow_preload.instantiate()
 		arrow.position = Vector2(0.0, -13.0)
 		arrows.add_child(arrow)
@@ -61,13 +65,18 @@ func shoot():
 
 func _on_area_2d_body_entered(body):
 	enemies.append(body)
-	state = ATTACK
+	if state != COOLDOWN:
+		state = ATTACK
 
 func _on_area_2d_body_exited(body):
 	enemies.erase(body)
+	if enemy == body:
+		is_looking_for_enemy = true
+		if len(enemies) > 0:
+			state = ATTACK
 
 func change_view_direction() -> Array:
-	var angle_to_enemy = rad_to_deg(get_angle_to(enemies[0].position))
+	var angle_to_enemy = rad_to_deg(get_angle_to(enemy.position))
 	if 45 < angle_to_enemy and angle_to_enemy <= 135:
 		return ["D", false]
 	elif 135 < angle_to_enemy or angle_to_enemy <= -135:
@@ -75,5 +84,4 @@ func change_view_direction() -> Array:
 	elif -135 < angle_to_enemy and angle_to_enemy <= -45:
 		return ["U", false]
 	else:
-		animated_sprite_2d.flip_h = true
 		return ["S", true]
