@@ -17,12 +17,12 @@ var enemy_available = true:
 func _ready():
 	self.modulate = Color(1, 1, 1, 0)
 	Signals.connect("enemy_die", Callable(self, "_on_enemy_die"))
-	var tween = get_tree().create_tween()
+	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color(1, 1, 1, 1), 0.67)
 
 func _physics_process(delta):
 	# If the arrow pass attack range, then self-destruct
-	var distance_to_archer = sqrt((unit_global_position - self.global_position).x**2 + (unit_global_position - self.global_position).y**2)
+	var distance_to_archer = unit_global_position.distance_to(self.global_position)
 	if distance_to_archer > attack_range:
 		enemy_available = false # Trigger self-destruction
 	# Change direction if only enemy available (not dead or not too far)
@@ -44,6 +44,7 @@ func _on_enemy_die(died_enemy):
 
 func self_destruct():
 	collision_shape_2d.set_deferred("disabled", "true")
-	var tween = get_tree().create_tween()
-	tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 0.33)
-	tween.connect("finished", Callable(self, "queue_free"))
+	var tween = create_tween()
+	tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 0.15)
+	await tween.finished
+	queue_free()
