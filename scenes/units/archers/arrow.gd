@@ -1,10 +1,7 @@
 extends CharacterBody2D
 
 const SPEED = 6000.0
-var enemy_available = true:
-	set(value):
-		enemy_available = value
-		self_destruct()
+var enemy_available = true
 
 @onready var collision_shape_2d = $Area2D/CollisionShape2D
 
@@ -24,7 +21,8 @@ func _physics_process(delta):
 	# If the arrow pass attack range, then self-destruct
 	var distance_to_archer = unit_global_position.distance_to(self.global_position)
 	if distance_to_archer > attack_range:
-		enemy_available = false # Trigger self-destruction
+		enemy_available = false
+		self_destruct()
 	# Change direction if only enemy available (not dead or not too far)
 	if enemy_available:                
 		var direction = (enemy.global_position - self.global_position).normalized()
@@ -36,11 +34,12 @@ func _physics_process(delta):
 func _on_area_2d_body_entered(body):
 	if body == enemy:
 		body.health -= damage
-		queue_free()
+		self_destruct()
 
 func _on_enemy_die(died_enemy):
 	if enemy == died_enemy:
 		enemy_available = false
+		self_destruct()
 
 func self_destruct():
 	collision_shape_2d.set_deferred("disabled", "true")
