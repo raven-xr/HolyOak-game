@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://bcsl8cqbwhdyg"]
+[gd_scene load_steps=58 format=3 uid="uid://bcsl8cqbwhdyg"]
 
 [ext_resource type="Texture2D" uid="uid://cv7vs3dhkjnjh" path="res://models/units/archers/units/1/D_Idle.png" id="1_7l5hy"]
 [ext_resource type="Script" path="res://scenes/units/archers/unit.gd" id="1_oq73t"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://cwkemnvthv4js" path="res://models/units/archers/units/1/U_Attack.png" id="8_jkt31"]
 [ext_resource type="Texture2D" uid="uid://b1cmwo52wnanf" path="res://models/units/archers/units/1/U_Idle.png" id="9_gf617"]
 [ext_resource type="Texture2D" uid="uid://c6u61in8gjmvl" path="res://models/units/archers/units/1/U_Preattack.png" id="10_mcss6"]
+[ext_resource type="AudioStream" uid="uid://cgefjfqldx5cl" path="res://audio/sfx/shot.mp3" id="11_rqyjn"]
+[ext_resource type="AudioStream" uid="uid://cpmwou3iw52qq" path="res://audio/sfx/bowstring.mp3" id="12_ig8ed"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6jynq"]
 atlas = ExtResource("2_2hmke")
@@ -329,6 +331,18 @@ tracks/2/keys = {
 "method": &"shoot"
 }]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SFX/Bowstring2D:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_aajes"]
 length = 0.666667
@@ -422,6 +436,18 @@ tracks/2/keys = {
 "args": [],
 "method": &"shoot"
 }]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SFX/Bowstring2D:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_vspjr"]
@@ -517,6 +543,18 @@ tracks/2/keys = {
 "method": &"shoot"
 }]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SFX/Bowstring2D:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_6klga"]
 length = 0.666667
@@ -594,8 +632,7 @@ script = ExtResource("1_oq73t")
 position = Vector2(1.4013e-45, -8)
 scale = Vector2(1.125, 1.125)
 sprite_frames = SubResource("SpriteFrames_82ogq")
-animation = &"D_Idle"
-frame_progress = 0.529031
+animation = &"U_Attack"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -609,6 +646,16 @@ collision_layer = 0
 shape = SubResource("CircleShape2D_c221k")
 
 [node name="Arrows" type="Node2D" parent="."]
+
+[node name="SFX" type="Node2D" parent="."]
+
+[node name="Shot2D" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("11_rqyjn")
+volume_db = -20.0
+
+[node name="Bowstring2D" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("12_ig8ed")
+volume_db = -25.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

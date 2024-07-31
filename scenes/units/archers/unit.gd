@@ -20,12 +20,13 @@ var state:
 			COOLDOWN:
 				cooldown_state()
 var current_view_direction
+var arrow_preload = preload("res://scenes/units/archers/arrow.tscn")
 
 @onready var collision_shape_2d = $Area2D/CollisionShape2D
 @onready var animation_player = $AnimationPlayer
 @onready var arrows = $Arrows
-@onready var arrow_preload = preload("res://scenes/units/archers/arrow.tscn")
 @onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var shot_2d = $SFX/Shot2D
 
 @onready var default_view_direction = get_parent().get_parent().get_parent().get_parent().default_view_direction
 @onready var default_flip_h = get_parent().get_parent().get_parent().get_parent().default_flip_h
@@ -61,6 +62,7 @@ func shoot():
 		var arrow = arrow_preload.instantiate()
 		arrow.position = Vector2(0.0, -13.0)
 		arrows.add_child(arrow)
+		shot_2d.play()
 	state = COOLDOWN
 
 func _on_area_2d_body_entered(body):

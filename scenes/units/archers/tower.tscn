@@ -1,4 +1,4 @@
-[gd_scene load_steps=126 format=3 uid="uid://cnbl8aw2p0wrn"]
+[gd_scene load_steps=128 format=3 uid="uid://cnbl8aw2p0wrn"]
 
 [ext_resource type="Script" path="res://scenes/units/archers/tower.gd" id="1_hw0rl"]
 [ext_resource type="Texture2D" uid="uid://dyj1b8lqm8l5x" path="res://models/units/archers/upgrade/1.png" id="2_6xap5"]
@@ -21,6 +21,8 @@
 [ext_resource type="Texture2D" uid="uid://nfgmn73ucg11" path="res://models/units/archers/idle/7_no_roof.png" id="15_aqrl2"]
 [ext_resource type="Texture2D" uid="uid://cosy26s3684nq" path="res://models/units/archers/idle/4_roof.png" id="17_fcx3d"]
 [ext_resource type="Texture2D" uid="uid://dxkv8nktd5xek" path="res://models/units/archers/idle/7_roof.png" id="20_nqsl5"]
+[ext_resource type="AudioStream" uid="uid://05iep57nlfbr" path="res://audio/sfx/success.mp3" id="22_kx6mg"]
+[ext_resource type="AudioStream" uid="uid://vjtb87xelmbx" path="res://audio/sfx/building.mp3" id="23_8w72y"]
 
 [sub_resource type="Animation" id="Animation_68f7d"]
 length = 3.0
@@ -1270,7 +1272,7 @@ libraries = {
 position = Vector2(0, -56)
 scale = Vector2(1.72308, 1.72308)
 sprite_frames = SubResource("SpriteFrames_0bfev")
-animation = &"Level_7_Idle"
+animation = &"Level_1"
 autoplay = "Level_0_Idle"
 
 [node name="Units" type="Node2D" parent="."]
@@ -1279,5 +1281,20 @@ autoplay = "Level_0_Idle"
 position = Vector2(0, -56)
 scale = Vector2(1.72308, 1.72308)
 sprite_frames = SubResource("SpriteFrames_88k6e")
-animation = &"Level_7_Idle"
+animation = &"Level_0_Idle"
 autoplay = "Level_0_Idle"
+
+[node name="GFX" type="Node2D" parent="."]
+
+[node name="Smoke" type="Node2D" parent="GFX"]
+
+[node name="SFX" type="Node2D" parent="."]
+
+[node name="Success2D" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("22_kx6mg")
+volume_db = -20.0
+pitch_scale = 0.9
+
+[node name="Building2D" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("23_8w72y")
+volume_db = -15.0

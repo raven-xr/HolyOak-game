@@ -4,6 +4,7 @@ const SPEED = 6000.0
 var enemy_available = true
 
 @onready var collision_shape_2d = $Area2D/CollisionShape2D
+@onready var hit_2d = $SFX/Hit2D
 
 @onready var damage = get_parent().get_parent().get_parent().get_parent().damage
 @onready var attack_range = get_parent().get_parent().get_parent().get_parent().attack_range
@@ -34,6 +35,7 @@ func _physics_process(delta):
 func _on_area_2d_body_entered(body):
 	if body == enemy:
 		body.health -= damage
+		hit_2d.play()
 		self_destruct()
 
 func _on_enemy_die(died_enemy):
