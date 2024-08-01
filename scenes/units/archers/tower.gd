@@ -89,8 +89,9 @@ func destruction():
 		gfx_smoke.add_child(smoke)
 	# Hide the tower
 	var tween_2 = get_tree().create_tween()
-	tween_2.tween_property(self, "modulate", Color(1, 1, 1, 0), 2.3) # 3.0 - 0.7
+	tween_2.tween_property(self, "modulate", Color(1, 1, 1, 0), 1.0) # 3.0 - 2.0
 	await tween_2.finished
+	await get_tree().create_timer(2.0).timeout # that same 2.0
 	success_2d.play()
 	# Make smokes stop repeating
 	for child in gfx_smoke.get_children():
