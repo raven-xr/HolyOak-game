@@ -15,7 +15,7 @@ var unit_count = 0
 var spawnpoints = []
 var smoke_spawnpoints = [Vector2(32, 0), Vector2(-32, 0), Vector2(0, 32), Vector2(0, -32),
 						 Vector2(32, 32), Vector2(-32, 32), Vector2(32, -32), Vector2(-32, -32)]
-var unit_preload = preload("res://scenes/units/archers/unit.tscn")
+var unit_preload = preload("res://units/archers/unit.tscn")
 var smoke_preload = preload("res://effects/smoke/smoke.tscn")
 
 @onready var units = $Units
@@ -96,6 +96,10 @@ func destruction():
 	# Make smokes stop repeating
 	for child in gfx_smoke.get_children():
 		child.is_active = false
+	# If the platform interface is opened, then enable build button
+	get_parent().get_parent().build_texture_button.disabled = false
+	# If the platform interface is opened, then disable build button
+	get_parent().get_parent().stats_texture_button.disabled = true
 	# Remove the tower
 	queue_free()
 

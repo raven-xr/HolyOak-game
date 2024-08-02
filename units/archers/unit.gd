@@ -20,7 +20,7 @@ var state:
 			COOLDOWN:
 				cooldown_state()
 var current_view_direction
-var arrow_preload = preload("res://scenes/units/archers/arrow.tscn")
+var arrow_preload = preload("res://units/archers/shell.tscn")
 
 @onready var collision_shape_2d = $Area2D/CollisionShape2D
 @onready var animation_player = $AnimationPlayer

@@ -11,7 +11,6 @@ func _ready():
 	var tween = get_tree().create_tween()
 	tween.tween_property(radio, "volume_db", -4.0, 4.0)
 	#await tween.finished # DEBUG
-	#get_tree().call_deferred("change_scene_to_file", "res://test_scene.tscn") # DEBUG
 
 func _on_play_texture_button_pressed():
 	click_2d.play()

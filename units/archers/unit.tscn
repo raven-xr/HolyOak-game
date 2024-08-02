@@ -1,7 +1,7 @@
 [gd_scene load_steps=58 format=3 uid="uid://bcsl8cqbwhdyg"]
 
 [ext_resource type="Texture2D" uid="uid://cv7vs3dhkjnjh" path="res://models/units/archers/units/1/D_Idle.png" id="1_7l5hy"]
-[ext_resource type="Script" path="res://scenes/units/archers/unit.gd" id="1_oq73t"]
+[ext_resource type="Script" path="res://units/archers/unit.gd" id="1_bqkc4"]
 [ext_resource type="Texture2D" uid="uid://cqsb1h4k4upkg" path="res://models/units/archers/units/1/D_Attack.png" id="2_2hmke"]
 [ext_resource type="Texture2D" uid="uid://x4rjifkj0pvn" path="res://models/units/archers/units/1/D_Preattack.png" id="3_dsr2n"]
 [ext_resource type="Texture2D" uid="uid://2n3t1nmjgt2g" path="res://models/units/archers/units/1/S_Attack.png" id="5_gswul"]
@@ -626,7 +626,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_c221k"]
 
 [node name="Archer" type="Node2D"]
-script = ExtResource("1_oq73t")
+script = ExtResource("1_bqkc4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1.4013e-45, -8)
