@@ -46,6 +46,6 @@ func _on_enemy_die(died_enemy):
 func self_destruct():
 	collision_shape_2d.set_deferred("disabled", "true")
 	var tween = create_tween()
-	tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 0.15)
+	tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 0.075)
 	await tween.finished
 	queue_free()
