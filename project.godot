@@ -16,6 +16,11 @@ run/main_scene="res://scenes/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Signals="*res://scenes/global/signals.gd"
+UnitStats="*res://scenes/global/unit_stats.gd"
+
 [display]
 
 window/size/viewport_width=1280
@@ -23,9 +28,21 @@ window/size/viewport_height=720
 window/size/mode=4
 window/stretch/mode="canvas_items"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/AS2P/plugin.cfg")
+
 [filesystem]
 
 import/blender/enabled=false
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[layer_names]
+
+2d_physics/layer_1="Enemies"
 
 [rendering]
 

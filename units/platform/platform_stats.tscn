@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://c06g6da1scixg"]
+
+[ext_resource type="Theme" uid="uid://cmbhon2raxvsi" path="res://ui/themes/1.tres" id="1_civ13"]
+[ext_resource type="Script" path="res://units/platform/platform_stats.gd" id="1_jrofe"]
+[ext_resource type="Texture2D" uid="uid://bovpfmhts66wt" path="res://ui/icons/restart.svg" id="3_vlj04"]
+[ext_resource type="Texture2D" uid="uid://diotcuia4nehk" path="res://ui/icons/close.svg" id="4_vxpy4"]
+[ext_resource type="AudioStream" uid="uid://c67yq2gixjlbo" path="res://audio/sfx/click.mp3" id="5_njgko"]
+
+[node name="PlatformStats" type="Node2D"]
+script = ExtResource("1_jrofe")
+
+[node name="Head" type="Label" parent="."]
+offset_right = 264.0
+offset_bottom = 65.0
+theme = ExtResource("1_civ13")
+theme_override_font_sizes/font_size = 32
+text = "Stats"
+horizontal_alignment = 1
+
+[node name="Key" type="Label" parent="."]
+offset_top = 56.0
+offset_right = 137.0
+offset_bottom = 152.0
+theme = ExtResource("1_civ13")
+theme_override_font_sizes/font_size = 16
+text = "Attack Range
+Damage
+Units"
+horizontal_alignment = 1
+
+[node name="Value" type="Label" parent="."]
+offset_left = 127.0
+offset_top = 56.0
+offset_right = 264.0
+offset_bottom = 152.0
+theme = ExtResource("1_civ13")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+
+[node name="UpdateDataButton" type="Button" parent="."]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 48.0
+offset_bottom = 47.0
+theme_override_font_sizes/font_size = 16
+icon = ExtResource("3_vlj04")
+
+[node name="CloseButton" type="Button" parent="."]
+offset_left = 216.0
+offset_top = 16.0
+offset_right = 248.0
+offset_bottom = 47.0
+theme_override_font_sizes/font_size = 16
+icon = ExtResource("4_vxpy4")
+
+[node name="SFX" type="Node2D" parent="."]
+
+[node name="Click2D" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("5_njgko")
+
+[connection signal="pressed" from="UpdateDataButton" to="." method="_on_update_data_button_pressed"]
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]

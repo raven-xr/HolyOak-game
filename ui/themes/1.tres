@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cmbhon2raxvsi"]
+
+[ext_resource type="StyleBox" uid="uid://vmpfg2epmbvw" path="res://ui/themes/1_style_box_texture.tres" id="1_owgvq"]
+
+[resource]
+Label/styles/normal = ExtResource("1_owgvq")
+PanelContainer/styles/panel = ExtResource("1_owgvq")
+RichTextLabel/styles/normal = ExtResource("1_owgvq")

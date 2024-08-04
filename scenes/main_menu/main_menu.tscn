@@ -1,10 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://die1k42jfmahn"]
+[gd_scene load_steps=14 format=3 uid="uid://die1k42jfmahn"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_ab7jh"]
 [ext_resource type="Texture2D" uid="uid://bdbcrxa2815rn" path="res://scenes/main_menu/main_menu.jpeg" id="1_tludv"]
-[ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://ui/ui_border.png" id="2_br04n"]
 [ext_resource type="AudioStream" uid="uid://dixlwjxgl2uwo" path="res://audio/music/aaron_kenny-yonder_hill_and_dale.mp3" id="2_el0v2"]
 [ext_resource type="Texture2D" uid="uid://d3cbse0cdcpi4" path="res://ui/play_default.png" id="2_kfanh"]
+[ext_resource type="Theme" uid="uid://cmbhon2raxvsi" path="res://ui/themes/1.tres" id="3_d4sgo"]
 [ext_resource type="Texture2D" uid="uid://cv3g2mky4f7fj" path="res://ui/play_hover.png" id="4_6ivh4"]
 [ext_resource type="Texture2D" uid="uid://bwpmh70vc388u" path="res://ui/settings_default.png" id="4_sj7hi"]
 [ext_resource type="Texture2D" uid="uid://dw3kn3vicpbsq" path="res://ui/settings_hover.png" id="5_151sx"]
@@ -13,16 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://c1dflmc63lvtd" path="res://ui/quit_hover.png" id="7_5g4hg"]
 [ext_resource type="Texture2D" uid="uid://dbaw65axdean" path="res://ui/tutorial_hover.png" id="7_vpetr"]
 [ext_resource type="AudioStream" uid="uid://c67yq2gixjlbo" path="res://audio/sfx/click.mp3" id="11_gchfu"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dyuah"]
-texture = ExtResource("2_br04n")
-texture_margin_left = 20.0
-texture_margin_top = 20.0
-texture_margin_right = 20.0
-texture_margin_bottom = 20.0
-
-[sub_resource type="Theme" id="Theme_jkclg"]
-PanelContainer/styles/panel = SubResource("StyleBoxTexture_dyuah")
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_ab7jh")
@@ -41,7 +31,7 @@ offset_left = 496.0
 offset_top = 240.0
 offset_right = 720.0
 offset_bottom = 610.0
-theme = SubResource("Theme_jkclg")
+theme = ExtResource("3_d4sgo")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UserInterface"]
 offset_left = 512.0

@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://bk57iw1adx1bm"]
+
+[ext_resource type="Script" path="res://units/archers/shell.gd" id="1_nykqx"]
+[ext_resource type="Texture2D" uid="uid://bcdpn8x7v6n0" path="res://models/units/archers/units/Arrow/1.png" id="2_r3rde"]
+[ext_resource type="AudioStream" uid="uid://8irco7c15oms" path="res://audio/sfx/hit.mp3" id="3_my62u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y80wh"]
+radius = 0.01
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vsagw"]
+size = Vector2(20, 4)
+
+[node name="Arrow" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_nykqx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(1.40834, 1.40834)
+texture = ExtResource("2_r3rde")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_y80wh")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_vsagw")
+
+[node name="SFX" type="Node2D" parent="."]
+
+[node name="Hit2D" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("3_my62u")
+volume_db = -33.0
+pitch_scale = 1.5
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
