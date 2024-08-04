@@ -1,7 +1,4 @@
 # Godot 4+ specific ignores
 .godot/
 *.tmp
-enemy_test.gd
-enemy_test.tscn
-test_scene.tscn
-test_scene.gd
+debug/
