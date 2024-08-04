@@ -632,7 +632,7 @@ script = ExtResource("1_bqkc4")
 position = Vector2(1.4013e-45, -8)
 scale = Vector2(1.125, 1.125)
 sprite_frames = SubResource("SpriteFrames_82ogq")
-animation = &"U_Attack"
+animation = &"D_Idle"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

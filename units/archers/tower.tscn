@@ -1272,7 +1272,7 @@ libraries = {
 position = Vector2(0, -56)
 scale = Vector2(1.72308, 1.72308)
 sprite_frames = SubResource("SpriteFrames_0bfev")
-animation = &"Level_1"
+animation = &"Level_0_Idle"
 autoplay = "Level_0_Idle"
 
 [node name="Units" type="Node2D" parent="."]
@@ -1281,7 +1281,7 @@ autoplay = "Level_0_Idle"
 position = Vector2(0, -56)
 scale = Vector2(1.72308, 1.72308)
 sprite_frames = SubResource("SpriteFrames_88k6e")
-animation = &"Level_0_Idle"
+animation = &"Level_7_Idle"
 autoplay = "Level_0_Idle"
 
 [node name="GFX" type="Node2D" parent="."]
