@@ -4,8 +4,8 @@ var archers_build_cost = UnitStats.archers['level_1']['upgrade_cost']
 
 var is_menu_opened = false
 var tower_preload = preload("res://units/archers/tower.tscn")
-var platform_stats_preload = preload("res://units/platform/platform_stats.tscn")
-var message_preload = preload("res://subscenes/message.tscn")
+var stats_preload = preload("res://subscenes/stats/stats.tscn")
+var message_preload = preload("res://subscenes/message/message.tscn")
 
 @onready var sprite_2d = $Sprite2D
 @onready var click_2d = $SFX/Click2D
@@ -69,9 +69,10 @@ func _on_remove_texture_button_pressed():
 
 func _on_stats_texture_button_pressed():
 	click_2d.play()
-	var platform_stats = platform_stats_preload.instantiate()
-	platform_stats.position = Vector2(-132.0, -217.0)
-	self.add_child(platform_stats)
+	var stats = stats_preload.instantiate()
+	stats.position = Vector2(-132.0, -217.0)
+	stats.text = "Attack Range\nDamage\nUnits\nUpgrade Cost"
+	self.add_child(stats)
 	close_menu()
 
 func _on_touch_screen_button_pressed():

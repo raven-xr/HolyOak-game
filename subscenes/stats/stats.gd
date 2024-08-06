@@ -1,12 +1,16 @@
 extends Node2D
 
+var text: String # The value is given by the parent
+
 @onready var click_2d = $SFX/Click2D
+@onready var key = $Key
 @onready var value = $Value
 
 func _ready():
 	self.modulate = Color(1, 1, 1, 0)
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color(1, 1, 1, 1), 0.1)
+	key.text = text
 	update_data()
 
 func update_data():
