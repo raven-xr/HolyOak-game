@@ -34,15 +34,16 @@ shape = SubResource("CircleShape2D_fil16")
 [node name="Menu" type="Node2D" parent="."]
 
 [node name="BuildTextureButton" type="TextureButton" parent="Menu"]
+modulate = Color(1, 1, 1, 0.784314)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -86.0
-offset_top = 64.0
+offset_top = -36.0
 offset_right = 110.0
-offset_bottom = 148.0
+offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.4, 0.4)
@@ -52,10 +53,11 @@ texture_hover = ExtResource("3_mmrqd")
 texture_disabled = ExtResource("4_orhma")
 
 [node name="UpgradeTextureButton" type="TextureButton" parent="Menu"]
+modulate = Color(1, 1, 1, 0.784314)
 offset_left = 8.0
-offset_top = 64.0
+offset_top = -36.0
 offset_right = 204.0
-offset_bottom = 148.0
+offset_bottom = 48.0
 scale = Vector2(0.4, 0.4)
 texture_normal = ExtResource("5_ecwmm")
 texture_pressed = ExtResource("5_ecwmm")
@@ -63,10 +65,11 @@ texture_hover = ExtResource("6_evvam")
 texture_disabled = ExtResource("7_hhufg")
 
 [node name="RemoveTextureButton" type="TextureButton" parent="Menu"]
+modulate = Color(1, 1, 1, 0.784314)
 offset_left = -69.0
-offset_top = 102.0
+offset_top = 2.0
 offset_right = 127.0
-offset_bottom = 186.0
+offset_bottom = 86.0
 scale = Vector2(0.33, 0.33)
 texture_normal = ExtResource("9_fkkgd")
 texture_pressed = ExtResource("9_fkkgd")
@@ -74,10 +77,11 @@ texture_hover = ExtResource("10_yy3kb")
 texture_disabled = ExtResource("11_2yq4y")
 
 [node name="StatsTextureButton" type="TextureButton" parent="Menu"]
+modulate = Color(1, 1, 1, 0.784314)
 offset_left = 5.0
-offset_top = 102.0
+offset_top = 2.0
 offset_right = 201.0
-offset_bottom = 186.0
+offset_bottom = 86.0
 scale = Vector2(0.33, 0.33)
 texture_normal = ExtResource("12_g4art")
 texture_pressed = ExtResource("12_g4art")

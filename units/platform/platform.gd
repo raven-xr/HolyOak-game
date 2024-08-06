@@ -17,6 +17,15 @@ var platform_stats_preload = preload("res://units/platform/platform_stats.tscn")
 @export var default_flip_h: bool = false # If the tower is side, then it needs to be flipped or not; basic off
 
 func _ready():
+	if default_view_direction == "D":
+		menu.position = Vector2(0.0, 88.0)
+	elif default_view_direction == "U":
+		menu.position = Vector2(0.0, -88.0)
+	elif default_view_direction == "S":
+		if default_flip_h:
+			menu.position = Vector2(88.0, 0.0)
+		else:
+			menu.position = Vector2(-88.0, 0.0)
 	for button in menu.get_children():
 		button.disabled = true
 	menu.modulate = Color(1, 1, 1, 0)
