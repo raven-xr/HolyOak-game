@@ -1,8 +1,11 @@
 extends Node2D
 
+var archers_build_cost = UnitStats.archers['level_1']['upgrade_cost']
+
 var is_menu_opened = false
 var tower_preload = preload("res://units/archers/tower.tscn")
 var platform_stats_preload = preload("res://units/platform/platform_stats.tscn")
+var message_preload = preload("res://subscenes/message.tscn")
 
 @onready var sprite_2d = $Sprite2D
 @onready var click_2d = $SFX/Click2D
@@ -33,11 +36,16 @@ func _ready():
 func _on_build_texture_button_pressed():
 	click_2d.play()
 	# Check if player has enough money
-	if PlayerStats.money >= UnitStats.archers['level_1']['upgrade_cost']:
+	if PlayerStats.money >= archers_build_cost:
 		var tower = tower_preload.instantiate()
 		towers.add_child(tower)
 		tower.level += 1
 		sprite_2d.visible = false
+	else:
+		var message = message_preload.instantiate()
+		message.text = str("You don't have enough money on your balance sheet. The build cost is ", archers_build_cost)
+		message.width = len(message.text) * 10.0
+		self.add_child(message)
 	close_menu()
 	
 func _on_upgrade_texture_button_pressed():
@@ -45,6 +53,11 @@ func _on_upgrade_texture_button_pressed():
 	# Check if player has enough money
 	if PlayerStats.money >= UnitStats.archers['level_1']['upgrade_cost']:
 		towers.get_child(0).level += 1
+	else:
+		var message = message_preload.instantiate()
+		message.text = str("You don't have enough money on your balance sheet. The current upgrade cost is ", archers_build_cost)
+		message.width = len(message.text) * 10.0
+		self.add_child(message)
 	close_menu()
 
 func _on_remove_texture_button_pressed():

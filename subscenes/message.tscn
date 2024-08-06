@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://du20li6wou6fs"]
+
+[ext_resource type="Script" path="res://subscenes/message.gd" id="1_lury4"]
+[ext_resource type="Theme" uid="uid://cmbhon2raxvsi" path="res://ui/themes/1.tres" id="1_m30la"]
+
+[node name="Message" type="CanvasLayer"]
+script = ExtResource("1_lury4")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 320.0
+offset_top = 64.0
+offset_right = 896.0
+offset_bottom = 128.0
+theme = ExtResource("1_m30la")
+horizontal_alignment = 1
+vertical_alignment = 1
