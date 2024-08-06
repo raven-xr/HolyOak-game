@@ -32,14 +32,19 @@ func _ready():
 
 func _on_build_texture_button_pressed():
 	click_2d.play()
-	var tower = tower_preload.instantiate()
-	towers.add_child(tower)
-	sprite_2d.visible = false
+	# Check if player has enough money
+	if PlayerStats.money >= UnitStats.archers['level_1']['upgrade_cost']:
+		var tower = tower_preload.instantiate()
+		towers.add_child(tower)
+		tower.level += 1
+		sprite_2d.visible = false
 	close_menu()
 	
 func _on_upgrade_texture_button_pressed():
 	click_2d.play()
-	towers.get_child(0).level += 1
+	# Check if player has enough money
+	if PlayerStats.money >= UnitStats.archers['level_1']['upgrade_cost']:
+		towers.get_child(0).level += 1
 	close_menu()
 
 func _on_remove_texture_button_pressed():

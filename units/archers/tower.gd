@@ -1,6 +1,5 @@
 extends Node2D
 
-const BUILD_COST = 300.0
 const MAX_LEVEL = 7
 
 var level = 0:
@@ -23,9 +22,6 @@ var smoke_preload = preload("res://effects/smoke/smoke.tscn")
 @onready var gfx_smoke = $GFX/Smoke
 @onready var success_2d = $SFX/Success2D
 @onready var building_2d = $SFX/Building2D
-
-func _ready():
-	level = 1
 
 func new_unit():
 	var unit = unit_preload.instantiate()
@@ -63,7 +59,10 @@ func upgrading():
 	get_parent().get_parent().remove_texture_button.disabled = false
 	# If the platform interface is opened, then enable upgrade button
 	if MAX_LEVEL != level:
-		get_parent().get_parent().upgrade_texture_button.disabled = false
+		if PlayerStats.money >= UnitStats.archers[str('level_', level+1)]['upgrade_cost']:
+			get_parent().get_parent().upgrade_texture_button.disabled = false
+	# Take money away from the player
+	PlayerStats.money -= upgrade_cost
 
 func destruction():
 	# Inform the platform that the tower is being destructed
@@ -100,6 +99,8 @@ func destruction():
 	get_parent().get_parent().build_texture_button.disabled = false
 	# If the platform interface is opened, then disable build button
 	get_parent().get_parent().stats_texture_button.disabled = true
+	# Refund 50% of the upgrade cost
+	PlayerStats.money += upgrade_cost * 0.5
 	# Remove the tower
 	queue_free()
 

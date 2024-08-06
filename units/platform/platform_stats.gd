@@ -11,7 +11,7 @@ func _ready():
 
 func update_data():
 	var tower = get_parent().get_node("Towers").get_child(0)
-	value.text = str(tower.attack_range, "\n", tower.damage, "\n", tower.unit_count)
+	value.text = str(tower.attack_range, "\n", tower.damage, "\n", tower.unit_count, "\n", tower.upgrade_cost)
 
 func _on_update_data_button_pressed():
 	click_2d.play()
