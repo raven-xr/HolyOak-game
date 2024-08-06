@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ciyeb8o1ywukt" path="res://tilesets/grass.png" id="2_hcy67"]
 [ext_resource type="Texture2D" uid="uid://bcb2hj7qx6c7h" path="res://tilesets/fences.png" id="4_7ig4y"]
 [ext_resource type="AudioStream" uid="uid://b4ct4b03ouqvg" path="res://audio/music/alexander_nakarada-traveler.mp3" id="4_f16wc"]
-[ext_resource type="Texture2D" path="res://models/objects/objects.png" id="4_ykm34"]
+[ext_resource type="Texture2D" uid="uid://c30prbao4k45w" path="res://models/objects/objects.png" id="4_ykm34"]
 [ext_resource type="AudioStream" uid="uid://dx2gq0qwtk4a4" path="res://audio/music/alexander_nakarada-leaving_for_valhalla.mp3" id="5_3hklw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m6omb"]

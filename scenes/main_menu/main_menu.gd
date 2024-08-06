@@ -8,14 +8,12 @@ extends Node2D
 @onready var quit_texture_button = $UserInterface/VBoxContainer/Quit_TextureButton
 
 func _ready():
-	# Set texture filter to linear (fix angularities)
-	set_texture_filter(CanvasItem.TEXTURE_FILTER_LINEAR)
 	var tween = get_tree().create_tween()
 	tween.tween_property(radio, "volume_db", -4.0, 4.0)
 	#await tween.finished # DEBUG
 	#change_level() # DEBUG
 	#await get_tree().create_timer(4.0).timeout # DEBUG
-	#get_tree().call_deferred("change_scene_to_file", "res://test_scene.tscn") # DEBUG
+	#get_tree().call_deferred("change_scene_to_file", "res://debug/test_scene.tscn") # DEBUG
 
 func _on_play_texture_button_pressed():
 	click_2d.play()
@@ -44,7 +42,9 @@ func change_level():
 	tutorial_texture_button.disabled = true
 	settings_texture_button.disabled = true
 	quit_texture_button.disabled = true
+	
 	var tween_1 = get_tree().create_tween()
 	tween_1.parallel().tween_property(self, "modulate", Color(0, 0, 0, 1), 2.0)
+	
 	var tween_2 = get_tree().create_tween()
 	tween_2.parallel().tween_property(radio, "volume_db", -100, 4.0)
