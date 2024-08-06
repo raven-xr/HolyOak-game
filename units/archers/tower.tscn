@@ -1269,6 +1269,7 @@ libraries = {
 }
 
 [node name="MainAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 position = Vector2(0, -56)
 scale = Vector2(1.72308, 1.72308)
 sprite_frames = SubResource("SpriteFrames_0bfev")
@@ -1278,6 +1279,7 @@ autoplay = "Level_0_Idle"
 [node name="Units" type="Node2D" parent="."]
 
 [node name="ExtraAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 position = Vector2(0, -56)
 scale = Vector2(1.72308, 1.72308)
 sprite_frames = SubResource("SpriteFrames_88k6e")

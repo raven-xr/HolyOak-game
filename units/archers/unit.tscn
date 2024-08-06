@@ -629,6 +629,7 @@ _data = {
 script = ExtResource("1_bqkc4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 position = Vector2(1.4013e-45, -8)
 scale = Vector2(1.125, 1.125)
 sprite_frames = SubResource("SpriteFrames_82ogq")
