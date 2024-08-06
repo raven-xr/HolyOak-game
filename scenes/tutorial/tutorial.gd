@@ -10,11 +10,12 @@ func _ready():
 	var tween_1 = get_tree().create_tween()
 	tween_1.parallel().tween_property(self, "modulate", Color(1, 1, 1, 1), 2.0)
 	var tween_2 = get_tree().create_tween()
-	tween_2.parallel().tween_property(radio_idle, "volume_db", -12, 4.0)
+	tween_2.parallel().tween_property(radio_idle, "volume_db", -20, 4.0)
 
 func fight():
 	radio_fight.play()
-	var tween_3 = get_tree().create_tween()
-	tween_3.parallel().tween_property(radio_idle, "volume_db", -100, 4.0)
-	var tween_4 = get_tree().create_tween()
-	tween_4.parallel().tween_property(radio_fight, "volume_db", -12, 4.0)
+	var tween_1 = get_tree().create_tween()
+	tween_1.parallel().tween_property(radio_idle, "volume_db", -100, 4.0)
+	tween_1.connect("finished", radio_idle.stop)
+	var tween_2 = get_tree().create_tween()
+	tween_2.parallel().tween_property(radio_fight, "volume_db", -20, 4.0)
