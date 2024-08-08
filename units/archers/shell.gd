@@ -13,20 +13,20 @@ var enemy_available = true
 @onready var unit_global_position = get_parent().get_parent().global_position
 
 func _ready():
-	self.modulate = Color(1, 1, 1, 0)
+	modulate = Color(1, 1, 1, 0)
 	Signals.connect("enemy_die", Callable(self, "_on_enemy_die"))
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color(1, 1, 1, 1), 0.67)
 
 func _physics_process(delta):
 	# If the arrow pass attack range, then self-destruct
-	var distance_to_archer = unit_global_position.distance_to(self.global_position)
+	var distance_to_archer = unit_global_position.distance_to(global_position)
 	if distance_to_archer > attack_range:
 		enemy_available = false
 		self_destruct()
 	# Change direction if only enemy available (not dead or not too far)
 	if enemy_available:                
-		var direction = (enemy.global_position - self.global_position).normalized()
+		var direction = (enemy.global_position - global_position).normalized()
 		look_at(enemy.global_position)
 		velocity = direction * SPEED * delta
 	# Move and Slide

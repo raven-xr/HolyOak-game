@@ -9,7 +9,7 @@ var level = 0:
 var is_upgrading = false
 var damage = 0
 var attack_range = 10 # Default collision shape's radius
-var upgrade_cost = 0
+var cost = 0
 var unit_count = 0
 var spawnpoints = []
 var smoke_spawnpoints = [Vector2(32, 0), Vector2(-32, 0), Vector2(0, 32), Vector2(0, -32),
@@ -41,7 +41,7 @@ func upgrading():
 		child.queue_free()
 	# Upgrade stats
 	damage = UnitStats.archers[str('level_', level)]['damage']
-	upgrade_cost = UnitStats.archers[str('level_', level)]['upgrade_cost']
+	cost = UnitStats.archers[str('level_', level)]['cost']
 	unit_count = UnitStats.archers[str('level_', level)]['unit_count']
 	spawnpoints = UnitStats.archers[str('level_', level)]['spawnpoints']
 	attack_range = UnitStats.archers[str('level_', level)]['attack_range']
@@ -59,10 +59,10 @@ func upgrading():
 	get_parent().get_parent().remove_texture_button.disabled = false
 	# If the platform interface is opened, then enable upgrade button
 	if MAX_LEVEL != level:
-		if PlayerStats.money >= UnitStats.archers[str('level_', level+1)]['upgrade_cost']:
+		if PlayerStats.money >= UnitStats.archers[str('level_', level+1)]['cost']:
 			get_parent().get_parent().upgrade_texture_button.disabled = false
 	# Take money away from the player
-	PlayerStats.money -= upgrade_cost
+	PlayerStats.money -= cost
 
 func destruction():
 	# Inform the platform that the tower is being destructed
@@ -100,7 +100,7 @@ func destruction():
 	# If the platform interface is opened, then disable build button
 	get_parent().get_parent().stats_texture_button.disabled = true
 	# Refund 50% of the upgrade cost
-	PlayerStats.money += upgrade_cost * 0.5
+	PlayerStats.money += cost * 0.5
 	# Remove the tower
 	queue_free()
 

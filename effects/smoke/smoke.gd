@@ -10,7 +10,7 @@ func _ready():
 	shake()
 
 func shake():
-	var final_value = self.position - Vector2(randf_range(-2, 2), randf_range(-2, 2))
+	var final_value = position - Vector2(randf_range(-2, 2), randf_range(-2, 2))
 	var tween = create_tween()
 	tween.parallel().tween_property(self, "position", final_value, 0.2)
 	await tween.finished

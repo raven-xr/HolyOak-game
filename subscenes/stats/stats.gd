@@ -7,7 +7,7 @@ var text: String # The value is given by the parent
 @onready var value = $Value
 
 func _ready():
-	self.modulate = Color(1, 1, 1, 0)
+	modulate = Color(1, 1, 1, 0)
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color(1, 1, 1, 1), 0.1)
 	key.text = text
@@ -15,7 +15,7 @@ func _ready():
 
 func update_data():
 	var tower = get_parent().get_node("Towers").get_child(0)
-	value.text = str(tower.attack_range, "\n", tower.damage, "\n", tower.unit_count, "\n", tower.upgrade_cost)
+	value.text = str(tower.attack_range, "\n", tower.damage, "\n", tower.unit_count, "\n", tower.cost)
 
 func _on_update_data_button_pressed():
 	click_2d.play()

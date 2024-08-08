@@ -4,7 +4,7 @@ extends Node2D
 @onready var radio_fight = $SFX/RadioFight
 
 func _ready():
-	self.modulate = Color(0, 0, 0, 1)
+	modulate = Color(0, 0, 0, 1)
 	
 	radio_idle.play()
 	var tween_1 = get_tree().create_tween()

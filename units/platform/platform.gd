@@ -1,7 +1,5 @@
 extends Node2D
 
-var archers_build_cost = UnitStats.archers['level_1']['upgrade_cost']
-
 var is_menu_opened = false
 var tower_preload = preload("res://units/archers/tower.tscn")
 var stats_preload = preload("res://subscenes/stats/stats.tscn")
@@ -35,29 +33,30 @@ func _ready():
 
 func _on_build_texture_button_pressed():
 	click_2d.play()
+	var cost = UnitStats.archers['level_1']['cost']
 	# Check if player has enough money
-	if PlayerStats.money >= archers_build_cost:
-		var tower = tower_preload.instantiate()
-		towers.add_child(tower)
-		tower.level += 1
+	if PlayerStats.money >= cost:
+		var new_tower = tower_preload.instantiate()
+		towers.add_child(new_tower)
+		new_tower.level += 1
 		sprite_2d.visible = false
 	else:
 		var message = message_preload.instantiate()
-		message.text = str("You don't have enough money on your balance sheet. The build cost is ", archers_build_cost)
-		message.width = len(message.text) * 10.0
-		self.add_child(message)
+		message.text = str("You don't have enough money on your balance sheet. The build cost is ", cost)
+		add_child(message)
 	close_menu()
 	
 func _on_upgrade_texture_button_pressed():
 	click_2d.play()
+	var tower = towers.get_child(0)
+	var cost = UnitStats.archers[str('level_', tower.level+1)]['cost']
 	# Check if player has enough money
-	if PlayerStats.money >= UnitStats.archers['level_1']['upgrade_cost']:
-		towers.get_child(0).level += 1
+	if PlayerStats.money >= cost:
+		tower.level += 1
 	else:
 		var message = message_preload.instantiate()
-		message.text = str("You don't have enough money on your balance sheet. The current upgrade cost is ", archers_build_cost)
-		message.width = len(message.text) * 10.0
-		self.add_child(message)
+		message.text = str("You don't have enough money on your balance sheet. The current upgrade cost is ", cost)
+		add_child(message)
 	close_menu()
 
 func _on_remove_texture_button_pressed():
@@ -72,7 +71,7 @@ func _on_stats_texture_button_pressed():
 	var stats = stats_preload.instantiate()
 	stats.position = Vector2(-132.0, -217.0)
 	stats.text = "Attack Range\nDamage\nUnits\nUpgrade Cost"
-	self.add_child(stats)
+	add_child(stats)
 	close_menu()
 
 func _on_touch_screen_button_pressed():
@@ -96,9 +95,10 @@ func open_menu():
 	if towers.get_child_count() == 0:
 		build_texture_button.disabled = false
 	else:
-		if towers.get_child(0).level > 0:
+		var tower = towers.get_child(0)
+		if tower.level > 0:
 			stats_texture_button.disabled = false
-		if not(towers.get_child(0).is_upgrading):
+		if not(tower.is_upgrading):
 			remove_texture_button.disabled = false
-		if towers.get_child(0).can_be_upgraded():
+		if tower.can_be_upgraded():
 			upgrade_texture_button.disabled = false

@@ -1,14 +1,13 @@
 extends CanvasLayer
 
 var text: String # The value is given by the parent
-var width: float # The value is given by the parent
 
 @onready var label = $Label
 
 func _ready():
 	label.modulate = Color(1, 1, 1, 0)
 	label.text = text
-	label.size.x = width
+	label.size.x = len(text) * 10.0
 	
 	var tween_1 = create_tween()
 	tween_1.tween_property(label, "modulate", Color(1, 1, 1, 1), 0.5)
