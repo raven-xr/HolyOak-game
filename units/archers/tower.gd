@@ -89,7 +89,6 @@ func destruction():
 	# Spawn 4 smokes more
 	for i in range(4): 
 		var new_smoke = smoke_preload.instantiate()
-		print(gfx_smoke.get_child_count())
 		new_smoke.position = smoke_spawnpoints[gfx_smoke.get_child_count()-1]
 		gfx_smoke.add_child(new_smoke)
 	# Hide the tower
