@@ -24,9 +24,9 @@ func _ready():
 		menu.position = Vector2(0.0, -88.0)
 	elif default_view_direction == "S":
 		if default_flip_h:
-			menu.position = Vector2(88.0, 0.0)
+			menu.position = Vector2(144.0, 0.0)
 		else:
-			menu.position = Vector2(-88.0, 0.0)
+			menu.position = Vector2(-144.0, 0.0)
 	for button in menu.get_children():
 		button.disabled = true
 	menu.modulate = Color(1, 1, 1, 0)
@@ -41,37 +41,45 @@ func _on_build_texture_button_pressed():
 		new_tower.level += 1
 		sprite_2d.visible = false
 	else:
-		var message = message_preload.instantiate()
-		message.text = str("You don't have enough money on your balance sheet. The build cost is ", cost)
-		add_child(message)
+		var new_message = message_preload.instantiate()
+		new_message.text = str("You don't have enough money on your balance sheet. The build cost is ", cost)
+		add_child(new_message)
 	close_menu()
 	
 func _on_upgrade_texture_button_pressed():
 	click_2d.play()
 	var tower = towers.get_child(0)
-	var cost = UnitStats.archers[str('level_', tower.level+1)]['cost']
+	var cost = tower.current_cost
 	# Check if player has enough money
 	if PlayerStats.money >= cost:
 		tower.level += 1
 	else:
-		var message = message_preload.instantiate()
-		message.text = str("You don't have enough money on your balance sheet. The current upgrade cost is ", cost)
-		add_child(message)
+		var new_message = message_preload.instantiate()
+		new_message.text = str("You don't have enough money on your balance sheet. The current upgrade cost is ", cost)
+		add_child(new_message)
 	close_menu()
 
 func _on_remove_texture_button_pressed():
 	click_2d.play()
-	towers.get_child(0).destruction()
-	await get_tree().create_timer(1.0).timeout
+	var tower = towers.get_child(0)
+	tower.destruction()
 	sprite_2d.visible = true
 	close_menu()
 
 func _on_stats_texture_button_pressed():
 	click_2d.play()
-	var stats = stats_preload.instantiate()
-	stats.position = Vector2(-132.0, -217.0)
-	stats.text = "Attack Range\nDamage\nUnits\nUpgrade Cost"
-	add_child(stats)
+	var new_stats = stats_preload.instantiate()
+	if default_view_direction == "D":
+		new_stats.position = Vector2(0.0, 144.0)
+	elif default_view_direction == "U":
+		new_stats.position = Vector2(0.0, -144.0)
+	elif default_view_direction == "S":
+		if default_flip_h:
+			new_stats.position = Vector2(192.0, 0.0)
+		else:
+			new_stats.position = Vector2(-192.0, 0.0)
+	new_stats.text = "Attack Range\nDamage\nUnits\nUpgrade Cost"
+	add_child(new_stats)
 	close_menu()
 
 func _on_touch_screen_button_pressed():

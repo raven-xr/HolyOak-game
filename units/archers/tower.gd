@@ -9,7 +9,8 @@ var level = 0:
 var is_upgrading = false
 var damage = 0
 var attack_range = 10 # Default collision shape's radius
-var cost = 0
+var current_cost = UnitStats.archers['level_1']['cost']
+var last_cost
 var unit_count = 0
 var spawnpoints = []
 var smoke_spawnpoints = [Vector2(32, 0), Vector2(-32, 0), Vector2(0, 32), Vector2(0, -32),
@@ -33,6 +34,8 @@ func new_unit():
 func upgrading():
 	# Inform the platform that the tower is being upgraded
 	is_upgrading = true
+	# Take money away from the player
+	PlayerStats.money -= current_cost
 	# Remove units
 	var tween = get_tree().create_tween()
 	tween.tween_property(units, "modulate", Color(1, 1, 1, 0), 0.15)
@@ -41,7 +44,8 @@ func upgrading():
 		child.queue_free()
 	# Upgrade stats
 	damage = UnitStats.archers[str('level_', level)]['damage']
-	cost = UnitStats.archers[str('level_', level)]['cost']
+	last_cost = current_cost
+	current_cost = UnitStats.archers[str('level_', level+1)]['cost']
 	unit_count = UnitStats.archers[str('level_', level)]['unit_count']
 	spawnpoints = UnitStats.archers[str('level_', level)]['spawnpoints']
 	attack_range = UnitStats.archers[str('level_', level)]['attack_range']
@@ -61,12 +65,12 @@ func upgrading():
 	if MAX_LEVEL != level:
 		if PlayerStats.money >= UnitStats.archers[str('level_', level+1)]['cost']:
 			get_parent().get_parent().upgrade_texture_button.disabled = false
-	# Take money away from the player
-	PlayerStats.money -= cost
 
 func destruction():
 	# Inform the platform that the tower is being destructed
 	is_upgrading = true
+	# Refund 50% of the last cost
+	PlayerStats.money += last_cost * 0.5
 	# Remove units
 	var tween_1 = get_tree().create_tween()
 	tween_1.tween_property(units, "modulate", Color(1, 1, 1, 0), 0.15)
@@ -75,17 +79,19 @@ func destruction():
 		child.queue_free()
 	# Play animation, SFX and GFX
 	building_2d.play()
-	for i in range(4): # Spawn 4 smokes
-		var smoke = smoke_preload.instantiate()
-		smoke.position = smoke_spawnpoints[gfx_smoke.get_child_count()-1]
-		gfx_smoke.add_child(smoke)
+	# Spawn 4 smokes
+	for i in range(4):
+		var new_smoke = smoke_preload.instantiate()
+		new_smoke.position = smoke_spawnpoints[gfx_smoke.get_child_count()-1]
+		gfx_smoke.add_child(new_smoke)
 	# Waiting for 0.7 seconds to desynchronize smokes
 	await get_tree().create_timer(0.7).timeout
 	# Spawn 4 smokes more
 	for i in range(4): 
-		var smoke = smoke_preload.instantiate()
-		smoke.position = smoke_spawnpoints[gfx_smoke.get_child_count()-1]
-		gfx_smoke.add_child(smoke)
+		var new_smoke = smoke_preload.instantiate()
+		print(gfx_smoke.get_child_count())
+		new_smoke.position = smoke_spawnpoints[gfx_smoke.get_child_count()-1]
+		gfx_smoke.add_child(new_smoke)
 	# Hide the tower
 	var tween_2 = get_tree().create_tween()
 	tween_2.tween_property(self, "modulate", Color(1, 1, 1, 0), 1.0) # 3.0 - 2.0
@@ -99,8 +105,6 @@ func destruction():
 	get_parent().get_parent().build_texture_button.disabled = false
 	# If the platform interface is opened, then disable build button
 	get_parent().get_parent().stats_texture_button.disabled = true
-	# Refund 50% of the upgrade cost
-	PlayerStats.money += cost * 0.5
 	# Remove the tower
 	queue_free()
 

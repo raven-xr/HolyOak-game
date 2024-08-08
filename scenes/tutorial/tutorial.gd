@@ -5,7 +5,6 @@ extends Node2D
 
 func _ready():
 	modulate = Color(0, 0, 0, 1)
-	
 	radio_idle.play()
 	var tween_1 = get_tree().create_tween()
 	tween_1.parallel().tween_property(self, "modulate", Color(1, 1, 1, 1), 2.0)
