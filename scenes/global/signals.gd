@@ -1,3 +1,3 @@
 extends Node
 
-signal enemy_die()
+signal target_die()

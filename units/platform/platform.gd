@@ -14,15 +14,15 @@ var message_preload = preload("res://subscenes/message/message.tscn")
 @onready var remove_texture_button = $Menu/RemoveTextureButton
 @onready var stats_texture_button = $Menu/StatsTextureButton
 
-@export var default_view_direction: String = "D" # The type of tower: Upper (U), Side (S) or Down (D)
+@export var default_direction: String = "D" # The default view direction of units: Upper (U), Side (S) or Down (D)
 @export var default_flip_h: bool = false # If the tower is side, then it needs to be flipped or not; basic off
 
 func _ready():
-	if default_view_direction == "D":
+	if default_direction == "D":
 		menu.position = Vector2(0.0, 88.0)
-	elif default_view_direction == "U":
+	elif default_direction == "U":
 		menu.position = Vector2(0.0, -88.0)
-	elif default_view_direction == "S":
+	elif default_direction == "S":
 		if default_flip_h:
 			menu.position = Vector2(144.0, 0.0)
 		else:
@@ -69,11 +69,11 @@ func _on_remove_texture_button_pressed():
 func _on_stats_texture_button_pressed():
 	click_2d.play()
 	var new_stats = stats_preload.instantiate()
-	if default_view_direction == "D":
+	if default_direction == "D":
 		new_stats.position = Vector2(0.0, 144.0)
-	elif default_view_direction == "U":
+	elif default_direction == "U":
 		new_stats.position = Vector2(0.0, -144.0)
-	elif default_view_direction == "S":
+	elif default_direction == "S":
 		if default_flip_h:
 			new_stats.position = Vector2(192.0, 0.0)
 		else:

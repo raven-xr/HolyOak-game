@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://3lquoy3mkrss"]
+[gd_scene load_steps=15 format=3 uid="uid://3lquoy3mkrss"]
 
 [ext_resource type="Texture2D" uid="uid://sasruh3frvel" path="res://tilesets/plains.png" id="1_ciagt"]
 [ext_resource type="Script" path="res://scenes/tutorial/tutorial.gd" id="1_xggr7"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c30prbao4k45w" path="res://models/objects/objects.png" id="4_ykm34"]
 [ext_resource type="AudioStream" uid="uid://dx2gq0qwtk4a4" path="res://audio/music/alexander_nakarada-leaving_for_valhalla.mp3" id="5_3hklw"]
 [ext_resource type="PackedScene" uid="uid://d1hglytmquni" path="res://units/platform/platform.tscn" id="6_6wnci"]
+[ext_resource type="PackedScene" uid="uid://k1n6mu3mhuut" path="res://enemies/ork/enemy.tscn" id="9_cb25d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m6omb"]
 texture = ExtResource("1_ciagt")
@@ -139,14 +140,25 @@ texture = ExtResource("4_ykm34")
 region_enabled = true
 region_rect = Rect2(0, 80, 48, 64)
 
-[node name="Platforms" type="Node2D" parent="Map"]
+[node name="Enemies" type="Node2D" parent="."]
 
-[node name="Platform1" parent="Map/Platforms" instance=ExtResource("6_6wnci")]
+[node name="Ork" parent="Enemies" instance=ExtResource("9_cb25d")]
+position = Vector2(480, 528)
+
+[node name="Ork2" parent="Enemies" instance=ExtResource("9_cb25d")]
+position = Vector2(496, 432)
+
+[node name="Ork3" parent="Enemies" instance=ExtResource("9_cb25d")]
+position = Vector2(568, 432)
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="Platform1" parent="Platforms" instance=ExtResource("6_6wnci")]
 position = Vector2(624, 288)
 
-[node name="Platform2" parent="Map/Platforms" instance=ExtResource("6_6wnci")]
+[node name="Platform2" parent="Platforms" instance=ExtResource("6_6wnci")]
 position = Vector2(488, 640)
-default_view_direction = "U"
+default_direction = "U"
 
 [node name="SFX" type="Node2D" parent="."]
 

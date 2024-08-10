@@ -1,5 +1,7 @@
 extends Node2D
 
+var health = 200
+
 @onready var radio_idle = $SFX/RadioIdle
 @onready var radio_fight = $SFX/RadioFight
 
