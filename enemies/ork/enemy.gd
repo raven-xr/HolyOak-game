@@ -5,7 +5,7 @@ const SPEED = 0.1
 @onready var animation_player = $AnimationPlayer
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
-@onready var target_health = get_parent().get_parent().health
+@onready var target = get_parent().get_parent()
 
 var health = 100:
 	set(value):
@@ -22,7 +22,7 @@ func attack():
 	animation_player.play(str(direction, "_Attack"))
 
 func hit():
-	target_health -= damage
+	target.health -= damage
 
 func death():
 	animation_player.play(str(direction, "_Death"))
