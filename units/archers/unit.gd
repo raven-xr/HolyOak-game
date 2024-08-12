@@ -78,7 +78,7 @@ func _on_area_2d_body_exited(body):
 			state = ATTACK
 
 func change_direction() -> Array:
-	var angle_to_target = rad_to_deg(get_angle_to(target.position))
+	var angle_to_target = rad_to_deg(get_angle_to(target.global_position))
 	if 45 < angle_to_target and angle_to_target <= 135:
 		return ["D", false]
 	elif 135 < angle_to_target or angle_to_target <= -135:

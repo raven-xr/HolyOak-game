@@ -1,7 +1,8 @@
-[gd_scene load_steps=77 format=3 uid="uid://k1n6mu3mhuut"]
+[gd_scene load_steps=78 format=3 uid="uid://k1n6mu3mhuut"]
 
 [ext_resource type="Script" path="res://enemies/ork/enemy.gd" id="1_sewjf"]
 [ext_resource type="Texture2D" uid="uid://c4sx6mhbn66ah" path="res://models/enemies/ork/D_Attack.png" id="2_1nc2g"]
+[ext_resource type="Script" path="res://enemies/ork/body.gd" id="2_g5u8y"]
 [ext_resource type="Texture2D" uid="uid://nc3tpxfhsuk7" path="res://models/enemies/ork/D_Death.png" id="3_fo52n"]
 [ext_resource type="Texture2D" uid="uid://c175dg25aujjv" path="res://models/enemies/ork/D_Walk.png" id="4_gvaa5"]
 [ext_resource type="Texture2D" uid="uid://cfmt1t5pnyt3r" path="res://models/enemies/ork/S_Attack.png" id="5_12lhj"]
@@ -735,21 +736,27 @@ _data = {
 "U_Walk": SubResource("Animation_4jeep")
 }
 
-[node name="Ork" type="CharacterBody2D"]
+[node name="Ork" type="PathFollow2D"]
+editor_description = "The node has to have a parent type of \"Path2D\" in a root scene"
+rotates = false
+loop = false
 script = ExtResource("1_sewjf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("2_g5u8y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(0, -13)
 shape = SubResource("CircleShape2D_f7cis")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 texture_filter = 1
 position = Vector2(0, -16)
 scale = Vector2(1.25, 1.25)
 sprite_frames = SubResource("SpriteFrames_vkq24")
 animation = &"D_Attack"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D"]
 libraries = {
 "": SubResource("AnimationLibrary_yl2me")
 }
