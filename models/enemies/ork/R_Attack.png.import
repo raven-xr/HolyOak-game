@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqtbike53obwj"
-path="res://.godot/imported/S_Death.png-e9ac0ea4e5d3ad0dfe0d1b6f822ea91b.ctex"
+uid="uid://cmbjq1ktvutn0"
+path="res://.godot/imported/R_Attack.png-0547773762c7a6cbc0244003081c9f83.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://models/enemies/ork/S_Death.png"
-dest_files=["res://.godot/imported/S_Death.png-e9ac0ea4e5d3ad0dfe0d1b6f822ea91b.ctex"]
+source_file="res://models/enemies/ork/R_Attack.png"
+dest_files=["res://.godot/imported/R_Attack.png-0547773762c7a6cbc0244003081c9f83.ctex"]
 
 [params]
 
