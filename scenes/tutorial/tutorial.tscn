@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://3lquoy3mkrss"]
+[gd_scene load_steps=19 format=3 uid="uid://3lquoy3mkrss"]
 
 [ext_resource type="Texture2D" uid="uid://sasruh3frvel" path="res://tilesets/plains.png" id="1_ciagt"]
 [ext_resource type="Script" path="res://scenes/tutorial/tutorial.gd" id="1_xggr7"]
@@ -7,7 +7,10 @@
 [ext_resource type="AudioStream" uid="uid://b4ct4b03ouqvg" path="res://audio/music/alexander_nakarada-traveler.mp3" id="4_f16wc"]
 [ext_resource type="Texture2D" uid="uid://c30prbao4k45w" path="res://models/objects/objects.png" id="4_ykm34"]
 [ext_resource type="AudioStream" uid="uid://dx2gq0qwtk4a4" path="res://audio/music/alexander_nakarada-leaving_for_valhalla.mp3" id="5_3hklw"]
+[ext_resource type="Script" path="res://scenes/tutorial/path/trigger_1.gd" id="5_u2n2o"]
 [ext_resource type="PackedScene" uid="uid://d1hglytmquni" path="res://units/platform/platform.tscn" id="6_6wnci"]
+[ext_resource type="Script" path="res://scenes/tutorial/path/trigger_2.gd" id="6_vds82"]
+[ext_resource type="Script" path="res://scenes/tutorial/path/trigger_3.gd" id="7_sk7gp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m6omb"]
 texture = ExtResource("1_ciagt")
@@ -116,6 +119,8 @@ _data = {
 }
 point_count = 3
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eyrmp"]
+
 [node name="Tutorial" type="Node2D"]
 script = ExtResource("1_xggr7")
 
@@ -133,10 +138,36 @@ tile_set = SubResource("TileSet_cel54")
 format = 2
 layer_0/tile_data = PackedInt32Array(2424840, 131072, 3, 2424841, 131072, 3, 2424842, 131072, 3, 2424843, 196608, 2, 2228235, 0, 1, 2293771, 0, 1, 2359307, 0, 1, 2424839, 65536, 0, 2490375, 0, 1, 2555911, 0, 1, 2621447, 196608, 2, 2621445, 131072, 3, 2621446, 131072, 3, 2621444, 65536, 1, 2686980, 0, 1, 2752516, 0, 1, 2818052, 0, 1, 2883588, 196608, 2, 2490372, 0, 1, 2555908, 0, 1, 1638411, 196608, 0, 1703947, 0, 1, 1769483, 0, 1, 1638409, 131072, 3, 1638410, 131072, 3, 1638408, 131072, 2, 1441800, 196608, 0, 1507336, 0, 1, 1572872, 0, 1, 1441799, 131072, 1, 1441795, 131072, 3, 1441796, 131072, 3, 1441797, 131072, 3, 1441798, 131072, 3, 1441794, 65536, 2, 1179650, 196608, 0, 1245186, 0, 1, 1310722, 0, 1, 1376258, 0, 1, 1179648, 131072, 3, 1179649, 131072, 3, 2883587, 65536, 0, 1638406, 131072, 3, 1638407, 131072, 3, 1835019, 0, 1, 1900555, 0, 2)
 
-[node name="Enemies" type="Node2D" parent="."]
+[node name="Path" type="Node2D" parent="."]
 
-[node name="Path2D" type="Path2D" parent="Enemies"]
+[node name="Path2D" type="Path2D" parent="Path"]
 curve = SubResource("Curve2D_02ycn")
+
+[node name="Trigger" type="Node2D" parent="Path"]
+
+[node name="Trigger1" type="Area2D" parent="Path/Trigger"]
+position = Vector2(824, 0)
+collision_layer = 0
+script = ExtResource("5_u2n2o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path/Trigger/Trigger1"]
+shape = SubResource("RectangleShape2D_eyrmp")
+
+[node name="Trigger2" type="Area2D" parent="Path/Trigger"]
+position = Vector2(824, 528)
+collision_layer = 0
+script = ExtResource("6_vds82")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path/Trigger/Trigger2"]
+shape = SubResource("RectangleShape2D_eyrmp")
+
+[node name="Trigger3" type="Area2D" parent="Path/Trigger"]
+position = Vector2(128, 528)
+collision_layer = 0
+script = ExtResource("7_sk7gp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path/Trigger/Trigger3"]
+shape = SubResource("RectangleShape2D_eyrmp")
 
 [node name="Platforms" type="Node2D" parent="."]
 
@@ -166,3 +197,7 @@ volume_db = -40.0
 [node name="RadioFight" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("5_3hklw")
 volume_db = -40.0
+
+[connection signal="body_entered" from="Path/Trigger/Trigger1" to="Path/Trigger/Trigger1" method="_on_body_entered"]
+[connection signal="body_entered" from="Path/Trigger/Trigger2" to="Path/Trigger/Trigger2" method="_on_body_entered"]
+[connection signal="body_entered" from="Path/Trigger/Trigger3" to="Path/Trigger/Trigger3" method="_on_body_entered"]
