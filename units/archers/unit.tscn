@@ -623,7 +623,8 @@ _data = {
 "U_Preattack": SubResource("Animation_a6jtm")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_c221k"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_mnypw"]
+resource_local_to_scene = true
 
 [node name="Archer" type="Node2D"]
 script = ExtResource("1_bqkc4")
@@ -633,7 +634,7 @@ texture_filter = 1
 position = Vector2(1.4013e-45, -8)
 scale = Vector2(1.125, 1.125)
 sprite_frames = SubResource("SpriteFrames_82ogq")
-animation = &"D_Idle"
+animation = &"D_Attack"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -641,10 +642,11 @@ libraries = {
 }
 
 [node name="Area2D" type="Area2D" parent="."]
+editor_description = "This node is needed to get CollisionShape2D as a child in code to fix the bug where all archers have the same CollisionShape2D radius"
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_c221k")
+shape = SubResource("CircleShape2D_mnypw")
 
 [node name="Arrows" type="Node2D" parent="."]
 
