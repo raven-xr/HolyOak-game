@@ -26,7 +26,7 @@ var direction: String: # The value is given by the path: Up (U), Right (R), Down
 		# States.WALK
 		walk_state()
 		
-var health = 1000:
+var health = 100:
 	set(value):
 		health = value
 		if health <= 0:

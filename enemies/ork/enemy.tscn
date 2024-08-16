@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=3 uid="uid://k1n6mu3mhuut"]
+[gd_scene load_steps=104 format=3 uid="uid://k1n6mu3mhuut"]
 
 [ext_resource type="Script" path="res://enemies/ork/enemy.gd" id="1_sewjf"]
 [ext_resource type="Texture2D" uid="uid://c4sx6mhbn66ah" path="res://models/enemies/ork/D_Attack.png" id="2_1nc2g"]
@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://cewemb7lcqdvo" path="res://models/enemies/ork/U_Walk.png" id="10_d3b00"]
 [ext_resource type="Texture2D" uid="uid://b6lyea0iv8q2a" path="res://models/enemies/ork/R_Death.png" id="10_gfxsf"]
 [ext_resource type="Texture2D" uid="uid://b5iv3aufmqs8q" path="res://models/enemies/ork/R_Walk.png" id="11_bb77j"]
+[ext_resource type="AudioStream" uid="uid://cu820got3xu42" path="res://audio/sfx/ork_death.mp3" id="15_s2uwq"]
+[ext_resource type="AudioStream" uid="uid://bk7rqd30a2dg" path="res://audio/sfx/ork_hit.mp3" id="16_bn58x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f7cis"]
 radius = 16.0
@@ -626,9 +628,20 @@ tracks/2/keys = {
 "method": &"hit"
 }]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../SFX/Hit2D:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_o5v8g"]
-length = 0.75
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -652,6 +665,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": ["D_Death"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../SFX/Death2D:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_1t6fr"]
@@ -723,9 +748,20 @@ tracks/2/keys = {
 "method": &"hit"
 }]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../SFX/Hit2D:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_p0m5e"]
-length = 0.75
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -749,6 +785,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": ["L_Death"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../SFX/Death2D:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_6s6yv"]
@@ -820,9 +868,20 @@ tracks/2/keys = {
 "method": &"hit"
 }]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../SFX/Hit2D:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_8m8w0"]
-length = 0.75
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -846,6 +905,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": ["R_Death"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../SFX/Death2D:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(-0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_7m5ik"]
@@ -917,9 +988,20 @@ tracks/2/keys = {
 "method": &"hit"
 }]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../SFX/Hit2D:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_tatjg"]
-length = 0.75
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -943,6 +1025,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": ["U_Death"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../SFX/Death2D:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_4jeep"]
@@ -1008,9 +1102,20 @@ texture_filter = 1
 position = Vector2(0, -16)
 scale = Vector2(1.25, 1.25)
 sprite_frames = SubResource("SpriteFrames_vkq24")
-animation = &"U_Attack"
+animation = &"D_Attack"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D"]
 libraries = {
 "": SubResource("AnimationLibrary_yl2me")
 }
+
+[node name="SFX" type="Node2D" parent="."]
+
+[node name="Death2D" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("15_s2uwq")
+volume_db = -23.0
+pitch_scale = 0.75
+
+[node name="Hit2D" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("16_bn58x")
+volume_db = -25.0
