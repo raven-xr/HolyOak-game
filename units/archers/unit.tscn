@@ -642,7 +642,6 @@ libraries = {
 }
 
 [node name="Area2D" type="Area2D" parent="."]
-editor_description = "This node is needed to get CollisionShape2D as a child in code to fix the bug where all archers have the same CollisionShape2D radius"
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
