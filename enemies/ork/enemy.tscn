@@ -950,7 +950,7 @@ _data = {
 }
 
 [node name="Ork" type="PathFollow2D"]
-editor_description = "The node has to have a parent type of \"Path2D\" in a root scene"
+editor_description = "The node has to have a parent type of \"Path2D\" in a root scene. The enemy is powered by the parent nodes"
 rotates = false
 loop = false
 script = ExtResource("1_sewjf")

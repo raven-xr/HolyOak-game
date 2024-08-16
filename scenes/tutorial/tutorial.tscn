@@ -7,10 +7,10 @@
 [ext_resource type="AudioStream" uid="uid://b4ct4b03ouqvg" path="res://audio/music/alexander_nakarada-traveler.mp3" id="4_f16wc"]
 [ext_resource type="Texture2D" uid="uid://c30prbao4k45w" path="res://models/objects/objects.png" id="4_ykm34"]
 [ext_resource type="AudioStream" uid="uid://dx2gq0qwtk4a4" path="res://audio/music/alexander_nakarada-leaving_for_valhalla.mp3" id="5_3hklw"]
-[ext_resource type="Script" path="res://scenes/tutorial/path/trigger_1.gd" id="5_u2n2o"]
+[ext_resource type="Script" path="res://scenes/tutorial/path/point_1.gd" id="5_8v03p"]
 [ext_resource type="PackedScene" uid="uid://d1hglytmquni" path="res://units/platform/platform.tscn" id="6_6wnci"]
-[ext_resource type="Script" path="res://scenes/tutorial/path/trigger_2.gd" id="6_vds82"]
-[ext_resource type="Script" path="res://scenes/tutorial/path/trigger_3.gd" id="7_sk7gp"]
+[ext_resource type="Script" path="res://scenes/tutorial/path/point_2.gd" id="6_vpswp"]
+[ext_resource type="Script" path="res://scenes/tutorial/path/point_3.gd" id="7_twxgy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m6omb"]
 texture = ExtResource("1_ciagt")
@@ -120,6 +120,7 @@ _data = {
 point_count = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eyrmp"]
+size = Vector2(5, 5)
 
 [node name="Tutorial" type="Node2D"]
 script = ExtResource("1_xggr7")
@@ -143,30 +144,28 @@ layer_0/tile_data = PackedInt32Array(2424840, 131072, 3, 2424841, 131072, 3, 242
 [node name="Path2D" type="Path2D" parent="Path"]
 curve = SubResource("Curve2D_02ycn")
 
-[node name="Trigger" type="Node2D" parent="Path"]
-
-[node name="Trigger1" type="Area2D" parent="Path/Trigger"]
+[node name="Point 1" type="Area2D" parent="Path/Path2D"]
 position = Vector2(824, 0)
 collision_layer = 0
-script = ExtResource("5_u2n2o")
+script = ExtResource("5_8v03p")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Path/Trigger/Trigger1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path/Path2D/Point 1"]
 shape = SubResource("RectangleShape2D_eyrmp")
 
-[node name="Trigger2" type="Area2D" parent="Path/Trigger"]
+[node name="Point 2" type="Area2D" parent="Path/Path2D"]
 position = Vector2(824, 528)
 collision_layer = 0
-script = ExtResource("6_vds82")
+script = ExtResource("6_vpswp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Path/Trigger/Trigger2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path/Path2D/Point 2"]
 shape = SubResource("RectangleShape2D_eyrmp")
 
-[node name="Trigger3" type="Area2D" parent="Path/Trigger"]
+[node name="Point 3" type="Area2D" parent="Path/Path2D"]
 position = Vector2(128, 528)
 collision_layer = 0
-script = ExtResource("7_sk7gp")
+script = ExtResource("7_twxgy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Path/Trigger/Trigger3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path/Path2D/Point 3"]
 shape = SubResource("RectangleShape2D_eyrmp")
 
 [node name="Platforms" type="Node2D" parent="."]
@@ -198,6 +197,6 @@ volume_db = -40.0
 stream = ExtResource("5_3hklw")
 volume_db = -40.0
 
-[connection signal="body_entered" from="Path/Trigger/Trigger1" to="Path/Trigger/Trigger1" method="_on_body_entered"]
-[connection signal="body_entered" from="Path/Trigger/Trigger2" to="Path/Trigger/Trigger2" method="_on_body_entered"]
-[connection signal="body_entered" from="Path/Trigger/Trigger3" to="Path/Trigger/Trigger3" method="_on_body_entered"]
+[connection signal="body_entered" from="Path/Path2D/Point 1" to="Path/Path2D/Point 1" method="_on_body_entered"]
+[connection signal="body_entered" from="Path/Path2D/Point 2" to="Path/Path2D/Point 2" method="_on_body_entered"]
+[connection signal="body_entered" from="Path/Path2D/Point 3" to="Path/Path2D/Point 3" method="_on_body_entered"]

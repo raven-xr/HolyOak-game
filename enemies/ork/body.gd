@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 0.03
 
-enum {
+enum States {
 	WALK,
 	ATTACK,
 	DEATH
@@ -17,23 +17,22 @@ var state:
 	set(value):
 		state = value
 		match state:
-			ATTACK: attack_state()
-			DEATH: death_state()
-var health = 1000:
-	set(value):
-		health = value
-		if health <= 0:
-			state = DEATH
-
-var damage = 10
+			States.ATTACK: attack_state()
+			States.DEATH: death_state()
 var direction: String: # The value is given by the path: Up (U), Right (R), Down (D) or Left (L)
 	set(value):
 		direction = value
 		# If direction is changed, update the animation
-		match state:
-			WALK: walk_state()
-			ATTACK: attack_state()
-			DEATH: death_state()
+		# States.WALK
+		walk_state()
+		
+var health = 1000:
+	set(value):
+		health = value
+		if health <= 0:
+			state = States.DEATH
+
+var damage = 10
 
 func walk_state():
 	animation_player.play(str(direction, "_Walk"))
