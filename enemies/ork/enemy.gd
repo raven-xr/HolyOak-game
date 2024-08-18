@@ -11,8 +11,7 @@ enum States {
 @onready var animation_player = $AnimationPlayer
 @onready var ork = $".."
 
-@onready var target = get_parent().get_parent().get_parent().get_parent()
-
+var target
 var state:
 	set(value):
 		state = value
@@ -51,3 +50,7 @@ func death_state():
 	
 	Signals.emit_signal("target_die", self)
 	ork.queue_free()
+
+func _on_area_2d_body_entered(body):
+	target = body
+	state = States.ATTACK

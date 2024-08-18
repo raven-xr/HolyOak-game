@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=3 uid="uid://k1n6mu3mhuut"]
+[gd_scene load_steps=105 format=3 uid="uid://k1n6mu3mhuut"]
 
 [ext_resource type="Script" path="res://enemies/ork/path.gd" id="1_oki55"]
 [ext_resource type="Script" path="res://enemies/ork/enemy.gd" id="1_sewjf"]
@@ -1083,6 +1083,9 @@ _data = {
 "U_Walk": SubResource("Animation_4jeep")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_egoth"]
+radius = 1.0
+
 [node name="Path2D" type="PathFollow2D"]
 editor_description = "The node has to have a parent type of \"Path2D\" in a root scene. The enemy is powered by the parent nodes"
 rotates = false
@@ -1109,6 +1112,14 @@ libraries = {
 "": SubResource("AnimationLibrary_yl2me")
 }
 
+[node name="Area2D" type="Area2D" parent="Ork"]
+position = Vector2(0, -13)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ork/Area2D"]
+shape = SubResource("CircleShape2D_egoth")
+
 [node name="SFX" type="Node2D" parent="Ork"]
 
 [node name="Death2D" type="AudioStreamPlayer2D" parent="Ork/SFX"]
@@ -1119,3 +1130,5 @@ pitch_scale = 0.75
 [node name="Hit2D" type="AudioStreamPlayer2D" parent="Ork/SFX"]
 stream = ExtResource("16_bn58x")
 volume_db = -25.0
+
+[connection signal="body_entered" from="Ork/Area2D" to="Ork" method="_on_area_2d_body_entered"]

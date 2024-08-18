@@ -5,12 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://ciyeb8o1ywukt" path="res://tilesets/grass.png" id="2_hcy67"]
 [ext_resource type="Texture2D" uid="uid://bcb2hj7qx6c7h" path="res://tilesets/fences.png" id="4_7ig4y"]
 [ext_resource type="AudioStream" uid="uid://b4ct4b03ouqvg" path="res://audio/music/alexander_nakarada-traveler.mp3" id="4_f16wc"]
-[ext_resource type="Texture2D" uid="uid://c30prbao4k45w" path="res://models/objects/objects.png" id="4_ykm34"]
 [ext_resource type="AudioStream" uid="uid://dx2gq0qwtk4a4" path="res://audio/music/alexander_nakarada-leaving_for_valhalla.mp3" id="5_3hklw"]
 [ext_resource type="Script" path="res://scenes/tutorial/path/point_1.gd" id="5_8v03p"]
 [ext_resource type="PackedScene" uid="uid://d1hglytmquni" path="res://units/platform/platform.tscn" id="6_6wnci"]
 [ext_resource type="Script" path="res://scenes/tutorial/path/point_2.gd" id="6_vpswp"]
-[ext_resource type="Script" path="res://scenes/tutorial/path/point_3.gd" id="7_twxgy"]
+[ext_resource type="PackedScene" uid="uid://dgsn2o3sm3wgn" path="res://subscenes/holy_oak/holy_oak.tscn" id="9_m6f5k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m6omb"]
 texture = ExtResource("1_ciagt")
@@ -119,8 +118,11 @@ _data = {
 }
 point_count = 3
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eyrmp"]
-size = Vector2(5, 5)
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_kl0bb"]
+b = Vector2(160, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_183m5"]
+b = Vector2(160, 0)
 
 [node name="Tutorial" type="Node2D"]
 script = ExtResource("1_xggr7")
@@ -150,7 +152,8 @@ collision_layer = 0
 script = ExtResource("5_8v03p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Path/Path2D/Point 1"]
-shape = SubResource("RectangleShape2D_eyrmp")
+position = Vector2(-56, 0)
+shape = SubResource("SegmentShape2D_kl0bb")
 
 [node name="Point 2" type="Area2D" parent="Path/Path2D"]
 position = Vector2(824, 528)
@@ -158,15 +161,8 @@ collision_layer = 0
 script = ExtResource("6_vpswp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Path/Path2D/Point 2"]
-shape = SubResource("RectangleShape2D_eyrmp")
-
-[node name="Point 3" type="Area2D" parent="Path/Path2D"]
-position = Vector2(128, 528)
-collision_layer = 0
-script = ExtResource("7_twxgy")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Path/Path2D/Point 3"]
-shape = SubResource("RectangleShape2D_eyrmp")
+position = Vector2(-56, 0)
+shape = SubResource("SegmentShape2D_183m5")
 
 [node name="Platforms" type="Node2D" parent="."]
 
@@ -179,13 +175,8 @@ default_direction = "U"
 
 [node name="Objects" type="Node2D" parent="."]
 
-[node name="HolyOak" type="Sprite2D" parent="Objects"]
-texture_filter = 1
+[node name="HolyOak" parent="Objects" instance=ExtResource("9_m6f5k")]
 position = Vector2(80, 456)
-scale = Vector2(3.33333, 3.33333)
-texture = ExtResource("4_ykm34")
-region_enabled = true
-region_rect = Rect2(0, 80, 48, 64)
 
 [node name="SFX" type="Node2D" parent="."]
 
@@ -199,4 +190,3 @@ volume_db = -40.0
 
 [connection signal="body_entered" from="Path/Path2D/Point 1" to="Path/Path2D/Point 1" method="_on_body_entered"]
 [connection signal="body_entered" from="Path/Path2D/Point 2" to="Path/Path2D/Point 2" method="_on_body_entered"]
-[connection signal="body_entered" from="Path/Path2D/Point 3" to="Path/Path2D/Point 3" method="_on_body_entered"]
