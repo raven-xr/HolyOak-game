@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bryo2kxabv0eo" path="res://ui/buttons/stats_disabled.png" id="14_j5rqg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fil16"]
-radius = 60.0
+radius = 54.0
 
 [node name="Platform" type="Node2D"]
 script = ExtResource("1_gvh2q")
@@ -30,6 +30,8 @@ texture = ExtResource("2_8ll7e")
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="."]
 shape = SubResource("CircleShape2D_fil16")
+
+[node name="Towers" type="Node2D" parent="."]
 
 [node name="Menu" type="Node2D" parent="."]
 
@@ -87,8 +89,6 @@ texture_normal = ExtResource("12_g4art")
 texture_pressed = ExtResource("12_g4art")
 texture_hover = ExtResource("13_je5u1")
 texture_disabled = ExtResource("14_j5rqg")
-
-[node name="Towers" type="Node2D" parent="."]
 
 [node name="SFX" type="Node2D" parent="."]
 
