@@ -31,6 +31,8 @@ texture = ExtResource("2_8ll7e")
 [node name="TouchScreenButton" type="TouchScreenButton" parent="."]
 shape = SubResource("CircleShape2D_fil16")
 
+[node name="Towers" type="Node2D" parent="."]
+
 [node name="Menu" type="Node2D" parent="."]
 
 [node name="BuildTextureButton" type="TextureButton" parent="Menu"]
@@ -87,8 +89,6 @@ texture_normal = ExtResource("12_g4art")
 texture_pressed = ExtResource("12_g4art")
 texture_hover = ExtResource("13_je5u1")
 texture_disabled = ExtResource("14_j5rqg")
-
-[node name="Towers" type="Node2D" parent="."]
 
 [node name="SFX" type="Node2D" parent="."]
 

@@ -1,5 +1,7 @@
-[gd_scene load_steps=102 format=3 uid="uid://k1n6mu3mhuut"]
+[gd_scene load_steps=104 format=3 uid="uid://k1n6mu3mhuut"]
 
+[ext_resource type="Script" path="res://enemies/ork/path.gd" id="1_oki55"]
+[ext_resource type="Script" path="res://enemies/ork/enemy.gd" id="1_sewjf"]
 [ext_resource type="Texture2D" uid="uid://c4sx6mhbn66ah" path="res://models/enemies/ork/D_Attack.png" id="2_1nc2g"]
 [ext_resource type="Texture2D" uid="uid://nc3tpxfhsuk7" path="res://models/enemies/ork/D_Death.png" id="3_fo52n"]
 [ext_resource type="Texture2D" uid="uid://c175dg25aujjv" path="res://models/enemies/ork/D_Walk.png" id="4_gvaa5"]
@@ -1085,9 +1087,11 @@ _data = {
 editor_description = "The node has to have a parent type of \"Path2D\" in a root scene. The enemy is powered by the parent nodes"
 rotates = false
 loop = false
+script = ExtResource("1_oki55")
 
 [node name="Ork" type="CharacterBody2D" parent="."]
 collision_mask = 0
+script = ExtResource("1_sewjf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ork"]
 position = Vector2(0, -13)
