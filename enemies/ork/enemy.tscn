@@ -1,8 +1,6 @@
-[gd_scene load_steps=104 format=3 uid="uid://k1n6mu3mhuut"]
+[gd_scene load_steps=102 format=3 uid="uid://k1n6mu3mhuut"]
 
-[ext_resource type="Script" path="res://enemies/ork/enemy.gd" id="1_sewjf"]
 [ext_resource type="Texture2D" uid="uid://c4sx6mhbn66ah" path="res://models/enemies/ork/D_Attack.png" id="2_1nc2g"]
-[ext_resource type="Script" path="res://enemies/ork/body.gd" id="2_g5u8y"]
 [ext_resource type="Texture2D" uid="uid://nc3tpxfhsuk7" path="res://models/enemies/ork/D_Death.png" id="3_fo52n"]
 [ext_resource type="Texture2D" uid="uid://c175dg25aujjv" path="res://models/enemies/ork/D_Walk.png" id="4_gvaa5"]
 [ext_resource type="Texture2D" uid="uid://0uddwyiikyqw" path="res://models/enemies/ork/L_Attack.png" id="6_0g2sj"]
@@ -631,7 +629,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../SFX/Hit2D:playing")
+tracks/3/path = NodePath("SFX/Hit2D:playing")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -669,7 +667,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../SFX/Death2D:playing")
+tracks/2/path = NodePath("SFX/Death2D:playing")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -751,7 +749,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../SFX/Hit2D:playing")
+tracks/3/path = NodePath("SFX/Hit2D:playing")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -789,7 +787,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../SFX/Death2D:playing")
+tracks/2/path = NodePath("SFX/Death2D:playing")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -871,7 +869,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../SFX/Hit2D:playing")
+tracks/3/path = NodePath("SFX/Hit2D:playing")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -909,7 +907,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../SFX/Death2D:playing")
+tracks/2/path = NodePath("SFX/Death2D:playing")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -991,7 +989,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../SFX/Hit2D:playing")
+tracks/3/path = NodePath("SFX/Hit2D:playing")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -1029,7 +1027,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../SFX/Death2D:playing")
+tracks/2/path = NodePath("SFX/Death2D:playing")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -1083,39 +1081,37 @@ _data = {
 "U_Walk": SubResource("Animation_4jeep")
 }
 
-[node name="Ork" type="PathFollow2D"]
+[node name="Path2D" type="PathFollow2D"]
 editor_description = "The node has to have a parent type of \"Path2D\" in a root scene. The enemy is powered by the parent nodes"
 rotates = false
 loop = false
-script = ExtResource("1_sewjf")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="Ork" type="CharacterBody2D" parent="."]
 collision_mask = 0
-script = ExtResource("2_g5u8y")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ork"]
 position = Vector2(0, -13)
 shape = SubResource("CircleShape2D_f7cis")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ork"]
 texture_filter = 1
 position = Vector2(0, -16)
 scale = Vector2(1.25, 1.25)
 sprite_frames = SubResource("SpriteFrames_vkq24")
 animation = &"D_Attack"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Ork"]
 libraries = {
 "": SubResource("AnimationLibrary_yl2me")
 }
 
-[node name="SFX" type="Node2D" parent="."]
+[node name="SFX" type="Node2D" parent="Ork"]
 
-[node name="Death2D" type="AudioStreamPlayer2D" parent="SFX"]
+[node name="Death2D" type="AudioStreamPlayer2D" parent="Ork/SFX"]
 stream = ExtResource("15_s2uwq")
 volume_db = -23.0
 pitch_scale = 0.75
 
-[node name="Hit2D" type="AudioStreamPlayer2D" parent="SFX"]
+[node name="Hit2D" type="AudioStreamPlayer2D" parent="Ork/SFX"]
 stream = ExtResource("16_bn58x")
 volume_db = -25.0
