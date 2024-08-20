@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 6000.0
+const SPEED = 7000.0
 
 var target_available = true
 

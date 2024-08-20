@@ -22,15 +22,12 @@ var direction: String: # The value is given by the path: Up (U), Right (R), Down
 	set(value):
 		direction = value
 		# If direction is changed, update the animation
-		# States.WALK
 		walk_state()
-		
 var health = 100:
 	set(value):
 		health = value
 		if health <= 0:
 			state = States.DEATH
-
 var damage = 10
 
 func walk_state():
@@ -44,10 +41,9 @@ func hit():
 	target.health -= damage
 
 func death_state():
-	animation_player.play(str(direction, "_Death"))
 	ork.set_process(false)
+	animation_player.play(str(direction, "_Death"))
 	await animation_player.animation_finished
-	
 	Signals.emit_signal("target_die", self)
 	ork.queue_free()
 
