@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://b4ct4b03ouqvg" path="res://audio/music/alexander_nakarada-traveler.mp3" id="4_f16wc"]
 [ext_resource type="AudioStream" uid="uid://dx2gq0qwtk4a4" path="res://audio/music/alexander_nakarada-leaving_for_valhalla.mp3" id="5_3hklw"]
 [ext_resource type="Script" path="res://scenes/tutorial/path/point_1.gd" id="5_8v03p"]
-[ext_resource type="PackedScene" uid="uid://d1hglytmquni" path="res://units/platform/platform.tscn" id="6_6wnci"]
+[ext_resource type="PackedScene" uid="uid://d1hglytmquni" path="res://towers/platform/platform.tscn" id="6_6wnci"]
 [ext_resource type="Script" path="res://scenes/tutorial/path/point_2.gd" id="6_vpswp"]
 [ext_resource type="PackedScene" uid="uid://dgsn2o3sm3wgn" path="res://subscenes/holy_oak/holy_oak.tscn" id="9_m6f5k"]
 
@@ -166,12 +166,13 @@ shape = SubResource("SegmentShape2D_183m5")
 
 [node name="Platforms" type="Node2D" parent="."]
 
-[node name="Platform1" parent="Platforms" instance=ExtResource("6_6wnci")]
-position = Vector2(624, 288)
+[node name="Platform" parent="Platforms" instance=ExtResource("6_6wnci")]
+position = Vector2(1024, 192)
+default_direction = "L"
 
 [node name="Platform2" parent="Platforms" instance=ExtResource("6_6wnci")]
-position = Vector2(488, 640)
-default_direction = "U"
+position = Vector2(640, 256)
+default_direction = "R"
 
 [node name="Objects" type="Node2D" parent="."]
 
