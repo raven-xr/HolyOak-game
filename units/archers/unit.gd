@@ -1,25 +1,25 @@
 extends Node2D
 
-enum {
+enum States {
 	IDLE,
 	ATTACK,
 	COOLDOWN
 }
 
 var targets = []
-var target
+var target: CharacterBody2D
 var is_looking_for_target = true
 var state:
 	set(value):
 		state = value
 		match state:
-			IDLE: 
+			States.IDLE: 
 				idle_state()
-			ATTACK: 
+			States.ATTACK: 
 				attack_state()
-			COOLDOWN:
+			States.COOLDOWN:
 				cooldown_state()
-var current_direction
+var current_direction: String
 var arrow_preload = preload("res://units/archers/shell.tscn")
 
 @onready var collision_shape_2d = $Area2D/CollisionShape2D
@@ -34,7 +34,7 @@ var arrow_preload = preload("res://units/archers/shell.tscn")
 @onready var attack_range = get_parent().get_parent().attack_range
 
 func _ready():
-	state = IDLE
+	state = States.IDLE
 	collision_shape_2d.shape.radius = attack_range
 
 func idle_state():
@@ -53,9 +53,9 @@ func cooldown_state():
 	animation_player.play(str(current_direction, "_Preattack"))
 	await animation_player.animation_finished
 	if len(targets) > 0:
-		state = ATTACK
+		state = States.ATTACK
 	else:
-		state = IDLE
+		state = States.IDLE
 
 func shoot():
 	if len(targets) > 0:
@@ -63,19 +63,19 @@ func shoot():
 		new_arrow.position = Vector2(0.0, -13.0)
 		arrows.add_child(new_arrow)
 		shot_2d.play()
-	state = COOLDOWN
+	state = States.COOLDOWN
 
 func _on_area_2d_body_entered(body):
 	targets.append(body)
-	if state != COOLDOWN:
-		state = ATTACK
+	if state != States.COOLDOWN:
+		state = States.ATTACK
 
 func _on_area_2d_body_exited(body):
 	targets.erase(body)
 	if target == body:
 		is_looking_for_target = true
 		if len(targets) > 0:
-			state = ATTACK
+			state = States.ATTACK
 
 func change_direction() -> Array:
 	var angle_to_target = rad_to_deg(get_angle_to(target.global_position))
