@@ -3,6 +3,7 @@ extends CharacterBody2D
 const SPEED = 7000.0
 
 var target_available = true
+var direction: Vector2
 
 @onready var collision_shape_2d = $Area2D/CollisionShape2D
 @onready var hit_2d = $SFX/Hit2D
@@ -27,7 +28,7 @@ func _physics_process(delta):
 		self_destruct()
 	# Change direction if only target available (not dead or not too far)
 	if target_available:                
-		var direction = (target.global_position - global_position).normalized()
+		direction = (target.global_position - global_position).normalized()
 		look_at(target.global_position)
 		velocity = direction * SPEED * delta
 	# Move and Slide
@@ -37,6 +38,7 @@ func _on_area_2d_body_entered(body):
 	if body == target:
 		body.health -= damage
 		hit_2d.play()
+		target_available = false
 		self_destruct()
 
 func _on_target_die(died_target):
