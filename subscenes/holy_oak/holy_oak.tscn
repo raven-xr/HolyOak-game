@@ -1,10 +1,63 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgsn2o3sm3wgn"]
+[gd_scene load_steps=15 format=3 uid="uid://dgsn2o3sm3wgn"]
 
 [ext_resource type="Texture2D" uid="uid://c30prbao4k45w" path="res://models/objects/objects.png" id="1_uo3vm"]
 [ext_resource type="Script" path="res://subscenes/holy_oak/holy_oak.gd" id="2_7gaut"]
+[ext_resource type="PackedScene" uid="uid://cfcu8rgqvu2xp" path="res://effects/leaf/leaf.tscn" id="3_lbct2"]
+[ext_resource type="Texture2D" uid="uid://bpnrlouguuu7u" path="res://effects/leaf/leaf_borders.png" id="4_biqay"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wjjv1"]
 size = Vector2(112, 88)
+
+[sub_resource type="Gradient" id="Gradient_xa468"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.501961)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vf65k"]
+gradient = SubResource("Gradient_xa468")
+
+[sub_resource type="Curve" id="Curve_t8h76"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_thxog"]
+curve = SubResource("Curve_t8h76")
+
+[sub_resource type="Curve" id="Curve_jyfqa"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_muu4o"]
+curve = SubResource("Curve_jyfqa")
+
+[sub_resource type="Curve" id="Curve_j8x30"]
+_data = [Vector2(0, 0.505494), 0.0, 0.0, 0, 0, Vector2(0.486667, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.604396), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_qndtt"]
+curve = SubResource("Curve_j8x30")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fwrlk"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(52, 52, 1)
+direction = Vector3(0, -1, 0)
+initial_velocity_min = -10.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 20.0
+gravity = Vector3(0, 25, 0)
+linear_accel_min = -20.0
+linear_accel_max = 20.0
+linear_accel_curve = SubResource("CurveTexture_muu4o")
+scale_min = 0.3
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_qndtt")
+color = Color(0, 0.901961, 0, 1)
+color_ramp = SubResource("GradientTexture1D_vf65k")
+hue_variation_min = -2.23517e-08
+hue_variation_max = 0.2
+hue_variation_curve = SubResource("CurveTexture_thxog")
 
 [node name="StaticBody2D" type="StaticBody2D"]
 collision_layer = 2
@@ -21,3 +74,12 @@ scale = Vector2(3.33333, 3.33333)
 texture = ExtResource("1_uo3vm")
 region_enabled = true
 region_rect = Rect2(0, 80, 48, 64)
+
+[node name="GFX" type="Node2D" parent="."]
+
+[node name="Leaves" parent="GFX" instance=ExtResource("3_lbct2")]
+position = Vector2(0, -32)
+process_material = SubResource("ParticleProcessMaterial_fwrlk")
+texture = ExtResource("4_biqay")
+lifetime = 2.0
+one_shot = true

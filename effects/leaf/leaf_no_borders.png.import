@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d312cu1in485e"
-path="res://.godot/imported/wood.png-29934569cc58d89edd4653e9824d2a48.ctex"
+uid="uid://00n6rxhg808a"
+path="res://.godot/imported/leaf_no_borders.png-8d293a2030a0cc391d932089010239d6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://effects/particles/wood.png"
-dest_files=["res://.godot/imported/wood.png-29934569cc58d89edd4653e9824d2a48.ctex"]
+source_file="res://effects/leaf/leaf_no_borders.png"
+dest_files=["res://.godot/imported/leaf_no_borders.png-8d293a2030a0cc391d932089010239d6.ctex"]
 
 [params]
 

@@ -35,7 +35,7 @@ shape = SubResource("CircleShape2D_fil16")
 
 [node name="Menu" type="Node2D" parent="."]
 
-[node name="BuildTextureButton" type="TextureButton" parent="Menu"]
+[node name="Build TextureButton" type="TextureButton" parent="Menu"]
 modulate = Color(1, 1, 1, 0.784314)
 anchors_preset = 8
 anchor_left = 0.5
@@ -54,7 +54,7 @@ texture_pressed = ExtResource("2_x8e24")
 texture_hover = ExtResource("3_mmrqd")
 texture_disabled = ExtResource("4_orhma")
 
-[node name="UpgradeTextureButton" type="TextureButton" parent="Menu"]
+[node name="Upgrade TextureButton" type="TextureButton" parent="Menu"]
 modulate = Color(1, 1, 1, 0.784314)
 offset_left = 8.0
 offset_top = -36.0
@@ -66,7 +66,7 @@ texture_pressed = ExtResource("5_ecwmm")
 texture_hover = ExtResource("6_evvam")
 texture_disabled = ExtResource("7_hhufg")
 
-[node name="RemoveTextureButton" type="TextureButton" parent="Menu"]
+[node name="Remove TextureButton" type="TextureButton" parent="Menu"]
 modulate = Color(1, 1, 1, 0.784314)
 offset_left = -69.0
 offset_top = 2.0
@@ -78,7 +78,7 @@ texture_pressed = ExtResource("9_fkkgd")
 texture_hover = ExtResource("10_yy3kb")
 texture_disabled = ExtResource("11_2yq4y")
 
-[node name="StatsTextureButton" type="TextureButton" parent="Menu"]
+[node name="Stats TextureButton" type="TextureButton" parent="Menu"]
 modulate = Color(1, 1, 1, 0.784314)
 offset_left = 5.0
 offset_top = 2.0
@@ -96,7 +96,7 @@ texture_disabled = ExtResource("14_j5rqg")
 stream = ExtResource("8_aghbs")
 
 [connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
-[connection signal="pressed" from="Menu/BuildTextureButton" to="." method="_on_build_texture_button_pressed"]
-[connection signal="pressed" from="Menu/UpgradeTextureButton" to="." method="_on_upgrade_texture_button_pressed"]
-[connection signal="pressed" from="Menu/RemoveTextureButton" to="." method="_on_remove_texture_button_pressed"]
-[connection signal="pressed" from="Menu/StatsTextureButton" to="." method="_on_stats_texture_button_pressed"]
+[connection signal="pressed" from="Menu/Build TextureButton" to="." method="_on_build_texture_button_pressed"]
+[connection signal="pressed" from="Menu/Upgrade TextureButton" to="." method="_on_upgrade_texture_button_pressed"]
+[connection signal="pressed" from="Menu/Remove TextureButton" to="." method="_on_remove_texture_button_pressed"]
+[connection signal="pressed" from="Menu/Stats TextureButton" to="." method="_on_stats_texture_button_pressed"]

@@ -9,10 +9,10 @@ var message_preload = preload("res://subscenes/message/message.tscn")
 @onready var click_2d = $SFX/Click2D
 @onready var menu = $Menu
 @onready var towers = $Towers
-@onready var build_texture_button = $Menu/BuildTextureButton
-@onready var upgrade_texture_button = $Menu/UpgradeTextureButton
-@onready var remove_texture_button = $Menu/RemoveTextureButton
-@onready var stats_texture_button = $Menu/StatsTextureButton
+@onready var build_texture_button = $"Menu/Build TextureButton"
+@onready var upgrade_texture_button = $"Menu/Upgrade TextureButton"
+@onready var remove_texture_button = $"Menu/Remove TextureButton"
+@onready var stats_texture_button = $"Menu/Stats TextureButton"
 
 @export var default_direction: String = "U" # The default view direction of units: Up (U), Right (R), Down (D) or Left (L)
 
