@@ -63,8 +63,7 @@ func upgrading():
 	get_parent().get_parent().remove_texture_button.disabled = false
 	# If the platform interface is opened, then enable upgrade button
 	if MAX_LEVEL != level:
-		if PlayerStats.money >= UnitStats.archers[str('level_', level+1)]['cost']:
-			get_parent().get_parent().upgrade_texture_button.disabled = false
+		get_parent().get_parent().upgrade_texture_button.disabled = false
 
 func destruction():
 	# Inform the platform that the tower is being destructed

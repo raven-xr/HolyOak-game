@@ -6,7 +6,7 @@ var ork_preload = preload("res://enemies/ork/enemy.tscn")
 
 @onready var radio_idle = $SFX/RadioIdle
 @onready var radio_fight = $SFX/RadioFight
-@onready var path_2d = $Path/Path2D
+@onready var path_2d = $Enemies/Path2D
 
 func _ready():
 	# Getting ready

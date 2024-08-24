@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bpnrlouguuu7u" path="res://effects/leaf/leaf_borders.png" id="4_biqay"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wjjv1"]
-size = Vector2(112, 88)
+size = Vector2(176, 88)
 
 [sub_resource type="Gradient" id="Gradient_xa468"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.501961)
