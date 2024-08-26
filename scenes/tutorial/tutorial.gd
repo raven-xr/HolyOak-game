@@ -7,6 +7,7 @@ var ork_preload = preload("res://enemies/ork/enemy.tscn")
 @onready var radio_idle = $SFX/RadioIdle
 @onready var radio_fight = $SFX/RadioFight
 @onready var path_2d = $Enemies/Path2D
+@onready var trees = $Objects/Trees
 
 func _ready():
 	# Getting ready
@@ -16,9 +17,9 @@ func _ready():
 	tween_1.parallel().tween_property(self, "modulate", Color(1, 1, 1, 1), 2.0)
 	var tween_2 = get_tree().create_tween()
 	tween_2.parallel().tween_property(radio_idle, "volume_db", -20, 4.0)
-	# Debug
-	await get_tree().create_timer(5.0).timeout
-	fight()
+	for tree in trees.get_children():
+		var size = randf_range(1.4, 1.6)
+		tree.scale = Vector2(size, size)
 
 func fight():
 	# Getting ready
