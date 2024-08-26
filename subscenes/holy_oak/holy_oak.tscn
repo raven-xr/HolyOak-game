@@ -1,12 +1,14 @@
 [gd_scene load_steps=15 format=3 uid="uid://dgsn2o3sm3wgn"]
 
-[ext_resource type="Texture2D" uid="uid://c30prbao4k45w" path="res://models/objects/objects.png" id="1_uo3vm"]
 [ext_resource type="Script" path="res://subscenes/holy_oak/holy_oak.gd" id="2_7gaut"]
 [ext_resource type="PackedScene" uid="uid://cfcu8rgqvu2xp" path="res://effects/leaf/leaf.tscn" id="3_lbct2"]
 [ext_resource type="Texture2D" uid="uid://bpnrlouguuu7u" path="res://effects/leaf/leaf_borders.png" id="4_biqay"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wjjv1"]
 size = Vector2(176, 88)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3yd53"]
+load_path = "res://.godot/imported/objects.png-7f22702c00ede1036b55d6d96eaa04fb.ctex"
 
 [sub_resource type="Gradient" id="Gradient_xa468"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.501961)
@@ -71,7 +73,7 @@ shape = SubResource("RectangleShape2D_wjjv1")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(3.33333, 3.33333)
-texture = ExtResource("1_uo3vm")
+texture = SubResource("CompressedTexture2D_3yd53")
 region_enabled = true
 region_rect = Rect2(0, 80, 48, 64)
 

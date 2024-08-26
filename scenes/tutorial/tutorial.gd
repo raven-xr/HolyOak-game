@@ -8,6 +8,7 @@ var ork_preload = preload("res://enemies/ork/enemy.tscn")
 @onready var radio_fight = $SFX/RadioFight
 @onready var path_2d = $Enemies/Path2D
 @onready var trees = $Objects/Trees
+@onready var bushes = $Objects/Bushes
 
 func _ready():
 	# Getting ready
@@ -20,6 +21,9 @@ func _ready():
 	for tree in trees.get_children():
 		var size = randf_range(1.4, 1.6)
 		tree.scale = Vector2(size, size)
+	for bush in bushes.get_children():
+		var size = randf_range(0.8, 1.1)
+		bush.scale = Vector2(size, size)
 
 func fight():
 	# Getting ready
