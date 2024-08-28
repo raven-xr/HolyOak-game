@@ -2,15 +2,25 @@ extends Node2D
 
 const SPEED = 0.04
 
+var wave = 0:
+	set(value):
+		wave = value
+		match wave:
+			1: wave_1()
+			2: wave_2()
+			3: wave_3()
 var ork_preload = preload("res://enemies/ork/enemy.tscn")
 
 @onready var radio_idle = $SFX/RadioIdle
 @onready var radio_fight = $SFX/RadioFight
-@onready var path_2d = $Enemies/Path2D
+@onready var enemies = $Enemies
 @onready var trees = $Objects/Trees
 @onready var bushes = $Objects/Bushes
 
 func _ready():
+	# Update PlayerStats
+	PlayerStats.money = 200
+	PlayerStats.max_level = 3
 	# Getting ready
 	modulate = Color(0, 0, 0, 1)
 	radio_idle.play()
@@ -24,6 +34,9 @@ func _ready():
 	for bush in bushes.get_children():
 		var size = randf_range(0.8, 1.1)
 		bush.scale = Vector2(size, size)
+	# Start the fighting
+	await get_tree().create_timer(10.0).timeout
+	fight()
 
 func fight():
 	# Getting ready
@@ -34,8 +47,13 @@ func fight():
 	var tween_2 = get_tree().create_tween()
 	tween_2.parallel().tween_property(radio_fight, "volume_db", -20, 4.0)
 	# Fight
-	# Add orks
-	for i in range(3):
-		var new_ork = ork_preload.instantiate()
-		path_2d.add_child(new_ork)
-		await get_tree().create_timer(1.5).timeout
+	wave += 1
+
+func wave_1():
+	pass
+	
+func wave_2():
+	pass
+	
+func wave_3():
+	pass

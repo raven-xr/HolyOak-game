@@ -1,7 +1,6 @@
 extends Node2D
 
-const MAX_LEVEL = 7
-
+var max_level = PlayerStats.max_level
 var level = 0:
 	set(value):
 		level = value
@@ -62,7 +61,7 @@ func upgrading():
 	# If the platform interface is opened, then enable remove button
 	get_parent().get_parent().remove_texture_button.disabled = false
 	# If the platform interface is opened, then enable upgrade button
-	if MAX_LEVEL != level:
+	if max_level != level:
 		get_parent().get_parent().upgrade_texture_button.disabled = false
 
 func destruction():
@@ -107,7 +106,7 @@ func destruction():
 	queue_free()
 
 func can_be_upgraded():
-	if is_upgrading or MAX_LEVEL == level:
+	if is_upgrading or max_level == level:
 		return false
 	else:
 		return true
