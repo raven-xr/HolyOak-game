@@ -1,21 +1,17 @@
 extends Node2D
 
-var text: String # The value is given by the parent
-
 @onready var click_2d = $SFX/Click2D
-@onready var key = $Key
 @onready var value = $Value
 
 func _ready():
 	modulate = Color(1, 1, 1, 0)
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color(1, 1, 1, 1), 0.1)
-	key.text = text
 	update_data()
 
 func update_data():
 	var tower = get_parent().get_node("Towers").get_child(0)
-	value.text = str(tower.attack_range, "\n", tower.damage, "\n", tower.unit_count, "\n", tower.current_cost)
+	value.text = str(tower.attack_range, "\n", tower.damage, "\n", tower.unit_count, "\n", tower.current_cost, "\n", PlayerStats.max_level)
 
 func _on_update_data_button_pressed():
 	click_2d.play()

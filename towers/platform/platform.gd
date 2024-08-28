@@ -69,7 +69,6 @@ func _on_stats_texture_button_pressed():
 		"R": new_stats.position = Vector2(192.0, 0.0)
 		"D": new_stats.position = Vector2(0.0, 144.0)
 		"L": new_stats.position = Vector2(-192.0, 0.0)
-	new_stats.text = "Attack Range\nDamage\nUnits\nUpgrade Cost"
 	add_child(new_stats)
 	close_menu()
 
