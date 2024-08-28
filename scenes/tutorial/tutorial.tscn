@@ -340,12 +340,15 @@ shape = SubResource("SegmentShape2D_183m5")
 [node name="Towers" type="Node2D" parent="."]
 
 [node name="Platform" parent="Towers" instance=ExtResource("6_6wnci")]
-position = Vector2(960, 256)
+position = Vector2(950, 256)
 default_direction = "L"
 
 [node name="Platform2" parent="Towers" instance=ExtResource("6_6wnci")]
-position = Vector2(272, 408)
-default_direction = "D"
+position = Vector2(706, 418)
+default_direction = "R"
+
+[node name="Platform3" parent="Towers" instance=ExtResource("6_6wnci")]
+position = Vector2(208, 638)
 
 [node name="Objects" type="Node2D" parent="."]
 
@@ -384,21 +387,21 @@ region_rect = Rect2(96, 112, 32, 32)
 
 [node name="Bush_1_5" type="Sprite2D" parent="Objects/Bushes"]
 texture_filter = 1
-position = Vector2(696, 448)
+position = Vector2(864, 608)
 texture = ExtResource("10_xgupy")
 region_enabled = true
 region_rect = Rect2(96, 112, 32, 32)
 
 [node name="Bush_1_6" type="Sprite2D" parent="Objects/Bushes"]
 texture_filter = 1
-position = Vector2(728, 416)
+position = Vector2(896, 576)
 texture = ExtResource("10_xgupy")
 region_enabled = true
 region_rect = Rect2(96, 112, 32, 32)
 
 [node name="Bush_1_7" type="Sprite2D" parent="Objects/Bushes"]
 texture_filter = 1
-position = Vector2(736, 456)
+position = Vector2(904, 616)
 texture = ExtResource("10_xgupy")
 region_enabled = true
 region_rect = Rect2(96, 112, 32, 32)
