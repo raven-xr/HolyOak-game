@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bdbcrxa2815rn" path="res://scenes/main_menu/main_menu.jpeg" id="1_tludv"]
 [ext_resource type="AudioStream" uid="uid://dixlwjxgl2uwo" path="res://audio/music/aaron_kenny-yonder_hill_and_dale.mp3" id="2_el0v2"]
 [ext_resource type="Texture2D" uid="uid://d3cbse0cdcpi4" path="res://ui/buttons/play_default.png" id="2_kfanh"]
-[ext_resource type="Theme" uid="uid://cmbhon2raxvsi" path="res://ui/themes/1.tres" id="3_d4sgo"]
+[ext_resource type="Theme" uid="uid://b1fx26em7338w" path="res://subscenes/player_stats/panel_container.tres" id="3_yaa4a"]
 [ext_resource type="Texture2D" uid="uid://cv3g2mky4f7fj" path="res://ui/buttons/play_hover.png" id="4_6ivh4"]
 [ext_resource type="Texture2D" uid="uid://bwpmh70vc388u" path="res://ui/buttons/settings_default.png" id="4_sj7hi"]
 [ext_resource type="Texture2D" uid="uid://dw3kn3vicpbsq" path="res://ui/buttons/settings_hover.png" id="5_151sx"]
@@ -31,7 +31,7 @@ offset_left = 496.0
 offset_top = 240.0
 offset_right = 720.0
 offset_bottom = 610.0
-theme = ExtResource("3_d4sgo")
+theme = ExtResource("3_yaa4a")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UserInterface"]
 offset_left = 512.0
@@ -40,25 +40,25 @@ offset_right = 708.0
 offset_bottom = 604.0
 scale = Vector2(0.98, 0.98)
 
-[node name="Play_TextureButton" type="TextureButton" parent="UserInterface/VBoxContainer"]
+[node name="Play TextureButton" type="TextureButton" parent="UserInterface/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("2_kfanh")
 texture_pressed = ExtResource("2_kfanh")
 texture_hover = ExtResource("4_6ivh4")
 
-[node name="Tutorial_TextureButton" type="TextureButton" parent="UserInterface/VBoxContainer"]
+[node name="Tutorial TextureButton" type="TextureButton" parent="UserInterface/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("6_qve0m")
 texture_pressed = ExtResource("6_qve0m")
 texture_hover = ExtResource("7_vpetr")
 
-[node name="Settings_TextureButton" type="TextureButton" parent="UserInterface/VBoxContainer"]
+[node name="Settings TextureButton" type="TextureButton" parent="UserInterface/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("4_sj7hi")
 texture_pressed = ExtResource("4_sj7hi")
 texture_hover = ExtResource("5_151sx")
 
-[node name="Quit_TextureButton" type="TextureButton" parent="UserInterface/VBoxContainer"]
+[node name="Quit TextureButton" type="TextureButton" parent="UserInterface/VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("6_1pwt5")
 texture_pressed = ExtResource("6_1pwt5")
@@ -74,7 +74,7 @@ autoplay = true
 [node name="Click2D" type="AudioStreamPlayer2D" parent="SFX"]
 stream = ExtResource("11_gchfu")
 
-[connection signal="pressed" from="UserInterface/VBoxContainer/Play_TextureButton" to="." method="_on_play_texture_button_pressed"]
-[connection signal="pressed" from="UserInterface/VBoxContainer/Tutorial_TextureButton" to="." method="_on_tutorial_texture_button_pressed"]
-[connection signal="pressed" from="UserInterface/VBoxContainer/Settings_TextureButton" to="." method="_on_settings_texture_button_pressed"]
-[connection signal="pressed" from="UserInterface/VBoxContainer/Quit_TextureButton" to="." method="_on_quit_texture_button_pressed"]
+[connection signal="pressed" from="UserInterface/VBoxContainer/Play TextureButton" to="." method="_on_play_texture_button_pressed"]
+[connection signal="pressed" from="UserInterface/VBoxContainer/Tutorial TextureButton" to="." method="_on_tutorial_texture_button_pressed"]
+[connection signal="pressed" from="UserInterface/VBoxContainer/Settings TextureButton" to="." method="_on_settings_texture_button_pressed"]
+[connection signal="pressed" from="UserInterface/VBoxContainer/Quit TextureButton" to="." method="_on_quit_texture_button_pressed"]

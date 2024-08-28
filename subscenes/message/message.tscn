@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://du20li6wou6fs"]
 
 [ext_resource type="Script" path="res://subscenes/message/message.gd" id="1_rdkls"]
-[ext_resource type="Theme" uid="uid://cmbhon2raxvsi" path="res://ui/themes/1.tres" id="2_d78wx"]
+[ext_resource type="Theme" uid="uid://bolebkbvwo6ci" path="res://ui/themes/label.tres" id="2_d78wx"]
 
 [node name="Message" type="CanvasLayer"]
 script = ExtResource("1_rdkls")

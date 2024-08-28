@@ -5,6 +5,7 @@ const SPEED = 0.04
 var wave = 0:
 	set(value):
 		wave = value
+		Signals.emit_signal("wave_change", wave)
 		match wave:
 			1: wave_1()
 			2: wave_2()

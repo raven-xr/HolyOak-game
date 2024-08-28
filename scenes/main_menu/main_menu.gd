@@ -2,10 +2,10 @@ extends Node2D
 
 @onready var click_2d = $SFX/Click2D
 @onready var radio = $SFX/Radio
-@onready var play_texture_button = $UserInterface/VBoxContainer/Play_TextureButton
-@onready var tutorial_texture_button = $UserInterface/VBoxContainer/Tutorial_TextureButton
-@onready var settings_texture_button = $UserInterface/VBoxContainer/Settings_TextureButton
-@onready var quit_texture_button = $UserInterface/VBoxContainer/Quit_TextureButton
+@onready var play_texture_button = $"UserInterface/VBoxContainer/Play TextureButton"
+@onready var tutorial_texture_button = $"UserInterface/VBoxContainer/Tutorial TextureButton"
+@onready var settings_texture_button = $"UserInterface/VBoxContainer/Settings TextureButton"
+@onready var quit_texture_button = $"UserInterface/VBoxContainer/Quit TextureButton"
 
 func _ready():
 	var tween = get_tree().create_tween()

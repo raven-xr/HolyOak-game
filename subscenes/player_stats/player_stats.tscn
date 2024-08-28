@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://bqlwentuopcga"]
+
+[ext_resource type="Script" path="res://subscenes/player_stats/player_stats.gd" id="1_c12a5"]
+[ext_resource type="StyleBox" uid="uid://vmpfg2epmbvw" path="res://ui/themes/style_box_texture.tres" id="2_kswh3"]
+[ext_resource type="Texture2D" uid="uid://b1qn2b7gegrxr" path="res://ui/icons/coin.png" id="2_nciiv"]
+[ext_resource type="Theme" uid="uid://b1fx26em7338w" path="res://subscenes/player_stats/panel_container.tres" id="2_u53bd"]
+[ext_resource type="Texture2D" uid="uid://4c8g1ew1w35u" path="res://ui/icons/saber.png" id="3_sqvlr"]
+
+[sub_resource type="Theme" id="Theme_nuwbn"]
+PanelContainer/styles/panel = ExtResource("2_kswh3")
+
+[node name="PlayerStats" type="CanvasLayer"]
+script = ExtResource("1_c12a5")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+modulate = Color(1, 1, 1, 0.784314)
+texture_filter = 1
+offset_left = 8.0
+offset_top = 16.0
+offset_right = 160.0
+offset_bottom = 72.0
+theme = ExtResource("2_u53bd")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme = SubResource("Theme_nuwbn")
+
+[node name="MoneyIcon" type="TextureRect" parent="PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 11
+size_flags_vertical = 5
+texture = ExtResource("2_nciiv")
+stretch_mode = 5
+
+[node name="MoneyValue" type="Label" parent="PanelContainer/HBoxContainer"]
+texture_filter = 2
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 11
+size_flags_vertical = 5
+theme_override_font_sizes/font_size = 26
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WaveIcon" type="TextureRect" parent="PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 11
+size_flags_vertical = 5
+size_flags_stretch_ratio = 20.0
+texture = ExtResource("3_sqvlr")
+stretch_mode = 5
+
+[node name="WaveValue" type="Label" parent="PanelContainer/HBoxContainer"]
+texture_filter = 2
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 11
+size_flags_vertical = 5
+theme_override_font_sizes/font_size = 26
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1

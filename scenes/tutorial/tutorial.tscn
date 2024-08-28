@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://3lquoy3mkrss"]
+[gd_scene load_steps=30 format=4 uid="uid://3lquoy3mkrss"]
 
 [ext_resource type="Texture2D" uid="uid://sasruh3frvel" path="res://tilesets/plains.png" id="1_ciagt"]
 [ext_resource type="Script" path="res://scenes/tutorial/tutorial.gd" id="1_xggr7"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://scenes/tutorial/path/point_2.gd" id="6_vpswp"]
 [ext_resource type="PackedScene" uid="uid://dgsn2o3sm3wgn" path="res://subscenes/holy_oak/holy_oak.tscn" id="9_m6f5k"]
 [ext_resource type="Texture2D" uid="uid://dpjii1ewymxj6" path="res://models/objects/objects.png" id="10_xgupy"]
+[ext_resource type="PackedScene" uid="uid://bqlwentuopcga" path="res://subscenes/player_stats/player_stats.tscn" id="15_cg5od"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q2wvg"]
 texture = ExtResource("2_hcy67")
@@ -1182,6 +1183,8 @@ volume_db = -40.0
 [node name="RadioFight" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("5_3hklw")
 volume_db = -40.0
+
+[node name="PlayerStats" parent="." instance=ExtResource("15_cg5od")]
 
 [connection signal="body_entered" from="Enemies/Point 1" to="Enemies/Point 1" method="_on_body_entered"]
 [connection signal="body_entered" from="Enemies/Point 2" to="Enemies/Point 2" method="_on_body_entered"]
