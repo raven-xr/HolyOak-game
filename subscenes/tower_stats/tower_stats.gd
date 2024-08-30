@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var click_2d = $SFX/Click2D
-@onready var value = $Value
+@onready var value = $Values/Label
 
 func _ready():
 	modulate = Color(1, 1, 1, 0)

@@ -2,7 +2,7 @@ extends Node2D
 
 var is_menu_opened = false
 var tower_preload = preload("res://towers/archers/tower.tscn")
-var stats_preload = preload("res://subscenes/stats/stats.tscn")
+var tower_stats_preload = preload("res://subscenes/tower_stats/tower_stats.tscn")
 var message_preload = preload("res://subscenes/message/message.tscn")
 
 @onready var sprite_2d = $Sprite2D
@@ -12,7 +12,7 @@ var message_preload = preload("res://subscenes/message/message.tscn")
 @onready var build_texture_button = $"Menu/Build TextureButton"
 @onready var upgrade_texture_button = $"Menu/Upgrade TextureButton"
 @onready var remove_texture_button = $"Menu/Remove TextureButton"
-@onready var stats_texture_button = $"Menu/Stats TextureButton"
+@onready var tower_stats_texture_button = $"Menu/TowerStats TextureButton"
 
 @export var default_direction: String = "U" # The default view direction of units: Up (U), Right (R), Down (D) or Left (L)
 
@@ -61,15 +61,15 @@ func _on_remove_texture_button_pressed():
 	sprite_2d.visible = true
 	close_menu()
 
-func _on_stats_texture_button_pressed():
+func _on_tower_stats_texture_button_pressed():
 	click_2d.play()
-	var new_stats = stats_preload.instantiate()
+	var new_tower_stats = tower_stats_preload.instantiate()
 	match default_direction:
-		"U": new_stats.position = Vector2(0.0, -144.0)
-		"R": new_stats.position = Vector2(192.0, 0.0)
-		"D": new_stats.position = Vector2(0.0, 144.0)
-		"L": new_stats.position = Vector2(-192.0, 0.0)
-	add_child(new_stats)
+		"U": new_tower_stats.position = Vector2(0.0, -144.0)
+		"R": new_tower_stats.position = Vector2(192.0, 0.0)
+		"D": new_tower_stats.position = Vector2(0.0, 144.0)
+		"L": new_tower_stats.position = Vector2(-192.0, 0.0)
+	add_child(new_tower_stats)
 	close_menu()
 
 func _on_touch_screen_button_pressed():
@@ -95,7 +95,7 @@ func open_menu():
 	else:
 		var tower = towers.get_child(0)
 		if tower.level > 0:
-			stats_texture_button.disabled = false
+			tower_stats_texture_button.disabled = false
 		if not(tower.is_upgrading):
 			remove_texture_button.disabled = false
 		if tower.can_be_upgraded():

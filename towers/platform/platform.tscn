@@ -78,7 +78,7 @@ texture_pressed = ExtResource("9_fkkgd")
 texture_hover = ExtResource("10_yy3kb")
 texture_disabled = ExtResource("11_2yq4y")
 
-[node name="Stats TextureButton" type="TextureButton" parent="Menu"]
+[node name="TowerStats TextureButton" type="TextureButton" parent="Menu"]
 modulate = Color(1, 1, 1, 0.784314)
 offset_left = 5.0
 offset_top = 2.0
@@ -99,4 +99,4 @@ stream = ExtResource("8_aghbs")
 [connection signal="pressed" from="Menu/Build TextureButton" to="." method="_on_build_texture_button_pressed"]
 [connection signal="pressed" from="Menu/Upgrade TextureButton" to="." method="_on_upgrade_texture_button_pressed"]
 [connection signal="pressed" from="Menu/Remove TextureButton" to="." method="_on_remove_texture_button_pressed"]
-[connection signal="pressed" from="Menu/Stats TextureButton" to="." method="_on_stats_texture_button_pressed"]
+[connection signal="pressed" from="Menu/TowerStats TextureButton" to="." method="_on_tower_stats_texture_button_pressed"]
