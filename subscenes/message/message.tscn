@@ -1,16 +1,38 @@
-[gd_scene load_steps=3 format=3 uid="uid://du20li6wou6fs"]
+[gd_scene load_steps=5 format=3 uid="uid://du20li6wou6fs"]
 
 [ext_resource type="Script" path="res://subscenes/message/message.gd" id="1_rdkls"]
-[ext_resource type="Theme" uid="uid://bolebkbvwo6ci" path="res://ui/themes/label.tres" id="2_d78wx"]
+[ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://ui/buttons/ui_border.png" id="2_hyt8o"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fjtag"]
+texture = ExtResource("2_hyt8o")
+texture_margin_left = 30.0
+texture_margin_top = 10.0
+texture_margin_right = 30.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="Theme" id="Theme_vm760"]
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_fjtag")
 
 [node name="Message" type="CanvasLayer"]
 script = ExtResource("1_rdkls")
 
-[node name="Label" type="Label" parent="."]
-offset_left = 320.0
-offset_top = 64.0
-offset_right = 896.0
-offset_bottom = 128.0
-theme = ExtResource("2_d78wx")
+[node name="PanelContainer" type="PanelContainer" parent="."]
+texture_filter = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.133
+anchor_right = 0.5
+anchor_bottom = 0.133
+offset_left = -200.0
+offset_top = -39.76
+offset_right = 200.0
+offset_bottom = 40.24
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_vm760")
+
+[node name="Label" type="Label" parent="PanelContainer"]
+texture_filter = 2
+layout_mode = 2
 horizontal_alignment = 1
 vertical_alignment = 1

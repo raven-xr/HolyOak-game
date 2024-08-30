@@ -1,6 +1,13 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bolebkbvwo6ci"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bolebkbvwo6ci"]
 
-[ext_resource type="StyleBox" uid="uid://vmpfg2epmbvw" path="res://ui/themes/style_box_texture.tres" id="1_owgvq"]
+[ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://ui/buttons/ui_border.png" id="1_wk83n"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n2w0r"]
+texture = ExtResource("1_wk83n")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
 
 [resource]
-Label/styles/normal = ExtResource("1_owgvq")
+Label/styles/normal = SubResource("StyleBoxTexture_n2w0r")
