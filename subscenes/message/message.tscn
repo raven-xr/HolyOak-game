@@ -17,6 +17,7 @@ PanelContainer/styles/panel = SubResource("StyleBoxTexture_fjtag")
 script = ExtResource("1_rdkls")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+modulate = Color(1, 1, 1, 0.784314)
 texture_filter = 1
 anchors_preset = -1
 anchor_left = 0.5
