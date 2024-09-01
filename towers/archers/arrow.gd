@@ -26,7 +26,8 @@ func _physics_process(delta):
 	if distance_to_archer > attack_range:
 		self_destruct()
 	# Change direction if only target available (not dead or not too far)
-	if target_available:                
+	await get_tree().create_timer(1 / Engine.get_frames_per_second()).timeout
+	if target_available:            
 		direction = (target.global_position - global_position).normalized()
 		look_at(target.global_position)
 		velocity = direction * SPEED * delta
@@ -39,8 +40,8 @@ func _on_area_2d_body_entered(body):
 		hit_2d.play()
 		self_destruct()
 
-func _on_target_die(died_target):
-	if target == died_target:
+func _on_target_die(body):
+	if target == body:
 		self_destruct()
 
 func self_destruct():
