@@ -13,6 +13,7 @@ var message_preload = preload("res://subscenes/message/message.tscn")
 @onready var upgrade_texture_button = $"Menu/Upgrade TextureButton"
 @onready var remove_texture_button = $"Menu/Remove TextureButton"
 @onready var tower_stats_texture_button = $"Menu/TowerStats TextureButton"
+@onready var tower_stats = $TowerStats
 
 @export var default_direction: String = "U" # The default view direction of units: Up (U), Right (R), Down (D) or Left (L)
 
@@ -56,6 +57,7 @@ func _on_upgrade_texture_button_pressed():
 
 func _on_remove_texture_button_pressed():
 	click_2d.play()
+	tower_stats_texture_button.disabled = true
 	var tower = towers.get_child(0)
 	tower.destruction()
 	sprite_2d.visible = true
@@ -69,7 +71,7 @@ func _on_tower_stats_texture_button_pressed():
 		"R": new_tower_stats.position = Vector2(192.0, 0.0)
 		"D": new_tower_stats.position = Vector2(0.0, 144.0)
 		"L": new_tower_stats.position = Vector2(-192.0, 0.0)
-	add_child(new_tower_stats)
+	tower_stats.add_child(new_tower_stats)
 	close_menu()
 
 func _on_touch_screen_button_pressed():
@@ -90,13 +92,17 @@ func open_menu():
 	var tween = create_tween()
 	tween.tween_property(menu, "modulate", Color(1, 1, 1, 1), 0.1)
 	is_menu_opened = true
+	# Close tower stats
+	if tower_stats.get_child_count() == 1:
+		tower_stats.get_child(0)._on_close_button_pressed()
+	# Enable buttons
 	if towers.get_child_count() == 0:
 		build_texture_button.disabled = false
 	else:
 		var tower = towers.get_child(0)
-		if tower.level > 0:
-			tower_stats_texture_button.disabled = false
 		if not(tower.is_upgrading):
+			if tower.level > 0:
+				tower_stats_texture_button.disabled = false
 			remove_texture_button.disabled = false
 		if tower.can_be_upgraded():
 			upgrade_texture_button.disabled = false

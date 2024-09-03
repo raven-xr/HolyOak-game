@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://bqlwentuopcga"]
 
-[ext_resource type="Script" path="res://subscenes/player_stats/player_stats.gd" id="1_c12a5"]
-[ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://ui/buttons/ui_border.png" id="2_aqrbu"]
-[ext_resource type="Texture2D" uid="uid://b1qn2b7gegrxr" path="res://ui/icons/coin.png" id="2_nciiv"]
-[ext_resource type="Texture2D" uid="uid://4c8g1ew1w35u" path="res://ui/icons/saber.png" id="3_sqvlr"]
+[ext_resource type="Script" path="res://subscenes/player_stats_ui/player_stats_ui.gd" id="1_ik8os"]
+[ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://ui/buttons/ui_border.png" id="2_q5vog"]
+[ext_resource type="Texture2D" uid="uid://b1qn2b7gegrxr" path="res://ui/icons/coin.png" id="3_rl6an"]
+[ext_resource type="Texture2D" uid="uid://4c8g1ew1w35u" path="res://ui/icons/saber.png" id="4_280ci"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ptevb"]
-texture = ExtResource("2_aqrbu")
+texture = ExtResource("2_q5vog")
 texture_margin_left = 15.0
 texture_margin_top = 10.0
 texture_margin_right = 15.0
@@ -17,8 +17,8 @@ PanelContainer/styles/panel = SubResource("StyleBoxTexture_ptevb")
 
 [sub_resource type="Theme" id="Theme_nuwbn"]
 
-[node name="PlayerStats" type="CanvasLayer"]
-script = ExtResource("1_c12a5")
+[node name="PlayerStatsUI" type="CanvasLayer"]
+script = ExtResource("1_ik8os")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 modulate = Color(1, 1, 1, 0.784314)
@@ -38,7 +38,7 @@ custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 11
 size_flags_vertical = 5
-texture = ExtResource("2_nciiv")
+texture = ExtResource("3_rl6an")
 stretch_mode = 5
 
 [node name="MoneyValue" type="Label" parent="PanelContainer/HBoxContainer"]
@@ -58,7 +58,7 @@ layout_mode = 2
 size_flags_horizontal = 11
 size_flags_vertical = 5
 size_flags_stretch_ratio = 20.0
-texture = ExtResource("3_sqvlr")
+texture = ExtResource("4_280ci")
 stretch_mode = 5
 
 [node name="WaveValue" type="Label" parent="PanelContainer/HBoxContainer"]

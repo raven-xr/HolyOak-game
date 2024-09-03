@@ -58,9 +58,9 @@ func upgrading():
 		new_unit()
 	# Inform the platform that the tower finsihed upgrading
 	is_upgrading = false
-	# If the platform interface is opened, then enable remove button
+	# If the platform interface is opened, then enable remove, upgrade and tower stats button
 	get_parent().get_parent().remove_texture_button.disabled = false
-	# If the platform interface is opened, then enable upgrade button
+	get_parent().get_parent().tower_stats_texture_button.disabled = false
 	if max_level != level:
 		get_parent().get_parent().upgrade_texture_button.disabled = false
 
@@ -100,8 +100,6 @@ func destruction():
 		child.is_active = false
 	# If the platform interface is opened, then enable build button
 	get_parent().get_parent().build_texture_button.disabled = false
-	# If the platform interface is opened, then disable build button
-	get_parent().get_parent().stats_texture_button.disabled = true
 	# Remove the tower
 	queue_free()
 

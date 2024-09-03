@@ -1,5 +1,9 @@
 extends Node
 
+var health: int = 500:
+	set(value):
+		health = value
+		Signals.emit_signal("health_change", health)
 # These values are given by the level
 var money: int:
 	set(value):

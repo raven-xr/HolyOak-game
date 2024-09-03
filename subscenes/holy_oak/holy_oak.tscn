@@ -1,11 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://dgsn2o3sm3wgn"]
+[gd_scene load_steps=17 format=3 uid="uid://dgsn2o3sm3wgn"]
 
 [ext_resource type="Script" path="res://subscenes/holy_oak/holy_oak.gd" id="2_7gaut"]
 [ext_resource type="PackedScene" uid="uid://cfcu8rgqvu2xp" path="res://effects/leaf/leaf.tscn" id="3_lbct2"]
 [ext_resource type="Texture2D" uid="uid://bpnrlouguuu7u" path="res://effects/leaf/leaf_borders.png" id="4_biqay"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wjjv1"]
-size = Vector2(176, 88)
+[ext_resource type="Texture2D" uid="uid://csqcs50777862" path="res://ui/bar/under.png" id="4_rm8iu"]
+[ext_resource type="Texture2D" uid="uid://boaa0e660wu5i" path="res://ui/bar/over.png" id="5_0047w"]
+[ext_resource type="Texture2D" uid="uid://b1b46e6q0k5ve" path="res://ui/bar/progress.png" id="6_nox6o"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3yd53"]
 load_path = "res://.godot/imported/objects.png-7f22702c00ede1036b55d6d96eaa04fb.ctex"
@@ -61,21 +61,35 @@ hue_variation_min = -2.23517e-08
 hue_variation_max = 0.2
 hue_variation_curve = SubResource("CurveTexture_thxog")
 
-[node name="StaticBody2D" type="StaticBody2D"]
-collision_layer = 2
-collision_mask = 0
-script = ExtResource("2_7gaut")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 60)
-shape = SubResource("RectangleShape2D_wjjv1")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="HolyOak" type="Sprite2D"]
 texture_filter = 1
 scale = Vector2(3.33333, 3.33333)
 texture = SubResource("CompressedTexture2D_3yd53")
 region_enabled = true
 region_rect = Rect2(0, 80, 48, 64)
+script = ExtResource("2_7gaut")
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.8
+offset_top = -71.9
+offset_right = 7.19999
+offset_bottom = -60.9
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+max_value = 500.0
+value = 500.0
+texture_under = ExtResource("4_rm8iu")
+texture_over = ExtResource("5_0047w")
+texture_progress = ExtResource("6_nox6o")
+tint_over = Color(0.392157, 0.196078, 0.196078, 1)
+tint_progress = Color(0.729412, 0, 0, 1)
 
 [node name="GFX" type="Node2D" parent="."]
 
