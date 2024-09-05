@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dgsn2o3sm3wgn" path="res://subscenes/holy_oak/holy_oak.tscn" id="9_m6f5k"]
 [ext_resource type="Script" path="res://scenes/tutorial/path/point_3.gd" id="10_xglxs"]
 [ext_resource type="Texture2D" uid="uid://dpjii1ewymxj6" path="res://models/objects/objects.png" id="10_xgupy"]
-[ext_resource type="PackedScene" uid="uid://bqlwentuopcga" path="res://subscenes/player_stats_ui/player_stats_ui.tscn" id="15_cg5od"]
+[ext_resource type="PackedScene" uid="uid://bqlwentuopcga" path="res://subscenes/ui_stats/ui_stats.tscn" id="15_cg5od"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q2wvg"]
 texture = ExtResource("2_hcy67")
