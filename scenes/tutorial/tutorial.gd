@@ -8,6 +8,7 @@ enum States {
 }
 
 var is_enemy_spawning = false
+var data = LevelData.tutorial
 var state:
 	set(value):
 		state = value
@@ -42,8 +43,9 @@ func _ready():
 	# Connect signals
 	Signals.connect("target_die", Callable(self, "_on_target_die"))
 	# Update PlayerStats
-	PlayerStats.money = 200
-	PlayerStats.max_level = 3
+	PlayerStats.health = data['health']
+	PlayerStats.money = data['money']
+	PlayerStats.max_level = data['max_level']
 	# Getting ready
 	modulate = Color(0, 0, 0, 1)
 	var tween_1 = get_tree().create_tween()
