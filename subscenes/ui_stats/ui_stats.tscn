@@ -35,6 +35,7 @@ layout_mode = 2
 theme = SubResource("Theme_nuwbn")
 
 [node name="HPIcon" type="TextureRect" parent="PanelContainer/HBoxContainer"]
+modulate = Color(0.894376, 0, 0.152256, 1)
 custom_minimum_size = Vector2(36, 36)
 layout_mode = 2
 size_flags_horizontal = 11
