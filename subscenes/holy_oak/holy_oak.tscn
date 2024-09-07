@@ -41,10 +41,11 @@ curve = SubResource("Curve_j8x30")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fwrlk"]
 particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(52, 52, 1)
+emission_shape = 1
+emission_sphere_radius = 24.0
 direction = Vector3(0, -1, 0)
-initial_velocity_min = -10.0
+initial_velocity_min = -5.0
+initial_velocity_max = 5.0
 angular_velocity_min = -1.60933e-05
 angular_velocity_max = 20.0
 gravity = Vector3(0, 25, 0)
@@ -92,7 +93,7 @@ tint_progress = Color(0.729412, 0, 0, 1)
 [node name="GFX" type="Node2D" parent="."]
 
 [node name="Leaves" parent="GFX" instance=ExtResource("3_lbct2")]
-position = Vector2(0, -32)
+position = Vector2(0, -9.60001)
 process_material = SubResource("ParticleProcessMaterial_fwrlk")
 texture = ExtResource("4_biqay")
 lifetime = 2.0
