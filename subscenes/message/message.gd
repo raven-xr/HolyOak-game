@@ -1,6 +1,7 @@
 extends CanvasLayer
 
-var text: String # The value is given by the parent
+# These variables are given by the parent
+var text: String = ''
 
 @onready var panel_container = $PanelContainer
 @onready var label = $PanelContainer/Label
