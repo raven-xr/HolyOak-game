@@ -1,34 +1,31 @@
 extends Node2D
 
-const WAVE_COUNT = 3
-
 enum States {
 	IDLE,
 	FIGHT
 }
 
-var is_enemy_spawning = false
 var data = LevelData.tutorial
+var wave_count = data['wave_count']
+
+var is_enemy_spawning = false
 var state:
 	set(value):
 		state = value
 		match state:
 			States.IDLE: idle_state(10.0)
 			States.FIGHT: fight_state()
-var enemy_count = 0:
+var current_enemy_count = 0:
 	set(value):
-		enemy_count = value
-		if enemy_count == 0 and not is_enemy_spawning:
+		current_enemy_count = value
+		if current_enemy_count == 0 and not is_enemy_spawning:
 			await get_tree().create_timer(7.5).timeout
 			wave += 1
 var wave = 0:
 	set(value):
 		wave = value
 		Signals.emit_signal("wave_change", wave)
-		match wave:
-			1: new_wave(3, 2.0)
-			2: new_wave(5, 2.0)
-			3: new_wave(7, 1.5)
+		new_wave(wave)
 var ork_preload = preload("res://enemies/ork/enemy.tscn")
 var message_preload = preload("res://subscenes/message/message.tscn")
 
@@ -76,20 +73,22 @@ func fight_state():
 	tween_2.parallel().tween_property(radio_fight, "volume_db", -20, 4.0)
 	await tween_2.finished
 	# Fight
-	if wave != WAVE_COUNT:
+	if wave != wave_count:
 		wave += 1
 		var new_message = message_preload.instantiate()
 		new_message.text = str('Wave ', wave)
 		user_interface.add_child(new_message)
 
-func new_wave(count: int, cooldown: float):
+func new_wave(number):
+	var enemy_count = data[str('wave_', number)]['enemy_count']
+	var spawn_cooldown = data[str('wave_', number)]['spawn_cooldown']
 	is_enemy_spawning = true
-	for i in range(count):
-		await get_tree().create_timer(cooldown).timeout
+	for i in range(enemy_count):
+		await get_tree().create_timer(spawn_cooldown).timeout
 		var new_ork = ork_preload.instantiate()
 		enemies.add_child(new_ork)
-		enemy_count += 1
+		current_enemy_count += 1
 	is_enemy_spawning = false
 
 func _on_target_die(_body):
-	enemy_count -= 1
+	current_enemy_count -= 1
