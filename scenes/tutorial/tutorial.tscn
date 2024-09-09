@@ -434,7 +434,7 @@ region_rect = Rect2(96, 112, 32, 32)
 
 [node name="Bush_1_12" type="Sprite2D" parent="Objects/Bushes"]
 texture_filter = 1
-position = Vector2(928, 40)
+position = Vector2(928, 48)
 texture = ExtResource("10_xgupy")
 region_enabled = true
 region_rect = Rect2(96, 112, 32, 32)
@@ -546,7 +546,7 @@ region_rect = Rect2(128, 96, 32, 48)
 
 [node name="Bush_2_4" type="Sprite2D" parent="Objects/Bushes"]
 texture_filter = 1
-position = Vector2(456, 16)
+position = Vector2(456, 40)
 texture = ExtResource("10_xgupy")
 region_enabled = true
 region_rect = Rect2(128, 96, 32, 48)
