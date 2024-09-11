@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var leaves = $Leaves
+@onready var leaves = $GFX/Leaves
 @onready var health_bar = $HealthBar
 
 func _ready():

@@ -64,16 +64,12 @@ hue_variation_curve = SubResource("CurveTexture_thxog")
 [node name="HolyOak" type="Node2D"]
 script = ExtResource("2_7gaut")
 
-[node name="GFX Layer 1" type="Node2D" parent="."]
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(3.33333, 3.33333)
 texture = SubResource("CompressedTexture2D_3yd53")
 region_enabled = true
 region_rect = Rect2(0, 80, 48, 64)
-
-[node name="GFX Layer 2" type="Node2D" parent="."]
 
 [node name="HealthBar" type="TextureProgressBar" parent="."]
 texture_filter = 1
@@ -96,7 +92,9 @@ texture_progress = ExtResource("3_74csr")
 tint_over = Color(0.392157, 0.196078, 0.196078, 1)
 tint_progress = Color(0.729412, 0, 0, 1)
 
-[node name="Leaves" parent="." instance=ExtResource("3_lbct2")]
+[node name="GFX" type="Node2D" parent="."]
+
+[node name="Leaves" parent="GFX" instance=ExtResource("3_lbct2")]
 position = Vector2(0, -32)
 process_material = SubResource("ParticleProcessMaterial_fwrlk")
 texture = ExtResource("4_biqay")
