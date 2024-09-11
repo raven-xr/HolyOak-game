@@ -1,0 +1,80 @@
+[gd_scene load_steps=12 format=3 uid="uid://b73h7y67qtev7"]
+
+[ext_resource type="Texture2D" uid="uid://cdkyjm6f22r6l" path="res://effects/flame/flame.png" id="1_uk2s6"]
+[ext_resource type="Texture2D" uid="uid://3ejdt1l4uksx" path="res://effects/spotlight/spotlight.png" id="2_k02ak"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahb75"]
+atlas = ExtResource("1_uk2s6")
+region = Rect2(0, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8gd6"]
+atlas = ExtResource("1_uk2s6")
+region = Rect2(24, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dchhe"]
+atlas = ExtResource("1_uk2s6")
+region = Rect2(48, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppqcc"]
+atlas = ExtResource("1_uk2s6")
+region = Rect2(72, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ldgy"]
+atlas = ExtResource("1_uk2s6")
+region = Rect2(96, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ni2kx"]
+atlas = ExtResource("1_uk2s6")
+region = Rect2(120, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tt2dg"]
+atlas = ExtResource("1_uk2s6")
+region = Rect2(144, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxovh"]
+atlas = ExtResource("1_uk2s6")
+region = Rect2(168, 0, 24, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uotlg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahb75")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8gd6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dchhe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppqcc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ldgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ni2kx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tt2dg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxovh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Flame" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_uotlg")
+autoplay = "default"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 1, 0, 1)
+texture = ExtResource("2_k02ak")

@@ -1,6 +1,6 @@
-extends Sprite2D
+extends Node2D
 
-@onready var leaves = $GFX/Leaves
+@onready var leaves = $Leaves
 @onready var health_bar = $HealthBar
 
 func _ready():
