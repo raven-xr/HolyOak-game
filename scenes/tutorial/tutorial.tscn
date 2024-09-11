@@ -297,8 +297,8 @@ a = Vector2(-48, 0)
 b = Vector2(48, 0)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_183m5"]
-a = Vector2(0, -40)
-b = Vector2(0, 40)
+a = Vector2(0, -48)
+b = Vector2(0, 48)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3yd53"]
 load_path = "res://.godot/imported/objects.png-7f22702c00ede1036b55d6d96eaa04fb.ctex"
@@ -332,7 +332,7 @@ script = ExtResource("5_8v03p")
 shape = SubResource("SegmentShape2D_kl0bb")
 
 [node name="Point 2" type="Area2D" parent="Enemies"]
-position = Vector2(816, 528)
+position = Vector2(799, 528)
 collision_layer = 0
 script = ExtResource("6_vpswp")
 
@@ -1185,6 +1185,7 @@ default_direction = "R"
 position = Vector2(208, 638)
 
 [node name="SFX" type="Node2D" parent="."]
+process_mode = 3
 
 [node name="RadioIdle" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("4_f16wc")
@@ -1195,6 +1196,7 @@ stream = ExtResource("5_3hklw")
 volume_db = -40.0
 
 [node name="UserInterface" type="Node2D" parent="."]
+process_mode = 3
 
 [node name="PlayerStats" parent="UserInterface" instance=ExtResource("15_cg5od")]
 

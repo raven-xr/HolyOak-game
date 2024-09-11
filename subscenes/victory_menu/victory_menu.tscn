@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://dqhv5ii03kgra"]
+
+[ext_resource type="Script" path="res://subscenes/victory_menu/victory_menu.gd" id="1_di8ui"]
+[ext_resource type="Theme" uid="uid://b1fx26em7338w" path="res://ui/themes/panel_container.tres" id="2_80537"]
+[ext_resource type="Texture2D" uid="uid://d1oi14t2bwpjl" path="res://ui/icons/next.svg" id="3_0u3n8"]
+[ext_resource type="Texture2D" uid="uid://c17d2n1jjcd8t" path="res://ui/icons/menu.svg" id="4_ax0yb"]
+[ext_resource type="AudioStream" uid="uid://c67yq2gixjlbo" path="res://audio/sfx/click.mp3" id="5_3lhfe"]
+[ext_resource type="AudioStream" uid="uid://corhdd0psymkp" path="res://audio/sfx/victory.mp3" id="6_ywb7t"]
+
+[node name="VictoryMenu" type="CanvasLayer"]
+script = ExtResource("1_di8ui")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+texture_filter = 1
+offset_left = 512.0
+offset_top = 320.0
+offset_right = 768.0
+offset_bottom = 384.0
+theme = ExtResource("2_80537")
+
+[node name="Next Button" type="Button" parent="PanelContainer"]
+texture_filter = 2
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+icon = ExtResource("3_0u3n8")
+
+[node name="Label" type="Label" parent="PanelContainer"]
+texture_filter = 2
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Вы победили!"
+horizontal_alignment = 1
+
+[node name="Menu Button" type="Button" parent="PanelContainer"]
+texture_filter = 2
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+icon = ExtResource("4_ax0yb")
+
+[node name="SFX" type="Node2D" parent="."]
+
+[node name="Click" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("5_3lhfe")
+
+[node name="Victory" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("6_ywb7t")
+volume_db = -10.0
+
+[connection signal="pressed" from="PanelContainer/Next Button" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="PanelContainer/Menu Button" to="." method="_on_menu_button_pressed"]

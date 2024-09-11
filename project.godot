@@ -18,10 +18,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Signals="*res://scenes/global/Signals.gd"
-UnitStats="*res://scenes/global/UnitStats.gd"
-PlayerStats="*res://scenes/global/PlayerStats.gd"
-LevelData="*res://scenes/global/LevelData.gd"
+Signals="*res://global/Signals.gd"
+UnitStats="*res://global/UnitStats.gd"
+PlayerStats="*res://global/PlayerStats.gd"
+LevelData="*res://global/LevelData.gd"
 
 [display]
 

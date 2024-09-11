@@ -7,6 +7,7 @@ enum States {
 
 var data = LevelData.tutorial
 var wave_count = data['wave_count']
+var next_level_path = "res://scenes/main_menu/main_menu.tscn" # !!!
 
 var is_enemy_spawning = false
 var state:
@@ -23,11 +24,17 @@ var current_enemy_count = 0:
 			wave += 1
 var wave = 0:
 	set(value):
-		wave = value
-		Signals.emit_signal("wave_change", wave)
-		new_wave(wave)
+		if wave != wave_count:
+			wave = value
+			Signals.emit_signal("wave_change", wave)
+			new_wave(wave)
+		else:
+			victory()
+
 var ork_preload = preload("res://enemies/ork/enemy.tscn")
 var message_preload = preload("res://subscenes/message/message.tscn")
+var defeat_menu_preload = preload("res://subscenes/defeat_menu/defeat_menu.tscn")
+var victory_menu_preload = preload("res://subscenes/victory_menu/victory_menu.tscn")
 
 @onready var radio_idle = $SFX/RadioIdle
 @onready var radio_fight = $SFX/RadioFight
@@ -39,6 +46,7 @@ var message_preload = preload("res://subscenes/message/message.tscn")
 func _ready():
 	# Connect signals
 	Signals.connect("target_die", Callable(self, "_on_target_die"))
+	Signals.connect("health_change", Callable(self, "_on_health_change"))
 	# Update PlayerStats
 	PlayerStats.health = data['health']
 	PlayerStats.money = data['money']
@@ -73,11 +81,10 @@ func fight_state():
 	tween_2.parallel().tween_property(radio_fight, "volume_db", -20, 4.0)
 	await tween_2.finished
 	# Fight
-	if wave != wave_count:
-		wave += 1
-		var new_message = message_preload.instantiate()
-		new_message.text = str('Wave ', wave)
-		user_interface.add_child(new_message)
+	wave += 1
+	var new_message = message_preload.instantiate()
+	new_message.text = str('Wave ', wave)
+	user_interface.add_child(new_message)
 
 func new_wave(number):
 	var enemy_count = data[str('wave_', number)]['enemy_count']
@@ -92,3 +99,17 @@ func new_wave(number):
 
 func _on_target_die(_body):
 	current_enemy_count -= 1
+
+func _on_health_change(value):
+	if value <= 0:
+		defeat()
+
+func defeat():
+	var defeat_menu = defeat_menu_preload.instantiate()
+	user_interface.add_child(defeat_menu)
+	get_tree().paused = true
+
+func victory():
+	var victory_menu = victory_menu_preload.instantiate()
+	user_interface.add_child(victory_menu)
+	get_tree().paused = true
