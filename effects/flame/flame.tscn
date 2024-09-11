@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://b73h7y67qtev7"]
+[gd_scene load_steps=11 format=3 uid="uid://b73h7y67qtev7"]
 
 [ext_resource type="Texture2D" uid="uid://cdkyjm6f22r6l" path="res://effects/flame/flame.png" id="1_uk2s6"]
-[ext_resource type="Texture2D" uid="uid://3ejdt1l4uksx" path="res://effects/spotlight/spotlight.png" id="2_k02ak"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ahb75"]
 atlas = ExtResource("1_uk2s6")
@@ -74,7 +73,3 @@ texture_filter = 1
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_uotlg")
 autoplay = "default"
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-color = Color(1, 1, 0, 1)
-texture = ExtResource("2_k02ak")
