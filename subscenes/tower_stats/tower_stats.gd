@@ -24,6 +24,9 @@ func _on_update_data_button_pressed():
 
 func _on_close_button_pressed():
 	click_2d.play()
+	close()
+
+func close():
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 0.1)
 	await tween.finished

@@ -94,7 +94,7 @@ func open_menu():
 	is_menu_opened = true
 	# Close tower stats
 	if tower_stats.get_child_count() == 1:
-		tower_stats.get_child(0)._on_close_button_pressed()
+		tower_stats.get_child(0).close()
 	# Enable buttons
 	if towers.get_child_count() == 0:
 		build_texture_button.disabled = false
