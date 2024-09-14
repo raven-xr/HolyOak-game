@@ -1,7 +1,7 @@
 extends Node
 
 var tutorial = {
-	'health': 500,
+	'health': 100,
 	'money': 300,
 	'max_level': 2,
 	'wave_count': 3,
