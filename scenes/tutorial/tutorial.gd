@@ -107,9 +107,7 @@ func _on_health_change(value):
 func defeat():
 	var defeat_menu = defeat_menu_preload.instantiate()
 	user_interface.add_child(defeat_menu)
-	get_tree().paused = true
 
 func victory():
 	var victory_menu = victory_menu_preload.instantiate()
 	user_interface.add_child(victory_menu)
-	get_tree().paused = true
