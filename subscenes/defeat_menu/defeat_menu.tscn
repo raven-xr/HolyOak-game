@@ -28,12 +28,12 @@ offset_right = 768.0
 offset_bottom = 384.0
 theme = SubResource("Theme_oedc1")
 
-[node name="Restart Button" type="Button" parent="PanelContainer"]
+[node name="Menu Button" type="Button" parent="PanelContainer"]
 texture_filter = 2
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
-icon = ExtResource("3_q1ncl")
+icon = ExtResource("4_ioxxa")
 
 [node name="Label" type="Label" parent="PanelContainer"]
 texture_filter = 2
@@ -42,12 +42,12 @@ size_flags_horizontal = 4
 text = "Вы проиграли"
 horizontal_alignment = 1
 
-[node name="Menu Button" type="Button" parent="PanelContainer"]
+[node name="Restart Button" type="Button" parent="PanelContainer"]
 texture_filter = 2
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
-icon = ExtResource("4_ioxxa")
+icon = ExtResource("3_q1ncl")
 
 [node name="SFX" type="Node2D" parent="."]
 
@@ -58,5 +58,5 @@ stream = ExtResource("5_2pay6")
 stream = ExtResource("6_jhyhy")
 volume_db = -10.0
 
-[connection signal="pressed" from="PanelContainer/Restart Button" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="PanelContainer/Menu Button" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="PanelContainer/Restart Button" to="." method="_on_restart_button_pressed"]
