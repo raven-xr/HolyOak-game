@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var click_2d = $SFX/Click2D
+@onready var click = $SFX/Click
 @onready var radio = $SFX/Radio
 @onready var play_texture_button = $"UserInterface/VBoxContainer/Play TextureButton"
 @onready var tutorial_texture_button = $"UserInterface/VBoxContainer/Tutorial TextureButton"
@@ -12,25 +12,25 @@ func _ready():
 	tween.tween_property(radio, "volume_db", -4.0, 4.0)
 
 func _on_play_texture_button_pressed():
-	click_2d.play()
+	click.play()
 	change_level()
 	await get_tree().create_timer(4.0).timeout
 	get_tree().change_scene_to_file("res://scenes/levels/levels.tscn")
 
 func _on_tutorial_texture_button_pressed():
-	click_2d.play()
+	click.play()
 	change_level()
 	await get_tree().create_timer(4.0).timeout
 	get_tree().change_scene_to_file("res://scenes/tutorial/tutorial.tscn")
 
 func _on_settings_texture_button_pressed():
-	click_2d.play()
-	await click_2d.finished
+	click.play()
+	await click.finished
 	get_tree().change_scene_to_file("res://scenes/settings/settings.tscn")
 
 func _on_quit_texture_button_pressed():
-	click_2d.play()
-	await click_2d.finished
+	click.play()
+	await click.finished
 	get_tree().quit()
 
 func change_level():
