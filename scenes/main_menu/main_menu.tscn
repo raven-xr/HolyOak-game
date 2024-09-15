@@ -1,8 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://die1k42jfmahn"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_ab7jh"]
-[ext_resource type="Texture2D" uid="uid://bdbcrxa2815rn" path="res://scenes/main_menu/main_menu.jpeg" id="1_tludv"]
-[ext_resource type="AudioStream" uid="uid://dixlwjxgl2uwo" path="res://audio/music/aaron_kenny-yonder_hill_and_dale.mp3" id="2_el0v2"]
+[ext_resource type="Texture2D" uid="uid://bdbcrxa2815rn" path="res://ui/backgrounds/main_menu.jpeg" id="1_tludv"]
 [ext_resource type="Texture2D" uid="uid://d3cbse0cdcpi4" path="res://ui/buttons/play_default.png" id="2_kfanh"]
 [ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://ui/buttons/ui_border.png" id="3_m4171"]
 [ext_resource type="Texture2D" uid="uid://cv3g2mky4f7fj" path="res://ui/buttons/play_hover.png" id="4_6ivh4"]
@@ -13,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c1dflmc63lvtd" path="res://ui/buttons/quit_hover.png" id="7_5g4hg"]
 [ext_resource type="Texture2D" uid="uid://dbaw65axdean" path="res://ui/buttons/tutorial_hover.png" id="7_vpetr"]
 [ext_resource type="AudioStream" uid="uid://c67yq2gixjlbo" path="res://audio/sfx/click.mp3" id="11_gchfu"]
+[ext_resource type="AudioStream" uid="uid://c1ry2e65jvwxj" path="res://audio/music/alexander_nakarada-adventure_beyond.mp3" id="12_dqf76"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cqt0x"]
 texture = ExtResource("3_m4171")
@@ -77,8 +77,8 @@ texture_hover = ExtResource("7_5g4hg")
 [node name="SFX" type="Node2D" parent="."]
 
 [node name="Radio" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource("2_el0v2")
-volume_db = -30.0
+stream = ExtResource("12_dqf76")
+volume_db = -15.0
 autoplay = true
 
 [node name="Click" type="AudioStreamPlayer" parent="SFX"]
