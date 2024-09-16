@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://sqtg0w21y043"]
+
+[ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://ui/buttons/ui_border.png" id="1_tykjn"]
+[ext_resource type="Script" path="res://subscenes/game_menu/game_menu.gd" id="1_ux5sl"]
+[ext_resource type="FontFile" uid="uid://5wohy1go68x5" path="res://ui/fonts/Tribal Garamond.ttf" id="2_td3s4"]
+[ext_resource type="AudioStream" uid="uid://c67yq2gixjlbo" path="res://audio/sfx/click.mp3" id="4_oqbhg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_60xpl"]
+texture = ExtResource("1_tykjn")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+expand_margin_left = 7.0
+expand_margin_top = 10.0
+expand_margin_right = 7.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="Theme" id="Theme_sqy7h"]
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_60xpl")
+
+[node name="GameMenu" type="CanvasLayer"]
+script = ExtResource("1_ux5sl")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+texture_filter = 1
+offset_left = 576.0
+offset_top = 280.0
+offset_right = 704.0
+offset_bottom = 425.0
+theme = SubResource("Theme_sqy7h")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+texture_filter = 1
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+texture_filter = 2
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_td3s4")
+theme_override_font_sizes/font_size = 24
+text = "PAUSE"
+horizontal_alignment = 1
+
+[node name="Resume Button" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_td3s4")
+text = "RESUME"
+
+[node name="Settings Button" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_td3s4")
+text = "SETTINGS"
+
+[node name="Quit Button" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_td3s4")
+text = "QUIT"
+
+[node name="SFX" type="Node2D" parent="."]
+
+[node name="Click" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("4_oqbhg")
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Resume Button" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Settings Button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Quit Button" to="." method="_on_quit_button_pressed"]

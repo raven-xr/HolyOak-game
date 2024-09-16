@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://3lquoy3mkrss"]
+[gd_scene load_steps=32 format=4 uid="uid://3lquoy3mkrss"]
 
 [ext_resource type="Texture2D" uid="uid://sasruh3frvel" path="res://tilesets/plains.png" id="1_ciagt"]
 [ext_resource type="Script" path="res://scenes/tutorial/tutorial.gd" id="1_xggr7"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://scenes/tutorial/path/point_3.gd" id="10_xglxs"]
 [ext_resource type="Texture2D" uid="uid://dpjii1ewymxj6" path="res://models/objects/objects.png" id="10_xgupy"]
 [ext_resource type="PackedScene" uid="uid://bqlwentuopcga" path="res://subscenes/ui_stats/ui_stats.tscn" id="15_cg5od"]
+[ext_resource type="Texture2D" uid="uid://c17d2n1jjcd8t" path="res://ui/icons/menu.svg" id="17_qle6i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q2wvg"]
 texture = ExtResource("2_hcy67")
@@ -1200,6 +1201,14 @@ process_mode = 3
 
 [node name="PlayerStats" parent="UserInterface" instance=ExtResource("15_cg5od")]
 
+[node name="MenuButton" type="Button" parent="UserInterface"]
+offset_left = 1232.0
+offset_top = 16.0
+offset_right = 1264.0
+offset_bottom = 48.0
+icon = ExtResource("17_qle6i")
+
 [connection signal="body_entered" from="Enemies/Point 1" to="Enemies/Point 1" method="_on_body_entered"]
 [connection signal="body_entered" from="Enemies/Point 2" to="Enemies/Point 2" method="_on_body_entered"]
 [connection signal="body_entered" from="Enemies/Point 3" to="Enemies/Point 3" method="_on_body_entered"]
+[connection signal="pressed" from="UserInterface/MenuButton" to="." method="_on_menu_button_pressed"]

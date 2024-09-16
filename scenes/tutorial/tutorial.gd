@@ -35,6 +35,7 @@ var ork_preload = preload("res://enemies/ork/enemy.tscn")
 var message_preload = preload("res://subscenes/message/message.tscn")
 var defeat_menu_preload = preload("res://subscenes/defeat_menu/defeat_menu.tscn")
 var victory_menu_preload = preload("res://subscenes/victory_menu/victory_menu.tscn")
+var game_menu_preload = preload("res://subscenes/game_menu/game_menu.tscn")
 
 @onready var radio_idle = $SFX/RadioIdle
 @onready var radio_fight = $SFX/RadioFight
@@ -42,6 +43,7 @@ var victory_menu_preload = preload("res://subscenes/victory_menu/victory_menu.ts
 @onready var trees = $Objects/Trees
 @onready var bushes = $Objects/Bushes
 @onready var user_interface = $UserInterface
+@onready var menu_button = $UserInterface/MenuButton
 
 func _ready():
 	# Connect signals
@@ -111,3 +113,11 @@ func defeat():
 func victory():
 	var victory_menu = victory_menu_preload.instantiate()
 	user_interface.add_child(victory_menu)
+
+func _on_menu_button_pressed():
+	if menu_button.get_child_count() == 0:
+		var game_menu = game_menu_preload.instantiate()
+		menu_button.add_child(game_menu)
+	else:
+		var game_menu = menu_button.get_child(0)
+		game_menu._on_resume_button_pressed()
