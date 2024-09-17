@@ -6,8 +6,9 @@ extends Node2D
 func _ready():
 	Signals.connect("health_change", Callable(self, "_on_health_change"))
 
-func _on_health_change(health):
-	if health < health_bar.value: # At the start of the level
+func _on_health_change(value):
+	if value < health_bar.value: # If health decreased
 		leaves.emitting = true
-		health_bar.max_value = health
-	health_bar.value = health
+	if value > health_bar.max_value:
+		health_bar.max_value = value
+	health_bar.value = value
