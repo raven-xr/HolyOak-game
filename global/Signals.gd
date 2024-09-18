@@ -1,9 +1,9 @@
 extends Node
 
-signal target_die()
+signal target_died()
 
-signal money_change()
+signal money_changed()
 
-signal wave_change()
+signal wave_changed()
 
-signal health_change()
+signal health_changed()

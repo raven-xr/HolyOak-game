@@ -16,7 +16,7 @@ var direction: Vector2
 
 func _ready():
 	modulate = Color(1, 1, 1, 0)
-	Signals.connect("target_die", Callable(self, "_on_target_die"))
+	Signals.connect("target_died", Callable(self, "_on_target_died"))
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color(1, 1, 1, 1), 0.67)
 
@@ -40,7 +40,7 @@ func _on_area_2d_body_entered(body):
 		hit_2d.play()
 		self_destruct()
 
-func _on_target_die(body):
+func _on_target_died(body):
 	if target == body:
 		self_destruct()
 

@@ -26,7 +26,7 @@ var wave = 0:
 	set(value):
 		if wave != wave_count:
 			wave = value
-			Signals.emit_signal("wave_change", wave)
+			Signals.emit_signal("wave_changed", wave)
 			new_wave(wave)
 		else:
 			victory()
@@ -47,8 +47,8 @@ var game_menu_preload = preload("res://subscenes/game_menu/game_menu.tscn")
 
 func _ready():
 	# Connect signals
-	Signals.connect("target_die", Callable(self, "_on_target_die"))
-	Signals.connect("health_change", Callable(self, "_on_health_change"))
+	Signals.connect("target_died", Callable(self, "_on_target_died"))
+	Signals.connect("health_changed", Callable(self, "_on_health_changed"))
 	# Update PlayerStats
 	PlayerStats.health = data['health']
 	PlayerStats.money = data['money']
@@ -99,10 +99,10 @@ func new_wave(number):
 		current_enemy_count += 1
 	is_enemy_spawning = false
 
-func _on_target_die(_body):
+func _on_target_died(_body):
 	current_enemy_count -= 1
 
-func _on_health_change(value):
+func _on_health_changed(value):
 	if value <= 0:
 		defeat()
 

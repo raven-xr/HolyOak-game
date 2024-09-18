@@ -42,7 +42,7 @@ func hit():
 	PlayerStats.health -= damage
 
 func death_state():
-	Signals.emit_signal("target_die", self)
+	Signals.emit_signal("target_died", self)
 	collision_shape_2d.set_deferred("disabled", true)
 	PlayerStats.money += reward
 	ork.set_process(false)
