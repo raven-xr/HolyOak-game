@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://die1k42jfmahn"]
+[gd_scene load_steps=14 format=3 uid="uid://die1k42jfmahn"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_ab7jh"]
 [ext_resource type="Texture2D" uid="uid://bdbcrxa2815rn" path="res://ui/backgrounds/main_menu.jpeg" id="1_tludv"]
@@ -11,8 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://dv8sybam8xt54" path="res://ui/buttons/tutorial_default.png" id="6_qve0m"]
 [ext_resource type="Texture2D" uid="uid://c1dflmc63lvtd" path="res://ui/buttons/quit_hover.png" id="7_5g4hg"]
 [ext_resource type="Texture2D" uid="uid://dbaw65axdean" path="res://ui/buttons/tutorial_hover.png" id="7_vpetr"]
-[ext_resource type="AudioStream" uid="uid://c67yq2gixjlbo" path="res://audio/sfx/click.mp3" id="11_gchfu"]
-[ext_resource type="AudioStream" uid="uid://c1ry2e65jvwxj" path="res://audio/music/alexander_nakarada-adventure_beyond.mp3" id="12_dqf76"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cqt0x"]
 texture = ExtResource("3_m4171")
@@ -73,16 +71,6 @@ size_flags_horizontal = 4
 texture_normal = ExtResource("6_1pwt5")
 texture_pressed = ExtResource("6_1pwt5")
 texture_hover = ExtResource("7_5g4hg")
-
-[node name="SFX" type="Node2D" parent="."]
-
-[node name="Radio" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource("12_dqf76")
-volume_db = -15.0
-autoplay = true
-
-[node name="Click" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource("11_gchfu")
 
 [connection signal="pressed" from="UserInterface/VBoxContainer/Play TextureButton" to="." method="_on_play_texture_button_pressed"]
 [connection signal="pressed" from="UserInterface/VBoxContainer/Tutorial TextureButton" to="." method="_on_tutorial_texture_button_pressed"]

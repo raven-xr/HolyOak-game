@@ -1,11 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dqhv5ii03kgra"]
+[gd_scene load_steps=7 format=3 uid="uid://dqhv5ii03kgra"]
 
-[ext_resource type="Script" path="res://subscenes/victory_menu/victory_menu.gd" id="1_di8ui"]
+[ext_resource type="Script" path="res://common/victory_menu/victory_menu.gd" id="1_di8ui"]
 [ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://ui/buttons/ui_border.png" id="2_f04l1"]
 [ext_resource type="Texture2D" uid="uid://d1oi14t2bwpjl" path="res://ui/icons/next.svg" id="3_0u3n8"]
 [ext_resource type="Texture2D" uid="uid://c17d2n1jjcd8t" path="res://ui/icons/menu.svg" id="4_ax0yb"]
-[ext_resource type="AudioStream" uid="uid://c67yq2gixjlbo" path="res://audio/sfx/click.mp3" id="5_3lhfe"]
-[ext_resource type="AudioStream" uid="uid://corhdd0psymkp" path="res://audio/sfx/victory.mp3" id="6_ywb7t"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sgioi"]
 texture = ExtResource("2_f04l1")
@@ -48,15 +46,6 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 icon = ExtResource("3_0u3n8")
-
-[node name="SFX" type="Node2D" parent="."]
-
-[node name="Click" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource("5_3lhfe")
-
-[node name="Victory" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource("6_ywb7t")
-volume_db = -10.0
 
 [connection signal="pressed" from="PanelContainer/Menu Button" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="PanelContainer/Next Button" to="." method="_on_next_button_pressed"]

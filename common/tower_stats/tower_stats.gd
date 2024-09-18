@@ -1,6 +1,5 @@
 extends Node2D
 
-@onready var click_2d = $SFX/Click2D
 @onready var value = $Values/Label
 
 func _ready():
@@ -14,7 +13,7 @@ func update_data():
 	value.text = str(tower.attack_range, "\n", tower.damage, "\n", tower.unit_count, "\n", tower.current_cost, "\n", PlayerStats.max_level)
 
 func _on_update_data_button_pressed():
-	click_2d.play()
+	SoundManager.click.play()
 	var tween_1 = create_tween()
 	tween_1.tween_property(value, "theme_override_colors/font_color", Color(1, 1, 1, 0), 0.1)
 	await tween_1.finished
@@ -23,7 +22,7 @@ func _on_update_data_button_pressed():
 	tween_2.tween_property(value, "theme_override_colors/font_color", Color(1, 1, 1, 1), 0.1)
 
 func _on_close_button_pressed():
-	click_2d.play()
+	SoundManager.click.play()
 	close()
 
 func close():

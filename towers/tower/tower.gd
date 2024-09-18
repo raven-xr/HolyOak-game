@@ -17,11 +17,10 @@ var smoke_spawnpoints = [Vector2(32, 0), Vector2(-32, 0), Vector2(0, 32), Vector
 var unit_preload = preload("res://towers/archers/archer.tscn")
 var smoke_preload = preload("res://effects/smoke/smoke.tscn")
 
+@onready var building = $SFX/Building
 @onready var units = $Units
 @onready var animation_player = $AnimationPlayer
 @onready var gfx_smoke = $GFX/Smoke
-@onready var success_2d = $SFX/Success2D
-@onready var building_2d = $SFX/Building2D
 
 func new_unit():
 	var unit = unit_preload.instantiate()
@@ -50,9 +49,9 @@ func upgrading():
 	attack_range = UnitStats.archers[str('level_', level)]['attack_range']
 	# Play animation, SFX and GFX
 	animation_player.play(str("Level_", level))
-	building_2d.play()
+	building.play()
 	await animation_player.animation_finished
-	success_2d.play()
+	SoundManager.success.play()
 	# Add new units
 	for i in range(unit_count):
 		new_unit()
@@ -76,7 +75,7 @@ func destruction():
 	for child in units.get_children():
 		child.queue_free()
 	# Play animation, SFX and GFX
-	building_2d.play()
+	building.play()
 	# Spawn 4 smokes
 	for i in range(4):
 		var new_smoke = smoke_preload.instantiate()
@@ -94,7 +93,7 @@ func destruction():
 	tween_2.tween_property(self, "modulate", Color(1, 1, 1, 0), 1.0) # 3.0 - 2.0
 	await tween_2.finished
 	await get_tree().create_timer(2.0).timeout # that same 2.0
-	success_2d.play()
+	SoundManager.success.play()
 	# Make smokes stop repeating
 	for child in gfx_smoke.get_children():
 		child.is_active = false

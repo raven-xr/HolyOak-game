@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://dgsn2o3sm3wgn"]
 
 [ext_resource type="Texture2D" uid="uid://mjb5loi5fry3" path="res://ui/bar/2/under.png" id="2_01k4e"]
-[ext_resource type="Script" path="res://subscenes/holy_oak/holy_oak.gd" id="2_7gaut"]
+[ext_resource type="Script" path="res://common/holy_oak/holy_oak.gd" id="2_7gaut"]
 [ext_resource type="Texture2D" uid="uid://js5imk206dmd" path="res://ui/bar/2/progress.png" id="3_74csr"]
 [ext_resource type="PackedScene" uid="uid://cfcu8rgqvu2xp" path="res://effects/leaf/leaf.tscn" id="3_lbct2"]
 [ext_resource type="Texture2D" uid="uid://bpnrlouguuu7u" path="res://effects/leaf/leaf_borders.png" id="4_biqay"]

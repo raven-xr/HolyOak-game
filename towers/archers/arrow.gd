@@ -5,8 +5,8 @@ const SPEED = 7000.0
 var target_available = true
 var direction: Vector2
 
+@onready var bow_hit = $SFX/BowHit
 @onready var collision_shape_2d = $Area2D/CollisionShape2D
-@onready var hit_2d = $SFX/Hit2D
 
 @onready var damage = get_parent().get_parent().get_parent().get_parent().damage
 @onready var attack_range = get_parent().get_parent().get_parent().get_parent().attack_range
@@ -37,7 +37,7 @@ func _physics_process(delta):
 func _on_area_2d_body_entered(body):
 	if body == target:
 		body.health -= damage
-		hit_2d.play()
+		bow_hit.play()
 		self_destruct()
 
 func _on_target_died(body):

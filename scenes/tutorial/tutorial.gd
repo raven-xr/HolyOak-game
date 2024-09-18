@@ -32,13 +32,11 @@ var wave = 0:
 			victory()
 
 var ork_preload = preload("res://enemies/ork/enemy.tscn")
-var message_preload = preload("res://subscenes/message/message.tscn")
-var defeat_menu_preload = preload("res://subscenes/defeat_menu/defeat_menu.tscn")
-var victory_menu_preload = preload("res://subscenes/victory_menu/victory_menu.tscn")
-var game_menu_preload = preload("res://subscenes/game_menu/game_menu.tscn")
+var message_preload = preload("res://common/message/message.tscn")
+var defeat_menu_preload = preload("res://common/defeat_menu/defeat_menu.tscn")
+var victory_menu_preload = preload("res://common/victory_menu/victory_menu.tscn")
+var game_menu_preload = preload("res://common/game_menu/game_menu.tscn")
 
-@onready var radio_idle = $SFX/RadioIdle
-@onready var radio_fight = $SFX/RadioFight
 @onready var enemies = $Enemies
 @onready var trees = $Objects/Trees
 @onready var bushes = $Objects/Bushes
@@ -58,7 +56,7 @@ func _ready():
 	var tween_1 = get_tree().create_tween()
 	tween_1.parallel().tween_property(self, "modulate", Color(1, 1, 1, 1), 2.0)
 	var tween_2 = get_tree().create_tween()
-	tween_2.parallel().tween_property(radio_idle, "volume_db", -20, 4.0)
+	tween_2.parallel().tween_property(SoundManager.music_idle, "volume_db", -20, 4.0)
 	for tree in trees.get_children():
 		var size = randf_range(1.4, 1.6)
 		tree.scale = Vector2(size, size)
@@ -69,18 +67,18 @@ func _ready():
 	state = States.IDLE
 
 func idle_state(duration):
-	radio_idle.play()
+	SoundManager.music_idle.play()
 	await get_tree().create_timer(duration).timeout
 	state = States.FIGHT
 
 func fight_state():
 	# Getting ready
-	radio_fight.play()
+	SoundManager.music_fight.play()
 	var tween_1 = get_tree().create_tween()
-	tween_1.parallel().tween_property(radio_idle, "volume_db", -100, 4.0)
-	tween_1.connect("finished", radio_idle.stop)
+	tween_1.parallel().tween_property(SoundManager.music_idle, "volume_db", -100, 4.0)
+	tween_1.connect("finished", SoundManager.music_idle.stop)
 	var tween_2 = get_tree().create_tween()
-	tween_2.parallel().tween_property(radio_fight, "volume_db", -20, 4.0)
+	tween_2.parallel().tween_property(SoundManager.music_fight, "volume_db", -20, 4.0)
 	await tween_2.finished
 	# Fight
 	wave += 1
@@ -115,6 +113,7 @@ func victory():
 	user_interface.add_child(victory_menu)
 
 func _on_menu_button_pressed():
+	SoundManager.click.play()
 	if menu_button.get_child_count() == 0:
 		var game_menu = game_menu_preload.instantiate()
 		menu_button.add_child(game_menu)

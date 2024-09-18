@@ -8,6 +8,8 @@ enum States {
 	DEATH
 }
 
+@onready var death = $SFX/Death
+@onready var baton_hit = $SFX/BatonHit
 @onready var animation_player = $AnimationPlayer
 @onready var ork = $".."
 @onready var collision_shape_2d = $CollisionShape2D
@@ -40,8 +42,10 @@ func attack_state():
 
 func hit():
 	PlayerStats.health -= damage
+	baton_hit.play()
 
 func death_state():
+	death.play()
 	Signals.emit_signal("target_died", self)
 	collision_shape_2d.set_deferred("disabled", true)
 	PlayerStats.money += reward

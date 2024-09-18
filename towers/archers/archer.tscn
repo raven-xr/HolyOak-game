@@ -429,11 +429,11 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("SFX/Bowstring2D:playing")
+tracks/3/path = NodePath("SFX/Bowstring:playing")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.2),
+"times": PackedFloat32Array(0.366667),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -518,31 +518,31 @@ tracks/1/keys = {
 "update": 1,
 "values": ["L_Attack"]
 }
-tracks/2/type = "value"
+tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("SFX/Bowstring2D:playing")
+tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0.8),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"shoot"
 }]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SFX/Bowstring:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.433333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_drl80"]
@@ -641,11 +641,11 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("SFX/Bowstring2D:playing")
+tracks/3/path = NodePath("SFX/Bowstring:playing")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.2),
+"times": PackedFloat32Array(0.433333),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -747,11 +747,11 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("SFX/Bowstring2D:playing")
+tracks/3/path = NodePath("SFX/Bowstring:playing")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.2),
+"times": PackedFloat32Array(0.4),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -855,13 +855,13 @@ shape = SubResource("CircleShape2D_mnypw")
 
 [node name="SFX" type="Node2D" parent="."]
 
-[node name="Shot2D" type="AudioStreamPlayer2D" parent="SFX"]
-stream = ExtResource("11_73d0o")
-volume_db = -20.0
-
-[node name="Bowstring2D" type="AudioStreamPlayer2D" parent="SFX"]
+[node name="Bowstring" type="AudioStreamPlayer2D" parent="SFX"]
 stream = ExtResource("12_spdq1")
 volume_db = -25.0
+
+[node name="Shot" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("11_73d0o")
+volume_db = -20.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

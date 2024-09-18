@@ -22,11 +22,12 @@ var state:
 var current_direction: String
 var arrow_preload = preload("res://towers/archers/arrow.tscn")
 
+@onready var bowstring = $SFX/Bowstring
+@onready var shot = $SFX/Shot
 @onready var collision_shape_2d = $Area2D/CollisionShape2D
+@onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var animation_player = $AnimationPlayer
 @onready var arrows = $Arrows
-@onready var animated_sprite_2d = $AnimatedSprite2D
-@onready var shot_2d = $SFX/Shot2D
 
 @onready var default_direction = get_parent().get_parent().get_parent().get_parent().default_direction
 
@@ -59,7 +60,7 @@ func shoot():
 		var new_arrow = arrow_preload.instantiate()
 		new_arrow.position = Vector2(0.0, -13.0)
 		arrows.add_child(new_arrow)
-		shot_2d.play()
+		shot.play()
 	state = States.COOLDOWN
 
 func _on_area_2d_body_entered(body):

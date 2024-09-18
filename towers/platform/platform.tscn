@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d1hglytmquni"]
+[gd_scene load_steps=16 format=3 uid="uid://d1hglytmquni"]
 
 [ext_resource type="Script" path="res://towers/platform/platform.gd" id="1_gvh2q"]
 [ext_resource type="Texture2D" uid="uid://cjyvn46nwilg0" path="res://models/towers/archers/idle/0.png" id="2_8ll7e"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://bjyagoxg427n1" path="res://ui/buttons/upgrade_default.png" id="5_ecwmm"]
 [ext_resource type="Texture2D" uid="uid://b7o74p0ihh582" path="res://ui/buttons/upgrade_hover.png" id="6_evvam"]
 [ext_resource type="Texture2D" uid="uid://dosd2fh2vr8vu" path="res://ui/buttons/upgrade_disabled.png" id="7_hhufg"]
-[ext_resource type="AudioStream" uid="uid://c67yq2gixjlbo" path="res://audio/sfx/click.mp3" id="8_aghbs"]
 [ext_resource type="Texture2D" uid="uid://bd2o8d2otwxuo" path="res://ui/buttons/remove_default.png" id="9_fkkgd"]
 [ext_resource type="Texture2D" uid="uid://bw76usu5x6djh" path="res://ui/buttons/remove_hover.png" id="10_yy3kb"]
 [ext_resource type="Texture2D" uid="uid://csx0n3legcbvc" path="res://ui/buttons/remove_disabled.png" id="11_2yq4y"]
@@ -91,11 +90,6 @@ texture_hover = ExtResource("13_je5u1")
 texture_disabled = ExtResource("14_j5rqg")
 
 [node name="TowerStats" type="Node2D" parent="."]
-
-[node name="SFX" type="Node2D" parent="."]
-
-[node name="Click2D" type="AudioStreamPlayer2D" parent="SFX"]
-stream = ExtResource("8_aghbs")
 
 [connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
 [connection signal="pressed" from="Menu/Build TextureButton" to="." method="_on_build_texture_button_pressed"]

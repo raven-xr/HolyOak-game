@@ -1,12 +1,11 @@
 extends Node2D
 
 var is_menu_opened = false
-var tower_preload = preload("res://towers/archers/tower.tscn")
-var tower_stats_preload = preload("res://subscenes/tower_stats/tower_stats.tscn")
-var message_preload = preload("res://subscenes/message/message.tscn")
+var tower_preload = preload("res://towers/tower/tower.tscn")
+var tower_stats_preload = preload("res://common/tower_stats/tower_stats.tscn")
+var message_preload = preload("res://common/message/message.tscn")
 
 @onready var sprite_2d = $Sprite2D
-@onready var click_2d = $SFX/Click2D
 @onready var menu = $Menu
 @onready var towers = $Towers
 @onready var build_texture_button = $"Menu/Build TextureButton"
@@ -28,7 +27,7 @@ func _ready():
 	menu.modulate = Color(1, 1, 1, 0)
 
 func _on_build_texture_button_pressed():
-	click_2d.play()
+	SoundManager.click.play()
 	var cost = UnitStats.archers['level_1']['cost']
 	# Check if player has enough money
 	if PlayerStats.money >= cost:
@@ -43,7 +42,7 @@ func _on_build_texture_button_pressed():
 	close_menu()
 	
 func _on_upgrade_texture_button_pressed():
-	click_2d.play()
+	SoundManager.click.play()
 	var tower = towers.get_child(0)
 	var cost = tower.current_cost
 	# Check if player has enough money
@@ -56,7 +55,7 @@ func _on_upgrade_texture_button_pressed():
 	close_menu()
 
 func _on_remove_texture_button_pressed():
-	click_2d.play()
+	SoundManager.click.play()
 	tower_stats_texture_button.disabled = true
 	var tower = towers.get_child(0)
 	tower.destruction()
@@ -64,7 +63,7 @@ func _on_remove_texture_button_pressed():
 	close_menu()
 
 func _on_tower_stats_texture_button_pressed():
-	click_2d.play()
+	SoundManager.click.play()
 	var new_tower_stats = tower_stats_preload.instantiate()
 	match default_direction:
 		"U": new_tower_stats.position = Vector2(0.0, -144.0)
@@ -75,7 +74,7 @@ func _on_tower_stats_texture_button_pressed():
 	close_menu()
 
 func _on_touch_screen_button_pressed():
-	click_2d.play()
+	SoundManager.click.play()
 	if not is_menu_opened:
 		open_menu()
 	else:

@@ -1,11 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bpv032thoan7a"]
+[gd_scene load_steps=7 format=3 uid="uid://bpv032thoan7a"]
 
-[ext_resource type="Script" path="res://subscenes/defeat_menu/defeat_menu.gd" id="1_xr44m"]
+[ext_resource type="Script" path="res://common/defeat_menu/defeat_menu.gd" id="1_xr44m"]
 [ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://ui/buttons/ui_border.png" id="2_i7sav"]
 [ext_resource type="Texture2D" uid="uid://bovpfmhts66wt" path="res://ui/icons/restart.svg" id="3_q1ncl"]
 [ext_resource type="Texture2D" uid="uid://c17d2n1jjcd8t" path="res://ui/icons/menu.svg" id="4_ioxxa"]
-[ext_resource type="AudioStream" uid="uid://c67yq2gixjlbo" path="res://audio/sfx/click.mp3" id="5_2pay6"]
-[ext_resource type="AudioStream" uid="uid://b72mibwh38ava" path="res://audio/sfx/defeat.mp3" id="6_jhyhy"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2fqrf"]
 texture = ExtResource("2_i7sav")
@@ -48,15 +46,6 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 icon = ExtResource("3_q1ncl")
-
-[node name="SFX" type="Node2D" parent="."]
-
-[node name="Click" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource("5_2pay6")
-
-[node name="Defeat" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource("6_jhyhy")
-volume_db = -10.0
 
 [connection signal="pressed" from="PanelContainer/Menu Button" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="PanelContainer/Restart Button" to="." method="_on_restart_button_pressed"]
