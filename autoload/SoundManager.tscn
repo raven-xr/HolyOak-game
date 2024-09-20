@@ -36,7 +36,7 @@ volume_db = -15.0
 
 [node name="Music Main" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("5_kb7kg")
-volume_db = -40.0
+volume_db = -20.0
 
 [node name="Music Idle" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("5_l1pbm")

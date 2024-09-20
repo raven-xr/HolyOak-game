@@ -7,8 +7,6 @@ extends Node2D
 
 func _ready():
 	SoundManager.music_main.play()
-	var tween = get_tree().create_tween()
-	tween.tween_property(SoundManager.music_main, "volume_db", -20.0, 4.0)
 
 func _on_play_texture_button_pressed():
 	SoundManager.click.play()
