@@ -14,7 +14,7 @@ var state:
 	set(value):
 		state = value
 		match state:
-			States.IDLE: idle_state(10.0)
+			States.IDLE: idle_state()
 			States.FIGHT: fight_state()
 var current_enemy_count = 0:
 	set(value):
@@ -66,10 +66,8 @@ func _ready():
 	# Start the game
 	state = States.IDLE
 
-func idle_state(duration):
+func idle_state():
 	SoundManager.music_idle.play()
-	await get_tree().create_timer(duration).timeout
-	state = States.FIGHT
 
 func fight_state():
 	# Getting ready
