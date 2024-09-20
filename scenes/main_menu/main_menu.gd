@@ -7,6 +7,7 @@ extends Node2D
 
 func _ready():
 	SoundManager.music_main.play()
+	SoundManager.music_main.volume_db = -20
 
 func _on_play_texture_button_pressed():
 	SoundManager.click.play()
