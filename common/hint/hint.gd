@@ -1,6 +1,6 @@
-extends PanelContainer
+extends CanvasLayer
 
-@onready var label = $Label
+@onready var label = $PanelContainer/Label
 
 # These variables are given by the parent
 var text: String = ''
