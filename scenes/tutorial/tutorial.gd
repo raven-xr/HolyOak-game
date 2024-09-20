@@ -31,6 +31,7 @@ var wave = 0:
 		else:
 			victory()
 
+var hint_preload = preload("res://common/hint/hint.tscn")
 var ork_preload = preload("res://enemies/ork/enemy.tscn")
 var message_preload = preload("res://common/message/message.tscn")
 var defeat_menu_preload = preload("res://common/defeat_menu/defeat_menu.tscn")
@@ -65,6 +66,7 @@ func _ready():
 		bush.scale = Vector2(size, size)
 	# Start the game
 	state = States.IDLE
+	tutorial()
 
 func idle_state():
 	SoundManager.music_idle.play()
@@ -84,6 +86,14 @@ func fight_state():
 	new_message.text = str('Wave ', wave)
 	user_interface.add_child(new_message)
 
+func defeat():
+	var defeat_menu = defeat_menu_preload.instantiate()
+	user_interface.add_child(defeat_menu)
+
+func victory():
+	var victory_menu = victory_menu_preload.instantiate()
+	user_interface.add_child(victory_menu)
+
 func new_wave(number):
 	var enemy_count = data[str('wave_', number)]['enemy_count']
 	var spawn_cooldown = data[str('wave_', number)]['spawn_cooldown']
@@ -102,14 +112,6 @@ func _on_health_changed(value):
 	if value <= 0:
 		defeat()
 
-func defeat():
-	var defeat_menu = defeat_menu_preload.instantiate()
-	user_interface.add_child(defeat_menu)
-
-func victory():
-	var victory_menu = victory_menu_preload.instantiate()
-	user_interface.add_child(victory_menu)
-
 func _on_menu_button_pressed():
 	SoundManager.click.play()
 	if menu_button.get_child_count() == 0:
@@ -118,3 +120,10 @@ func _on_menu_button_pressed():
 	else:
 		var game_menu = menu_button.get_child(0)
 		game_menu._on_resume_button_pressed()
+
+func tutorial():
+	# Greeting
+	var new_hint = hint_preload.instantiate() 
+	new_hint.text = 'Здравствуй, вождь. Добро пожаловать в Holy Oak!'
+	new_hint.position = Vector2(464.0, 320.0)
+	user_interface.add_child(new_hint)
