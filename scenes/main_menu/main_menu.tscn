@@ -25,10 +25,11 @@ PanelContainer/styles/panel = SubResource("StyleBoxTexture_cqt0x")
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_ab7jh")
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 2560.0
+offset_bottom = 1462.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_tludv")
-centered = false
 
 [node name="UserInterface" type="PanelContainer" parent="."]
 texture_filter = 1
