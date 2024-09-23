@@ -23,5 +23,5 @@ func flick_chevron_right():
 func _on_touch_screen_button_pressed():
 	SoundManager.click.play()
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 1.0)
+	tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 0.3)
 	tween.connect("finished", queue_free)
