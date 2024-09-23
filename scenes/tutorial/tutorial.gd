@@ -123,7 +123,10 @@ func _on_menu_button_pressed():
 
 func tutorial():
 	# Greeting
-	var new_hint = hint_preload.instantiate() 
-	new_hint.text = 'Здравствуй, вождь. Добро пожаловать в Holy Oak!'
-	new_hint.position = Vector2(576.0, 320.0)
-	user_interface.add_child(new_hint)
+	for hint in Texts.tutorial['greeting']:
+		var new_hint = hint_preload.instantiate()
+		new_hint.text = hint['text']
+		new_hint.position = hint['position']
+		user_interface.add_child(new_hint)
+		await new_hint.tree_exited
+	
