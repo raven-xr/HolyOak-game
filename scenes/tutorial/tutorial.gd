@@ -52,7 +52,7 @@ func _ready():
 	PlayerStats.health = data['health']
 	PlayerStats.money = data['money']
 	PlayerStats.max_level = data['max_level']
-	# Getting ready
+	# Transition
 	modulate = Color(0, 0, 0, 1)
 	var tween_1 = get_tree().create_tween()
 	tween_1.parallel().tween_property(self, "modulate", Color(1, 1, 1, 1), 2.0)

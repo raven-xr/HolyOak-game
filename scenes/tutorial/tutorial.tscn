@@ -1171,6 +1171,7 @@ region_enabled = true
 region_rect = Rect2(0, 80, 48, 64)
 
 [node name="Towers" type="Node2D" parent="."]
+process_mode = 4
 
 [node name="Platform1" parent="Towers" instance=ExtResource("6_6wnci")]
 position = Vector2(950, 256)
