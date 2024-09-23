@@ -125,5 +125,5 @@ func tutorial():
 	# Greeting
 	var new_hint = hint_preload.instantiate() 
 	new_hint.text = 'Здравствуй, вождь. Добро пожаловать в Holy Oak!'
-	new_hint.position = Vector2(464.0, 320.0)
+	new_hint.position = Vector2(576.0, 320.0)
 	user_interface.add_child(new_hint)
