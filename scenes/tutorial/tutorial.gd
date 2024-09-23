@@ -43,6 +43,7 @@ var game_menu_preload = preload("res://common/game_menu/game_menu.tscn")
 @onready var bushes = $Objects/Bushes
 @onready var user_interface = $UserInterface
 @onready var menu_button = $UserInterface/MenuButton
+@onready var towers = $Towers
 
 func _ready():
 	# Connect signals
@@ -128,5 +129,21 @@ func tutorial():
 		new_hint.text = hint['text']
 		new_hint.position = hint['position']
 		user_interface.add_child(new_hint)
-		await new_hint.tree_exited
-	
+		await match_await_signal(new_hint, hint['target_signal'])
+	# First towers
+	for hint in Texts.tutorial['first_towers']:
+		var new_hint = hint_preload.instantiate()
+		new_hint.text = hint['text']
+		new_hint.position = hint['position']
+		user_interface.add_child(new_hint)
+		await match_await_signal(new_hint, hint['target_signal'])
+	# Unblock towers
+	towers.set_process_mode(Node.PROCESS_MODE_INHERIT)
+
+func match_await_signal(node: Node, signal_name: String) -> Signal:
+	match signal_name:
+		#'tree_exited':
+			#return node.tree_exited
+		'pressed':
+			return node.pressed
+	return node.tree_exited

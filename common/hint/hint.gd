@@ -5,7 +5,7 @@ extends Node2D
 @onready var texture_rect = $TextureRect
 @onready var touch_screen_button = $TouchScreenButton
 
-# These variables are given by the parent
+var can_be_closed: bool = true
 var text: String = ''
 
 func _ready():
@@ -21,7 +21,8 @@ func flick_chevron_right():
 	flick_chevron_right()
 
 func _on_touch_screen_button_pressed():
-	SoundManager.click.play()
-	var tween = get_tree().create_tween()
-	tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 0.3)
-	tween.connect("finished", queue_free)
+	if can_be_closed:
+		SoundManager.click.play()
+		var tween = get_tree().create_tween()
+		tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 0.3)
+		tween.connect("finished", queue_free)
