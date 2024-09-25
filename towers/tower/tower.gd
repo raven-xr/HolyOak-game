@@ -9,7 +9,7 @@ var is_upgrading = false
 var damage = 0
 var attack_range = 10 # Default collision shape's radius
 var current_cost = UnitStats.archers['level_1']['cost']
-var last_cost
+var last_cost = 0
 var unit_count = 0
 var spawnpoints = []
 var smoke_spawnpoints = [Vector2(32, 0), Vector2(-32, 0), Vector2(0, 32), Vector2(0, -32),
