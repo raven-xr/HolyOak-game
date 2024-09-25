@@ -33,6 +33,7 @@ func _on_build_texture_button_pressed():
 	if PlayerStats.money >= cost:
 		var new_tower = tower_preload.instantiate()
 		towers.add_child(new_tower)
+		Signals.emit_signal("tower_built")
 		new_tower.level += 1
 		sprite_2d.visible = false
 	else:
@@ -59,6 +60,7 @@ func _on_remove_texture_button_pressed():
 	tower_stats_texture_button.disabled = true
 	var tower = towers.get_child(0)
 	tower.destruction()
+	Signals.emit_signal("tower_removed")
 	sprite_2d.visible = true
 	close_menu()
 

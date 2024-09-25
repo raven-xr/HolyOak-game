@@ -23,7 +23,8 @@ UnitStats="*res://autoload/UnitStats.gd"
 PlayerStats="*res://autoload/PlayerStats.gd"
 LevelData="*res://autoload/LevelData.gd"
 SoundManager="*res://autoload/SoundManager.tscn"
-Texts="*res://autoload/Texts.gd"
+Hints="*res://autoload/Hints.gd"
+LocalUserData="*res://autoload/LocalUserData.gd"
 
 [display]
 

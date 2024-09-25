@@ -124,26 +124,22 @@ func _on_menu_button_pressed():
 
 func tutorial():
 	# Greeting
-	for hint in Texts.tutorial['greeting']:
+	for hint in Hints.tutorial['greeting']:
 		var new_hint = hint_preload.instantiate()
 		new_hint.text = hint['text']
 		new_hint.position = hint['position']
 		user_interface.add_child(new_hint)
-		await match_await_signal(new_hint, hint['target_signal'])
+		# Wait for player to close hints
+		await new_hint.tree_exited
 	# First towers
-	for hint in Texts.tutorial['first_towers']:
+	for hint in Hints.tutorial['first_towers']:
 		var new_hint = hint_preload.instantiate()
 		new_hint.text = hint['text']
+		new_hint.can_be_closed = false 
 		new_hint.position = hint['position']
 		user_interface.add_child(new_hint)
-		await match_await_signal(new_hint, hint['target_signal'])
+		# Wait for player to build towers
+		await LocalUserData.player_built_towers
+		new_hint.close()
 	# Unblock towers
 	towers.set_process_mode(Node.PROCESS_MODE_INHERIT)
-
-func match_await_signal(node: Node, signal_name: String) -> Signal:
-	match signal_name:
-		#'tree_exited':
-			#return node.tree_exited
-		'pressed':
-			return node.pressed
-	return node.tree_exited

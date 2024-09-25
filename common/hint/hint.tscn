@@ -16,7 +16,7 @@ PanelContainer/styles/panel = SubResource("StyleBoxTexture_as0xe")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h26tr"]
 resource_local_to_scene = true
-size = Vector2(128, 0)
+size = Vector2(0, 0)
 
 [node name="Hint" type="Node2D"]
 script = ExtResource("2_3a814")
