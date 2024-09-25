@@ -832,6 +832,7 @@ resource_local_to_scene = true
 
 [node name="Archer" type="Node2D"]
 script = ExtResource("1_o28lu")
+arrow_preload = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

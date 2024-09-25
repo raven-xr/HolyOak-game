@@ -7,9 +7,7 @@ var direction: Vector2
 
 @onready var bow_hit = $SFX/BowHit
 @onready var collision_shape_2d = $Area2D/CollisionShape2D
-
 @onready var damage = get_parent().get_parent().get_parent().get_parent().damage
-
 @onready var target = get_parent().get_parent().target
 @onready var unit_global_position = get_parent().get_parent().global_position
 

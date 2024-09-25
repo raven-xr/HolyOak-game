@@ -20,7 +20,8 @@ var state:
 			States.COOLDOWN:
 				cooldown_state()
 var current_direction: String
-var arrow_preload = preload("res://towers/archers/arrow.tscn")
+
+@export var arrow_preload: PackedScene
 
 @onready var bowstring = $SFX/Bowstring
 @onready var shot = $SFX/Shot
@@ -28,9 +29,7 @@ var arrow_preload = preload("res://towers/archers/arrow.tscn")
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var animation_player = $AnimationPlayer
 @onready var arrows = $Arrows
-
 @onready var default_direction = get_parent().get_parent().get_parent().get_parent().default_direction
-
 @onready var attack_range = get_parent().get_parent().attack_range
 
 func _ready():

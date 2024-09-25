@@ -7,7 +7,7 @@ enum States {
 
 var data = LevelData.tutorial
 var wave_count = data['wave_count']
-var next_level_path = "res://scenes/main_menu/main_menu.tscn" # !!!
+var next_level_path = "res://scenes/main_menu/main_menu.tscn"
 
 var is_enemy_spawning = false
 var state:
@@ -31,12 +31,12 @@ var wave = 0:
 		else:
 			victory()
 
-var hint_preload = preload("res://common/hint/hint.tscn")
-var ork_preload = preload("res://enemies/ork/enemy.tscn")
-var message_preload = preload("res://common/message/message.tscn")
-var defeat_menu_preload = preload("res://common/defeat_menu/defeat_menu.tscn")
-var victory_menu_preload = preload("res://common/victory_menu/victory_menu.tscn")
-var game_menu_preload = preload("res://common/game_menu/game_menu.tscn")
+@export var hint_preload: PackedScene
+@export var ork_preload: PackedScene
+@export var message_preload: PackedScene
+@export var defeat_menu_preload: PackedScene
+@export var victory_menu_preload: PackedScene
+@export var game_menu_preload: PackedScene
 
 @onready var enemies = $Enemies
 @onready var trees = $Objects/Trees

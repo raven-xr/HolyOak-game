@@ -1,9 +1,11 @@
 extends Node2D
 
 var is_menu_opened = false
-var tower_preload = preload("res://towers/tower/tower.tscn")
-var tower_stats_preload = preload("res://common/tower_stats/tower_stats.tscn")
-var message_preload = preload("res://common/message/message.tscn")
+
+@export var tower_preload: PackedScene
+@export var tower_stats_preload: PackedScene
+@export var message_preload: PackedScene
+@export var default_direction: String = "U" # The default view direction of units: Up (U), Right (R), Down (D) or Left (L)
 
 @onready var sprite_2d = $Sprite2D
 @onready var menu = $Menu
@@ -13,8 +15,6 @@ var message_preload = preload("res://common/message/message.tscn")
 @onready var remove_texture_button = $"Menu/Remove TextureButton"
 @onready var tower_stats_texture_button = $"Menu/TowerStats TextureButton"
 @onready var tower_stats = $TowerStats
-
-@export var default_direction: String = "U" # The default view direction of units: Up (U), Right (R), Down (D) or Left (L)
 
 func _ready():
 	match default_direction:

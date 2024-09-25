@@ -14,8 +14,9 @@ var unit_count = 0
 var spawnpoints = []
 var smoke_spawnpoints = [Vector2(32, 0), Vector2(-32, 0), Vector2(0, 32), Vector2(0, -32),
 						 Vector2(32, 32), Vector2(-32, 32), Vector2(32, -32), Vector2(-32, -32)]
-var unit_preload = preload("res://towers/archers/archer.tscn")
-var smoke_preload = preload("res://effects/smoke/smoke.tscn")
+
+@export var unit_preload: PackedScene
+@export var smoke_preload: PackedScene
 
 @onready var building = $SFX/Building
 @onready var units = $Units
