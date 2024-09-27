@@ -6,7 +6,7 @@ extends Node2D
 @onready var touch_screen_button = $TouchScreenButton
 
 var can_be_closed: bool = true
-var text: String = ''
+var text: String = ""
 
 func _ready():
 	label.text = text

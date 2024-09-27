@@ -26,7 +26,7 @@ func _ready():
 
 func _on_build_texture_button_pressed():
 	SoundManager.click.play()
-	var cost = UnitStats.archers['level_1']['cost']
+	var cost = UnitStats.archers["level_1"]["cost"]
 	# Check if player has enough money
 	if PlayerStats.money >= cost:
 		var new_tower = tower_preload.instantiate()

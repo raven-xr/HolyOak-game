@@ -7,8 +7,8 @@ var level = 0:
 		upgrading()
 var is_upgrading = false
 var damage = 0
-var attack_range = 10 # Default collision shape's radius
-var current_cost = UnitStats.archers['level_1']['cost']
+var attack_range = 10 # Default collision shape"s radius
+var current_cost = UnitStats.archers["level_1"]["cost"]
 var last_cost = 0
 var unit_count = 0
 var spawnpoints = []
@@ -43,12 +43,12 @@ func upgrading():
 	for unit in units.get_children():
 		unit.queue_free()
 	# Upgrade stats
-	damage = UnitStats.archers[str('level_', level)]['damage']
+	damage = UnitStats.archers[str("level_", level)]["damage"]
 	last_cost = current_cost
-	current_cost = UnitStats.archers[str('level_', level+1)]['cost']
-	unit_count = UnitStats.archers[str('level_', level)]['unit_count']
-	spawnpoints = UnitStats.archers[str('level_', level)]['spawnpoints']
-	attack_range = UnitStats.archers[str('level_', level)]['attack_range']
+	current_cost = UnitStats.archers[str("level_", level+1)]["cost"]
+	unit_count = UnitStats.archers[str("level_", level)]["unit_count"]
+	spawnpoints = UnitStats.archers[str("level_", level)]["spawnpoints"]
+	attack_range = UnitStats.archers[str("level_", level)]["attack_range"]
 	# Play animation, SFX and GFX
 	animation_player.play(str("Level_", level))
 	building.play()

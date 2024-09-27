@@ -11,7 +11,7 @@ var tower_count = 0:
 		if tower_count == 3:
 			emit_signal("player_built_towers")
 var data = LevelData.tutorial
-var wave_count = data['wave_count']
+var wave_count = data["wave_count"]
 var next_level_path = "res://scenes/main_menu/main_menu.tscn"
 
 var is_enemy_spawning = false
@@ -57,9 +57,9 @@ func _ready():
 	Signals.connect("target_died", Callable(self, "_on_target_died"))
 	Signals.connect("health_changed", Callable(self, "_on_health_changed"))
 	# Update PlayerStats
-	PlayerStats.health = data['health']
-	PlayerStats.money = data['money']
-	PlayerStats.max_level = data['max_level']
+	PlayerStats.health = data["health"]
+	PlayerStats.money = data["money"]
+	PlayerStats.max_level = data["max_level"]
 	# Transition
 	modulate = Color(0, 0, 0, 1)
 	var tween_1 = get_tree().create_tween()
@@ -91,7 +91,7 @@ func fight_state():
 	# Fight
 	wave += 1
 	var new_message = message_preload.instantiate()
-	new_message.text = str('Wave ', wave)
+	new_message.text = str("Wave ", wave)
 	user_interface.add_child(new_message)
 
 func defeat():
@@ -103,8 +103,8 @@ func victory():
 	user_interface.add_child(victory_menu)
 
 func new_wave(number):
-	var enemy_count = data[str('wave_', number)]['enemy_count']
-	var spawn_cooldown = data[str('wave_', number)]['spawn_cooldown']
+	var enemy_count = data[str("wave_", number)]["enemy_count"]
+	var spawn_cooldown = data[str("wave_", number)]["spawn_cooldown"]
 	is_enemy_spawning = true
 	for i in range(enemy_count):
 		await get_tree().create_timer(spawn_cooldown).timeout
@@ -131,19 +131,19 @@ func _on_menu_button_pressed():
 
 func tutorial():
 	# Greeting
-	for hint in Hints.tutorial['greeting']:
+	for hint in Hints.tutorial["greeting"]:
 		var new_hint = hint_preload.instantiate()
-		new_hint.text = hint['text']
-		new_hint.position = hint['position']
+		new_hint.text = hint["text"]
+		new_hint.position = hint["position"]
 		user_interface.add_child(new_hint)
 		# Wait for player to close hints
 		await new_hint.tree_exited
 	# Build first towers
-	for hint in Hints.tutorial['first_towers']:
+	for hint in Hints.tutorial["first_towers"]:
 		var new_hint = hint_preload.instantiate()
-		new_hint.text = hint['text']
+		new_hint.text = hint["text"]
 		new_hint.can_be_closed = false 
-		new_hint.position = hint['position']
+		new_hint.position = hint["position"]
 		user_interface.add_child(new_hint)
 		# Wait for player to build towers
 		await player_built_towers
