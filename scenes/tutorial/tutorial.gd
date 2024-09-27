@@ -145,6 +145,7 @@ func tutorial():
 		new_hint.can_be_closed = false 
 		new_hint.position = hint["position"]
 		user_interface.add_child(new_hint)
+		towers.set_process_mode(Node.PROCESS_MODE_INHERIT)
 		# Wait for player to build towers
 		await player_built_towers
 		new_hint.close()
