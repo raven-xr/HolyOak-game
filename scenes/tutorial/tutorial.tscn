@@ -1186,15 +1186,15 @@ region_rect = Rect2(0, 80, 48, 64)
 [node name="Towers" type="Node2D" parent="."]
 process_mode = 4
 
-[node name="Platform1" parent="Towers" instance=ExtResource("6_6wnci")]
+[node name="Platform 1" parent="Towers" instance=ExtResource("6_6wnci")]
 position = Vector2(950, 256)
 script = ExtResource("20_qtq2v")
 
-[node name="Platform2" parent="Towers" instance=ExtResource("6_6wnci")]
+[node name="Platform 2" parent="Towers" instance=ExtResource("6_6wnci")]
 position = Vector2(706, 418)
 script = ExtResource("20_qtq2v")
 
-[node name="Platform3" parent="Towers" instance=ExtResource("6_6wnci")]
+[node name="Platform 3" parent="Towers" instance=ExtResource("6_6wnci")]
 position = Vector2(208, 638)
 script = ExtResource("20_qtq2v")
 
@@ -1213,10 +1213,10 @@ icon = ExtResource("17_qle6i")
 [connection signal="body_entered" from="Enemies/Point 1" to="Enemies/Point 1" method="_on_body_entered"]
 [connection signal="body_entered" from="Enemies/Point 2" to="Enemies/Point 2" method="_on_body_entered"]
 [connection signal="body_entered" from="Enemies/Point 3" to="Enemies/Point 3" method="_on_body_entered"]
-[connection signal="child_entered_tree" from="Towers/Platform1" to="Towers/Platform1" method="_on_child_entered_tree"]
-[connection signal="child_exiting_tree" from="Towers/Platform1" to="Towers/Platform1" method="_on_child_exiting_tree"]
-[connection signal="child_entered_tree" from="Towers/Platform2" to="Towers/Platform2" method="_on_child_entered_tree"]
-[connection signal="child_exiting_tree" from="Towers/Platform2" to="Towers/Platform2" method="_on_child_exiting_tree"]
-[connection signal="child_entered_tree" from="Towers/Platform3" to="Towers/Platform3" method="_on_child_entered_tree"]
-[connection signal="child_exiting_tree" from="Towers/Platform3" to="Towers/Platform3" method="_on_child_exiting_tree"]
+[connection signal="child_entered_tree" from="Towers/Platform 1" to="Towers/Platform 1" method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Towers/Platform 1" to="Towers/Platform 1" method="_on_child_exiting_tree"]
+[connection signal="child_entered_tree" from="Towers/Platform 2" to="Towers/Platform 2" method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Towers/Platform 2" to="Towers/Platform 2" method="_on_child_exiting_tree"]
+[connection signal="child_entered_tree" from="Towers/Platform 3" to="Towers/Platform 3" method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Towers/Platform 3" to="Towers/Platform 3" method="_on_child_exiting_tree"]
 [connection signal="pressed" from="UserInterface/MenuButton" to="." method="_on_menu_button_pressed"]
