@@ -9,7 +9,7 @@ func _ready():
 	update_data()
 
 func update_data():
-	var tower = get_parent().get_parent().get_node("Towers").get_child(0)
+	var tower = get_parent().get_node("Tower")
 	value.text = str(tower.attack_range, "\n", tower.damage, "\n", tower.unit_count, "\n", tower.current_cost, "\n", PlayerStats.max_level)
 
 func _on_update_data_button_pressed():

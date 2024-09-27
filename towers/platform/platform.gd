@@ -9,12 +9,10 @@ var is_menu_opened = false
 
 @onready var sprite_2d = $Sprite2D
 @onready var menu = $Menu
-@onready var towers = $Towers
 @onready var build_texture_button = $"Menu/Build TextureButton"
 @onready var upgrade_texture_button = $"Menu/Upgrade TextureButton"
 @onready var remove_texture_button = $"Menu/Remove TextureButton"
 @onready var tower_stats_texture_button = $"Menu/TowerStats TextureButton"
-@onready var tower_stats = $TowerStats
 
 func _ready():
 	match default_direction:
@@ -32,8 +30,8 @@ func _on_build_texture_button_pressed():
 	# Check if player has enough money
 	if PlayerStats.money >= cost:
 		var new_tower = tower_preload.instantiate()
-		towers.add_child(new_tower)
-		Signals.emit_signal("tower_built")
+		add_child(new_tower)
+		move_child(new_tower, 2)
 		new_tower.level += 1
 		sprite_2d.visible = false
 	else:
@@ -44,7 +42,7 @@ func _on_build_texture_button_pressed():
 	
 func _on_upgrade_texture_button_pressed():
 	SoundManager.click.play()
-	var tower = towers.get_child(0)
+	var tower = get_node("Tower")
 	var cost = tower.current_cost
 	# Check if player has enough money
 	if PlayerStats.money >= cost:
@@ -58,9 +56,8 @@ func _on_upgrade_texture_button_pressed():
 func _on_remove_texture_button_pressed():
 	SoundManager.click.play()
 	tower_stats_texture_button.disabled = true
-	var tower = towers.get_child(0)
+	var tower = get_node("Tower")
 	tower.destruction()
-	Signals.emit_signal("tower_removed")
 	sprite_2d.visible = true
 	close_menu()
 
@@ -72,7 +69,7 @@ func _on_tower_stats_texture_button_pressed():
 		"R": new_tower_stats.position = Vector2(192.0, 0.0)
 		"D": new_tower_stats.position = Vector2(0.0, 144.0)
 		"L": new_tower_stats.position = Vector2(-192.0, 0.0)
-	tower_stats.add_child(new_tower_stats)
+	add_child(new_tower_stats)
 	close_menu()
 
 func _on_touch_screen_button_pressed():
@@ -94,16 +91,17 @@ func open_menu():
 	tween.tween_property(menu, "modulate", Color(1, 1, 1, 1), 0.1)
 	is_menu_opened = true
 	# Close tower stats
-	if tower_stats.get_child_count() == 1:
-		tower_stats.get_child(0).close()
+	if has_node("TowerStats"):
+		var tower_stats = get_node("TowerStats")
+		tower_stats.close()
 	# Enable buttons
-	if towers.get_child_count() == 0:
-		build_texture_button.disabled = false
-	else:
-		var tower = towers.get_child(0)
+	if has_node("Tower"):
+		var tower = get_node("Tower")
 		if not(tower.is_upgrading):
 			if tower.level > 0:
 				tower_stats_texture_button.disabled = false
 			remove_texture_button.disabled = false
 		if tower.can_be_upgraded():
 			upgrade_texture_button.disabled = false
+	else:
+		build_texture_button.disabled = false

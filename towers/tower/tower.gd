@@ -22,6 +22,7 @@ var smoke_spawnpoints = [Vector2(32, 0), Vector2(-32, 0), Vector2(0, 32), Vector
 @onready var units = $Units
 @onready var animation_player = $AnimationPlayer
 @onready var gfx_smoke = $GFX/Smoke
+@onready var platform = get_parent()
 
 func new_unit():
 	var unit = unit_preload.instantiate()
@@ -39,8 +40,8 @@ func upgrading():
 	var tween = get_tree().create_tween()
 	tween.tween_property(units, "modulate", Color(1, 1, 1, 0), 0.15)
 	await tween.finished
-	for child in units.get_children():
-		child.queue_free()
+	for unit in units.get_children():
+		unit.queue_free()
 	# Upgrade stats
 	damage = UnitStats.archers[str('level_', level)]['damage']
 	last_cost = current_cost
@@ -59,10 +60,10 @@ func upgrading():
 	# Inform the platform that the tower finsihed upgrading
 	is_upgrading = false
 	# If the platform interface is opened, then enable remove, upgrade and tower stats button
-	get_parent().get_parent().remove_texture_button.disabled = false
-	get_parent().get_parent().tower_stats_texture_button.disabled = false
+	platform.remove_texture_button.disabled = false
+	platform.tower_stats_texture_button.disabled = false
 	if max_level != level:
-		get_parent().get_parent().upgrade_texture_button.disabled = false
+		platform.upgrade_texture_button.disabled = false
 
 func destruction():
 	# Inform the platform that the tower is being destructed
@@ -73,8 +74,8 @@ func destruction():
 	var tween_1 = get_tree().create_tween()
 	tween_1.tween_property(units, "modulate", Color(1, 1, 1, 0), 0.15)
 	await tween_1.finished
-	for child in units.get_children():
-		child.queue_free()
+	for unit in units.get_children():
+		unit.queue_free()
 	# Play animation, SFX and GFX
 	building.play()
 	# Spawn 4 smokes
@@ -96,10 +97,10 @@ func destruction():
 	await get_tree().create_timer(2.0).timeout # that same 2.0
 	SoundManager.success.play()
 	# Make smokes stop repeating
-	for child in gfx_smoke.get_children():
-		child.is_active = false
+	for smoke in gfx_smoke.get_children():
+		smoke.is_active = false
 	# If the platform interface is opened, then enable build button
-	get_parent().get_parent().build_texture_button.disabled = false
+	platform.build_texture_button.disabled = false
 	# Remove the tower
 	queue_free()
 

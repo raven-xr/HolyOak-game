@@ -1261,7 +1261,7 @@ animations = [{
 "speed": 6.0
 }]
 
-[node name="TowerOfArchers" type="Node2D"]
+[node name="Tower" type="Node2D"]
 script = ExtResource("1_ga7em")
 unit_preload = ExtResource("2_abs1g")
 smoke_preload = ExtResource("3_mq57i")

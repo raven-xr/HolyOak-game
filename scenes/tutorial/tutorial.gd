@@ -5,6 +5,11 @@ enum States {
 	FIGHT
 }
 
+var tower_count = 0:
+	set(value):
+		tower_count = value
+		if tower_count == 3:
+			emit_signal("player_built_towers")
 var data = LevelData.tutorial
 var wave_count = data['wave_count']
 var next_level_path = "res://scenes/main_menu/main_menu.tscn"
@@ -44,6 +49,8 @@ var wave = 0:
 @onready var user_interface = $UserInterface
 @onready var menu_button = $UserInterface/MenuButton
 @onready var towers = $Towers
+
+signal player_built_towers()
 
 func _ready():
 	# Connect signals
@@ -131,7 +138,7 @@ func tutorial():
 		user_interface.add_child(new_hint)
 		# Wait for player to close hints
 		await new_hint.tree_exited
-	# First towers
+	# Build first towers
 	for hint in Hints.tutorial['first_towers']:
 		var new_hint = hint_preload.instantiate()
 		new_hint.text = hint['text']
@@ -139,7 +146,5 @@ func tutorial():
 		new_hint.position = hint['position']
 		user_interface.add_child(new_hint)
 		# Wait for player to build towers
-		await LocalUserData.player_built_towers
+		await player_built_towers
 		new_hint.close()
-	# Unblock towers
-	towers.set_process_mode(Node.PROCESS_MODE_INHERIT)

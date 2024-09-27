@@ -29,7 +29,7 @@ var current_direction: String
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var animation_player = $AnimationPlayer
 @onready var arrows = $Arrows
-@onready var default_direction = get_parent().get_parent().get_parent().get_parent().default_direction
+@onready var default_direction = get_parent().get_parent().get_parent().default_direction
 @onready var attack_range = get_parent().get_parent().attack_range
 
 func _ready():

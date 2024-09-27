@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://3lquoy3mkrss"]
+[gd_scene load_steps=37 format=4 uid="uid://3lquoy3mkrss"]
 
 [ext_resource type="Texture2D" uid="uid://sasruh3frvel" path="res://tilesets/plains.png" id="1_ciagt"]
 [ext_resource type="Script" path="res://scenes/tutorial/tutorial.gd" id="1_xggr7"]
@@ -8,19 +8,20 @@
 [ext_resource type="Texture2D" uid="uid://b0e3u22u8240c" path="res://tilesets/decor_16x16.png" id="4_0qydq"]
 [ext_resource type="Texture2D" uid="uid://bcb2hj7qx6c7h" path="res://tilesets/fences.png" id="4_7ig4y"]
 [ext_resource type="PackedScene" uid="uid://du20li6wou6fs" path="res://common/message/message.tscn" id="4_xrp23"]
-[ext_resource type="Script" path="res://scenes/tutorial/path/point_1.gd" id="5_8v03p"]
+[ext_resource type="Script" path="res://scenes/tutorial/local/point_1.gd" id="5_8v03p"]
 [ext_resource type="PackedScene" uid="uid://bpv032thoan7a" path="res://common/defeat_menu/defeat_menu.tscn" id="5_db0yu"]
 [ext_resource type="Texture2D" uid="uid://b3l3jwc8sevlf" path="res://tilesets/water.png" id="5_vm3er"]
 [ext_resource type="PackedScene" uid="uid://d1hglytmquni" path="res://towers/platform/platform.tscn" id="6_6wnci"]
 [ext_resource type="Texture2D" uid="uid://4wl2w7feibqx" path="res://tilesets/walls/walls.png" id="6_if8bn"]
 [ext_resource type="PackedScene" uid="uid://dqhv5ii03kgra" path="res://common/victory_menu/victory_menu.tscn" id="6_uqf6i"]
-[ext_resource type="Script" path="res://scenes/tutorial/path/point_2.gd" id="6_vpswp"]
+[ext_resource type="Script" path="res://scenes/tutorial/local/point_2.gd" id="6_vpswp"]
 [ext_resource type="PackedScene" uid="uid://sqtg0w21y043" path="res://common/game_menu/game_menu.tscn" id="7_lunwj"]
 [ext_resource type="PackedScene" uid="uid://dgsn2o3sm3wgn" path="res://common/holy_oak/holy_oak.tscn" id="9_m6f5k"]
-[ext_resource type="Script" path="res://scenes/tutorial/path/point_3.gd" id="10_xglxs"]
+[ext_resource type="Script" path="res://scenes/tutorial/local/point_3.gd" id="10_xglxs"]
 [ext_resource type="Texture2D" uid="uid://dpjii1ewymxj6" path="res://models/objects/objects.png" id="10_xgupy"]
 [ext_resource type="PackedScene" uid="uid://bqlwentuopcga" path="res://common/ui_stats/ui_stats.tscn" id="15_cg5od"]
 [ext_resource type="Texture2D" uid="uid://c17d2n1jjcd8t" path="res://ui/icons/menu.svg" id="17_qle6i"]
+[ext_resource type="Script" path="res://scenes/tutorial/local/platform.gd" id="20_qtq2v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q2wvg"]
 texture = ExtResource("2_hcy67")
@@ -1187,14 +1188,15 @@ process_mode = 4
 
 [node name="Platform1" parent="Towers" instance=ExtResource("6_6wnci")]
 position = Vector2(950, 256)
-default_direction = "L"
+script = ExtResource("20_qtq2v")
 
 [node name="Platform2" parent="Towers" instance=ExtResource("6_6wnci")]
 position = Vector2(706, 418)
-default_direction = "R"
+script = ExtResource("20_qtq2v")
 
 [node name="Platform3" parent="Towers" instance=ExtResource("6_6wnci")]
 position = Vector2(208, 638)
+script = ExtResource("20_qtq2v")
 
 [node name="UserInterface" type="Node2D" parent="."]
 process_mode = 3
@@ -1211,4 +1213,10 @@ icon = ExtResource("17_qle6i")
 [connection signal="body_entered" from="Enemies/Point 1" to="Enemies/Point 1" method="_on_body_entered"]
 [connection signal="body_entered" from="Enemies/Point 2" to="Enemies/Point 2" method="_on_body_entered"]
 [connection signal="body_entered" from="Enemies/Point 3" to="Enemies/Point 3" method="_on_body_entered"]
+[connection signal="child_entered_tree" from="Towers/Platform1" to="Towers/Platform1" method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Towers/Platform1" to="Towers/Platform1" method="_on_child_exiting_tree"]
+[connection signal="child_entered_tree" from="Towers/Platform2" to="Towers/Platform2" method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Towers/Platform2" to="Towers/Platform2" method="_on_child_exiting_tree"]
+[connection signal="child_entered_tree" from="Towers/Platform3" to="Towers/Platform3" method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Towers/Platform3" to="Towers/Platform3" method="_on_child_exiting_tree"]
 [connection signal="pressed" from="UserInterface/MenuButton" to="." method="_on_menu_button_pressed"]
