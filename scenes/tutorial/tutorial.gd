@@ -1,15 +1,11 @@
 extends Node2D
 
 enum States {
+	TUTORIAL,
 	IDLE,
 	FIGHT
 }
 
-var tower_count = 0:
-	set(value):
-		tower_count = value
-		if tower_count == 3:
-			emit_signal("player_built_towers")
 var data = LevelData.tutorial
 var wave_count = data["wave_count"]
 var next_level_path = "res://scenes/main_menu/main_menu.tscn"
@@ -19,7 +15,8 @@ var state:
 	set(value):
 		state = value
 		match state:
-			States.IDLE: idle_state()
+			States.TUTORIAL: tutorial_state()
+			States.IDLE: idle_state(10.0)
 			States.FIGHT: fight_state()
 var current_enemy_count = 0:
 	set(value):
@@ -49,8 +46,12 @@ var wave = 0:
 @onready var user_interface = $UserInterface
 @onready var menu_button = $UserInterface/MenuButton
 @onready var towers = $Towers
+@onready var platform_1 = $"Towers/Platform 1"
 
-signal player_built_towers()
+signal player_built_tower()
+signal player_upgraded_tower()
+@warning_ignore("unused_signal")
+signal player_ended_tutorial()
 
 func _ready():
 	# Connect signals
@@ -73,11 +74,58 @@ func _ready():
 		var size = randf_range(0.8, 1.1)
 		bush.scale = Vector2(size, size)
 	# Start the game
-	state = States.IDLE
-	tutorial()
+	state = States.TUTORIAL
 
-func idle_state():
+func tutorial_state():
+	# Turn the music on
 	SoundManager.music_idle.play()
+	
+	# Greeting
+	for _hint in Hints.tutorial["greeting"]:
+		var _new_hint = hint_preload.instantiate()
+		_new_hint.text = _hint["text"]
+		_new_hint.position = _hint["position"]
+		user_interface.add_child(_new_hint)
+		# Wait for player to close hints
+		await _new_hint.tree_exited
+	
+	# Declare vars
+	var hint
+	var new_hint
+	
+	# Build the first tower
+	hint = Hints.tutorial["first_tower"][0]
+	new_hint = hint_preload.instantiate()
+	new_hint.text = hint["text"]
+	new_hint.position = hint["position"]
+	new_hint.can_be_closed = false
+	user_interface.add_child(new_hint)
+	platform_1.set_process_mode(Node.PROCESS_MODE_INHERIT)
+	# Wait for player to build a tower
+	await player_built_tower
+	new_hint.close()
+	
+	# Upgrade the tower
+	hint = Hints.tutorial["first_tower"][1]
+	new_hint = hint_preload.instantiate()
+	new_hint.text = hint["text"]
+	new_hint.position = hint["position"]
+	new_hint.can_be_closed = false
+	user_interface.add_child(new_hint)
+	# Wait for player to upgrade the tower
+	await player_upgraded_tower
+	new_hint.close()
+	
+	# Unblock platforms and change the state
+	for platform in towers.get_children():
+		platform.set_process_mode(Node.PROCESS_MODE_INHERIT)
+	state = States.IDLE
+	emit_signal("player_ended_tutorial")
+
+func idle_state(duration):
+	SoundManager.music_idle.play()
+	await get_tree().create_timer(duration).timeout
+	fight_state()
 
 func fight_state():
 	# Getting ready
@@ -122,30 +170,9 @@ func _on_health_changed(value):
 
 func _on_menu_button_pressed():
 	SoundManager.click.play()
-	if menu_button.get_child_count() == 0:
+	if not menu_button.has_node("GameMenu"):
 		var game_menu = game_menu_preload.instantiate()
 		menu_button.add_child(game_menu)
 	else:
-		var game_menu = menu_button.get_child(0)
-		game_menu._on_resume_button_pressed()
-
-func tutorial():
-	# Greeting
-	for hint in Hints.tutorial["greeting"]:
-		var new_hint = hint_preload.instantiate()
-		new_hint.text = hint["text"]
-		new_hint.position = hint["position"]
-		user_interface.add_child(new_hint)
-		# Wait for player to close hints
-		await new_hint.tree_exited
-	# Build first towers
-	for hint in Hints.tutorial["first_towers"]:
-		var new_hint = hint_preload.instantiate()
-		new_hint.text = hint["text"]
-		new_hint.can_be_closed = false 
-		new_hint.position = hint["position"]
-		user_interface.add_child(new_hint)
-		towers.set_process_mode(Node.PROCESS_MODE_INHERIT)
-		# Wait for player to build towers
-		await player_built_towers
-		new_hint.close()
+		var game_menu = menu_button.get_node("GameMenu")
+		game_menu.resume()

@@ -8,10 +8,8 @@ func _ready():
 	get_tree().paused = true
 
 func _on_resume_button_pressed():
-	get_tree().paused = false
-	disable_buttons()
 	SoundManager.click.play()
-	queue_free()
+	resume()
 
 func _on_settings_button_pressed():
 	disable_buttons()
@@ -29,3 +27,8 @@ func disable_buttons():
 	resume_button.disabled = true
 	settings_button.disabled = true
 	quit_button.disabled = true
+
+func resume():
+	get_tree().paused = false
+	disable_buttons()
+	queue_free()
