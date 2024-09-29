@@ -85,7 +85,7 @@ func tutorial_state():
 		var _new_hint = hint_preload.instantiate()
 		_new_hint.text = _hint["text"]
 		_new_hint.position = _hint["position"]
-		user_interface.add_child(_new_hint)
+		add_child.call_deferred(_new_hint)
 		# Wait for player to close hints
 		await _new_hint.tree_exited
 	
