@@ -1,0 +1,100 @@
+[gd_scene load_steps=19 format=3 uid="uid://d1hglytmquni"]
+
+[ext_resource type="Script" path="res://towers/platform/platform.gd" id="1_gvh2q"]
+[ext_resource type="Texture2D" uid="uid://cjyvn46nwilg0" path="res://models/towers/archers/idle/0.png" id="2_8ll7e"]
+[ext_resource type="PackedScene" uid="uid://cnbl8aw2p0wrn" path="res://towers/tower/tower.tscn" id="2_73ia6"]
+[ext_resource type="Texture2D" uid="uid://r4hn5ljs3vlx" path="res://ui/buttons/build_default.png" id="2_x8e24"]
+[ext_resource type="PackedScene" uid="uid://c06g6da1scixg" path="res://common/tower_stats/tower_stats.tscn" id="3_a1ydp"]
+[ext_resource type="Texture2D" uid="uid://db6p04lqhwwf7" path="res://ui/buttons/build_hover.png" id="3_mmrqd"]
+[ext_resource type="PackedScene" uid="uid://du20li6wou6fs" path="res://common/message/message.tscn" id="4_d13pl"]
+[ext_resource type="Texture2D" uid="uid://c8fbq7o0ggmvy" path="res://ui/buttons/build_disabled.png" id="4_orhma"]
+[ext_resource type="Texture2D" uid="uid://bjyagoxg427n1" path="res://ui/buttons/upgrade_default.png" id="5_ecwmm"]
+[ext_resource type="Texture2D" uid="uid://b7o74p0ihh582" path="res://ui/buttons/upgrade_hover.png" id="6_evvam"]
+[ext_resource type="Texture2D" uid="uid://dosd2fh2vr8vu" path="res://ui/buttons/upgrade_disabled.png" id="7_hhufg"]
+[ext_resource type="Texture2D" uid="uid://bd2o8d2otwxuo" path="res://ui/buttons/remove_default.png" id="9_fkkgd"]
+[ext_resource type="Texture2D" uid="uid://bw76usu5x6djh" path="res://ui/buttons/remove_hover.png" id="10_yy3kb"]
+[ext_resource type="Texture2D" uid="uid://csx0n3legcbvc" path="res://ui/buttons/remove_disabled.png" id="11_2yq4y"]
+[ext_resource type="Texture2D" uid="uid://wjwcu52tilgn" path="res://ui/buttons/stats_default.png" id="12_g4art"]
+[ext_resource type="Texture2D" uid="uid://bkju546mrxw14" path="res://ui/buttons/stats_hover.png" id="13_je5u1"]
+[ext_resource type="Texture2D" uid="uid://bryo2kxabv0eo" path="res://ui/buttons/stats_disabled.png" id="14_j5rqg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fil16"]
+radius = 54.0
+
+[node name="Platform" type="Node2D"]
+script = ExtResource("1_gvh2q")
+tower_preload = ExtResource("2_73ia6")
+tower_stats_preload = ExtResource("3_a1ydp")
+message_preload = ExtResource("4_d13pl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -56)
+scale = Vector2(1.723, 1.723)
+texture = ExtResource("2_8ll7e")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+shape = SubResource("CircleShape2D_fil16")
+
+[node name="Menu" type="Node2D" parent="."]
+
+[node name="Build TextureButton" type="TextureButton" parent="Menu"]
+modulate = Color(1, 1, 1, 0.784314)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = -36.0
+offset_right = 110.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("2_x8e24")
+texture_pressed = ExtResource("2_x8e24")
+texture_hover = ExtResource("3_mmrqd")
+texture_disabled = ExtResource("4_orhma")
+
+[node name="Upgrade TextureButton" type="TextureButton" parent="Menu"]
+modulate = Color(1, 1, 1, 0.784314)
+offset_left = 8.0
+offset_top = -36.0
+offset_right = 204.0
+offset_bottom = 48.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("5_ecwmm")
+texture_pressed = ExtResource("5_ecwmm")
+texture_hover = ExtResource("6_evvam")
+texture_disabled = ExtResource("7_hhufg")
+
+[node name="Remove TextureButton" type="TextureButton" parent="Menu"]
+modulate = Color(1, 1, 1, 0.784314)
+offset_left = -69.0
+offset_top = 2.0
+offset_right = 127.0
+offset_bottom = 86.0
+scale = Vector2(0.33, 0.33)
+texture_normal = ExtResource("9_fkkgd")
+texture_pressed = ExtResource("9_fkkgd")
+texture_hover = ExtResource("10_yy3kb")
+texture_disabled = ExtResource("11_2yq4y")
+
+[node name="TowerStats TextureButton" type="TextureButton" parent="Menu"]
+modulate = Color(1, 1, 1, 0.784314)
+offset_left = 5.0
+offset_top = 2.0
+offset_right = 201.0
+offset_bottom = 86.0
+scale = Vector2(0.33, 0.33)
+texture_normal = ExtResource("12_g4art")
+texture_pressed = ExtResource("12_g4art")
+texture_hover = ExtResource("13_je5u1")
+texture_disabled = ExtResource("14_j5rqg")
+
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
+[connection signal="pressed" from="Menu/Build TextureButton" to="." method="_on_build_texture_button_pressed"]
+[connection signal="pressed" from="Menu/Upgrade TextureButton" to="." method="_on_upgrade_texture_button_pressed"]
+[connection signal="pressed" from="Menu/Remove TextureButton" to="." method="_on_remove_texture_button_pressed"]
+[connection signal="pressed" from="Menu/TowerStats TextureButton" to="." method="_on_tower_stats_texture_button_pressed"]

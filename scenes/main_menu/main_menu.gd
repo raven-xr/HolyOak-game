@@ -1,42 +1,35 @@
 extends Node2D
 
-@onready var click_2d = $SFX/Click2D
-@onready var radio = $SFX/Radio
-@onready var play_texture_button = $UserInterface/VBoxContainer/Play_TextureButton
-@onready var tutorial_texture_button = $UserInterface/VBoxContainer/Tutorial_TextureButton
-@onready var settings_texture_button = $UserInterface/VBoxContainer/Settings_TextureButton
-@onready var quit_texture_button = $UserInterface/VBoxContainer/Quit_TextureButton
+@onready var play_texture_button = $"UserInterface/VBoxContainer/Play TextureButton"
+@onready var tutorial_texture_button = $"UserInterface/VBoxContainer/Tutorial TextureButton"
+@onready var settings_texture_button = $"UserInterface/VBoxContainer/Settings TextureButton"
+@onready var quit_texture_button = $"UserInterface/VBoxContainer/Quit TextureButton"
 
 func _ready():
-	# Set texture filter to linear (fix angularities)
-	set_texture_filter(CanvasItem.TEXTURE_FILTER_LINEAR)
-	var tween = get_tree().create_tween()
-	tween.tween_property(radio, "volume_db", -4.0, 4.0)
-	#await tween.finished # DEBUG
-	#change_level() # DEBUG
-	#await get_tree().create_timer(4.0).timeout # DEBUG
-	#get_tree().call_deferred("change_scene_to_file", "res://test_scene.tscn") # DEBUG
+	SoundManager.music_main.play()
+	SoundManager.music_main.volume_db = -20
 
 func _on_play_texture_button_pressed():
-	click_2d.play()
+	SoundManager.click.play()
 	change_level()
 	await get_tree().create_timer(4.0).timeout
+	SoundManager.disable_music()
 	get_tree().change_scene_to_file("res://scenes/levels/levels.tscn")
 
 func _on_tutorial_texture_button_pressed():
-	click_2d.play()
+	SoundManager.click.play()
 	change_level()
 	await get_tree().create_timer(4.0).timeout
+	SoundManager.disable_music()
 	get_tree().change_scene_to_file("res://scenes/tutorial/tutorial.tscn")
 
 func _on_settings_texture_button_pressed():
-	click_2d.play()
-	await click_2d.finished
+	SoundManager.click.play()
 	get_tree().change_scene_to_file("res://scenes/settings/settings.tscn")
 
 func _on_quit_texture_button_pressed():
-	click_2d.play()
-	await click_2d.finished
+	SoundManager.click.play()
+	await SoundManager.click.finished
 	get_tree().quit()
 
 func change_level():
@@ -47,4 +40,4 @@ func change_level():
 	var tween_1 = get_tree().create_tween()
 	tween_1.parallel().tween_property(self, "modulate", Color(0, 0, 0, 1), 2.0)
 	var tween_2 = get_tree().create_tween()
-	tween_2.parallel().tween_property(radio, "volume_db", -100, 4.0)
+	tween_2.parallel().tween_property(SoundManager.music_main, "volume_db", -100, 4.0)
