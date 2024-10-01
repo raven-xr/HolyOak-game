@@ -8,7 +8,6 @@ enum States {
 
 var data = LevelData.tutorial
 var wave_count = data["wave_count"]
-var next_level_path = "res://scenes/main_menu/main_menu.tscn"
 
 var is_enemy_spawning = false
 var state:
@@ -39,6 +38,7 @@ var wave = 0:
 @export var defeat_menu_preload: PackedScene
 @export var victory_menu_preload: PackedScene
 @export var game_menu_preload: PackedScene
+@export var next_level_path: String
 
 @onready var enemies = $Enemies
 @onready var trees = $Objects/Trees
@@ -48,8 +48,10 @@ var wave = 0:
 @onready var towers = $Towers
 @onready var platform_1 = $"Towers/Platform 1"
 
+signal player_opened_platform()
 signal player_built_tower()
 signal player_upgraded_tower()
+signal player_checked_stats()
 @warning_ignore("unused_signal")
 signal player_ended_tutorial()
 
@@ -93,20 +95,34 @@ func tutorial_state():
 	var hint
 	var new_hint
 	
-	# Build the first tower
+	# Open the platform menu
 	hint = Hints.tutorial["first_tower"][0]
 	new_hint = hint_preload.instantiate()
 	new_hint.text = hint["text"]
 	new_hint.position = hint["position"]
 	new_hint.can_be_closed = false
 	user_interface.add_child(new_hint)
+	# Unblock the platform 1
 	platform_1.set_process_mode(Node.PROCESS_MODE_INHERIT)
-	# Wait for player to build a tower
+	# Wait for player to open the platform menu
+	await player_opened_platform
+	new_hint.close()
+	await new_hint.tree_exited
+	
+	# Build the tower
+	hint = Hints.tutorial["first_tower"][1]
+	new_hint = hint_preload.instantiate()
+	new_hint.text = hint["text"]
+	new_hint.position = hint["position"]
+	new_hint.can_be_closed = false
+	user_interface.add_child(new_hint)
+	# Wait for player to build the tower
 	await player_built_tower
 	new_hint.close()
+	await new_hint.tree_exited
 	
 	# Upgrade the tower
-	hint = Hints.tutorial["first_tower"][1]
+	hint = Hints.tutorial["first_tower"][2]
 	new_hint = hint_preload.instantiate()
 	new_hint.text = hint["text"]
 	new_hint.position = hint["position"]
@@ -115,12 +131,45 @@ func tutorial_state():
 	# Wait for player to upgrade the tower
 	await player_upgraded_tower
 	new_hint.close()
+	await new_hint.tree_exited
 	
-	# Unblock platforms and change the state
+	# Check current stats
+	hint = Hints.tutorial["first_tower"][3]
+	new_hint = hint_preload.instantiate()
+	new_hint.text = hint["text"]
+	new_hint.position = hint["position"]
+	new_hint.can_be_closed = false
+	user_interface.add_child(new_hint)
+	# Unblock the TowerStats button
+	platform_1.tower_stats_texture_button.disconnect("mouse_entered", Callable(platform_1, "_on_tower_stats_texture_button_mouse_entered"))
+	# Wait for player to check current stats
+	await player_checked_stats
+	new_hint.close()
+	await new_hint.tree_exited
+	
+	# Talk about removing towers
+	hint = Hints.tutorial["first_tower"][4]
+	new_hint = hint_preload.instantiate()
+	new_hint.text = hint["text"]
+	new_hint.position = hint["position"]
+	user_interface.add_child(new_hint)
+	# Wait for player to close the hint
+	await new_hint.tree_exited
+	
+	# Goodbye
+	hint = Hints.tutorial["goodbye"][0]
+	new_hint = hint_preload.instantiate()
+	new_hint.text = hint["text"]
+	new_hint.position = hint["position"]
+	user_interface.add_child(new_hint)
+	# Wait for player to close the hint
+	await new_hint.tree_exited
+	
+	# End the tutorial
+	emit_signal("player_ended_tutorial")
 	for platform in towers.get_children():
 		platform.set_process_mode(Node.PROCESS_MODE_INHERIT)
-	state = States.IDLE
-	emit_signal("player_ended_tutorial")
+	state = States.FIGHT
 
 func idle_state(duration):
 	SoundManager.music_idle.play()
@@ -138,9 +187,6 @@ func fight_state():
 	await tween_2.finished
 	# Fight
 	wave += 1
-	var new_message = message_preload.instantiate()
-	new_message.text = str("Wave ", wave)
-	user_interface.add_child(new_message)
 
 func defeat():
 	var defeat_menu = defeat_menu_preload.instantiate()
@@ -151,6 +197,11 @@ func victory():
 	user_interface.add_child(victory_menu)
 
 func new_wave(number):
+	# Declare the new wave
+	var new_message = message_preload.instantiate()
+	new_message.text = str("Wave ", wave)
+	user_interface.add_child(new_message)
+	# Spawn enemies
 	var enemy_count = data[str("wave_", number)]["enemy_count"]
 	var spawn_cooldown = data[str("wave_", number)]["spawn_cooldown"]
 	is_enemy_spawning = true

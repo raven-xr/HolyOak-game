@@ -335,6 +335,7 @@ message_preload = ExtResource("4_xrp23")
 defeat_menu_preload = ExtResource("5_db0yu")
 victory_menu_preload = ExtResource("6_uqf6i")
 game_menu_preload = ExtResource("7_lunwj")
+next_level_path = "res://scenes/main_menu/main_menu.tscn"
 
 [node name="TileMap" type="Node2D" parent="."]
 
@@ -1210,6 +1211,7 @@ script = ExtResource("19_8esid")
 tower_preload = ExtResource("20_3emcw")
 tower_stats_preload = ExtResource("21_vuydd")
 message_preload = ExtResource("4_xrp23")
+default_direction = "L"
 
 [node name="Sprite2D" type="Sprite2D" parent="Towers/Platform 1"]
 texture_filter = 1
@@ -1280,6 +1282,7 @@ texture_disabled = ExtResource("34_uu3ey")
 [node name="Platform 2" parent="Towers" instance=ExtResource("6_6wnci")]
 process_mode = 4
 position = Vector2(706, 418)
+default_direction = "R"
 
 [node name="Platform 3" parent="Towers" instance=ExtResource("6_6wnci")]
 process_mode = 4
@@ -1301,7 +1304,7 @@ icon = ExtResource("17_qle6i")
 [connection signal="body_entered" from="Enemies/Point 1" to="Enemies/Point 1" method="_on_body_entered"]
 [connection signal="body_entered" from="Enemies/Point 2" to="Enemies/Point 2" method="_on_body_entered"]
 [connection signal="body_entered" from="Enemies/Point 3" to="Enemies/Point 3" method="_on_body_entered"]
-[connection signal="child_entered_tree" from="Towers/Platform 1" to="Towers/Platform 1" method="_on_child_entered_tree"]
+[connection signal="pressed" from="Towers/Platform 1/TouchScreenButton" to="Towers/Platform 1" method="_on_local_touch_screen_button_pressed"]
 [connection signal="pressed" from="Towers/Platform 1/TouchScreenButton" to="Towers/Platform 1" method="_on_touch_screen_button_pressed"]
 [connection signal="pressed" from="Towers/Platform 1/Menu/Build TextureButton" to="Towers/Platform 1" method="_on_build_texture_button_pressed"]
 [connection signal="pressed" from="Towers/Platform 1/Menu/Build TextureButton" to="Towers/Platform 1" method="_on_local_build_texture_button_pressed"]
@@ -1309,5 +1312,7 @@ icon = ExtResource("17_qle6i")
 [connection signal="pressed" from="Towers/Platform 1/Menu/Upgrade TextureButton" to="Towers/Platform 1" method="_on_local_upgrade_texture_button_pressed"]
 [connection signal="mouse_entered" from="Towers/Platform 1/Menu/Remove TextureButton" to="Towers/Platform 1" method="_on_remove_texture_button_mouse_entered"]
 [connection signal="pressed" from="Towers/Platform 1/Menu/Remove TextureButton" to="Towers/Platform 1" method="_on_remove_texture_button_pressed"]
+[connection signal="mouse_entered" from="Towers/Platform 1/Menu/TowerStats TextureButton" to="Towers/Platform 1" method="_on_tower_stats_texture_button_mouse_entered"]
+[connection signal="pressed" from="Towers/Platform 1/Menu/TowerStats TextureButton" to="Towers/Platform 1" method="_on_local_tower_stats_texture_button_pressed"]
 [connection signal="pressed" from="Towers/Platform 1/Menu/TowerStats TextureButton" to="Towers/Platform 1" method="_on_tower_stats_texture_button_pressed"]
 [connection signal="pressed" from="UserInterface/MenuButton" to="." method="_on_menu_button_pressed"]
