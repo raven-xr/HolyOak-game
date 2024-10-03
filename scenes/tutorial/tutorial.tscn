@@ -1300,6 +1300,7 @@ offset_right = 1264.0
 offset_bottom = 48.0
 icon = ExtResource("17_qle6i")
 
+[connection signal="player_ended_tutorial" from="." to="Towers/Platform 1" method="_on_tutorial_player_ended_tutorial"]
 [connection signal="body_entered" from="Enemies/Point 1" to="Enemies/Point 1" method="_on_body_entered"]
 [connection signal="body_entered" from="Enemies/Point 2" to="Enemies/Point 2" method="_on_body_entered"]
 [connection signal="body_entered" from="Enemies/Point 3" to="Enemies/Point 3" method="_on_body_entered"]
