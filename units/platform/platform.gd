@@ -36,7 +36,7 @@ func _on_build_texture_button_pressed():
 		sprite_2d.visible = false
 	else:
 		var new_message = message_preload.instantiate()
-		new_message.text = str("You don't have enough money on your balance sheet. The build cost is ", cost)
+		new_message.text = "У вас недостаточно монет. Текущая стоимость башни - " + str(cost) + " монет"
 		add_child(new_message)
 	close_menu()
 	
@@ -49,7 +49,7 @@ func _on_upgrade_texture_button_pressed():
 		tower.level += 1
 	else:
 		var new_message = message_preload.instantiate()
-		new_message.text = str("You don't have enough money on your balance sheet. The current upgrade cost is ", cost)
+		new_message.text = "У вас недостаточно монет. Текущая стоимость улучшения - " + str(cost) + " монет"
 		add_child(new_message)
 	close_menu()
 

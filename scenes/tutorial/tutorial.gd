@@ -179,10 +179,10 @@ func idle_state(duration):
 func fight_state():
 	# Getting ready
 	SoundManager.music_fight.play()
-	var tween_1 = get_tree().create_tween()
+	var tween_1 = create_tween()
 	tween_1.parallel().tween_property(SoundManager.music_idle, "volume_db", -100, 4.0)
 	tween_1.connect("finished", SoundManager.music_idle.stop)
-	var tween_2 = get_tree().create_tween()
+	var tween_2 = create_tween()
 	tween_2.parallel().tween_property(SoundManager.music_fight, "volume_db", -20, 4.0)
 	await tween_2.finished
 	# Fight
@@ -199,7 +199,7 @@ func victory():
 func new_wave(number):
 	# Declare the new wave
 	var new_message = message_preload.instantiate()
-	new_message.text = str("Wave ", wave)
+	new_message.text = "Волна " + str(wave)
 	user_interface.add_child(new_message)
 	# Spawn enemies
 	var enemy_count = data[str("wave_", number)]["enemy_count"]
