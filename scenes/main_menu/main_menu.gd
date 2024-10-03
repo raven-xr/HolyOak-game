@@ -5,6 +5,8 @@ extends Node2D
 @onready var settings_button = $"UserInterface/VBoxContainer/Settings Button"
 @onready var quit_button = $"UserInterface/VBoxContainer/Quit Button"
 
+@export var credits_scene: PackedScene
+
 func _ready():
 	SoundManager.music_main.play()
 	SoundManager.music_main.volume_db = -20
@@ -22,6 +24,10 @@ func _on_tutorial_button_pressed():
 	await get_tree().create_timer(4.0).timeout
 	SoundManager.disable_music()
 	get_tree().change_scene_to_file("res://scenes/tutorial/tutorial.tscn")
+
+func _on_credits_button_pressed():
+	SoundManager.click.play()
+	add_child(credits_scene.instantiate())
 
 func _on_settings_button_pressed():
 	SoundManager.click.play()

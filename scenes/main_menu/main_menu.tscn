@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://die1k42jfmahn"]
+[gd_scene load_steps=17 format=3 uid="uid://die1k42jfmahn"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_ab7jh"]
 [ext_resource type="Texture2D" uid="uid://bdbcrxa2815rn" path="res://ui/backgrounds/main_menu.jpeg" id="1_tludv"]
 [ext_resource type="Texture2D" uid="uid://d3cbse0cdcpi4" path="res://ui/buttons/play_default.png" id="2_kfanh"]
+[ext_resource type="PackedScene" uid="uid://b5ajqs6nu55i3" path="res://scenes/main_menu/local/credits.tscn" id="2_n4pwg"]
 [ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://ui/buttons/ui_border.png" id="3_m4171"]
 [ext_resource type="Texture2D" uid="uid://cv3g2mky4f7fj" path="res://ui/buttons/play_hover.png" id="4_6ivh4"]
 [ext_resource type="Texture2D" uid="uid://bwpmh70vc388u" path="res://ui/buttons/settings_default.png" id="4_sj7hi"]
@@ -11,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://dv8sybam8xt54" path="res://ui/buttons/tutorial_default.png" id="6_qve0m"]
 [ext_resource type="Texture2D" uid="uid://c1dflmc63lvtd" path="res://ui/buttons/quit_hover.png" id="7_5g4hg"]
 [ext_resource type="Texture2D" uid="uid://dbaw65axdean" path="res://ui/buttons/tutorial_hover.png" id="7_vpetr"]
+[ext_resource type="Texture2D" uid="uid://da2xw5ex1g85w" path="res://ui/buttons/credits_default.png" id="9_vq057"]
+[ext_resource type="Texture2D" uid="uid://gfkym41jtany" path="res://ui/buttons/credits_hover.png" id="10_wifd0"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cqt0x"]
 texture = ExtResource("3_m4171")
@@ -24,6 +27,7 @@ PanelContainer/styles/panel = SubResource("StyleBoxTexture_cqt0x")
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_ab7jh")
+credits_scene = ExtResource("2_n4pwg")
 
 [node name="Background" type="TextureRect" parent="."]
 offset_right = 2560.0
@@ -59,6 +63,13 @@ texture_normal = ExtResource("6_qve0m")
 texture_pressed = ExtResource("6_qve0m")
 texture_hover = ExtResource("7_vpetr")
 
+[node name="Credits Button" type="TextureButton" parent="UserInterface/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("9_vq057")
+texture_pressed = ExtResource("9_vq057")
+texture_hover = ExtResource("10_wifd0")
+
 [node name="Settings Button" type="TextureButton" parent="UserInterface/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -75,5 +86,6 @@ texture_hover = ExtResource("7_5g4hg")
 
 [connection signal="pressed" from="UserInterface/VBoxContainer/Play Button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="UserInterface/VBoxContainer/Tutorial Button" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="UserInterface/VBoxContainer/Credits Button" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="UserInterface/VBoxContainer/Settings Button" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="UserInterface/VBoxContainer/Quit Button" to="." method="_on_quit_button_pressed"]
