@@ -34,6 +34,8 @@ func _on_settings_button_pressed():
 
 func _on_quit_button_pressed():
 	SoundManager.click.play()
+	var tween = create_tween()
+	tween.tween_property(self, "modulate", Color(0, 0, 0, 1), 0.1)
 	await SoundManager.click.finished
 	get_tree().quit()
 
