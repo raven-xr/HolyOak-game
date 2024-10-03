@@ -11,10 +11,10 @@ func _ready():
 	label.text = text
 	
 	var tween_1 = create_tween()
-	tween_1.tween_property(panel_container, "modulate", Color(1, 1, 1, 0.78125), 1.5) # 0.784314 = A: 200
+	tween_1.tween_property(panel_container, "modulate", Color(1, 1, 1, 0.78125), 1.0)
 	await tween_1.finished
 	await get_tree().create_timer(1.5).timeout
 	var tween_2 = create_tween()
-	tween_2.tween_property(panel_container, "modulate", Color(1, 1, 1, 0), 1.5)
+	tween_2.tween_property(panel_container, "modulate", Color(1, 1, 1, 0), 1.0)
 	await tween_2.finished
 	queue_free()

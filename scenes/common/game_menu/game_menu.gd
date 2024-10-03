@@ -1,10 +1,14 @@
 extends CanvasLayer
 
+@onready var panel_container = $PanelContainer
 @onready var resume_button = $"PanelContainer/VBoxContainer/Resume Button"
 @onready var settings_button = $"PanelContainer/VBoxContainer/Settings Button"
 @onready var quit_button = $"PanelContainer/VBoxContainer/Quit Button"
 
 func _ready():
+	panel_container.modulate = Color(1, 1, 1, 0)
+	var tween = create_tween()
+	tween.tween_property(panel_container, "modulate", Color(1, 1, 1, 1), 0.2)
 	get_tree().paused = true
 
 func _on_resume_button_pressed():
@@ -31,4 +35,6 @@ func disable_buttons():
 func resume():
 	get_tree().paused = false
 	disable_buttons()
-	queue_free()
+	var tween = create_tween()
+	tween.tween_property(panel_container, "modulate", Color(1, 1, 1, 0), 0.2)
+	tween.connect("finished", queue_free)
