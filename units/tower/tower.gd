@@ -60,10 +60,10 @@ func upgrading():
 	# Inform the platform that the tower finsihed upgrading
 	is_upgrading = false
 	# If the platform interface is opened, then enable remove, upgrade and tower stats button
-	platform.remove_texture_button.disabled = false
-	platform.tower_stats_texture_button.disabled = false
+	platform.remove_button.disabled = false
+	platform.tower_stats_button.disabled = false
 	if max_level != level:
-		platform.upgrade_texture_button.disabled = false
+		platform.upgrade_button.disabled = false
 
 func destruction():
 	# Inform the platform that the tower is being destructed
@@ -99,7 +99,7 @@ func destruction():
 	for smoke in gfx_smoke.get_children():
 		smoke.is_active = false
 	# If the platform interface is opened, then enable build button
-	platform.build_texture_button.disabled = false
+	platform.build_button.disabled = false
 	# Remove the tower
 	queue_free()
 

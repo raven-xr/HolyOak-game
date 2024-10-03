@@ -9,10 +9,10 @@ var is_menu_opened = false
 
 @onready var sprite_2d = $Sprite2D
 @onready var menu = $Menu
-@onready var build_texture_button = $"Menu/Build TextureButton"
-@onready var upgrade_texture_button = $"Menu/Upgrade TextureButton"
-@onready var remove_texture_button = $"Menu/Remove TextureButton"
-@onready var tower_stats_texture_button = $"Menu/TowerStats TextureButton"
+@onready var build_button = $"Menu/Build Button"
+@onready var upgrade_button = $"Menu/Upgrade Button"
+@onready var remove_button = $"Menu/Remove Button"
+@onready var tower_stats_button = $"Menu/TowerStats Button"
 
 func _ready():
 	match default_direction:
@@ -24,7 +24,7 @@ func _ready():
 		button.disabled = true
 	menu.modulate = Color(1, 1, 1, 0)
 
-func _on_build_texture_button_pressed():
+func _on_build_button_pressed():
 	SoundManager.click.play()
 	var cost = UnitStats.archers["level_1"]["cost"]
 	# Check if player has enough money
@@ -40,7 +40,7 @@ func _on_build_texture_button_pressed():
 		add_child(new_message)
 	close_menu()
 	
-func _on_upgrade_texture_button_pressed():
+func _on_upgrade_button_pressed():
 	SoundManager.click.play()
 	var tower = get_node("Tower")
 	var cost = tower.current_cost
@@ -53,15 +53,15 @@ func _on_upgrade_texture_button_pressed():
 		add_child(new_message)
 	close_menu()
 
-func _on_remove_texture_button_pressed():
+func _on_remove_button_pressed():
 	SoundManager.click.play()
-	tower_stats_texture_button.disabled = true
+	tower_stats_button.disabled = true
 	var tower = get_node("Tower")
 	tower.destruction()
 	sprite_2d.visible = true
 	close_menu()
 
-func _on_tower_stats_texture_button_pressed():
+func _on_tower_stats_button_pressed():
 	SoundManager.click.play()
 	var new_tower_stats = tower_stats_preload.instantiate()
 	match default_direction:
@@ -99,9 +99,9 @@ func open_menu():
 		var tower = get_node("Tower")
 		if not(tower.is_upgrading):
 			if tower.level > 0:
-				tower_stats_texture_button.disabled = false
-			remove_texture_button.disabled = false
+				tower_stats_button.disabled = false
+			remove_button.disabled = false
 		if tower.can_be_upgraded():
-			upgrade_texture_button.disabled = false
+			upgrade_button.disabled = false
 	else:
-		build_texture_button.disabled = false
+		build_button.disabled = false
