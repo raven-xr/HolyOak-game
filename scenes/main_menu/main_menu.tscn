@@ -44,7 +44,7 @@ texture_filter = 2
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Play TextureButton" type="TextureButton" parent="UserInterface/VBoxContainer"]
+[node name="Play Button" type="TextureButton" parent="UserInterface/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -52,28 +52,28 @@ texture_normal = ExtResource("2_kfanh")
 texture_pressed = ExtResource("2_kfanh")
 texture_hover = ExtResource("4_6ivh4")
 
-[node name="Tutorial TextureButton" type="TextureButton" parent="UserInterface/VBoxContainer"]
+[node name="Tutorial Button" type="TextureButton" parent="UserInterface/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("6_qve0m")
 texture_pressed = ExtResource("6_qve0m")
 texture_hover = ExtResource("7_vpetr")
 
-[node name="Settings TextureButton" type="TextureButton" parent="UserInterface/VBoxContainer"]
+[node name="Settings Button" type="TextureButton" parent="UserInterface/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("4_sj7hi")
 texture_pressed = ExtResource("4_sj7hi")
 texture_hover = ExtResource("5_151sx")
 
-[node name="Quit TextureButton" type="TextureButton" parent="UserInterface/VBoxContainer"]
+[node name="Quit Button" type="TextureButton" parent="UserInterface/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("6_1pwt5")
 texture_pressed = ExtResource("6_1pwt5")
 texture_hover = ExtResource("7_5g4hg")
 
-[connection signal="pressed" from="UserInterface/VBoxContainer/Play TextureButton" to="." method="_on_play_texture_button_pressed"]
-[connection signal="pressed" from="UserInterface/VBoxContainer/Tutorial TextureButton" to="." method="_on_tutorial_texture_button_pressed"]
-[connection signal="pressed" from="UserInterface/VBoxContainer/Settings TextureButton" to="." method="_on_settings_texture_button_pressed"]
-[connection signal="pressed" from="UserInterface/VBoxContainer/Quit TextureButton" to="." method="_on_quit_texture_button_pressed"]
+[connection signal="pressed" from="UserInterface/VBoxContainer/Play Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="UserInterface/VBoxContainer/Tutorial Button" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="UserInterface/VBoxContainer/Settings Button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="UserInterface/VBoxContainer/Quit Button" to="." method="_on_quit_button_pressed"]
