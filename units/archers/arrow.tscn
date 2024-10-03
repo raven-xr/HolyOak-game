@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bk57iw1adx1bm"]
 
-[ext_resource type="Script" path="res://towers/archers/arrow.gd" id="1_2q4eh"]
+[ext_resource type="Script" path="res://units/archers/arrow.gd" id="1_2q4eh"]
 [ext_resource type="Texture2D" uid="uid://dasycxvxc0xib" path="res://models/towers/archers/units/arrow.png" id="2_0clly"]
 [ext_resource type="AudioStream" uid="uid://8irco7c15oms" path="res://audio/sfx/bow_hit.mp3" id="3_gqlm7"]
 

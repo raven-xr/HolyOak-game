@@ -1,4 +1,4 @@
-extends "res://towers/platform/platform.gd"
+extends "res://units/platform/platform.gd"
 
 @onready var level = $"../.."
 @onready var touch_screen_button = $TouchScreenButton
