@@ -41,11 +41,14 @@ var wave = 0:
 @export var next_level_path: String
 
 @onready var enemies = $Enemies
+@onready var towers = $Towers
+@onready var user_interface = $UserInterface
+
 @onready var trees = $Objects/Trees
 @onready var bushes = $Objects/Bushes
-@onready var user_interface = $UserInterface
-@onready var menu_button = $UserInterface/MenuButton
-@onready var towers = $Towers
+
+@onready var menu = $UserInterface/Menu
+
 @onready var platform_1 = $"Towers/Platform 1"
 
 signal player_opened_platform()
@@ -221,9 +224,9 @@ func _on_health_changed(value):
 
 func _on_menu_button_pressed():
 	SoundManager.click.play()
-	if not menu_button.has_node("GameMenu"):
+	if not menu.has_node("GameMenu"):
 		var game_menu = game_menu_preload.instantiate()
-		menu_button.add_child(game_menu)
+		menu.add_child(game_menu)
 	else:
-		var game_menu = menu_button.get_node("GameMenu")
+		var game_menu = menu.get_node("GameMenu")
 		game_menu.resume()

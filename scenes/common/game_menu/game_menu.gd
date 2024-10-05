@@ -9,6 +9,7 @@ func _ready():
 	panel_container.modulate = Color(1, 1, 1, 0)
 	var tween = create_tween()
 	tween.tween_property(panel_container, "modulate", Color(1, 1, 1, 1), 0.2)
+	await tween.finished
 	get_tree().paused = true
 
 func _on_resume_button_pressed():
@@ -33,8 +34,9 @@ func disable_buttons():
 	quit_button.disabled = true
 
 func resume():
-	get_tree().paused = false
 	disable_buttons()
 	var tween = create_tween()
 	tween.tween_property(panel_container, "modulate", Color(1, 1, 1, 0), 0.2)
-	tween.connect("finished", queue_free)
+	await tween.finished
+	get_tree().paused = false
+	queue_free()

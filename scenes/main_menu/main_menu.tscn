@@ -32,6 +32,7 @@ offset_bottom = 40.0
 script = ExtResource("1_ab7jh")
 
 [node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 2560.0
 offset_bottom = 1462.0
 scale = Vector2(0.5, 0.5)
@@ -39,6 +40,7 @@ texture = ExtResource("1_tludv")
 
 [node name="Explorer" type="PanelContainer" parent="."]
 texture_filter = 1
+layout_mode = 0
 offset_left = 496.0
 offset_top = 232.0
 offset_right = 722.0

@@ -1,0 +1,526 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqy0ujlkyfi57"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3yd53"]
+load_path = "res://.godot/imported/objects.png-7f22702c00ede1036b55d6d96eaa04fb.ctex"
+
+[node name="Trees" type="Node2D"]
+
+[node name="Oak1" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1272, 16)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1272, 72)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak3" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1224, 24)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak4" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1232, 64)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak5" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1256, 120)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak6" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1152, 32)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak7" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1176, 104)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak8" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1216, 160)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak9" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1072, 32)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak10" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(984, 32)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak11" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1024, 56)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak12" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1112, 48)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak13" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(920, -8)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak14" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1072, 88)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak15" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1128, 128)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak16" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1160, 216)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak17" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1080, 160)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak18" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1080, 264)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak19" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1136, 280)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak20" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1224, 240)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak21" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1200, 312)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak22" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1256, 312)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak23" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1104, 328)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak24" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1160, 352)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak25" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1232, 392)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak26" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1136, 408)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak27" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1184, 440)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak28" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1256, 472)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak29" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1200, 512)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak30" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1168, 560)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak31" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1120, 624)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak32" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1072, 656)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak33" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1008, 688)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak34" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(960, 736)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak35" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1256, 544)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak36" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1256, 616)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak37" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1272, 696)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak38" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1184, 632)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak39" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1128, 712)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak40" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1200, 688)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak41" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(896, 752)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak42" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(8, 0)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak43" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(72, 16)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak44" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(16, 72)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak45" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(136, 24)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak46" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(104, 56)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak47" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(64, 104)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak48" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(24, 160)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak49" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(192, 24)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak50" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(240, 40)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak51" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(280, 96)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak52" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(312, 136)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak53" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(280, 208)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak56" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(144, 208)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak66" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(192, 232)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak67" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(240, 240)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak57" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(88, 192)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak58" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(24, 224)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak59" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(72, 256)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak60" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(16, 288)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak61" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(128, 256)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak62" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(392, 24)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak63" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(328, 32)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak64" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(368, 88)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Oak65" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(464, -24)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("CompressedTexture2D_3yd53")
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 64)
