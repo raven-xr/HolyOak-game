@@ -1,9 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://die1k42jfmahn"]
+[gd_scene load_steps=16 format=3 uid="uid://die1k42jfmahn"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_ab7jh"]
 [ext_resource type="Texture2D" uid="uid://bdbcrxa2815rn" path="res://ui/backgrounds/main_menu.jpeg" id="1_tludv"]
 [ext_resource type="Texture2D" uid="uid://d3cbse0cdcpi4" path="res://ui/buttons/play_default.png" id="2_kfanh"]
-[ext_resource type="PackedScene" uid="uid://b5ajqs6nu55i3" path="res://scenes/main_menu/local/credits.tscn" id="2_n4pwg"]
 [ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://ui/backgrounds/ui_border.png" id="3_m4171"]
 [ext_resource type="Texture2D" uid="uid://cv3g2mky4f7fj" path="res://ui/buttons/play_hover.png" id="4_6ivh4"]
 [ext_resource type="Texture2D" uid="uid://bwpmh70vc388u" path="res://ui/buttons/settings_default.png" id="4_sj7hi"]
@@ -25,9 +24,12 @@ texture_margin_bottom = 10.0
 [sub_resource type="Theme" id="Theme_jxuai"]
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_cqt0x")
 
-[node name="MainMenu" type="Node2D"]
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 script = ExtResource("1_ab7jh")
-credits_scene = ExtResource("2_n4pwg")
 
 [node name="Background" type="TextureRect" parent="."]
 offset_right = 2560.0
@@ -40,7 +42,7 @@ texture_filter = 1
 offset_left = 496.0
 offset_top = 232.0
 offset_right = 722.0
-offset_bottom = 608.0
+offset_bottom = 693.0
 theme = SubResource("Theme_jxuai")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Explorer"]

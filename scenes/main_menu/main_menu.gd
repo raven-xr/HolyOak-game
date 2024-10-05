@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 @onready var v_box_container = $Explorer/VBoxContainer
 
