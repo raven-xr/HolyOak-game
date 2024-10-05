@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var v_box_container = $Explorer/VBoxContainer
+
 @onready var play_button = $"Explorer/VBoxContainer/Play Button"
 @onready var tutorial_button = $"Explorer/VBoxContainer/Tutorial Button"
 @onready var settings_button = $"Explorer/VBoxContainer/Settings Button"
@@ -39,7 +41,7 @@ func _on_quit_button_pressed():
 	get_tree().quit()
 
 func change_level():
-	for button in $Explorer/VBoxContainer.get_children():
+	for button in v_box_container.get_children():
 		button.disabled = true
 	var tween_1 = get_tree().create_tween()
 	tween_1.parallel().tween_property(self, "modulate", Color(0, 0, 0, 1), 0.1)
