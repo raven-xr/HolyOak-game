@@ -35,7 +35,7 @@ offset_bottom = 1462.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_tludv")
 
-[node name="UserInterface" type="PanelContainer" parent="."]
+[node name="Explorer" type="PanelContainer" parent="."]
 texture_filter = 1
 offset_left = 496.0
 offset_top = 232.0
@@ -43,12 +43,12 @@ offset_right = 722.0
 offset_bottom = 608.0
 theme = SubResource("Theme_jxuai")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Explorer"]
 texture_filter = 2
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Play Button" type="TextureButton" parent="UserInterface/VBoxContainer"]
+[node name="Play Button" type="TextureButton" parent="Explorer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -56,36 +56,36 @@ texture_normal = ExtResource("2_kfanh")
 texture_pressed = ExtResource("2_kfanh")
 texture_hover = ExtResource("4_6ivh4")
 
-[node name="Tutorial Button" type="TextureButton" parent="UserInterface/VBoxContainer"]
+[node name="Tutorial Button" type="TextureButton" parent="Explorer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("6_qve0m")
 texture_pressed = ExtResource("6_qve0m")
 texture_hover = ExtResource("7_vpetr")
 
-[node name="Credits Button" type="TextureButton" parent="UserInterface/VBoxContainer"]
+[node name="Credits Button" type="TextureButton" parent="Explorer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("9_vq057")
 texture_pressed = ExtResource("9_vq057")
 texture_hover = ExtResource("10_wifd0")
 
-[node name="Settings Button" type="TextureButton" parent="UserInterface/VBoxContainer"]
+[node name="Settings Button" type="TextureButton" parent="Explorer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("4_sj7hi")
 texture_pressed = ExtResource("4_sj7hi")
 texture_hover = ExtResource("5_151sx")
 
-[node name="Quit Button" type="TextureButton" parent="UserInterface/VBoxContainer"]
+[node name="Quit Button" type="TextureButton" parent="Explorer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("6_1pwt5")
 texture_pressed = ExtResource("6_1pwt5")
 texture_hover = ExtResource("7_5g4hg")
 
-[connection signal="pressed" from="UserInterface/VBoxContainer/Play Button" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="UserInterface/VBoxContainer/Tutorial Button" to="." method="_on_tutorial_button_pressed"]
-[connection signal="pressed" from="UserInterface/VBoxContainer/Credits Button" to="." method="_on_credits_button_pressed"]
-[connection signal="pressed" from="UserInterface/VBoxContainer/Settings Button" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="UserInterface/VBoxContainer/Quit Button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Explorer/VBoxContainer/Play Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Explorer/VBoxContainer/Tutorial Button" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="Explorer/VBoxContainer/Credits Button" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="Explorer/VBoxContainer/Settings Button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Explorer/VBoxContainer/Quit Button" to="." method="_on_quit_button_pressed"]
