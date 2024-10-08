@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://die1k42jfmahn"]
+[gd_scene load_steps=19 format=3 uid="uid://die1k42jfmahn"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_ab7jh"]
 [ext_resource type="Texture2D" uid="uid://bdbcrxa2815rn" path="res://ui/backgrounds/main_menu.jpeg" id="1_tludv"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dbaw65axdean" path="res://ui/buttons/tutorial_hover.png" id="7_vpetr"]
 [ext_resource type="Texture2D" uid="uid://da2xw5ex1g85w" path="res://ui/buttons/credits_default.png" id="9_vq057"]
 [ext_resource type="Texture2D" uid="uid://gfkym41jtany" path="res://ui/buttons/credits_hover.png" id="10_wifd0"]
+[ext_resource type="Texture2D" uid="uid://diotcuia4nehk" path="res://ui/icons/close.svg" id="14_nqrd7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cqt0x"]
 texture = ExtResource("3_m4171")
@@ -23,6 +24,16 @@ texture_margin_bottom = 10.0
 
 [sub_resource type="Theme" id="Theme_jxuai"]
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_cqt0x")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_23fp8"]
+texture = ExtResource("3_m4171")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="Theme" id="Theme_qx40b"]
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_23fp8")
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -88,8 +99,64 @@ texture_normal = ExtResource("6_1pwt5")
 texture_pressed = ExtResource("6_1pwt5")
 texture_hover = ExtResource("7_5g4hg")
 
+[node name="Credits" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PanelContainer" type="PanelContainer" parent="Credits"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 267.5
+offset_top = 52.0
+offset_right = 972.5
+offset_bottom = 628.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_qx40b")
+
+[node name="Label" type="Label" parent="Credits/PanelContainer"]
+texture_filter = 2
+layout_mode = 2
+text = "Special thanks for:
+
+Wizzard Sprites by orcmurb
+
+Shikashi's Fantasy Icon Pack (FREE) by Matt Firth (shikashipx) and game-icons.net
+Licensed under Creative Commons BY Attribution 4.0 License
+https://creativecommons.org/licenses/by/4.0/
+
+Traveler by Alexander Nakarada (www.creatorchords.com)
+Licensed under Creative Commons BY Attribution 4.0 License
+https://creativecommons.org/licenses/by/4.0/
+
+Leaving for Valhalla by Alexander Nakarada (www.creatorchords.com)
+Licensed under Creative Commons BY Attribution 4.0 License
+https://creativecommons.org/licenses/by/4.0/
+
+Adventure Beyond by Alexander Nakarada (www.creatorchords.com)
+Licensed under Creative Commons BY Attribution 4.0 License
+https://creativecommons.org/licenses/by/4.0/"
+horizontal_alignment = 1
+
+[node name="Close Button" type="Button" parent="Credits"]
+offset_left = 944.0
+offset_top = 88.0
+offset_right = 976.0
+offset_bottom = 120.0
+disabled = true
+icon = ExtResource("14_nqrd7")
+
 [connection signal="pressed" from="Explorer/VBoxContainer/Play Button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Explorer/VBoxContainer/Tutorial Button" to="." method="_on_tutorial_button_pressed"]
 [connection signal="pressed" from="Explorer/VBoxContainer/Credits Button" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="Explorer/VBoxContainer/Settings Button" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="Explorer/VBoxContainer/Quit Button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Credits/Close Button" to="." method="_on_close_button_pressed"]
