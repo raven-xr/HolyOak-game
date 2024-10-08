@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://5somsbnrlalg"]
+
+[ext_resource type="Texture2D" uid="uid://djyujweki6bil" path="res://ui/buttons/square/star.png" id="1_8cur7"]
+
+[node name="Star" type="TextureRect"]
+texture_filter = 2
+offset_right = 21.0
+offset_bottom = 20.0
+texture = ExtResource("1_8cur7")

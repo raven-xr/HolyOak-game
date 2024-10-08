@@ -1,19 +1,31 @@
-[gd_scene load_steps=19 format=3 uid="uid://die1k42jfmahn"]
+[gd_scene load_steps=31 format=3 uid="uid://die1k42jfmahn"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_ab7jh"]
 [ext_resource type="Texture2D" uid="uid://bdbcrxa2815rn" path="res://ui/backgrounds/main_menu.jpeg" id="1_tludv"]
-[ext_resource type="Texture2D" uid="uid://d3cbse0cdcpi4" path="res://ui/buttons/play_default.png" id="2_kfanh"]
+[ext_resource type="Texture2D" uid="uid://d3cbse0cdcpi4" path="res://ui/buttons/rect/play_default.png" id="2_kfanh"]
+[ext_resource type="PackedScene" uid="uid://5somsbnrlalg" path="res://scenes/common/star/star.tscn" id="2_ndcgm"]
 [ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://ui/backgrounds/ui_border.png" id="3_m4171"]
-[ext_resource type="Texture2D" uid="uid://cv3g2mky4f7fj" path="res://ui/buttons/play_hover.png" id="4_6ivh4"]
-[ext_resource type="Texture2D" uid="uid://bwpmh70vc388u" path="res://ui/buttons/settings_default.png" id="4_sj7hi"]
-[ext_resource type="Texture2D" uid="uid://dw3kn3vicpbsq" path="res://ui/buttons/settings_hover.png" id="5_151sx"]
-[ext_resource type="Texture2D" uid="uid://bm1pbqq1l25f" path="res://ui/buttons/quit_default.png" id="6_1pwt5"]
-[ext_resource type="Texture2D" uid="uid://dv8sybam8xt54" path="res://ui/buttons/tutorial_default.png" id="6_qve0m"]
-[ext_resource type="Texture2D" uid="uid://c1dflmc63lvtd" path="res://ui/buttons/quit_hover.png" id="7_5g4hg"]
-[ext_resource type="Texture2D" uid="uid://dbaw65axdean" path="res://ui/buttons/tutorial_hover.png" id="7_vpetr"]
-[ext_resource type="Texture2D" uid="uid://da2xw5ex1g85w" path="res://ui/buttons/credits_default.png" id="9_vq057"]
-[ext_resource type="Texture2D" uid="uid://gfkym41jtany" path="res://ui/buttons/credits_hover.png" id="10_wifd0"]
+[ext_resource type="Texture2D" uid="uid://cv3g2mky4f7fj" path="res://ui/buttons/rect/play_hover.png" id="4_6ivh4"]
+[ext_resource type="Texture2D" uid="uid://bwpmh70vc388u" path="res://ui/buttons/rect/settings_default.png" id="4_sj7hi"]
+[ext_resource type="Texture2D" uid="uid://dw3kn3vicpbsq" path="res://ui/buttons/rect/settings_hover.png" id="5_151sx"]
+[ext_resource type="Texture2D" uid="uid://bm1pbqq1l25f" path="res://ui/buttons/rect/quit_default.png" id="6_1pwt5"]
+[ext_resource type="Texture2D" uid="uid://c1dflmc63lvtd" path="res://ui/buttons/rect/quit_hover.png" id="7_5g4hg"]
+[ext_resource type="Texture2D" uid="uid://da2xw5ex1g85w" path="res://ui/buttons/rect/credits_default.png" id="9_vq057"]
+[ext_resource type="Texture2D" uid="uid://gfkym41jtany" path="res://ui/buttons/rect/credits_hover.png" id="10_wifd0"]
+[ext_resource type="Texture2D" uid="uid://w2ammy446pbd" path="res://ui/buttons/square/tutorial_hover.png" id="13_s08mv"]
+[ext_resource type="Texture2D" uid="uid://bvmmt7keresvy" path="res://ui/buttons/square/tutorial.png" id="14_1y51j"]
 [ext_resource type="Texture2D" uid="uid://diotcuia4nehk" path="res://ui/icons/close.svg" id="14_nqrd7"]
+[ext_resource type="Texture2D" uid="uid://c8obcfadrv65c" path="res://ui/buttons/square/level_locked.png" id="15_nhxe4"]
+[ext_resource type="Texture2D" uid="uid://chooa8wfmkngw" path="res://ui/buttons/square/level_1_default.png" id="16_ab3ye"]
+[ext_resource type="Texture2D" uid="uid://b3rswsjyy2igl" path="res://ui/buttons/square/level_1_hover.png" id="16_lqmcj"]
+[ext_resource type="Texture2D" uid="uid://b5cr2ntq3d7jp" path="res://ui/buttons/square/level_2_default.png" id="17_7o7f4"]
+[ext_resource type="Texture2D" uid="uid://bdorir4d0eth6" path="res://ui/buttons/square/level_3_default.png" id="18_61te1"]
+[ext_resource type="Texture2D" uid="uid://dgvik8lch8u7i" path="res://ui/buttons/square/level_2_hover.png" id="18_w0klc"]
+[ext_resource type="Texture2D" uid="uid://b2qvr3353y47" path="res://ui/buttons/square/level_4_default.png" id="19_46yfy"]
+[ext_resource type="Texture2D" uid="uid://djcxo25tobuku" path="res://ui/buttons/square/level_5_default.png" id="20_fvwmv"]
+[ext_resource type="Texture2D" uid="uid://cq0ukcbabcmo" path="res://ui/buttons/square/level_3_hover.png" id="20_thg1v"]
+[ext_resource type="Texture2D" uid="uid://2djb6cyt6jb" path="res://ui/buttons/square/level_4_hover.png" id="22_7bkd7"]
+[ext_resource type="Texture2D" uid="uid://xhef5g8vp6xr" path="res://ui/buttons/square/level_5_hover.png" id="24_2672s"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cqt0x"]
 texture = ExtResource("3_m4171")
@@ -41,6 +53,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_ab7jh")
+star_scene = ExtResource("2_ndcgm")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
@@ -55,7 +68,7 @@ layout_mode = 0
 offset_left = 496.0
 offset_top = 232.0
 offset_right = 722.0
-offset_bottom = 693.0
+offset_bottom = 605.0
 theme = SubResource("Theme_jxuai")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Explorer"]
@@ -70,13 +83,6 @@ size_flags_vertical = 4
 texture_normal = ExtResource("2_kfanh")
 texture_pressed = ExtResource("2_kfanh")
 texture_hover = ExtResource("4_6ivh4")
-
-[node name="Tutorial Button" type="TextureButton" parent="Explorer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-texture_normal = ExtResource("6_qve0m")
-texture_pressed = ExtResource("6_qve0m")
-texture_hover = ExtResource("7_vpetr")
 
 [node name="Credits Button" type="TextureButton" parent="Explorer/VBoxContainer"]
 layout_mode = 2
@@ -98,6 +104,67 @@ size_flags_horizontal = 4
 texture_normal = ExtResource("6_1pwt5")
 texture_pressed = ExtResource("6_1pwt5")
 texture_hover = ExtResource("7_5g4hg")
+
+[node name="Levels" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GridContainer" type="GridContainer" parent="Levels"]
+layout_mode = 0
+offset_left = 473.0
+offset_top = 320.0
+offset_right = 751.0
+offset_bottom = 534.0
+columns = 3
+
+[node name="Tutorial" type="TextureButton" parent="Levels/GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("14_1y51j")
+texture_pressed = ExtResource("14_1y51j")
+texture_hover = ExtResource("13_s08mv")
+texture_disabled = ExtResource("15_nhxe4")
+
+[node name="Level 1" type="TextureButton" parent="Levels/GridContainer"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("16_ab3ye")
+texture_pressed = ExtResource("16_ab3ye")
+texture_hover = ExtResource("16_lqmcj")
+texture_disabled = ExtResource("15_nhxe4")
+
+[node name="Level 2" type="TextureButton" parent="Levels/GridContainer"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("17_7o7f4")
+texture_pressed = ExtResource("17_7o7f4")
+texture_hover = ExtResource("18_w0klc")
+texture_disabled = ExtResource("15_nhxe4")
+
+[node name="Level 3" type="TextureButton" parent="Levels/GridContainer"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("18_61te1")
+texture_pressed = ExtResource("18_61te1")
+texture_hover = ExtResource("20_thg1v")
+texture_disabled = ExtResource("15_nhxe4")
+
+[node name="Level 4" type="TextureButton" parent="Levels/GridContainer"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("19_46yfy")
+texture_pressed = ExtResource("19_46yfy")
+texture_hover = ExtResource("22_7bkd7")
+texture_disabled = ExtResource("15_nhxe4")
+
+[node name="Level 5" type="TextureButton" parent="Levels/GridContainer"]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("20_fvwmv")
+texture_pressed = ExtResource("20_fvwmv")
+texture_hover = ExtResource("24_2672s")
+texture_disabled = ExtResource("15_nhxe4")
 
 [node name="Credits" type="Control" parent="."]
 visible = false
@@ -147,16 +214,21 @@ https://creativecommons.org/licenses/by/4.0/"
 horizontal_alignment = 1
 
 [node name="Close Button" type="Button" parent="Credits"]
+layout_mode = 0
 offset_left = 944.0
 offset_top = 88.0
 offset_right = 976.0
 offset_bottom = 120.0
-disabled = true
 icon = ExtResource("14_nqrd7")
 
 [connection signal="pressed" from="Explorer/VBoxContainer/Play Button" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="Explorer/VBoxContainer/Tutorial Button" to="." method="_on_tutorial_button_pressed"]
 [connection signal="pressed" from="Explorer/VBoxContainer/Credits Button" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="Explorer/VBoxContainer/Settings Button" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="Explorer/VBoxContainer/Quit Button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Levels/GridContainer/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="Levels/GridContainer/Level 1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="Levels/GridContainer/Level 2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="Levels/GridContainer/Level 3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="Levels/GridContainer/Level 4" to="." method="_on_level_4_pressed"]
+[connection signal="pressed" from="Levels/GridContainer/Level 5" to="." method="_on_level_5_pressed"]
 [connection signal="pressed" from="Credits/Close Button" to="." method="_on_close_button_pressed"]
