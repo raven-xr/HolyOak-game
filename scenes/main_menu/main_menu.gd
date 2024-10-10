@@ -8,7 +8,7 @@ extends Control
 @onready var v_box_container = $Explorer/VBoxContainer
 @onready var play_button = $"Explorer/VBoxContainer/Play Button"
 @onready var settings_button = $"Explorer/VBoxContainer/Settings Button"
-@onready var quit_button = $"Explorer/VBoxContainer/Quit Button"
+@onready var exit_button = $"Explorer/VBoxContainer/Exit Button"
 
 # Levels' varibales
 @onready var levels = $Levels
@@ -52,11 +52,10 @@ func animate_transition():
 ### Explorer's functions
 func _on_play_button_pressed():
 	SoundManager.click.play()
+	explorer.visible = false
 	levels.visible = true
-	var tween_1 = create_tween()
-	tween_1.tween_property(explorer, "modulate", Color(1, 1, 1, 0), 0.1)
-	var tween_2 = create_tween()
-	tween_2.tween_property(levels, "modulate", Color(1, 1, 1, 1), 0.1)
+	var tween = create_tween()
+	tween.tween_property(levels, "modulate", Color(1, 1, 1, 1), 0.1)
 
 func _on_credits_button_pressed():
 	SoundManager.click.play()
@@ -67,7 +66,7 @@ func _on_credits_button_pressed():
 func _on_settings_button_pressed():
 	SoundManager.click.play()
 
-func _on_quit_button_pressed():
+func _on_exit_button_pressed():
 	SoundManager.click.play()
 	animate_transition()
 	await SoundManager.click.finished
@@ -117,7 +116,6 @@ func _on_level_5_pressed():
 
 ### Credits' functions
 func _on_close_button_pressed():
-	close_button.disabled = true
 	SoundManager.click.play()
 	var tween = create_tween()
 	tween.tween_property(credits, "modulate", Color(1, 1, 1, 0), 0.1)

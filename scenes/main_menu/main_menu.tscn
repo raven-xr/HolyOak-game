@@ -1,17 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://die1k42jfmahn"]
+[gd_scene load_steps=24 format=3 uid="uid://die1k42jfmahn"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_ab7jh"]
 [ext_resource type="Texture2D" uid="uid://bdbcrxa2815rn" path="res://ui/backgrounds/main_menu.jpeg" id="1_tludv"]
-[ext_resource type="Texture2D" uid="uid://d3cbse0cdcpi4" path="res://ui/buttons/rect/play_default.png" id="2_kfanh"]
 [ext_resource type="PackedScene" uid="uid://5somsbnrlalg" path="res://scenes/common/star/star.tscn" id="2_ndcgm"]
 [ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://ui/backgrounds/ui_border.png" id="3_m4171"]
-[ext_resource type="Texture2D" uid="uid://cv3g2mky4f7fj" path="res://ui/buttons/rect/play_hover.png" id="4_6ivh4"]
-[ext_resource type="Texture2D" uid="uid://bwpmh70vc388u" path="res://ui/buttons/rect/settings_default.png" id="4_sj7hi"]
-[ext_resource type="Texture2D" uid="uid://dw3kn3vicpbsq" path="res://ui/buttons/rect/settings_hover.png" id="5_151sx"]
-[ext_resource type="Texture2D" uid="uid://bm1pbqq1l25f" path="res://ui/buttons/rect/quit_default.png" id="6_1pwt5"]
-[ext_resource type="Texture2D" uid="uid://c1dflmc63lvtd" path="res://ui/buttons/rect/quit_hover.png" id="7_5g4hg"]
-[ext_resource type="Texture2D" uid="uid://da2xw5ex1g85w" path="res://ui/buttons/rect/credits_default.png" id="9_vq057"]
-[ext_resource type="Texture2D" uid="uid://gfkym41jtany" path="res://ui/buttons/rect/credits_hover.png" id="10_wifd0"]
 [ext_resource type="Texture2D" uid="uid://w2ammy446pbd" path="res://ui/buttons/square/tutorial_hover.png" id="13_s08mv"]
 [ext_resource type="Texture2D" uid="uid://bvmmt7keresvy" path="res://ui/buttons/square/tutorial.png" id="14_1y51j"]
 [ext_resource type="Texture2D" uid="uid://diotcuia4nehk" path="res://ui/icons/close.svg" id="14_nqrd7"]
@@ -26,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://cq0ukcbabcmo" path="res://ui/buttons/square/level_3_hover.png" id="20_thg1v"]
 [ext_resource type="Texture2D" uid="uid://2djb6cyt6jb" path="res://ui/buttons/square/level_4_hover.png" id="22_7bkd7"]
 [ext_resource type="Texture2D" uid="uid://xhef5g8vp6xr" path="res://ui/buttons/square/level_5_hover.png" id="24_2672s"]
+[ext_resource type="PackedScene" uid="uid://c4yciknbne0cn" path="res://scenes/common/texture_button/texture_button.tscn" id="27_oj5qv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cqt0x"]
 texture = ExtResource("3_m4171")
@@ -76,34 +69,25 @@ texture_filter = 2
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Play Button" type="TextureButton" parent="Explorer/VBoxContainer"]
+[node name="Play Button" parent="Explorer/VBoxContainer" instance=ExtResource("27_oj5qv")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("2_kfanh")
-texture_pressed = ExtResource("2_kfanh")
-texture_hover = ExtResource("4_6ivh4")
+text = "PLAY"
+font_size = 32
 
-[node name="Credits Button" type="TextureButton" parent="Explorer/VBoxContainer"]
+[node name="Credits Button" parent="Explorer/VBoxContainer" instance=ExtResource("27_oj5qv")]
 layout_mode = 2
-size_flags_horizontal = 4
-texture_normal = ExtResource("9_vq057")
-texture_pressed = ExtResource("9_vq057")
-texture_hover = ExtResource("10_wifd0")
+text = "CREDITS"
+font_size = 32
 
-[node name="Settings Button" type="TextureButton" parent="Explorer/VBoxContainer"]
+[node name="Settings Button" parent="Explorer/VBoxContainer" instance=ExtResource("27_oj5qv")]
 layout_mode = 2
-size_flags_horizontal = 4
-texture_normal = ExtResource("4_sj7hi")
-texture_pressed = ExtResource("4_sj7hi")
-texture_hover = ExtResource("5_151sx")
+text = "SETTINGS"
+font_size = 32
 
-[node name="Quit Button" type="TextureButton" parent="Explorer/VBoxContainer"]
+[node name="Exit Button" parent="Explorer/VBoxContainer" instance=ExtResource("27_oj5qv")]
 layout_mode = 2
-size_flags_horizontal = 4
-texture_normal = ExtResource("6_1pwt5")
-texture_pressed = ExtResource("6_1pwt5")
-texture_hover = ExtResource("7_5g4hg")
+text = "EXIT"
+font_size = 32
 
 [node name="Levels" type="Control" parent="."]
 visible = false
@@ -224,7 +208,7 @@ icon = ExtResource("14_nqrd7")
 [connection signal="pressed" from="Explorer/VBoxContainer/Play Button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Explorer/VBoxContainer/Credits Button" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="Explorer/VBoxContainer/Settings Button" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="Explorer/VBoxContainer/Quit Button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Explorer/VBoxContainer/Exit Button" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="Levels/GridContainer/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="Levels/GridContainer/Level 1" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="Levels/GridContainer/Level 2" to="." method="_on_level_2_pressed"]
