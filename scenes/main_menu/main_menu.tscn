@@ -1,9 +1,13 @@
-[gd_scene load_steps=24 format=3 uid="uid://die1k42jfmahn"]
+[gd_scene load_steps=27 format=3 uid="uid://die1k42jfmahn"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_ab7jh"]
 [ext_resource type="Texture2D" uid="uid://bdbcrxa2815rn" path="res://ui/backgrounds/main_menu.jpeg" id="1_tludv"]
 [ext_resource type="PackedScene" uid="uid://5somsbnrlalg" path="res://scenes/common/star/star.tscn" id="2_ndcgm"]
 [ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://ui/backgrounds/ui_border.png" id="3_m4171"]
+[ext_resource type="Texture2D" uid="uid://b5ya13e41k2kt" path="res://ui/buttons/rect/default.svg" id="5_c58i8"]
+[ext_resource type="Texture2D" uid="uid://dsh51r6drxmtr" path="res://ui/buttons/rect/hover.svg" id="6_si5nj"]
+[ext_resource type="Script" path="res://scenes/common/texture_button/texture_button.gd" id="7_bejr1"]
+[ext_resource type="Theme" uid="uid://dkqstsnixcewe" path="res://ui/themes/text.tres" id="8_5cjbw"]
 [ext_resource type="Texture2D" uid="uid://w2ammy446pbd" path="res://ui/buttons/square/tutorial_hover.png" id="13_s08mv"]
 [ext_resource type="Texture2D" uid="uid://bvmmt7keresvy" path="res://ui/buttons/square/tutorial.png" id="14_1y51j"]
 [ext_resource type="Texture2D" uid="uid://diotcuia4nehk" path="res://ui/icons/close.svg" id="14_nqrd7"]
@@ -18,7 +22,6 @@
 [ext_resource type="Texture2D" uid="uid://cq0ukcbabcmo" path="res://ui/buttons/square/level_3_hover.png" id="20_thg1v"]
 [ext_resource type="Texture2D" uid="uid://2djb6cyt6jb" path="res://ui/buttons/square/level_4_hover.png" id="22_7bkd7"]
 [ext_resource type="Texture2D" uid="uid://xhef5g8vp6xr" path="res://ui/buttons/square/level_5_hover.png" id="24_2672s"]
-[ext_resource type="PackedScene" uid="uid://c4yciknbne0cn" path="res://scenes/common/texture_button/texture_button.tscn" id="27_oj5qv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cqt0x"]
 texture = ExtResource("3_m4171")
@@ -69,25 +72,81 @@ texture_filter = 2
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Play Button" parent="Explorer/VBoxContainer" instance=ExtResource("27_oj5qv")]
+[node name="Play Button" type="TextureButton" parent="Explorer/VBoxContainer"]
 layout_mode = 2
-text = "PLAY"
-font_size = 32
+texture_normal = ExtResource("5_c58i8")
+texture_pressed = ExtResource("5_c58i8")
+texture_hover = ExtResource("6_si5nj")
+script = ExtResource("7_bejr1")
 
-[node name="Credits Button" parent="Explorer/VBoxContainer" instance=ExtResource("27_oj5qv")]
+[node name="Label" type="Label" parent="Explorer/VBoxContainer/Play Button"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 187.0
+offset_bottom = 66.0
+theme = ExtResource("8_5cjbw")
+theme_override_font_sizes/font_size = 32
+text = "play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Credits Button" type="TextureButton" parent="Explorer/VBoxContainer"]
 layout_mode = 2
+texture_normal = ExtResource("5_c58i8")
+texture_pressed = ExtResource("5_c58i8")
+texture_hover = ExtResource("6_si5nj")
+script = ExtResource("7_bejr1")
+
+[node name="Label" type="Label" parent="Explorer/VBoxContainer/Credits Button"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 187.0
+offset_bottom = 66.0
+theme = ExtResource("8_5cjbw")
+theme_override_font_sizes/font_size = 32
 text = "CREDITS"
-font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Settings Button" parent="Explorer/VBoxContainer" instance=ExtResource("27_oj5qv")]
+[node name="Settings Button" type="TextureButton" parent="Explorer/VBoxContainer"]
 layout_mode = 2
+texture_normal = ExtResource("5_c58i8")
+texture_pressed = ExtResource("5_c58i8")
+texture_hover = ExtResource("6_si5nj")
+script = ExtResource("7_bejr1")
+
+[node name="Label" type="Label" parent="Explorer/VBoxContainer/Settings Button"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 187.0
+offset_bottom = 66.0
+theme = ExtResource("8_5cjbw")
+theme_override_font_sizes/font_size = 32
 text = "SETTINGS"
-font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Exit Button" parent="Explorer/VBoxContainer" instance=ExtResource("27_oj5qv")]
+[node name="Exit Button" type="TextureButton" parent="Explorer/VBoxContainer"]
 layout_mode = 2
+texture_normal = ExtResource("5_c58i8")
+texture_pressed = ExtResource("5_c58i8")
+texture_hover = ExtResource("6_si5nj")
+script = ExtResource("7_bejr1")
+
+[node name="Label" type="Label" parent="Explorer/VBoxContainer/Exit Button"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 187.0
+offset_bottom = 66.0
+theme = ExtResource("8_5cjbw")
+theme_override_font_sizes/font_size = 32
 text = "EXIT"
-font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Levels" type="Control" parent="."]
 visible = false
@@ -205,9 +264,17 @@ offset_right = 976.0
 offset_bottom = 120.0
 icon = ExtResource("14_nqrd7")
 
+[connection signal="mouse_entered" from="Explorer/VBoxContainer/Play Button" to="Explorer/VBoxContainer/Play Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Explorer/VBoxContainer/Play Button" to="Explorer/VBoxContainer/Play Button" method="_on_mouse_exited"]
 [connection signal="pressed" from="Explorer/VBoxContainer/Play Button" to="." method="_on_play_button_pressed"]
+[connection signal="mouse_entered" from="Explorer/VBoxContainer/Credits Button" to="Explorer/VBoxContainer/Credits Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Explorer/VBoxContainer/Credits Button" to="Explorer/VBoxContainer/Credits Button" method="_on_mouse_exited"]
 [connection signal="pressed" from="Explorer/VBoxContainer/Credits Button" to="." method="_on_credits_button_pressed"]
+[connection signal="mouse_entered" from="Explorer/VBoxContainer/Settings Button" to="Explorer/VBoxContainer/Settings Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Explorer/VBoxContainer/Settings Button" to="Explorer/VBoxContainer/Settings Button" method="_on_mouse_exited"]
 [connection signal="pressed" from="Explorer/VBoxContainer/Settings Button" to="." method="_on_settings_button_pressed"]
+[connection signal="mouse_entered" from="Explorer/VBoxContainer/Exit Button" to="Explorer/VBoxContainer/Exit Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Explorer/VBoxContainer/Exit Button" to="Explorer/VBoxContainer/Exit Button" method="_on_mouse_exited"]
 [connection signal="pressed" from="Explorer/VBoxContainer/Exit Button" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="Levels/GridContainer/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="Levels/GridContainer/Level 1" to="." method="_on_level_1_pressed"]
