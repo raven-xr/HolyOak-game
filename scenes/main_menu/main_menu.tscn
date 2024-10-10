@@ -148,13 +148,8 @@ text = "EXIT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Levels" type="Control" parent="."]
+[node name="Levels" type="GridContainer" parent="."]
 visible = false
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="GridContainer" type="GridContainer" parent="Levels"]
 layout_mode = 0
 offset_left = 473.0
 offset_top = 320.0
@@ -162,14 +157,14 @@ offset_right = 751.0
 offset_bottom = 534.0
 columns = 3
 
-[node name="Tutorial" type="TextureButton" parent="Levels/GridContainer"]
+[node name="Tutorial" type="TextureButton" parent="Levels"]
 layout_mode = 2
 texture_normal = ExtResource("14_1y51j")
 texture_pressed = ExtResource("14_1y51j")
 texture_hover = ExtResource("13_s08mv")
 texture_disabled = ExtResource("15_nhxe4")
 
-[node name="Level 1" type="TextureButton" parent="Levels/GridContainer"]
+[node name="Level 1" type="TextureButton" parent="Levels"]
 layout_mode = 2
 disabled = true
 texture_normal = ExtResource("16_ab3ye")
@@ -177,7 +172,7 @@ texture_pressed = ExtResource("16_ab3ye")
 texture_hover = ExtResource("16_lqmcj")
 texture_disabled = ExtResource("15_nhxe4")
 
-[node name="Level 2" type="TextureButton" parent="Levels/GridContainer"]
+[node name="Level 2" type="TextureButton" parent="Levels"]
 layout_mode = 2
 disabled = true
 texture_normal = ExtResource("17_7o7f4")
@@ -185,7 +180,7 @@ texture_pressed = ExtResource("17_7o7f4")
 texture_hover = ExtResource("18_w0klc")
 texture_disabled = ExtResource("15_nhxe4")
 
-[node name="Level 3" type="TextureButton" parent="Levels/GridContainer"]
+[node name="Level 3" type="TextureButton" parent="Levels"]
 layout_mode = 2
 disabled = true
 texture_normal = ExtResource("18_61te1")
@@ -193,7 +188,7 @@ texture_pressed = ExtResource("18_61te1")
 texture_hover = ExtResource("20_thg1v")
 texture_disabled = ExtResource("15_nhxe4")
 
-[node name="Level 4" type="TextureButton" parent="Levels/GridContainer"]
+[node name="Level 4" type="TextureButton" parent="Levels"]
 layout_mode = 2
 disabled = true
 texture_normal = ExtResource("19_46yfy")
@@ -201,7 +196,7 @@ texture_pressed = ExtResource("19_46yfy")
 texture_hover = ExtResource("22_7bkd7")
 texture_disabled = ExtResource("15_nhxe4")
 
-[node name="Level 5" type="TextureButton" parent="Levels/GridContainer"]
+[node name="Level 5" type="TextureButton" parent="Levels"]
 layout_mode = 2
 disabled = true
 texture_normal = ExtResource("20_fvwmv")
@@ -276,10 +271,10 @@ icon = ExtResource("14_nqrd7")
 [connection signal="mouse_entered" from="Explorer/VBoxContainer/Exit Button" to="Explorer/VBoxContainer/Exit Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Explorer/VBoxContainer/Exit Button" to="Explorer/VBoxContainer/Exit Button" method="_on_mouse_exited"]
 [connection signal="pressed" from="Explorer/VBoxContainer/Exit Button" to="." method="_on_exit_button_pressed"]
-[connection signal="pressed" from="Levels/GridContainer/Tutorial" to="." method="_on_tutorial_pressed"]
-[connection signal="pressed" from="Levels/GridContainer/Level 1" to="." method="_on_level_1_pressed"]
-[connection signal="pressed" from="Levels/GridContainer/Level 2" to="." method="_on_level_2_pressed"]
-[connection signal="pressed" from="Levels/GridContainer/Level 3" to="." method="_on_level_3_pressed"]
-[connection signal="pressed" from="Levels/GridContainer/Level 4" to="." method="_on_level_4_pressed"]
-[connection signal="pressed" from="Levels/GridContainer/Level 5" to="." method="_on_level_5_pressed"]
+[connection signal="pressed" from="Levels/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="Levels/Level 1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="Levels/Level 2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="Levels/Level 3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="Levels/Level 4" to="." method="_on_level_4_pressed"]
+[connection signal="pressed" from="Levels/Level 5" to="." method="_on_level_5_pressed"]
 [connection signal="pressed" from="Credits/Close Button" to="." method="_on_close_button_pressed"]
