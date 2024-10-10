@@ -25,10 +25,10 @@ func flick_chevron_right():
 
 func _on_touch_screen_button_pressed():
 	if can_be_closed:
+		SoundManager.click.play()
 		close()
 
 func close():
-	SoundManager.click.play()
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 0.2)
 	tween.connect("finished", queue_free)
