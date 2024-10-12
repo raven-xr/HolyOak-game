@@ -24,7 +24,7 @@
 [ext_resource type="Script" path="res://scenes/levels/tutorial/local/platform_1.gd" id="19_8esid"]
 [ext_resource type="PackedScene" uid="uid://cqy0ujlkyfi57" path="res://scenes/levels/tutorial/local/map/trees.tscn" id="19_fxw22"]
 [ext_resource type="PackedScene" uid="uid://cnbl8aw2p0wrn" path="res://units/tower/tower.tscn" id="20_h2h33"]
-[ext_resource type="PackedScene" uid="uid://c06g6da1scixg" path="res://scenes/common/tower_stats/tower_stats.tscn" id="21_c7cyh"]
+[ext_resource type="PackedScene" uid="uid://c06g6da1scixg" path="res://units/tower_stats/tower_stats.tscn" id="21_c7cyh"]
 [ext_resource type="Texture2D" uid="uid://cjyvn46nwilg0" path="res://models/towers/archers/idle/0.png" id="22_5ssvl"]
 [ext_resource type="Texture2D" uid="uid://b5ya13e41k2kt" path="res://ui/buttons/text_default.svg" id="22_7pqnn"]
 [ext_resource type="Texture2D" uid="uid://dsh51r6drxmtr" path="res://ui/buttons/text_hover.svg" id="23_hxobi"]

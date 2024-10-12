@@ -1,11 +1,11 @@
-extends Node2D
+extends Control
 
 @onready var value = $Values/Label
 
 func _ready():
 	modulate = Color(1, 1, 1, 0)
 	var tween = create_tween()
-	tween.tween_property(self, "modulate", Color(1, 1, 1, 1), 0.1)
+	tween.tween_property(self, "modulate", Color(1, 1, 1, 0.8), 0.1)
 	update_data()
 
 func update_data():
