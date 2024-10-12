@@ -1,28 +1,19 @@
-[gd_scene load_steps=28 format=3 uid="uid://die1k42jfmahn"]
+[gd_scene load_steps=21 format=3 uid="uid://die1k42jfmahn"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_ab7jh"]
 [ext_resource type="Texture2D" uid="uid://bdbcrxa2815rn" path="res://ui/backgrounds/main_menu.jpeg" id="1_tludv"]
 [ext_resource type="PackedScene" uid="uid://5somsbnrlalg" path="res://scenes/common/star/star.tscn" id="2_ndcgm"]
 [ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://ui/backgrounds/ui_border.png" id="3_m4171"]
-[ext_resource type="Texture2D" uid="uid://b5ya13e41k2kt" path="res://ui/buttons/rect/text_default.svg" id="5_c58i8"]
-[ext_resource type="Texture2D" uid="uid://dsh51r6drxmtr" path="res://ui/buttons/rect/text_hover.svg" id="6_si5nj"]
+[ext_resource type="Texture2D" uid="uid://b5ya13e41k2kt" path="res://ui/buttons/text_default.svg" id="5_c58i8"]
+[ext_resource type="Texture2D" uid="uid://dsh51r6drxmtr" path="res://ui/buttons/text_hover.svg" id="6_si5nj"]
 [ext_resource type="Script" path="res://scenes/common/texture_button/texture_button.gd" id="7_bejr1"]
-[ext_resource type="Texture2D" uid="uid://csq5bonl77fkh" path="res://ui/buttons/rect/text_disabled.svg" id="7_tvwr8"]
-[ext_resource type="Theme" uid="uid://dkqstsnixcewe" path="res://ui/themes/text.tres" id="8_5cjbw"]
-[ext_resource type="Texture2D" uid="uid://w2ammy446pbd" path="res://ui/buttons/square/tutorial_hover.png" id="13_s08mv"]
-[ext_resource type="Texture2D" uid="uid://bvmmt7keresvy" path="res://ui/buttons/square/tutorial.png" id="14_1y51j"]
+[ext_resource type="Texture2D" uid="uid://csq5bonl77fkh" path="res://ui/buttons/text_disabled.svg" id="7_tvwr8"]
+[ext_resource type="FontFile" uid="uid://car2t5itecnhr" path="res://ui/fonts/Bungee-Regular.ttf" id="9_d8en2"]
+[ext_resource type="Texture2D" uid="uid://bndqygcma1us1" path="res://ui/buttons/level_default.svg" id="10_xgh0e"]
+[ext_resource type="Texture2D" uid="uid://eoofx4ysy5gn" path="res://ui/buttons/level_hover.svg" id="11_bbs4v"]
+[ext_resource type="Texture2D" uid="uid://boeurit6h0hsl" path="res://ui/buttons/level_disabled.svg" id="11_n28j3"]
+[ext_resource type="Script" path="res://scenes/common/level_button/level_button.gd" id="13_adb1k"]
 [ext_resource type="Texture2D" uid="uid://diotcuia4nehk" path="res://ui/icons/close.svg" id="14_nqrd7"]
-[ext_resource type="Texture2D" uid="uid://c8obcfadrv65c" path="res://ui/buttons/square/level_locked.png" id="15_nhxe4"]
-[ext_resource type="Texture2D" uid="uid://chooa8wfmkngw" path="res://ui/buttons/square/level_1_default.png" id="16_ab3ye"]
-[ext_resource type="Texture2D" uid="uid://b3rswsjyy2igl" path="res://ui/buttons/square/level_1_hover.png" id="16_lqmcj"]
-[ext_resource type="Texture2D" uid="uid://b5cr2ntq3d7jp" path="res://ui/buttons/square/level_2_default.png" id="17_7o7f4"]
-[ext_resource type="Texture2D" uid="uid://bdorir4d0eth6" path="res://ui/buttons/square/level_3_default.png" id="18_61te1"]
-[ext_resource type="Texture2D" uid="uid://dgvik8lch8u7i" path="res://ui/buttons/square/level_2_hover.png" id="18_w0klc"]
-[ext_resource type="Texture2D" uid="uid://b2qvr3353y47" path="res://ui/buttons/square/level_4_default.png" id="19_46yfy"]
-[ext_resource type="Texture2D" uid="uid://djcxo25tobuku" path="res://ui/buttons/square/level_5_default.png" id="20_fvwmv"]
-[ext_resource type="Texture2D" uid="uid://cq0ukcbabcmo" path="res://ui/buttons/square/level_3_hover.png" id="20_thg1v"]
-[ext_resource type="Texture2D" uid="uid://2djb6cyt6jb" path="res://ui/buttons/square/level_4_hover.png" id="22_7bkd7"]
-[ext_resource type="Texture2D" uid="uid://xhef5g8vp6xr" path="res://ui/buttons/square/level_5_hover.png" id="24_2672s"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cqt0x"]
 texture = ExtResource("3_m4171")
@@ -33,6 +24,22 @@ texture_margin_bottom = 10.0
 
 [sub_resource type="Theme" id="Theme_jxuai"]
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_cqt0x")
+
+[sub_resource type="Theme" id="Theme_ql57n"]
+Label/colors/font_color = Color(0.784314, 0.572549, 0.372549, 1)
+Label/colors/font_shadow_color = Color(0.427451, 0.392157, 0.298039, 1)
+Label/constants/shadow_offset_x = 0
+Label/constants/shadow_offset_y = 2
+Label/constants/shadow_outline_size = 0
+Label/fonts/font = ExtResource("9_d8en2")
+
+[sub_resource type="Theme" id="Theme_lbarj"]
+Label/colors/font_color = Color(0.992157, 0.886275, 0.580392, 1)
+Label/colors/font_shadow_color = Color(0.4, 0.305882, 0.27451, 1)
+Label/constants/shadow_offset_x = 0
+Label/constants/shadow_offset_y = 5
+Label/font_sizes/font_size = 52
+Label/fonts/font = ExtResource("9_d8en2")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_23fp8"]
 texture = ExtResource("3_m4171")
@@ -87,7 +94,7 @@ offset_left = 9.0
 offset_top = 7.0
 offset_right = 187.0
 offset_bottom = 66.0
-theme = ExtResource("8_5cjbw")
+theme = SubResource("Theme_ql57n")
 theme_override_font_sizes/font_size = 32
 text = "play"
 horizontal_alignment = 1
@@ -107,7 +114,7 @@ offset_left = 9.0
 offset_top = 7.0
 offset_right = 187.0
 offset_bottom = 66.0
-theme = ExtResource("8_5cjbw")
+theme = SubResource("Theme_ql57n")
 theme_override_font_sizes/font_size = 32
 text = "CREDITS"
 horizontal_alignment = 1
@@ -127,7 +134,7 @@ offset_left = 9.0
 offset_top = 7.0
 offset_right = 187.0
 offset_bottom = 66.0
-theme = ExtResource("8_5cjbw")
+theme = SubResource("Theme_ql57n")
 theme_override_font_sizes/font_size = 32
 text = "SETTINGS"
 horizontal_alignment = 1
@@ -147,7 +154,7 @@ offset_left = 9.0
 offset_top = 7.0
 offset_right = 187.0
 offset_bottom = 66.0
-theme = ExtResource("8_5cjbw")
+theme = SubResource("Theme_ql57n")
 theme_override_font_sizes/font_size = 32
 text = "EXIT"
 horizontal_alignment = 1
@@ -164,50 +171,121 @@ columns = 3
 
 [node name="Tutorial" type="TextureButton" parent="Levels"]
 layout_mode = 2
-texture_normal = ExtResource("14_1y51j")
-texture_pressed = ExtResource("14_1y51j")
-texture_hover = ExtResource("13_s08mv")
-texture_disabled = ExtResource("15_nhxe4")
+texture_normal = ExtResource("10_xgh0e")
+texture_pressed = ExtResource("10_xgh0e")
+texture_hover = ExtResource("11_bbs4v")
+texture_disabled = ExtResource("11_n28j3")
+script = ExtResource("13_adb1k")
+
+[node name="Label" type="Label" parent="Levels/Tutorial"]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 90.0
+offset_bottom = 71.0
+theme = SubResource("Theme_lbarj")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Level 1" type="TextureButton" parent="Levels"]
 layout_mode = 2
 disabled = true
-texture_normal = ExtResource("16_ab3ye")
-texture_pressed = ExtResource("16_ab3ye")
-texture_hover = ExtResource("16_lqmcj")
-texture_disabled = ExtResource("15_nhxe4")
+texture_normal = ExtResource("10_xgh0e")
+texture_pressed = ExtResource("10_xgh0e")
+texture_hover = ExtResource("11_bbs4v")
+texture_disabled = ExtResource("11_n28j3")
+script = ExtResource("13_adb1k")
+
+[node name="Label" type="Label" parent="Levels/Level 1"]
+visible = false
+layout_mode = 0
+offset_top = 1.0
+offset_right = 90.0
+offset_bottom = 71.0
+theme = SubResource("Theme_lbarj")
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Level 2" type="TextureButton" parent="Levels"]
 layout_mode = 2
 disabled = true
-texture_normal = ExtResource("17_7o7f4")
-texture_pressed = ExtResource("17_7o7f4")
-texture_hover = ExtResource("18_w0klc")
-texture_disabled = ExtResource("15_nhxe4")
+texture_normal = ExtResource("10_xgh0e")
+texture_pressed = ExtResource("10_xgh0e")
+texture_hover = ExtResource("11_bbs4v")
+texture_disabled = ExtResource("11_n28j3")
+script = ExtResource("13_adb1k")
+
+[node name="Label" type="Label" parent="Levels/Level 2"]
+visible = false
+layout_mode = 0
+offset_top = 1.0
+offset_right = 90.0
+offset_bottom = 71.0
+theme = SubResource("Theme_lbarj")
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Level 3" type="TextureButton" parent="Levels"]
 layout_mode = 2
 disabled = true
-texture_normal = ExtResource("18_61te1")
-texture_pressed = ExtResource("18_61te1")
-texture_hover = ExtResource("20_thg1v")
-texture_disabled = ExtResource("15_nhxe4")
+texture_normal = ExtResource("10_xgh0e")
+texture_pressed = ExtResource("10_xgh0e")
+texture_hover = ExtResource("11_bbs4v")
+texture_disabled = ExtResource("11_n28j3")
+script = ExtResource("13_adb1k")
+
+[node name="Label" type="Label" parent="Levels/Level 3"]
+visible = false
+layout_mode = 0
+offset_top = 1.0
+offset_right = 90.0
+offset_bottom = 71.0
+theme = SubResource("Theme_lbarj")
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Level 4" type="TextureButton" parent="Levels"]
 layout_mode = 2
 disabled = true
-texture_normal = ExtResource("19_46yfy")
-texture_pressed = ExtResource("19_46yfy")
-texture_hover = ExtResource("22_7bkd7")
-texture_disabled = ExtResource("15_nhxe4")
+texture_normal = ExtResource("10_xgh0e")
+texture_pressed = ExtResource("10_xgh0e")
+texture_hover = ExtResource("11_bbs4v")
+texture_disabled = ExtResource("11_n28j3")
+script = ExtResource("13_adb1k")
+
+[node name="Label" type="Label" parent="Levels/Level 4"]
+visible = false
+layout_mode = 0
+offset_top = 1.0
+offset_right = 90.0
+offset_bottom = 71.0
+theme = SubResource("Theme_lbarj")
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Level 5" type="TextureButton" parent="Levels"]
 layout_mode = 2
 disabled = true
-texture_normal = ExtResource("20_fvwmv")
-texture_pressed = ExtResource("20_fvwmv")
-texture_hover = ExtResource("24_2672s")
-texture_disabled = ExtResource("15_nhxe4")
+texture_normal = ExtResource("10_xgh0e")
+texture_pressed = ExtResource("10_xgh0e")
+texture_hover = ExtResource("11_bbs4v")
+texture_disabled = ExtResource("11_n28j3")
+script = ExtResource("13_adb1k")
+
+[node name="Label" type="Label" parent="Levels/Level 5"]
+visible = false
+layout_mode = 0
+offset_top = 1.0
+offset_right = 90.0
+offset_bottom = 71.0
+theme = SubResource("Theme_lbarj")
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Credits" type="Control" parent="."]
 visible = false
@@ -276,10 +354,22 @@ icon = ExtResource("14_nqrd7")
 [connection signal="mouse_entered" from="Explorer/VBoxContainer/Exit Button" to="Explorer/VBoxContainer/Exit Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Explorer/VBoxContainer/Exit Button" to="Explorer/VBoxContainer/Exit Button" method="_on_mouse_exited"]
 [connection signal="pressed" from="Explorer/VBoxContainer/Exit Button" to="." method="_on_exit_button_pressed"]
+[connection signal="mouse_entered" from="Levels/Tutorial" to="Levels/Tutorial" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Levels/Tutorial" to="Levels/Tutorial" method="_on_mouse_exited"]
 [connection signal="pressed" from="Levels/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="mouse_entered" from="Levels/Level 1" to="Levels/Level 1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Levels/Level 1" to="Levels/Level 1" method="_on_mouse_exited"]
 [connection signal="pressed" from="Levels/Level 1" to="." method="_on_level_1_pressed"]
+[connection signal="mouse_entered" from="Levels/Level 2" to="Levels/Level 2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Levels/Level 2" to="Levels/Level 2" method="_on_mouse_exited"]
 [connection signal="pressed" from="Levels/Level 2" to="." method="_on_level_2_pressed"]
+[connection signal="mouse_entered" from="Levels/Level 3" to="Levels/Level 3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Levels/Level 3" to="Levels/Level 3" method="_on_mouse_exited"]
 [connection signal="pressed" from="Levels/Level 3" to="." method="_on_level_3_pressed"]
+[connection signal="mouse_entered" from="Levels/Level 4" to="Levels/Level 4" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Levels/Level 4" to="Levels/Level 4" method="_on_mouse_exited"]
 [connection signal="pressed" from="Levels/Level 4" to="." method="_on_level_4_pressed"]
+[connection signal="mouse_entered" from="Levels/Level 5" to="Levels/Level 5" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Levels/Level 5" to="Levels/Level 5" method="_on_mouse_exited"]
 [connection signal="pressed" from="Levels/Level 5" to="." method="_on_level_5_pressed"]
 [connection signal="pressed" from="Credits/Close Button" to="." method="_on_close_button_pressed"]

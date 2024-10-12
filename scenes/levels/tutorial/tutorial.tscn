@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://3lquoy3mkrss"]
+[gd_scene load_steps=47 format=4 uid="uid://3lquoy3mkrss"]
 
 [ext_resource type="Texture2D" uid="uid://sasruh3frvel" path="res://tilesets/plains.png" id="1_ciagt"]
 [ext_resource type="Script" path="res://scenes/levels/tutorial/tutorial.gd" id="1_xggr7"]
@@ -26,11 +26,11 @@
 [ext_resource type="PackedScene" uid="uid://cnbl8aw2p0wrn" path="res://units/tower/tower.tscn" id="20_h2h33"]
 [ext_resource type="PackedScene" uid="uid://c06g6da1scixg" path="res://scenes/common/tower_stats/tower_stats.tscn" id="21_c7cyh"]
 [ext_resource type="Texture2D" uid="uid://cjyvn46nwilg0" path="res://models/towers/archers/idle/0.png" id="22_5ssvl"]
-[ext_resource type="Texture2D" uid="uid://b5ya13e41k2kt" path="res://ui/buttons/rect/text_default.svg" id="22_7pqnn"]
-[ext_resource type="Texture2D" uid="uid://dsh51r6drxmtr" path="res://ui/buttons/rect/text_hover.svg" id="23_hxobi"]
+[ext_resource type="Texture2D" uid="uid://b5ya13e41k2kt" path="res://ui/buttons/text_default.svg" id="22_7pqnn"]
+[ext_resource type="Texture2D" uid="uid://dsh51r6drxmtr" path="res://ui/buttons/text_hover.svg" id="23_hxobi"]
 [ext_resource type="Script" path="res://scenes/common/texture_button/texture_button.gd" id="24_4w2cf"]
-[ext_resource type="Theme" uid="uid://dkqstsnixcewe" path="res://ui/themes/text.tres" id="25_chxlg"]
-[ext_resource type="Texture2D" uid="uid://csq5bonl77fkh" path="res://ui/buttons/rect/text_disabled.svg" id="26_g0nc2"]
+[ext_resource type="Texture2D" uid="uid://csq5bonl77fkh" path="res://ui/buttons/text_disabled.svg" id="26_g0nc2"]
+[ext_resource type="FontFile" uid="uid://car2t5itecnhr" path="res://ui/fonts/Bungee-Regular.ttf" id="28_2wwyr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q2wvg"]
 texture = ExtResource("2_hcy67")
@@ -318,6 +318,14 @@ b = Vector2(0, 48)
 [sub_resource type="CircleShape2D" id="CircleShape2D_fil16"]
 radius = 54.0
 
+[sub_resource type="Theme" id="Theme_bmbx5"]
+Label/colors/font_color = Color(0.784314, 0.572549, 0.372549, 1)
+Label/colors/font_shadow_color = Color(0.427451, 0.392157, 0.298039, 1)
+Label/constants/shadow_offset_x = 0
+Label/constants/shadow_offset_y = 2
+Label/constants/shadow_outline_size = 0
+Label/fonts/font = ExtResource("28_2wwyr")
+
 [node name="Tutorial" type="Node2D"]
 script = ExtResource("1_xggr7")
 hint_preload = ExtResource("2_3vr55")
@@ -422,7 +430,7 @@ offset_left = 9.0
 offset_top = 7.0
 offset_right = 187.0
 offset_bottom = 66.0
-theme = ExtResource("25_chxlg")
+theme = SubResource("Theme_bmbx5")
 theme_override_font_sizes/font_size = 32
 text = "BUILD"
 horizontal_alignment = 1
@@ -447,7 +455,7 @@ offset_left = 9.0
 offset_top = 7.0
 offset_right = 187.0
 offset_bottom = 66.0
-theme = ExtResource("25_chxlg")
+theme = SubResource("Theme_bmbx5")
 theme_override_font_sizes/font_size = 32
 text = "UPGRADE"
 horizontal_alignment = 1
@@ -472,7 +480,7 @@ offset_left = 9.0
 offset_top = 7.0
 offset_right = 187.0
 offset_bottom = 66.0
-theme = ExtResource("25_chxlg")
+theme = SubResource("Theme_bmbx5")
 theme_override_font_sizes/font_size = 32
 text = "REMOVE"
 horizontal_alignment = 1
@@ -497,7 +505,7 @@ offset_left = 9.0
 offset_top = 7.0
 offset_right = 187.0
 offset_bottom = 66.0
-theme = ExtResource("25_chxlg")
+theme = SubResource("Theme_bmbx5")
 theme_override_font_sizes/font_size = 32
 text = "STATS"
 horizontal_alignment = 1

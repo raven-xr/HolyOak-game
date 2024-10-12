@@ -27,6 +27,8 @@ func _ready():
 		var required_level_name = levels.get_child(i - 1).name
 		if UserData.level_data[required_level_name]["is_completed"]:
 			button.disabled = false
+			# If level is available, show its number
+			button.get_node("Label").visible = true
 	# Giving stars to levels
 	for button in levels.get_children():
 		var level_name = button.name

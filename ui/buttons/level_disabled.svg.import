@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3rswsjyy2igl"
-path="res://.godot/imported/level_1_hover.png-c2fce2b1f67ffeb7fb8fc10c1b59972c.ctex"
+uid="uid://boeurit6h0hsl"
+path="res://.godot/imported/level_disabled.svg-00dc00f8ff4c55f3fa1b2723b8c9947d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/buttons/square/level_1_hover.png"
-dest_files=["res://.godot/imported/level_1_hover.png-c2fce2b1f67ffeb7fb8fc10c1b59972c.ctex"]
+source_file="res://ui/buttons/level_disabled.svg"
+dest_files=["res://.godot/imported/level_disabled.svg-00dc00f8ff4c55f3fa1b2723b8c9947d.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
