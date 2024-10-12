@@ -352,6 +352,7 @@ https://creativecommons.org/licenses/by/4.0/"
 horizontal_alignment = 1
 
 [node name="Back Button" type="TextureButton" parent="Credits"]
+layout_mode = 0
 offset_left = 312.0
 offset_top = 96.0
 offset_right = 396.0

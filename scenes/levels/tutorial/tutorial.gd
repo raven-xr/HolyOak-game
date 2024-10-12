@@ -86,13 +86,13 @@ func tutorial_state():
 	SoundManager.music_idle.play()
 	
 	# Greeting
-	for _hint in Hints.tutorial["greeting"]:
-		var _new_hint = hint_preload.instantiate()
-		_new_hint.text = _hint["text"]
-		_new_hint.position = _hint["position"]
-		add_child.call_deferred(_new_hint)
+	for hint_ in Hints.tutorial["greeting"]:
+		var new_hint_ = hint_preload.instantiate()
+		new_hint_.text = hint_["text"]
+		new_hint_.position = hint_["position"]
+		add_child.call_deferred(new_hint_)
 		# Wait for player to close hints
-		await _new_hint.tree_exited
+		await new_hint_.tree_exited
 	
 	# Declare vars
 	var hint
