@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://cnbl8aw2p0wrn" path="res://units/tower/tower.tscn" id="2_73ia6"]
 [ext_resource type="PackedScene" uid="uid://c06g6da1scixg" path="res://scenes/common/tower_stats/tower_stats.tscn" id="3_a1ydp"]
 [ext_resource type="PackedScene" uid="uid://du20li6wou6fs" path="res://scenes/common/message/message.tscn" id="4_d13pl"]
-[ext_resource type="Texture2D" uid="uid://b5ya13e41k2kt" path="res://ui/buttons/rect/default.svg" id="6_m4jb5"]
-[ext_resource type="Texture2D" uid="uid://dsh51r6drxmtr" path="res://ui/buttons/rect/hover.svg" id="7_tquk6"]
-[ext_resource type="Texture2D" uid="uid://csq5bonl77fkh" path="res://ui/buttons/rect/disabled.svg" id="8_0f2vw"]
+[ext_resource type="Texture2D" uid="uid://b5ya13e41k2kt" path="res://ui/buttons/rect/text_default.svg" id="6_m4jb5"]
+[ext_resource type="Texture2D" uid="uid://dsh51r6drxmtr" path="res://ui/buttons/rect/text_hover.svg" id="7_tquk6"]
+[ext_resource type="Texture2D" uid="uid://csq5bonl77fkh" path="res://ui/buttons/rect/text_disabled.svg" id="8_0f2vw"]
 [ext_resource type="Script" path="res://scenes/common/texture_button/texture_button.gd" id="8_54g0n"]
 [ext_resource type="Theme" uid="uid://dkqstsnixcewe" path="res://ui/themes/text.tres" id="9_v5vgj"]
 
