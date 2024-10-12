@@ -16,7 +16,6 @@ extends Control
 
 # Credits' variables
 @onready var credits = $Credits
-@onready var close_button = $"Credits/Close Button"
 
 ### Common functions
 func _ready():
@@ -62,6 +61,7 @@ func _on_play_button_pressed():
 
 func _on_credits_button_pressed():
 	SoundManager.click.play()
+	explorer.visible = false
 	credits.visible = true
 	var tween = create_tween()
 	tween.tween_property(credits, "modulate", Color(1, 1, 1, 1), 0.1)
@@ -78,7 +78,7 @@ func _on_exit_button_pressed():
 
 
 ### Levels' functions
-func _on_back_button_pressed():
+func _on_levels_back_button_pressed():
 	SoundManager.click.play()
 	levels.visible = false
 	levels.modulate = Color(1, 1, 1, 0)
@@ -126,8 +126,9 @@ func _on_level_5_pressed():
 
 
 ### Credits' functions
-func _on_close_button_pressed():
+func _on_credits_back_button_pressed():
 	SoundManager.click.play()
+	explorer.visible = true
 	var tween = create_tween()
 	tween.tween_property(credits, "modulate", Color(1, 1, 1, 0), 0.1)
 	await tween.finished

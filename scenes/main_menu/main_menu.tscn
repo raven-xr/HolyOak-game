@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://d3p11abw8yorb" path="res://ui/buttons/arrow_left_hover.svg" id="11_jr0j5"]
 [ext_resource type="Texture2D" uid="uid://boeurit6h0hsl" path="res://ui/buttons/level_disabled.svg" id="11_n28j3"]
 [ext_resource type="Script" path="res://scenes/common/level_button/level_button.gd" id="13_adb1k"]
-[ext_resource type="Texture2D" uid="uid://diotcuia4nehk" path="res://ui/icons/close.svg" id="14_nqrd7"]
+[ext_resource type="Texture2D" uid="uid://bi3kg1fix3bcw" path="res://ui/backgrounds/ui_back.svg" id="16_npgut"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cqt0x"]
 texture = ExtResource("3_m4171")
@@ -44,11 +44,11 @@ Label/font_sizes/font_size = 52
 Label/fonts/font = ExtResource("9_d8en2")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_23fp8"]
-texture = ExtResource("3_m4171")
-texture_margin_left = 10.0
-texture_margin_top = 10.0
-texture_margin_right = 10.0
-texture_margin_bottom = 10.0
+texture = ExtResource("16_npgut")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 
 [sub_resource type="Theme" id="Theme_qx40b"]
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_23fp8")
@@ -167,17 +167,6 @@ visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="Back Button" type="TextureButton" parent="Levels"]
-layout_mode = 0
-offset_left = 472.0
-offset_top = 272.0
-offset_right = 556.0
-offset_bottom = 356.0
-scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("10_pcypl")
-texture_pressed = ExtResource("10_pcypl")
-texture_hover = ExtResource("11_jr0j5")
 
 [node name="GridContainer" type="GridContainer" parent="Levels"]
 layout_mode = 0
@@ -305,6 +294,17 @@ text = "5"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Back Button" type="TextureButton" parent="Levels"]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 272.0
+offset_right = 556.0
+offset_bottom = 356.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("10_pcypl")
+texture_pressed = ExtResource("10_pcypl")
+texture_hover = ExtResource("11_jr0j5")
+
 [node name="Credits" type="Control" parent="."]
 visible = false
 layout_mode = 3
@@ -313,7 +313,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="PanelContainer" type="PanelContainer" parent="Credits"]
-texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -352,13 +351,15 @@ Licensed under Creative Commons BY Attribution 4.0 License
 https://creativecommons.org/licenses/by/4.0/"
 horizontal_alignment = 1
 
-[node name="Close Button" type="Button" parent="Credits"]
-layout_mode = 0
-offset_left = 944.0
-offset_top = 88.0
-offset_right = 976.0
-offset_bottom = 120.0
-icon = ExtResource("14_nqrd7")
+[node name="Back Button" type="TextureButton" parent="Credits"]
+offset_left = 312.0
+offset_top = 96.0
+offset_right = 396.0
+offset_bottom = 180.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("10_pcypl")
+texture_pressed = ExtResource("10_pcypl")
+texture_hover = ExtResource("11_jr0j5")
 
 [connection signal="mouse_entered" from="Explorer/VBoxContainer/Play Button" to="Explorer/VBoxContainer/Play Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Explorer/VBoxContainer/Play Button" to="Explorer/VBoxContainer/Play Button" method="_on_mouse_exited"]
@@ -372,7 +373,6 @@ icon = ExtResource("14_nqrd7")
 [connection signal="mouse_entered" from="Explorer/VBoxContainer/Exit Button" to="Explorer/VBoxContainer/Exit Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Explorer/VBoxContainer/Exit Button" to="Explorer/VBoxContainer/Exit Button" method="_on_mouse_exited"]
 [connection signal="pressed" from="Explorer/VBoxContainer/Exit Button" to="." method="_on_exit_button_pressed"]
-[connection signal="pressed" from="Levels/Back Button" to="." method="_on_back_button_pressed"]
 [connection signal="mouse_entered" from="Levels/GridContainer/Tutorial" to="Levels/GridContainer/Tutorial" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Levels/GridContainer/Tutorial" to="Levels/GridContainer/Tutorial" method="_on_mouse_exited"]
 [connection signal="pressed" from="Levels/GridContainer/Tutorial" to="." method="_on_tutorial_pressed"]
@@ -391,4 +391,5 @@ icon = ExtResource("14_nqrd7")
 [connection signal="mouse_entered" from="Levels/GridContainer/Level 5" to="Levels/GridContainer/Level 5" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Levels/GridContainer/Level 5" to="Levels/GridContainer/Level 5" method="_on_mouse_exited"]
 [connection signal="pressed" from="Levels/GridContainer/Level 5" to="." method="_on_level_5_pressed"]
-[connection signal="pressed" from="Credits/Close Button" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="Levels/Back Button" to="." method="_on_levels_back_button_pressed"]
+[connection signal="pressed" from="Credits/Back Button" to="." method="_on_credits_back_button_pressed"]
