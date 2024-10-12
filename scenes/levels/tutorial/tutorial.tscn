@@ -395,6 +395,7 @@ script = ExtResource("19_8esid")
 tower_preload = ExtResource("20_h2h33")
 tower_stats_preload = ExtResource("21_c7cyh")
 message_preload = ExtResource("4_xrp23")
+default_direction = "L"
 
 [node name="Sprite2D" type="Sprite2D" parent="Towers/Platform 1"]
 texture_filter = 1
