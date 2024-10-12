@@ -12,6 +12,7 @@ extends Control
 
 # Levels' varibales
 @onready var levels = $Levels
+@onready var grid_container = $Levels/GridContainer
 
 # Credits' variables
 @onready var credits = $Credits
@@ -22,15 +23,15 @@ func _ready():
 	# Play music
 	SoundManager.music_main.play()
 	# Unblock levels
-	for i in range(1, levels.get_child_count()):
-		var button = levels.get_child(i)
-		var required_level_name = levels.get_child(i - 1).name
+	for i in range(1, grid_container.get_child_count()):
+		var button = grid_container.get_child(i)
+		var required_level_name = grid_container.get_child(i - 1).name
 		if UserData.level_data[required_level_name]["is_completed"]:
 			button.disabled = false
 			# If level is available, show its number
 			button.get_node("Label").visible = true
 	# Giving stars to levels
-	for button in levels.get_children():
+	for button in grid_container.get_children():
 		var level_name = button.name
 		for i in range(0, UserData.level_data[level_name]["stars"]):
 			var star = star_scene.instantiate()
@@ -54,6 +55,7 @@ func animate_transition():
 func _on_play_button_pressed():
 	SoundManager.click.play()
 	explorer.visible = false
+	explorer.modulate = Color(1, 1, 1, 0)
 	levels.visible = true
 	var tween = create_tween()
 	tween.tween_property(levels, "modulate", Color(1, 1, 1, 1), 0.1)
@@ -76,6 +78,14 @@ func _on_exit_button_pressed():
 
 
 ### Levels' functions
+func _on_back_button_pressed():
+	SoundManager.click.play()
+	levels.visible = false
+	levels.modulate = Color(1, 1, 1, 0)
+	explorer.visible = true
+	var tween = create_tween()
+	tween.tween_property(explorer, "modulate", Color(1, 1, 1, 1), 0.1)
+
 func _on_tutorial_pressed():
 	SoundManager.click.play()
 	animate_transition()

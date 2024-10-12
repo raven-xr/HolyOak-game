@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://die1k42jfmahn"]
+[gd_scene load_steps=23 format=3 uid="uid://die1k42jfmahn"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_ab7jh"]
 [ext_resource type="Texture2D" uid="uid://bdbcrxa2815rn" path="res://ui/backgrounds/main_menu.jpeg" id="1_tludv"]
@@ -9,8 +9,10 @@
 [ext_resource type="Script" path="res://scenes/common/texture_button/texture_button.gd" id="7_bejr1"]
 [ext_resource type="Texture2D" uid="uid://csq5bonl77fkh" path="res://ui/buttons/text_disabled.svg" id="7_tvwr8"]
 [ext_resource type="FontFile" uid="uid://car2t5itecnhr" path="res://ui/fonts/Bungee-Regular.ttf" id="9_d8en2"]
+[ext_resource type="Texture2D" uid="uid://dy2ndup68fcj0" path="res://ui/buttons/arrow_left_default.svg" id="10_pcypl"]
 [ext_resource type="Texture2D" uid="uid://bndqygcma1us1" path="res://ui/buttons/level_default.svg" id="10_xgh0e"]
 [ext_resource type="Texture2D" uid="uid://eoofx4ysy5gn" path="res://ui/buttons/level_hover.svg" id="11_bbs4v"]
+[ext_resource type="Texture2D" uid="uid://d3p11abw8yorb" path="res://ui/buttons/arrow_left_hover.svg" id="11_jr0j5"]
 [ext_resource type="Texture2D" uid="uid://boeurit6h0hsl" path="res://ui/buttons/level_disabled.svg" id="11_n28j3"]
 [ext_resource type="Script" path="res://scenes/common/level_button/level_button.gd" id="13_adb1k"]
 [ext_resource type="Texture2D" uid="uid://diotcuia4nehk" path="res://ui/icons/close.svg" id="14_nqrd7"]
@@ -160,8 +162,24 @@ text = "EXIT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Levels" type="GridContainer" parent="."]
+[node name="Levels" type="Control" parent="."]
 visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Back Button" type="TextureButton" parent="Levels"]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 272.0
+offset_right = 556.0
+offset_bottom = 356.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("10_pcypl")
+texture_pressed = ExtResource("10_pcypl")
+texture_hover = ExtResource("11_jr0j5")
+
+[node name="GridContainer" type="GridContainer" parent="Levels"]
 layout_mode = 0
 offset_left = 473.0
 offset_top = 320.0
@@ -169,7 +187,7 @@ offset_right = 751.0
 offset_bottom = 534.0
 columns = 3
 
-[node name="Tutorial" type="TextureButton" parent="Levels"]
+[node name="Tutorial" type="TextureButton" parent="Levels/GridContainer"]
 layout_mode = 2
 texture_normal = ExtResource("10_xgh0e")
 texture_pressed = ExtResource("10_xgh0e")
@@ -177,7 +195,7 @@ texture_hover = ExtResource("11_bbs4v")
 texture_disabled = ExtResource("11_n28j3")
 script = ExtResource("13_adb1k")
 
-[node name="Label" type="Label" parent="Levels/Tutorial"]
+[node name="Label" type="Label" parent="Levels/GridContainer/Tutorial"]
 layout_mode = 0
 offset_top = 1.0
 offset_right = 90.0
@@ -187,7 +205,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Level 1" type="TextureButton" parent="Levels"]
+[node name="Level 1" type="TextureButton" parent="Levels/GridContainer"]
 layout_mode = 2
 disabled = true
 texture_normal = ExtResource("10_xgh0e")
@@ -196,7 +214,7 @@ texture_hover = ExtResource("11_bbs4v")
 texture_disabled = ExtResource("11_n28j3")
 script = ExtResource("13_adb1k")
 
-[node name="Label" type="Label" parent="Levels/Level 1"]
+[node name="Label" type="Label" parent="Levels/GridContainer/Level 1"]
 visible = false
 layout_mode = 0
 offset_top = 1.0
@@ -207,7 +225,7 @@ text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Level 2" type="TextureButton" parent="Levels"]
+[node name="Level 2" type="TextureButton" parent="Levels/GridContainer"]
 layout_mode = 2
 disabled = true
 texture_normal = ExtResource("10_xgh0e")
@@ -216,7 +234,7 @@ texture_hover = ExtResource("11_bbs4v")
 texture_disabled = ExtResource("11_n28j3")
 script = ExtResource("13_adb1k")
 
-[node name="Label" type="Label" parent="Levels/Level 2"]
+[node name="Label" type="Label" parent="Levels/GridContainer/Level 2"]
 visible = false
 layout_mode = 0
 offset_top = 1.0
@@ -227,7 +245,7 @@ text = "2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Level 3" type="TextureButton" parent="Levels"]
+[node name="Level 3" type="TextureButton" parent="Levels/GridContainer"]
 layout_mode = 2
 disabled = true
 texture_normal = ExtResource("10_xgh0e")
@@ -236,7 +254,7 @@ texture_hover = ExtResource("11_bbs4v")
 texture_disabled = ExtResource("11_n28j3")
 script = ExtResource("13_adb1k")
 
-[node name="Label" type="Label" parent="Levels/Level 3"]
+[node name="Label" type="Label" parent="Levels/GridContainer/Level 3"]
 visible = false
 layout_mode = 0
 offset_top = 1.0
@@ -247,7 +265,7 @@ text = "3"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Level 4" type="TextureButton" parent="Levels"]
+[node name="Level 4" type="TextureButton" parent="Levels/GridContainer"]
 layout_mode = 2
 disabled = true
 texture_normal = ExtResource("10_xgh0e")
@@ -256,7 +274,7 @@ texture_hover = ExtResource("11_bbs4v")
 texture_disabled = ExtResource("11_n28j3")
 script = ExtResource("13_adb1k")
 
-[node name="Label" type="Label" parent="Levels/Level 4"]
+[node name="Label" type="Label" parent="Levels/GridContainer/Level 4"]
 visible = false
 layout_mode = 0
 offset_top = 1.0
@@ -267,7 +285,7 @@ text = "4"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Level 5" type="TextureButton" parent="Levels"]
+[node name="Level 5" type="TextureButton" parent="Levels/GridContainer"]
 layout_mode = 2
 disabled = true
 texture_normal = ExtResource("10_xgh0e")
@@ -276,7 +294,7 @@ texture_hover = ExtResource("11_bbs4v")
 texture_disabled = ExtResource("11_n28j3")
 script = ExtResource("13_adb1k")
 
-[node name="Label" type="Label" parent="Levels/Level 5"]
+[node name="Label" type="Label" parent="Levels/GridContainer/Level 5"]
 visible = false
 layout_mode = 0
 offset_top = 1.0
@@ -354,22 +372,23 @@ icon = ExtResource("14_nqrd7")
 [connection signal="mouse_entered" from="Explorer/VBoxContainer/Exit Button" to="Explorer/VBoxContainer/Exit Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Explorer/VBoxContainer/Exit Button" to="Explorer/VBoxContainer/Exit Button" method="_on_mouse_exited"]
 [connection signal="pressed" from="Explorer/VBoxContainer/Exit Button" to="." method="_on_exit_button_pressed"]
-[connection signal="mouse_entered" from="Levels/Tutorial" to="Levels/Tutorial" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Levels/Tutorial" to="Levels/Tutorial" method="_on_mouse_exited"]
-[connection signal="pressed" from="Levels/Tutorial" to="." method="_on_tutorial_pressed"]
-[connection signal="mouse_entered" from="Levels/Level 1" to="Levels/Level 1" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Levels/Level 1" to="Levels/Level 1" method="_on_mouse_exited"]
-[connection signal="pressed" from="Levels/Level 1" to="." method="_on_level_1_pressed"]
-[connection signal="mouse_entered" from="Levels/Level 2" to="Levels/Level 2" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Levels/Level 2" to="Levels/Level 2" method="_on_mouse_exited"]
-[connection signal="pressed" from="Levels/Level 2" to="." method="_on_level_2_pressed"]
-[connection signal="mouse_entered" from="Levels/Level 3" to="Levels/Level 3" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Levels/Level 3" to="Levels/Level 3" method="_on_mouse_exited"]
-[connection signal="pressed" from="Levels/Level 3" to="." method="_on_level_3_pressed"]
-[connection signal="mouse_entered" from="Levels/Level 4" to="Levels/Level 4" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Levels/Level 4" to="Levels/Level 4" method="_on_mouse_exited"]
-[connection signal="pressed" from="Levels/Level 4" to="." method="_on_level_4_pressed"]
-[connection signal="mouse_entered" from="Levels/Level 5" to="Levels/Level 5" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Levels/Level 5" to="Levels/Level 5" method="_on_mouse_exited"]
-[connection signal="pressed" from="Levels/Level 5" to="." method="_on_level_5_pressed"]
+[connection signal="pressed" from="Levels/Back Button" to="." method="_on_back_button_pressed"]
+[connection signal="mouse_entered" from="Levels/GridContainer/Tutorial" to="Levels/GridContainer/Tutorial" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Levels/GridContainer/Tutorial" to="Levels/GridContainer/Tutorial" method="_on_mouse_exited"]
+[connection signal="pressed" from="Levels/GridContainer/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="mouse_entered" from="Levels/GridContainer/Level 1" to="Levels/GridContainer/Level 1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Levels/GridContainer/Level 1" to="Levels/GridContainer/Level 1" method="_on_mouse_exited"]
+[connection signal="pressed" from="Levels/GridContainer/Level 1" to="." method="_on_level_1_pressed"]
+[connection signal="mouse_entered" from="Levels/GridContainer/Level 2" to="Levels/GridContainer/Level 2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Levels/GridContainer/Level 2" to="Levels/GridContainer/Level 2" method="_on_mouse_exited"]
+[connection signal="pressed" from="Levels/GridContainer/Level 2" to="." method="_on_level_2_pressed"]
+[connection signal="mouse_entered" from="Levels/GridContainer/Level 3" to="Levels/GridContainer/Level 3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Levels/GridContainer/Level 3" to="Levels/GridContainer/Level 3" method="_on_mouse_exited"]
+[connection signal="pressed" from="Levels/GridContainer/Level 3" to="." method="_on_level_3_pressed"]
+[connection signal="mouse_entered" from="Levels/GridContainer/Level 4" to="Levels/GridContainer/Level 4" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Levels/GridContainer/Level 4" to="Levels/GridContainer/Level 4" method="_on_mouse_exited"]
+[connection signal="pressed" from="Levels/GridContainer/Level 4" to="." method="_on_level_4_pressed"]
+[connection signal="mouse_entered" from="Levels/GridContainer/Level 5" to="Levels/GridContainer/Level 5" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Levels/GridContainer/Level 5" to="Levels/GridContainer/Level 5" method="_on_mouse_exited"]
+[connection signal="pressed" from="Levels/GridContainer/Level 5" to="." method="_on_level_5_pressed"]
 [connection signal="pressed" from="Credits/Close Button" to="." method="_on_close_button_pressed"]
