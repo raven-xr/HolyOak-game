@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://3lquoy3mkrss"]
+[gd_scene load_steps=46 format=4 uid="uid://3lquoy3mkrss"]
 
 [ext_resource type="Texture2D" uid="uid://sasruh3frvel" path="res://tilesets/plains.png" id="1_ciagt"]
 [ext_resource type="Script" path="res://scenes/levels/tutorial/tutorial.gd" id="1_xggr7"]
@@ -26,18 +26,11 @@
 [ext_resource type="PackedScene" uid="uid://cnbl8aw2p0wrn" path="res://units/tower/tower.tscn" id="20_h2h33"]
 [ext_resource type="PackedScene" uid="uid://c06g6da1scixg" path="res://scenes/common/tower_stats/tower_stats.tscn" id="21_c7cyh"]
 [ext_resource type="Texture2D" uid="uid://cjyvn46nwilg0" path="res://models/towers/archers/idle/0.png" id="22_5ssvl"]
-[ext_resource type="Texture2D" uid="uid://r4hn5ljs3vlx" path="res://ui/buttons/rect/build_default.png" id="23_5oyga"]
-[ext_resource type="Texture2D" uid="uid://db6p04lqhwwf7" path="res://ui/buttons/rect/build_hover.png" id="24_xvc04"]
-[ext_resource type="Texture2D" uid="uid://c8fbq7o0ggmvy" path="res://ui/buttons/rect/build_disabled.png" id="25_72txa"]
-[ext_resource type="Texture2D" uid="uid://bjyagoxg427n1" path="res://ui/buttons/rect/upgrade_default.png" id="26_02fqf"]
-[ext_resource type="Texture2D" uid="uid://b7o74p0ihh582" path="res://ui/buttons/rect/upgrade_hover.png" id="27_0l6jg"]
-[ext_resource type="Texture2D" uid="uid://dosd2fh2vr8vu" path="res://ui/buttons/rect/upgrade_disabled.png" id="28_fblgo"]
-[ext_resource type="Texture2D" uid="uid://bd2o8d2otwxuo" path="res://ui/buttons/rect/remove_default.png" id="29_gwm4c"]
-[ext_resource type="Texture2D" uid="uid://bw76usu5x6djh" path="res://ui/buttons/rect/remove_hover.png" id="30_miqb1"]
-[ext_resource type="Texture2D" uid="uid://csx0n3legcbvc" path="res://ui/buttons/rect/remove_disabled.png" id="31_l7h6g"]
-[ext_resource type="Texture2D" uid="uid://wjwcu52tilgn" path="res://ui/buttons/rect/stats_default.png" id="32_jqbng"]
-[ext_resource type="Texture2D" uid="uid://bkju546mrxw14" path="res://ui/buttons/rect/stats_hover.png" id="33_ga63n"]
-[ext_resource type="Texture2D" uid="uid://bryo2kxabv0eo" path="res://ui/buttons/rect/stats_disabled.png" id="34_uu3ey"]
+[ext_resource type="Texture2D" uid="uid://b5ya13e41k2kt" path="res://ui/buttons/rect/default.svg" id="22_7pqnn"]
+[ext_resource type="Texture2D" uid="uid://dsh51r6drxmtr" path="res://ui/buttons/rect/hover.svg" id="23_hxobi"]
+[ext_resource type="Script" path="res://scenes/common/texture_button/texture_button.gd" id="24_4w2cf"]
+[ext_resource type="Theme" uid="uid://dkqstsnixcewe" path="res://ui/themes/text.tres" id="25_chxlg"]
+[ext_resource type="Texture2D" uid="uid://csq5bonl77fkh" path="res://ui/buttons/rect/disabled.svg" id="26_g0nc2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q2wvg"]
 texture = ExtResource("2_hcy67")
@@ -389,13 +382,11 @@ position = Vector2(88, 464)
 [node name="Towers" type="Node2D" parent="."]
 
 [node name="Platform 1" type="Node2D" parent="Towers"]
-process_mode = 4
 position = Vector2(928, 256)
 script = ExtResource("19_8esid")
 tower_preload = ExtResource("20_h2h33")
 tower_stats_preload = ExtResource("21_c7cyh")
 message_preload = ExtResource("4_xrp23")
-default_direction = "L"
 
 [node name="Sprite2D" type="Sprite2D" parent="Towers/Platform 1"]
 texture_filter = 1
@@ -406,62 +397,111 @@ texture = ExtResource("22_5ssvl")
 [node name="TouchScreenButton" type="TouchScreenButton" parent="Towers/Platform 1"]
 shape = SubResource("CircleShape2D_fil16")
 
-[node name="Menu" type="Node2D" parent="Towers/Platform 1"]
+[node name="Menu" type="Control" parent="Towers/Platform 1"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Build Button" type="TextureButton" parent="Towers/Platform 1/Menu"]
-modulate = Color(1, 1, 1, 0.784314)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -86.0
-offset_top = -36.0
-offset_right = 110.0
-offset_bottom = 48.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.4, 0.4)
-texture_normal = ExtResource("23_5oyga")
-texture_pressed = ExtResource("23_5oyga")
-texture_hover = ExtResource("24_xvc04")
-texture_disabled = ExtResource("25_72txa")
+layout_mode = 0
+offset_left = -108.0
+offset_top = -42.0
+offset_right = 88.0
+offset_bottom = 42.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("22_7pqnn")
+texture_pressed = ExtResource("22_7pqnn")
+texture_hover = ExtResource("23_hxobi")
+texture_disabled = ExtResource("26_g0nc2")
+script = ExtResource("24_4w2cf")
+
+[node name="Label" type="Label" parent="Towers/Platform 1/Menu/Build Button"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 187.0
+offset_bottom = 66.0
+theme = ExtResource("25_chxlg")
+theme_override_font_sizes/font_size = 32
+text = "BUILD"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Upgrade Button" type="TextureButton" parent="Towers/Platform 1/Menu"]
-modulate = Color(1, 1, 1, 0.784314)
-offset_left = 8.0
-offset_top = -36.0
-offset_right = 204.0
-offset_bottom = 48.0
-scale = Vector2(0.4, 0.4)
-texture_normal = ExtResource("26_02fqf")
-texture_pressed = ExtResource("26_02fqf")
-texture_hover = ExtResource("27_0l6jg")
-texture_disabled = ExtResource("28_fblgo")
+layout_mode = 0
+offset_left = 10.0
+offset_top = -42.0
+offset_right = 206.0
+offset_bottom = 42.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("22_7pqnn")
+texture_pressed = ExtResource("22_7pqnn")
+texture_hover = ExtResource("23_hxobi")
+texture_disabled = ExtResource("26_g0nc2")
+script = ExtResource("24_4w2cf")
+
+[node name="Label" type="Label" parent="Towers/Platform 1/Menu/Upgrade Button"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 187.0
+offset_bottom = 66.0
+theme = ExtResource("25_chxlg")
+theme_override_font_sizes/font_size = 32
+text = "UPGRADE"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Remove Button" type="TextureButton" parent="Towers/Platform 1/Menu"]
-modulate = Color(1, 1, 1, 0.784314)
-offset_left = -69.0
-offset_top = 2.0
-offset_right = 127.0
-offset_bottom = 86.0
-scale = Vector2(0.33, 0.33)
-texture_normal = ExtResource("29_gwm4c")
-texture_pressed = ExtResource("29_gwm4c")
-texture_hover = ExtResource("30_miqb1")
-texture_disabled = ExtResource("31_l7h6g")
+layout_mode = 0
+offset_left = -84.0
+offset_top = 6.0
+offset_right = 112.0
+offset_bottom = 90.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("22_7pqnn")
+texture_pressed = ExtResource("22_7pqnn")
+texture_hover = ExtResource("23_hxobi")
+texture_disabled = ExtResource("26_g0nc2")
+script = ExtResource("24_4w2cf")
+
+[node name="Label" type="Label" parent="Towers/Platform 1/Menu/Remove Button"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 187.0
+offset_bottom = 66.0
+theme = ExtResource("25_chxlg")
+theme_override_font_sizes/font_size = 32
+text = "REMOVE"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TowerStats Button" type="TextureButton" parent="Towers/Platform 1/Menu"]
-modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 0
 offset_left = 5.0
-offset_top = 2.0
+offset_top = 6.0
 offset_right = 201.0
-offset_bottom = 86.0
-scale = Vector2(0.33, 0.33)
-texture_normal = ExtResource("32_jqbng")
-texture_pressed = ExtResource("32_jqbng")
-texture_hover = ExtResource("33_ga63n")
-texture_disabled = ExtResource("34_uu3ey")
+offset_bottom = 90.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("22_7pqnn")
+texture_pressed = ExtResource("22_7pqnn")
+texture_hover = ExtResource("23_hxobi")
+texture_disabled = ExtResource("26_g0nc2")
+script = ExtResource("24_4w2cf")
+
+[node name="Label" type="Label" parent="Towers/Platform 1/Menu/TowerStats Button"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 187.0
+offset_bottom = 66.0
+theme = ExtResource("25_chxlg")
+theme_override_font_sizes/font_size = 32
+text = "STATS"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Platform 2" parent="Towers" instance=ExtResource("6_6wnci")]
 process_mode = 4
@@ -496,13 +536,21 @@ icon = ExtResource("17_qle6i")
 [connection signal="body_entered" from="Enemies/Point 3" to="Enemies/Point 3" method="_on_body_entered"]
 [connection signal="pressed" from="Towers/Platform 1/TouchScreenButton" to="Towers/Platform 1" method="_on_local_touch_screen_button_pressed"]
 [connection signal="pressed" from="Towers/Platform 1/TouchScreenButton" to="Towers/Platform 1" method="_on_touch_screen_button_pressed"]
+[connection signal="mouse_entered" from="Towers/Platform 1/Menu/Build Button" to="Towers/Platform 1/Menu/Build Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Towers/Platform 1/Menu/Build Button" to="Towers/Platform 1/Menu/Build Button" method="_on_mouse_exited"]
 [connection signal="pressed" from="Towers/Platform 1/Menu/Build Button" to="Towers/Platform 1" method="_on_local_build_button_pressed"]
 [connection signal="pressed" from="Towers/Platform 1/Menu/Build Button" to="Towers/Platform 1" method="_on_build_button_pressed"]
+[connection signal="mouse_entered" from="Towers/Platform 1/Menu/Upgrade Button" to="Towers/Platform 1/Menu/Upgrade Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Towers/Platform 1/Menu/Upgrade Button" to="Towers/Platform 1/Menu/Upgrade Button" method="_on_mouse_exited"]
 [connection signal="pressed" from="Towers/Platform 1/Menu/Upgrade Button" to="Towers/Platform 1" method="_on_local_upgrade_button_pressed"]
 [connection signal="pressed" from="Towers/Platform 1/Menu/Upgrade Button" to="Towers/Platform 1" method="_on_upgrade_button_pressed"]
-[connection signal="mouse_entered" from="Towers/Platform 1/Menu/Remove Button" to="Towers/Platform 1" method="_on_remove_button_mouse_entered"]
+[connection signal="mouse_entered" from="Towers/Platform 1/Menu/Remove Button" to="Towers/Platform 1" method="_on_local_remove_button_mouse_entered"]
+[connection signal="mouse_entered" from="Towers/Platform 1/Menu/Remove Button" to="Towers/Platform 1/Menu/Remove Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Towers/Platform 1/Menu/Remove Button" to="Towers/Platform 1/Menu/Remove Button" method="_on_mouse_exited"]
 [connection signal="pressed" from="Towers/Platform 1/Menu/Remove Button" to="Towers/Platform 1" method="_on_remove_button_pressed"]
-[connection signal="mouse_entered" from="Towers/Platform 1/Menu/TowerStats Button" to="Towers/Platform 1" method="_on_tower_stats_button_mouse_entered"]
+[connection signal="mouse_entered" from="Towers/Platform 1/Menu/TowerStats Button" to="Towers/Platform 1" method="_on_local_tower_stats_button_mouse_entered"]
+[connection signal="mouse_entered" from="Towers/Platform 1/Menu/TowerStats Button" to="Towers/Platform 1/Menu/TowerStats Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Towers/Platform 1/Menu/TowerStats Button" to="Towers/Platform 1/Menu/TowerStats Button" method="_on_mouse_exited"]
 [connection signal="pressed" from="Towers/Platform 1/Menu/TowerStats Button" to="Towers/Platform 1" method="_on_local_tower_stats_button_pressed"]
 [connection signal="pressed" from="Towers/Platform 1/Menu/TowerStats Button" to="Towers/Platform 1" method="_on_tower_stats_button_pressed"]
 [connection signal="pressed" from="UserInterface/Menu/Button" to="." method="_on_menu_button_pressed"]

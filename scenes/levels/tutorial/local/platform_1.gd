@@ -19,11 +19,11 @@ func _on_local_tower_stats_button_pressed():
 	level.emit_signal("player_checked_stats")
 	tower_stats_button.disconnect("pressed", Callable(self, "_on_local_tower_stats_button_pressed"))
 
-func _on_remove_button_mouse_entered():
+func _on_local_remove_button_mouse_entered():
 	remove_button.disabled = true
 
-func _on_tower_stats_button_mouse_entered():
+func _on_local_tower_stats_button_mouse_entered():
 	tower_stats_button.disabled = true
 
 func _on_tutorial_player_ended_tutorial():
-	remove_button.disconnect("mouse_entered", Callable(self, "_on_remove_button_mouse_entered"))
+	remove_button.disconnect("mouse_entered", Callable(self, "_on_local_remove_button_mouse_entered"))

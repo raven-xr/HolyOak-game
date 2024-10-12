@@ -17,9 +17,9 @@ var is_menu_opened = false
 func _ready():
 	match default_direction:
 		"U": menu.position = Vector2(0.0, -88.0)
-		"R": menu.position = Vector2(144.0, 0.0)
+		"R": menu.position = Vector2(164.0, 0.0)
 		"D": menu.position = Vector2(0.0, 88.0)
-		"L": menu.position = Vector2(-144.0, 0.0)
+		"L": menu.position = Vector2(-164.0, 0.0)
 	for button in menu.get_children():
 		button.disabled = true
 	menu.modulate = Color(1, 1, 1, 0)

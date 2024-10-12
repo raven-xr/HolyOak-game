@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://die1k42jfmahn"]
+[gd_scene load_steps=28 format=3 uid="uid://die1k42jfmahn"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_ab7jh"]
 [ext_resource type="Texture2D" uid="uid://bdbcrxa2815rn" path="res://ui/backgrounds/main_menu.jpeg" id="1_tludv"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b5ya13e41k2kt" path="res://ui/buttons/rect/default.svg" id="5_c58i8"]
 [ext_resource type="Texture2D" uid="uid://dsh51r6drxmtr" path="res://ui/buttons/rect/hover.svg" id="6_si5nj"]
 [ext_resource type="Script" path="res://scenes/common/texture_button/texture_button.gd" id="7_bejr1"]
+[ext_resource type="Texture2D" uid="uid://csq5bonl77fkh" path="res://ui/buttons/rect/disabled.svg" id="7_tvwr8"]
 [ext_resource type="Theme" uid="uid://dkqstsnixcewe" path="res://ui/themes/text.tres" id="8_5cjbw"]
 [ext_resource type="Texture2D" uid="uid://w2ammy446pbd" path="res://ui/buttons/square/tutorial_hover.png" id="13_s08mv"]
 [ext_resource type="Texture2D" uid="uid://bvmmt7keresvy" path="res://ui/buttons/square/tutorial.png" id="14_1y51j"]
@@ -77,6 +78,7 @@ layout_mode = 2
 texture_normal = ExtResource("5_c58i8")
 texture_pressed = ExtResource("5_c58i8")
 texture_hover = ExtResource("6_si5nj")
+texture_disabled = ExtResource("7_tvwr8")
 script = ExtResource("7_bejr1")
 
 [node name="Label" type="Label" parent="Explorer/VBoxContainer/Play Button"]
@@ -96,6 +98,7 @@ layout_mode = 2
 texture_normal = ExtResource("5_c58i8")
 texture_pressed = ExtResource("5_c58i8")
 texture_hover = ExtResource("6_si5nj")
+texture_disabled = ExtResource("7_tvwr8")
 script = ExtResource("7_bejr1")
 
 [node name="Label" type="Label" parent="Explorer/VBoxContainer/Credits Button"]
@@ -115,6 +118,7 @@ layout_mode = 2
 texture_normal = ExtResource("5_c58i8")
 texture_pressed = ExtResource("5_c58i8")
 texture_hover = ExtResource("6_si5nj")
+texture_disabled = ExtResource("7_tvwr8")
 script = ExtResource("7_bejr1")
 
 [node name="Label" type="Label" parent="Explorer/VBoxContainer/Settings Button"]
@@ -134,6 +138,7 @@ layout_mode = 2
 texture_normal = ExtResource("5_c58i8")
 texture_pressed = ExtResource("5_c58i8")
 texture_hover = ExtResource("6_si5nj")
+texture_disabled = ExtResource("7_tvwr8")
 script = ExtResource("7_bejr1")
 
 [node name="Label" type="Label" parent="Explorer/VBoxContainer/Exit Button"]

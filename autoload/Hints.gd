@@ -20,7 +20,7 @@ var tutorial_first_tower_2 = {
 }
 
 var tutorial_first_tower_3 = {
-	"text": "Чтобы повысить эффективность защиты, необходимо улучшить башню. Откройте меню и нажмите 'Up'",
+	"text": "Чтобы повысить эффективность защиты, необходимо улучшить башню. Откройте меню и нажмите 'Upgrade'",
 	"position": tutorial_first_tower_1["position"]
 }
 

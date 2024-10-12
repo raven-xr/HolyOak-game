@@ -144,7 +144,7 @@ func tutorial_state():
 	new_hint.can_be_closed = false
 	user_interface.add_child(new_hint)
 	# Unblock the TowerStats button
-	platform_1.tower_stats_button.disconnect("mouse_entered", Callable(platform_1, "_on_tower_stats_button_mouse_entered"))
+	platform_1.tower_stats_button.disconnect("mouse_entered", Callable(platform_1, "_on_local_tower_stats_button_mouse_entered"))
 	# Wait for player to check current stats
 	await player_checked_stats
 	new_hint.close()
