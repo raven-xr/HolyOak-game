@@ -12,7 +12,7 @@ func _ready():
 	modulate = Color(1, 1, 1, 0)
 	flick_chevron_right()
 	var tween = create_tween()
-	tween.tween_property(self, "modulate", Color(1, 1, 1, 0.8), 0.2)
+	tween.tween_property(self, "modulate", Color(1, 1, 1, 1), 0.2)
 	label.text = text
 	await get_tree().create_timer(1.0).timeout
 	touch_screen_button.shape.size = panel_container.size
