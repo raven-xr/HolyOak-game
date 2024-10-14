@@ -19,6 +19,10 @@ extends Control
 
 ### Common functions
 func _ready():
+	# Load save
+	if FileAccess.file_exists("res://saves/SAVE.save"):
+		var save = FileAccess.open("res://saves/SAVE.save", FileAccess.READ)
+		UserData.level_data = save.get_var()
 	# Play music
 	SoundManager.music_main.play()
 	# Unblock levels

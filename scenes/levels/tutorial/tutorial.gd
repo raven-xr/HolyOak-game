@@ -68,9 +68,9 @@ func _ready():
 	PlayerStats.max_level = data["max_level"]
 	# Transition
 	modulate = Color(0, 0, 0, 1)
-	var tween_1 = get_tree().create_tween()
+	var tween_1 = create_tween()
 	tween_1.parallel().tween_property(self, "modulate", Color(1, 1, 1, 1), 2.0)
-	var tween_2 = get_tree().create_tween()
+	var tween_2 = create_tween()
 	tween_2.parallel().tween_property(SoundManager.music_idle, "volume_db", -20, 4.0)
 	for tree in trees.get_children():
 		var size = randf_range(1.4, 1.6)
@@ -178,10 +178,16 @@ func defeat():
 	user_interface.add_child(defeat_menu)
 
 func victory():
-	UserData.level_data[name]["is_completed"] = true
-	UserData.level_data[name]["stars"] = 3
 	var victory_menu = victory_menu_scene.instantiate()
 	user_interface.add_child(victory_menu)
+	# Save
+	UserData.level_data[name]["is_completed"] = true
+	UserData.level_data[name]["stars"] = 3
+	var file = FileAccess.open("res://saves/SAVE.save", FileAccess.WRITE)
+	file.store_var(UserData.level_data)
+	var new_message = message_scene.instantiate()
+	new_message.text = "Автосохранение..."
+	user_interface.add_child(new_message)
 
 func new_wave(number):
 	# Declare the new wave
