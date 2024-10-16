@@ -65,7 +65,7 @@ func _ready():
 	# Update PlayerStats
 	PlayerStats.health = data["health"]
 	PlayerStats.money = data["money"]
-	PlayerStats.max_level = data["max_level"]
+	PlayerStats.max_level = data["max_level"] # Max level is used in tower.tscn
 	# Transition
 	modulate = Color(0, 0, 0, 1)
 	var tween_1 = create_tween()

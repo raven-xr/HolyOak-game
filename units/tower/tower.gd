@@ -1,11 +1,26 @@
 extends Node2D
 
+@export var unit_preload: PackedScene
+@export var smoke_preload: PackedScene
+
+@onready var building = $SFX/Building
+@onready var units = $Units
+@onready var animation_player = $AnimationPlayer
+@onready var gfx_smoke = $GFX/Smoke
+@onready var platform = get_parent()
+
 var max_level = PlayerStats.max_level
 var level = 0:
 	set(value):
 		level = value
 		upgrading()
-var is_upgrading = false
+var is_upgrading: bool = false:
+	set(value):
+		is_upgrading = value
+		if is_upgrading:
+			emit_signal("upgrading_started")
+		else:
+			emit_signal("upgrading_finished")
 var damage = 0
 var attack_range = 10 # Default collision shape"s radius
 var current_cost = UnitStats.archers["level_1"]["cost"]
@@ -15,14 +30,10 @@ var spawnpoints = []
 var smoke_spawnpoints = [Vector2(32, 0), Vector2(-32, 0), Vector2(0, 32), Vector2(0, -32),
 						 Vector2(32, 32), Vector2(-32, 32), Vector2(32, -32), Vector2(-32, -32)]
 
-@export var unit_preload: PackedScene
-@export var smoke_preload: PackedScene
-
-@onready var building = $SFX/Building
-@onready var units = $Units
-@onready var animation_player = $AnimationPlayer
-@onready var gfx_smoke = $GFX/Smoke
-@onready var platform = get_parent()
+@warning_ignore("unused_signal")
+signal upgrading_started()
+@warning_ignore("unused_signal")
+signal upgrading_finished()
 
 func new_unit():
 	var unit = unit_preload.instantiate()
@@ -59,11 +70,6 @@ func upgrading():
 		new_unit()
 	# Inform the platform that the tower finsihed upgrading
 	is_upgrading = false
-	# If the platform interface is opened, then enable remove, upgrade and tower stats button
-	platform.remove_button.disabled = false
-	platform.tower_stats_button.disabled = false
-	if max_level != level:
-		platform.upgrade_button.disabled = false
 
 func destruction():
 	# Inform the platform that the tower is being destructed
@@ -98,8 +104,6 @@ func destruction():
 	# Make smokes stop repeating
 	for smoke in gfx_smoke.get_children():
 		smoke.is_active = false
-	# If the platform interface is opened, then enable build button
-	platform.build_button.disabled = false
 	# Remove the tower
 	queue_free()
 
