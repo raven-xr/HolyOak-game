@@ -1,5 +1,7 @@
 extends Node
 
+const SAVE_PATH = "user://SAVE.save"
+
 var level_data = {
 	"Tutorial": {
 		"is_completed": false,
