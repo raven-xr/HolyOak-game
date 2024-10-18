@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://du20li6wou6fs"]
 
-[ext_resource type="Script" path="res://scenes/common/message/message.gd" id="1_rdkls"]
+[ext_resource type="Script" path="res://scenes/minor/message/message.gd" id="1_rdkls"]
 [ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://ui/backgrounds/ui_border.png" id="2_hyt8o"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fjtag"]

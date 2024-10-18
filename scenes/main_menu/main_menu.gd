@@ -95,7 +95,7 @@ func _on_tutorial_pressed():
 	animate_transition()
 	await SoundManager.click.finished
 	SoundManager.disable_music()
-	get_tree().change_scene_to_file("res://scenes/levels/tutorial/tutorial.tscn")
+	get_tree().change_scene_to_file("res://scenes/tutorial/tutorial.tscn")
 
 func _on_level_1_pressed():
 	SoundManager.click.play()

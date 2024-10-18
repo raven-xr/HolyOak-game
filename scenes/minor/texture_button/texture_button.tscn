@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b5ya13e41k2kt" path="res://ui/buttons/text_default.svg" id="1_k5cgc"]
 [ext_resource type="Texture2D" uid="uid://dsh51r6drxmtr" path="res://ui/buttons/text_hover.svg" id="2_oqueo"]
 [ext_resource type="Texture2D" uid="uid://csq5bonl77fkh" path="res://ui/buttons/text_disabled.svg" id="3_5wmfo"]
-[ext_resource type="Script" path="res://scenes/common/texture_button/texture_button.gd" id="3_hl5yq"]
+[ext_resource type="Script" path="res://scenes/minor/texture_button/texture_button.gd" id="3_hl5yq"]
 [ext_resource type="FontFile" uid="uid://car2t5itecnhr" path="res://ui/fonts/Bungee-Regular.ttf" id="5_kfgch"]
 
 [sub_resource type="Theme" id="Theme_ks3a0"]
