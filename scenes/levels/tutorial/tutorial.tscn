@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://3lquoy3mkrss"]
+[gd_scene load_steps=46 format=4 uid="uid://3lquoy3mkrss"]
 
 [ext_resource type="Texture2D" uid="uid://sasruh3frvel" path="res://tilesets/plains.png" id="1_ciagt"]
 [ext_resource type="Script" path="res://scenes/levels/tutorial/tutorial.gd" id="1_xggr7"]
@@ -20,9 +20,8 @@
 [ext_resource type="Script" path="res://scenes/levels/tutorial/local/point_3.gd" id="10_xglxs"]
 [ext_resource type="PackedScene" uid="uid://bqlwentuopcga" path="res://scenes/common/ui_stats/ui_stats.tscn" id="15_cg5od"]
 [ext_resource type="Texture2D" uid="uid://c17d2n1jjcd8t" path="res://ui/icons/menu.svg" id="17_qle6i"]
-[ext_resource type="PackedScene" uid="uid://elw65cn4t3sq" path="res://scenes/levels/tutorial/local/map/bushes.tscn" id="18_ogt2b"]
+[ext_resource type="PackedScene" uid="uid://elw65cn4t3sq" path="res://scenes/levels/tutorial/local/map.tscn" id="18_47lc0"]
 [ext_resource type="Script" path="res://scenes/levels/tutorial/local/platform_1.gd" id="19_8esid"]
-[ext_resource type="PackedScene" uid="uid://cqy0ujlkyfi57" path="res://scenes/levels/tutorial/local/map/trees.tscn" id="19_fxw22"]
 [ext_resource type="PackedScene" uid="uid://cnbl8aw2p0wrn" path="res://units/tower/tower.tscn" id="20_h2h33"]
 [ext_resource type="PackedScene" uid="uid://c06g6da1scixg" path="res://units/tower_stats/tower_stats.tscn" id="21_c7cyh"]
 [ext_resource type="Texture2D" uid="uid://cjyvn46nwilg0" path="res://models/towers/archers/idle/0.png" id="22_5ssvl"]
@@ -383,9 +382,7 @@ shape = SubResource("SegmentShape2D_183m5")
 [node name="HolyOak" parent="Objects" instance=ExtResource("9_m6f5k")]
 position = Vector2(88, 464)
 
-[node name="Bushes" parent="Objects" instance=ExtResource("18_ogt2b")]
-
-[node name="Trees" parent="Objects" instance=ExtResource("19_fxw22")]
+[node name="Map" parent="Objects" instance=ExtResource("18_47lc0")]
 
 [node name="Towers" type="Node2D" parent="."]
 

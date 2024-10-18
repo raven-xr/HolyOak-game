@@ -44,9 +44,6 @@ var wave = 0:
 @onready var towers = $Towers
 @onready var user_interface = $UserInterface
 
-@onready var trees = $Objects/Trees
-@onready var bushes = $Objects/Bushes
-
 @onready var menu = $UserInterface/Menu
 
 @onready var platform_1 = $"Towers/Platform 1"
@@ -72,12 +69,6 @@ func _ready():
 	tween_1.parallel().tween_property(self, "modulate", Color(1, 1, 1, 1), 2.0)
 	var tween_2 = create_tween()
 	tween_2.parallel().tween_property(SoundManager.music_idle, "volume_db", -20, 4.0)
-	for tree in trees.get_children():
-		var size = randf_range(1.4, 1.6)
-		tree.scale = Vector2(size, size)
-	for bush in bushes.get_children():
-		var size = randf_range(0.8, 1.1)
-		bush.scale = Vector2(size, size)
 	# Start the game
 	state = States.TUTORIAL
 
