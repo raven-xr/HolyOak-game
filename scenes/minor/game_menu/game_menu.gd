@@ -17,9 +17,7 @@ func _on_resume_button_pressed():
 	resume()
 
 func _on_settings_button_pressed():
-	disable_buttons()
 	SoundManager.click.play()
-	# Open settings
 
 func _on_quit_button_pressed():
 	get_tree().paused = false

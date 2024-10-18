@@ -99,33 +99,18 @@ func _on_tutorial_pressed():
 
 func _on_level_1_pressed():
 	SoundManager.click.play()
-	animate_transition()
-	await SoundManager.click.finished
-	SoundManager.disable_music()
 
 func _on_level_2_pressed():
 	SoundManager.click.play()
-	animate_transition()
-	await SoundManager.click.finished
-	SoundManager.disable_music()
 
 func _on_level_3_pressed():
 	SoundManager.click.play()
-	animate_transition()
-	await SoundManager.click.finished
-	SoundManager.disable_music()
 
 func _on_level_4_pressed():
 	SoundManager.click.play()
-	animate_transition()
-	await SoundManager.click.finished
-	SoundManager.disable_music()
 
 func _on_level_5_pressed():
 	SoundManager.click.play()
-	animate_transition()
-	await SoundManager.click.finished
-	SoundManager.disable_music()
 
 
 
