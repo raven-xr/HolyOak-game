@@ -16,7 +16,7 @@ enum States {
 
 @export var next_level_path: String = "res://scenes/main_menu/main_menu.tscn"
 
-@onready var enemies = $Enemies
+@onready var path_2d = $Enemies/Path2D
 @onready var towers = $Towers
 @onready var user_interface = $UserInterface
 
@@ -109,13 +109,13 @@ func new_wave(number):
 	new_message.text = "Волна " + str(wave)
 	user_interface.add_child(new_message)
 	# Spawn enemies
-	var enemy_count = data[str("wave_", number)]["enemy_count"]
-	var spawn_cooldown = data[str("wave_", number)]["spawn_cooldown"]
+	var enemy_count = data["wave_" + str(number)]["enemy_count"]
+	var spawn_cooldown = data["wave_" + str(number)]["spawn_cooldown"]
 	is_enemy_spawning = true
 	for i in range(enemy_count):
 		await get_tree().create_timer(spawn_cooldown).timeout
 		var new_ork = ork_scene.instantiate()
-		enemies.add_child(new_ork)
+		path_2d.add_child(new_ork)
 		current_enemy_count += 1
 	is_enemy_spawning = false
 
