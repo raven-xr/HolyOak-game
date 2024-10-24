@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bbsqvqymrojj5"]
+[gd_scene load_steps=11 format=3 uid="uid://bbsqvqymrojj5"]
 
 [ext_resource type="Script" path="res://scenes/common/level.gd" id="1_8vq8d"]
 [ext_resource type="PackedScene" uid="uid://ceakiostnoxao" path="res://scenes/minor/hint/hint.tscn" id="2_5ps6b"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bpv032thoan7a" path="res://scenes/minor/defeat_menu/defeat_menu.tscn" id="5_tbcgi"]
 [ext_resource type="PackedScene" uid="uid://dqhv5ii03kgra" path="res://scenes/minor/victory_menu/victory_menu.tscn" id="6_r8y5h"]
 [ext_resource type="PackedScene" uid="uid://sqtg0w21y043" path="res://scenes/minor/game_menu/game_menu.tscn" id="7_165x0"]
+
+[sub_resource type="Curve2D" id="Curve2D_xf17m"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_8vq8d")
@@ -21,7 +23,8 @@ game_menu_scene = ExtResource("7_165x0")
 
 [node name="Tilemap" type="Node2D" parent="."]
 
-[node name="Enemies" type="Node2D" parent="."]
+[node name="Enemies" type="Path2D" parent="."]
+curve = SubResource("Curve2D_xf17m")
 
 [node name="Objects" type="Node2D" parent="."]
 

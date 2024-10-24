@@ -25,7 +25,6 @@ func tutorial():
 	# Await for player to close the hint
 	hint.text = "В этой игре ваша главная задача - защитить Священный дуб"
 	hint.show_()
-	# Await for player to close the hint
 	await hint.hidden_
 	
 	## Open the platform menu
