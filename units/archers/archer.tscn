@@ -1,9 +1,9 @@
-[gd_scene load_steps=76 format=3 uid="uid://bcsl8cqbwhdyg"]
+[gd_scene load_steps=76 format=3 uid="uid://cenxr6q3w2dek"]
 
-[ext_resource type="Script" path="res://units/archers/archer.gd" id="1_o28lu"]
+[ext_resource type="PackedScene" uid="uid://dkswfpke4hlux" path="res://units/common/unit.tscn" id="1_n6yr7"]
 [ext_resource type="Texture2D" uid="uid://cqsb1h4k4upkg" path="res://models/towers/archers/units/animations/D_Attack.png" id="2_obtv1"]
-[ext_resource type="PackedScene" uid="uid://bk57iw1adx1bm" path="res://units/archers/arrow.tscn" id="2_ydxjk"]
 [ext_resource type="Texture2D" uid="uid://cv7vs3dhkjnjh" path="res://models/towers/archers/units/animations/D_Idle.png" id="3_idstf"]
+[ext_resource type="PackedScene" uid="uid://bk57iw1adx1bm" path="res://units/archers/arrow.tscn" id="3_liqg0"]
 [ext_resource type="Texture2D" uid="uid://x4rjifkj0pvn" path="res://models/towers/archers/units/animations/D_Preattack.png" id="4_8eo51"]
 [ext_resource type="Texture2D" uid="uid://ca45a4wy54vh8" path="res://models/towers/archers/units/animations/L_Attack.png" id="5_e3myq"]
 [ext_resource type="Texture2D" uid="uid://kbh0qrmxc0xn" path="res://models/towers/archers/units/animations/L_Idle.png" id="6_6gwkc"]
@@ -14,8 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://b1cmwo52wnanf" path="res://models/towers/archers/units/animations/U_Idle.png" id="9_qdquf"]
 [ext_resource type="Texture2D" uid="uid://c6u61in8gjmvl" path="res://models/towers/archers/units/animations/U_Preattack.png" id="10_a78nh"]
 [ext_resource type="Texture2D" uid="uid://c7oqlfav1ncv7" path="res://models/towers/archers/units/animations/R_Preattack.png" id="10_do4lc"]
-[ext_resource type="AudioStream" uid="uid://cgefjfqldx5cl" path="res://audio/sfx/shot.mp3" id="11_73d0o"]
-[ext_resource type="AudioStream" uid="uid://cpmwou3iw52qq" path="res://audio/sfx/bowstring.mp3" id="12_spdq1"]
+[ext_resource type="AudioStream" uid="uid://cpmwou3iw52qq" path="res://audio/sfx/bowstring.mp3" id="15_ebld8"]
+[ext_resource type="AudioStream" uid="uid://cgefjfqldx5cl" path="res://audio/sfx/bow_shot.mp3" id="16_eykn0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6jynq"]
 atlas = ExtResource("2_obtv1")
@@ -193,7 +193,7 @@ region = Rect2(144, 0, 48, 48)
 atlas = ExtResource("10_a78nh")
 region = Rect2(0, 0, 48, 48)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_82ogq"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_bigdx"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -430,7 +430,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("SFX/Bowstring:playing")
+tracks/3/path = NodePath("SFX/Preattack:playing")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -536,7 +536,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("SFX/Bowstring:playing")
+tracks/3/path = NodePath("SFX/Preattack:playing")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -642,7 +642,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("SFX/Bowstring:playing")
+tracks/3/path = NodePath("SFX/Preattack:playing")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -748,7 +748,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("SFX/Bowstring:playing")
+tracks/3/path = NodePath("SFX/Preattack:playing")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -828,42 +828,31 @@ _data = {
 "U_Preattack": SubResource("Animation_a6jtm")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_mnypw"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_3cvyx"]
 resource_local_to_scene = true
 
-[node name="Archer" type="Node2D"]
-script = ExtResource("1_o28lu")
-arrow_preload = ExtResource("2_ydxjk")
+[node name="Archer" instance=ExtResource("1_n6yr7")]
+shell_scene = ExtResource("3_liqg0")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
 texture_filter = 1
 position = Vector2(1.4013e-45, -8)
 scale = Vector2(1.125, 1.125)
-sprite_frames = SubResource("SpriteFrames_82ogq")
+sprite_frames = SubResource("SpriteFrames_bigdx")
 animation = &"D_Attack"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 libraries = {
 "": SubResource("AnimationLibrary_28d2e")
 }
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 0
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("CircleShape2D_3cvyx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_mnypw")
-
-[node name="Arrows" type="Node2D" parent="."]
-
-[node name="SFX" type="Node2D" parent="."]
-
-[node name="Bowstring" type="AudioStreamPlayer2D" parent="SFX"]
-stream = ExtResource("12_spdq1")
+[node name="Preattack" parent="SFX" index="0"]
+stream = ExtResource("15_ebld8")
 volume_db = -25.0
 
-[node name="Shot" type="AudioStreamPlayer2D" parent="SFX"]
-stream = ExtResource("11_73d0o")
+[node name="Attack" parent="SFX" index="1"]
+stream = ExtResource("16_eykn0")
 volume_db = -20.0
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

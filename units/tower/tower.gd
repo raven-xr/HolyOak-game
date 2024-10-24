@@ -1,13 +1,15 @@
 extends Node2D
 
-@export var unit_preload: PackedScene
 @export var smoke_preload: PackedScene
 
 @onready var building = $SFX/Building
 @onready var units = $Units
 @onready var animation_player = $AnimationPlayer
 @onready var gfx_smoke = $GFX/Smoke
-@onready var platform = get_parent()
+
+@onready var unit_scene = get_parent().unit_scene
+@onready var unit_stats = UnitStats.get(unit_scene.instantiate().name.to_lower())
+@onready var current_cost = unit_stats["level_1"]["cost"]
 
 var max_level = PlayerStats.max_level
 var level = 0:
@@ -21,9 +23,8 @@ var is_upgrading: bool = false:
 			emit_signal("upgrading_started")
 		else:
 			emit_signal("upgrading_finished")
-var damage = 0
+var damage: int = 0
 var attack_range = 10 # Default collision shape"s radius
-var current_cost = UnitStats.archers["level_1"]["cost"]
 var last_cost = 0
 var unit_count = 0
 var spawnpoints = []
@@ -36,7 +37,7 @@ signal upgrading_started()
 signal upgrading_finished()
 
 func new_unit():
-	var unit = unit_preload.instantiate()
+	var unit = unit_scene.instantiate()
 	unit.position = spawnpoints[units.get_child_count()]
 	units.add_child(unit)
 	var tween = get_tree().create_tween()
@@ -53,13 +54,13 @@ func upgrading():
 	await tween.finished
 	for unit in units.get_children():
 		unit.queue_free()
-	# Upgrade stats
-	damage = UnitStats.archers[str("level_", level)]["damage"]
+	# Upgrade the characteristics
+	damage = unit_stats[str("level_", level)]["damage"]
 	last_cost = current_cost
-	current_cost = UnitStats.archers[str("level_", level+1)]["cost"]
-	unit_count = UnitStats.archers[str("level_", level)]["unit_count"]
-	spawnpoints = UnitStats.archers[str("level_", level)]["spawnpoints"]
-	attack_range = UnitStats.archers[str("level_", level)]["attack_range"]
+	current_cost = unit_stats[str("level_", level+1)]["cost"]
+	unit_count = unit_stats[str("level_", level)]["unit_count"]
+	spawnpoints = unit_stats[str("level_", level)]["spawnpoints"]
+	attack_range = unit_stats[str("level_", level)]["attack_range"]
 	# Play animation, SFX and GFX
 	animation_player.play(str("Level_", level))
 	building.play()

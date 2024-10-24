@@ -1,4 +1,5 @@
 extends Node2D
+class_name Unit
 
 enum States {
 	IDLE,
@@ -6,10 +7,10 @@ enum States {
 	COOLDOWN
 }
 
-var targets = []
+var targets: Array = []
 var target: CharacterBody2D
-var is_looking_for_target = true
-var state:
+var is_looking_for_target: bool = true
+var state: int:
 	set(value):
 		state = value
 		match state:
@@ -21,14 +22,15 @@ var state:
 				cooldown_state()
 var current_direction: String
 
-@export var arrow_preload: PackedScene
+@export var shell_scene: PackedScene
 
-@onready var bowstring = $SFX/Bowstring
-@onready var shot = $SFX/Shot
-@onready var collision_shape_2d = $Area2D/CollisionShape2D
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var animation_player = $AnimationPlayer
-@onready var arrows = $Arrows
+@onready var collision_shape_2d = $Area2D/CollisionShape2D
+@onready var shells = $Shells
+
+@onready var attack_sfx = $SFX/Attack
+
 @onready var default_direction = get_parent().get_parent().get_parent().default_direction
 @onready var attack_range = get_parent().get_parent().attack_range
 
@@ -56,10 +58,10 @@ func cooldown_state():
 
 func shoot():
 	if len(targets) > 0:
-		var new_arrow = arrow_preload.instantiate()
-		new_arrow.position = Vector2(0.0, -13.0)
-		arrows.add_child(new_arrow)
-		shot.play()
+		var new_shell = shell_scene.instantiate()
+		new_shell.position = Vector2(0.0, -13.0)
+		shells.add_child(new_shell)
+		attack_sfx.play()
 	state = States.COOLDOWN
 
 func _on_area_2d_body_entered(body):

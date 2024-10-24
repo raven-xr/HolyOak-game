@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://cvwwyafne3ryg"]
+[gd_scene load_steps=41 format=4 uid="uid://cvwwyafne3ryg"]
 
 [ext_resource type="Texture2D" uid="uid://sasruh3frvel" path="res://tilesets/plains.png" id="1_ciagt"]
 [ext_resource type="PackedScene" uid="uid://bbsqvqymrojj5" path="res://scenes/common/level.tscn" id="1_l5ss4"]
@@ -15,9 +15,10 @@
 [ext_resource type="PackedScene" uid="uid://dgsn2o3sm3wgn" path="res://scenes/minor/holy_oak/holy_oak.tscn" id="9_m6f5k"]
 [ext_resource type="Script" path="res://scenes/tutorial/point_3.gd" id="10_xglxs"]
 [ext_resource type="PackedScene" uid="uid://elw65cn4t3sq" path="res://scenes/tutorial/map.tscn" id="18_47lc0"]
+[ext_resource type="PackedScene" uid="uid://cenxr6q3w2dek" path="res://units/archers/archer.tscn" id="18_c5bg2"]
 [ext_resource type="Script" path="res://scenes/tutorial/platform_1.gd" id="19_8esid"]
 [ext_resource type="PackedScene" uid="uid://cnbl8aw2p0wrn" path="res://units/tower/tower.tscn" id="20_h2h33"]
-[ext_resource type="PackedScene" uid="uid://c06g6da1scixg" path="res://units/tower_stats/tower_stats.tscn" id="21_c7cyh"]
+[ext_resource type="PackedScene" uid="uid://c06g6da1scixg" path="res://units/platform/tower_stats.tscn" id="21_c7cyh"]
 [ext_resource type="Texture2D" uid="uid://cjyvn46nwilg0" path="res://models/towers/archers/idle/0.png" id="22_5ssvl"]
 [ext_resource type="Texture2D" uid="uid://b5ya13e41k2kt" path="res://ui/buttons/text_default.svg" id="22_7pqnn"]
 [ext_resource type="Texture2D" uid="uid://dsh51r6drxmtr" path="res://ui/buttons/text_hover.svg" id="23_hxobi"]
@@ -374,6 +375,7 @@ script = ExtResource("19_8esid")
 tower_preload = ExtResource("20_h2h33")
 tower_stats_preload = ExtResource("21_c7cyh")
 message_preload = ExtResource("4_xrp23")
+unit_scene = ExtResource("18_c5bg2")
 default_direction = "L"
 
 [node name="Sprite2D" type="Sprite2D" parent="Towers/Platform 1" index="0"]

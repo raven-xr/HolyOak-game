@@ -3,7 +3,11 @@ extends Node2D
 @export var tower_preload: PackedScene
 @export var tower_stats_preload: PackedScene
 @export var message_preload: PackedScene
-@export var default_direction: String = "U" # The default view direction of units: Up (U), Right (R), Down (D) or Left (L)
+## Default unit of the tower
+@export var unit_scene: PackedScene
+## Default view direction of units: U - Up, D - Down, L - Left, R - Right[br]
+## The default is "U"
+@export var default_direction: String = "U"
 
 @onready var sprite_2d = $Sprite2D
 @onready var touch_screen_button = $TouchScreenButton
@@ -25,7 +29,7 @@ func _ready():
 
 func _on_build_button_pressed():
 	SoundManager.click.play()
-	var cost = UnitStats.archers["level_1"]["cost"]
+	var cost = UnitStats.get(unit_scene.instantiate().name.to_lower())["level_1"]["cost"]
 	# Check if player has enough money
 	if PlayerStats.money >= cost:
 		var new_tower = tower_preload.instantiate()
