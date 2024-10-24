@@ -61,8 +61,8 @@ func _on_upgrade_button_pressed():
 func _on_remove_button_pressed():
 	SoundManager.click.play()
 	var tower = get_node("Tower")
-	tower.disconnect("upgrading_started", Callable(self, "_on_upgrading_started"))
-	tower.disconnect("upgrading_finished", Callable(self, "_on_upgrading_finished"))
+	#tower.disconnect("upgrading_started", Callable(self, "_on_upgrading_started"))
+	#tower.disconnect("upgrading_finished", Callable(self, "_on_upgrading_finished"))
 	tower.destruction()
 	sprite_2d.visible = true
 	close_menu()

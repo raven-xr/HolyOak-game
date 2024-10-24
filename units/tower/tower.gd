@@ -106,6 +106,7 @@ func destruction():
 	for smoke in gfx_smoke.get_children():
 		smoke.is_active = false
 	# Remove the tower
+	is_upgrading = false
 	queue_free()
 
 func can_be_upgraded():
