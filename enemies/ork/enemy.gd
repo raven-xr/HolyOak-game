@@ -33,6 +33,11 @@ var health: int = 50:
 var damage: int = 10
 var reward: int = 50
 
+signal moved()
+
+func _process(_delta):
+	moved.emit(global_position)
+
 func walk_state():
 	animation_player.play(str(direction, "_Walk"))
 

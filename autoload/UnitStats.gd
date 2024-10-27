@@ -1,6 +1,7 @@
 extends Node
 
 const ARCHER = {
+	"shell_speed": 7000,
 	"level_1": {
 		"damage": 10,
 		"cost": 100,
