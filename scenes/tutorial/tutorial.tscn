@@ -344,6 +344,7 @@ collision_layer = 0
 script = ExtResource("5_8v03p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Point 1" index="0"]
+position = Vector2(0, -24)
 shape = SubResource("SegmentShape2D_b2tjm")
 
 [node name="Point 2" type="Area2D" parent="Enemies" index="1"]
