@@ -8,7 +8,7 @@ extends Node2D
 @onready var gfx_smoke = $GFX/Smoke
 
 @onready var unit_scene = get_parent().unit_scene
-@onready var unit_stats = UnitStats.get(unit_scene.instantiate().name.to_lower())
+@onready var unit_stats = UnitStats.get(unit_scene.instantiate().name.to_upper())
 @onready var current_cost = unit_stats["level_1"]["cost"]
 
 var max_level = PlayerStats.max_level

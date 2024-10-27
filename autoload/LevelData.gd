@@ -1,6 +1,6 @@
 extends Node
 
-var tutorial = {
+const TUTORIAL = {
 	"health": 100,
 	"money": 300,
 	"max_level": 2,

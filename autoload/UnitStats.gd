@@ -1,6 +1,6 @@
 extends Node
 
-var archer = {
+const ARCHER = {
 	"level_1": {
 		"damage": 10,
 		"cost": 100,

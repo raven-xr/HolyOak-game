@@ -24,7 +24,7 @@ enum States {
 
 @onready var menu_button = $UserInterface/Menu/Button
 
-@onready var data: Dictionary = LevelData.get(name.to_lower())
+@onready var data: Dictionary = LevelData.get(name.to_upper())
 
 var wave_count: int
 var is_enemy_spawning: bool = false

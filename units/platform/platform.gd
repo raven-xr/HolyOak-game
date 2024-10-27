@@ -29,7 +29,10 @@ func _ready():
 
 func _on_build_button_pressed():
 	SoundManager.click.play()
-	var cost = UnitStats.get(unit_scene.instantiate().name.to_lower())["level_1"]["cost"]
+	# unit_scene.instantiate().name.to_upper( == 'ARCHER', 'WIZZARD' and etc
+	# UnitStats.get('ARCHER'/'WIZZARD'/etc)
+	# get its cost
+	var cost = UnitStats.get(unit_scene.instantiate().name.to_upper())["level_1"]["cost"]
 	# Check if player has enough money
 	if PlayerStats.money >= cost:
 		var new_tower = tower_preload.instantiate()
