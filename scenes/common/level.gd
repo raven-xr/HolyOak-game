@@ -8,6 +8,7 @@ enum States {
 }
 
 @export var hint_scene: PackedScene
+@export var path_follow_2d_scene: PackedScene
 @export var ork_scene: PackedScene
 @export var message_scene: PackedScene
 @export var defeat_menu_scene: PackedScene
@@ -114,8 +115,10 @@ func new_wave(number):
 	is_enemy_spawning = true
 	for i in range(enemy_count):
 		await get_tree().create_timer(spawn_cooldown).timeout
+		var new_path_follow_2d = path_follow_2d_scene.instantiate()
 		var new_ork = ork_scene.instantiate()
-		enemies.add_child(new_ork)
+		new_path_follow_2d.add_child(new_ork)
+		enemies.add_child(new_path_follow_2d)
 		current_enemy_count += 1
 	is_enemy_spawning = false
 
