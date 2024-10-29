@@ -17,7 +17,12 @@ extends Control
 # Credits' variables
 @onready var credits = $Credits
 
-### Common functions
+# Settings' variables
+@onready var settings = $Settings
+
+
+
+# Common functions
 func _ready():
 	# Load save
 	if FileAccess.file_exists(UserData.SAVE_PATH):
@@ -54,7 +59,7 @@ func animate_transition():
 
 
 
-### Explorer's functions
+# Explorer's functions
 func _on_play_button_pressed():
 	SoundManager.click.play()
 	explorer.visible = false
@@ -72,6 +77,7 @@ func _on_credits_button_pressed():
 
 func _on_settings_button_pressed():
 	SoundManager.click.play()
+	settings.visible = true
 
 func _on_exit_button_pressed():
 	SoundManager.click.play()
@@ -81,7 +87,7 @@ func _on_exit_button_pressed():
 
 
 
-### Levels' functions
+# Levels' functions
 func _on_levels_back_button_pressed():
 	SoundManager.click.play()
 	levels.visible = false
@@ -114,7 +120,7 @@ func _on_level_5_pressed():
 
 
 
-### Credits' functions
+# Credits' functions
 func _on_credits_back_button_pressed():
 	SoundManager.click.play()
 	explorer.visible = true

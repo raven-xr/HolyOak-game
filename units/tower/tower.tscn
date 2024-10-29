@@ -1296,3 +1296,4 @@ autoplay = "Level_0_Idle"
 [node name="Building" type="AudioStreamPlayer2D" parent="SFX"]
 stream = ExtResource("23_8w72y")
 volume_db = -15.0
+bus = &"SFX"

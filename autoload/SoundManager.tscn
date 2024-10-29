@@ -18,30 +18,37 @@ script = ExtResource("1_0lbtt")
 [node name="Click" type="AudioStreamPlayer" parent="UserInterface"]
 stream = ExtResource("2_vrprk")
 volume_db = -10.0
+bus = &"SFX"
 
 [node name="Success" type="AudioStreamPlayer" parent="UserInterface"]
 stream = ExtResource("3_pv00y")
 volume_db = -25.0
 pitch_scale = 0.9
+bus = &"SFX"
 
 [node name="Victory" type="AudioStreamPlayer" parent="UserInterface"]
 stream = ExtResource("3_ophsb")
 volume_db = -15.0
+bus = &"SFX"
 
 [node name="Defeat" type="AudioStreamPlayer" parent="UserInterface"]
 stream = ExtResource("3_t14o7")
 volume_db = -15.0
+bus = &"SFX"
 
 [node name="Music" type="Node" parent="."]
 
 [node name="Music Main" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("5_kb7kg")
 volume_db = -20.0
+bus = &"Music"
 
 [node name="Music Idle" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("5_l1pbm")
 volume_db = -40.0
+bus = &"Music"
 
 [node name="Music Fight" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("6_1t1b8")
 volume_db = -40.0
+bus = &"Music"
