@@ -52,11 +52,11 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_td3s4")
 text = "SETTINGS"
 
-[node name="Quit Button" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="Exit Button" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_td3s4")
-text = "QUIT"
+text = "EXIT"
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Resume Button" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Settings Button" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Quit Button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Exit Button" to="." method="_on_quit_button_pressed"]
