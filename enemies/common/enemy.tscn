@@ -9,6 +9,7 @@ radius = 16.0
 resource_local_to_scene = true
 
 [node name="Enemy" type="CharacterBody2D"]
+position = Vector2(0, -16)
 collision_mask = 0
 script = ExtResource("2_cx48v")
 
@@ -17,7 +18,7 @@ shape = SubResource("CircleShape2D_xim26")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -9.53674e-07)
+position = Vector2(0, -2)
 scale = Vector2(1.25, 1.25)
 sprite_frames = SubResource("SpriteFrames_ou3s5")
 
