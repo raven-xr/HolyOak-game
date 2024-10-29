@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bord8g0lwd55x"]
+
+[ext_resource type="Script" path="res://enemies/common/path_follow_2d.gd" id="2_cx48v"]
+
+[node name="PathFollow2D" type="PathFollow2D"]
+editor_description = "You have to create a CharacterBody2D's child as an animation player (index=2)"
+rotates = false
+loop = false
+script = ExtResource("2_cx48v")

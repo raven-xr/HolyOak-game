@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkswfpke4hlux"]
+
+[ext_resource type="Script" path="res://units/common/unit.gd" id="1_vuvce"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0ddoe"]
+resource_local_to_scene = true
+
+[node name="Unit" type="Node2D"]
+editor_description = "You have to create an AnimationPlayer (index=1) and load sprites for AnimatedSprite2D (index=0)"
+script = ExtResource("1_vuvce")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_0ddoe")
+
+[node name="Shells" type="Node2D" parent="."]
+
+[node name="SFX" type="Node2D" parent="."]
+
+[node name="Preattack" type="AudioStreamPlayer2D" parent="SFX"]
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="SFX"]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
