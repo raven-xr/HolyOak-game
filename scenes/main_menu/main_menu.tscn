@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://die1k42jfmahn"]
+[gd_scene load_steps=26 format=3 uid="uid://die1k42jfmahn"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_ab7jh"]
 [ext_resource type="Texture2D" uid="uid://bdbcrxa2815rn" path="res://ui/backgrounds/main_menu.jpeg" id="1_tludv"]
@@ -19,6 +19,7 @@
 [ext_resource type="Theme" uid="uid://b1dojytjydmpw" path="res://ui/themes/value.tres" id="15_gncvb"]
 [ext_resource type="Texture2D" uid="uid://bi3kg1fix3bcw" path="res://ui/backgrounds/ui_back.svg" id="16_npgut"]
 [ext_resource type="PackedScene" uid="uid://cci0owdbk2fr5" path="res://scenes/settings.tscn" id="19_inpo7"]
+[ext_resource type="FontFile" uid="uid://5wohy1go68x5" path="res://ui/fonts/Tribal Garamond.ttf" id="19_mmsxt"]
 
 [sub_resource type="Theme" id="Theme_ks3a0"]
 Label/colors/font_color = Color(0.784314, 0.572549, 0.372549, 1)
@@ -45,6 +46,7 @@ texture_margin_left = 20.0
 texture_margin_top = 20.0
 texture_margin_right = 20.0
 texture_margin_bottom = 20.0
+expand_margin_top = 20.0
 
 [sub_resource type="Theme" id="Theme_qx40b"]
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_23fp8")
@@ -66,9 +68,8 @@ texture = ExtResource("1_tludv")
 
 [node name="Name" type="Label" parent="."]
 layout_mode = 0
-offset_left = 348.0
 offset_top = 65.0
-offset_right = 854.0
+offset_right = 1280.0
 offset_bottom = 192.0
 theme = SubResource("Theme_ks3a0")
 theme_override_font_sizes/font_size = 96
@@ -78,11 +79,13 @@ vertical_alignment = 1
 
 [node name="Explorer" type="PanelContainer" parent="."]
 texture_filter = 1
+clip_contents = true
 layout_mode = 0
 offset_left = 496.0
 offset_top = 232.0
 offset_right = 722.0
-offset_bottom = 605.0
+offset_bottom = 608.0
+pivot_offset = Vector2(113, 188)
 theme = SubResource("Theme_jxuai")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Explorer"]
@@ -173,8 +176,8 @@ vertical_alignment = 1
 [node name="Levels" type="Control" parent="."]
 visible = false
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1280.0
+offset_bottom = 720.0
 
 [node name="GridContainer" type="GridContainer" parent="Levels"]
 layout_mode = 0
@@ -317,8 +320,8 @@ texture_hover = ExtResource("11_jr0j5")
 visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1280.0
+offset_bottom = 720.0
 
 [node name="PanelContainer" type="PanelContainer" parent="Credits"]
 layout_mode = 1
@@ -327,44 +330,50 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 267.5
-offset_top = 52.0
-offset_right = 972.5
-offset_bottom = 628.0
+offset_left = -304.0
+offset_top = -144.0
+offset_right = 301.0
+offset_bottom = 253.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_qx40b")
 
-[node name="Label" type="Label" parent="Credits/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 48
+
+[node name="Head" type="Label" parent="Credits/PanelContainer/VBoxContainer"]
 texture_filter = 2
 layout_mode = 2
-text = "Special thanks for:
+theme_override_fonts/font = ExtResource("19_mmsxt")
+theme_override_font_sizes/font_size = 30
+text = "Thanks a lot for"
+horizontal_alignment = 1
 
-Wizzard Sprites by orcmurb
+[node name="MainText" type="Label" parent="Credits/PanelContainer/VBoxContainer"]
+texture_filter = 2
+layout_mode = 2
+theme_override_fonts/font = ExtResource("19_mmsxt")
+text = "Wizzard Sprites by orcmurb
 
 Shikashi's Fantasy Icon Pack (FREE) by Matt Firth (shikashipx) and game-icons.net
 Licensed under Creative Commons BY Attribution 4.0 License
 https://creativecommons.org/licenses/by/4.0/
 
-Traveler by Alexander Nakarada (www.creatorchords.com)
-Licensed under Creative Commons BY Attribution 4.0 License
-https://creativecommons.org/licenses/by/4.0/
-
-Leaving for Valhalla by Alexander Nakarada (www.creatorchords.com)
-Licensed under Creative Commons BY Attribution 4.0 License
-https://creativecommons.org/licenses/by/4.0/
-
-Adventure Beyond by Alexander Nakarada (www.creatorchords.com)
+Traveler by Alexander Nakarada
+Leaving for Valhalla by Alexander Nakarada 
+Adventure Beyond by Alexander Nakarada
+(www.creatorchords.com)
 Licensed under Creative Commons BY Attribution 4.0 License
 https://creativecommons.org/licenses/by/4.0/"
 horizontal_alignment = 1
 
 [node name="Back Button" type="TextureButton" parent="Credits"]
 layout_mode = 0
-offset_left = 928.0
-offset_top = 96.0
-offset_right = 1012.0
-offset_bottom = 180.0
+offset_left = 880.0
+offset_top = 216.0
+offset_right = 964.0
+offset_bottom = 300.0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("10_pcypl")
 texture_pressed = ExtResource("10_pcypl")
