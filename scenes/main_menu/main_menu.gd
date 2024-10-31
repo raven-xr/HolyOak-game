@@ -24,6 +24,11 @@ extends Control
 
 # Common functions
 func _ready():
+	# Scale interface
+	#explorer.scale = Vector2(UserSettings.gui_scale, UserSettings.gui_scale)
+	#levels.scale = Vector2(UserSettings.gui_scale, UserSettings.gui_scale)
+	#credits.scale = Vector2(UserSettings.gui_scale, UserSettings.gui_scale)
+	#settings.scale = Vector2(UserSettings.gui_scale, UserSettings.gui_scale)
 	# Load save
 	if FileAccess.file_exists(UserData.SAVE_PATH):
 		var save = FileAccess.open(UserData.SAVE_PATH, FileAccess.READ)

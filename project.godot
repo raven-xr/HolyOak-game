@@ -29,6 +29,7 @@ LevelData="*res://autoload/LevelData.gd"
 SoundManager="*res://autoload/SoundManager.tscn"
 UserData="*res://autoload/UserData.gd"
 EnemyStats="*res://autoload/EnemyStats.gd"
+UserSettings="*res://autoload/UserSettings.gd"
 
 [display]
 

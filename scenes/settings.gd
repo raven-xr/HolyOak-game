@@ -7,18 +7,13 @@ extends CanvasLayer
 @onready var music_h_slider = $"Control/PanelContainer/VBoxContainer/Music Volume/Music HSlider"
 @onready var sfx_h_slider = $"Control/PanelContainer/VBoxContainer/SFX Volume/SFX HSlider"
 
-# Buses
-var master_bus = AudioServer.get_bus_index("Master")
-var music_bus = AudioServer.get_bus_index("Music")
-var sfx_bus = AudioServer.get_bus_index("SFX")
-
 
 
 # Common functions
 func _ready():
-	master_h_slider.value = db_to_linear(AudioServer.get_bus_volume_db(master_bus))
-	music_h_slider.value = db_to_linear(AudioServer.get_bus_volume_db(music_bus))
-	sfx_h_slider.value = db_to_linear(AudioServer.get_bus_volume_db(sfx_bus))
+	master_h_slider.value = UserSettings.master_volume
+	music_h_slider.value = UserSettings.music_volume
+	sfx_h_slider.value = UserSettings.sfx_volume
 	control.modulate = Color(1, 1, 1, 0)
 
 func _on_visibility_changed():
@@ -31,13 +26,13 @@ func _on_visibility_changed():
 
 # Volume's functions
 func _on_master_h_slider_value_changed(value):
-	AudioServer.set_bus_volume_db(master_bus, linear_to_db(value))
+	UserSettings.master_volume = value
 
 func _on_music_h_slider_value_changed(value):
-	AudioServer.set_bus_volume_db(music_bus, linear_to_db(value))
+	UserSettings.music_volume = value
 
 func _on_sfx_h_slider_value_changed(value):
-	AudioServer.set_bus_volume_db(sfx_bus, linear_to_db(value))
+	UserSettings.sfx_volume = value
 
 
 
