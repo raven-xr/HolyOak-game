@@ -68,7 +68,7 @@ texture = ExtResource("1_tludv")
 
 [node name="Game Name" type="Label" parent="."]
 layout_mode = 0
-offset_right = 1280.0
+offset_right = 1232.0
 offset_bottom = 128.0
 pivot_offset = Vector2(640, 64)
 theme = SubResource("Theme_ks3a0")
