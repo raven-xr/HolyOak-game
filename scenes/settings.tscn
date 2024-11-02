@@ -1,20 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://cci0owdbk2fr5"]
+[gd_scene load_steps=6 format=3 uid="uid://cci0owdbk2fr5"]
 
 [ext_resource type="Theme" uid="uid://b1fx26em7338w" path="res://ui/themes/panel_container.tres" id="1_8yuru"]
 [ext_resource type="Script" path="res://scenes/settings.gd" id="1_vu2hh"]
+[ext_resource type="PackedScene" uid="uid://du20li6wou6fs" path="res://scenes/minor/message/message.tscn" id="2_2a6w7"]
 [ext_resource type="FontFile" uid="uid://5wohy1go68x5" path="res://ui/fonts/Tribal Garamond.ttf" id="2_yf67p"]
 [ext_resource type="Texture2D" uid="uid://diotcuia4nehk" path="res://ui/icons/close.svg" id="4_1vq1p"]
 
-[node name="Settings" type="CanvasLayer"]
-script = ExtResource("1_vu2hh")
-
-[node name="Control" type="Control" parent="."]
+[node name="Settings" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1280.0
+offset_bottom = 720.0
+pivot_offset = Vector2(640, 360)
+script = ExtResource("1_vu2hh")
+message_scene = ExtResource("2_2a6w7")
 
-[node name="PanelContainer" type="PanelContainer" parent="Control"]
+[node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
 offset_left = 448.0
 offset_top = 208.0
@@ -22,10 +23,10 @@ offset_right = 768.0
 offset_bottom = 592.0
 theme = ExtResource("1_8yuru")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
 
-[node name="Volume" type="Label" parent="Control/PanelContainer/VBoxContainer"]
+[node name="Volume" type="Label" parent="PanelContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 48)
 layout_mode = 2
 size_flags_vertical = 1
@@ -35,11 +36,11 @@ text = "Volume"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Master Volume" type="Control" parent="Control/PanelContainer/VBoxContainer"]
+[node name="Master Volume" type="Control" parent="PanelContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 32)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/PanelContainer/VBoxContainer/Master Volume"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Master Volume"]
 layout_mode = 0
 offset_left = 16.0
 offset_right = 118.0
@@ -49,7 +50,7 @@ theme_override_font_sizes/font_size = 24
 text = "Master"
 vertical_alignment = 1
 
-[node name="Master HSlider" type="HSlider" parent="Control/PanelContainer/VBoxContainer/Master Volume"]
+[node name="Master HSlider" type="HSlider" parent="PanelContainer/VBoxContainer/Master Volume"]
 layout_mode = 0
 offset_left = 118.0
 offset_right = 286.0
@@ -58,11 +59,11 @@ max_value = 1.0
 step = 0.001
 value = 1.0
 
-[node name="Music Volume" type="Control" parent="Control/PanelContainer/VBoxContainer"]
+[node name="Music Volume" type="Control" parent="PanelContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 32)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/PanelContainer/VBoxContainer/Music Volume"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Music Volume"]
 layout_mode = 0
 offset_left = 16.0
 offset_right = 118.0
@@ -72,7 +73,7 @@ theme_override_font_sizes/font_size = 24
 text = "Music"
 vertical_alignment = 1
 
-[node name="Music HSlider" type="HSlider" parent="Control/PanelContainer/VBoxContainer/Music Volume"]
+[node name="Music HSlider" type="HSlider" parent="PanelContainer/VBoxContainer/Music Volume"]
 layout_mode = 0
 offset_left = 118.0
 offset_right = 286.0
@@ -81,11 +82,11 @@ max_value = 1.0
 step = 0.001
 value = 1.0
 
-[node name="SFX Volume" type="Control" parent="Control/PanelContainer/VBoxContainer"]
+[node name="SFX Volume" type="Control" parent="PanelContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 32)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/PanelContainer/VBoxContainer/SFX Volume"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/SFX Volume"]
 layout_mode = 0
 offset_left = 16.0
 offset_right = 118.0
@@ -95,7 +96,7 @@ theme_override_font_sizes/font_size = 24
 text = "SFX "
 vertical_alignment = 1
 
-[node name="SFX HSlider" type="HSlider" parent="Control/PanelContainer/VBoxContainer/SFX Volume"]
+[node name="SFX HSlider" type="HSlider" parent="PanelContainer/VBoxContainer/SFX Volume"]
 layout_mode = 0
 offset_left = 118.0
 offset_right = 286.0
@@ -104,7 +105,47 @@ max_value = 1.0
 step = 0.001
 value = 1.0
 
-[node name="Close Button" type="Button" parent="Control"]
+[node name="GUI" type="Label" parent="PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 48)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_yf67p")
+theme_override_font_sizes/font_size = 32
+text = "GUI"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GUI Scale" type="Control" parent="PanelContainer/VBoxContainer"]
+texture_filter = 2
+custom_minimum_size = Vector2(300, 32)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/GUI Scale"]
+layout_mode = 0
+offset_left = 16.0
+offset_right = 118.0
+offset_bottom = 32.0
+theme_override_fonts/font = ExtResource("2_yf67p")
+theme_override_font_sizes/font_size = 24
+text = "Scale"
+vertical_alignment = 1
+
+[node name="Scale OptionButton" type="OptionButton" parent="PanelContainer/VBoxContainer/GUI Scale"]
+layout_mode = 0
+offset_left = 118.0
+offset_right = 286.0
+offset_bottom = 32.0
+selected = 1
+item_count = 4
+popup/item_0/text = "0.8"
+popup/item_1/text = "1.0"
+popup/item_1/id = 1
+popup/item_2/text = "1.2"
+popup/item_2/id = 2
+popup/item_3/text = "1.4"
+popup/item_3/id = 3
+
+[node name="Close Button" type="Button" parent="."]
 layout_mode = 0
 offset_left = 720.0
 offset_top = 224.0
@@ -113,7 +154,8 @@ offset_bottom = 256.0
 icon = ExtResource("4_1vq1p")
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
-[connection signal="value_changed" from="Control/PanelContainer/VBoxContainer/Master Volume/Master HSlider" to="." method="_on_master_h_slider_value_changed"]
-[connection signal="value_changed" from="Control/PanelContainer/VBoxContainer/Music Volume/Music HSlider" to="." method="_on_music_h_slider_value_changed"]
-[connection signal="value_changed" from="Control/PanelContainer/VBoxContainer/SFX Volume/SFX HSlider" to="." method="_on_sfx_h_slider_value_changed"]
-[connection signal="pressed" from="Control/Close Button" to="." method="_on_close_button_pressed"]
+[connection signal="value_changed" from="PanelContainer/VBoxContainer/Master Volume/Master HSlider" to="." method="_on_master_h_slider_value_changed"]
+[connection signal="value_changed" from="PanelContainer/VBoxContainer/Music Volume/Music HSlider" to="." method="_on_music_h_slider_value_changed"]
+[connection signal="value_changed" from="PanelContainer/VBoxContainer/SFX Volume/SFX HSlider" to="." method="_on_sfx_h_slider_value_changed"]
+[connection signal="item_selected" from="PanelContainer/VBoxContainer/GUI Scale/Scale OptionButton" to="." method="_on_scale_option_button_item_selected"]
+[connection signal="pressed" from="Close Button" to="." method="_on_close_button_pressed"]

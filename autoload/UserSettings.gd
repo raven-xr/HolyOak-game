@@ -23,12 +23,13 @@ var sfx_volume: float = 1.0:
 		parameter_changed.emit()
 		AudioServer.set_bus_volume_db(sfx_bus, linear_to_db(value))
 ## Equals {0.8; 1.0; 1.2; 1.4}
-#var gui_scale: float = 1.0:
-	#set(value):
-		#gui_scale = value
-		#parameter_changed.emit()
-		#get_tree().call_deferred("reload_current_scene")
-		
+var gui_scale: float = 1.0:
+	set(value):
+		gui_scale = value
+		parameter_changed.emit()
+
+
+
 signal parameter_changed()
 
 
@@ -43,11 +44,11 @@ func load_settings():
 		master_volume = settings.get_var()
 		music_volume = settings.get_var()
 		sfx_volume = settings.get_var()
-		#gui_scale = settings.get_var()
+		gui_scale = settings.get_var()
 
 func _on_parameter_changed():
 	var settings = FileAccess.open(UserData.SETTINGS_PATH, FileAccess.WRITE)
 	settings.store_var(master_volume)
 	settings.store_var(music_volume)
 	settings.store_var(sfx_volume)
-	#settings.store_var(gui_scale)
+	settings.store_var(gui_scale)

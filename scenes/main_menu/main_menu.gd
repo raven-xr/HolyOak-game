@@ -1,7 +1,10 @@
 extends Control
 
-# Exporting variables
+# Scene
 @export var star_scene: PackedScene
+
+# Game Name
+@onready var game_name = $"Game Name"
 
 # Explorer's variables
 @onready var explorer = $Explorer
@@ -24,11 +27,13 @@ extends Control
 
 # Common functions
 func _ready():
-	# Scale interface
-	#explorer.scale = Vector2(UserSettings.gui_scale, UserSettings.gui_scale)
-	#levels.scale = Vector2(UserSettings.gui_scale, UserSettings.gui_scale)
-	#credits.scale = Vector2(UserSettings.gui_scale, UserSettings.gui_scale)
-	#settings.scale = Vector2(UserSettings.gui_scale, UserSettings.gui_scale)
+	# Scale GUI
+	var gui_scale = Vector2(UserSettings.gui_scale, UserSettings.gui_scale)
+	game_name.scale = gui_scale
+	explorer.scale = gui_scale
+	levels.scale = gui_scale
+	credits.scale = gui_scale
+	settings.scale = gui_scale
 	# Load save
 	if FileAccess.file_exists(UserData.SAVE_PATH):
 		var save = FileAccess.open(UserData.SAVE_PATH, FileAccess.READ)
