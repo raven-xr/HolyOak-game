@@ -8,7 +8,6 @@ extends Control
 
 # Explorer's variables
 @onready var explorer = $Explorer
-@onready var v_box_container = $Explorer/VBoxContainer
 @onready var play_button = $"Explorer/VBoxContainer/Play Button"
 @onready var settings_button = $"Explorer/VBoxContainer/Settings Button"
 @onready var exit_button = $"Explorer/VBoxContainer/Exit Button"
@@ -60,12 +59,11 @@ func _ready():
 	credits.modulate = Color(1, 1, 1, 0)
 	
 func animate_transition():
-	for button in v_box_container.get_children():
-		button.disabled = true
 	var tween_1 = get_tree().create_tween()
 	tween_1.parallel().tween_property(self, "modulate", Color(0, 0, 0, 1), 0.1)
 	var tween_2 = get_tree().create_tween()
 	tween_2.parallel().tween_property(SoundManager.music_main, "volume_db", -100, 0.2)
+	await tween_2.finished
 
 
 
