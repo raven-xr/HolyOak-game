@@ -11,10 +11,15 @@ extends Control
 
 @onready var confirmation = $"PanelContainer/VBoxContainer/Data Reset/Reset Progress/Confirmation"
 
+@onready var reset_progress = $"PanelContainer/VBoxContainer/Data Reset/Reset Progress"
+
 
 
 # Common functions
 func _ready():
+	if get_tree().current_scene.name != "Main Menu":
+		reset_progress.disabled = true
+	
 	confirmation.visible = false
 	confirmation.modulate = Color(1, 1, 1, 0)
 	master_h_slider.value = UserSettings.master_volume
