@@ -1,5 +1,11 @@
 extends Node
 
+# Default settings
+const DEFAULT_MASTER_VOLUME: float = 1.0
+const DEFAULT_MUSIC_VOLUME: float = 1.0
+const DEFAULT_SFX_VOLUME: float = 1.0
+const DEFAULT_GUI_SCALE: float = 1.0
+
 # Buses
 var master_bus = AudioServer.get_bus_index("Master")
 var music_bus = AudioServer.get_bus_index("Music")

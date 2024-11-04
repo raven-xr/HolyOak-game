@@ -47,6 +47,15 @@ func _on_scale_option_button_item_selected(index):
 	add_child(new_message)
 
 
+# Data Reset functions
+func _on_settings_reset_button_pressed():
+	master_h_slider.value = UserSettings.DEFAULT_MASTER_VOLUME
+	music_h_slider.value = UserSettings.DEFAULT_MUSIC_VOLUME
+	sfx_h_slider.value = UserSettings.DEFAULT_SFX_VOLUME
+	scale_option_button.select({0.8: 0, 1.0: 1, 1.2: 2, 1.4: 3}[UserSettings.DEFAULT_GUI_SCALE])
+	scale_option_button.emit_signal("item_selected", {0.8: 0, 1.0: 1, 1.2: 2, 1.4: 3}[UserSettings.DEFAULT_GUI_SCALE])
+
+
 
 # Close button's functions
 func _on_close_button_pressed():
