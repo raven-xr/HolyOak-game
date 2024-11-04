@@ -48,14 +48,24 @@ func _on_scale_option_button_item_selected(index):
 
 
 # Data Reset functions
-func _on_settings_reset_button_pressed():
+func _on_reset_settings_pressed():
 	master_h_slider.value = UserSettings.DEFAULT_MASTER_VOLUME
 	music_h_slider.value = UserSettings.DEFAULT_MUSIC_VOLUME
 	sfx_h_slider.value = UserSettings.DEFAULT_SFX_VOLUME
 	scale_option_button.select({0.8: 0, 1.0: 1, 1.2: 2, 1.4: 3}[UserSettings.DEFAULT_GUI_SCALE])
 	scale_option_button.emit_signal("item_selected", {0.8: 0, 1.0: 1, 1.2: 2, 1.4: 3}[UserSettings.DEFAULT_GUI_SCALE])
 
-
+func _on_reset_progress_pressed():
+	for level in UserData.level_data.keys():
+		UserData.level_data[level]["is_completed"] = false
+		UserData.level_data[level]["stars"] = 0
+	var save = FileAccess.open(UserData.SAVE_PATH, FileAccess.WRITE)
+	save.store_var(UserData.level_data)
+	var new_message = message_scene.instantiate()
+	new_message.text = 'Перезагрузка...'
+	add_child(new_message)
+	await get_tree().create_timer(0.5).timeout
+	get_tree().quit()
 
 # Close button's functions
 func _on_close_button_pressed():

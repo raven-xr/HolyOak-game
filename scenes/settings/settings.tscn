@@ -159,12 +159,19 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(300, 32)
 layout_mode = 2
 
-[node name="Settings Reset Button" type="Button" parent="PanelContainer/VBoxContainer/Data Reset"]
+[node name="Reset Settings" type="Button" parent="PanelContainer/VBoxContainer/Data Reset"]
 layout_mode = 0
 offset_left = 14.0
 offset_right = 138.0
 offset_bottom = 32.0
 text = "Reset Settings"
+
+[node name="Reset Progress" type="Button" parent="PanelContainer/VBoxContainer/Data Reset"]
+layout_mode = 0
+offset_left = 162.0
+offset_right = 286.0
+offset_bottom = 32.0
+text = "Reset Data"
 
 [node name="Close Button" type="Button" parent="."]
 layout_mode = 0
@@ -179,5 +186,6 @@ icon = ExtResource("4_1vq1p")
 [connection signal="value_changed" from="PanelContainer/VBoxContainer/Music Volume/Music HSlider" to="." method="_on_music_h_slider_value_changed"]
 [connection signal="value_changed" from="PanelContainer/VBoxContainer/SFX Volume/SFX HSlider" to="." method="_on_sfx_h_slider_value_changed"]
 [connection signal="item_selected" from="PanelContainer/VBoxContainer/GUI Scale/Scale OptionButton" to="." method="_on_scale_option_button_item_selected"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Data Reset/Settings Reset Button" to="." method="_on_progress_reset_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Data Reset/Reset Settings" to="." method="_on_reset_settings_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Data Reset/Reset Progress" to="." method="_on_reset_progress_pressed"]
 [connection signal="pressed" from="Close Button" to="." method="_on_close_button_pressed"]

@@ -104,8 +104,8 @@ func victory():
 	# Save
 	UserData.level_data[name]["is_completed"] = true
 	UserData.level_data[name]["stars"] = 3
-	var file = FileAccess.open(UserData.SAVE_PATH, FileAccess.WRITE)
-	file.store_var(UserData.level_data)
+	var save = FileAccess.open(UserData.SAVE_PATH, FileAccess.WRITE)
+	save.store_var(UserData.level_data)
 	var new_message = message_scene.instantiate()
 	new_message.text = "Автосохранение..."
 	user_interface.add_child(new_message)
