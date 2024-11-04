@@ -9,10 +9,14 @@ extends Control
 @onready var sfx_h_slider = $"PanelContainer/VBoxContainer/SFX Volume/SFX HSlider"
 @onready var scale_option_button = $"PanelContainer/VBoxContainer/GUI Scale/Scale OptionButton"
 
+@onready var confirmation = $"PanelContainer/VBoxContainer/Data Reset/Reset Progress/Confirmation"
+
 
 
 # Common functions
 func _ready():
+	confirmation.visible = false
+	confirmation.modulate = Color(1, 1, 1, 0)
 	master_h_slider.value = UserSettings.master_volume
 	music_h_slider.value = UserSettings.music_volume
 	sfx_h_slider.value = UserSettings.sfx_volume
@@ -56,6 +60,32 @@ func _on_reset_settings_pressed():
 	scale_option_button.emit_signal("item_selected", {0.8: 0, 1.0: 1, 1.2: 2, 1.4: 3}[UserSettings.DEFAULT_GUI_SCALE])
 
 func _on_reset_progress_pressed():
+	confirmation.visible = true
+	var tween = create_tween()
+	tween.tween_property(confirmation, "modulate", Color(1, 1, 1, 1), 0.1)
+
+# Close button's functions
+func _on_close_button_pressed():
+	SoundManager.click.play()
+	var tween = create_tween()
+	tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 0.1)
+	await tween.finished
+	visible = false
+
+
+
+# Confirmation's functions
+func _on_cancel_pressed():
+	var tween = create_tween()
+	tween.tween_property(confirmation, "modulate", Color(1, 1, 1, 0), 0.1)
+	await tween.finished
+	confirmation.visible = false
+
+func _on_confirm_pressed():
+	var tween = create_tween()
+	tween.tween_property(confirmation, "modulate", Color(1, 1, 1, 0), 0.1)
+	await tween.finished
+	confirmation.visible = false
 	for level in UserData.level_data.keys():
 		UserData.level_data[level]["is_completed"] = false
 		UserData.level_data[level]["stars"] = 0
@@ -66,11 +96,3 @@ func _on_reset_progress_pressed():
 	add_child(new_message)
 	await get_tree().create_timer(0.5).timeout
 	get_tree().quit()
-
-# Close button's functions
-func _on_close_button_pressed():
-	SoundManager.click.play()
-	var tween = create_tween()
-	tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 0.1)
-	await tween.finished
-	visible = false
