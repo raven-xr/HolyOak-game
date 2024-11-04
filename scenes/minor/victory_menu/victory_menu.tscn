@@ -15,37 +15,36 @@ texture_margin_bottom = 10.0
 [sub_resource type="Theme" id="Theme_0vj8y"]
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_sgioi")
 
-[node name="VictoryMenu" type="CanvasLayer"]
-script = ExtResource("1_di8ui")
-
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="Victory Menu" type="PanelContainer"]
 texture_filter = 1
 offset_left = 512.0
 offset_top = 320.0
 offset_right = 768.0
 offset_bottom = 384.0
+pivot_offset = Vector2(128, 32)
 theme = SubResource("Theme_0vj8y")
+script = ExtResource("1_di8ui")
 
-[node name="Menu Button" type="Button" parent="PanelContainer"]
+[node name="Menu Button" type="Button" parent="."]
 texture_filter = 2
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 icon = ExtResource("4_ax0yb")
 
-[node name="Label" type="Label" parent="PanelContainer"]
+[node name="Label" type="Label" parent="."]
 texture_filter = 2
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Вы победили!"
 horizontal_alignment = 1
 
-[node name="Next Button" type="Button" parent="PanelContainer"]
+[node name="Next Button" type="Button" parent="."]
 texture_filter = 2
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 icon = ExtResource("3_0u3n8")
 
-[connection signal="pressed" from="PanelContainer/Menu Button" to="." method="_on_menu_button_pressed"]
-[connection signal="pressed" from="PanelContainer/Next Button" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="Menu Button" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="Next Button" to="." method="_on_next_button_pressed"]

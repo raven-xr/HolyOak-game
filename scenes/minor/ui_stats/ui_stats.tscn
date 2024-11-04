@@ -18,23 +18,19 @@ PanelContainer/styles/panel = SubResource("StyleBoxTexture_ptevb")
 
 [sub_resource type="Theme" id="Theme_nuwbn"]
 
-[node name="UserInterfaceStats" type="CanvasLayer"]
-script = ExtResource("1_ik8os")
-
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="UI Stats" type="PanelContainer"]
 modulate = Color(1, 1, 1, 0.784314)
 texture_filter = 1
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 266.0
-offset_bottom = 72.0
+offset_right = 250.0
+offset_bottom = 56.0
 theme = SubResource("Theme_8te46")
+script = ExtResource("1_ik8os")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
 theme = SubResource("Theme_nuwbn")
 
-[node name="HPIcon" type="TextureRect" parent="PanelContainer/HBoxContainer"]
+[node name="HPIcon" type="TextureRect" parent="HBoxContainer"]
 modulate = Color(0.894376, 0, 0.152256, 1)
 custom_minimum_size = Vector2(36, 36)
 layout_mode = 2
@@ -44,7 +40,7 @@ texture = ExtResource("3_7s4kt")
 stretch_mode = 5
 flip_h = true
 
-[node name="HPValue" type="Label" parent="PanelContainer/HBoxContainer"]
+[node name="HPValue" type="Label" parent="HBoxContainer"]
 texture_filter = 2
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
@@ -55,7 +51,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MoneyIcon" type="TextureRect" parent="PanelContainer/HBoxContainer"]
+[node name="MoneyIcon" type="TextureRect" parent="HBoxContainer"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 11
@@ -63,7 +59,7 @@ size_flags_vertical = 5
 texture = ExtResource("3_rl6an")
 stretch_mode = 5
 
-[node name="MoneyValue" type="Label" parent="PanelContainer/HBoxContainer"]
+[node name="MoneyValue" type="Label" parent="HBoxContainer"]
 texture_filter = 2
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
@@ -74,7 +70,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="WaveIcon" type="TextureRect" parent="PanelContainer/HBoxContainer"]
+[node name="WaveIcon" type="TextureRect" parent="HBoxContainer"]
 custom_minimum_size = Vector2(36, 36)
 layout_mode = 2
 size_flags_horizontal = 11
@@ -83,7 +79,7 @@ size_flags_stretch_ratio = 20.0
 texture = ExtResource("4_280ci")
 stretch_mode = 5
 
-[node name="WaveValue" type="Label" parent="PanelContainer/HBoxContainer"]
+[node name="WaveValue" type="Label" parent="HBoxContainer"]
 texture_filter = 2
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2

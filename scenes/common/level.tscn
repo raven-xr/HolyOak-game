@@ -39,15 +39,25 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="PlayerStats" parent="UserInterface" instance=ExtResource("2_rdqft")]
+[node name="UI Stats" parent="UserInterface" instance=ExtResource("2_rdqft")]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 266.0
+offset_bottom = 72.0
 
-[node name="Menu" type="CanvasLayer" parent="UserInterface"]
+[node name="Menu" type="Control" parent="UserInterface"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Button" type="Button" parent="UserInterface/Menu"]
+layout_mode = 0
 offset_left = 1232.0
 offset_top = 16.0
 offset_right = 1264.0
 offset_bottom = 48.0
+pivot_offset = Vector2(32, 0)
 icon = ExtResource("3_qnfjt")
 
 [connection signal="pressed" from="UserInterface/Menu/Button" to="." method="_on_menu_button_pressed"]

@@ -16,39 +16,39 @@ expand_margin_left = 20.0
 [sub_resource type="Theme" id="Theme_nogtx"]
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_qpd0x")
 
-[node name="TowerStats" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Tower Stats" type="CanvasLayer"]
 script = ExtResource("1_yyqa1")
 
-[node name="Head" type="PanelContainer" parent="."]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 260.0
+offset_bottom = 202.0
+
+[node name="Head" type="PanelContainer" parent="Control"]
 texture_filter = 1
 layout_mode = 0
-offset_left = -112.0
-offset_top = -88.0
-offset_right = 128.0
-offset_bottom = -23.0
+offset_left = 20.0
+offset_right = 260.0
+offset_bottom = 65.0
 theme = SubResource("Theme_nogtx")
 
-[node name="Label" type="Label" parent="Head"]
+[node name="Label" type="Label" parent="Control/Head"]
 texture_filter = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Stats"
 vertical_alignment = 1
 
-[node name="Keys" type="PanelContainer" parent="."]
+[node name="Keys" type="PanelContainer" parent="Control"]
 texture_filter = 1
 layout_mode = 0
-offset_left = -132.0
-offset_top = -33.0
-offset_right = 5.0
-offset_bottom = 114.0
+offset_top = 55.0
+offset_right = 137.0
+offset_bottom = 202.0
 theme = ExtResource("3_tk2e0")
 
-[node name="Label" type="Label" parent="Keys"]
+[node name="Label" type="Label" parent="Control/Keys"]
 texture_filter = 2
 layout_mode = 2
 size_flags_vertical = 0
@@ -60,16 +60,16 @@ Upgrade Cost
 Max Level"
 horizontal_alignment = 1
 
-[node name="Values" type="PanelContainer" parent="."]
+[node name="Values" type="PanelContainer" parent="Control"]
 texture_filter = 1
 layout_mode = 0
-offset_left = -5.0
-offset_top = -33.0
-offset_right = 128.0
-offset_bottom = 114.0
+offset_left = 127.0
+offset_top = 55.0
+offset_right = 260.0
+offset_bottom = 202.0
 theme = ExtResource("3_tk2e0")
 
-[node name="Label" type="Label" parent="Values"]
+[node name="Label" type="Label" parent="Control/Values"]
 texture_filter = 2
 layout_mode = 2
 size_flags_vertical = 0
@@ -77,14 +77,14 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 16
 horizontal_alignment = 1
 
-[node name="Close Button" type="Button" parent="."]
+[node name="Close Button" type="Button" parent="Control"]
 texture_filter = 2
 layout_mode = 0
-offset_left = 72.0
-offset_top = -72.0
-offset_right = 104.0
-offset_bottom = -40.0
+offset_left = 204.0
+offset_top = 16.0
+offset_right = 236.0
+offset_bottom = 48.0
 theme_override_font_sizes/font_size = 16
 icon = ExtResource("4_uq83t")
 
-[connection signal="pressed" from="Close Button" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="Control/Close Button" to="." method="_on_close_button_pressed"]

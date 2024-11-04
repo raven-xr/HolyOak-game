@@ -1,15 +1,23 @@
 extends CanvasLayer
 
-# These variables are given by the parent
-var text: String = ""
-
+# Nodes
 @onready var panel_container = $PanelContainer
+
 @onready var label = $PanelContainer/Label
 
+## The value is given by the parent
+var text: String = ""
+
+
+
+# Common functions
 func _ready():
-	panel_container.modulate = Color(1, 1, 1, 0)
+	# Scale
+	panel_container.scale = Vector2(UserSettings.gui_scale, UserSettings.gui_scale)
+	# Set text
 	label.text = text
-	
+	# Animate
+	panel_container.modulate = Color(1, 1, 1, 0)
 	var tween_1 = create_tween()
 	tween_1.tween_property(panel_container, "modulate", Color(1, 1, 1, 0.78125), 0.5)
 	await tween_1.finished
