@@ -17,15 +17,17 @@ extends Control
 
 # Common functions
 func _ready():
+	# Unless the current scene is the main menu, disable the reset progress button
 	if get_tree().current_scene.name != "Main Menu":
 		reset_progress.disabled = true
-	
-	confirmation.visible = false
-	confirmation.modulate = Color(1, 1, 1, 0)
+	# Load settings
 	master_h_slider.value = UserSettings.master_volume
 	music_h_slider.value = UserSettings.music_volume
 	sfx_h_slider.value = UserSettings.sfx_volume
 	scale_option_button.select({0.8: 0, 1.0: 1, 1.2: 2, 1.4: 3}[UserSettings.gui_scale])
+	# Animate
+	confirmation.visible = false
+	confirmation.modulate = Color(1, 1, 1, 0)
 	modulate = Color(1, 1, 1, 0)
 
 func _on_visibility_changed():
