@@ -123,7 +123,7 @@ func new_wave(number):
 	var enemy_count = data["wave_" + str(number)]["enemy_count"]
 	var spawn_cooldown = data["wave_" + str(number)]["spawn_cooldown"]
 	is_enemy_spawning = true
-	for i in range(enemy_count):
+	for _i in range(enemy_count):
 		await get_tree().create_timer(spawn_cooldown).timeout
 		var new_path_follow_2d = path_follow_2d_scene.instantiate()
 		var new_ork = ork_scene.instantiate()
