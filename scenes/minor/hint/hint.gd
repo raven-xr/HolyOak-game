@@ -1,16 +1,27 @@
 extends Control
 
+# Nodes
 @onready var panel_container = $PanelContainer
 @onready var label = $PanelContainer/Label
 @onready var texture_rect = $TextureRect
 @onready var touch_screen_button = $TouchScreenButton
 
+
+
 var can_be_pressed: bool = true
 var text: String = ""
 
+
+
 signal hidden_()
 
+
+
+# Common functions
 func _ready():
+	# Scale
+	scale = Vector2(UserSettings.gui_scale, UserSettings.gui_scale)
+	# Animate
 	flick_chevron_right()
 	modulate = Color(1, 1, 1, 0)
 
@@ -18,11 +29,6 @@ func flick_chevron_right():
 	await get_tree().create_timer(0.5).timeout
 	texture_rect.visible = !texture_rect.visible
 	flick_chevron_right()
-
-func _on_touch_screen_button_pressed():
-	if can_be_pressed:
-		SoundManager.click.play()
-		hide_()
 
 func show_():
 	label.text = text
@@ -43,3 +49,11 @@ func close():
 	hide_()
 	await hidden_
 	queue_free()
+
+
+
+# TouchScreenButton's functions
+func _on_touch_screen_button_pressed():
+	if can_be_pressed:
+		SoundManager.click.play()
+		hide_()

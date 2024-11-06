@@ -1,18 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4yciknbne0cn"]
+[gd_scene load_steps=6 format=3 uid="uid://c4yciknbne0cn"]
 
 [ext_resource type="Texture2D" uid="uid://b5ya13e41k2kt" path="res://ui/buttons/text_default.svg" id="1_k5cgc"]
 [ext_resource type="Texture2D" uid="uid://dsh51r6drxmtr" path="res://ui/buttons/text_hover.svg" id="2_oqueo"]
 [ext_resource type="Texture2D" uid="uid://csq5bonl77fkh" path="res://ui/buttons/text_disabled.svg" id="3_5wmfo"]
 [ext_resource type="Script" path="res://scenes/minor/texture_button/texture_button.gd" id="3_hl5yq"]
-[ext_resource type="FontFile" uid="uid://car2t5itecnhr" path="res://ui/fonts/Bungee-Regular.ttf" id="5_kfgch"]
-
-[sub_resource type="Theme" id="Theme_ks3a0"]
-Label/colors/font_color = Color(0.784314, 0.572549, 0.372549, 1)
-Label/colors/font_shadow_color = Color(0.427451, 0.392157, 0.298039, 1)
-Label/constants/shadow_offset_x = 0
-Label/constants/shadow_offset_y = 2
-Label/constants/shadow_outline_size = 0
-Label/fonts/font = ExtResource("5_kfgch")
+[ext_resource type="Theme" uid="uid://dowtsey5pyxwl" path="res://ui/themes/text.tres" id="5_hoxmo"]
 
 [node name="Texture Button" type="TextureButton"]
 texture_normal = ExtResource("1_k5cgc")
@@ -27,7 +19,7 @@ offset_left = 9.0
 offset_top = 7.0
 offset_right = 187.0
 offset_bottom = 66.0
-theme = SubResource("Theme_ks3a0")
+theme = ExtResource("5_hoxmo")
 theme_override_font_sizes/font_size = 32
 text = "TEXT"
 horizontal_alignment = 1

@@ -1,24 +1,43 @@
 extends Control
 
-# Exporting variables
+# Scene
 @export var star_scene: PackedScene
+
+# Game Name
+@onready var game_name = $"Game Name"
 
 # Explorer's variables
 @onready var explorer = $Explorer
+
 @onready var v_box_container = $Explorer/VBoxContainer
+
 @onready var play_button = $"Explorer/VBoxContainer/Play Button"
 @onready var settings_button = $"Explorer/VBoxContainer/Settings Button"
 @onready var exit_button = $"Explorer/VBoxContainer/Exit Button"
 
 # Levels' varibales
 @onready var levels = $Levels
+
 @onready var grid_container = $Levels/GridContainer
+@onready var back_button = $"Levels/Back Button"
 
 # Credits' variables
 @onready var credits = $Credits
 
-### Common functions
+# Settings' variables
+@onready var settings = $Settings
+
+
+
+# Common functions
 func _ready():
+	# Scale GUI
+	var gui_scale = Vector2(UserSettings.gui_scale, UserSettings.gui_scale)
+	game_name.scale = gui_scale
+	explorer.scale = gui_scale
+	levels.scale = gui_scale
+	credits.scale = gui_scale
+	settings.scale = gui_scale
 	# Load save
 	if FileAccess.file_exists(UserData.SAVE_PATH):
 		var save = FileAccess.open(UserData.SAVE_PATH, FileAccess.READ)
@@ -45,8 +64,13 @@ func _ready():
 	credits.modulate = Color(1, 1, 1, 0)
 	
 func animate_transition():
+	# Disable buttons
 	for button in v_box_container.get_children():
 		button.disabled = true
+	for button in grid_container.get_children():
+		button.visible = false
+	back_button.disabled = true
+	# Animate
 	var tween_1 = get_tree().create_tween()
 	tween_1.parallel().tween_property(self, "modulate", Color(0, 0, 0, 1), 0.1)
 	var tween_2 = get_tree().create_tween()
@@ -54,7 +78,7 @@ func animate_transition():
 
 
 
-### Explorer's functions
+# Explorer's functions
 func _on_play_button_pressed():
 	SoundManager.click.play()
 	explorer.visible = false
@@ -72,6 +96,7 @@ func _on_credits_button_pressed():
 
 func _on_settings_button_pressed():
 	SoundManager.click.play()
+	settings.visible = true
 
 func _on_exit_button_pressed():
 	SoundManager.click.play()
@@ -81,7 +106,7 @@ func _on_exit_button_pressed():
 
 
 
-### Levels' functions
+# Levels' functions
 func _on_levels_back_button_pressed():
 	SoundManager.click.play()
 	levels.visible = false
@@ -114,7 +139,7 @@ func _on_level_5_pressed():
 
 
 
-### Credits' functions
+# Credits' functions
 func _on_credits_back_button_pressed():
 	SoundManager.click.play()
 	explorer.visible = true

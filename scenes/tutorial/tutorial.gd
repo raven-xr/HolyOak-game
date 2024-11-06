@@ -17,6 +17,7 @@ func tutorial():
 	SoundManager.music_idle.play()
 	var hint = hint_scene.instantiate()
 	user_interface.add_child(hint)
+	user_interface.move_child(hint, 0)
 	## Greet
 	hint.text = "Здравствуй, вождь. Добро пожаловать в Holy Oak!"
 	hint.position = Vector2(576.0, 320.0)

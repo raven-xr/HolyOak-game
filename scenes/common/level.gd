@@ -1,12 +1,14 @@
 extends Node2D
 class_name Level
 
+# Enumerate
 enum States {
 	TUTORIAL,
 	IDLE,
 	FIGHT
 }
 
+# Scenes
 @export var hint_scene: PackedScene
 @export var path_follow_2d_scene: PackedScene
 @export var ork_scene: PackedScene
@@ -15,15 +17,17 @@ enum States {
 @export var victory_menu_scene: PackedScene
 @export var game_menu_scene: PackedScene
 
+# Strings
 @export var next_level_path: String = "res://scenes/main_menu/main_menu.tscn"
 
+# Nodes
 @onready var enemies = $Enemies
 @onready var towers = $Towers
 @onready var user_interface = $UserInterface
 
 @onready var menu = $UserInterface/Menu
 
-@onready var menu_button = $UserInterface/Menu/Button
+@onready var menu_button = $"UserInterface/Menu/Button"
 
 @onready var data: Dictionary = LevelData.get(name.to_upper())
 
@@ -50,7 +54,13 @@ var wave: int = 0:
 		else:
 			victory()
 
+
+
+# Common functions
 func _ready():
+	# Scale
+	# Square the scale to reach the best view
+	menu_button.scale = Vector2(UserSettings.gui_scale**2, UserSettings.gui_scale**2)
 	# Connect signals
 	Signals.connect("target_died", Callable(self, "_on_target_died"))
 	Signals.connect("health_changed", Callable(self, "_on_health_changed"))
@@ -94,8 +104,8 @@ func victory():
 	# Save
 	UserData.level_data[name]["is_completed"] = true
 	UserData.level_data[name]["stars"] = 3
-	var file = FileAccess.open(UserData.SAVE_PATH, FileAccess.WRITE)
-	file.store_var(UserData.level_data)
+	var save = FileAccess.open(UserData.SAVE_PATH, FileAccess.WRITE)
+	save.store_var(UserData.level_data)
 	var new_message = message_scene.instantiate()
 	new_message.text = "Автосохранение..."
 	user_interface.add_child(new_message)
@@ -129,11 +139,14 @@ func _on_health_changed(value):
 	if value <= 0:
 		defeat()
 
+
+
+# Menu Button's functions
 func _on_menu_button_pressed():
 	SoundManager.click.play()
-	if not menu.has_node("GameMenu"):
+	if not menu.has_node("Game Menu"):
 		var game_menu = game_menu_scene.instantiate()
 		menu.add_child(game_menu)
 	else:
-		var game_menu = menu.get_node("GameMenu")
+		var game_menu = menu.get_node("Game Menu")
 		game_menu.resume()

@@ -1,6 +1,7 @@
 extends Node
 
 const SAVE_PATH = "user://SAVE.save"
+const SETTINGS_PATH = "user://SETTINGS.save"
 
 var level_data = {
 	"Tutorial": {

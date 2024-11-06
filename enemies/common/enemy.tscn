@@ -25,5 +25,7 @@ sprite_frames = SubResource("SpriteFrames_ou3s5")
 [node name="SFX" type="Node2D" parent="."]
 
 [node name="Death" type="AudioStreamPlayer2D" parent="SFX"]
+bus = &"SFX"
 
 [node name="Hit" type="AudioStreamPlayer2D" parent="SFX"]
+bus = &"SFX"
