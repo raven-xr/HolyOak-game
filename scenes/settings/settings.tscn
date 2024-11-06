@@ -209,21 +209,21 @@ text = "Вы потеряете
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Cancel" type="Button" parent="PanelContainer/VBoxContainer/Data Reset/Reset Progress Button/Confirmation"]
+[node name="Confirm" type="Button" parent="PanelContainer/VBoxContainer/Data Reset/Reset Progress Button/Confirmation"]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 96.0
-offset_right = 80.0
-offset_bottom = 120.0
-text = "Отмена"
+offset_right = 88.0
+offset_bottom = 127.0
+text = "ОК"
 
-[node name="Confirm" type="Button" parent="PanelContainer/VBoxContainer/Data Reset/Reset Progress Button/Confirmation"]
+[node name="Cancel" type="Button" parent="PanelContainer/VBoxContainer/Data Reset/Reset Progress Button/Confirmation"]
 layout_mode = 0
 offset_left = 104.0
 offset_top = 96.0
-offset_right = 176.0
+offset_right = 175.0
 offset_bottom = 127.0
-text = "ОК"
+text = "Отмена"
 
 [node name="Apply_Cancel" type="Control" parent="PanelContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 48)
@@ -233,17 +233,17 @@ layout_mode = 2
 layout_mode = 0
 offset_left = 14.0
 offset_top = 16.0
-offset_right = 86.0
+offset_right = 118.0
 offset_bottom = 48.0
-text = "Apply"
+text = "Применить"
 
 [node name="Cancel Button" type="Button" parent="PanelContainer/VBoxContainer/Apply_Cancel"]
 layout_mode = 0
-offset_left = 214.0
+offset_left = 182.0
 offset_top = 16.0
 offset_right = 286.0
 offset_bottom = 48.0
-text = "Cancel"
+text = "Отменить"
 
 [node name="Close Button" type="Button" parent="."]
 layout_mode = 0
@@ -261,8 +261,8 @@ icon = ExtResource("4_1vq1p")
 [connection signal="pressed" from="PanelContainer/VBoxContainer/GUI Scale/Scale OptionButton" to="." method="_on_scale_option_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Data Reset/Reset Settings Button" to="." method="_on_reset_settings_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Data Reset/Reset Progress Button" to="." method="_on_reset_progress_button_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Data Reset/Reset Progress Button/Confirmation/Cancel" to="." method="_on_cancel_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Data Reset/Reset Progress Button/Confirmation/Confirm" to="." method="_on_confirm_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Data Reset/Reset Progress Button/Confirmation/Cancel" to="." method="_on_cancel_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Apply_Cancel/Apply Button" to="." method="_on_apply_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Apply_Cancel/Cancel Button" to="." method="_on_cancel_button_pressed"]
 [connection signal="pressed" from="Close Button" to="." method="_on_close_button_pressed"]

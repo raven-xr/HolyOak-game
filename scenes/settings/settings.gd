@@ -29,11 +29,6 @@ func _ready():
 	# Unless the current scene is the main menu, disable the reset progress button
 	if get_tree().current_scene.name != "Main Menu":
 		reset_progress_button.disabled = true
-	# Load settings
-	master_h_slider.value = UserSettings.master_volume
-	music_h_slider.value = UserSettings.music_volume
-	sfx_h_slider.value = UserSettings.sfx_volume
-	scale_option_button.select({0.8: 0, 1.0: 1, 1.2: 2, 1.4: 3}[UserSettings.gui_scale])
 	# Animate
 	confirmation.visible = false
 	confirmation.modulate = Color(1, 1, 1, 0)
@@ -49,15 +44,18 @@ func _on_visibility_changed():
 		last_music_volume = UserSettings.music_volume
 		last_sfx_volume = UserSettings.sfx_volume
 		last_gui_scale = UserSettings.gui_scale
+		# Load settings
+		master_h_slider.value = UserSettings.master_volume
+		music_h_slider.value = UserSettings.music_volume
+		sfx_h_slider.value = UserSettings.sfx_volume
+		scale_option_button.select({0.8: 0, 1.0: 1, 1.2: 2, 1.4: 3}[UserSettings.gui_scale])
 	else:
 		# If settings weren't applied, cancel them
 		# P.S. Nothing will change if they were
 		UserSettings.master_volume = last_master_volume
 		UserSettings.music_volume = last_music_volume
 		UserSettings.sfx_volume = last_sfx_volume
-		if not $"PanelContainer/VBoxContainer/GUI Scale/Scale OptionButton".is_node_ready(): return
-		scale_option_button.select({0.8: 0, 1.0: 1, 1.2: 2, 1.4: 3}[last_gui_scale])
-		scale_option_button.emit_signal("item_selected", {0.8: 0, 1.0: 1, 1.2: 2, 1.4: 3}[last_gui_scale])
+		UserSettings.gui_scale = last_gui_scale
 
 
 
@@ -106,7 +104,7 @@ func _on_apply_button_pressed():
 		var new_message = message_scene.instantiate()
 		new_message.text = 'Для полного применения масштабирования, необходима перезагрузка...'
 		add_child(new_message)
-	
+
 	last_master_volume = UserSettings.master_volume
 	last_music_volume = UserSettings.music_volume
 	last_sfx_volume = UserSettings.sfx_volume
@@ -117,8 +115,12 @@ func _on_cancel_button_pressed():
 	UserSettings.master_volume = last_master_volume
 	UserSettings.music_volume = last_music_volume
 	UserSettings.sfx_volume = last_sfx_volume
-	scale_option_button.select({0.8: 0, 1.0: 1, 1.2: 2, 1.4: 3}[last_gui_scale])
-	scale_option_button.emit_signal("item_selected", {0.8: 0, 1.0: 1, 1.2: 2, 1.4: 3}[last_gui_scale])
+	UserSettings.gui_scale = last_gui_scale
+	# Load settings
+	master_h_slider.value = UserSettings.master_volume
+	music_h_slider.value = UserSettings.music_volume
+	sfx_h_slider.value = UserSettings.sfx_volume
+	scale_option_button.select({0.8: 0, 1.0: 1, 1.2: 2, 1.4: 3}[UserSettings.gui_scale])
 
 
 
