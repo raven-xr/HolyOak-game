@@ -59,7 +59,7 @@ func _ready():
 			var star = star_scene.instantiate()
 			star.position = Vector2(13 + 23*i, 74)
 			button.add_child(star)
-	# Set modulates
+	# Set modulate
 	levels.modulate = Color(1, 1, 1, 0)
 	credits.modulate = Color(1, 1, 1, 0)
 	
