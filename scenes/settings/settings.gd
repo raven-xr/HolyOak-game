@@ -88,8 +88,8 @@ func _on_reset_settings_button_pressed():
 	master_h_slider.value = UserSettings.DEFAULT_MASTER_VOLUME
 	music_h_slider.value = UserSettings.DEFAULT_MUSIC_VOLUME
 	sfx_h_slider.value = UserSettings.DEFAULT_SFX_VOLUME
-	scale_option_button.select({0.8: 0, 1.0: 1, 1.2: 2, 1.4: 3}[UserSettings.DEFAULT_GUI_SCALE])
-	scale_option_button.emit_signal("item_selected", {0.8: 0, 1.0: 1, 1.2: 2, 1.4: 3}[UserSettings.DEFAULT_GUI_SCALE])
+	scale_option_button.select({0.8: 0, 1.0: 1, 1.2: 2, 1.4: 3}[UserSettings.auto_scale()])
+	scale_option_button.emit_signal("item_selected", {0.8: 0, 1.0: 1, 1.2: 2, 1.4: 3}[UserSettings.auto_scale()])
 
 func _on_reset_progress_button_pressed():
 	SoundManager.click.play()
@@ -148,11 +148,13 @@ func _on_confirm_pressed():
 	tween.tween_property(confirmation, "modulate", Color(1, 1, 1, 0), 0.1)
 	await tween.finished
 	confirmation.visible = false
+	
 	for level in UserData.level_data.keys():
 		UserData.level_data[level]["is_completed"] = false
 		UserData.level_data[level]["stars"] = 0
 	var save = FileAccess.open(UserData.SAVE_PATH, FileAccess.WRITE)
 	save.store_var(UserData.level_data)
+	
 	var new_message = message_scene.instantiate()
 	new_message.text = 'Перезагрузка...'
 	add_child(new_message)

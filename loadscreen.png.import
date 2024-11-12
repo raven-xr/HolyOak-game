@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyqvy7eglbr66"
-path="res://.godot/imported/holy_oak.png-6065fd7462354cba40bba2106f4b0f8b.ctex"
+uid="uid://djbvrnit74xcr"
+path="res://.godot/imported/loadscreen.png-9b47d6976e585d82c21226a16c2b64a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://models/objects/holy_oak.png"
-dest_files=["res://.godot/imported/holy_oak.png-6065fd7462354cba40bba2106f4b0f8b.ctex"]
+source_file="res://loadscreen.png"
+dest_files=["res://.godot/imported/loadscreen.png-9b47d6976e585d82c21226a16c2b64a0.ctex"]
 
 [params]
 
