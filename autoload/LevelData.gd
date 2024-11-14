@@ -18,3 +18,5 @@ const TUTORIAL = {
 		"spawn_cooldown": 1.5
 	}
 }
+
+const LEVEL_1 = {}
