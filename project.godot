@@ -39,6 +39,10 @@ window/size/viewport_height=720
 window/size/mode=4
 window/stretch/mode="canvas_items"
 
+[dotnet]
+
+project/assembly_name="Holy Oak"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/AS2P/plugin.cfg")
