@@ -124,6 +124,10 @@ func _on_tutorial_pressed():
 
 func _on_level_1_pressed():
 	SoundManager.click.play()
+	animate_transition()
+	await SoundManager.click.finished
+	SoundManager.disable_music()
+	get_tree().change_scene_to_file("res://scenes/level_1/level_1.tscn")
 
 func _on_level_2_pressed():
 	SoundManager.click.play()
