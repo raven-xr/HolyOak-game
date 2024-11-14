@@ -28,7 +28,7 @@
 texture = ExtResource("2_hcy67")
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nlcy7"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yghpk"]
 texture = ExtResource("1_ciagt")
 0:0/0 = 0
 1:0/0 = 0
@@ -74,30 +74,6 @@ texture = ExtResource("1_ciagt")
 1:7/0 = 0
 2:7/0 = 0
 3:7/0 = 0
-0:8/0 = 0
-1:8/0 = 0
-2:8/0 = 0
-3:8/0 = 0
-4:8/0 = 0
-5:8/0 = 0
-0:9/0 = 0
-1:9/0 = 0
-2:9/0 = 0
-3:9/0 = 0
-4:9/0 = 0
-5:9/0 = 0
-0:10/0 = 0
-1:10/0 = 0
-2:10/0 = 0
-3:10/0 = 0
-4:10/0 = 0
-5:10/0 = 0
-0:11/0 = 0
-1:11/0 = 0
-2:11/0 = 0
-3:11/0 = 0
-4:11/0 = 0
-5:11/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a7n3a"]
 texture = ExtResource("4_0qydq")
@@ -136,9 +112,9 @@ texture = ExtResource("5_vm3er")
 
 [sub_resource type="TileSet" id="TileSet_e2wg5"]
 sources/0 = SubResource("TileSetAtlasSource_oxqpv")
-sources/1 = SubResource("TileSetAtlasSource_nlcy7")
 sources/2 = SubResource("TileSetAtlasSource_a7n3a")
 sources/3 = SubResource("TileSetAtlasSource_81g7v")
+sources/1 = SubResource("TileSetAtlasSource_yghpk")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fuwbq"]
 texture = ExtResource("4_7ig4y")
@@ -182,7 +158,7 @@ texture = ExtResource("4_0qydq")
 2:4/0 = 0
 3:4/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_apxsi"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sdp35"]
 texture = ExtResource("1_ciagt")
 0:0/0 = 0
 1:0/0 = 0
@@ -228,35 +204,11 @@ texture = ExtResource("1_ciagt")
 1:7/0 = 0
 2:7/0 = 0
 3:7/0 = 0
-0:8/0 = 0
-1:8/0 = 0
-2:8/0 = 0
-3:8/0 = 0
-4:8/0 = 0
-5:8/0 = 0
-0:9/0 = 0
-1:9/0 = 0
-2:9/0 = 0
-3:9/0 = 0
-4:9/0 = 0
-5:9/0 = 0
-0:10/0 = 0
-1:10/0 = 0
-2:10/0 = 0
-3:10/0 = 0
-4:10/0 = 0
-5:10/0 = 0
-0:11/0 = 0
-1:11/0 = 0
-2:11/0 = 0
-3:11/0 = 0
-4:11/0 = 0
-5:11/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_b7ipx"]
 sources/0 = SubResource("TileSetAtlasSource_fuwbq")
 sources/1 = SubResource("TileSetAtlasSource_a17nk")
-sources/3 = SubResource("TileSetAtlasSource_apxsi")
+sources/2 = SubResource("TileSetAtlasSource_sdp35")
 
 [sub_resource type="Curve2D" id="Curve2D_3ckwj"]
 _data = {
