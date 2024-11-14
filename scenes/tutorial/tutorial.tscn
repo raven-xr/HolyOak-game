@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://cvwwyafne3ryg"]
+[gd_scene load_steps=40 format=4 uid="uid://cvwwyafne3ryg"]
 
 [ext_resource type="Texture2D" uid="uid://sasruh3frvel" path="res://tilesets/plains.png" id="1_ciagt"]
 [ext_resource type="PackedScene" uid="uid://bbsqvqymrojj5" path="res://scenes/common/level.tscn" id="1_l5ss4"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://d1hglytmquni" path="res://units/platform/platform.tscn" id="6_6wnci"]
 [ext_resource type="Texture2D" uid="uid://4wl2w7feibqx" path="res://tilesets/walls/walls.png" id="6_if8bn"]
 [ext_resource type="Script" path="res://scenes/tutorial/point_2.gd" id="6_vpswp"]
-[ext_resource type="PackedScene" uid="uid://dgsn2o3sm3wgn" path="res://scenes/common/holy_oak.tscn" id="9_m6f5k"]
 [ext_resource type="Script" path="res://scenes/tutorial/point_3.gd" id="10_xglxs"]
 [ext_resource type="PackedScene" uid="uid://elw65cn4t3sq" path="res://scenes/tutorial/map.tscn" id="18_47lc0"]
 [ext_resource type="PackedScene" uid="uid://cenxr6q3w2dek" path="res://units/archers/archer.tscn" id="18_c5bg2"]
@@ -364,10 +363,10 @@ script = ExtResource("10_xglxs")
 position = Vector2(-64, 0)
 shape = SubResource("SegmentShape2D_fm8iq")
 
-[node name="HolyOak" parent="Objects" index="0" instance=ExtResource("9_m6f5k")]
-position = Vector2(88, 464)
+[node name="Map" parent="Objects" index="0" instance=ExtResource("18_47lc0")]
 
-[node name="Map" parent="Objects" index="1" instance=ExtResource("18_47lc0")]
+[node name="Holy Oak" parent="Objects" index="1"]
+position = Vector2(88, 464)
 
 [node name="Platform 1" type="Node2D" parent="Towers" index="0"]
 process_mode = 4
@@ -513,12 +512,12 @@ position = Vector2(208, 638)
 [connection signal="pressed" from="Towers/Platform 1/TouchScreenButton" to="Towers/Platform 1" method="_on_local_touch_screen_button_pressed"]
 [connection signal="mouse_entered" from="Towers/Platform 1/Menu/Build Button" to="Towers/Platform 1/Menu/Build Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Towers/Platform 1/Menu/Build Button" to="Towers/Platform 1/Menu/Build Button" method="_on_mouse_exited"]
-[connection signal="pressed" from="Towers/Platform 1/Menu/Build Button" to="Towers/Platform 1" method="_on_build_button_pressed"]
 [connection signal="pressed" from="Towers/Platform 1/Menu/Build Button" to="Towers/Platform 1" method="_on_local_build_button_pressed"]
+[connection signal="pressed" from="Towers/Platform 1/Menu/Build Button" to="Towers/Platform 1" method="_on_build_button_pressed"]
 [connection signal="mouse_entered" from="Towers/Platform 1/Menu/Upgrade Button" to="Towers/Platform 1/Menu/Upgrade Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Towers/Platform 1/Menu/Upgrade Button" to="Towers/Platform 1/Menu/Upgrade Button" method="_on_mouse_exited"]
-[connection signal="pressed" from="Towers/Platform 1/Menu/Upgrade Button" to="Towers/Platform 1" method="_on_upgrade_button_pressed"]
 [connection signal="pressed" from="Towers/Platform 1/Menu/Upgrade Button" to="Towers/Platform 1" method="_on_local_upgrade_button_pressed"]
+[connection signal="pressed" from="Towers/Platform 1/Menu/Upgrade Button" to="Towers/Platform 1" method="_on_upgrade_button_pressed"]
 [connection signal="mouse_entered" from="Towers/Platform 1/Menu/Remove Button" to="Towers/Platform 1" method="_on_local_remove_button_mouse_entered"]
 [connection signal="mouse_entered" from="Towers/Platform 1/Menu/Remove Button" to="Towers/Platform 1/Menu/Remove Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Towers/Platform 1/Menu/Remove Button" to="Towers/Platform 1/Menu/Remove Button" method="_on_mouse_exited"]
@@ -526,5 +525,5 @@ position = Vector2(208, 638)
 [connection signal="mouse_entered" from="Towers/Platform 1/Menu/Tower Stats Button" to="Towers/Platform 1" method="_on_local_tower_stats_button_mouse_entered"]
 [connection signal="mouse_entered" from="Towers/Platform 1/Menu/Tower Stats Button" to="Towers/Platform 1/Menu/Tower Stats Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Towers/Platform 1/Menu/Tower Stats Button" to="Towers/Platform 1/Menu/Tower Stats Button" method="_on_mouse_exited"]
-[connection signal="pressed" from="Towers/Platform 1/Menu/Tower Stats Button" to="Towers/Platform 1" method="_on_tower_stats_button_pressed"]
 [connection signal="pressed" from="Towers/Platform 1/Menu/Tower Stats Button" to="Towers/Platform 1" method="_on_local_tower_stats_button_pressed"]
+[connection signal="pressed" from="Towers/Platform 1/Menu/Tower Stats Button" to="Towers/Platform 1" method="_on_tower_stats_button_pressed"]
