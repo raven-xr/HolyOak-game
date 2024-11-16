@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bcb2hj7qx6c7h" path="res://tilesets/fences.png" id="4_7ig4y"]
 [ext_resource type="PackedScene" uid="uid://du20li6wou6fs" path="res://scenes/minor/message/message.tscn" id="4_xrp23"]
 [ext_resource type="Script" path="res://scenes/tutorial/point_1.gd" id="5_8v03p"]
-[ext_resource type="Texture2D" uid="uid://b3l3jwc8sevlf" path="res://tilesets/water.png" id="5_vm3er"]
+[ext_resource type="Texture2D" uid="uid://b1ajil2mafxr5" path="res://tilesets/water.png" id="5_vm3er"]
 [ext_resource type="PackedScene" uid="uid://d1hglytmquni" path="res://units/platform/platform.tscn" id="6_6wnci"]
 [ext_resource type="Script" path="res://scenes/tutorial/point_2.gd" id="6_vpswp"]
 [ext_resource type="Script" path="res://scenes/tutorial/point_3.gd" id="10_xglxs"]
