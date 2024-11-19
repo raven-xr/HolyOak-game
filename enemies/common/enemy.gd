@@ -24,23 +24,25 @@ enum States {
 var direction: String: # The value is being given by the path: Up (U), Right (R), Down (D) or Left (L)
 	set(value):
 		direction = value
-		# If direction is changed, update the animation
-		walk_state()
+		animation_player.play(value + "_Walk")
 var state: int:
 	set(value):
 		state = value
 		match state:
+			States.WALK: walk_state()
 			States.ATTACK: attack_state()
 			States.DEATH: death_state()
 
 signal moved()
+
+func _ready():
+	state = States.WALK
 
 func _process(_delta):
 	moved.emit(global_position)
 
 func walk_state():
 	path_follow_2d.path_speed = stats["path_speed"]
-	animation_player.play(str(direction, "_Walk"))
 
 func attack_state():
 	animation_player.play(str(direction, "_Attack"))

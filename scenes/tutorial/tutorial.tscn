@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://cvwwyafne3ryg"]
+[gd_scene load_steps=34 format=4 uid="uid://cvwwyafne3ryg"]
 
 [ext_resource type="Texture2D" uid="uid://sasruh3frvel" path="res://tilesets/plains.png" id="1_ciagt"]
 [ext_resource type="PackedScene" uid="uid://bbsqvqymrojj5" path="res://scenes/common/level.tscn" id="1_l5ss4"]
@@ -9,9 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://du20li6wou6fs" path="res://scenes/minor/message/message.tscn" id="4_xrp23"]
 [ext_resource type="Texture2D" uid="uid://b1ajil2mafxr5" path="res://tilesets/water.png" id="5_vm3er"]
 [ext_resource type="PackedScene" uid="uid://d1hglytmquni" path="res://units/platform/platform.tscn" id="6_6wnci"]
-[ext_resource type="Script" path="res://scenes/tutorial/trigger_1.gd" id="8_t4o1j"]
-[ext_resource type="Script" path="res://scenes/tutorial/trigger_2.gd" id="9_ohupr"]
-[ext_resource type="Script" path="res://scenes/tutorial/trigger_3.gd" id="10_ohjht"]
+[ext_resource type="PackedScene" uid="uid://ccqwn6n7il2n2" path="res://scenes/minor/trigger/trigger.tscn" id="9_k7fgq"]
 [ext_resource type="PackedScene" uid="uid://elw65cn4t3sq" path="res://scenes/tutorial/map.tscn" id="18_47lc0"]
 [ext_resource type="PackedScene" uid="uid://cenxr6q3w2dek" path="res://units/archers/archer.tscn" id="18_c5bg2"]
 [ext_resource type="Script" path="res://scenes/tutorial/platform_1.gd" id="19_8esid"]
@@ -216,14 +214,6 @@ _data = {
 }
 point_count = 3
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_b2tjm"]
-a = Vector2(-48, 0)
-b = Vector2(48, 0)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_fm8iq"]
-a = Vector2(0, -48)
-b = Vector2(0, 48)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_2gvqh"]
 radius = 54.0
 
@@ -253,29 +243,13 @@ tile_set = SubResource("TileSet_b7ipx")
 [node name="Road 1" type="Path2D" parent="Enemies" index="0"]
 curve = SubResource("Curve2D_3ckwj")
 
-[node name="Trigger 1" type="Area2D" parent="Enemies/Road 1" index="0"]
+[node name="Trigger 1" parent="Enemies" index="1" instance=ExtResource("9_k7fgq")]
 position = Vector2(816, -24)
-collision_layer = 0
-script = ExtResource("8_t4o1j")
+rotation = 1.5708
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Road 1/Trigger 1" index="0"]
-shape = SubResource("SegmentShape2D_b2tjm")
-
-[node name="Trigger 2" type="Area2D" parent="Enemies/Road 1" index="1"]
+[node name="Trigger 2" parent="Enemies" index="2" instance=ExtResource("9_k7fgq")]
 position = Vector2(799, 528)
-collision_layer = 0
-script = ExtResource("9_ohupr")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Road 1/Trigger 2" index="0"]
-shape = SubResource("SegmentShape2D_fm8iq")
-
-[node name="Trigger 3" type="Area2D" parent="Enemies/Road 1" index="2"]
-position = Vector2(152, 528)
-collision_layer = 0
-script = ExtResource("10_ohjht")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Road 1/Trigger 3" index="0"]
-shape = SubResource("SegmentShape2D_fm8iq")
+direction = "L"
 
 [node name="Map" parent="Objects" index="0" instance=ExtResource("18_47lc0")]
 
@@ -419,9 +393,6 @@ process_mode = 4
 position = Vector2(208, 638)
 
 [connection signal="player_ended_tutorial" from="." to="Towers/Platform 1" method="_on_tutorial_player_ended_tutorial"]
-[connection signal="body_entered" from="Enemies/Road 1/Trigger 1" to="Enemies/Road 1/Trigger 1" method="_on_body_entered"]
-[connection signal="body_entered" from="Enemies/Road 1/Trigger 2" to="Enemies/Road 1/Trigger 2" method="_on_body_entered"]
-[connection signal="body_entered" from="Enemies/Road 1/Trigger 3" to="Enemies/Road 1/Trigger 3" method="_on_body_entered"]
 [connection signal="pressed" from="Towers/Platform 1/TouchScreenButton" to="Towers/Platform 1" method="_on_local_touch_screen_button_pressed"]
 [connection signal="pressed" from="Towers/Platform 1/TouchScreenButton" to="Towers/Platform 1" method="_on_touch_screen_button_pressed"]
 [connection signal="mouse_entered" from="Towers/Platform 1/Menu/Build Button" to="Towers/Platform 1/Menu/Build Button" method="_on_mouse_entered"]
