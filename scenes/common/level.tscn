@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bbsqvqymrojj5"]
+[gd_scene load_steps=12 format=3 uid="uid://bbsqvqymrojj5"]
 
 [ext_resource type="Script" path="res://scenes/common/level.gd" id="1_8vq8d"]
 [ext_resource type="PackedScene" uid="uid://ceakiostnoxao" path="res://scenes/minor/hint/hint.tscn" id="2_5ps6b"]
@@ -12,13 +12,11 @@
 [ext_resource type="PackedScene" uid="uid://sqtg0w21y043" path="res://scenes/minor/game_menu/game_menu.tscn" id="7_165x0"]
 [ext_resource type="PackedScene" uid="uid://dgsn2o3sm3wgn" path="res://scenes/common/holy_oak.tscn" id="9_eoj5e"]
 
-[sub_resource type="Curve2D" id="Curve2D_xf17m"]
-
 [node name="Level" type="Node2D"]
 script = ExtResource("1_8vq8d")
-hint_scene = ExtResource("2_5ps6b")
 path_follow_2d_scene = ExtResource("3_pevqr")
 ork_scene = ExtResource("3_72mh5")
+hint_scene = ExtResource("2_5ps6b")
 message_scene = ExtResource("4_1nbs4")
 defeat_menu_scene = ExtResource("5_tbcgi")
 victory_menu_scene = ExtResource("6_r8y5h")
@@ -26,8 +24,7 @@ game_menu_scene = ExtResource("7_165x0")
 
 [node name="Tilemap" type="Node2D" parent="."]
 
-[node name="Enemies" type="Path2D" parent="."]
-curve = SubResource("Curve2D_xf17m")
+[node name="Enemies" type="Node2D" parent="."]
 
 [node name="Objects" type="Node2D" parent="."]
 

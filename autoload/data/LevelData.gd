@@ -5,17 +5,38 @@ const TUTORIAL = {
 	"money": 300,
 	"max_level": 2,
 	"wave_count": 3,
+	
 	"wave_1": {
-		"enemy_count": 3,
-		"spawn_cooldown": 2.0
+		"spawn_cooldown": 2.0,
+		"enemies": [
+			{"type": "ork", "road": "1"},
+			{"type": "ork", "road": "1"},
+			{"type": "ork", "road": "1"}
+		]
 	},
+	
 	"wave_2": {
-		"enemy_count": 5,
-		"spawn_cooldown": 2.0
+		"spawn_cooldown": 2.0,
+		"enemies": [
+			{"type": "ork", "road": "1"},
+			{"type": "ork", "road": "1"},
+			{"type": "ork", "road": "1"},
+			{"type": "ork", "road": "1"},
+			{"type": "ork", "road": "1"}
+		]
 	},
+	
 	"wave_3": {
-		"enemy_count": 7,
-		"spawn_cooldown": 1.5
+		"spawn_cooldown": 1.5,
+		"enemies": [
+			{"type": "ork", "road": "1"},
+			{"type": "ork", "road": "1"},
+			{"type": "ork", "road": "1"},
+			{"type": "ork", "road": "1"},
+			{"type": "ork", "road": "1"},
+			{"type": "ork", "road": "1"},
+			{"type": "ork", "road": "1"}
+		]
 	}
 }
 
