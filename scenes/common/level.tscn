@@ -25,6 +25,10 @@ game_menu_scene = ExtResource("7_165x0")
 [node name="Tilemap" type="Node2D" parent="."]
 
 [node name="Enemies" type="Node2D" parent="."]
+editor_description = "When you create a new Path2D, you have to name it \"Road N\" (N is the number of the road in LevelData that contains waves)
+e.g. Road 1
+e.g. Road 2
+and etc"
 
 [node name="Objects" type="Node2D" parent="."]
 
