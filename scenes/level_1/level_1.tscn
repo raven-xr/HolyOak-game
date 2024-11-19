@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://dtaq5avc8r7f"]
+[gd_scene load_steps=27 format=4 uid="uid://dtaq5avc8r7f"]
 
 [ext_resource type="PackedScene" uid="uid://bbsqvqymrojj5" path="res://scenes/common/level.tscn" id="1_a26ah"]
 [ext_resource type="Texture2D" uid="uid://ciyeb8o1ywukt" path="res://tilesets/grass.png" id="2_dkgsg"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dqfm4pmqposiy" path="res://models/objects/oak.png" id="6_rmyq5"]
 [ext_resource type="Texture2D" uid="uid://c2hl8w46j70b1" path="res://models/objects/tall_bush.png" id="7_4ktqa"]
 [ext_resource type="Texture2D" uid="uid://4wl2w7feibqx" path="res://tilesets/walls/walls.png" id="7_sswbo"]
+[ext_resource type="PackedScene" uid="uid://ccqwn6n7il2n2" path="res://scenes/minor/trigger/trigger.tscn" id="8_3rey1"]
 [ext_resource type="Texture2D" uid="uid://c4hsbyvxqgyxb" path="res://models/objects/small_bush.png" id="8_gmu86"]
 [ext_resource type="Texture2D" uid="uid://c7mi2jbynpkv4" path="res://models/objects/stump.png" id="8_k1w2h"]
 [ext_resource type="Texture2D" uid="uid://d1ygnmgujqnib" path="res://models/objects/box.png" id="9_6ju2p"]
@@ -242,6 +243,18 @@ texture = ExtResource("6_e7mfh")
 [sub_resource type="TileSet" id="TileSet_74scv"]
 sources/0 = SubResource("TileSetAtlasSource_dwpjd")
 
+[sub_resource type="Curve2D" id="Curve2D_7xorr"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1280, -64, 0, 0, 0, 0, 1176, 216, 0, 0, 0, 0, 640, 296, 0, 0, 0, 0, 472, 328, 0, 0, 0, 0, 152, 384)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_m6tpk"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 592, 760, 0, 0, 0, 0, 680, 616, 0, 0, 0, 0, 624, 472, 0, 0, 0, 0, 512, 320, 0, 0, 0, 0, 152, 384)
+}
+point_count = 5
+
 [node name="Level_1" instance=ExtResource("1_a26ah")]
 script = null
 
@@ -270,6 +283,30 @@ tile_set = SubResource("TileSet_usxbr")
 [node name="Layer 5" type="TileMapLayer" parent="Tilemap" index="4"]
 tile_map_data = PackedByteArray("AAA0ABkAAAABAAAAAAA2ABYAAAABAAAAAAA2ABkAAAABAAAAAAA2ABsAAAABAAAAAAA2ACEAAAABAAAAAAA3ABYAAAABAAAAAAA3ABgAAAABAAAAAAA4AB4AAAABAAAAAAA5AB0AAAABAAAAAAA5AB8AAAAAAAAAAAA6ABcAAAADAAAAAAA8AB0AAAACAAAAAAA9AB0AAAADAAAAAAA+ABcAAAAAAAAAAAA+AB4AAAABAAAAAAA/AB0AAAADAAAAAAA/AB4AAAADAAAAAABAABgAAAADAAAAAABAAB0AAAACAAAAAABBABYAAAAAAAAAAABBABcAAAAAAAAAAABBABsAAAAAAAAAAABBACEAAAAAAAAAAABCABkAAAAAAAAAAABCABoAAAACAAAAAABDABwAAAAAAAAAAABEABUAAAADAAAAAABEABgAAAAAAAAAAABHABgAAAADAAAAAABHAB8AAAADAAAAAABIABcAAAACAAAAAABJABUAAAADAAAAAABJACEAAAABAAAAAABKABYAAAAAAAAAAABKABkAAAABAAQAAABKACAAAAAAAAAAAABLAB4AAAACAAAAAABMABcAAAACAAAAAABNABoAAAADAAAAAABNABwAAAACAAAAAABPACEAAAAAAAAAAAA1ACUAAAACAAAAAAA1ACcAAAACAAAAAAA1ACgAAAADAAAAAAA2ACQAAAACAAAAAAA4ACoAAAABAAAAAAA7ACkAAAAAAAAAAAA8ACsAAAACAAAAAAA+ACgAAAAAAAAAAAA/ACUAAAAAAAAAAABAACQAAAABAAAAAABBACcAAAAAAAAAAABCACcAAAADAAAAAAA6ABYAAAADAAQAAABMAB0AAAADAAQAAABOAB4AAAADAAQAAAA4ACYAAAABAAQAAAA6ACAAAAAAAAQAAAA6ACkAAAACAAQAAAA7ACAAAAADAAQAAAA8ACMAAAABAAQAAAA=")
 tile_set = SubResource("TileSet_74scv")
+
+[node name="Road 1" type="Path2D" parent="Enemies" index="0"]
+curve = SubResource("Curve2D_7xorr")
+
+[node name="Road 2" type="Path2D" parent="Enemies" index="1"]
+curve = SubResource("Curve2D_m6tpk")
+
+[node name="Trigger 1" parent="Enemies" index="2" instance=ExtResource("8_3rey1")]
+position = Vector2(1280, -64)
+rotation = 1.5708
+
+[node name="Trigger 2" parent="Enemies" index="3" instance=ExtResource("8_3rey1")]
+position = Vector2(1176, 216)
+rotation = 1.5708
+direction = "L"
+
+[node name="Trigger 3" parent="Enemies" index="4" instance=ExtResource("8_3rey1")]
+position = Vector2(504, 320)
+direction = "l"
+
+[node name="Trigger 4" parent="Enemies" index="5" instance=ExtResource("8_3rey1")]
+position = Vector2(592, 760)
+rotation = 1.5708
+direction = "U"
 
 [node name="Map" type="Node2D" parent="Objects" index="0"]
 texture_filter = 1
