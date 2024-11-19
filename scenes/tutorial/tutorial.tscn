@@ -271,12 +271,11 @@ script = ExtResource("6_vpswp")
 shape = SubResource("SegmentShape2D_fm8iq")
 
 [node name="Point 3" type="Area2D" parent="Enemies/Road 1" index="2"]
-position = Vector2(216, 528)
+position = Vector2(152, 528)
 collision_layer = 0
 script = ExtResource("10_xglxs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Road 1/Point 3" index="0"]
-position = Vector2(-64, 0)
 shape = SubResource("SegmentShape2D_fm8iq")
 
 [node name="Map" parent="Objects" index="0" instance=ExtResource("18_47lc0")]
