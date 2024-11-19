@@ -23,14 +23,14 @@ buses/default_bus_layout="res://audio/default_bus_layout.tres"
 
 [autoload]
 
-Signals="*res://autoload/game/Signals.gd"
-PlayerStats="*res://autoload/player/PlayerStats.gd"
-SoundManager="*res://autoload/game/SoundManager.tscn"
 UserSettings="*res://autoload/user/UserSettings.gd"
 UserData="*res://autoload/user/UserData.gd"
-UnitStats="*res://autoload/data/UnitStats.gd"
+EnemyData="*res://autoload/data/EnemyData.gd"
+UnitData="*res://autoload/data/UnitData.gd"
 LevelData="*res://autoload/data/LevelData.gd"
-EnemyStats="*res://autoload/data/EnemyStats.gd"
+SoundManager="*res://autoload/game/SoundManager.tscn"
+Signals="*res://autoload/game/Signals.gd"
+PlayerStats="*res://autoload/player/PlayerStats.gd"
 
 [display]
 

@@ -12,7 +12,7 @@ enum States {
 @onready var animation_player = $AnimationPlayer
 @onready var collision_shape_2d = $CollisionShape2D
 
-@onready var stats: Dictionary = EnemyStats.get(name.to_upper())
+@onready var stats: Dictionary = EnemyData.get(name.to_upper())
 @onready var health: int = stats["health"]:
 	set(value):
 		health = value
