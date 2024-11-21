@@ -256,7 +256,13 @@ _data = {
 point_count = 5
 
 [node name="Level_1" instance=ExtResource("1_a26ah")]
-script = null
+path_follow_2d_scene = null
+ork_scene = null
+hint_scene = null
+message_scene = null
+defeat_menu_scene = null
+victory_menu_scene = null
+game_menu_scene = null
 
 [node name="Layer 1" type="TileMapLayer" parent="Tilemap" index="0"]
 texture_filter = 1
@@ -965,6 +971,3 @@ texture = ExtResource("6_rmyq5")
 
 [node name="Holy Oak" parent="Objects" index="1"]
 position = Vector2(80, 328)
-
-[node name="UI Stats" parent="UserInterface" index="0"]
-visible = false
