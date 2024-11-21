@@ -256,13 +256,6 @@ _data = {
 point_count = 5
 
 [node name="Level_1" instance=ExtResource("1_a26ah")]
-path_follow_2d_scene = null
-ork_scene = null
-hint_scene = null
-message_scene = null
-defeat_menu_scene = null
-victory_menu_scene = null
-game_menu_scene = null
 
 [node name="Layer 1" type="TileMapLayer" parent="Tilemap" index="0"]
 texture_filter = 1
