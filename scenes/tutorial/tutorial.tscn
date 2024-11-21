@@ -248,7 +248,8 @@ position = Vector2(816, -24)
 rotation = 1.5708
 
 [node name="Trigger 2" parent="Enemies" index="2" instance=ExtResource("9_k7fgq")]
-position = Vector2(799, 528)
+position = Vector2(816, 528)
+rotation = 1.5708
 direction = "L"
 
 [node name="Map" parent="Objects" index="0" instance=ExtResource("18_47lc0")]
