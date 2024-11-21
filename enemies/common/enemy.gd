@@ -42,7 +42,7 @@ func _process(_delta):
 	moved.emit(global_position)
 
 func walk_state():
-	path_follow_2d.path_speed = stats["path_speed"]
+	path_follow_2d.speed = stats["speed"]
 
 func attack_state():
 	animation_player.play(str(direction, "_Attack"))
