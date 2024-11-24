@@ -245,15 +245,15 @@ sources/0 = SubResource("TileSetAtlasSource_dwpjd")
 
 [sub_resource type="Curve2D" id="Curve2D_7xorr"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1280, -64, 0, 0, 0, 0, 1176, 216, 0, 0, 0, 0, 640, 296, 0, 0, 0, 0, 472, 328, 0, 0, 0, 0, 152, 384)
+"points": PackedVector2Array(0, 0, 0, 0, 1328, -40, 0, 0, 0, 0, 1096, 264, 0, 0, 0, 0, 472, 328, 0, 0, 0, 0, 152, 376)
 }
-point_count = 5
+point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_m6tpk"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 592, 760, 0, 0, 0, 0, 680, 616, 0, 0, 0, 0, 624, 472, 0, 0, 0, 0, 512, 320, 0, 0, 0, 0, 152, 384)
+"points": PackedVector2Array(0, 0, 0, 0, 648, 760, 0, 0, 0, 0, 648, 488, 0, 0, 0, 0, 504, 320, 0, 0, 0, 0, 152, 376)
 }
-point_count = 5
+point_count = 4
 
 [node name="Level_1" instance=ExtResource("1_a26ah")]
 
@@ -290,20 +290,27 @@ curve = SubResource("Curve2D_7xorr")
 curve = SubResource("Curve2D_m6tpk")
 
 [node name="Trigger 1" parent="Enemies" index="2" instance=ExtResource("8_3rey1")]
-position = Vector2(1280, -64)
+position = Vector2(1328, -40)
 rotation = 1.5708
+direction = "D-L"
 
 [node name="Trigger 2" parent="Enemies" index="3" instance=ExtResource("8_3rey1")]
-position = Vector2(1176, 216)
+position = Vector2(648, 488)
+rotation = 1.5708
+direction = "U-L"
+
+[node name="Trigger 5" parent="Enemies" index="4" instance=ExtResource("8_3rey1")]
+position = Vector2(1096, 264)
 rotation = 1.5708
 direction = "L"
 
-[node name="Trigger 3" parent="Enemies" index="4" instance=ExtResource("8_3rey1")]
+[node name="Trigger 3" parent="Enemies" index="5" instance=ExtResource("8_3rey1")]
 position = Vector2(504, 320)
-direction = "l"
+rotation = 1.5708
+direction = "L"
 
-[node name="Trigger 4" parent="Enemies" index="5" instance=ExtResource("8_3rey1")]
-position = Vector2(592, 760)
+[node name="Trigger 4" parent="Enemies" index="6" instance=ExtResource("8_3rey1")]
+position = Vector2(648, 760)
 rotation = 1.5708
 direction = "U"
 
@@ -488,10 +495,6 @@ texture = ExtResource("8_k1w2h")
 position = Vector2(381, 267)
 texture = ExtResource("8_k1w2h")
 
-[node name="Stump 45" type="Sprite2D" parent="Objects/Map/Stumps" index="44"]
-position = Vector2(582, 455)
-texture = ExtResource("8_k1w2h")
-
 [node name="Boxes" type="Node2D" parent="Objects/Map" index="1"]
 
 [node name="Box 1" type="Sprite2D" parent="Objects/Map/Boxes" index="0"]
@@ -652,31 +655,27 @@ texture = ExtResource("8_gmu86")
 position = Vector2(213, 293)
 texture = ExtResource("8_gmu86")
 
-[node name="Small Bush 7" type="Sprite2D" parent="Objects/Map/Bushes" index="27"]
-position = Vector2(545, 330)
-texture = ExtResource("8_gmu86")
-
-[node name="Small Bush 8" type="Sprite2D" parent="Objects/Map/Bushes" index="28"]
+[node name="Small Bush 8" type="Sprite2D" parent="Objects/Map/Bushes" index="27"]
 position = Vector2(403, 388)
 texture = ExtResource("8_gmu86")
 
-[node name="Small Bush 9" type="Sprite2D" parent="Objects/Map/Bushes" index="29"]
+[node name="Small Bush 9" type="Sprite2D" parent="Objects/Map/Bushes" index="28"]
 position = Vector2(170, 637)
 texture = ExtResource("8_gmu86")
 
-[node name="Small Bush 10" type="Sprite2D" parent="Objects/Map/Bushes" index="30"]
+[node name="Small Bush 10" type="Sprite2D" parent="Objects/Map/Bushes" index="29"]
 position = Vector2(-1, 635)
 texture = ExtResource("8_gmu86")
 
-[node name="Small Bush 11" type="Sprite2D" parent="Objects/Map/Bushes" index="31"]
+[node name="Small Bush 11" type="Sprite2D" parent="Objects/Map/Bushes" index="30"]
 position = Vector2(378, 728)
 texture = ExtResource("8_gmu86")
 
-[node name="Small Bush 12" type="Sprite2D" parent="Objects/Map/Bushes" index="32"]
+[node name="Small Bush 12" type="Sprite2D" parent="Objects/Map/Bushes" index="31"]
 position = Vector2(238, 710)
 texture = ExtResource("8_gmu86")
 
-[node name="Small Bush 13" type="Sprite2D" parent="Objects/Map/Bushes" index="33"]
+[node name="Small Bush 13" type="Sprite2D" parent="Objects/Map/Bushes" index="32"]
 position = Vector2(463, 639)
 texture = ExtResource("8_gmu86")
 
