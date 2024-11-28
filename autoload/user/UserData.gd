@@ -8,23 +8,23 @@ var level_data = {
 		"is_completed": false,
 		"stars": 0
 	},
-	"Level_1": {
+	"Level 1": {
 		"is_completed": false,
 		"stars": 0
 	},
-	"Level_2": {
+	"Level 2": {
 		"is_completed": false,
 		"stars": 0
 	},
-	"Level_3": {
+	"Level 3": {
 		"is_completed": false,
 		"stars": 0
 	},
-	"Level_4": {
+	"Level 4": {
 		"is_completed": false,
 		"stars": 0
 	},
-	"Level_5": {
+	"Level 5": {
 		"is_completed": false,
 		"stars": 0
 	},

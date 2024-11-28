@@ -256,7 +256,7 @@ _data = {
 }
 point_count = 4
 
-[node name="Level_1" instance=ExtResource("1_a26ah")]
+[node name="Level 1" instance=ExtResource("1_a26ah")]
 
 [node name="Layer 1" type="TileMapLayer" parent="Tilemap" index="0"]
 texture_filter = 1

@@ -30,7 +30,7 @@ enum States {
 
 @onready var menu_button = $"UserInterface/Menu/Button"
 
-@onready var data: Dictionary = LevelData.get(name.to_upper())
+@onready var data: Dictionary = LevelData.get(name.to_upper().replace(' ', '_'))
 
 var wave_count: int = 0
 var wave: int = 0:
