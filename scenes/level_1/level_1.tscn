@@ -364,131 +364,111 @@ texture = ExtResource("8_k1w2h")
 position = Vector2(703, 715)
 texture = ExtResource("8_k1w2h")
 
-[node name="Stump 12" type="Sprite2D" parent="Objects/Map/Stumps" index="11"]
-position = Vector2(168, 472)
-texture = ExtResource("8_k1w2h")
-
-[node name="Stump 13" type="Sprite2D" parent="Objects/Map/Stumps" index="12"]
-position = Vector2(228, 454)
-texture = ExtResource("8_k1w2h")
-
-[node name="Stump 14" type="Sprite2D" parent="Objects/Map/Stumps" index="13"]
-position = Vector2(300, 446)
-texture = ExtResource("8_k1w2h")
-
-[node name="Stump 15" type="Sprite2D" parent="Objects/Map/Stumps" index="14"]
+[node name="Stump 15" type="Sprite2D" parent="Objects/Map/Stumps" index="11"]
 position = Vector2(364, 421)
 texture = ExtResource("8_k1w2h")
 
-[node name="Stump 16" type="Sprite2D" parent="Objects/Map/Stumps" index="15"]
+[node name="Stump 16" type="Sprite2D" parent="Objects/Map/Stumps" index="12"]
 position = Vector2(424, 443)
 texture = ExtResource("8_k1w2h")
 
-[node name="Stump 17" type="Sprite2D" parent="Objects/Map/Stumps" index="16"]
+[node name="Stump 17" type="Sprite2D" parent="Objects/Map/Stumps" index="13"]
 position = Vector2(466, 389)
 texture = ExtResource("8_k1w2h")
 
-[node name="Stump 18" type="Sprite2D" parent="Objects/Map/Stumps" index="17"]
+[node name="Stump 18" type="Sprite2D" parent="Objects/Map/Stumps" index="14"]
 position = Vector2(520, 493)
 texture = ExtResource("8_k1w2h")
 
-[node name="Stump 19" type="Sprite2D" parent="Objects/Map/Stumps" index="18"]
+[node name="Stump 19" type="Sprite2D" parent="Objects/Map/Stumps" index="15"]
 position = Vector2(497, 436)
 texture = ExtResource("8_k1w2h")
 
-[node name="Stump 20" type="Sprite2D" parent="Objects/Map/Stumps" index="19"]
+[node name="Stump 20" type="Sprite2D" parent="Objects/Map/Stumps" index="16"]
 position = Vector2(408, 505)
 texture = ExtResource("8_k1w2h")
 
-[node name="Stump 21" type="Sprite2D" parent="Objects/Map/Stumps" index="20"]
+[node name="Stump 21" type="Sprite2D" parent="Objects/Map/Stumps" index="17"]
 position = Vector2(386, 462)
 texture = ExtResource("8_k1w2h")
 
-[node name="Stump 22" type="Sprite2D" parent="Objects/Map/Stumps" index="21"]
+[node name="Stump 22" type="Sprite2D" parent="Objects/Map/Stumps" index="18"]
 position = Vector2(291, 513)
 texture = ExtResource("8_k1w2h")
 
-[node name="Stump 23" type="Sprite2D" parent="Objects/Map/Stumps" index="22"]
-position = Vector2(271, 479)
-texture = ExtResource("8_k1w2h")
-
-[node name="Stump 24" type="Sprite2D" parent="Objects/Map/Stumps" index="23"]
-position = Vector2(186, 538)
-texture = ExtResource("8_k1w2h")
-
-[node name="Stump 25" type="Sprite2D" parent="Objects/Map/Stumps" index="24"]
+[node name="Stump 25" type="Sprite2D" parent="Objects/Map/Stumps" index="19"]
 position = Vector2(106, 485)
 texture = ExtResource("8_k1w2h")
 
-[node name="Stump 26" type="Sprite2D" parent="Objects/Map/Stumps" index="25"]
+[node name="Stump 26" type="Sprite2D" parent="Objects/Map/Stumps" index="20"]
 position = Vector2(41, 534)
 texture = ExtResource("8_k1w2h")
 
-[node name="Stump 27" type="Sprite2D" parent="Objects/Map/Stumps" index="26"]
+[node name="Stump 27" type="Sprite2D" parent="Objects/Map/Stumps" index="21"]
 position = Vector2(130, 539)
 texture = ExtResource("8_k1w2h")
 
-[node name="Stump 28" type="Sprite2D" parent="Objects/Map/Stumps" index="27"]
+[node name="Stump 28" type="Sprite2D" parent="Objects/Map/Stumps" index="22"]
 position = Vector2(56, 618)
 texture = ExtResource("8_k1w2h")
 
-[node name="Stump 29" type="Sprite2D" parent="Objects/Map/Stumps" index="28"]
+[node name="Stump 29" type="Sprite2D" parent="Objects/Map/Stumps" index="23"]
 position = Vector2(141, 633)
 texture = ExtResource("8_k1w2h")
 
-[node name="Stump 30" type="Sprite2D" parent="Objects/Map/Stumps" index="29"]
+[node name="Stump 30" type="Sprite2D" parent="Objects/Map/Stumps" index="24"]
 position = Vector2(222, 590)
 texture = ExtResource("8_k1w2h")
 
-[node name="Stump 31" type="Sprite2D" parent="Objects/Map/Stumps" index="30"]
+[node name="Stump 31" type="Sprite2D" parent="Objects/Map/Stumps" index="25"]
 position = Vector2(292, 615)
 texture = ExtResource("8_k1w2h")
 
-[node name="Stump 32" type="Sprite2D" parent="Objects/Map/Stumps" index="31"]
+[node name="Stump 32" type="Sprite2D" parent="Objects/Map/Stumps" index="26"]
 position = Vector2(358, 562)
 texture = ExtResource("8_k1w2h")
 
-[node name="Stump 33" type="Sprite2D" parent="Objects/Map/Stumps" index="32"]
+[node name="Stump 33" type="Sprite2D" parent="Objects/Map/Stumps" index="27"]
 position = Vector2(436, 608)
 texture = ExtResource("8_k1w2h")
 
-[node name="Stump 34" type="Sprite2D" parent="Objects/Map/Stumps" index="33"]
+[node name="Stump 34" type="Sprite2D" parent="Objects/Map/Stumps" index="28"]
 position = Vector2(464, 532)
 texture = ExtResource("8_k1w2h")
 
-[node name="Stump 36" type="Sprite2D" parent="Objects/Map/Stumps" index="34"]
+[node name="Stump 36" type="Sprite2D" parent="Objects/Map/Stumps" index="29"]
 position = Vector2(561, 530)
 texture = ExtResource("8_k1w2h")
 
-[node name="Stump 37" type="Sprite2D" parent="Objects/Map/Stumps" index="35"]
+[node name="Stump 37" type="Sprite2D" parent="Objects/Map/Stumps" index="30"]
 position = Vector2(473, 683)
 texture = ExtResource("8_k1w2h")
 
-[node name="Stump 38" type="Sprite2D" parent="Objects/Map/Stumps" index="36"]
+[node name="Stump 38" type="Sprite2D" parent="Objects/Map/Stumps" index="31"]
 position = Vector2(544, 662)
 texture = ExtResource("8_k1w2h")
 
-[node name="Stump 39" type="Sprite2D" parent="Objects/Map/Stumps" index="37"]
+[node name="Stump 39" type="Sprite2D" parent="Objects/Map/Stumps" index="32"]
 position = Vector2(352, 654)
 texture = ExtResource("8_k1w2h")
 
-[node name="Stump 40" type="Sprite2D" parent="Objects/Map/Stumps" index="38"]
+[node name="Stump 40" type="Sprite2D" parent="Objects/Map/Stumps" index="33"]
 position = Vector2(223, 671)
 texture = ExtResource("8_k1w2h")
 
-[node name="Stump 41" type="Sprite2D" parent="Objects/Map/Stumps" index="39"]
+[node name="Stump 41" type="Sprite2D" parent="Objects/Map/Stumps" index="34"]
 position = Vector2(0, 713)
 texture = ExtResource("8_k1w2h")
 
-[node name="Stump 42" type="Sprite2D" parent="Objects/Map/Stumps" index="40"]
+[node name="Stump 42" type="Sprite2D" parent="Objects/Map/Stumps" index="35"]
 position = Vector2(124, 694)
 texture = ExtResource("8_k1w2h")
 
-[node name="Stump 43" type="Sprite2D" parent="Objects/Map/Stumps" index="41"]
+[node name="Stump 43" type="Sprite2D" parent="Objects/Map/Stumps" index="36"]
 position = Vector2(279, 270)
 texture = ExtResource("8_k1w2h")
 
-[node name="Stump 44" type="Sprite2D" parent="Objects/Map/Stumps" index="42"]
+[node name="Stump 44" type="Sprite2D" parent="Objects/Map/Stumps" index="37"]
 position = Vector2(381, 267)
 texture = ExtResource("8_k1w2h")
 
@@ -628,47 +608,39 @@ texture = ExtResource("7_4ktqa")
 position = Vector2(265, 273)
 texture = ExtResource("7_4ktqa")
 
-[node name="Small Bush 1" type="Sprite2D" parent="Objects/Map/Bushes" index="21"]
-position = Vector2(198, 487)
-texture = ExtResource("8_gmu86")
-
-[node name="Small Bush 2" type="Sprite2D" parent="Objects/Map/Bushes" index="22"]
-position = Vector2(169, 432)
-texture = ExtResource("8_gmu86")
-
-[node name="Small Bush 4" type="Sprite2D" parent="Objects/Map/Bushes" index="23"]
+[node name="Small Bush 4" type="Sprite2D" parent="Objects/Map/Bushes" index="21"]
 position = Vector2(415, 242)
 texture = ExtResource("8_gmu86")
 
-[node name="Small Bush 5" type="Sprite2D" parent="Objects/Map/Bushes" index="24"]
+[node name="Small Bush 5" type="Sprite2D" parent="Objects/Map/Bushes" index="22"]
 position = Vector2(321, 271)
 texture = ExtResource("8_gmu86")
 
-[node name="Small Bush 6" type="Sprite2D" parent="Objects/Map/Bushes" index="25"]
+[node name="Small Bush 6" type="Sprite2D" parent="Objects/Map/Bushes" index="23"]
 position = Vector2(213, 293)
 texture = ExtResource("8_gmu86")
 
-[node name="Small Bush 8" type="Sprite2D" parent="Objects/Map/Bushes" index="26"]
+[node name="Small Bush 8" type="Sprite2D" parent="Objects/Map/Bushes" index="24"]
 position = Vector2(403, 388)
 texture = ExtResource("8_gmu86")
 
-[node name="Small Bush 9" type="Sprite2D" parent="Objects/Map/Bushes" index="27"]
+[node name="Small Bush 9" type="Sprite2D" parent="Objects/Map/Bushes" index="25"]
 position = Vector2(170, 637)
 texture = ExtResource("8_gmu86")
 
-[node name="Small Bush 10" type="Sprite2D" parent="Objects/Map/Bushes" index="28"]
+[node name="Small Bush 10" type="Sprite2D" parent="Objects/Map/Bushes" index="26"]
 position = Vector2(-1, 635)
 texture = ExtResource("8_gmu86")
 
-[node name="Small Bush 11" type="Sprite2D" parent="Objects/Map/Bushes" index="29"]
+[node name="Small Bush 11" type="Sprite2D" parent="Objects/Map/Bushes" index="27"]
 position = Vector2(378, 728)
 texture = ExtResource("8_gmu86")
 
-[node name="Small Bush 12" type="Sprite2D" parent="Objects/Map/Bushes" index="30"]
+[node name="Small Bush 12" type="Sprite2D" parent="Objects/Map/Bushes" index="28"]
 position = Vector2(238, 710)
 texture = ExtResource("8_gmu86")
 
-[node name="Small Bush 13" type="Sprite2D" parent="Objects/Map/Bushes" index="31"]
+[node name="Small Bush 13" type="Sprite2D" parent="Objects/Map/Bushes" index="29"]
 position = Vector2(463, 639)
 texture = ExtResource("8_gmu86")
 
@@ -959,9 +931,15 @@ position = Vector2(80, 328)
 
 [node name="Platform 1" parent="Towers" index="0" instance=ExtResource("14_67110")]
 position = Vector2(1000, 136)
+default_direction = "D"
 
 [node name="Platform 2" parent="Towers" index="1" instance=ExtResource("14_67110")]
 position = Vector2(568, 600)
+default_direction = "R"
 
 [node name="Platform 3" parent="Towers" index="2" instance=ExtResource("14_67110")]
 position = Vector2(536, 200)
+default_direction = "D"
+
+[node name="Platform 4" parent="Towers" index="3" instance=ExtResource("14_67110")]
+position = Vector2(216, 480)
