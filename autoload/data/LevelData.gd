@@ -42,7 +42,7 @@ const TUTORIAL = {
 
 const LEVEL_1 = {
 	"health": 100,
-	"money": 100,
+	"money": 200,
 	"max_level": 3,
 	"wave_count": 5,
 	
