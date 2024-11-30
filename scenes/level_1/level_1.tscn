@@ -252,7 +252,7 @@ point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_m6tpk"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 648, 760, 0, 0, 0, 0, 648, 488, 0, 0, 0, 0, 504, 320, 0, 0, 0, 0, 152, 376)
+"points": PackedVector2Array(0, 0, 0, 0, 648, 760, 0, 0, 0, 0, 640, 496, 0, 0, 0, 0, 504, 320, 0, 0, 0, 0, 152, 376)
 }
 point_count = 4
 
@@ -296,7 +296,7 @@ rotation = 1.5708
 direction = "D-L"
 
 [node name="Trigger 2" parent="Enemies" index="3" instance=ExtResource("8_3rey1")]
-position = Vector2(648, 488)
+position = Vector2(648, 496)
 rotation = 1.5708
 direction = "U-L"
 
