@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdb4s0kj5v3yf"]
+
+[ext_resource type="PackedScene" uid="uid://o8gktvpjtfgh" path="res://enemies/common/enemy.tscn" id="1_226lk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tfg2t"]
+resource_local_to_scene = true
+
+[node name="Slime" instance=ExtResource("1_226lk")]
+
+[node name="AnimatedSprite2D" parent="." index="2"]
+sprite_frames = SubResource("SpriteFrames_tfg2t")
