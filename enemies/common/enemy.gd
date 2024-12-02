@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 enum States {
-	WALK,
+MOVE,
 	ATTACK,
 	DEATH
 }
@@ -29,19 +29,19 @@ var state: int:
 	set(value):
 		state = value
 		match state:
-			States.WALK: walk_state()
+			States.MOVE: move_state()
 			States.ATTACK: attack_state()
 			States.DEATH: death_state()
 
 signal moved()
 
 func _ready():
-	state = States.WALK
+	state = States.MOVE
 
 func _process(_delta):
 	moved.emit(global_position)
 
-func walk_state():
+func move_state():
 	path_follow_2d.speed = stats["speed"]
 
 func attack_state():

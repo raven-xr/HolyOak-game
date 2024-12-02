@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7q83adaq36vy"
-path="res://.godot/imported/D-L_Walk.png-d912749026c11ff70dddab3b5d9a3997.ctex"
+uid="uid://mtw7vxvxiu5r"
+path="res://.godot/imported/L_Move.png-f779a1ff8ae1fa73d0538ccb03b7ec09.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://models/enemies/ork/D-L_Walk.png"
-dest_files=["res://.godot/imported/D-L_Walk.png-d912749026c11ff70dddab3b5d9a3997.ctex"]
+source_file="res://models/enemies/ork/L_Move.png"
+dest_files=["res://.godot/imported/L_Move.png-f779a1ff8ae1fa73d0538ccb03b7ec09.ctex"]
 
 [params]
 
