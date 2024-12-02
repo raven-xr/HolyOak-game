@@ -1,4 +1,4 @@
-extends "res://units/platform/platform.gd"
+extends "res://units/common/platform.gd"
 
 @onready var level = $"../.."
 
