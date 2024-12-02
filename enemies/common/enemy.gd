@@ -24,7 +24,7 @@ enum States {
 var direction: String: # The value is being given by the path: Up (U), Right (R), Down (D) or Left (L)
 	set(value):
 		direction = value
-		animation_player.play(value + "_Walk")
+		animation_player.play(value + "_Move")
 var state: int:
 	set(value):
 		state = value
