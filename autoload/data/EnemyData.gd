@@ -6,3 +6,10 @@ const ORK = {
 	"damage": 10,
 	"reward": 50
 }
+
+const SLIME = {
+	"speed": 55,
+	"health": 25,
+	"damage": 50,
+	"reward": 70
+}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://dtaq5avc8r7f"]
+[gd_scene load_steps=30 format=4 uid="uid://dtaq5avc8r7f"]
 
 [ext_resource type="PackedScene" uid="uid://bbsqvqymrojj5" path="res://scenes/common/level.tscn" id="1_a26ah"]
 [ext_resource type="Texture2D" uid="uid://ciyeb8o1ywukt" path="res://tilesets/grass.png" id="2_dkgsg"]
@@ -12,7 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://ccqwn6n7il2n2" path="res://scenes/minor/trigger/trigger.tscn" id="8_3rey1"]
 [ext_resource type="Texture2D" uid="uid://c4hsbyvxqgyxb" path="res://models/objects/small_bush.png" id="8_gmu86"]
 [ext_resource type="Texture2D" uid="uid://c7mi2jbynpkv4" path="res://models/objects/stump.png" id="8_k1w2h"]
+[ext_resource type="PackedScene" uid="uid://bord8g0lwd55x" path="res://enemies/common/path_follow_2d.tscn" id="8_pg1x2"]
 [ext_resource type="Texture2D" uid="uid://d1ygnmgujqnib" path="res://models/objects/box.png" id="9_6ju2p"]
+[ext_resource type="PackedScene" uid="uid://cdb4s0kj5v3yf" path="res://enemies/slime/slime.tscn" id="9_me1uu"]
 [ext_resource type="PackedScene" uid="uid://d1hglytmquni" path="res://units/common/platform.tscn" id="14_67110"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7r64l"]
@@ -287,8 +289,18 @@ tile_set = SubResource("TileSet_74scv")
 [node name="Road 1" type="Path2D" parent="Enemies" index="0"]
 curve = SubResource("Curve2D_7xorr")
 
+[node name="PathFollow2D" parent="Enemies/Road 1" index="0" instance=ExtResource("8_pg1x2")]
+position = Vector2(1328, -40)
+
+[node name="Slime" parent="Enemies/Road 1/PathFollow2D" index="0" instance=ExtResource("9_me1uu")]
+
 [node name="Road 2" type="Path2D" parent="Enemies" index="1"]
 curve = SubResource("Curve2D_m6tpk")
+
+[node name="PathFollow2D" parent="Enemies/Road 2" index="0" instance=ExtResource("8_pg1x2")]
+position = Vector2(648, 760)
+
+[node name="Slime" parent="Enemies/Road 2/PathFollow2D" index="0" instance=ExtResource("9_me1uu")]
 
 [node name="Trigger 1" parent="Enemies" index="2" instance=ExtResource("8_3rey1")]
 position = Vector2(1328, -40)
