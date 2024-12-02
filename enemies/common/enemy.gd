@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 enum States {
-MOVE,
+	MOVE,
 	ATTACK,
 	DEATH
 }
