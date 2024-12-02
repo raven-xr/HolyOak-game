@@ -12,6 +12,9 @@ radius = 1.0
 resource_local_to_scene = true
 
 [node name="Enemy" type="CharacterBody2D"]
+editor_description = "You have to create an AnimationPlayer called \"AnimationPlayer\" and add animations that you should call like \"DIRECTION_Death/Walk and etc\"
+e.g. D_Walk
+U_Death"
 position = Vector2(0, -16)
 collision_mask = 0
 script = ExtResource("2_cx48v")
