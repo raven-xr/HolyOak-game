@@ -1,4 +1,7 @@
 extends CharacterBody2D
+class_name Enemy
+
+
 
 enum States {
 	MOVE,
@@ -6,11 +9,15 @@ enum States {
 	DEATH
 }
 
+
+
 @onready var death = $SFX/Death
 @onready var path_follow_2d = $".."
 @onready var hit_sfx = $SFX/Hit
 @onready var animation_player = $AnimationPlayer
 @onready var collision_shape_2d = $CollisionShape2D
+
+
 
 @onready var stats: Dictionary = EnemyData.get(name.to_upper())
 @onready var health: int = stats["health"]:
@@ -20,6 +27,8 @@ enum States {
 			state = States.DEATH
 @onready var damage: int = stats["damage"]
 @onready var reward: int = stats["reward"]
+
+
 
 var direction: String: # The value is being given by the path: Up (U), Right (R), Down (D) or Left (L)
 	set(value):
@@ -33,7 +42,10 @@ var state: int:
 			States.ATTACK: attack_state()
 			States.DEATH: death_state()
 
+
 signal moved()
+
+
 
 func _ready():
 	state = States.MOVE
