@@ -1,4 +1,4 @@
-[gd_scene load_steps=162 format=3 uid="uid://cdb4s0kj5v3yf"]
+[gd_scene load_steps=163 format=3 uid="uid://cdb4s0kj5v3yf"]
 
 [ext_resource type="PackedScene" uid="uid://o8gktvpjtfgh" path="res://enemies/common/enemy.tscn" id="1_226lk"]
 [ext_resource type="Script" path="res://enemies/slime/slime.gd" id="2_4hr8c"]
@@ -18,7 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://sjpnammylvja" path="res://models/enemies/slime/U_Move.png" id="12_uci02"]
 [ext_resource type="Texture2D" uid="uid://ckuu3tlicf8sq" path="res://models/enemies/slime/U_Split.png" id="13_dci5t"]
 [ext_resource type="Texture2D" uid="uid://c21727p354hlc" path="res://models/enemies/slime/U_Attack.png" id="17_2yb3l"]
-[ext_resource type="AudioStream" uid="uid://dorgsbc1nljcm" path="res://audio/sfx/slime_drop_splat.mp3" id="19_e86w0"]
+[ext_resource type="AudioStream" uid="uid://dvli7ypqnbuof" path="res://audio/sfx/slime_death.mp3" id="19_xvrbw"]
+[ext_resource type="AudioStream" uid="uid://d2r4a0bpvte8k" path="res://audio/sfx/slime_jump.mp3" id="20_jje4t"]
 
 [sub_resource type="Animation" id="Animation_frdgk"]
 length = 0.75
@@ -1758,7 +1759,12 @@ libraries = {
 sprite_frames = SubResource("SpriteFrames_tfg2t")
 animation = &"D-L_Death"
 
+[node name="Death" parent="SFX" index="0"]
+stream = ExtResource("19_xvrbw")
+volume_db = -15.0
+pitch_scale = 0.8
+
 [node name="Hit" parent="SFX" index="1"]
-stream = ExtResource("19_e86w0")
+stream = ExtResource("20_jje4t")
 volume_db = -12.5
 pitch_scale = 0.9
