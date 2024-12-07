@@ -1,14 +1,14 @@
 extends Node2D
 class_name Level
 
-# Enumerate
+
+
 enum States {
 	TUTORIAL,
 	IDLE,
 	FIGHT
 }
 
-# Scenes
 @export var path_follow_2d_scene: PackedScene
 @export var ork_scene: PackedScene
 
@@ -19,10 +19,10 @@ enum States {
 @export var victory_menu_scene: PackedScene
 @export var game_menu_scene: PackedScene
 
-# Strings
 @export var next_level_path: String = "res://scenes/main_menu/main_menu.tscn"
 
-# Nodes
+
+
 @onready var towers = $Towers
 @onready var user_interface = $UserInterface
 
@@ -31,6 +31,8 @@ enum States {
 @onready var menu_button = $"UserInterface/Menu/Button"
 
 @onready var data: Dictionary = LevelData.get(name.to_upper().replace(' ', '_'))
+
+
 
 var wave_count: int = 0
 var wave: int = 0:
@@ -41,7 +43,6 @@ var wave: int = 0:
 			new_wave(wave)
 		else:
 			victory()
-
 var is_enemy_spawning: bool = false
 var current_enemy_count: int = 0:
 	set(value):
@@ -49,7 +50,6 @@ var current_enemy_count: int = 0:
 		if current_enemy_count == 0 and not is_enemy_spawning:
 			await get_tree().create_timer(7.5).timeout
 			wave += 1
-
 var state: int:
 	set(value):
 		state = value
@@ -59,7 +59,6 @@ var state: int:
 
 
 
-# Common functions
 func _ready():
 	# Scale
 	# Square the scale to reach the best view

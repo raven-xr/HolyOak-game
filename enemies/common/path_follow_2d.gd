@@ -1,6 +1,10 @@
 extends PathFollow2D
 
+
+
 var speed: float = 0.0
+
+
 
 func _process(delta):
 	progress += speed * delta
