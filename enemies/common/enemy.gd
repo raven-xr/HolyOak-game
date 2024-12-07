@@ -56,7 +56,7 @@ func move_state():
 	path_follow_2d.speed = stats["speed"]
 
 func attack_state():
-	animation_player.play(str(direction, "_Attack"))
+	animation_player.play(direction + "_Attack")
 	path_follow_2d.set_process(false)
 
 func hit():

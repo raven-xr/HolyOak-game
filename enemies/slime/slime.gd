@@ -3,17 +3,17 @@ extends Enemy
 
 
 func split():
+	path_follow_2d.speed = 0.0
 	animation_player.play(direction + "_Split")
 	await animation_player.animation_finished
-	position -= Vector2(4.0, 4.0)
+	position.x -= 24.0
 	var new_path_follow_2d = path_follow_2d.duplicate()
-	new_path_follow_2d.get_child(0).position += Vector2(4.0, 4.0)
+	var new_slime = new_path_follow_2d.get_child(0)
+	new_slime.position.x += 24.0
 	path_follow_2d.add_sibling(new_path_follow_2d)
-	
-	match state:
-		States.MOVE: move_state()
-		States.ATTACK: attack_state()
-		States.DEATH: death_state()
+	# Update animation
+	animation_player.play(direction + "_Move")
+	new_slime.animation_player.play(direction + "_Move")
 
 
 
