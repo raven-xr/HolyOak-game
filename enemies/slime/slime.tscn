@@ -1768,10 +1768,3 @@ pitch_scale = 0.8
 stream = ExtResource("20_jje4t")
 volume_db = -12.5
 pitch_scale = 0.9
-
-[node name="Timer" type="Timer" parent="." index="5"]
-wait_time = 7.5
-one_shot = true
-autostart = true
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
