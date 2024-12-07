@@ -1756,6 +1756,7 @@ libraries = {
 }
 
 [node name="AnimatedSprite2D" parent="." index="3"]
+position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_tfg2t")
 animation = &"D-L_Death"
 
