@@ -9,8 +9,8 @@ enum States {
 	FIGHT
 }
 
-@export var path_follow_2d_scene: PackedScene
 @export var ork_scene: PackedScene
+@export var slime_scene: PackedScene
 
 @export var hint_scene: PackedScene
 @export var message_scene: PackedScene
@@ -19,8 +19,9 @@ enum States {
 @export var victory_menu_scene: PackedScene
 @export var game_menu_scene: PackedScene
 
+## Leave this field if there are no levels left
 @export var next_level_path: String = "res://scenes/main_menu/main_menu.tscn"
-
+@export var techical_name: StringName
 
 
 @onready var towers = $Towers
@@ -30,7 +31,7 @@ enum States {
 
 @onready var menu_button = $"UserInterface/Menu/Button"
 
-@onready var data: Dictionary = LevelData.get(name.to_upper().replace(' ', '_'))
+@onready var data: Dictionary = LevelData.get(techical_name)
 
 
 
@@ -43,11 +44,13 @@ var wave: int = 0:
 			new_wave(wave)
 		else:
 			victory()
-var is_enemy_spawning: bool = false
+## If there are no enemies left, the game checks if enemies are still spawning. 
+## If true, it starts a new wave, else keep waiting
+var is_enemies_spawning: bool = false
 var current_enemy_count: int = 0:
 	set(value):
 		current_enemy_count = value
-		if current_enemy_count == 0 and not is_enemy_spawning:
+		if current_enemy_count == 0 and not is_enemies_spawning:
 			await get_tree().create_timer(7.5).timeout
 			wave += 1
 var state: int:
@@ -104,10 +107,10 @@ func defeat():
 
 func victory():
 	# Save
-	UserData.level_data[name]["is_completed"] = true
-	UserData.level_data[name]["stars"] = 3
+	UserData.progress[name]["is_completed"] = true
+	UserData.progress[name]["stars"] = 3
 	var save = FileAccess.open(UserData.SAVE_PATH, FileAccess.WRITE)
-	save.store_var(UserData.level_data)
+	save.store_var(UserData.progress)
 	var new_message = message_scene.instantiate()
 	new_message.text = "Автосохранение..."
 	user_interface.add_child(new_message)
@@ -125,20 +128,20 @@ func new_wave(number):
 	var spawn_cooldown = data["wave_" + str(number)]["spawn_cooldown"]
 	var enemies = data["wave_" + str(number)]["enemies"]
 	
-	is_enemy_spawning = true
+	is_enemies_spawning = true
 	
 	for enemy in enemies:
+		var new_enemy = get(enemy["type"] + "_scene").instantiate()
+		var road = get_node("Enemies/Road " + enemy["road"])
+		# Wait for cooldown
 		await get_tree().create_timer(spawn_cooldown).timeout
-		
-		var new_path_follow_2d = path_follow_2d_scene.instantiate()
-		var new_enemy: CharacterBody2D = get(enemy["type"] + "_scene").instantiate()
-		var road: Path2D = get_node("Enemies/Road " + enemy["road"])
-		
-		new_path_follow_2d.add_child(new_enemy)
-		road.add_child(new_path_follow_2d)
+		# Place a new enemy at the 1st roadpoint
+		new_enemy.next_roadpoint_position = road.get_node("Points").get_node("Point 1").position
+		new_enemy.position = road.get_node("Points").get_node("Point 1").position
+		road.add_child(new_enemy)
 		current_enemy_count += 1
 	
-	is_enemy_spawning = false
+	is_enemies_spawning = false
 
 func _on_target_died(_body):
 	current_enemy_count -= 1

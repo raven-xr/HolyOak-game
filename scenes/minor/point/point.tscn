@@ -1,17 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://ccqwn6n7il2n2"]
 
-[ext_resource type="Script" path="res://scenes/minor/trigger/trigger.gd" id="1_0ct1n"]
+[ext_resource type="Script" path="res://scenes/minor/point/point.gd" id="1_0ct1n"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_fm8iq"]
 a = Vector2(0, -48)
 b = Vector2(0, 48)
 
-[node name="Trigger" type="Area2D"]
+[node name="Point" type="Area2D"]
 collision_layer = 0
-collision_mask = 4
 script = ExtResource("1_0ct1n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("SegmentShape2D_fm8iq")
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

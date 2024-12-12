@@ -3,42 +3,34 @@ class_name Enemy
 
 
 
-enum States {
-	MOVE,
-	ATTACK,
-	DEATH
-}
+@export var technical_name: StringName
 
 
 
 @onready var death = $SFX/Death
-@onready var path_follow_2d = $".."
 @onready var hit_sfx = $SFX/Hit
 @onready var animation_player = $AnimationPlayer
 @onready var collision_shape_2d = $CollisionShape2D
 
-@onready var stats: Dictionary = EnemyData.get(name.to_upper())
+@onready var stats: Dictionary = EnemyData.get(technical_name)
+@onready var speed: int = stats["speed"]
 @onready var health: int = stats["health"]:
 	set(value):
 		health = value
 		if health <= 0:
-			state = States.DEATH
+			die()
 @onready var damage: int = stats["damage"]
 @onready var reward: int = stats["reward"]
 
 
 
+var move_direction: Vector2
 var direction: String: # The value is being given by the path: Up (U), Right (R), Down (D) or Left (L)
 	set(value):
 		direction = value
 		animation_player.play(value + "_Move")
-var state: int:
-	set(value):
-		state = value
-		match state:
-			States.MOVE: move_state()
-			States.ATTACK: attack_state()
-			States.DEATH: death_state()
+var next_roadpoint_position: Vector2
+var can_rotate: bool = true
 
 
 
@@ -46,29 +38,30 @@ signal moved()
 
 
 
-func _ready():
-	state = States.MOVE
-
-func _process(_delta):
+func _physics_process(delta):
+	if can_rotate:
+		move_direction = (next_roadpoint_position - position).normalized()
+	
+	velocity = speed * move_direction * delta
+	
+	move_and_slide()
+	
 	moved.emit(global_position)
 
-func move_state():
-	path_follow_2d.speed = stats["speed"]
-
-func attack_state():
+func attack():
 	animation_player.play(direction + "_Attack")
-	path_follow_2d.set_process(false)
+	set_physics_process(false)
 
 func hit():
 	PlayerStats.health -= damage
 	hit_sfx.play()
 
-func death_state():
+func die():
 	death.play()
 	Signals.emit_signal("target_died", self)
 	collision_shape_2d.set_deferred("disabled", true)
 	PlayerStats.money += reward
-	path_follow_2d.set_process(false)
+	set_physics_process(false)
 	animation_player.play(str(direction, "_Death"))
 	await animation_player.animation_finished
-	path_follow_2d.queue_free()
+	queue_free()

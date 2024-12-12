@@ -1,13 +1,13 @@
 extends Node
 
+
+
 const SAVE_PATH = "user://SAVE.save"
 const SETTINGS_PATH = "user://SETTINGS.save"
 
-var level_data = {
-	"Tutorial": {
-		"is_completed": false,
-		"stars": 0
-	},
+
+
+var progress = {
 	"Level 1": {
 		"is_completed": false,
 		"stars": 0
@@ -25,6 +25,10 @@ var level_data = {
 		"stars": 0
 	},
 	"Level 5": {
+		"is_completed": false,
+		"stars": 0
+	},
+	"Level 6": {
 		"is_completed": false,
 		"stars": 0
 	},

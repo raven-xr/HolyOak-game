@@ -1,8 +1,6 @@
 extends PanelContainer
 
 # Nodes
-@onready var level = get_parent().get_parent() # UserInterface node -> Root level node
-
 @onready var menu_button = $"Menu Button"
 @onready var restart_button = $"Restart Button"
 
@@ -33,7 +31,7 @@ func _on_menu_button_pressed():
 	SoundManager.disable_music()
 	disable_buttons()
 	get_tree().paused = false
-	get_tree().change_scene_to_file(level.next_level_path)
+	get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")
 
 
 

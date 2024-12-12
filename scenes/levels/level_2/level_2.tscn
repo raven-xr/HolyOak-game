@@ -1,6 +1,6 @@
-[gd_scene load_steps=30 format=4 uid="uid://dtaq5avc8r7f"]
+[gd_scene load_steps=26 format=4 uid="uid://dtaq5avc8r7f"]
 
-[ext_resource type="PackedScene" uid="uid://bbsqvqymrojj5" path="res://scenes/common/level.tscn" id="1_a26ah"]
+[ext_resource type="PackedScene" uid="uid://bbsqvqymrojj5" path="res://scenes/levels/common/level.tscn" id="1_a26ah"]
 [ext_resource type="Texture2D" uid="uid://ciyeb8o1ywukt" path="res://tilesets/grass.png" id="2_dkgsg"]
 [ext_resource type="Texture2D" uid="uid://sasruh3frvel" path="res://tilesets/plains.png" id="3_abpvc"]
 [ext_resource type="Texture2D" uid="uid://bcb2hj7qx6c7h" path="res://tilesets/fences.png" id="4_cev16"]
@@ -9,12 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://dqfm4pmqposiy" path="res://models/objects/oak.png" id="6_rmyq5"]
 [ext_resource type="Texture2D" uid="uid://c2hl8w46j70b1" path="res://models/objects/tall_bush.png" id="7_4ktqa"]
 [ext_resource type="Texture2D" uid="uid://4wl2w7feibqx" path="res://tilesets/walls/walls.png" id="7_sswbo"]
-[ext_resource type="PackedScene" uid="uid://ccqwn6n7il2n2" path="res://scenes/minor/trigger/trigger.tscn" id="8_3rey1"]
+[ext_resource type="PackedScene" uid="uid://ccqwn6n7il2n2" path="res://scenes/minor/point/point.tscn" id="8_3rey1"]
 [ext_resource type="Texture2D" uid="uid://c4hsbyvxqgyxb" path="res://models/objects/small_bush.png" id="8_gmu86"]
 [ext_resource type="Texture2D" uid="uid://c7mi2jbynpkv4" path="res://models/objects/stump.png" id="8_k1w2h"]
-[ext_resource type="PackedScene" uid="uid://bord8g0lwd55x" path="res://enemies/common/path_follow_2d.tscn" id="8_pg1x2"]
 [ext_resource type="Texture2D" uid="uid://d1ygnmgujqnib" path="res://models/objects/box.png" id="9_6ju2p"]
-[ext_resource type="PackedScene" uid="uid://cdb4s0kj5v3yf" path="res://enemies/slime/slime.tscn" id="9_me1uu"]
 [ext_resource type="PackedScene" uid="uid://d1hglytmquni" path="res://units/common/platform.tscn" id="14_67110"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7r64l"]
@@ -246,19 +244,8 @@ texture = ExtResource("6_e7mfh")
 [sub_resource type="TileSet" id="TileSet_74scv"]
 sources/0 = SubResource("TileSetAtlasSource_dwpjd")
 
-[sub_resource type="Curve2D" id="Curve2D_7xorr"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1328, -40, 0, 0, 0, 0, 1096, 264, 0, 0, 0, 0, 472, 328, 0, 0, 0, 0, 152, 376)
-}
-point_count = 4
-
-[sub_resource type="Curve2D" id="Curve2D_m6tpk"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 656, 760, 0, 0, 0, 0, 656, 512, 0, 0, 0, 0, 504, 320, 0, 0, 0, 0, 152, 376)
-}
-point_count = 4
-
-[node name="Level 1" instance=ExtResource("1_a26ah")]
+[node name="Level 2" instance=ExtResource("1_a26ah")]
+techical_name = &"LEVEL_2"
 
 [node name="Layer 1" type="TileMapLayer" parent="Tilemap" index="0"]
 texture_filter = 1
@@ -286,46 +273,54 @@ tile_set = SubResource("TileSet_usxbr")
 tile_map_data = PackedByteArray("AAA0ABkAAAABAAAAAAA2ABYAAAABAAAAAAA2ABkAAAABAAAAAAA2ABsAAAABAAAAAAA2ACEAAAABAAAAAAA3ABYAAAABAAAAAAA3ABgAAAABAAAAAAA4AB4AAAABAAAAAAA5AB0AAAABAAAAAAA5AB8AAAAAAAAAAAA6ABcAAAADAAAAAAA8AB0AAAACAAAAAAA9AB0AAAADAAAAAAA+ABcAAAAAAAAAAAA+AB4AAAABAAAAAAA/AB0AAAADAAAAAAA/AB4AAAADAAAAAABAABgAAAADAAAAAABAAB0AAAACAAAAAABBABYAAAAAAAAAAABBABcAAAAAAAAAAABBABsAAAAAAAAAAABBACEAAAAAAAAAAABCABkAAAAAAAAAAABCABoAAAACAAAAAABDABwAAAAAAAAAAABEABUAAAADAAAAAABEABgAAAAAAAAAAABHABgAAAADAAAAAABHAB8AAAADAAAAAABIABcAAAACAAAAAABJABUAAAADAAAAAABJACEAAAABAAAAAABKABYAAAAAAAAAAABKABkAAAABAAQAAABKACAAAAAAAAAAAABLAB4AAAACAAAAAABMABcAAAACAAAAAABNABoAAAADAAAAAABNABwAAAACAAAAAABPACEAAAAAAAAAAAA1ACUAAAACAAAAAAA1ACcAAAACAAAAAAA1ACgAAAADAAAAAAA2ACQAAAACAAAAAAA4ACoAAAABAAAAAAA7ACkAAAAAAAAAAAA8ACsAAAACAAAAAAA+ACgAAAAAAAAAAAA/ACUAAAAAAAAAAABAACQAAAABAAAAAABBACcAAAAAAAAAAABCACcAAAADAAAAAAA6ABYAAAADAAQAAABMAB0AAAADAAQAAABOAB4AAAADAAQAAAA4ACYAAAABAAQAAAA6ACAAAAAAAAQAAAA6ACkAAAACAAQAAAA7ACAAAAADAAQAAAA8ACMAAAABAAQAAAA=")
 tile_set = SubResource("TileSet_74scv")
 
-[node name="Road 1" type="Path2D" parent="Enemies" index="0"]
-curve = SubResource("Curve2D_7xorr")
+[node name="Road 1" type="Node2D" parent="Enemies" index="0"]
 
-[node name="PathFollow2D" parent="Enemies/Road 1" index="0" instance=ExtResource("8_pg1x2")]
-position = Vector2(1328, -40)
+[node name="Points" type="Node" parent="Enemies/Road 1" index="0"]
 
-[node name="Slime" parent="Enemies/Road 1/PathFollow2D" index="0" instance=ExtResource("9_me1uu")]
-
-[node name="Road 2" type="Path2D" parent="Enemies" index="1"]
-curve = SubResource("Curve2D_m6tpk")
-
-[node name="PathFollow2D" parent="Enemies/Road 2" index="0" instance=ExtResource("8_pg1x2")]
-position = Vector2(656, 760)
-
-[node name="Slime" parent="Enemies/Road 2/PathFollow2D" index="0" instance=ExtResource("9_me1uu")]
-
-[node name="Trigger 1" parent="Enemies" index="2" instance=ExtResource("8_3rey1")]
+[node name="Point 1" parent="Enemies/Road 1/Points" index="0" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("8_3rey1")]
 position = Vector2(1328, -40)
 rotation = 1.5708
-direction = "D-L"
+new_direction = "D-L"
+next_roadpoint = NodePath("../Point 2")
 
-[node name="Trigger 2" parent="Enemies" index="3" instance=ExtResource("8_3rey1")]
+[node name="Point 2" parent="Enemies/Road 1/Points" index="1" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("8_3rey1")]
+position = Vector2(1096, 232)
+rotation = 1.5708
+new_direction = "L"
+next_roadpoint = NodePath("../Point 3")
+
+[node name="Point 3" parent="Enemies/Road 1/Points" index="2" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("8_3rey1")]
+position = Vector2(544, 304)
+rotation = -0.523599
+next_roadpoint = NodePath("../Point 4")
+
+[node name="Point 4" parent="Enemies/Road 1/Points" index="3" instance=ExtResource("8_3rey1")]
+position = Vector2(148, 384)
+
+[node name="Road 2" type="Node2D" parent="Enemies" index="1"]
+
+[node name="Points" type="Node" parent="Enemies/Road 2" index="0"]
+
+[node name="Point 1" parent="Enemies/Road 2/Points" index="0" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("8_3rey1")]
+position = Vector2(656, 768)
+rotation = 1.5708
+new_direction = "U"
+next_roadpoint = NodePath("../Point 2")
+
+[node name="Point 2" parent="Enemies/Road 2/Points" index="1" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("8_3rey1")]
 position = Vector2(656, 512)
 rotation = 1.5708
-direction = "U-L"
+new_direction = "U-L"
+next_roadpoint = NodePath("../Point 3")
 
-[node name="Trigger 5" parent="Enemies" index="4" instance=ExtResource("8_3rey1")]
-position = Vector2(1096, 264)
-rotation = 1.5708
-direction = "L"
-
-[node name="Trigger 3" parent="Enemies" index="5" instance=ExtResource("8_3rey1")]
+[node name="Point 3" parent="Enemies/Road 2/Points" index="2" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("8_3rey1")]
 position = Vector2(504, 320)
-skew = 0.872665
-direction = "L"
+rotation = 1.0472
+new_direction = "L"
+next_roadpoint = NodePath("../Point 4")
 
-[node name="Trigger 4" parent="Enemies" index="6" instance=ExtResource("8_3rey1")]
-position = Vector2(656, 760)
-rotation = 1.5708
-direction = "U"
+[node name="Point 4" parent="Enemies/Road 2/Points" index="3" instance=ExtResource("8_3rey1")]
+position = Vector2(148, 384)
 
 [node name="Map" type="Node2D" parent="Objects" index="0"]
 texture_filter = 1
