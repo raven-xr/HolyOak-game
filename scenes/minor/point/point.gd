@@ -14,14 +14,14 @@ extends Area2D
 
 
 
-func _on_body_entered(body):
+func _on_area_entered(area):
 	# If the character doesn't follow the parent road, then skip him
-	if get_parent().get_parent() != body.get_parent():
-		return
-	
+	#if get_parent().get_parent() != body.get_parent():
+		#return
+	var enemy = area.get_parent()
 	if next_roadpoint:
-		body.next_roadpoint_position = next_roadpoint.position
+		enemy.next_roadpoint_position = next_roadpoint.position
 		if new_direction:
-			body.direction = new_direction
+			enemy.direction = new_direction
 	else:
-		body.attack()
+		enemy.attack()

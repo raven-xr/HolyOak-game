@@ -4,9 +4,9 @@ extends Enemy
 
 # AnimationPlayer
 func rest(): # Cooldown between jumps
-	can_rotate = true
+	is_available = true
 	speed = 0
 
 func jump():
-	can_rotate = false
+	is_available = false
 	speed = stats["speed"]
