@@ -11,6 +11,7 @@ enum States {
 
 
 
+@export var technical_name: StringName
 @export var shell_scene: PackedScene
 
 

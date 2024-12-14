@@ -9,7 +9,7 @@ var direction: Vector2
 @onready var damage = get_parent().get_parent().get_parent().get_parent().damage
 @onready var target = get_parent().get_parent().target
 @onready var unit_global_position = get_parent().get_parent().global_position
-@onready var speed = UnitData.get(get_parent().get_parent().name.to_upper())["shell_speed"]
+@onready var speed = UnitData.get(get_parent().get_parent().technical_name)["shell_speed"]
 
 func _ready():
 	modulate = Color(1, 1, 1, 0)
