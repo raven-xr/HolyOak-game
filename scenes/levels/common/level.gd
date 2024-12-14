@@ -51,7 +51,7 @@ var current_enemy_count: int = 0:
 	set(value):
 		current_enemy_count = value
 		if current_enemy_count == 0 and not is_enemies_spawning:
-			await get_tree().create_timer(7.5).timeout
+			await get_tree().create_timer(5.0).timeout
 			wave += 1
 var state: int:
 	set(value):
