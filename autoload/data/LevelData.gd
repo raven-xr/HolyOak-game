@@ -1,8 +1,6 @@
 extends Node
 
 const LEVEL_1 = {
-	# Technical data
-	"path": "res://scenes/levels/level_1/level_1.tscn",
 	# Start data
 	"health": 100,
 	"money": 300,
@@ -42,8 +40,6 @@ const LEVEL_1 = {
 }
 
 const LEVEL_2 = {
-	# Techical data
-	"path": "res://scenes/levels/level_2/level_2.tscn",
 	# Start data
 	"health": 100,
 	"money": 200,
