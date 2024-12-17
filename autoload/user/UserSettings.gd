@@ -1,10 +1,14 @@
 extends Node
 
+
+
 # Default settings
 const DEFAULT_MASTER_VOLUME: float = 1.0
 const DEFAULT_MUSIC_VOLUME: float = 1.0
 const DEFAULT_SFX_VOLUME: float = 1.0
 #const DEFAULT_GUI_SCALE: float = 1.0
+
+
 
 # Buses
 var master_bus = AudioServer.get_bus_index("Master")
@@ -45,9 +49,11 @@ func _ready():
 	if FileAccess.file_exists(UserData.SETTINGS_PATH):
 		load_settings()
 	else:
-		gui_scale = auto_scale()
+		# Autoscaling
+		gui_scale = match_scale(OS.get_name())
 
 func load_settings():
+	print()
 	var settings = FileAccess.open(UserData.SETTINGS_PATH, FileAccess.READ)
 	master_volume = settings.get_var()
 	music_volume = settings.get_var()
@@ -61,8 +67,8 @@ func _on_parameter_changed():
 	settings.store_var(sfx_volume)
 	settings.store_var(gui_scale)
 
-func auto_scale() -> float:
-	if OS.get_name() == "Android":
+static func match_scale(device: String) -> float:
+	if device == "Android":
 		return 1.4
 	else:
 		return 1.0

@@ -1,11 +1,32 @@
 extends Node2D
 class_name Unit
 
+
+
 enum States {
 	IDLE,
 	ATTACK,
 	COOLDOWN
 }
+
+
+
+@export var technical_name: StringName
+@export var shell_scene: PackedScene
+
+
+
+@onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var animation_player = $AnimationPlayer
+@onready var collision_shape_2d = $Area2D/CollisionShape2D
+@onready var shells = $Shells
+
+@onready var attack_sfx = $SFX/Attack
+
+@onready var default_direction = get_parent().get_parent().get_parent().default_direction
+@onready var attack_range = get_parent().get_parent().attack_range
+
+
 
 var targets: Array = []
 var target: CharacterBody2D
@@ -22,17 +43,7 @@ var state: int:
 				cooldown_state()
 var current_direction: String
 
-@export var shell_scene: PackedScene
 
-@onready var animated_sprite_2d = $AnimatedSprite2D
-@onready var animation_player = $AnimationPlayer
-@onready var collision_shape_2d = $Area2D/CollisionShape2D
-@onready var shells = $Shells
-
-@onready var attack_sfx = $SFX/Attack
-
-@onready var default_direction = get_parent().get_parent().get_parent().default_direction
-@onready var attack_range = get_parent().get_parent().attack_range
 
 func _ready():
 	state = States.IDLE

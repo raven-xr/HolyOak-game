@@ -1,12 +1,13 @@
 extends Control
 
-# Scene
+
+
 @export var star_scene: PackedScene
 
-# Game Name
+
+
 @onready var game_name = $"Game Name"
 
-# Explorer's variables
 @onready var explorer = $Explorer
 
 @onready var v_box_container = $Explorer/VBoxContainer
@@ -15,21 +16,17 @@ extends Control
 @onready var settings_button = $"Explorer/VBoxContainer/Settings Button"
 @onready var exit_button = $"Explorer/VBoxContainer/Exit Button"
 
-# Levels' varibales
 @onready var levels = $Levels
 
 @onready var grid_container = $Levels/GridContainer
 @onready var back_button = $"Levels/Back Button"
 
-# Credits' variables
 @onready var credits = $Credits
 
-# Settings' variables
 @onready var settings = $Settings
 
 
 
-# Common functions
 func _ready():
 	# Scale GUI
 	var gui_scale = Vector2(UserSettings.gui_scale, UserSettings.gui_scale)
@@ -41,21 +38,22 @@ func _ready():
 	# Load save
 	if FileAccess.file_exists(UserData.SAVE_PATH):
 		var save = FileAccess.open(UserData.SAVE_PATH, FileAccess.READ)
-		UserData.level_data = save.get_var()
+		UserData.progress = save.get_var()
 	# Play music
 	SoundManager.music_main.play()
 	# Unblock levels
+	
 	for i in range(1, grid_container.get_child_count()):
 		var button = grid_container.get_child(i)
 		var required_level_name = grid_container.get_child(i - 1).name
-		if UserData.level_data[required_level_name]["is_completed"]:
+		if UserData.progress[required_level_name]["is_completed"]:
 			button.disabled = false
 			# If level is available, show its number
 			button.get_node("Label").visible = true
 	# Giving stars to levels
 	for button in grid_container.get_children():
 		var level_name = button.name
-		for i in range(0, UserData.level_data[level_name]["stars"]):
+		for i in range(UserData.progress[level_name]["stars"]):
 			var star = star_scene.instantiate()
 			star.position = Vector2(13 + 23*i, 74)
 			button.add_child(star)
@@ -78,7 +76,7 @@ func animate_transition():
 
 
 
-# Explorer's functions
+# Explorer
 func _on_play_button_pressed():
 	SoundManager.click.play()
 	explorer.visible = false
@@ -106,7 +104,7 @@ func _on_exit_button_pressed():
 
 
 
-# Levels' functions
+# Levels
 func _on_levels_back_button_pressed():
 	SoundManager.click.play()
 	levels.visible = false
@@ -115,22 +113,19 @@ func _on_levels_back_button_pressed():
 	var tween = create_tween()
 	tween.tween_property(explorer, "modulate", Color(1, 1, 1, 1), 0.1)
 
-func _on_tutorial_pressed():
-	SoundManager.click.play()
-	animate_transition()
-	await SoundManager.click.finished
-	SoundManager.disable_music()
-	get_tree().change_scene_to_file("res://scenes/tutorial/tutorial.tscn")
-
 func _on_level_1_pressed():
 	SoundManager.click.play()
 	animate_transition()
 	await SoundManager.click.finished
 	SoundManager.disable_music()
-	get_tree().change_scene_to_file("res://scenes/level_1/level_1.tscn")
+	get_tree().change_scene_to_file("res://scenes/levels/level_1/level_1.tscn")
 
 func _on_level_2_pressed():
 	SoundManager.click.play()
+	animate_transition()
+	await SoundManager.click.finished
+	SoundManager.disable_music()
+	get_tree().change_scene_to_file("res://scenes/levels/level_2/level_2.tscn")
 
 func _on_level_3_pressed():
 	SoundManager.click.play()
@@ -141,9 +136,12 @@ func _on_level_4_pressed():
 func _on_level_5_pressed():
 	SoundManager.click.play()
 
+func _on_level_6_pressed():
+	SoundManager.click.play()
 
 
-# Credits' functions
+
+# Credits
 func _on_credits_back_button_pressed():
 	SoundManager.click.play()
 	explorer.visible = true

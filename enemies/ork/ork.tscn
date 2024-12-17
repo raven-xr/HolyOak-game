@@ -1,23 +1,23 @@
-[gd_scene load_steps=134 format=3 uid="uid://cmgfgbdj1o7aw"]
+[gd_scene load_steps=135 format=3 uid="uid://cmgfgbdj1o7aw"]
 
 [ext_resource type="PackedScene" uid="uid://o8gktvpjtfgh" path="res://enemies/common/enemy.tscn" id="1_xrw67"]
 [ext_resource type="Texture2D" uid="uid://jy1oyevc26ef" path="res://models/enemies/ork/D-L_Death.png" id="2_gorgd"]
-[ext_resource type="Texture2D" uid="uid://c7q83adaq36vy" path="res://models/enemies/ork/D-L_Walk.png" id="2_oo18c"]
+[ext_resource type="Texture2D" uid="uid://c7q83adaq36vy" path="res://models/enemies/ork/D-L_Move.png" id="2_oo18c"]
 [ext_resource type="Texture2D" uid="uid://c4sx6mhbn66ah" path="res://models/enemies/ork/D_Attack.png" id="3_wxyci"]
 [ext_resource type="Texture2D" uid="uid://nc3tpxfhsuk7" path="res://models/enemies/ork/D_Death.png" id="4_6n4jx"]
-[ext_resource type="Texture2D" uid="uid://c175dg25aujjv" path="res://models/enemies/ork/D_Walk.png" id="5_f4iby"]
+[ext_resource type="Texture2D" uid="uid://c175dg25aujjv" path="res://models/enemies/ork/D_Move.png" id="5_f4iby"]
 [ext_resource type="Texture2D" uid="uid://0uddwyiikyqw" path="res://models/enemies/ork/L_Attack.png" id="6_7n37v"]
 [ext_resource type="Texture2D" uid="uid://c0dj8dorn0byk" path="res://models/enemies/ork/L_Death.png" id="7_qraon"]
-[ext_resource type="Texture2D" uid="uid://mtw7vxvxiu5r" path="res://models/enemies/ork/L_Walk.png" id="8_xvbh6"]
+[ext_resource type="Texture2D" uid="uid://mtw7vxvxiu5r" path="res://models/enemies/ork/L_Move.png" id="8_xvbh6"]
 [ext_resource type="Texture2D" uid="uid://cmbjq1ktvutn0" path="res://models/enemies/ork/R_Attack.png" id="9_ollv4"]
 [ext_resource type="Texture2D" uid="uid://b6lyea0iv8q2a" path="res://models/enemies/ork/R_Death.png" id="10_gc5d2"]
-[ext_resource type="Texture2D" uid="uid://b5iv3aufmqs8q" path="res://models/enemies/ork/R_Walk.png" id="11_0pcgy"]
-[ext_resource type="Texture2D" uid="uid://bw2rnb2pn2ukm" path="res://models/enemies/ork/U-L_Walk.png" id="12_p6sgm"]
+[ext_resource type="Texture2D" uid="uid://b5iv3aufmqs8q" path="res://models/enemies/ork/R_Move.png" id="11_0pcgy"]
+[ext_resource type="Texture2D" uid="uid://bw2rnb2pn2ukm" path="res://models/enemies/ork/U-L_Move.png" id="12_p6sgm"]
 [ext_resource type="Texture2D" uid="uid://dgvg6sacajn24" path="res://models/enemies/ork/U_Attack.png" id="12_u7hbt"]
 [ext_resource type="Texture2D" uid="uid://bxltydehg4bbq" path="res://models/enemies/ork/U-L_Death.png" id="13_5iaxp"]
 [ext_resource type="Texture2D" uid="uid://djhq5v78apdkk" path="res://models/enemies/ork/U_Death.png" id="13_bxqrt"]
 [ext_resource type="AudioStream" uid="uid://cu820got3xu42" path="res://audio/sfx/ork_death.mp3" id="14_bx012"]
-[ext_resource type="Texture2D" uid="uid://cewemb7lcqdvo" path="res://models/enemies/ork/U_Walk.png" id="14_colfd"]
+[ext_resource type="Texture2D" uid="uid://cewemb7lcqdvo" path="res://models/enemies/ork/U_Move.png" id="14_colfd"]
 [ext_resource type="AudioStream" uid="uid://be7rubrglogo3" path="res://audio/sfx/baton_hit.mp3" id="15_so0bq"]
 
 [sub_resource type="Animation" id="Animation_mqf5p"]
@@ -48,7 +48,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_nhdrg"]
-resource_name = "D-L_Walk"
+resource_name = "D-L_Move"
 length = 0.75
 loop_mode = 1
 tracks/0/type = "value"
@@ -61,7 +61,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"D-L_Walk"]
+"values": [&"D-L_Move"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -145,6 +145,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_1t6fr"]
+resource_name = "D_Move"
 length = 0.75
 loop_mode = 1
 tracks/0/type = "value"
@@ -169,7 +170,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["D_Walk"]
+"values": [&"D_Move"]
 }
 
 [sub_resource type="Animation" id="Animation_451nk"]
@@ -241,6 +242,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_6s6yv"]
+resource_name = "L_Move"
 length = 0.75
 loop_mode = 1
 tracks/0/type = "value"
@@ -265,7 +267,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["L_Walk"]
+"values": [&"L_Move"]
 }
 
 [sub_resource type="Animation" id="Animation_jiluc"]
@@ -337,6 +339,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_7m5ik"]
+resource_name = "R_Move"
 length = 0.75
 loop_mode = 1
 tracks/0/type = "value"
@@ -361,7 +364,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["R_Walk"]
+"values": [&"R_Move"]
 }
 
 [sub_resource type="Animation" id="Animation_7bhb1"]
@@ -392,7 +395,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_nka8j"]
-resource_name = "U-L_Walk"
+resource_name = "U-L_Move"
 length = 0.75
 loop_mode = 1
 tracks/0/type = "value"
@@ -417,7 +420,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"U-L_Walk"]
+"values": [&"U-L_Move"]
 }
 
 [sub_resource type="Animation" id="Animation_6ikr0"]
@@ -489,6 +492,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_4jeep"]
+resource_name = "U_Move"
 length = 0.75
 loop_mode = 1
 tracks/0/type = "value"
@@ -513,27 +517,27 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["U_Walk"]
+"values": [&"U_Move"]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yl2me"]
 _data = {
 "D-L_Death": SubResource("Animation_mqf5p"),
-"D-L_Walk": SubResource("Animation_nhdrg"),
+"D-L_Move": SubResource("Animation_nhdrg"),
 "D_Attack": SubResource("Animation_a0nqj"),
 "D_Death": SubResource("Animation_o5v8g"),
-"D_Walk": SubResource("Animation_1t6fr"),
+"D_Move": SubResource("Animation_1t6fr"),
 "L_Attack": SubResource("Animation_451nk"),
 "L_Death": SubResource("Animation_p0m5e"),
-"L_Walk": SubResource("Animation_6s6yv"),
+"L_Move": SubResource("Animation_6s6yv"),
 "R_Attack": SubResource("Animation_jiluc"),
 "R_Death": SubResource("Animation_8m8w0"),
-"R_Walk": SubResource("Animation_7m5ik"),
+"R_Move": SubResource("Animation_7m5ik"),
 "U-L_Death": SubResource("Animation_7bhb1"),
-"U-L_Walk": SubResource("Animation_nka8j"),
+"U-L_Move": SubResource("Animation_nka8j"),
 "U_Attack": SubResource("Animation_6ikr0"),
 "U_Death": SubResource("Animation_tatjg"),
-"U_Walk": SubResource("Animation_4jeep")
+"U_Move": SubResource("Animation_4jeep")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_la7b7"]
@@ -966,7 +970,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_dyanu")
 }],
 "loop": true,
-"name": &"D-L_Walk",
+"name": &"D-L_Move",
 "speed": 8.0
 }, {
 "frames": [{
@@ -1035,7 +1039,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_x40jf")
 }],
 "loop": true,
-"name": &"D_Walk",
+"name": &"D_Move",
 "speed": 8.0
 }, {
 "frames": [{
@@ -1104,7 +1108,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_x7j7d")
 }],
 "loop": true,
-"name": &"L_Walk",
+"name": &"L_Move",
 "speed": 8.0
 }, {
 "frames": [{
@@ -1173,7 +1177,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_mq4v7")
 }],
 "loop": true,
-"name": &"R_Walk",
+"name": &"R_Move",
 "speed": 8.0
 }, {
 "frames": [{
@@ -1219,7 +1223,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_knkqy")
 }],
 "loop": true,
-"name": &"U-L_Walk",
+"name": &"U-L_Move",
 "speed": 8.0
 }, {
 "frames": [{
@@ -1288,20 +1292,32 @@ animations = [{
 "texture": SubResource("AtlasTexture_dxuoq")
 }],
 "loop": true,
-"name": &"U_Walk",
+"name": &"U_Move",
 "speed": 8.0
 }]
 
-[node name="Ork" instance=ExtResource("1_xrw67")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_q5qh0"]
+resource_local_to_scene = true
+radius = 1.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+[node name="Ork" instance=ExtResource("1_xrw67")]
+technical_name = &"ORK"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 libraries = {
 "": SubResource("AnimationLibrary_yl2me")
 }
 
-[node name="AnimatedSprite2D" parent="." index="3"]
+[node name="AnimatedSprite2D" parent="." index="2"]
+position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_vkq24")
 animation = &"D-L_Death"
+
+[node name="Pivot" parent="." index="3"]
+position = Vector2(0, 0)
+
+[node name="CollisionShape2D" parent="Pivot" index="0"]
+shape = SubResource("CircleShape2D_q5qh0")
 
 [node name="Death" parent="SFX" index="0"]
 stream = ExtResource("14_bx012")

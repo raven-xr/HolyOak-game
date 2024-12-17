@@ -1,9 +1,11 @@
 extends Control
 
-# Scenes
+
+
 @export var message_scene: PackedScene
 
-# Nodes
+
+
 @onready var master_h_slider = $"PanelContainer/VBoxContainer/Master Volume/Master HSlider"
 @onready var music_h_slider = $"PanelContainer/VBoxContainer/Music Volume/Music HSlider"
 @onready var sfx_h_slider = $"PanelContainer/VBoxContainer/SFX Volume/SFX HSlider"
@@ -12,6 +14,8 @@ extends Control
 @onready var confirmation = $"PanelContainer/VBoxContainer/Data Reset/Reset Progress Button/Confirmation"
 
 @onready var reset_progress_button = $"PanelContainer/VBoxContainer/Data Reset/Reset Progress Button"
+
+
 
 # Previous settings (will be used, if player didn't apply settings)
 # Gets values when settings is opened
@@ -22,8 +26,10 @@ var last_gui_scale: float = UserSettings.gui_scale
 
 
 
-# Common functions
+
 func _ready():
+	# Scale
+	scale = Vector2(UserSettings.gui_scale, UserSettings.gui_scale)
 	# Connect signals
 	scale_option_button.get_popup().connect("id_pressed", Callable(self, "_on_popup_menu_id_pressed"))
 	# Unless the current scene is the main menu, disable the reset progress button

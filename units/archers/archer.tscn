@@ -832,6 +832,7 @@ _data = {
 resource_local_to_scene = true
 
 [node name="Archer" instance=ExtResource("1_n6yr7")]
+technical_name = &"ARCHER"
 shell_scene = ExtResource("2_caila")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
