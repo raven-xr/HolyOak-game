@@ -54,7 +54,8 @@ const LEVEL_2 = {
 			{"type": "slime", "road": "1"},
 			{"type": "slime", "road": "2"},
 			{"type": "ork", "road": "1"},
-			{"type": "ork", "road": "2"}
+			{"type": "ork", "road": "2"},
+			{"type": "slime", "road": "1"}
 		]
 	},
 	"wave_2": {
@@ -62,6 +63,10 @@ const LEVEL_2 = {
 		"enemies": [
 			{"type": "ork", "road": "1"},
 			{"type": "ork", "road": "2"},
+			{"type": "slime", "road": "1"},
+			{"type": "slime", "road": "2"},
+			{"type": "ork", "road": "2"},
+			{"type": "ork", "road": "1"},
 			{"type": "slime", "road": "1"},
 			{"type": "slime", "road": "2"},
 			{"type": "ork", "road": "2"},
@@ -86,6 +91,10 @@ const LEVEL_2 = {
 			{"type": "ork", "road": "2"},
 			{"type": "ork", "road": "1"},
 			{"type": "slime", "road": "1"},
+			{"type": "slime", "road": "2"},
+			{"type": "ork", "road": "2"},
+			{"type": "ork", "road": "1"},
+			{"type": "slime", "road": "1"},
 			{"type": "slime", "road": "2"}
 		]
 	},
@@ -105,11 +114,19 @@ const LEVEL_2 = {
 			{"type": "slime", "road": "1"},
 			{"type": "slime", "road": "2"},
 			{"type": "ork", "road": "2"},
+			{"type": "ork", "road": "1"},
+			{"type": "slime", "road": "1"},
+			{"type": "slime", "road": "2"},
+			{"type": "ork", "road": "2"},
+			{"type": "ork", "road": "1"},
+			{"type": "slime", "road": "1"},
+			{"type": "slime", "road": "2"},
+			{"type": "ork", "road": "2"},
 			{"type": "ork", "road": "1"}
 		]
 	},
 	"wave_5": {
-		"spawn_cooldown": 0.5,
+		"spawn_cooldown": 0.75,
 		"enemies": [
 			{"type": "ork", "road": "1"},
 			{"type": "ork", "road": "2"},
@@ -126,7 +143,33 @@ const LEVEL_2 = {
 			{"type": "ork", "road": "2"},
 			{"type": "ork", "road": "1"},
 			{"type": "slime", "road": "1"},
-			{"type": "slime", "road": "2"}
+			{"type": "slime", "road": "2"},
+			{"type": "ork", "road": "2"},
+			{"type": "ork", "road": "1"},
+			{"type": "slime", "road": "1"},
+			{"type": "slime", "road": "2"},
+			{"type": "ork", "road": "2"},
+			{"type": "ork", "road": "1"},
+			{"type": "ork", "road": "2"},
+			{"type": "ork", "road": "1"},
+			{"type": "slime", "road": "1"},
+			{"type": "slime", "road": "2"},
+			{"type": "ork", "road": "2"},
+			{"type": "ork", "road": "1"},
+			{"type": "ork", "road": "2"},
+			{"type": "ork", "road": "1"},
+			{"type": "ork", "road": "2"},
+			{"type": "ork", "road": "1"},
+			{"type": "slime", "road": "1"},
+			{"type": "slime", "road": "2"},
+			{"type": "ork", "road": "2"},
+			{"type": "ork", "road": "1"},
+			{"type": "ork", "road": "2"},
+			{"type": "ork", "road": "1"},
+			{"type": "slime", "road": "1"},
+			{"type": "slime", "road": "2"},
+			{"type": "ork", "road": "2"},
+			{"type": "ork", "road": "1"}
 		]
 	}
 }
