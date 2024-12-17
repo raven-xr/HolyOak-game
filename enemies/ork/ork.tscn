@@ -20,6 +20,10 @@
 [ext_resource type="Texture2D" uid="uid://cewemb7lcqdvo" path="res://models/enemies/ork/U_Move.png" id="14_colfd"]
 [ext_resource type="AudioStream" uid="uid://be7rubrglogo3" path="res://audio/sfx/baton_hit.mp3" id="15_so0bq"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_sbsfm"]
+resource_local_to_scene = true
+radius = 14.0
+
 [sub_resource type="Animation" id="Animation_mqf5p"]
 resource_name = "D-L_Death"
 tracks/0/type = "value"
@@ -1296,12 +1300,11 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_q5qh0"]
-resource_local_to_scene = true
-radius = 1.0
-
 [node name="Ork" instance=ExtResource("1_xrw67")]
 technical_name = &"ORK"
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_sbsfm")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 libraries = {
@@ -1309,15 +1312,8 @@ libraries = {
 }
 
 [node name="AnimatedSprite2D" parent="." index="2"]
-position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_vkq24")
 animation = &"D-L_Death"
-
-[node name="Pivot" parent="." index="3"]
-position = Vector2(0, 0)
-
-[node name="CollisionShape2D" parent="Pivot" index="0"]
-shape = SubResource("CircleShape2D_q5qh0")
 
 [node name="Death" parent="SFX" index="0"]
 stream = ExtResource("14_bx012")

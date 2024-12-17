@@ -1,4 +1,4 @@
-[gd_scene load_steps=165 format=3 uid="uid://cdb4s0kj5v3yf"]
+[gd_scene load_steps=164 format=3 uid="uid://cdb4s0kj5v3yf"]
 
 [ext_resource type="PackedScene" uid="uid://o8gktvpjtfgh" path="res://enemies/common/enemy.tscn" id="1_226lk"]
 [ext_resource type="Script" path="res://enemies/slime/slime.gd" id="2_4hr8c"]
@@ -23,7 +23,6 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v1sqw"]
 resource_local_to_scene = true
-radius = 12.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jnhr4"]
 atlas = ExtResource("2_nlpxs")
@@ -1751,20 +1750,15 @@ _data = {
 "U_Split": SubResource("Animation_t4neq")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_4u67l"]
-resource_local_to_scene = true
-radius = 4.0
-
 [node name="Slime" instance=ExtResource("1_226lk")]
 script = ExtResource("2_4hr8c")
 technical_name = &"SLIME"
 
 [node name="CollisionShape2D" parent="." index="0"]
-position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_v1sqw")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
-position = Vector2(0, -16)
+position = Vector2(0, -10)
 sprite_frames = SubResource("SpriteFrames_tfg2t")
 animation = &"D-L_Death"
 
@@ -1772,12 +1766,6 @@ animation = &"D-L_Death"
 libraries = {
 "": SubResource("AnimationLibrary_wn6xb")
 }
-
-[node name="Pivot" parent="." index="3"]
-position = Vector2(0, -2)
-
-[node name="CollisionShape2D" parent="Pivot" index="0"]
-shape = SubResource("CircleShape2D_4u67l")
 
 [node name="Death" parent="SFX" index="0"]
 stream = ExtResource("19_xvrbw")

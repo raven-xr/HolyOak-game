@@ -14,11 +14,7 @@ extends Area2D
 
 
 
-func _on_area_entered(area):
-	# If the character doesn't follow the parent road, then skip him
-	#if get_parent().get_parent() != body.get_parent():
-		#return
-	var enemy = area.get_parent()
+func _on_enemy_detected(enemy):
 	if next_roadpoint:
 		enemy.next_roadpoint_position = next_roadpoint.position
 		if new_direction:

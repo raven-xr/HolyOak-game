@@ -7,7 +7,6 @@ class_name Enemy
 
 
 
-@onready var pivot = $Pivot
 @onready var death = $SFX/Death
 @onready var hit_sfx = $SFX/Hit
 @onready var animation_player = $AnimationPlayer
@@ -70,7 +69,6 @@ func die():
 	death.play()
 	Signals.emit_signal("target_died", self)
 	collision_shape_2d.set_deferred("disabled", true)
-	pivot.set_deferred("monitorable", false)
 	PlayerStats.money += reward
 	set_physics_process(false)
 	animation_player.play(str(direction, "_Death"))
