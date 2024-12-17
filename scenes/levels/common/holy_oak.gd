@@ -1,12 +1,13 @@
 extends Node2D
 
-# Nodes
+
+
 @onready var leaves = $GFX/Leaves
 @onready var health_bar = $HealthBar
 
 
 
-# Common functions
+# Common
 func _ready():
 	# Scale the health bar
 	# Multiply by 2 because default scale is 2

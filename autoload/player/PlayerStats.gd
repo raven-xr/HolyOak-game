@@ -3,7 +3,7 @@ extends Node
 # These values are given by the level
 var health: int:
 	set(value):
-		if health <= 0:
+		if value <= 0:
 			value = 0
 		health = value
 		Signals.emit_signal("health_changed", health)
