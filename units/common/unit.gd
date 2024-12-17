@@ -56,7 +56,7 @@ func idle_state():
 func attack_state():
 	if is_looking_for_target:
 		target = targets[0]
-	current_direction = change_direction()
+	current_direction = get_direction()
 	animation_player.play(str(current_direction, "_Attack"))
 
 func cooldown_state():
@@ -87,7 +87,7 @@ func _on_area_2d_body_exited(body):
 		if len(targets) > 0:
 			state = States.ATTACK
 
-func change_direction() -> String:
+func get_direction() -> String:
 	var angle_to_target = rad_to_deg(get_angle_to(target.global_position))
 	if -135 < angle_to_target and angle_to_target <= -45:
 		return "U"
@@ -97,4 +97,3 @@ func change_direction() -> String:
 		return "D"
 	else:
 		return "L"
-	
