@@ -47,6 +47,7 @@ var is_available: bool = true:
 
 
 signal moved()
+signal died()
 
 
 
@@ -67,10 +68,11 @@ func hit():
 
 func die():
 	death.play()
-	Signals.emit_signal("target_died", self)
+	set_process(false)
+	set_physics_process(false)
+	died.emit()
 	collision_shape_2d.set_deferred("disabled", true)
 	PlayerStats.money += reward
-	set_physics_process(false)
 	animation_player.play(str(direction, "_Death"))
 	await animation_player.animation_finished
 	queue_free()

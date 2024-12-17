@@ -5,7 +5,7 @@ var target_available: bool = true
 var direction: Vector2
 
 @onready var hit = $SFX/Hit
-@onready var collision_shape_2d = $Area2D/CollisionShape2D
+@onready var area_2d = $Area2D
 @onready var damage = get_parent().get_parent().get_parent().get_parent().damage
 @onready var target = get_parent().get_parent().target
 @onready var unit_global_position = get_parent().get_parent().global_position
@@ -13,7 +13,7 @@ var direction: Vector2
 
 func _ready():
 	modulate = Color(1, 1, 1, 0)
-	Signals.connect("target_died", Callable(self, "_on_target_died"))
+	target.connect("died", Callable(self, "_on_target_died"))
 	target.connect("moved", Callable(self, "_on_target_moved"))
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color(1, 1, 1, 1), 0.67)
@@ -24,7 +24,7 @@ func _physics_process(delta):
 		direction = (target_global_position - global_position).normalized()
 		look_at(target_global_position)
 		velocity = direction * speed * delta
-
+	
 	move_and_slide()
 
 func _on_area_2d_body_entered(body):
@@ -36,13 +36,12 @@ func _on_area_2d_body_entered(body):
 func _on_target_moved(new_position):
 	target_global_position = new_position
 
-func _on_target_died(body):
-	if target == body:
-		self_destruct()
+func _on_target_died():
+	self_destruct()
 
 func self_destruct():
 	target_available = false
-	collision_shape_2d.set_deferred("disabled", "true")
+	area_2d.set_deferred("monitoring", false)
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 0.15)
 	await tween.finished

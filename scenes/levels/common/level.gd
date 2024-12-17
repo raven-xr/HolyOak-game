@@ -67,7 +67,6 @@ func _ready():
 	# Square the scale to reach the best view
 	menu_button.scale = Vector2(UserSettings.gui_scale**2, UserSettings.gui_scale**2)
 	# Connect signals
-	Signals.connect("target_died", Callable(self, "_on_target_died"))
 	Signals.connect("health_changed", Callable(self, "_on_health_changed"))
 	# Get data
 	wave_count = data["wave_count"]
@@ -138,12 +137,13 @@ func new_wave(number):
 		# Place a new enemy at the 1st roadpoint
 		new_enemy.next_roadpoint_position = road.get_node("Points").get_node("Point 1").position
 		new_enemy.position = road.get_node("Points").get_node("Point 1").position
+		new_enemy.connect("died", Callable(self, "_on_enemy_died"))
 		road.add_child(new_enemy)
 		current_enemy_count += 1
 	
 	is_enemies_spawning = false
 
-func _on_target_died(_body):
+func _on_enemy_died():
 	current_enemy_count -= 1
 
 func _on_health_changed(value):
