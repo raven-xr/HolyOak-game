@@ -36,6 +36,8 @@ var next_roadpoint_position: Vector2:
 		next_roadpoint_position = value
 		if is_available:
 			move_direction = (value - position).normalized()
+## If an enemy isn't available, he can't change its move direction and animation.[br]
+## If he gets available, the enemy updates its animation and move direction.
 var is_available: bool = true:
 	set(value):
 		is_available = value
