@@ -314,7 +314,7 @@ new_direction = "U-L"
 next_roadpoint = NodePath("../Point 3")
 
 [node name="Point 3" parent="Enemies/Road 2/Points" index="2" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("8_3rey1")]
-position = Vector2(504, 320)
+position = Vector2(488, 304)
 rotation = 1.0472
 new_direction = "L"
 next_roadpoint = NodePath("../Point 4")
