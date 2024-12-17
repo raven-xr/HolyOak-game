@@ -29,7 +29,7 @@ enum States {
 
 
 var targets: Array = []
-var target: CharacterBody2D
+var target: Enemy
 var is_looking_for_target: bool = true
 var state: int:
 	set(value):
