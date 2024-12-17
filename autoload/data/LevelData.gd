@@ -58,12 +58,14 @@ const LEVEL_2 = {
 		]
 	},
 	"wave_2": {
-		"spawn_cooldown": 1.75,
+		"spawn_cooldown": 1.5,
 		"enemies": [
 			{"type": "ork", "road": "1"},
 			{"type": "ork", "road": "2"},
 			{"type": "slime", "road": "1"},
 			{"type": "slime", "road": "2"},
+			{"type": "ork", "road": "2"},
+			{"type": "ork", "road": "1"},
 			{"type": "slime", "road": "1"},
 			{"type": "slime", "road": "2"},
 			{"type": "ork", "road": "2"},
@@ -71,22 +73,7 @@ const LEVEL_2 = {
 		]
 	},
 	"wave_3": {
-		"spawn_cooldown": 1.5,
-		"enemies": [
-			{"type": "ork", "road": "1"},
-			{"type": "ork", "road": "2"},
-			{"type": "slime", "road": "1"},
-			{"type": "slime", "road": "2"},
-			{"type": "ork", "road": "1"},
-			{"type": "ork", "road": "2"},
-			{"type": "slime", "road": "1"},
-			{"type": "slime", "road": "2"},
-			{"type": "ork", "road": "2"},
-			{"type": "ork", "road": "1"}
-		]
-	},
-	"wave_4": {
-		"spawn_cooldown": 1.25,
+		"spawn_cooldown": 1,
 		"enemies": [
 			{"type": "ork", "road": "1"},
 			{"type": "ork", "road": "2"},
@@ -102,8 +89,8 @@ const LEVEL_2 = {
 			{"type": "slime", "road": "2"}
 		]
 	},
-	"wave_5": {
-		"spawn_cooldown": 1.0,
+	"wave_4": {
+		"spawn_cooldown": 0.75,
 		"enemies": [
 			{"type": "ork", "road": "1"},
 			{"type": "ork", "road": "2"},
@@ -119,6 +106,27 @@ const LEVEL_2 = {
 			{"type": "slime", "road": "2"},
 			{"type": "ork", "road": "2"},
 			{"type": "ork", "road": "1"}
+		]
+	},
+	"wave_5": {
+		"spawn_cooldown": 0.5,
+		"enemies": [
+			{"type": "ork", "road": "1"},
+			{"type": "ork", "road": "2"},
+			{"type": "slime", "road": "1"},
+			{"type": "slime", "road": "2"},
+			{"type": "ork", "road": "1"},
+			{"type": "ork", "road": "2"},
+			{"type": "slime", "road": "1"},
+			{"type": "slime", "road": "2"},
+			{"type": "ork", "road": "2"},
+			{"type": "ork", "road": "1"},
+			{"type": "slime", "road": "1"},
+			{"type": "slime", "road": "2"},
+			{"type": "ork", "road": "2"},
+			{"type": "ork", "road": "1"},
+			{"type": "slime", "road": "1"},
+			{"type": "slime", "road": "2"}
 		]
 	}
 }
