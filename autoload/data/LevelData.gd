@@ -41,7 +41,7 @@ const LEVEL_1 = {
 
 const LEVEL_2 = {
 	# Start data
-	"health": 100,
+	"health": 150,
 	"money": 200,
 	"max_level": 3,
 	"wave_count": 5,
