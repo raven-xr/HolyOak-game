@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://oo54cqtpti2t"]
 
 [ext_resource type="PackedScene" uid="uid://bari1ycd24fdd" path="res://units/common/shell.tscn" id="1_kcikl"]
-[ext_resource type="Texture2D" uid="uid://dasycxvxc0xib" path="res://models/units/archers/arrow.png" id="2_a0xb7"]
+[ext_resource type="Texture2D" uid="uid://dasycxvxc0xib" path="res://models/units/archers/shell/arrow.png" id="2_a0xb7"]
 [ext_resource type="AudioStream" uid="uid://8irco7c15oms" path="res://audio/sfx/bow_hit.mp3" id="3_gqlm7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_skogl"]

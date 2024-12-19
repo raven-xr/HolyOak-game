@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv7vs3dhkjnjh"
-path="res://.godot/imported/D_Idle.png-0b84fe94321236e8ce6e9c9622d88aee.ctex"
+uid="uid://ca45a4wy54vh8"
+path="res://.godot/imported/L_Attack.png-36f27fe316423909fd9403199e650e89.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://models/units/archers/D_Idle.png"
-dest_files=["res://.godot/imported/D_Idle.png-0b84fe94321236e8ce6e9c9622d88aee.ctex"]
+source_file="res://models/units/archers/sprite_1/L_Attack.png"
+dest_files=["res://.godot/imported/L_Attack.png-36f27fe316423909fd9403199e650e89.ctex"]
 
 [params]
 
