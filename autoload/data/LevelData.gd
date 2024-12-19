@@ -125,6 +125,18 @@ const LEVEL_2 = {
 			{"type": "ork", "road": "1"},
 			{"type": "slime", "road": "1"},
 			{"type": "slime", "road": "2"},
+			{"type": "ork", "road": "1"},
+			{"type": "ork", "road": "2"},
+			{"type": "ork", "road": "1"},
+			{"type": "ork", "road": "2"},
+			{"type": "ork", "road": "1"},
+			{"type": "ork", "road": "2"},
+			{"type": "ork", "road": "1"},
+			{"type": "ork", "road": "2"},
+			{"type": "slime", "road": "1"},
+			{"type": "slime", "road": "2"},
+			{"type": "slime", "road": "1"},
+			{"type": "slime", "road": "2"}
 		]
 	},
 	"wave_5": {
