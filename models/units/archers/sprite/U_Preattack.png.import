@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv7vs3dhkjnjh"
-path="res://.godot/imported/D_Idle.png-daf09c19c41576c1a6d5b03ad2f33838.ctex"
+uid="uid://c6u61in8gjmvl"
+path="res://.godot/imported/U_Preattack.png-120dc57d07e43cb712df31149aeccc93.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://models/units/archers/sprite_1/D_Idle.png"
-dest_files=["res://.godot/imported/D_Idle.png-daf09c19c41576c1a6d5b03ad2f33838.ctex"]
+source_file="res://models/units/archers/sprite/U_Preattack.png"
+dest_files=["res://.godot/imported/U_Preattack.png-120dc57d07e43cb712df31149aeccc93.ctex"]
 
 [params]
 
