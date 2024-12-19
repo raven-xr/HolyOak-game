@@ -68,8 +68,8 @@ func hit():
 
 func die():
 	death.play()
-	set_process(false)
 	set_physics_process(false)
+	set_process(false)
 	died.emit()
 	collision_shape_2d.set_deferred("disabled", true)
 	PlayerStats.money += reward
