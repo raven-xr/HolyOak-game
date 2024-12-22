@@ -1,14 +1,14 @@
 extends PanelContainer
 
-# Nodes
-@onready var level = get_parent().get_parent() # UserInterface node -> Root level node
+
+
+@onready var level = get_parent().get_parent()
 
 @onready var menu_button = $"Menu Button"
 @onready var next_button = $"Next Button"
 
 
 
-# Common functions
 func _ready():
 	# Scale
 	scale = Vector2(UserSettings.gui_scale, UserSettings.gui_scale)

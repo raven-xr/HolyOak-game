@@ -61,7 +61,6 @@ text = "EXIT"
 
 [node name="Settings" parent="." instance=ExtResource("4_b64ly")]
 visible = false
-pivot_offset = Vector2(0, 0)
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Resume Button" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Settings Button" to="." method="_on_settings_button_pressed"]

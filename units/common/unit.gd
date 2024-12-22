@@ -1,14 +1,35 @@
 extends Node2D
 class_name Unit
 
+
+
 enum States {
 	IDLE,
 	ATTACK,
 	COOLDOWN
 }
 
+
+
+@export var technical_name: StringName
+@export var shell_scene: PackedScene
+
+
+
+@onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var animation_player = $AnimationPlayer
+@onready var collision_shape_2d = $Area2D/CollisionShape2D
+@onready var shells = $Shells
+
+@onready var attack_sfx = $SFX/Attack
+
+@onready var default_direction = get_parent().get_parent().get_parent().default_direction
+@onready var attack_range = get_parent().get_parent().attack_range
+
+
+
 var targets: Array = []
-var target: CharacterBody2D
+var target: Enemy
 var is_looking_for_target: bool = true
 var state: int:
 	set(value):
@@ -22,17 +43,7 @@ var state: int:
 				cooldown_state()
 var current_direction: String
 
-@export var shell_scene: PackedScene
 
-@onready var animated_sprite_2d = $AnimatedSprite2D
-@onready var animation_player = $AnimationPlayer
-@onready var collision_shape_2d = $Area2D/CollisionShape2D
-@onready var shells = $Shells
-
-@onready var attack_sfx = $SFX/Attack
-
-@onready var default_direction = get_parent().get_parent().get_parent().default_direction
-@onready var attack_range = get_parent().get_parent().attack_range
 
 func _ready():
 	state = States.IDLE
@@ -45,7 +56,7 @@ func idle_state():
 func attack_state():
 	if is_looking_for_target:
 		target = targets[0]
-	current_direction = change_direction()
+	current_direction = get_direction()
 	animation_player.play(str(current_direction, "_Attack"))
 
 func cooldown_state():
@@ -76,7 +87,7 @@ func _on_area_2d_body_exited(body):
 		if len(targets) > 0:
 			state = States.ATTACK
 
-func change_direction() -> String:
+func get_direction() -> String:
 	var angle_to_target = rad_to_deg(get_angle_to(target.global_position))
 	if -135 < angle_to_target and angle_to_target <= -45:
 		return "U"
@@ -86,4 +97,3 @@ func change_direction() -> String:
 		return "D"
 	else:
 		return "L"
-	

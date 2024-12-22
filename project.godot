@@ -23,14 +23,14 @@ buses/default_bus_layout="res://audio/default_bus_layout.tres"
 
 [autoload]
 
-Signals="*res://autoload/Signals.gd"
-UnitStats="*res://autoload/UnitStats.gd"
-PlayerStats="*res://autoload/PlayerStats.gd"
-LevelData="*res://autoload/LevelData.gd"
-SoundManager="*res://autoload/SoundManager.tscn"
-UserData="*res://autoload/UserData.gd"
-EnemyStats="*res://autoload/EnemyStats.gd"
-UserSettings="*res://autoload/UserSettings.gd"
+UserSettings="*res://autoload/user/UserSettings.gd"
+UserData="*res://autoload/user/UserData.gd"
+EnemyData="*res://autoload/data/EnemyData.gd"
+UnitData="*res://autoload/data/UnitData.gd"
+LevelData="*res://autoload/data/LevelData.gd"
+SoundManager="*res://autoload/game/SoundManager.tscn"
+Signals="*res://autoload/game/Signals.gd"
+PlayerStats="*res://autoload/player/PlayerStats.gd"
 
 [display]
 
@@ -58,7 +58,7 @@ pointing/emulate_touch_from_mouse=true
 [layer_names]
 
 2d_physics/layer_1="Enemies"
-2d_physics/layer_2="HolyOak"
+2d_physics/layer_2="Holy Oak"
 
 [rendering]
 
