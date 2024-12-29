@@ -1,44 +1,60 @@
 extends Node2D
 
+
+
 @export var smoke_preload: PackedScene
+
+
 
 @onready var building = $SFX/Building
 @onready var units = $Units
 @onready var animation_player = $AnimationPlayer
 @onready var gfx_smoke = $GFX/Smoke
 
-@onready var unit_scene = get_parent().unit_scene
-@onready var unit_stats = UnitData.get(unit_scene.instantiate().name.to_upper())
+@onready var unit_scene: PackedScene = get_parent().unit_scene
+@onready var unit_stats: Dictionary = UnitData.get(unit_scene.instantiate().technical_name)
 @onready var current_cost = unit_stats["level_1"]["cost"]
 
-var max_level = PlayerStats.max_level
-var level = 0:
+
+
+const MAX_LEVEL: int = 7
+
+
+
+var level_limit: int = PlayerStats.tower_level_limit
+var level: int = 0:
 	set(value):
 		level = value
 		upgrading()
+
+var unit_count: int = 0
+var unit_spawnpoints: Array
+
 var is_upgrading: bool = false:
 	set(value):
 		is_upgrading = value
 		if is_upgrading:
-			emit_signal("upgrading_started")
+			upgrading_started.emit()
 		else:
-			emit_signal("upgrading_finished")
-var damage: int = 0
-var attack_range = 10 # Default collision shape"s radius
-var last_cost = 0
-var unit_count = 0
-var spawnpoints = []
-var smoke_spawnpoints = [Vector2(32, 0), Vector2(-32, 0), Vector2(0, 32), Vector2(0, -32),
-						 Vector2(32, 32), Vector2(-32, 32), Vector2(32, -32), Vector2(-32, -32)]
+			upgrading_finished.emit()
+var last_cost: int
+var smoke_spawnpoints: Array = [
+						 Vector2(32, 0), Vector2(-32, 0), Vector2(0, 32), Vector2(0, -32),
+						 Vector2(32, 32), Vector2(-32, 32), Vector2(32, -32), Vector2(-32, -32)
+						]
 
-@warning_ignore("unused_signal")
+
+
 signal upgrading_started()
-@warning_ignore("unused_signal")
 signal upgrading_finished()
 
+
+
+# Common
 func new_unit():
 	var unit = unit_scene.instantiate()
-	unit.position = spawnpoints[units.get_child_count()]
+	unit.position = unit_spawnpoints[units.get_child_count()]
+	unit.level = level
 	units.add_child(unit)
 	var tween = get_tree().create_tween()
 	tween.tween_property(units, "modulate", Color(1, 1, 1, 1), 0.15)
@@ -54,13 +70,15 @@ func upgrading():
 	await tween.finished
 	for unit in units.get_children():
 		unit.queue_free()
-	# Upgrade the characteristics
-	damage = unit_stats[str("level_", level)]["damage"]
+	# Update data
+	unit_count = unit_stats["level_" + str(level)]["unit_count"]
+	unit_spawnpoints = unit_stats["level_" + str(level)]["spawnpoints"]
+	
 	last_cost = current_cost
-	current_cost = unit_stats[str("level_", level+1)]["cost"]
-	unit_count = unit_stats[str("level_", level)]["unit_count"]
-	spawnpoints = unit_stats[str("level_", level)]["spawnpoints"]
-	attack_range = unit_stats[str("level_", level)]["attack_range"]
+	if MAX_LEVEL == level_limit:
+		current_cost = "-"
+	else:
+		current_cost = unit_stats["level_" + str(level + 1)]["cost"]
 	# Play animation, SFX and GFX
 	animation_player.play(str("Level_", level))
 	building.play()
@@ -76,7 +94,7 @@ func destruction():
 	# Inform the platform that the tower is being destructed
 	is_upgrading = true
 	# Refund 50% of the last cost
-	PlayerStats.money += last_cost * 0.5
+	PlayerStats.money += int(float(last_cost) / 2)
 	# Remove units
 	var tween_1 = get_tree().create_tween()
 	tween_1.tween_property(units, "modulate", Color(1, 1, 1, 0), 0.15)
@@ -110,7 +128,7 @@ func destruction():
 	queue_free()
 
 func can_be_upgraded():
-	if is_upgrading or max_level == level:
+	if is_upgrading or level in [MAX_LEVEL, level_limit]:
 		return false
 	else:
 		return true

@@ -1,30 +1,36 @@
 extends CharacterBody2D
 
-var target_global_position: Vector2
-var target_available: bool = true
-var direction: Vector2
+
 
 @onready var hit = $SFX/Hit
 @onready var area_2d = $Area2D
-@onready var damage = get_parent().get_parent().get_parent().get_parent().damage
-@onready var target = get_parent().get_parent().target
-@onready var unit_global_position = get_parent().get_parent().global_position
-@onready var speed = UnitData.get(get_parent().get_parent().technical_name)["shell_speed"]
 
+
+
+# These values are given by the parent (unit.gd)
+var target: Enemy
+var target_global_position: Vector2
+
+var damage: int
+var speed: int
+
+
+
+# Common
 func _ready():
-	modulate = Color(1, 1, 1, 0)
+	# Connect signals
 	target.connect("died", Callable(self, "_on_target_died"))
 	target.connect("moved", Callable(self, "_on_target_moved"))
+	# Animation
+	modulate = Color(1, 1, 1, 0)
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color(1, 1, 1, 1), 0.67)
 
 func _physics_process(delta):
 	# Change direction if only target available (not dead or not too far)
-	if target_available:            
-		direction = (target_global_position - global_position).normalized()
-		look_at(target_global_position)
-		velocity = direction * speed * delta
-	
+	var direction = (target_global_position - global_position).normalized()
+	look_at(target_global_position)
+	velocity = direction * speed * delta
 	move_and_slide()
 
 func _on_area_2d_body_entered(body):
@@ -33,16 +39,15 @@ func _on_area_2d_body_entered(body):
 		hit.play()
 		self_destruct()
 
-func _on_target_moved(new_position):
-	target_global_position = new_position
-
-func _on_target_died():
-	self_destruct()
-
 func self_destruct():
-	target_available = false
 	area_2d.set_deferred("monitoring", false)
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 0.15)
 	await tween.finished
 	queue_free()
+
+func _on_target_moved(new_position):
+	target_global_position = new_position
+
+func _on_target_died():
+	self_destruct()

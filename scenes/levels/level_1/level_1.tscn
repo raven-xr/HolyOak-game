@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ccqwn6n7il2n2" path="res://scenes/minor/point/point.tscn" id="8_rdj4y"]
 [ext_resource type="PackedScene" uid="uid://elw65cn4t3sq" path="res://scenes/levels/level_1/map.tscn" id="9_wwrca"]
 [ext_resource type="Script" path="res://scenes/levels/level_1/platform_1.gd" id="10_8rgbm"]
-[ext_resource type="PackedScene" uid="uid://cnbl8aw2p0wrn" path="res://units/tower/tower.tscn" id="11_ohp30"]
+[ext_resource type="PackedScene" uid="uid://cnbl8aw2p0wrn" path="res://units/common/tower.tscn" id="11_ohp30"]
 [ext_resource type="PackedScene" uid="uid://c06g6da1scixg" path="res://units/common/tower_stats.tscn" id="12_7xvv5"]
 [ext_resource type="PackedScene" uid="uid://du20li6wou6fs" path="res://scenes/minor/message/message.tscn" id="13_2ho3g"]
 [ext_resource type="PackedScene" uid="uid://cenxr6q3w2dek" path="res://units/archers/archer.tscn" id="14_kietl"]

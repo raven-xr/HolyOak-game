@@ -24,7 +24,12 @@ enum States {
 @onready var attack_sfx = $SFX/Attack
 
 @onready var default_direction = get_parent().get_parent().get_parent().default_direction
-@onready var attack_range = get_parent().get_parent().attack_range
+
+@onready var level: int
+@onready var stats: Dictionary = UnitData.get(technical_name)["level_" + str(level)]
+@onready var damage = stats["damage"]
+@onready var attack_range = stats["attack_range"]
+@onready var shell_speed = stats["shell_speed"]
 
 
 
@@ -71,6 +76,9 @@ func shoot():
 	if len(targets) > 0:
 		var new_shell = shell_scene.instantiate()
 		new_shell.position = Vector2(0.0, -13.0)
+		new_shell.damage = damage
+		new_shell.speed = shell_speed
+		new_shell.target = target
 		shells.add_child(new_shell)
 		attack_sfx.play()
 	state = States.COOLDOWN

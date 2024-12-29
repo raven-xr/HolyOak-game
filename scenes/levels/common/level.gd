@@ -72,7 +72,7 @@ func _ready():
 	wave_count = data["wave_count"]
 	PlayerStats.health = data["health"]
 	PlayerStats.money = data["money"]
-	PlayerStats.max_level = data["max_level"] # Max level is used in tower.tscn
+	PlayerStats.tower_level_limit = data["tower_level_limit"] # Used in tower.tscn
 	# Transition
 	modulate = Color(0, 0, 0, 1)
 	var tween_1 = create_tween()

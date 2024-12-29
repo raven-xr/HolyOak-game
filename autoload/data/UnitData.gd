@@ -1,8 +1,8 @@
 extends Node
 
 const ARCHER = {
-	"shell_speed": 7000,
 	"level_1": {
+		"shell_speed": 7000,
 		"damage": 10,
 		"cost": 100,
 		"unit_count": 1,
@@ -10,6 +10,7 @@ const ARCHER = {
 		"attack_range": 200
 	},
 	"level_2": {
+		"shell_speed": 7000,
 		"damage": 20,
 		"cost": 200,
 		"unit_count": 1,
@@ -17,6 +18,7 @@ const ARCHER = {
 		"attack_range": 225
 	},
 	"level_3": {
+		"shell_speed": 7000,
 		"damage": 20,
 		"cost": 800,
 		"unit_count": 2,
@@ -24,6 +26,7 @@ const ARCHER = {
 		"attack_range": 250
 	},
 	"level_4": {
+		"shell_speed": 7000,
 		"damage": 30,
 		"cost": 1200,
 		"unit_count": 2,
@@ -31,6 +34,7 @@ const ARCHER = {
 		"attack_range": 275
 	},
 	"level_5": {
+		"shell_speed": 7000,
 		"damage": 30,
 		"cost": 2700,
 		"unit_count": 3,
@@ -38,6 +42,7 @@ const ARCHER = {
 		"attack_range": 300
 	},
 	"level_6": {
+		"shell_speed": 7000,
 		"damage": 40,
 		"cost": 3600,
 		"unit_count": 3,
@@ -45,6 +50,7 @@ const ARCHER = {
 		"attack_range": 325
 	},
 	"level_7": {
+		"shell_speed": 7000,
 		"damage": 50,
 		"cost": 4500,
 		"unit_count": 3,

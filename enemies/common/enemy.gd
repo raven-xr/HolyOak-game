@@ -51,6 +51,7 @@ signal died()
 
 
 
+# Common
 func _process(_delta):
 	moved.emit(global_position)
 
@@ -68,9 +69,8 @@ func hit():
 
 func die():
 	death.play()
-	set_physics_process(false)
-	set_process(false)
 	died.emit()
+	set_physics_process(false)
 	collision_shape_2d.set_deferred("disabled", true)
 	PlayerStats.money += reward
 	animation_player.play(str(direction, "_Death"))
