@@ -101,9 +101,10 @@ func _on_area_2d_body_entered(body):
 
 func _on_area_2d_body_exited(body):
 	available_enemies.erase(body)
-	# If target died or ran away
-	if target == body and available_enemies:
-		target = choose_target()
+	# If target died or ran away and there are available enemies and not cooldown
+	# Choose a new target
+	if target == body and available_enemies and state != States.COOLDOWN:
+		attack_state()
 
 func get_view_direction() -> String:
 	var angle_to_target = rad_to_deg(get_angle_to(target.global_position))
