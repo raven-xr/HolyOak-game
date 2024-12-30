@@ -8,6 +8,7 @@ b = Vector2(0, 48)
 
 [node name="Point" type="Area2D"]
 collision_layer = 0
+collision_mask = 8
 monitorable = false
 script = ExtResource("1_0ct1n")
 

@@ -11,11 +11,10 @@ script = ExtResource("1_vuvce")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_0ddoe")
-
-[node name="Shells" type="Node2D" parent="."]
 
 [node name="SFX" type="Node2D" parent="."]
 

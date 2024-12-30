@@ -18,6 +18,10 @@ var speed: int
 
 # Common
 func _ready():
+	# Update the future health of the target
+	# Needed for units
+	# If the target is going to die (future_health became <= 0), it can't be detected
+	target.future_health -= damage
 	# Connect signals
 	target.connect("died", Callable(self, "_on_target_died"))
 	target.connect("moved", Callable(self, "_on_target_moved"))

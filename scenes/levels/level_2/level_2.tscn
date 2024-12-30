@@ -938,15 +938,15 @@ position = Vector2(80, 328)
 
 [node name="Platform 1" parent="Towers" index="0" instance=ExtResource("14_67110")]
 position = Vector2(1000, 136)
-default_direction = "D"
+default_view_direction = "D"
 
 [node name="Platform 2" parent="Towers" index="1" instance=ExtResource("14_67110")]
 position = Vector2(552, 598)
-default_direction = "R"
+default_view_direction = "R"
 
 [node name="Platform 3" parent="Towers" index="2" instance=ExtResource("14_67110")]
 position = Vector2(536, 200)
-default_direction = "D"
+default_view_direction = "D"
 
 [node name="Platform 4" parent="Towers" index="3" instance=ExtResource("14_67110")]
 position = Vector2(216, 480)

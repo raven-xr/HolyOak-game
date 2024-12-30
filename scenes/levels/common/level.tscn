@@ -36,6 +36,8 @@ and etc"
 
 [node name="Towers" type="Node2D" parent="."]
 
+[node name="Shell Container" type="Node2D" parent="."]
+
 [node name="UserInterface" type="Control" parent="."]
 process_mode = 3
 layout_mode = 3

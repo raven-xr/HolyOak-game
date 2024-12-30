@@ -8,7 +8,7 @@ extends Node2D
 @export var unit_scene: PackedScene
 ## Default view direction of units: U - Up, D - Down, L - Left, R - Right[br]
 ## The default is "U"
-@export var default_direction: String = "U"
+@export var default_view_direction: String = "U"
 
 # Nodes
 @onready var sprite_2d = $Sprite2D
@@ -28,7 +28,7 @@ func _ready():
 	# Square the scale to reach the best view
 	menu.scale = Vector2(UserSettings.gui_scale**2, UserSettings.gui_scale**2)
 	# Posite the menu
-	match default_direction:
+	match default_view_direction:
 		"U": menu.position = Vector2(-128.0, -160.0); menu.pivot_offset = Vector2(128.0, 128.0)
 		"R": menu.position = Vector2(40.0, -64.0); menu.pivot_offset = Vector2(0.0, 64.0)
 		"D": menu.position = Vector2(-128.0, 40.0); menu.pivot_offset = Vector2(128.0, 0.0)
@@ -138,8 +138,8 @@ func _on_tower_stats_button_pressed():
 		tower.level_limit
 	)
 	
-	new_tower_stats.control_position = position + positions[default_direction]["position"]
-	new_tower_stats.control_pivot_offset = positions[default_direction]["pivot_offset"]
+	new_tower_stats.control_position = position + positions[default_view_direction]["position"]
+	new_tower_stats.control_pivot_offset = positions[default_view_direction]["pivot_offset"]
 	add_child(new_tower_stats)
 	close_menu()
 

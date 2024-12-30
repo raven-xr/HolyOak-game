@@ -13,6 +13,7 @@ resource_local_to_scene = true
 editor_description = "You have to create an AnimationPlayer (idx = 2) called \"AnimationPlayer\" and add animations that you should call like \"DIRECTION_Death/Walk and etc\"
 e.g. D_Walk
 U_Death"
+collision_layer = 13
 collision_mask = 0
 script = ExtResource("2_cx48v")
 
