@@ -80,6 +80,7 @@ func cooldown_state():
 
 # Animation Player
 func shoot():
+	# If the target hasn't run away or died yet
 	if target in available_enemies:
 		var new_shell = shell_scene.instantiate()
 		new_shell.global_position = global_position + Vector2(0.0, -13.0)
@@ -89,8 +90,6 @@ func shoot():
 		shell_container.add_child(new_shell)
 		attack_sfx.play()
 		state = States.COOLDOWN
-	elif available_enemies:
-		attack_state()
 	else:
 		state = States.IDLE
 
