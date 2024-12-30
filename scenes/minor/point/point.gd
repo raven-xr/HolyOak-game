@@ -15,9 +15,9 @@ extends Area2D
 
 
 func _on_enemy_detected(enemy):
+	if new_direction:
+		enemy.view_direction = new_direction
 	if next_roadpoint:
 		enemy.next_roadpoint_position = next_roadpoint.position
-		if new_direction:
-			enemy.direction = new_direction
 	else:
 		enemy.attack()
