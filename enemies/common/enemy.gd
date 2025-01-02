@@ -24,7 +24,7 @@ class_name Enemy
 
 
 
-var direction: Vector2 = Vector2(0.0, 0.0)
+var direction: Vector2 # Updates in next_roadpoint_position's setter
 var view_direction: String: # The value is being given by points on the road
 	set(value):
 		view_direction = value
@@ -43,8 +43,6 @@ var is_available: bool = true:
 		if is_available:
 			animation_player.play(view_direction + "_Move")
 			direction = (next_roadpoint_position - position).normalized()
-
-
 
 ## This variable is used in unit.gd when a unit chooses the best target
 var future_health: int:
@@ -65,15 +63,13 @@ signal died()
 func _ready():
 	future_health = health
 
-func _process(_delta):
-	moved.emit(global_position)
-
 func _physics_process(delta):
 	velocity = speed * direction * delta
 	move_and_slide()
+	moved.emit(global_position)
 
 func attack():
-	set_physics_process(false)
+	speed = 0
 	animation_player.play(view_direction + "_Attack")
 
 func hit():
@@ -83,7 +79,7 @@ func hit():
 func die():
 	death.play()
 	died.emit()
-	set_physics_process(false)
+	speed = 0
 	collision_shape_2d.set_deferred("disabled", true)
 	PlayerStats.money += reward
 	animation_player.play(str(view_direction, "_Death"))
