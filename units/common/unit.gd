@@ -37,7 +37,6 @@ enum States {
 var available_enemies: Array = []
 
 var target: Enemy
-var target_global_position: Vector2
 
 var state: int:
 	set(value):
