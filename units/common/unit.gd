@@ -50,6 +50,8 @@ var state: int:
 				# If there are still available enemies
 				if available_enemies:
 					attack_state()
+				else:
+					state = States.IDLE
 			States.COOLDOWN:
 				cooldown_state()
 var current_view_direction: String
