@@ -4,7 +4,7 @@ const LEVEL_1 = {
 	# Start data
 	"health": 100,
 	"money": 300,
-	"max_level": 2,
+	"tower_level_limit": 2,
 	"wave_count": 3,
 	# Waves
 	"wave_1": {
@@ -43,7 +43,7 @@ const LEVEL_2 = {
 	# Start data
 	"health": 150,
 	"money": 200,
-	"max_level": 3,
+	"tower_level_limit": 3,
 	"wave_count": 5,
 	# Waves
 	"wave_1": {

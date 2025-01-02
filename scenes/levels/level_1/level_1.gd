@@ -1,14 +1,22 @@
 extends Level
 
+
+
+@onready var towers = $Towers
+
 @onready var platform_1 = $"Towers/Platform 1"
+
+
 
 signal player_opened_platform()
 signal player_built_tower()
 signal player_upgraded_tower()
 signal player_checked_stats()
-@warning_ignore("unused_signal")
 signal player_ended_tutorial()
 
+
+
+# Common
 func idle_state(_duration):
 	tutorial()
 
@@ -81,7 +89,7 @@ func tutorial():
 	
 	# End the tutorial
 	hint.close()
-	emit_signal("player_ended_tutorial")
+	player_ended_tutorial.emit()
 	for platform in towers.get_children():
 		platform.set_process_mode(Node.PROCESS_MODE_INHERIT)
 	state = States.FIGHT

@@ -1,16 +1,18 @@
 extends Node2D
 
-# Scenes
-@export var tower_preload: PackedScene
-@export var tower_stats_preload: PackedScene
-@export var message_preload: PackedScene
+
+
+@export var tower_scene: PackedScene
+@export var tower_stats_scene: PackedScene
+@export var message_scene: PackedScene
 ## Default unit of the tower
 @export var unit_scene: PackedScene
 ## Default view direction of units: U - Up, D - Down, L - Left, R - Right[br]
 ## The default is "U"
-@export var default_direction: String = "U"
+@export var default_view_direction: String = "U"
 
-# Nodes
+
+
 @onready var sprite_2d = $Sprite2D
 @onready var touch_screen_button = $TouchScreenButton
 @onready var menu = $Menu
@@ -22,13 +24,13 @@ extends Node2D
 
 
 
-# Common functions
+# Common
 func _ready():
 	# Scale the menu
 	# Square the scale to reach the best view
 	menu.scale = Vector2(UserSettings.gui_scale**2, UserSettings.gui_scale**2)
 	# Posite the menu
-	match default_direction:
+	match default_view_direction:
 		"U": menu.position = Vector2(-128.0, -160.0); menu.pivot_offset = Vector2(128.0, 128.0)
 		"R": menu.position = Vector2(40.0, -64.0); menu.pivot_offset = Vector2(0.0, 64.0)
 		"D": menu.position = Vector2(-128.0, 40.0); menu.pivot_offset = Vector2(128.0, 0.0)
@@ -61,7 +63,7 @@ func close_menu():
 	menu.visible = false
 	for button in menu.get_children():
 		button.disabled = false
-	
+
 func _on_upgrading_started():
 	touch_screen_button.visible = false
 
@@ -70,16 +72,14 @@ func _on_upgrading_finished():
 
 
 
-# Build button's functions
+# Build Button
 func _on_build_button_pressed():
 	SoundManager.click.play()
-	# unit_scene.instantiate().name.to_upper( == 'ARCHER', 'WIZZARD' and etc
-	# UnitStats.get('ARCHER'/'WIZZARD'/etc)
-	# get its cost
-	var cost = UnitData.get(unit_scene.instantiate().name.to_upper())["level_1"]["cost"]
+	# Get the cost of the tower
+	var cost = UnitData.get(unit_scene.instantiate().technical_name)["level_1"]["cost"]
 	# Check if player has enough money
 	if PlayerStats.money >= cost:
-		var new_tower = tower_preload.instantiate()
+		var new_tower = tower_scene.instantiate()
 		add_child(new_tower)
 		new_tower.connect("upgrading_started", Callable(self, "_on_upgrading_started"))
 		new_tower.connect("upgrading_finished", Callable(self, "_on_upgrading_finished"))
@@ -87,7 +87,7 @@ func _on_build_button_pressed():
 		new_tower.level += 1
 		sprite_2d.visible = false
 	else:
-		var new_message = message_preload.instantiate()
+		var new_message = message_scene.instantiate()
 		new_message.text = "У вас недостаточно монет. Текущая стоимость башни - " + str(cost) + " монет"
 		add_child(new_message)
 	close_menu()
@@ -103,7 +103,7 @@ func _on_upgrade_button_pressed():
 	if PlayerStats.money >= cost:
 		tower.level += 1
 	else:
-		var new_message = message_preload.instantiate()
+		var new_message = message_scene.instantiate()
 		new_message.text = "У вас недостаточно монет. Текущая стоимость улучшения - " + str(cost) + " монет"
 		add_child(new_message)
 	close_menu()
@@ -120,26 +120,34 @@ func _on_remove_button_pressed():
 
 
 
-# Tower Stats Button's functions
+# Tower Stats Button
 func _on_tower_stats_button_pressed():
 	SoundManager.click.play()
 	var tower = get_node("Tower")
-	var new_tower_stats = tower_stats_preload.instantiate()
+	var new_tower_stats = tower_stats_scene.instantiate()
 	var positions = {
 		"U": {"position": Vector2(-132, -263), "pivot_offset": Vector2(130, 202)},
 		"R": {"position": Vector2(61, -101), "pivot_offset": Vector2(10, 101)},
 		"D": {"position": Vector2(-132, 61), "pivot_offset": Vector2(130, 0)},
 		"L": {"position": Vector2(-321, -101), "pivot_offset": Vector2(260, 101)}
 	}
-	new_tower_stats.text = str(tower.attack_range, "\n", tower.damage, "\n", tower.unit_count, "\n", tower.current_cost, "\n", PlayerStats.max_level)
-	new_tower_stats.control_position = position + positions[default_direction]["position"]
-	new_tower_stats.control_pivot_offset = positions[default_direction]["pivot_offset"]
+	
+	new_tower_stats.text = str(
+		tower.unit_stats["level_" + str(tower.level)]["attack_range"], "\n",
+		tower.unit_stats["level_" + str(tower.level)]["damage"], "\n",
+		tower.unit_stats["level_" + str(tower.level)]["unit_count"], "\n",
+		tower.current_cost, "\n",
+		tower.level_limit
+	)
+	
+	new_tower_stats.control_position = position + positions[default_view_direction]["position"]
+	new_tower_stats.control_pivot_offset = positions[default_view_direction]["pivot_offset"]
 	add_child(new_tower_stats)
 	close_menu()
 
 
 
-# Touch Screen Button's functions
+# Touch Screen Button
 func _on_touch_screen_button_pressed():
 	SoundManager.click.play()
 	if not menu.visible:

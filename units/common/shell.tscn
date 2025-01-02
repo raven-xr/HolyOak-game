@@ -9,6 +9,8 @@ radius = 0.01
 resource_local_to_scene = true
 
 [node name="Shell" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_ksye2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -17,10 +19,10 @@ rotation = 1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_dpy7y")
-disabled = true
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
+collision_mask = 4
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]

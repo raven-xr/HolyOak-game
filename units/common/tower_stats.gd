@@ -1,13 +1,17 @@
 extends CanvasLayer
 
-# Nodes
+
+
 @onready var value = $Control/Values/Label
 @onready var control = $Control
+
+
 
 # These variables is given by the parents
 var text: String = ""
 var control_position: Vector2 = Vector2(0, 0)
 var control_pivot_offset: Vector2 = Vector2(0, 0)
+
 
 
 # Common functions

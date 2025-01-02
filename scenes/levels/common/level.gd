@@ -24,7 +24,7 @@ enum States {
 @export var techical_name: StringName
 
 
-@onready var towers = $Towers
+
 @onready var user_interface = $UserInterface
 
 @onready var menu = $UserInterface/Menu
@@ -72,7 +72,7 @@ func _ready():
 	wave_count = data["wave_count"]
 	PlayerStats.health = data["health"]
 	PlayerStats.money = data["money"]
-	PlayerStats.max_level = data["max_level"] # Max level is used in tower.tscn
+	PlayerStats.tower_level_limit = data["tower_level_limit"] # Used in tower.tscn
 	# Transition
 	modulate = Color(0, 0, 0, 1)
 	var tween_1 = create_tween()
@@ -124,8 +124,8 @@ func new_wave(number):
 	new_message.text = "Волна " + str(wave)
 	user_interface.add_child(new_message)
 	# Spawn enemies
-	var spawn_cooldown = data["wave_" + str(number)]["spawn_cooldown"]
-	var enemies = data["wave_" + str(number)]["enemies"]
+	var spawn_cooldown: float = data["wave_" + str(number)]["spawn_cooldown"]
+	var enemies: Array = data["wave_" + str(number)]["enemies"]
 	
 	is_enemies_spawning = true
 	

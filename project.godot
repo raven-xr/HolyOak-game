@@ -57,8 +57,10 @@ pointing/emulate_touch_from_mouse=true
 
 [layer_names]
 
-2d_physics/layer_1="Enemies"
-2d_physics/layer_2="Holy Oak"
+2d_physics/layer_1="Enemies << Units"
+2d_physics/layer_2="Holy Oak << Enemies"
+2d_physics/layer_3="Enemies << Shells"
+2d_physics/layer_4="Enemies << Points"
 
 [rendering]
 

@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ccqwn6n7il2n2" path="res://scenes/minor/point/point.tscn" id="8_rdj4y"]
 [ext_resource type="PackedScene" uid="uid://elw65cn4t3sq" path="res://scenes/levels/level_1/map.tscn" id="9_wwrca"]
 [ext_resource type="Script" path="res://scenes/levels/level_1/platform_1.gd" id="10_8rgbm"]
-[ext_resource type="PackedScene" uid="uid://cnbl8aw2p0wrn" path="res://units/tower/tower.tscn" id="11_ohp30"]
+[ext_resource type="PackedScene" uid="uid://cnbl8aw2p0wrn" path="res://units/common/tower.tscn" id="11_ohp30"]
 [ext_resource type="PackedScene" uid="uid://c06g6da1scixg" path="res://units/common/tower_stats.tscn" id="12_7xvv5"]
 [ext_resource type="PackedScene" uid="uid://du20li6wou6fs" path="res://scenes/minor/message/message.tscn" id="13_2ho3g"]
 [ext_resource type="PackedScene" uid="uid://cenxr6q3w2dek" path="res://units/archers/archer.tscn" id="14_kietl"]
@@ -208,10 +208,10 @@ sources/0 = SubResource("TileSetAtlasSource_fuwbq")
 sources/1 = SubResource("TileSetAtlasSource_a17nk")
 sources/2 = SubResource("TileSetAtlasSource_sdp35")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_2gvqh"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_fil16"]
 radius = 54.0
 
-[sub_resource type="Theme" id="Theme_gc2ht"]
+[sub_resource type="Theme" id="Theme_esjrm"]
 Label/colors/font_color = Color(0.784314, 0.572549, 0.372549, 1)
 Label/colors/font_shadow_color = Color(0.427451, 0.392157, 0.298039, 1)
 Label/constants/shadow_offset_x = 0
@@ -264,11 +264,11 @@ position = Vector2(88, 464)
 process_mode = 4
 position = Vector2(928, 256)
 script = ExtResource("10_8rgbm")
-tower_preload = ExtResource("11_ohp30")
-tower_stats_preload = ExtResource("12_7xvv5")
-message_preload = ExtResource("13_2ho3g")
+tower_scene = ExtResource("11_ohp30")
+tower_stats_scene = ExtResource("12_7xvv5")
+message_scene = ExtResource("13_2ho3g")
 unit_scene = ExtResource("14_kietl")
-default_direction = "L"
+default_view_direction = "L"
 
 [node name="Sprite2D" type="Sprite2D" parent="Towers/Platform 1" index="0"]
 texture_filter = 1
@@ -277,7 +277,7 @@ scale = Vector2(1.723, 1.723)
 texture = ExtResource("15_5dy8q")
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="Towers/Platform 1" index="1"]
-shape = SubResource("CircleShape2D_2gvqh")
+shape = SubResource("CircleShape2D_fil16")
 
 [node name="Menu" type="Control" parent="Towers/Platform 1" index="2"]
 layout_mode = 3
@@ -306,7 +306,7 @@ offset_left = 9.0
 offset_top = 7.0
 offset_right = 187.0
 offset_bottom = 66.0
-theme = SubResource("Theme_gc2ht")
+theme = SubResource("Theme_esjrm")
 theme_override_font_sizes/font_size = 32
 text = "BUILD"
 horizontal_alignment = 1
@@ -331,7 +331,7 @@ offset_left = 9.0
 offset_top = 7.0
 offset_right = 187.0
 offset_bottom = 66.0
-theme = SubResource("Theme_gc2ht")
+theme = SubResource("Theme_esjrm")
 theme_override_font_sizes/font_size = 32
 text = "UPGRADE"
 horizontal_alignment = 1
@@ -356,7 +356,7 @@ offset_left = 9.0
 offset_top = 7.0
 offset_right = 187.0
 offset_bottom = 66.0
-theme = SubResource("Theme_gc2ht")
+theme = SubResource("Theme_esjrm")
 theme_override_font_sizes/font_size = 32
 text = "REMOVE"
 horizontal_alignment = 1
@@ -381,7 +381,7 @@ offset_left = 9.0
 offset_top = 7.0
 offset_right = 187.0
 offset_bottom = 66.0
-theme = SubResource("Theme_gc2ht")
+theme = SubResource("Theme_esjrm")
 theme_override_font_sizes/font_size = 32
 text = "STATS"
 horizontal_alignment = 1
@@ -390,23 +390,23 @@ vertical_alignment = 1
 [node name="Platform 2" parent="Towers" index="1" instance=ExtResource("21_gpxqe")]
 process_mode = 4
 position = Vector2(706, 418)
-default_direction = "R"
+default_view_direction = "R"
 
 [node name="Platform 3" parent="Towers" index="2" instance=ExtResource("21_gpxqe")]
 process_mode = 4
 position = Vector2(208, 638)
 
-[connection signal="player_ended_tutorial" from="." to="Towers/Platform 1" method="_on_tutorial_player_ended_tutorial"]
-[connection signal="pressed" from="Towers/Platform 1/TouchScreenButton" to="Towers/Platform 1" method="_on_touch_screen_button_pressed"]
+[connection signal="player_ended_tutorial" from="." to="Towers/Platform 1" method="_on_level_1_player_ended_tutorial"]
 [connection signal="pressed" from="Towers/Platform 1/TouchScreenButton" to="Towers/Platform 1" method="_on_local_touch_screen_button_pressed"]
+[connection signal="pressed" from="Towers/Platform 1/TouchScreenButton" to="Towers/Platform 1" method="_on_touch_screen_button_pressed"]
 [connection signal="mouse_entered" from="Towers/Platform 1/Menu/Build Button" to="Towers/Platform 1/Menu/Build Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Towers/Platform 1/Menu/Build Button" to="Towers/Platform 1/Menu/Build Button" method="_on_mouse_exited"]
 [connection signal="pressed" from="Towers/Platform 1/Menu/Build Button" to="Towers/Platform 1" method="_on_local_build_button_pressed"]
 [connection signal="pressed" from="Towers/Platform 1/Menu/Build Button" to="Towers/Platform 1" method="_on_build_button_pressed"]
 [connection signal="mouse_entered" from="Towers/Platform 1/Menu/Upgrade Button" to="Towers/Platform 1/Menu/Upgrade Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Towers/Platform 1/Menu/Upgrade Button" to="Towers/Platform 1/Menu/Upgrade Button" method="_on_mouse_exited"]
-[connection signal="pressed" from="Towers/Platform 1/Menu/Upgrade Button" to="Towers/Platform 1" method="_on_upgrade_button_pressed"]
 [connection signal="pressed" from="Towers/Platform 1/Menu/Upgrade Button" to="Towers/Platform 1" method="_on_local_upgrade_button_pressed"]
+[connection signal="pressed" from="Towers/Platform 1/Menu/Upgrade Button" to="Towers/Platform 1" method="_on_upgrade_button_pressed"]
 [connection signal="mouse_entered" from="Towers/Platform 1/Menu/Remove Button" to="Towers/Platform 1" method="_on_local_remove_button_mouse_entered"]
 [connection signal="mouse_entered" from="Towers/Platform 1/Menu/Remove Button" to="Towers/Platform 1/Menu/Remove Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Towers/Platform 1/Menu/Remove Button" to="Towers/Platform 1/Menu/Remove Button" method="_on_mouse_exited"]
@@ -414,5 +414,5 @@ position = Vector2(208, 638)
 [connection signal="mouse_entered" from="Towers/Platform 1/Menu/Tower Stats Button" to="Towers/Platform 1" method="_on_local_tower_stats_button_mouse_entered"]
 [connection signal="mouse_entered" from="Towers/Platform 1/Menu/Tower Stats Button" to="Towers/Platform 1/Menu/Tower Stats Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Towers/Platform 1/Menu/Tower Stats Button" to="Towers/Platform 1/Menu/Tower Stats Button" method="_on_mouse_exited"]
-[connection signal="pressed" from="Towers/Platform 1/Menu/Tower Stats Button" to="Towers/Platform 1" method="_on_tower_stats_button_pressed"]
 [connection signal="pressed" from="Towers/Platform 1/Menu/Tower Stats Button" to="Towers/Platform 1" method="_on_local_tower_stats_button_pressed"]
+[connection signal="pressed" from="Towers/Platform 1/Menu/Tower Stats Button" to="Towers/Platform 1" method="_on_tower_stats_button_pressed"]

@@ -24,25 +24,33 @@ class_name Enemy
 
 
 
-var move_direction: Vector2 = Vector2(0.0, 0.0)
-var direction: String: # The value is being given by the path: Up (U), Right (R), Down (D) or Left (L)
+var direction: Vector2 # Updates in next_roadpoint_position's setter
+var view_direction: String: # The value is being given by points on the road
 	set(value):
-		direction = value
+		view_direction = value
 		if is_available:
 			animation_player.play(value + "_Move")
 var next_roadpoint_position: Vector2:
 	set(value):
 		next_roadpoint_position = value
 		if is_available:
-			move_direction = (value - position).normalized()
-## If an enemy isn't available, he can't change its move direction and animation.[br]
-## If he gets available, the enemy updates its animation and move direction.
+			direction = (value - position).normalized()
+## If an enemy isn't available, he can't change its direction and animation.[br]
+## If he gets available, the enemy updates its animation and direction.
 var is_available: bool = true:
 	set(value):
 		is_available = value
 		if is_available:
-			animation_player.play(direction + "_Move")
-			move_direction = (next_roadpoint_position - position).normalized()
+			animation_player.play(view_direction + "_Move")
+			direction = (next_roadpoint_position - position).normalized()
+
+## This variable is used in unit.gd when a unit chooses the best target
+var future_health: int:
+	set(value):
+		future_health = value
+		# If an enemy is going to die, make him invisible for attack ranges of units
+		if future_health <= 0:
+			set_collision_layer_value(1, false)
 
 
 
@@ -51,16 +59,18 @@ signal died()
 
 
 
-func _process(_delta):
-	moved.emit(global_position)
+# Common
+func _ready():
+	future_health = health
 
 func _physics_process(delta):
-	velocity = speed * move_direction * delta
+	velocity = speed * direction * delta
 	move_and_slide()
+	moved.emit(global_position)
 
 func attack():
-	set_physics_process(false)
-	animation_player.play(direction + "_Attack")
+	speed = 0
+	animation_player.play(view_direction + "_Attack")
 
 func hit():
 	PlayerStats.health -= damage
@@ -68,11 +78,10 @@ func hit():
 
 func die():
 	death.play()
-	set_physics_process(false)
-	set_process(false)
 	died.emit()
+	speed = 0
 	collision_shape_2d.set_deferred("disabled", true)
 	PlayerStats.money += reward
-	animation_player.play(str(direction, "_Death"))
+	animation_player.play(str(view_direction, "_Death"))
 	await animation_player.animation_finished
 	queue_free()
