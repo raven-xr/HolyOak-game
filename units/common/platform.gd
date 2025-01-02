@@ -1,6 +1,7 @@
 extends Node2D
 
-# Scenes
+
+
 @export var tower_scene: PackedScene
 @export var tower_stats_scene: PackedScene
 @export var message_scene: PackedScene
@@ -10,7 +11,8 @@ extends Node2D
 ## The default is "U"
 @export var default_view_direction: String = "U"
 
-# Nodes
+
+
 @onready var sprite_2d = $Sprite2D
 @onready var touch_screen_button = $TouchScreenButton
 @onready var menu = $Menu
@@ -22,7 +24,7 @@ extends Node2D
 
 
 
-# Common functions
+# Common
 func _ready():
 	# Scale the menu
 	# Square the scale to reach the best view
@@ -70,7 +72,7 @@ func _on_upgrading_finished():
 
 
 
-# Build button's functions
+# Build Button
 func _on_build_button_pressed():
 	SoundManager.click.play()
 	# Get the cost of the tower
