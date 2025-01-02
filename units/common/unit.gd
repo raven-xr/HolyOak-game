@@ -106,15 +106,17 @@ func _on_area_2d_body_exited(body):
 		attack_state()
 
 func get_view_direction() -> String:
-	var angle_to_target = rad_to_deg(get_angle_to(target.global_position))
-	if -135 < angle_to_target and angle_to_target <= -45:
-		return "U"
-	elif -135 < angle_to_target and angle_to_target <= 45:
-		return "R"
-	elif 45 < angle_to_target and angle_to_target <= 135:
+	var angle_to_target = get_angle_to(target.global_position)
+	if angle_to_target < 0: angle_to_target += TAU
+	
+	if PI/4 < angle_to_target and angle_to_target <= 3*PI/4:
 		return "D"
-	else:
+	elif 3*PI/4 < angle_to_target and angle_to_target <= 5*PI/4:
 		return "L"
+	elif 5*PI/4 < angle_to_target and angle_to_target <= 7*PI/4:
+		return "U"
+	else:
+		return "R"
 
 func choose_target() -> Enemy:
 	var preferred_target: Enemy = available_enemies[0]
