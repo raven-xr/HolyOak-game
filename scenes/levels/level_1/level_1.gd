@@ -17,12 +17,12 @@ signal player_ended_tutorial()
 
 
 # Common
-func idle_state(_duration):
+func idle_state():
+	SoundManager.music_idle.play()
 	tutorial()
 
 func tutorial():
 	# Get ready
-	SoundManager.music_idle.play()
 	var hint = hint_scene.instantiate()
 	add_child(hint)
 	# Greet

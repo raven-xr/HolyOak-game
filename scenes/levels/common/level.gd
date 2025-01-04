@@ -31,6 +31,9 @@ enum States {
 
 @onready var menu_button = $"UserInterface/Menu/Button"
 
+@onready var wave_timer = $"Timers/Wave Timer"
+@onready var spawn_timer = $"Timers/Spawn Timer"
+
 @onready var data: Dictionary = LevelData.get(techical_name)
 
 
@@ -38,10 +41,10 @@ enum States {
 var wave_count: int = 0
 var wave: int = 0:
 	set(value):
-		if wave != wave_count:
-			wave = value
-			Signals.emit_signal("wave_changed", wave)
-			new_wave(wave)
+		wave = value
+		if wave < wave_count:
+			Signals.wave_changed.emit(wave)
+			new_wave()
 		else:
 			victory()
 ## If there are no enemies left, the game checks if enemies are still spawning. 
@@ -51,13 +54,12 @@ var current_enemy_count: int = 0:
 	set(value):
 		current_enemy_count = value
 		if current_enemy_count == 0 and not is_enemies_spawning:
-			await get_tree().create_timer(5.0).timeout
-			wave += 1
+			wave_timer.start()
 var state: int:
 	set(value):
 		state = value
 		match state:
-			States.IDLE: idle_state(10.0)
+			States.IDLE: idle_state()
 			States.FIGHT: fight_state()
 
 
@@ -82,10 +84,9 @@ func _ready():
 	# Start the game
 	state = States.IDLE
 
-func idle_state(duration):
+func idle_state():
+	# P.S. Start Timer autostarts
 	SoundManager.music_idle.play()
-	await get_tree().create_timer(duration).timeout
-	fight_state()
 
 func fight_state():
 	# Getting ready
@@ -118,22 +119,24 @@ func victory():
 	user_interface.add_child(victory_menu)
 	menu_button.disabled = true
 
-func new_wave(number):
+func new_wave():
 	# Declare the new wave
 	var new_message = message_scene.instantiate()
 	new_message.text = "Волна " + str(wave)
 	user_interface.add_child(new_message)
 	# Spawn enemies
-	var spawn_cooldown: float = data["wave_" + str(number)]["spawn_cooldown"]
-	var enemies: Array = data["wave_" + str(number)]["enemies"]
+	var spawn_cooldown: float = data["wave_" + str(wave)]["spawn_cooldown"]
+	var enemies: Array = data["wave_" + str(wave)]["enemies"]
 	
 	is_enemies_spawning = true
 	
 	for enemy in enemies:
 		var new_enemy = get(enemy["type"] + "_scene").instantiate()
 		var road = get_node("Enemies/Road " + enemy["road"])
-		# Wait for cooldown
-		await get_tree().create_timer(spawn_cooldown).timeout
+		# Wait for the spawn cooldown
+		spawn_timer.wait_time = spawn_cooldown
+		spawn_timer.start()
+		await spawn_timer.timeout
 		# Place a new enemy at the 1st roadpoint
 		new_enemy.next_roadpoint_position = road.get_node("Points").get_node("Point 1").position
 		new_enemy.position = road.get_node("Points").get_node("Point 1").position
@@ -152,7 +155,7 @@ func _on_health_changed(value):
 
 
 
-# Menu Button's functions
+# Menu Button
 func _on_menu_button_pressed():
 	SoundManager.click.play()
 	if not menu.has_node("Game Menu"):
@@ -161,3 +164,9 @@ func _on_menu_button_pressed():
 	else:
 		var game_menu = menu.get_node("Game Menu")
 		game_menu.resume()
+
+
+
+# Wave Timer
+func _on_wave_timer_timeout():
+	wave += 1
