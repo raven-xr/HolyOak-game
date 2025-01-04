@@ -17,9 +17,11 @@ enum States {
 
 
 @onready var shell_container = get_tree().get_current_scene().get_node("Shell Container")
+
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var animation_player = $AnimationPlayer
 @onready var collision_shape_2d = $Area2D/CollisionShape2D
+@onready var find_timer = $"Find Timer"
 
 @onready var attack_sfx = $SFX/Attack
 
@@ -34,7 +36,7 @@ enum States {
 
 
 
-var available_enemies: Array = []
+var available_enemies: Array[Enemy] = []
 
 var target: Enemy
 
@@ -46,7 +48,8 @@ var state: int:
 				idle_state()
 			States.ATTACK:
 				# Give the unit some time to find all available enemies
-				await get_tree().create_timer(0.1).timeout
+				find_timer.start()
+				await find_timer.timeout
 				# If there are still available enemies
 				if available_enemies:
 					attack_state()
@@ -101,7 +104,7 @@ func _on_area_2d_body_entered(body):
 
 func _on_area_2d_body_exited(body):
 	available_enemies.erase(body)
-	# If target died or ran away and there are available enemies and not cooldown
+	# If target died or ran away and there are available enemies and not cooldown,
 	# Choose a new target
 	if target == body and available_enemies and state != States.COOLDOWN:
 		attack_state()

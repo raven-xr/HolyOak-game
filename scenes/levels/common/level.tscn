@@ -66,4 +66,20 @@ offset_bottom = 48.0
 pivot_offset = Vector2(32, 0)
 icon = ExtResource("3_qnfjt")
 
+[node name="Timers" type="Node" parent="."]
+
+[node name="Start Timer" type="Timer" parent="Timers"]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="Wave Timer" type="Timer" parent="Timers"]
+wait_time = 5.0
+one_shot = true
+
+[node name="Spawn Timer" type="Timer" parent="Timers"]
+one_shot = true
+
 [connection signal="pressed" from="UserInterface/Menu/Button" to="." method="_on_menu_button_pressed"]
+[connection signal="timeout" from="Timers/Start Timer" to="." method="fight_state"]
+[connection signal="timeout" from="Timers/Wave Timer" to="." method="_on_wave_timer_timeout"]
