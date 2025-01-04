@@ -54,6 +54,7 @@ var state: int:
 				if available_enemies:
 					attack_state()
 				else:
+					idle_state()
 					state = States.IDLE
 			States.COOLDOWN:
 				cooldown_state()
