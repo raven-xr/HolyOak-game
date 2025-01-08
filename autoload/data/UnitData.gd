@@ -12,7 +12,7 @@ const ARCHER = {
 	"level_2": {
 		"shell_speed": 7000,
 		"damage": 20,
-		"cost": 200,
+		"cost": 300,
 		"unit_count": 1,
 		"spawnpoints": [Vector2(0, -20)],
 		"attack_range": 225
@@ -20,7 +20,7 @@ const ARCHER = {
 	"level_3": {
 		"shell_speed": 7000,
 		"damage": 20,
-		"cost": 800,
+		"cost": 1000,
 		"unit_count": 2,
 		"spawnpoints": [Vector2(-14, -35), Vector2(16, -35)],
 		"attack_range": 250
@@ -28,7 +28,7 @@ const ARCHER = {
 	"level_4": {
 		"shell_speed": 7000,
 		"damage": 30,
-		"cost": 1200,
+		"cost": 1800,
 		"unit_count": 2,
 		"spawnpoints": [Vector2(16, -32), Vector2(-16, -32)],
 		"attack_range": 275
@@ -36,7 +36,7 @@ const ARCHER = {
 	"level_5": {
 		"shell_speed": 7000,
 		"damage": 30,
-		"cost": 2700,
+		"cost": 3600,
 		"unit_count": 3,
 		"spawnpoints": [Vector2(0, -42), Vector2(-16, -32), Vector2(16, -32)],
 		"attack_range": 300
@@ -44,7 +44,7 @@ const ARCHER = {
 	"level_6": {
 		"shell_speed": 7000,
 		"damage": 40,
-		"cost": 3600,
+		"cost": 4800,
 		"unit_count": 3,
 		"spawnpoints": [Vector2(0, -44), Vector2(-16, -34), Vector2(16, -34)],
 		"attack_range": 325
@@ -52,7 +52,7 @@ const ARCHER = {
 	"level_7": {
 		"shell_speed": 7000,
 		"damage": 50,
-		"cost": 4500,
+		"cost": 9600,
 		"unit_count": 3,
 		"spawnpoints": [Vector2(0, -44), Vector2(-16, -34), Vector2(16, -34)],
 		"attack_range": 350
