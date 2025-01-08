@@ -10,7 +10,7 @@ const ORK = {
 }
 
 const SLIME = {
-	"speed": 3600,
+	"speed": 3550,
 	"health": 35,
 	"damage": 20,
 	"reward": 50
