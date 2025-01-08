@@ -168,5 +168,8 @@ func _on_menu_button_pressed():
 
 
 # Wave Timer
+func _on_start_timer_timeout():
+	state = States.FIGHT
+
 func _on_wave_timer_timeout():
 	wave += 1
