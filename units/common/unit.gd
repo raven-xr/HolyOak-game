@@ -68,15 +68,15 @@ func _ready():
 
 func idle_state():
 	current_view_direction = default_view_direction
-	animation_player.play(str(current_view_direction, "_Idle"))
+	animation_player.play(current_view_direction + "_Idle")
 
 func attack_state():
 	target = choose_target()
 	current_view_direction = get_view_direction()
-	animation_player.play(str(current_view_direction, "_Attack"))
+	animation_player.play(current_view_direction + "_Attack")
 
 func cooldown_state():
-	animation_player.play(str(current_view_direction, "_Preattack"))
+	animation_player.play(current_view_direction + "_Preattack")
 	await animation_player.animation_finished
 	if available_enemies:
 		state = States.ATTACK
