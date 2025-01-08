@@ -42,7 +42,7 @@ var wave_count: int = 0
 var wave: int = 0:
 	set(value):
 		wave = value
-		if wave < wave_count:
+		if wave <= wave_count:
 			Signals.wave_changed.emit(wave)
 			new_wave()
 		else:
