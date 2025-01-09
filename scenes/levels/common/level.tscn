@@ -30,9 +30,10 @@ e.g. Road 1
 e.g. Road 2
 and etc"
 
-[node name="Objects" type="Node2D" parent="."]
+[node name="Map" type="Node2D" parent="."]
+texture_filter = 1
 
-[node name="Holy Oak" parent="Objects" instance=ExtResource("9_eoj5e")]
+[node name="Holy Oak" parent="Map" instance=ExtResource("9_eoj5e")]
 
 [node name="Towers" type="Node2D" parent="."]
 
