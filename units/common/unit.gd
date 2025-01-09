@@ -128,7 +128,7 @@ func choose_target() -> Enemy:
 	
 	for enemy in available_enemies:
 		# Choose the enemy closest to the Holy Oak
-		var holy_oak = get_tree().get_current_scene().get_node("Objects/Holy Oak")
+		var holy_oak = get_tree().get_current_scene().get_node("Map/Holy Oak")
 		if enemy.global_position.distance_to(holy_oak.global_position) < \
 		preferred_target.global_position.distance_to(holy_oak.global_position):
 			preferred_target = enemy
