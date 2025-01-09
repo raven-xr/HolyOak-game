@@ -82,6 +82,6 @@ func die():
 	speed = 0
 	collision_shape_2d.set_deferred("disabled", true)
 	PlayerStats.money += reward
-	animation_player.play(str(view_direction, "_Death"))
+	animation_player.play(view_direction + "_Death")
 	await animation_player.animation_finished
 	queue_free()

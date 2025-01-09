@@ -81,5 +81,5 @@ one_shot = true
 one_shot = true
 
 [connection signal="pressed" from="UserInterface/Menu/Button" to="." method="_on_menu_button_pressed"]
-[connection signal="timeout" from="Timers/Start Timer" to="." method="fight_state"]
+[connection signal="timeout" from="Timers/Start Timer" to="." method="_on_start_timer_timeout"]
 [connection signal="timeout" from="Timers/Wave Timer" to="." method="_on_wave_timer_timeout"]

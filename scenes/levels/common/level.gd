@@ -42,7 +42,7 @@ var wave_count: int = 0
 var wave: int = 0:
 	set(value):
 		wave = value
-		if wave < wave_count:
+		if wave <= wave_count:
 			Signals.wave_changed.emit(wave)
 			new_wave()
 		else:
@@ -168,5 +168,8 @@ func _on_menu_button_pressed():
 
 
 # Wave Timer
+func _on_start_timer_timeout():
+	state = States.FIGHT
+
 func _on_wave_timer_timeout():
 	wave += 1
