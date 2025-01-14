@@ -12,7 +12,7 @@ extends CanvasLayer
 
 # Common functions
 func _ready():
-	panel_container.scale = Vector2(UserSettings.gui_scale, UserSettings.gui_scale)
+	panel_container.scale = Vector2(UserSettings.gui_scale**2, UserSettings.gui_scale**2)
 	# Animate
 	panel_container.modulate = Color(1, 1, 1, 0)
 	var tween = create_tween()
