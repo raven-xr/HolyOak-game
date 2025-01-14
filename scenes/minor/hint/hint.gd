@@ -20,7 +20,7 @@ signal hidden_()
 # Common functions
 func _ready():
 	# Scale
-	scale = Vector2(UserSettings.gui_scale, UserSettings.gui_scale)
+	scale = Vector2(UserSettings.gui_scale**2, UserSettings.gui_scale**2)
 	# Animate
 	flick_chevron_right()
 	modulate = Color(1, 1, 1, 0)
