@@ -653,7 +653,7 @@ tower_scene = ExtResource("11_ohp30")
 tower_stats_scene = ExtResource("12_7xvv5")
 message_scene = ExtResource("13_2ho3g")
 unit_scene = ExtResource("14_kietl")
-default_view_direction = "L"
+default_view_direction = "R"
 
 [node name="Sprite2D" type="Sprite2D" parent="Towers/Platform 1" index="0"]
 texture_filter = 1
@@ -775,10 +775,12 @@ vertical_alignment = 1
 [node name="Platform 2" parent="Towers" index="1" instance=ExtResource("24_vjn0v")]
 process_mode = 4
 position = Vector2(1080, 80)
+default_view_direction = "L"
 
 [node name="Platform 3" parent="Towers" index="2" instance=ExtResource("24_vjn0v")]
 process_mode = 4
 position = Vector2(232, 320)
+default_view_direction = "D"
 
 [node name="Start Timer" parent="Timers" index="0"]
 autostart = false
