@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://cvwwyafne3ryg"]
+[gd_scene load_steps=31 format=4 uid="uid://cvwwyafne3ryg"]
 
 [ext_resource type="PackedScene" uid="uid://bbsqvqymrojj5" path="res://scenes/levels/common/level.tscn" id="1_rbgy0"]
 [ext_resource type="Script" path="res://scenes/levels/level_1/level_1.gd" id="2_c08mv"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b1ajil2mafxr5" path="res://tilesets/water.png" id="6_yw1qa"]
 [ext_resource type="Texture2D" uid="uid://4wl2w7feibqx" path="res://tilesets/walls/walls.png" id="7_t4jy0"]
 [ext_resource type="Texture2D" uid="uid://bcb2hj7qx6c7h" path="res://tilesets/fences.png" id="7_x25lq"]
+[ext_resource type="Texture2D" uid="uid://j8ft5ukwuqi8" path="res://effects/spotlight/spotlight.png" id="8_7off1"]
 [ext_resource type="Script" path="res://scenes/levels/level_1/platform_1.gd" id="10_8rgbm"]
 [ext_resource type="PackedScene" uid="uid://cnbl8aw2p0wrn" path="res://units/common/tower.tscn" id="11_ohp30"]
 [ext_resource type="PackedScene" uid="uid://c06g6da1scixg" path="res://units/common/tower_stats.tscn" id="12_7xvv5"]
@@ -221,6 +222,36 @@ tile_set = SubResource("TileSet_cuabb")
 
 [node name="Holy Oak" parent="Map" index="0"]
 position = Vector2(72, 376)
+
+[node name="Light" type="Node2D" parent="Map" index="1"]
+
+[node name="PointLight2D" type="PointLight2D" parent="Map/Light" index="0"]
+position = Vector2(904, 640)
+energy = 0.2
+blend_mode = 1
+texture = ExtResource("8_7off1")
+texture_scale = 4.3
+
+[node name="PointLight2D2" type="PointLight2D" parent="Map/Light" index="1"]
+position = Vector2(904, 696)
+energy = 0.2
+blend_mode = 1
+texture = ExtResource("8_7off1")
+texture_scale = 4.3
+
+[node name="PointLight2D3" type="PointLight2D" parent="Map/Light" index="2"]
+position = Vector2(976, 640)
+energy = 0.2
+blend_mode = 1
+texture = ExtResource("8_7off1")
+texture_scale = 4.3
+
+[node name="PointLight2D4" type="PointLight2D" parent="Map/Light" index="3"]
+position = Vector2(976, 704)
+energy = 0.2
+blend_mode = 1
+texture = ExtResource("8_7off1")
+texture_scale = 4.3
 
 [node name="Platform 1" type="Node2D" parent="Towers" index="0"]
 process_mode = 4
