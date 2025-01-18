@@ -226,14 +226,14 @@ position = Vector2(72, 376)
 [node name="Light" type="Node2D" parent="Map" index="1"]
 
 [node name="PointLight2D" type="PointLight2D" parent="Map/Light" index="0"]
-position = Vector2(904, 640)
+position = Vector2(896, 640)
 energy = 0.2
 blend_mode = 1
 texture = ExtResource("8_7off1")
 texture_scale = 4.3
 
 [node name="PointLight2D2" type="PointLight2D" parent="Map/Light" index="1"]
-position = Vector2(904, 696)
+position = Vector2(896, 696)
 energy = 0.2
 blend_mode = 1
 texture = ExtResource("8_7off1")
