@@ -36,8 +36,8 @@ func tutorial():
 	await hint.hidden_
 	
 	# Open the platform menu
-	hint.text = "Для начала построим башню. Нажмите на пустое поле слева"
-	hint.position = Vector2(1024.0, 128.0)
+	hint.text = "Для начала построим башню. Нажмите на пустое поле справа от подсказки"
+	hint.position = Vector2(484.0, 128.0)
 	hint.can_be_pressed = false
 	hint.show_()
 	# Unblock the platform 1

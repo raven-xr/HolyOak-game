@@ -2,7 +2,7 @@ extends Node
 
 const LEVEL_1 = {
 	# Start data
-	"health": 100,
+	"health": 150,
 	"money": 400,
 	"tower_level_limit": 2,
 	"wave_count": 3,
@@ -10,7 +10,6 @@ const LEVEL_1 = {
 	"wave_1": {
 		"spawn_cooldown": 2.0,
 		"enemies": [
-			{"type": "ork", "road": "1"},
 			{"type": "ork", "road": "1"},
 			{"type": "ork", "road": "1"},
 			{"type": "ork", "road": "1"}
@@ -24,8 +23,8 @@ const LEVEL_1 = {
 			{"type": "ork", "road": "1"},
 			{"type": "ork", "road": "1"},
 			{"type": "ork", "road": "1"},
-			{"type": "ork", "road": "1"},
-			{"type": "ork", "road": "1"}
+			{"type": "ork", "road": "2"},
+			{"type": "ork", "road": "2"}
 		]
 	},
 	"wave_3": {
@@ -38,11 +37,9 @@ const LEVEL_1 = {
 			{"type": "ork", "road": "1"},
 			{"type": "ork", "road": "1"},
 			{"type": "ork", "road": "1"},
-			{"type": "ork", "road": "1"},
-			{"type": "ork", "road": "1"},
-			{"type": "ork", "road": "1"},
-			{"type": "ork", "road": "1"},
-			{"type": "ork", "road": "1"}
+			{"type": "ork", "road": "2"},
+			{"type": "ork", "road": "2"},
+			{"type": "ork", "road": "2"},
 		]
 	}
 }
