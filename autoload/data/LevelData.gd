@@ -12,14 +12,12 @@ const LEVEL_1 = {
 		"enemies": [
 			{"type": "ork", "road": "1"},
 			{"type": "ork", "road": "1"},
-			{"type": "ork", "road": "1"},
 			{"type": "ork", "road": "1"}
 		]
 	},
 	"wave_2": {
 		"spawn_cooldown": 1.75,
 		"enemies": [
-			{"type": "ork", "road": "1"},
 			{"type": "ork", "road": "1"},
 			{"type": "ork", "road": "1"},
 			{"type": "ork", "road": "1"},
