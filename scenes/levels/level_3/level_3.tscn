@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://jntda0nfq0ml"]
+
+[ext_resource type="PackedScene" uid="uid://bbsqvqymrojj5" path="res://scenes/levels/common/level.tscn" id="1_6eesv"]
+
+[node name="Level 3" instance=ExtResource("1_6eesv")]
+
+[node name="Map" parent="." index="2"]
+visible = false
+
+[node name="UserInterface" parent="." index="5"]
+visible = false
