@@ -646,11 +646,11 @@ texture = ExtResource("11_w2twk")
 position = Vector2(192, -8)
 texture = ExtResource("11_w2twk")
 
-[node name="Bridge" type="Node2D" parent="Map" index="3"]
+[node name="Lighting" type="Node2D" parent="Map" index="3"]
 
-[node name="Shadow" type="Node2D" parent="Map/Bridge" index="0"]
+[node name="Bridge" type="Node2D" parent="Map/Lighting" index="0"]
 
-[node name="PointLight2D 1" type="PointLight2D" parent="Map/Bridge/Shadow" index="0"]
+[node name="PointLight2D 1" type="PointLight2D" parent="Map/Lighting/Bridge" index="0"]
 position = Vector2(912, 624)
 energy = 0.2
 blend_mode = 1
@@ -658,7 +658,7 @@ shadow_enabled = true
 texture = ExtResource("8_7off1")
 texture_scale = 2.0
 
-[node name="PointLight2D 2" type="PointLight2D" parent="Map/Bridge/Shadow" index="1"]
+[node name="PointLight2D 2" type="PointLight2D" parent="Map/Lighting/Bridge" index="1"]
 position = Vector2(912, 640)
 energy = 0.2
 blend_mode = 1
@@ -666,7 +666,7 @@ shadow_enabled = true
 texture = ExtResource("8_7off1")
 texture_scale = 2.0
 
-[node name="PointLight2D 3" type="PointLight2D" parent="Map/Bridge/Shadow" index="2"]
+[node name="PointLight2D 3" type="PointLight2D" parent="Map/Lighting/Bridge" index="2"]
 position = Vector2(912, 656)
 energy = 0.2
 blend_mode = 1
@@ -674,7 +674,7 @@ shadow_enabled = true
 texture = ExtResource("8_7off1")
 texture_scale = 2.0
 
-[node name="PointLight2D 4" type="PointLight2D" parent="Map/Bridge/Shadow" index="3"]
+[node name="PointLight2D 4" type="PointLight2D" parent="Map/Lighting/Bridge" index="3"]
 position = Vector2(912, 672)
 energy = 0.2
 blend_mode = 1
@@ -682,7 +682,7 @@ shadow_enabled = true
 texture = ExtResource("8_7off1")
 texture_scale = 2.0
 
-[node name="PointLight2D 5" type="PointLight2D" parent="Map/Bridge/Shadow" index="4"]
+[node name="PointLight2D 5" type="PointLight2D" parent="Map/Lighting/Bridge" index="4"]
 position = Vector2(912, 688)
 energy = 0.2
 blend_mode = 1
@@ -690,7 +690,7 @@ shadow_enabled = true
 texture = ExtResource("8_7off1")
 texture_scale = 2.0
 
-[node name="PointLight2D 6" type="PointLight2D" parent="Map/Bridge/Shadow" index="5"]
+[node name="PointLight2D 6" type="PointLight2D" parent="Map/Lighting/Bridge" index="5"]
 position = Vector2(912, 704)
 energy = 0.2
 blend_mode = 1
@@ -698,7 +698,7 @@ shadow_enabled = true
 texture = ExtResource("8_7off1")
 texture_scale = 2.0
 
-[node name="PointLight2D 7" type="PointLight2D" parent="Map/Bridge/Shadow" index="6"]
+[node name="PointLight2D 7" type="PointLight2D" parent="Map/Lighting/Bridge" index="6"]
 position = Vector2(912, 720)
 energy = 0.2
 blend_mode = 1
@@ -706,7 +706,7 @@ shadow_enabled = true
 texture = ExtResource("8_7off1")
 texture_scale = 2.0
 
-[node name="PointLight2D 8" type="PointLight2D" parent="Map/Bridge/Shadow" index="7"]
+[node name="PointLight2D 8" type="PointLight2D" parent="Map/Lighting/Bridge" index="7"]
 position = Vector2(960, 624)
 energy = 0.2
 blend_mode = 1
@@ -714,7 +714,7 @@ shadow_enabled = true
 texture = ExtResource("8_7off1")
 texture_scale = 2.0
 
-[node name="PointLight2D 9" type="PointLight2D" parent="Map/Bridge/Shadow" index="8"]
+[node name="PointLight2D 9" type="PointLight2D" parent="Map/Lighting/Bridge" index="8"]
 position = Vector2(960, 640)
 energy = 0.2
 blend_mode = 1
@@ -722,7 +722,7 @@ shadow_enabled = true
 texture = ExtResource("8_7off1")
 texture_scale = 2.0
 
-[node name="PointLight2D 10" type="PointLight2D" parent="Map/Bridge/Shadow" index="9"]
+[node name="PointLight2D 10" type="PointLight2D" parent="Map/Lighting/Bridge" index="9"]
 position = Vector2(960, 656)
 energy = 0.2
 blend_mode = 1
@@ -730,7 +730,7 @@ shadow_enabled = true
 texture = ExtResource("8_7off1")
 texture_scale = 2.0
 
-[node name="PointLight2D 11" type="PointLight2D" parent="Map/Bridge/Shadow" index="10"]
+[node name="PointLight2D 11" type="PointLight2D" parent="Map/Lighting/Bridge" index="10"]
 position = Vector2(960, 672)
 energy = 0.2
 blend_mode = 1
@@ -738,7 +738,7 @@ shadow_enabled = true
 texture = ExtResource("8_7off1")
 texture_scale = 2.0
 
-[node name="PointLight2D 12" type="PointLight2D" parent="Map/Bridge/Shadow" index="11"]
+[node name="PointLight2D 12" type="PointLight2D" parent="Map/Lighting/Bridge" index="11"]
 position = Vector2(960, 688)
 energy = 0.2
 blend_mode = 1
@@ -746,7 +746,7 @@ shadow_enabled = true
 texture = ExtResource("8_7off1")
 texture_scale = 2.0
 
-[node name="PointLight2D 13" type="PointLight2D" parent="Map/Bridge/Shadow" index="12"]
+[node name="PointLight2D 13" type="PointLight2D" parent="Map/Lighting/Bridge" index="12"]
 position = Vector2(960, 704)
 energy = 0.2
 blend_mode = 1
@@ -754,7 +754,7 @@ shadow_enabled = true
 texture = ExtResource("8_7off1")
 texture_scale = 2.0
 
-[node name="PointLight2D 14" type="PointLight2D" parent="Map/Bridge/Shadow" index="13"]
+[node name="PointLight2D 14" type="PointLight2D" parent="Map/Lighting/Bridge" index="13"]
 position = Vector2(960, 720)
 energy = 0.2
 blend_mode = 1
@@ -762,7 +762,7 @@ shadow_enabled = true
 texture = ExtResource("8_7off1")
 texture_scale = 2.0
 
-[node name="LightOccluder2D 1" type="LightOccluder2D" parent="Map/Bridge/Shadow" index="14"]
+[node name="LightOccluder2D 1" type="LightOccluder2D" parent="Map/Lighting/Bridge" index="14"]
 position = Vector2(936, 656)
 occluder = SubResource("OccluderPolygon2D_dt85v")
 
