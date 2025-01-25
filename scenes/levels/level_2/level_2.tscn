@@ -461,7 +461,10 @@ next_roadpoint = NodePath("../Point 3")
 position = Vector2(488, 304)
 rotation = 1.0472
 new_direction = "L"
-next_roadpoint = NodePath("../../../Road 1/Points/Point 4")
+next_roadpoint = NodePath("../Point 4")
+
+[node name="Point 4" parent="Enemies/Road 2/Points" index="3" instance=ExtResource("8_3rey1")]
+position = Vector2(148, 384)
 
 [node name="Stumps" type="Node2D" parent="Map" index="0"]
 
