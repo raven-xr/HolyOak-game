@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://cvwwyafne3ryg"]
+[gd_scene load_steps=42 format=4 uid="uid://cvwwyafne3ryg"]
 
 [ext_resource type="PackedScene" uid="uid://bbsqvqymrojj5" path="res://scenes/levels/common/level.tscn" id="1_rbgy0"]
 [ext_resource type="Script" path="res://scenes/levels/level_1/level_1.gd" id="2_c08mv"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://b1ajil2mafxr5" path="res://tilesets/water.png" id="6_yw1qa"]
 [ext_resource type="Texture2D" uid="uid://4wl2w7feibqx" path="res://tilesets/walls/walls.png" id="7_t4jy0"]
 [ext_resource type="Texture2D" uid="uid://bcb2hj7qx6c7h" path="res://tilesets/fences.png" id="7_x25lq"]
-[ext_resource type="Texture2D" uid="uid://j8ft5ukwuqi8" path="res://effects/eyeglow/eyeglow.png" id="8_7off1"]
 [ext_resource type="Texture2D" uid="uid://dqfm4pmqposiy" path="res://models/objects/oak.png" id="8_cjtaa"]
 [ext_resource type="Texture2D" uid="uid://b0e3u22u8240c" path="res://tilesets/decor_16x16.png" id="8_jqacd"]
 [ext_resource type="PackedScene" uid="uid://ccqwn6n7il2n2" path="res://scenes/minor/point/point.tscn" id="9_tghr1"]
@@ -217,6 +216,20 @@ texture = ExtResource("7_t4jy0")
 
 [sub_resource type="TileSet" id="TileSet_cuabb"]
 sources/0 = SubResource("TileSetAtlasSource_30x1g")
+
+[sub_resource type="Gradient" id="Gradient_725kt"]
+offsets = PackedFloat32Array(0, 0.225225, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.021021, 0.021021, 0.021021, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0lgux"]
+gradient = SubResource("Gradient_725kt")
+
+[sub_resource type="Gradient" id="Gradient_achq5"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0upb1"]
+gradient = SubResource("Gradient_achq5")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 0)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_dt85v"]
 resource_local_to_scene = true
@@ -651,118 +664,24 @@ texture = ExtResource("11_w2twk")
 [node name="Bridge" type="Node2D" parent="Map/Lighting" index="0"]
 
 [node name="PointLight2D 1" type="PointLight2D" parent="Map/Lighting/Bridge" index="0"]
-position = Vector2(912, 624)
-energy = 0.2
+position = Vector2(906.5, 666.008)
+scale = Vector2(0.101563, 0.843875)
+energy = 0.3
 blend_mode = 1
 shadow_enabled = true
-texture = ExtResource("8_7off1")
+texture = SubResource("GradientTexture2D_0lgux")
 texture_scale = 2.0
 
 [node name="PointLight2D 2" type="PointLight2D" parent="Map/Lighting/Bridge" index="1"]
-position = Vector2(912, 640)
-energy = 0.2
+position = Vector2(966, 666)
+scale = Vector2(0.102, 0.844)
+energy = 0.3
 blend_mode = 1
 shadow_enabled = true
-texture = ExtResource("8_7off1")
+texture = SubResource("GradientTexture2D_0upb1")
 texture_scale = 2.0
 
-[node name="PointLight2D 3" type="PointLight2D" parent="Map/Lighting/Bridge" index="2"]
-position = Vector2(912, 656)
-energy = 0.2
-blend_mode = 1
-shadow_enabled = true
-texture = ExtResource("8_7off1")
-texture_scale = 2.0
-
-[node name="PointLight2D 4" type="PointLight2D" parent="Map/Lighting/Bridge" index="3"]
-position = Vector2(912, 672)
-energy = 0.2
-blend_mode = 1
-shadow_enabled = true
-texture = ExtResource("8_7off1")
-texture_scale = 2.0
-
-[node name="PointLight2D 5" type="PointLight2D" parent="Map/Lighting/Bridge" index="4"]
-position = Vector2(912, 688)
-energy = 0.2
-blend_mode = 1
-shadow_enabled = true
-texture = ExtResource("8_7off1")
-texture_scale = 2.0
-
-[node name="PointLight2D 6" type="PointLight2D" parent="Map/Lighting/Bridge" index="5"]
-position = Vector2(912, 704)
-energy = 0.2
-blend_mode = 1
-shadow_enabled = true
-texture = ExtResource("8_7off1")
-texture_scale = 2.0
-
-[node name="PointLight2D 7" type="PointLight2D" parent="Map/Lighting/Bridge" index="6"]
-position = Vector2(912, 720)
-energy = 0.2
-blend_mode = 1
-shadow_enabled = true
-texture = ExtResource("8_7off1")
-texture_scale = 2.0
-
-[node name="PointLight2D 8" type="PointLight2D" parent="Map/Lighting/Bridge" index="7"]
-position = Vector2(960, 624)
-energy = 0.2
-blend_mode = 1
-shadow_enabled = true
-texture = ExtResource("8_7off1")
-texture_scale = 2.0
-
-[node name="PointLight2D 9" type="PointLight2D" parent="Map/Lighting/Bridge" index="8"]
-position = Vector2(960, 640)
-energy = 0.2
-blend_mode = 1
-shadow_enabled = true
-texture = ExtResource("8_7off1")
-texture_scale = 2.0
-
-[node name="PointLight2D 10" type="PointLight2D" parent="Map/Lighting/Bridge" index="9"]
-position = Vector2(960, 656)
-energy = 0.2
-blend_mode = 1
-shadow_enabled = true
-texture = ExtResource("8_7off1")
-texture_scale = 2.0
-
-[node name="PointLight2D 11" type="PointLight2D" parent="Map/Lighting/Bridge" index="10"]
-position = Vector2(960, 672)
-energy = 0.2
-blend_mode = 1
-shadow_enabled = true
-texture = ExtResource("8_7off1")
-texture_scale = 2.0
-
-[node name="PointLight2D 12" type="PointLight2D" parent="Map/Lighting/Bridge" index="11"]
-position = Vector2(960, 688)
-energy = 0.2
-blend_mode = 1
-shadow_enabled = true
-texture = ExtResource("8_7off1")
-texture_scale = 2.0
-
-[node name="PointLight2D 13" type="PointLight2D" parent="Map/Lighting/Bridge" index="12"]
-position = Vector2(960, 704)
-energy = 0.2
-blend_mode = 1
-shadow_enabled = true
-texture = ExtResource("8_7off1")
-texture_scale = 2.0
-
-[node name="PointLight2D 14" type="PointLight2D" parent="Map/Lighting/Bridge" index="13"]
-position = Vector2(960, 720)
-energy = 0.2
-blend_mode = 1
-shadow_enabled = true
-texture = ExtResource("8_7off1")
-texture_scale = 2.0
-
-[node name="LightOccluder2D 1" type="LightOccluder2D" parent="Map/Lighting/Bridge" index="14"]
+[node name="LightOccluder2D 1" type="LightOccluder2D" parent="Map/Lighting/Bridge" index="2"]
 position = Vector2(936, 656)
 occluder = SubResource("OccluderPolygon2D_dt85v")
 
