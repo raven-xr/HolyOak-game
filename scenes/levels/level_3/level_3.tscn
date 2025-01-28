@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://jntda0nfq0ml"]
+[gd_scene load_steps=10 format=4 uid="uid://jntda0nfq0ml"]
 
 [ext_resource type="PackedScene" uid="uid://bbsqvqymrojj5" path="res://scenes/levels/common/level.tscn" id="1_6eesv"]
 [ext_resource type="Texture2D" uid="uid://ciyeb8o1ywukt" path="res://tilesets/grass.png" id="2_j5uvo"]
 [ext_resource type="Texture2D" uid="uid://b1ajil2mafxr5" path="res://tilesets/water.png" id="3_63gyi"]
 [ext_resource type="Texture2D" uid="uid://sasruh3frvel" path="res://tilesets/plains.png" id="4_yoaft"]
+[ext_resource type="PackedScene" uid="uid://d1hglytmquni" path="res://units/common/platform.tscn" id="5_272q0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x7p3s"]
 texture = ExtResource("2_j5uvo")
@@ -88,3 +89,27 @@ tile_set = SubResource("TileSet_so0y7")
 
 [node name="Holy Oak" parent="Map" index="0"]
 position = Vector2(472, 416)
+
+[node name="Platform 1" parent="Towers" index="0" instance=ExtResource("5_272q0")]
+position = Vector2(88, 632)
+
+[node name="Platform 2" parent="Towers" index="1" instance=ExtResource("5_272q0")]
+position = Vector2(136, 432)
+
+[node name="Platform 3" parent="Towers" index="2" instance=ExtResource("5_272q0")]
+position = Vector2(320, 320)
+
+[node name="Platform 4" parent="Towers" index="3" instance=ExtResource("5_272q0")]
+position = Vector2(584, 216)
+
+[node name="Platform 5" parent="Towers" index="4" instance=ExtResource("5_272q0")]
+position = Vector2(624, 528)
+
+[node name="Platform 6" parent="Towers" index="5" instance=ExtResource("5_272q0")]
+position = Vector2(864, 168)
+
+[node name="Platform 7" parent="Towers" index="6" instance=ExtResource("5_272q0")]
+position = Vector2(1120, 80)
+
+[node name="Platform 8" parent="Towers" index="7" instance=ExtResource("5_272q0")]
+position = Vector2(856, 384)
