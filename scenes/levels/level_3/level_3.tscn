@@ -87,5 +87,4 @@ tile_map_data = PackedByteArray("AAAGAA8AAAAAAAAAAAAHAA8AAAAAAAAAAAAIAA8AAAAAAAA
 tile_set = SubResource("TileSet_so0y7")
 
 [node name="Holy Oak" parent="Map" index="0"]
-visible = false
-position = Vector2(1216, 288)
+position = Vector2(472, 416)
