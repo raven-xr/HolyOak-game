@@ -14,7 +14,8 @@ extends Area2D
 
 
 
-func _on_enemy_detected(enemy):
+func _on_enemy_detected(pivot: Area2D):
+	var enemy: Enemy = pivot.get_parent()
 	if new_direction:
 		enemy.view_direction = new_direction
 	if next_roadpoint:

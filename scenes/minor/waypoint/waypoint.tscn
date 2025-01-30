@@ -15,4 +15,4 @@ script = ExtResource("1_0ct1n")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("SegmentShape2D_fm8iq")
 
-[connection signal="body_entered" from="." to="." method="_on_enemy_detected"]
+[connection signal="area_entered" from="." to="." method="_on_enemy_detected"]

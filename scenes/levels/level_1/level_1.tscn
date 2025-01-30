@@ -275,7 +275,7 @@ next_roadpoint = NodePath("../Waypoint 2")
 
 [node name="Waypoint 2" parent="Enemies/Road 1/Waypoints" index="1" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("9_tghr1")]
 position = Vector2(752, 328)
-rotation = -0.785398
+rotation = -0.942478
 new_direction = "L"
 next_roadpoint = NodePath("../Waypoint 3")
 
@@ -300,13 +300,13 @@ next_roadpoint = NodePath("../Waypoint 3")
 
 [node name="Waypoint 3" parent="Enemies/Road 2/Waypoints" index="2" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("9_tghr1")]
 position = Vector2(848, 296)
-rotation = 1.0472
+rotation = 1.23918
 new_direction = "L"
 next_roadpoint = NodePath("../Waypoint 4")
 
 [node name="Waypoint 4" parent="Enemies/Road 2/Waypoints" index="3" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("9_tghr1")]
 position = Vector2(752, 328)
-rotation = -0.785398
+rotation = -0.942478
 new_direction = "L"
 next_roadpoint = NodePath("../Waypoint 5")
 

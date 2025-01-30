@@ -11,6 +11,7 @@ class_name Enemy
 @onready var hit_sfx = $SFX/Hit
 @onready var animation_player = $AnimationPlayer
 @onready var collision_shape_2d = $CollisionShape2D
+@onready var pivot = $Pivot
 
 @onready var stats: Dictionary = EnemyData.get(technical_name)
 @onready var speed: int = stats["speed"]
