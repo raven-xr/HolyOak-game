@@ -102,795 +102,797 @@ tile_set = SubResource("TileSet_so0y7")
 tile_map_data = PackedByteArray("AABDABAAAAAAAAQAAABDABMAAAAAAAQAAABGABIAAAAAAAQAAABLAA4AAAAAAAQAAABLABgAAAAAAAQAAABMABQAAAACAAAAAABPAA8AAAADAAQAAAA/AA8AAAABAAQAAABEABYAAAABAAQAAABFAA0AAAABAAQAAABOABAAAAABAAQAAABOABEAAAABAAQAAABCABMAAAACAAQAAABDABYAAAADAAQAAABGAA4AAAADAAQAAABHABYAAAADAAQAAABMABMAAAADAAQAAABOABcAAAADAAQAAABGABQAAAAAAAAAAABJAA4AAAAAAAAAAABFABIAAAACAAQAAABKABMAAAADAAAAAABPABQAAAABAAAAAAA+ABEAAAADAAAAAABAABEAAAADAAAAAABCABEAAAACAAQAAABEABQAAAACAAQAAABFAA8AAAACAAQAAABJABQAAAADAAQAAABBAA8AAAAAAAQAAAACAAIAAAAAAAAAAAADAAUAAAAAAAAAAAAFAP//AAAAAAAAAAAHAAMAAAAAAAAAAAAHAAkAAAAAAAAAAAAIAAcAAAABAAAAAAAJAAgAAAAAAAAAAAAMAAcAAAAAAAAAAAAPAAUAAAAAAAAAAAATAAQAAAAAAAAAAAAZAAUAAAAAAAAAAAAeAAcAAAAAAAAAAAAiAAQAAAADAAAAAAAlAAIAAAAAAAAAAAAbAA4AAAAAAAAAAAAdAAsAAAAAAAAAAAAwAAAAAAAAAAAAAAAzAAQAAAAAAAAAAAAuAAwAAAAAAAAAAAAuAA0AAAAAAAAAAAASAAsAAAAAAAAAAAAUAAwAAAAAAAAAAAAAABAAAAAAAAAAAAAAABQAAAAAAAAAAAAzAB4AAAAAAAAAAAA3ACEAAAAAAAAAAAA5ACcAAAABAAAAAABPACQAAAAAAAAAAABPACkAAAAAAAAAAABPACsAAAAAAAAAAAAbACoAAAAAAAAAAAAeACgAAAAAAAAAAAAkACkAAAAAAAAAAAAnACsAAAAAAAAAAAApACoAAAAAAAAAAAA6ACIAAAABAAAAAAA9ACgAAAABAAAAAAA9ACwAAAABAAAAAABAACIAAAABAAAAAABBACgAAAABAAAAAABDACEAAAABAAAAAABDACsAAAABAAAAAABGAB4AAAABAAAAAABJACQAAAABAAAAAABNACQAAAABAAAAAAAcAAMAAAABAAAAAAAdAAQAAAABAAAAAAApAAMAAAABAAAAAAApAAUAAAABAAAAAAAtAAUAAAABAAAAAAA2AAEAAAABAAAAAAA3AAUAAAABAAAAAAA4AAMAAAABAAAAAAAaABIAAAADAAAAAAAdABUAAAADAAAAAAAgABQAAAADAAAAAAAMAAwAAAACAAAAAAATAB4AAAADAAAAAAATACoAAAAAAAQAAAASACUAAAAAAAQAAAATACAAAAAAAAQAAAADACEAAAAAAAQAAAANAB0AAAAAAAQAAAAKACkAAAAAAAQAAAANABIAAAAAAAQAAAAFABQAAAAAAAQAAAACABcAAAAAAAQAAAAAABgAAAAAAAQAAAAWABoAAAAAAAQAAAAjABsAAAAAAAQAAAApABIAAAAAAAQAAAAuABEAAAAAAAQAAAA1ABEAAAAAAAQAAAA6AA8AAAAAAAQAAAA9AA0AAAAAAAQAAABAAAoAAAAAAAQAAAA9ABYAAAAAAAQAAABBABkAAAAAAAQAAABEABgAAAAAAAQAAABJABkAAAAAAAQAAABMABwAAAAAAAQAAABOAB0AAAAAAAQAAABFAAsAAAAAAAQAAABOAAgAAAAAAAQAAABNAAsAAAABAAQAAABKAAsAAAABAAQAAABHAAgAAAABAAQAAABMABAAAAABAAQAAABNABQAAAABAAQAAABDAA8AAAABAAQAAABMAAYAAAABAAQAAABPAAUAAAABAAQAAABMAAkAAAABAAQAAAA7ABIAAAABAAQAAAAzABIAAAACAAQAAAAnABQAAAACAAQAAAAnABkAAAACAAQAAAAkABUAAAACAAQAAAASABgAAAACAAQAAAANABAAAAACAAQAAAAIACEAAAACAAQAAAAIAB8AAAACAAQAAAAUAB8AAAADAAQAAABIABAAAAADAAQAAAAtACAAAAABAAAAAAAuAB4AAAABAAAAAAAvAB8AAAABAAAAAAAwAB8AAAABAAAAAAAxAB4AAAABAAAAAAAyACMAAAABAAAAAAAzACEAAAABAAAAAAAzACIAAAABAAAAAAAzACMAAAABAAAAAAAzACwAAAABAAAAAAA0AB0AAAABAAAAAAA1ACcAAAABAAAAAAA2ABwAAAABAAAAAAA3ACsAAAABAAAAAAA4AB4AAAABAAAAAAA/ACcAAAABAAAAAABBABwAAAABAAAAAABCACYAAAABAAAAAAAqABcAAAABAAAAAAAYACgAAAABAAAAAAAaACgAAAABAAAAAAAcACgAAAABAAAAAAAeACkAAAABAAAAAAAaACMAAAABAAAAAAAcACIAAAABAAAAAAAuACcAAAABAAAAAABIACkAAAACAAAAAABJACkAAAACAAAAAABKACYAAAABAAAAAAAqAAkAAAACAAAAAAAHAAQAAAADAAAAAAAJAAEAAAADAAAAAAAJAAQAAAADAAAAAAAJAAoAAAADAAAAAAAOAAQAAAADAAAAAAAPAAQAAAADAAAAAAASAAYAAAADAAAAAAAWAAIAAAADAAAAAAAXAAcAAAADAAAAAAAXAAsAAAADAAAAAAAgAAYAAAADAAAAAAA8AAIAAAADAAAAAAABAAgAAAADAAAAAAAFAAkAAAADAAAAAAADAA0AAAADAAAAAAAcABAAAAADAAAAAAAcABUAAAADAAAAAAAcABcAAAADAAAAAAAdABYAAAADAAAAAAAdABgAAAADAAAAAAAIABYAAAACAAAAAAAKABUAAAACAAAAAAAAAB0AAAACAAAAAAAWACYAAAACAAAAAAAVACIAAAACAAAAAAAOACgAAAADAAAAAAANACsAAAADAAAAAAAQACwAAAADAAAAAAACACsAAAADAAAAAAAAACkAAAADAAAAAAAAACQAAAADAAAAAAA3AB0AAAABAAAAAABDACgAAAABAAAAAABHACoAAAABAAAAAAA4ACwAAAABAAAAAAA7ACwAAAABAAAAAAA8ACYAAAABAAAAAABAACEAAAABAAAAAABAACcAAAABAAAAAABCACEAAAABAAAAAABDACUAAAABAAAAAABEACQAAAABAAAAAABGACUAAAABAAAAAABHACEAAAABAAAAAABKACQAAAABAAAAAABLACgAAAABAAAAAABMACQAAAABAAAAAABNACYAAAABAAAAAABPACIAAAABAAAAAAAuACsAAAABAAAAAAAwACQAAAABAAAAAAAwACkAAAABAAAAAAAyACIAAAABAAAAAAAyACoAAAABAAAAAAAzAB8AAAABAAAAAAAzACYAAAABAAAAAAA0AB4AAAABAAAAAAA0ACoAAAABAAAAAAAaACkAAAADAAAAAAAdACQAAAADAAAAAAAnACYAAAADAAAAAAASABwAAAADAAAAAAAXACYAAAAAAAAAAAAaACYAAAAAAAAAAAAcACoAAAAAAAAAAAAdACMAAAAAAAAAAAAgACQAAAAAAAAAAAAgACUAAAAAAAAAAAAqABYAAAAAAAAAAAAtABoAAAAAAAAAAAAuABoAAAAAAAAAAAABAA0AAAABAAAAAAACAA0AAAABAAAAAAADAAoAAAABAAAAAAADAA4AAAABAAAAAAAEAAgAAAABAAAAAAAIAAIAAAABAAAAAAAKAAMAAAABAAAAAAALAAIAAAABAAAAAAALAAoAAAABAAAAAAANAAoAAAABAAAAAAAOAAUAAAABAAAAAAARAAIAAAABAAAAAAAQAAQAAAACAAAAAAARAAkAAAACAAAAAAASAAQAAAACAAAAAAATAAsAAAACAAAAAAAUAAUAAAACAAAAAAAWAAUAAAACAAAAAAAWAAcAAAACAAAAAAAYAAQAAAACAAAAAAAaAAwAAAACAAAAAAAaABMAAAADAAAAAAAaABYAAAADAAAAAAAeABIAAAADAAAAAAAfABUAAAADAAAAAAAfABYAAAADAAAAAAAiABcAAAADAAAAAAAiAAUAAAADAAAAAAApAAIAAAADAAAAAAAdAAIAAAADAAAAAAAgAAEAAAADAAAAAAAgAAMAAAADAAAAAAArAAkAAAADAAAAAAAtAAkAAAADAAAAAAAtAAsAAAADAAAAAAAlAAgAAAADAAAAAAAmAAcAAAADAAAAAAA9AAMAAAADAAAAAAA9AAUAAAADAAAAAAA+AAMAAAADAAAAAAA/AAQAAAADAAAAAABNAAQAAAADAAAAAAADAB4AAAAAAAAAAAAoABsAAAACAAAAAAApABoAAAACAAAAAAAqABgAAAACAAAAAAAtABUAAAACAAAAAAAtABQAAAACAAAAAAAuABQAAAACAAAAAAAvABQAAAACAAAAAAAwABQAAAACAAAAAAA7ABoAAAACAAAAAAA9ABsAAAACAAAAAAA9ABwAAAACAAAAAAA+ABwAAAACAAAAAABLACAAAAACAAAAAABOACAAAAACAAAAAAAGAA4AAAACAAAAAAAKAA4AAAACAAAAAAAQAA4AAAACAAAAAAAVAA4AAAACAAAAAAAgABIAAAACAAAAAAAjABMAAAACAAAAAAAYABYAAAACAAAAAAAQABEAAAACAAAAAAAQABYAAAACAAAAAAAQAB0AAAACAAAAAAAXACgAAAACAAAAAAAWACoAAAACAAAAAAArABUAAAACAAAAAAAqAA0AAAACAAAAAAAtAA4AAAACAAAAAAAuAA4AAAACAAAAAAA0AA4AAAACAAAAAAA2AA4AAAACAAAAAAA/AAcAAAACAAAAAAA9AAcAAAACAAAAAABBAAcAAAACAAAAAAA8AAgAAAACAAAAAABMAAcAAAACAAAAAAA=")
 tile_set = SubResource("TileSet_hxrqg")
 
-[node name="Trees" type="Node2D" parent="Map" index="0"]
+[node name="Forest 1" type="Node2D" parent="Map" index="0"]
 
-[node name="Oak 1" type="Sprite2D" parent="Map/Trees" index="0"]
-position = Vector2(154, 334)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 2" type="Sprite2D" parent="Map/Trees" index="1"]
-position = Vector2(24, 448)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 3" type="Sprite2D" parent="Map/Trees" index="2"]
-position = Vector2(64, 480)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 4" type="Sprite2D" parent="Map/Trees" index="3"]
-position = Vector2(296, 464)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 5" type="Sprite2D" parent="Map/Trees" index="4"]
-position = Vector2(376, 512)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 6" type="Sprite2D" parent="Map/Trees" index="5"]
-position = Vector2(432, 536)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 7" type="Sprite2D" parent="Map/Trees" index="6"]
-position = Vector2(496, 536)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 8" type="Sprite2D" parent="Map/Trees" index="7"]
-position = Vector2(376, 584)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 9" type="Sprite2D" parent="Map/Trees" index="8"]
-position = Vector2(432, 600)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 10" type="Sprite2D" parent="Map/Trees" index="9"]
-position = Vector2(368, 664)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 11" type="Sprite2D" parent="Map/Trees" index="10"]
-position = Vector2(440, 664)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 12" type="Sprite2D" parent="Map/Trees" index="11"]
-position = Vector2(496, 616)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 13" type="Sprite2D" parent="Map/Trees" index="12"]
-position = Vector2(552, 592)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 14" type="Sprite2D" parent="Map/Trees" index="13"]
-position = Vector2(616, 624)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 15" type="Sprite2D" parent="Map/Trees" index="14"]
-position = Vector2(544, 664)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 16" type="Sprite2D" parent="Map/Trees" index="15"]
-position = Vector2(608, 688)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 17" type="Sprite2D" parent="Map/Trees" index="16"]
-position = Vector2(496, 696)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 18" type="Sprite2D" parent="Map/Trees" index="17"]
-position = Vector2(712, 384)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 19" type="Sprite2D" parent="Map/Trees" index="18"]
-position = Vector2(752, 440)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 20" type="Sprite2D" parent="Map/Trees" index="19"]
-position = Vector2(672, 448)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 21" type="Sprite2D" parent="Map/Trees" index="20"]
-position = Vector2(960, 472)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 22" type="Sprite2D" parent="Map/Trees" index="21"]
-position = Vector2(1064, 488)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 23" type="Sprite2D" parent="Map/Trees" index="22"]
-position = Vector2(1160, 520)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 24" type="Sprite2D" parent="Map/Trees" index="23"]
-position = Vector2(1248, 544)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 25" type="Sprite2D" parent="Map/Trees" index="24"]
-position = Vector2(824, 472)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 26" type="Sprite2D" parent="Map/Trees" index="25"]
-position = Vector2(712, 520)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 27" type="Sprite2D" parent="Map/Trees" index="26"]
-position = Vector2(888, 496)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 28" type="Sprite2D" parent="Map/Trees" index="27"]
-position = Vector2(1000, 528)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 29" type="Sprite2D" parent="Map/Trees" index="28"]
-position = Vector2(1088, 576)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 30" type="Sprite2D" parent="Map/Trees" index="29"]
-position = Vector2(1192, 568)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 31" type="Sprite2D" parent="Map/Trees" index="30"]
-position = Vector2(1240, 624)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 32" type="Sprite2D" parent="Map/Trees" index="31"]
-position = Vector2(1144, 608)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 33" type="Sprite2D" parent="Map/Trees" index="32"]
-position = Vector2(1032, 576)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 34" type="Sprite2D" parent="Map/Trees" index="33"]
-position = Vector2(944, 552)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 35" type="Sprite2D" parent="Map/Trees" index="34"]
-position = Vector2(840, 552)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 36" type="Sprite2D" parent="Map/Trees" index="35"]
-position = Vector2(776, 536)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 37" type="Sprite2D" parent="Map/Trees" index="36"]
-position = Vector2(688, 600)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 38" type="Sprite2D" parent="Map/Trees" index="37"]
-position = Vector2(664, 656)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 39" type="Sprite2D" parent="Map/Trees" index="38"]
-position = Vector2(744, 608)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 40" type="Sprite2D" parent="Map/Trees" index="39"]
-position = Vector2(816, 616)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 41" type="Sprite2D" parent="Map/Trees" index="40"]
-position = Vector2(880, 592)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 42" type="Sprite2D" parent="Map/Trees" index="41"]
-position = Vector2(984, 600)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 43" type="Sprite2D" parent="Map/Trees" index="42"]
-position = Vector2(1048, 632)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 44" type="Sprite2D" parent="Map/Trees" index="43"]
-position = Vector2(1112, 656)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 45" type="Sprite2D" parent="Map/Trees" index="44"]
-position = Vector2(1184, 648)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 46" type="Sprite2D" parent="Map/Trees" index="45"]
-position = Vector2(1000, 672)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 47" type="Sprite2D" parent="Map/Trees" index="46"]
-position = Vector2(928, 640)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 48" type="Sprite2D" parent="Map/Trees" index="47"]
-position = Vector2(864, 672)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 49" type="Sprite2D" parent="Map/Trees" index="48"]
-position = Vector2(784, 680)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 50" type="Sprite2D" parent="Map/Trees" index="49"]
-position = Vector2(712, 672)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 51" type="Sprite2D" parent="Map/Trees" index="50"]
-position = Vector2(1264, 720)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 52" type="Sprite2D" parent="Map/Trees" index="51"]
-position = Vector2(1176, 720)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 53" type="Sprite2D" parent="Map/Trees" index="52"]
+[node name="Oak 1" type="Sprite2D" parent="Map/Forest 1" index="0"]
 position = Vector2(1064, 752)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 54" type="Sprite2D" parent="Map/Trees" index="53"]
-position = Vector2(1064, 752)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 55" type="Sprite2D" parent="Map/Trees" index="54"]
-position = Vector2(240, 664)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 56" type="Sprite2D" parent="Map/Trees" index="55"]
+[node name="Oak 2" type="Sprite2D" parent="Map/Forest 1" index="1"]
 position = Vector2(-8, 8)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 57" type="Sprite2D" parent="Map/Trees" index="56"]
+[node name="Oak 3" type="Sprite2D" parent="Map/Forest 1" index="2"]
 position = Vector2(72, 0)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 58" type="Sprite2D" parent="Map/Trees" index="57"]
+[node name="Oak 4" type="Sprite2D" parent="Map/Forest 1" index="3"]
 position = Vector2(200, 16)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 59" type="Sprite2D" parent="Map/Trees" index="58"]
+[node name="Oak 5" type="Sprite2D" parent="Map/Forest 1" index="4"]
 position = Vector2(304, -8)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 60" type="Sprite2D" parent="Map/Trees" index="59"]
+[node name="Oak 6" type="Sprite2D" parent="Map/Forest 1" index="5"]
 position = Vector2(136, 24)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 61" type="Sprite2D" parent="Map/Trees" index="60"]
+[node name="Oak 7" type="Sprite2D" parent="Map/Forest 1" index="6"]
 position = Vector2(368, 1.90735e-06)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 62" type="Sprite2D" parent="Map/Trees" index="61"]
+[node name="Oak 8" type="Sprite2D" parent="Map/Forest 1" index="7"]
 position = Vector2(480, -24)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 63" type="Sprite2D" parent="Map/Trees" index="62"]
+[node name="Oak 9" type="Sprite2D" parent="Map/Forest 1" index="8"]
 position = Vector2(552, 24)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 64" type="Sprite2D" parent="Map/Trees" index="63"]
+[node name="Oak 10" type="Sprite2D" parent="Map/Forest 1" index="9"]
 position = Vector2(440, 24)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 65" type="Sprite2D" parent="Map/Trees" index="64"]
+[node name="Oak 11" type="Sprite2D" parent="Map/Forest 1" index="10"]
 position = Vector2(608, 1.90735e-06)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 66" type="Sprite2D" parent="Map/Trees" index="65"]
+[node name="Oak 12" type="Sprite2D" parent="Map/Forest 1" index="11"]
 position = Vector2(672, 16)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 67" type="Sprite2D" parent="Map/Trees" index="66"]
+[node name="Oak 13" type="Sprite2D" parent="Map/Forest 1" index="12"]
 position = Vector2(760, 0)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 68" type="Sprite2D" parent="Map/Trees" index="67"]
+[node name="Oak 14" type="Sprite2D" parent="Map/Forest 1" index="13"]
 position = Vector2(840, 32)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 69" type="Sprite2D" parent="Map/Trees" index="68"]
+[node name="Oak 15" type="Sprite2D" parent="Map/Forest 1" index="14"]
 position = Vector2(928, 0)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 70" type="Sprite2D" parent="Map/Trees" index="69"]
+[node name="Oak 16" type="Sprite2D" parent="Map/Forest 1" index="15"]
 position = Vector2(1008, -8)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 71" type="Sprite2D" parent="Map/Trees" index="70"]
+[node name="Oak 17" type="Sprite2D" parent="Map/Forest 1" index="16"]
 position = Vector2(1080, -24)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 72" type="Sprite2D" parent="Map/Trees" index="71"]
+[node name="Oak 18" type="Sprite2D" parent="Map/Forest 1" index="17"]
 position = Vector2(1168, -16)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 73" type="Sprite2D" parent="Map/Trees" index="72"]
+[node name="Oak 19" type="Sprite2D" parent="Map/Forest 1" index="18"]
 position = Vector2(1288, -1.90735e-06)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 74" type="Sprite2D" parent="Map/Trees" index="73"]
+[node name="Oak 20" type="Sprite2D" parent="Map/Forest 1" index="19"]
 position = Vector2(32.0001, 48)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 75" type="Sprite2D" parent="Map/Trees" index="74"]
+[node name="Oak 21" type="Sprite2D" parent="Map/Forest 1" index="20"]
 position = Vector2(96, 56)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 76" type="Sprite2D" parent="Map/Trees" index="75"]
+[node name="Oak 22" type="Sprite2D" parent="Map/Forest 1" index="21"]
 position = Vector2(176, 48)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 77" type="Sprite2D" parent="Map/Trees" index="76"]
+[node name="Oak 23" type="Sprite2D" parent="Map/Forest 1" index="22"]
 position = Vector2(256, 32)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 78" type="Sprite2D" parent="Map/Trees" index="77"]
+[node name="Oak 24" type="Sprite2D" parent="Map/Forest 1" index="23"]
 position = Vector2(336, 32)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 79" type="Sprite2D" parent="Map/Trees" index="78"]
+[node name="Oak 25" type="Sprite2D" parent="Map/Forest 1" index="24"]
 position = Vector2(392, 40)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 80" type="Sprite2D" parent="Map/Trees" index="79"]
+[node name="Oak 26" type="Sprite2D" parent="Map/Forest 1" index="25"]
 position = Vector2(496, 40)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 81" type="Sprite2D" parent="Map/Trees" index="80"]
+[node name="Oak 27" type="Sprite2D" parent="Map/Forest 1" index="26"]
 position = Vector2(600, 40)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 82" type="Sprite2D" parent="Map/Trees" index="81"]
+[node name="Oak 28" type="Sprite2D" parent="Map/Forest 1" index="27"]
 position = Vector2(728, 56)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 83" type="Sprite2D" parent="Map/Trees" index="82"]
+[node name="Oak 29" type="Sprite2D" parent="Map/Forest 1" index="28"]
 position = Vector2(792, 48)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 84" type="Sprite2D" parent="Map/Trees" index="83"]
+[node name="Oak 30" type="Sprite2D" parent="Map/Forest 1" index="29"]
 position = Vector2(896, 64)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 85" type="Sprite2D" parent="Map/Trees" index="84"]
+[node name="Oak 31" type="Sprite2D" parent="Map/Forest 1" index="30"]
 position = Vector2(968, 48)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 86" type="Sprite2D" parent="Map/Trees" index="85"]
+[node name="Oak 32" type="Sprite2D" parent="Map/Forest 1" index="31"]
 position = Vector2(664, 80)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 87" type="Sprite2D" parent="Map/Trees" index="86"]
+[node name="Oak 33" type="Sprite2D" parent="Map/Forest 1" index="32"]
 position = Vector2(584, 88)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 88" type="Sprite2D" parent="Map/Trees" index="87"]
+[node name="Oak 34" type="Sprite2D" parent="Map/Forest 1" index="33"]
 position = Vector2(504, 88)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 89" type="Sprite2D" parent="Map/Trees" index="88"]
+[node name="Oak 35" type="Sprite2D" parent="Map/Forest 1" index="34"]
 position = Vector2(400, 80)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 90" type="Sprite2D" parent="Map/Trees" index="89"]
+[node name="Oak 36" type="Sprite2D" parent="Map/Forest 1" index="35"]
 position = Vector2(344, 96)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 91" type="Sprite2D" parent="Map/Trees" index="90"]
+[node name="Oak 37" type="Sprite2D" parent="Map/Forest 1" index="36"]
 position = Vector2(448, 104)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 92" type="Sprite2D" parent="Map/Trees" index="91"]
+[node name="Oak 38" type="Sprite2D" parent="Map/Forest 1" index="37"]
 position = Vector2(280, 72)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 93" type="Sprite2D" parent="Map/Trees" index="92"]
+[node name="Oak 39" type="Sprite2D" parent="Map/Forest 1" index="38"]
 position = Vector2(216, 96)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 94" type="Sprite2D" parent="Map/Trees" index="93"]
+[node name="Oak 40" type="Sprite2D" parent="Map/Forest 1" index="39"]
 position = Vector2(144, 104)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 95" type="Sprite2D" parent="Map/Trees" index="94"]
+[node name="Oak 41" type="Sprite2D" parent="Map/Forest 1" index="40"]
 position = Vector2(40, 88)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 96" type="Sprite2D" parent="Map/Trees" index="95"]
+[node name="Oak 42" type="Sprite2D" parent="Map/Forest 1" index="41"]
 position = Vector2(88, 128)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 97" type="Sprite2D" parent="Map/Trees" index="96"]
+[node name="Oak 43" type="Sprite2D" parent="Map/Forest 1" index="42"]
 position = Vector2(32, 152)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 98" type="Sprite2D" parent="Map/Trees" index="97"]
+[node name="Oak 44" type="Sprite2D" parent="Map/Forest 1" index="43"]
 position = Vector2(184, 136)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 99" type="Sprite2D" parent="Map/Trees" index="98"]
+[node name="Oak 45" type="Sprite2D" parent="Map/Forest 1" index="44"]
 position = Vector2(272, 136)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 100" type="Sprite2D" parent="Map/Trees" index="99"]
+[node name="Oak 46" type="Sprite2D" parent="Map/Forest 1" index="45"]
 position = Vector2(384, 152)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 101" type="Sprite2D" parent="Map/Trees" index="100"]
+[node name="Oak 47" type="Sprite2D" parent="Map/Forest 1" index="46"]
 position = Vector2(328, 176)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 102" type="Sprite2D" parent="Map/Trees" index="101"]
+[node name="Oak 48" type="Sprite2D" parent="Map/Forest 1" index="47"]
 position = Vector2(232, 184)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 103" type="Sprite2D" parent="Map/Trees" index="102"]
+[node name="Oak 49" type="Sprite2D" parent="Map/Forest 1" index="48"]
 position = Vector2(128, 184)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 104" type="Sprite2D" parent="Map/Trees" index="103"]
+[node name="Oak 50" type="Sprite2D" parent="Map/Forest 1" index="49"]
 position = Vector2(176, 208)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 105" type="Sprite2D" parent="Map/Trees" index="104"]
+[node name="Oak 51" type="Sprite2D" parent="Map/Forest 1" index="50"]
 position = Vector2(72, 208)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 106" type="Sprite2D" parent="Map/Trees" index="105"]
+[node name="Oak 52" type="Sprite2D" parent="Map/Forest 1" index="51"]
 position = Vector2(0, 192)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 107" type="Sprite2D" parent="Map/Trees" index="106"]
+[node name="Oak 53" type="Sprite2D" parent="Map/Forest 1" index="52"]
 position = Vector2(16, 272)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Tables" type="Node2D" parent="Map" index="1"]
-
-[node name="Table 1" type="Sprite2D" parent="Map/Tables" index="0"]
-position = Vector2(1152, 224)
-texture = ExtResource("6_mx3ml")
-
-[node name="Table 2" type="Sprite2D" parent="Map/Tables" index="1"]
+[node name="Table 1" type="Sprite2D" parent="Map/Forest 1" index="53"]
 position = Vector2(1236, 131)
 texture = ExtResource("6_mx3ml")
 
-[node name="Table 3" type="Sprite2D" parent="Map/Tables" index="2"]
-position = Vector2(1256, 419)
-texture = ExtResource("6_mx3ml")
-
-[node name="Table 4" type="Sprite2D" parent="Map/Tables" index="3"]
-position = Vector2(1100, 448)
-texture = ExtResource("6_mx3ml")
-
-[node name="Bushes" type="Node2D" parent="Map" index="2"]
-
-[node name="Small Bush 1" type="Sprite2D" parent="Map/Bushes" index="0"]
-position = Vector2(1030, 317)
-texture = ExtResource("7_rrcrb")
-
-[node name="Small Bush 2" type="Sprite2D" parent="Map/Bushes" index="1"]
-position = Vector2(1019, 456)
-texture = ExtResource("7_rrcrb")
-
-[node name="Small Bush 3" type="Sprite2D" parent="Map/Bushes" index="2"]
-position = Vector2(1122, 473)
-texture = ExtResource("7_rrcrb")
-
-[node name="Small Bush 4" type="Sprite2D" parent="Map/Bushes" index="3"]
-position = Vector2(766, 381)
-texture = ExtResource("7_rrcrb")
-
-[node name="Small Bush 5" type="Sprite2D" parent="Map/Bushes" index="4"]
-position = Vector2(664, 391)
-texture = ExtResource("7_rrcrb")
-
-[node name="Small Bush 6" type="Sprite2D" parent="Map/Bushes" index="5"]
+[node name="Small Bush 1" type="Sprite2D" parent="Map/Forest 1" index="54"]
 position = Vector2(580, 287)
 texture = ExtResource("7_rrcrb")
 
-[node name="Small Bush 7" type="Sprite2D" parent="Map/Bushes" index="6"]
+[node name="Small Bush 2" type="Sprite2D" parent="Map/Forest 1" index="55"]
 position = Vector2(389, 242)
 texture = ExtResource("7_rrcrb")
 
-[node name="Small Bush 8" type="Sprite2D" parent="Map/Bushes" index="7"]
+[node name="Small Bush 3" type="Sprite2D" parent="Map/Forest 1" index="56"]
 position = Vector2(546, 109)
 texture = ExtResource("7_rrcrb")
 
-[node name="Small Bush 9" type="Sprite2D" parent="Map/Bushes" index="8"]
+[node name="Small Bush 4" type="Sprite2D" parent="Map/Forest 1" index="57"]
 position = Vector2(437, 163)
 texture = ExtResource("7_rrcrb")
 
-[node name="Small Bush 10" type="Sprite2D" parent="Map/Bushes" index="9"]
+[node name="Small Bush 5" type="Sprite2D" parent="Map/Forest 1" index="58"]
 position = Vector2(502, 144)
 texture = ExtResource("7_rrcrb")
 
-[node name="Small Bush 11" type="Sprite2D" parent="Map/Bushes" index="10"]
+[node name="Small Bush 6" type="Sprite2D" parent="Map/Forest 1" index="59"]
 position = Vector2(433, 203)
 texture = ExtResource("7_rrcrb")
 
-[node name="Small Bush 12" type="Sprite2D" parent="Map/Bushes" index="11"]
+[node name="Small Bush 7" type="Sprite2D" parent="Map/Forest 1" index="60"]
 position = Vector2(551, 143)
 texture = ExtResource("7_rrcrb")
 
-[node name="Small Bush 13" type="Sprite2D" parent="Map/Bushes" index="12"]
+[node name="Small Bush 8" type="Sprite2D" parent="Map/Forest 1" index="61"]
 position = Vector2(631, 131)
 texture = ExtResource("7_rrcrb")
 
-[node name="Small Bush 14" type="Sprite2D" parent="Map/Bushes" index="13"]
+[node name="Small Bush 9" type="Sprite2D" parent="Map/Forest 1" index="62"]
 position = Vector2(627, 97)
 texture = ExtResource("7_rrcrb")
 
-[node name="Small Bush 15" type="Sprite2D" parent="Map/Bushes" index="14"]
+[node name="Small Bush 10" type="Sprite2D" parent="Map/Forest 1" index="63"]
 position = Vector2(716, 116)
 texture = ExtResource("7_rrcrb")
 
-[node name="Small Bush 16" type="Sprite2D" parent="Map/Bushes" index="15"]
+[node name="Small Bush 11" type="Sprite2D" parent="Map/Forest 1" index="64"]
 position = Vector2(788, 104)
 texture = ExtResource("7_rrcrb")
 
-[node name="Small Bush 17" type="Sprite2D" parent="Map/Bushes" index="16"]
+[node name="Small Bush 12" type="Sprite2D" parent="Map/Forest 1" index="65"]
 position = Vector2(493, 183)
 texture = ExtResource("7_rrcrb")
 
-[node name="Small Bush 18" type="Sprite2D" parent="Map/Bushes" index="17"]
+[node name="Small Bush 13" type="Sprite2D" parent="Map/Forest 1" index="66"]
 position = Vector2(476, 213)
 texture = ExtResource("7_rrcrb")
 
-[node name="Small Bush 19" type="Sprite2D" parent="Map/Bushes" index="18"]
+[node name="Small Bush 14" type="Sprite2D" parent="Map/Forest 1" index="67"]
 position = Vector2(369, 210)
 texture = ExtResource("7_rrcrb")
 
-[node name="Small Bush 20" type="Sprite2D" parent="Map/Bushes" index="19"]
+[node name="Small Bush 15" type="Sprite2D" parent="Map/Forest 1" index="68"]
 position = Vector2(128, 240)
 texture = ExtResource("7_rrcrb")
 
-[node name="Small Bush 21" type="Sprite2D" parent="Map/Bushes" index="20"]
+[node name="Small Bush 16" type="Sprite2D" parent="Map/Forest 1" index="69"]
 position = Vector2(63, 267)
 texture = ExtResource("7_rrcrb")
 
-[node name="Small Bush 22" type="Sprite2D" parent="Map/Bushes" index="21"]
+[node name="Small Bush 17" type="Sprite2D" parent="Map/Forest 1" index="70"]
 position = Vector2(329, 250)
 texture = ExtResource("7_rrcrb")
 
-[node name="Small Bush 23" type="Sprite2D" parent="Map/Bushes" index="22"]
+[node name="Small Bush 18" type="Sprite2D" parent="Map/Forest 1" index="71"]
 position = Vector2(458, 250)
 texture = ExtResource("7_rrcrb")
 
-[node name="Small Bush 24" type="Sprite2D" parent="Map/Bushes" index="23"]
+[node name="Small Bush 19" type="Sprite2D" parent="Map/Forest 1" index="72"]
 position = Vector2(418, 262)
 texture = ExtResource("7_rrcrb")
 
-[node name="Small Bush 25" type="Sprite2D" parent="Map/Bushes" index="24"]
+[node name="Small Bush 20" type="Sprite2D" parent="Map/Forest 1" index="73"]
 position = Vector2(475, 281)
 texture = ExtResource("7_rrcrb")
 
-[node name="Small Bush 26" type="Sprite2D" parent="Map/Bushes" index="25"]
+[node name="Small Bush 21" type="Sprite2D" parent="Map/Forest 1" index="74"]
 position = Vector2(814, 236)
 texture = ExtResource("7_rrcrb")
 
-[node name="Small Bush 27" type="Sprite2D" parent="Map/Bushes" index="26"]
-position = Vector2(176, 495)
-texture = ExtResource("7_rrcrb")
-
-[node name="Small Bush 28" type="Sprite2D" parent="Map/Bushes" index="27"]
-position = Vector2(-7, 541)
-texture = ExtResource("7_rrcrb")
-
-[node name="Small Bush 29" type="Sprite2D" parent="Map/Bushes" index="28"]
-position = Vector2(26, 693)
-texture = ExtResource("7_rrcrb")
-
-[node name="Small Bush 30" type="Sprite2D" parent="Map/Bushes" index="29"]
-position = Vector2(204, 726)
-texture = ExtResource("7_rrcrb")
-
-[node name="Small Bush 31" type="Sprite2D" parent="Map/Bushes" index="30"]
-position = Vector2(390, 721)
-texture = ExtResource("7_rrcrb")
-
-[node name="Small Bush 32" type="Sprite2D" parent="Map/Bushes" index="31"]
-position = Vector2(922, 719)
-texture = ExtResource("7_rrcrb")
-
-[node name="Tall Bush 1" type="Sprite2D" parent="Map/Bushes" index="32"]
-position = Vector2(1088, 218)
-scale = Vector2(2, 2)
-texture = ExtResource("8_uukl5")
-
-[node name="Tall Bush 2" type="Sprite2D" parent="Map/Bushes" index="33"]
-position = Vector2(1221, 215)
-scale = Vector2(2, 2)
-texture = ExtResource("8_uukl5")
-
-[node name="Tall Bush 3" type="Sprite2D" parent="Map/Bushes" index="34"]
-position = Vector2(1025, 259)
-scale = Vector2(2, 2)
-texture = ExtResource("8_uukl5")
-
-[node name="Tall Bush 4" type="Sprite2D" parent="Map/Bushes" index="35"]
-position = Vector2(1109, 258)
-scale = Vector2(2, 2)
-texture = ExtResource("8_uukl5")
-
-[node name="Tall Bush 5" type="Sprite2D" parent="Map/Bushes" index="36"]
-position = Vector2(1174, 254)
-scale = Vector2(2, 2)
-texture = ExtResource("8_uukl5")
-
-[node name="Tall Bush 6" type="Sprite2D" parent="Map/Bushes" index="37"]
-position = Vector2(1255, 255)
-scale = Vector2(2, 2)
-texture = ExtResource("8_uukl5")
-
-[node name="Tall Bush 7" type="Sprite2D" parent="Map/Bushes" index="38"]
-position = Vector2(1081, 304)
-scale = Vector2(2, 2)
-texture = ExtResource("8_uukl5")
-
-[node name="Tall Bush 8" type="Sprite2D" parent="Map/Bushes" index="39"]
-position = Vector2(1154, 300)
-scale = Vector2(2, 2)
-texture = ExtResource("8_uukl5")
-
-[node name="Tall Bush 9" type="Sprite2D" parent="Map/Bushes" index="40"]
-position = Vector2(1218, 292)
-scale = Vector2(2, 2)
-texture = ExtResource("8_uukl5")
-
-[node name="Tall Bush 10" type="Sprite2D" parent="Map/Bushes" index="41"]
-position = Vector2(1270, 332)
-scale = Vector2(2, 2)
-texture = ExtResource("8_uukl5")
-
-[node name="Tall Bush 11" type="Sprite2D" parent="Map/Bushes" index="42"]
-position = Vector2(1209, 340)
-scale = Vector2(2, 2)
-texture = ExtResource("8_uukl5")
-
-[node name="Tall Bush 12" type="Sprite2D" parent="Map/Bushes" index="43"]
+[node name="Poplar 1" type="Sprite2D" parent="Map/Forest 1" index="75"]
 position = Vector2(1237, 78)
 scale = Vector2(2, 2)
 texture = ExtResource("8_uukl5")
 
-[node name="Tall Bush 13" type="Sprite2D" parent="Map/Bushes" index="44"]
+[node name="Poplar 2" type="Sprite2D" parent="Map/Forest 1" index="76"]
 position = Vector2(982, 97)
 scale = Vector2(2, 2)
 texture = ExtResource("8_uukl5")
 
-[node name="Tall Bush 14" type="Sprite2D" parent="Map/Bushes" index="45"]
+[node name="Poplar 3" type="Sprite2D" parent="Map/Forest 1" index="77"]
 position = Vector2(762, 182)
 scale = Vector2(2, 2)
 texture = ExtResource("8_uukl5")
 
-[node name="Tall Bush 15" type="Sprite2D" parent="Map/Bushes" index="46"]
+[node name="Poplar 4" type="Sprite2D" parent="Map/Forest 1" index="78"]
 position = Vector2(693, 193)
 scale = Vector2(2, 2)
 texture = ExtResource("8_uukl5")
 
-[node name="Tall Bush 16" type="Sprite2D" parent="Map/Bushes" index="47"]
+[node name="Poplar 5" type="Sprite2D" parent="Map/Forest 1" index="79"]
 position = Vector2(534, 306)
 scale = Vector2(2, 2)
 texture = ExtResource("8_uukl5")
 
-[node name="Tall Bush 17" type="Sprite2D" parent="Map/Bushes" index="48"]
+[node name="Poplar 6" type="Sprite2D" parent="Map/Forest 1" index="80"]
 position = Vector2(410, 346)
 scale = Vector2(2, 2)
 texture = ExtResource("8_uukl5")
 
-[node name="Tall Bush 18" type="Sprite2D" parent="Map/Bushes" index="49"]
+[node name="Poplar 7" type="Sprite2D" parent="Map/Forest 1" index="81"]
 position = Vector2(281, 214)
 scale = Vector2(2, 2)
 texture = ExtResource("8_uukl5")
 
-[node name="Tall Bush 19" type="Sprite2D" parent="Map/Bushes" index="50"]
+[node name="Poplar 8" type="Sprite2D" parent="Map/Forest 1" index="82"]
 position = Vector2(-11, 315)
 scale = Vector2(2, 2)
 texture = ExtResource("8_uukl5")
 
-[node name="Tall Bush 20" type="Sprite2D" parent="Map/Bushes" index="51"]
+[node name="Park" type="Node2D" parent="Map" index="1"]
+
+[node name="Table 1" type="Sprite2D" parent="Map/Park" index="0"]
+position = Vector2(1152, 224)
+texture = ExtResource("6_mx3ml")
+
+[node name="Table 2" type="Sprite2D" parent="Map/Park" index="1"]
+position = Vector2(1256, 419)
+texture = ExtResource("6_mx3ml")
+
+[node name="Small Bush 1" type="Sprite2D" parent="Map/Park" index="2"]
+position = Vector2(1030, 317)
+texture = ExtResource("7_rrcrb")
+
+[node name="Poplar 1" type="Sprite2D" parent="Map/Park" index="3"]
+position = Vector2(1088, 218)
+scale = Vector2(2, 2)
+texture = ExtResource("8_uukl5")
+
+[node name="Poplar 2" type="Sprite2D" parent="Map/Park" index="4"]
+position = Vector2(1221, 215)
+scale = Vector2(2, 2)
+texture = ExtResource("8_uukl5")
+
+[node name="Poplar 3" type="Sprite2D" parent="Map/Park" index="5"]
+position = Vector2(1025, 259)
+scale = Vector2(2, 2)
+texture = ExtResource("8_uukl5")
+
+[node name="Poplar 4" type="Sprite2D" parent="Map/Park" index="6"]
+position = Vector2(1109, 258)
+scale = Vector2(2, 2)
+texture = ExtResource("8_uukl5")
+
+[node name="Poplar 5" type="Sprite2D" parent="Map/Park" index="7"]
+position = Vector2(1174, 254)
+scale = Vector2(2, 2)
+texture = ExtResource("8_uukl5")
+
+[node name="Poplar 6" type="Sprite2D" parent="Map/Park" index="8"]
+position = Vector2(1255, 255)
+scale = Vector2(2, 2)
+texture = ExtResource("8_uukl5")
+
+[node name="Poplar 7" type="Sprite2D" parent="Map/Park" index="9"]
+position = Vector2(1081, 304)
+scale = Vector2(2, 2)
+texture = ExtResource("8_uukl5")
+
+[node name="Poplar 8" type="Sprite2D" parent="Map/Park" index="10"]
+position = Vector2(1154, 300)
+scale = Vector2(2, 2)
+texture = ExtResource("8_uukl5")
+
+[node name="Poplar 9" type="Sprite2D" parent="Map/Park" index="11"]
+position = Vector2(1218, 292)
+scale = Vector2(2, 2)
+texture = ExtResource("8_uukl5")
+
+[node name="Poplar 10" type="Sprite2D" parent="Map/Park" index="12"]
+position = Vector2(1270, 332)
+scale = Vector2(2, 2)
+texture = ExtResource("8_uukl5")
+
+[node name="Poplar 11" type="Sprite2D" parent="Map/Park" index="13"]
+position = Vector2(1209, 340)
+scale = Vector2(2, 2)
+texture = ExtResource("8_uukl5")
+
+[node name="Forest 2" type="Node2D" parent="Map" index="2"]
+
+[node name="Oak 1" type="Sprite2D" parent="Map/Forest 2" index="0"]
+position = Vector2(154, 334)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 2" type="Sprite2D" parent="Map/Forest 2" index="1"]
+position = Vector2(24, 448)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 3" type="Sprite2D" parent="Map/Forest 2" index="2"]
+position = Vector2(64, 480)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 4" type="Sprite2D" parent="Map/Forest 2" index="3"]
+position = Vector2(240, 664)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_pd1fw")
+
+[node name="Small Bush 1" type="Sprite2D" parent="Map/Forest 2" index="4"]
+position = Vector2(176, 495)
+texture = ExtResource("7_rrcrb")
+
+[node name="Small Bush 2" type="Sprite2D" parent="Map/Forest 2" index="5"]
+position = Vector2(-7, 541)
+texture = ExtResource("7_rrcrb")
+
+[node name="Small Bush 3" type="Sprite2D" parent="Map/Forest 2" index="6"]
+position = Vector2(26, 693)
+texture = ExtResource("7_rrcrb")
+
+[node name="Small Bush 4" type="Sprite2D" parent="Map/Forest 2" index="7"]
+position = Vector2(204, 726)
+texture = ExtResource("7_rrcrb")
+
+[node name="Forest 3" type="Node2D" parent="Map" index="3"]
+
+[node name="Oak 1" type="Sprite2D" parent="Map/Forest 3" index="0"]
+position = Vector2(296, 464)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 2" type="Sprite2D" parent="Map/Forest 3" index="1"]
+position = Vector2(376, 512)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 3" type="Sprite2D" parent="Map/Forest 3" index="2"]
+position = Vector2(432, 536)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 4" type="Sprite2D" parent="Map/Forest 3" index="3"]
+position = Vector2(496, 536)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 5" type="Sprite2D" parent="Map/Forest 3" index="4"]
+position = Vector2(376, 584)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 6" type="Sprite2D" parent="Map/Forest 3" index="5"]
+position = Vector2(432, 600)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 7" type="Sprite2D" parent="Map/Forest 3" index="6"]
+position = Vector2(368, 664)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 8" type="Sprite2D" parent="Map/Forest 3" index="7"]
+position = Vector2(440, 664)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 9" type="Sprite2D" parent="Map/Forest 3" index="8"]
+position = Vector2(496, 616)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 10" type="Sprite2D" parent="Map/Forest 3" index="9"]
+position = Vector2(552, 592)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 11" type="Sprite2D" parent="Map/Forest 3" index="10"]
+position = Vector2(616, 624)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 12" type="Sprite2D" parent="Map/Forest 3" index="11"]
+position = Vector2(544, 664)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 13" type="Sprite2D" parent="Map/Forest 3" index="12"]
+position = Vector2(608, 688)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 14" type="Sprite2D" parent="Map/Forest 3" index="13"]
+position = Vector2(496, 696)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 15" type="Sprite2D" parent="Map/Forest 3" index="14"]
+position = Vector2(712, 384)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 16" type="Sprite2D" parent="Map/Forest 3" index="15"]
+position = Vector2(752, 440)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 17" type="Sprite2D" parent="Map/Forest 3" index="16"]
+position = Vector2(672, 448)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 18" type="Sprite2D" parent="Map/Forest 3" index="17"]
+position = Vector2(960, 472)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 19" type="Sprite2D" parent="Map/Forest 3" index="18"]
+position = Vector2(1064, 488)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 20" type="Sprite2D" parent="Map/Forest 3" index="19"]
+position = Vector2(1160, 520)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 21" type="Sprite2D" parent="Map/Forest 3" index="20"]
+position = Vector2(1248, 544)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 22" type="Sprite2D" parent="Map/Forest 3" index="21"]
+position = Vector2(824, 472)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 23" type="Sprite2D" parent="Map/Forest 3" index="22"]
+position = Vector2(712, 520)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 24" type="Sprite2D" parent="Map/Forest 3" index="23"]
+position = Vector2(888, 496)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 25" type="Sprite2D" parent="Map/Forest 3" index="24"]
+position = Vector2(1000, 528)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 26" type="Sprite2D" parent="Map/Forest 3" index="25"]
+position = Vector2(1088, 576)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 27" type="Sprite2D" parent="Map/Forest 3" index="26"]
+position = Vector2(1192, 568)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 28" type="Sprite2D" parent="Map/Forest 3" index="27"]
+position = Vector2(1240, 624)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 29" type="Sprite2D" parent="Map/Forest 3" index="28"]
+position = Vector2(1144, 608)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 30" type="Sprite2D" parent="Map/Forest 3" index="29"]
+position = Vector2(1032, 576)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 31" type="Sprite2D" parent="Map/Forest 3" index="30"]
+position = Vector2(944, 552)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 32" type="Sprite2D" parent="Map/Forest 3" index="31"]
+position = Vector2(840, 552)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 33" type="Sprite2D" parent="Map/Forest 3" index="32"]
+position = Vector2(776, 536)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 34" type="Sprite2D" parent="Map/Forest 3" index="33"]
+position = Vector2(688, 600)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 35" type="Sprite2D" parent="Map/Forest 3" index="34"]
+position = Vector2(664, 656)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 36" type="Sprite2D" parent="Map/Forest 3" index="35"]
+position = Vector2(744, 608)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 37" type="Sprite2D" parent="Map/Forest 3" index="36"]
+position = Vector2(816, 616)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 38" type="Sprite2D" parent="Map/Forest 3" index="37"]
+position = Vector2(880, 592)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 39" type="Sprite2D" parent="Map/Forest 3" index="38"]
+position = Vector2(984, 600)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 40" type="Sprite2D" parent="Map/Forest 3" index="39"]
+position = Vector2(1048, 632)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 41" type="Sprite2D" parent="Map/Forest 3" index="40"]
+position = Vector2(1112, 656)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 42" type="Sprite2D" parent="Map/Forest 3" index="41"]
+position = Vector2(1184, 648)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 43" type="Sprite2D" parent="Map/Forest 3" index="42"]
+position = Vector2(1000, 672)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 44" type="Sprite2D" parent="Map/Forest 3" index="43"]
+position = Vector2(928, 640)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 45" type="Sprite2D" parent="Map/Forest 3" index="44"]
+position = Vector2(864, 672)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 46" type="Sprite2D" parent="Map/Forest 3" index="45"]
+position = Vector2(784, 680)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 47" type="Sprite2D" parent="Map/Forest 3" index="46"]
+position = Vector2(712, 682)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 48" type="Sprite2D" parent="Map/Forest 3" index="47"]
+position = Vector2(1264, 720)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 49" type="Sprite2D" parent="Map/Forest 3" index="48"]
+position = Vector2(1176, 720)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Oak 50" type="Sprite2D" parent="Map/Forest 3" index="49"]
+position = Vector2(1064, 752)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("5_pd1fw")
+
+[node name="Table 1" type="Sprite2D" parent="Map/Forest 3" index="50"]
+position = Vector2(1100, 448)
+texture = ExtResource("6_mx3ml")
+
+[node name="Small Bush 1" type="Sprite2D" parent="Map/Forest 3" index="51"]
+position = Vector2(1019, 456)
+texture = ExtResource("7_rrcrb")
+
+[node name="Small Bush 2" type="Sprite2D" parent="Map/Forest 3" index="52"]
+position = Vector2(1122, 473)
+texture = ExtResource("7_rrcrb")
+
+[node name="Small Bush 3" type="Sprite2D" parent="Map/Forest 3" index="53"]
+position = Vector2(766, 381)
+texture = ExtResource("7_rrcrb")
+
+[node name="Small Bush 4" type="Sprite2D" parent="Map/Forest 3" index="54"]
+position = Vector2(664, 391)
+texture = ExtResource("7_rrcrb")
+
+[node name="Small Bush 5" type="Sprite2D" parent="Map/Forest 3" index="55"]
+position = Vector2(390, 721)
+texture = ExtResource("7_rrcrb")
+
+[node name="Small Bush 6" type="Sprite2D" parent="Map/Forest 3" index="56"]
+position = Vector2(922, 719)
+texture = ExtResource("7_rrcrb")
+
+[node name="Poplar 1" type="Sprite2D" parent="Map/Forest 3" index="57"]
 position = Vector2(761, 321)
 scale = Vector2(2, 2)
 texture = ExtResource("8_uukl5")
 
-[node name="Tall Bush 21" type="Sprite2D" parent="Map/Bushes" index="52"]
+[node name="Poplar 2" type="Sprite2D" parent="Map/Forest 3" index="58"]
 position = Vector2(934, 392)
 scale = Vector2(2, 2)
 texture = ExtResource("8_uukl5")
 
-[node name="Holy Oak" parent="Map" index="3"]
+[node name="Holy Oak" parent="Map" index="4"]
 position = Vector2(472, 416)
 
 [node name="Platform 1" parent="Towers" index="0" instance=ExtResource("5_272q0")]
