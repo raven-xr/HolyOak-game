@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dqfm4pmqposiy" path="res://models/objects/oak.png" id="6_rmyq5"]
 [ext_resource type="Texture2D" uid="uid://c2hl8w46j70b1" path="res://models/objects/tall_bush.png" id="7_4ktqa"]
 [ext_resource type="Texture2D" uid="uid://4wl2w7feibqx" path="res://tilesets/walls/walls.png" id="7_sswbo"]
-[ext_resource type="PackedScene" uid="uid://ccqwn6n7il2n2" path="res://scenes/minor/point/point.tscn" id="8_3rey1"]
+[ext_resource type="PackedScene" uid="uid://ccqwn6n7il2n2" path="res://scenes/minor/waypoint/waypoint.tscn" id="8_3rey1"]
 [ext_resource type="Texture2D" uid="uid://c4hsbyvxqgyxb" path="res://models/objects/small_bush.png" id="8_gmu86"]
 [ext_resource type="Texture2D" uid="uid://c7mi2jbynpkv4" path="res://models/objects/stump.png" id="8_k1w2h"]
 [ext_resource type="Texture2D" uid="uid://d1ygnmgujqnib" path="res://models/objects/box.png" id="9_6ju2p"]
@@ -419,51 +419,51 @@ tile_set = SubResource("TileSet_74scv")
 
 [node name="Road 1" type="Node2D" parent="Enemies" index="0"]
 
-[node name="Points" type="Node" parent="Enemies/Road 1" index="0"]
+[node name="Waypoints" type="Node" parent="Enemies/Road 1" index="0"]
 
-[node name="Point 1" parent="Enemies/Road 1/Points" index="0" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("8_3rey1")]
+[node name="Waypoint 1" parent="Enemies/Road 1/Waypoints" index="0" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("8_3rey1")]
 position = Vector2(1328, -40)
 rotation = 1.5708
 new_direction = "D-L"
-next_roadpoint = NodePath("../Point 2")
+next_roadpoint = NodePath("../Waypoint 2")
 
-[node name="Point 2" parent="Enemies/Road 1/Points" index="1" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("8_3rey1")]
+[node name="Waypoint 2" parent="Enemies/Road 1/Waypoints" index="1" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("8_3rey1")]
 position = Vector2(1096, 232)
 rotation = 1.5708
 new_direction = "L"
-next_roadpoint = NodePath("../Point 3")
+next_roadpoint = NodePath("../Waypoint 3")
 
-[node name="Point 3" parent="Enemies/Road 1/Points" index="2" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("8_3rey1")]
+[node name="Waypoint 3" parent="Enemies/Road 1/Waypoints" index="2" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("8_3rey1")]
 position = Vector2(544, 304)
 rotation = -0.523599
-next_roadpoint = NodePath("../Point 4")
+next_roadpoint = NodePath("../Waypoint 4")
 
-[node name="Point 4" parent="Enemies/Road 1/Points" index="3" instance=ExtResource("8_3rey1")]
+[node name="Waypoint 4" parent="Enemies/Road 1/Waypoints" index="3" instance=ExtResource("8_3rey1")]
 position = Vector2(148, 384)
 
 [node name="Road 2" type="Node2D" parent="Enemies" index="1"]
 
-[node name="Points" type="Node" parent="Enemies/Road 2" index="0"]
+[node name="Waypoints" type="Node" parent="Enemies/Road 2" index="0"]
 
-[node name="Point 1" parent="Enemies/Road 2/Points" index="0" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("8_3rey1")]
+[node name="Waypoint 1" parent="Enemies/Road 2/Waypoints" index="0" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("8_3rey1")]
 position = Vector2(656, 768)
 rotation = 1.5708
 new_direction = "U"
-next_roadpoint = NodePath("../Point 2")
+next_roadpoint = NodePath("../Waypoint 2")
 
-[node name="Point 2" parent="Enemies/Road 2/Points" index="1" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("8_3rey1")]
+[node name="Waypoint 2" parent="Enemies/Road 2/Waypoints" index="1" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("8_3rey1")]
 position = Vector2(656, 512)
 rotation = 1.5708
 new_direction = "U-L"
-next_roadpoint = NodePath("../Point 3")
+next_roadpoint = NodePath("../Waypoint 3")
 
-[node name="Point 3" parent="Enemies/Road 2/Points" index="2" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("8_3rey1")]
+[node name="Waypoint 3" parent="Enemies/Road 2/Waypoints" index="2" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("8_3rey1")]
 position = Vector2(488, 304)
 rotation = 1.0472
 new_direction = "L"
-next_roadpoint = NodePath("../Point 4")
+next_roadpoint = NodePath("../Waypoint 4")
 
-[node name="Point 4" parent="Enemies/Road 2/Points" index="3" instance=ExtResource("8_3rey1")]
+[node name="Waypoint 4" parent="Enemies/Road 2/Waypoints" index="3" instance=ExtResource("8_3rey1")]
 position = Vector2(148, 384)
 
 [node name="Stumps" type="Node2D" parent="Map" index="0"]
