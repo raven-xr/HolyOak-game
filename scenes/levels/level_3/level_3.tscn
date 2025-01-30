@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=4 uid="uid://jntda0nfq0ml"]
+[gd_scene load_steps=20 format=4 uid="uid://jntda0nfq0ml"]
 
 [ext_resource type="PackedScene" uid="uid://bbsqvqymrojj5" path="res://scenes/levels/common/level.tscn" id="1_6eesv"]
 [ext_resource type="Texture2D" uid="uid://ciyeb8o1ywukt" path="res://tilesets/grass.png" id="2_j5uvo"]
 [ext_resource type="Texture2D" uid="uid://b0e3u22u8240c" path="res://tilesets/decor_16x16.png" id="4_nubkq"]
 [ext_resource type="Texture2D" uid="uid://sasruh3frvel" path="res://tilesets/plains.png" id="4_yoaft"]
 [ext_resource type="PackedScene" uid="uid://d1hglytmquni" path="res://units/common/platform.tscn" id="5_272q0"]
+[ext_resource type="PackedScene" uid="uid://ccqwn6n7il2n2" path="res://scenes/minor/waypoint/waypoint.tscn" id="5_fqwq1"]
 [ext_resource type="Texture2D" uid="uid://dqfm4pmqposiy" path="res://models/objects/oak.png" id="5_pd1fw"]
 [ext_resource type="Texture2D" uid="uid://cktva0111rdpr" path="res://models/objects/table.png" id="6_mx3ml"]
 [ext_resource type="Texture2D" uid="uid://c4hsbyvxqgyxb" path="res://models/objects/small_bush.png" id="7_rrcrb"]
@@ -109,6 +110,37 @@ tile_set = SubResource("TileSet_hxrqg")
 [node name="Road 1" type="Node2D" parent="Enemies" index="0"]
 
 [node name="Waypoints" type="Node" parent="Enemies/Road 1" index="0"]
+
+[node name="Waypoint 1" parent="Enemies/Road 1/Waypoints" index="0" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("5_fqwq1")]
+position = Vector2(-8, 416)
+new_direction = "U-R"
+next_roadpoint = NodePath("../Waypoint 2")
+
+[node name="Waypoint 2" parent="Enemies/Road 1/Waypoints" index="1" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("5_fqwq1")]
+position = Vector2(128, 288)
+rotation = -0.820305
+new_direction = "R"
+next_roadpoint = NodePath("../Waypoint 3")
+
+[node name="Waypoint 3" parent="Enemies/Road 1/Waypoints" index="2" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("5_fqwq1")]
+position = Vector2(224, 288)
+new_direction = "D"
+next_roadpoint = NodePath("../Waypoint 4")
+
+[node name="Waypoint 4" parent="Enemies/Road 1/Waypoints" index="3" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("5_fqwq1")]
+position = Vector2(224, 416)
+rotation = 1.5708
+new_direction = "R"
+next_roadpoint = NodePath("../Waypoint 5")
+
+[node name="Waypoint 5" parent="Enemies/Road 1/Waypoints" index="4" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("5_fqwq1")]
+position = Vector2(352, 416)
+new_direction = "D-R"
+next_roadpoint = NodePath("../Waypoint 6")
+
+[node name="Waypoint 6" parent="Enemies/Road 1/Waypoints" index="5" instance=ExtResource("5_fqwq1")]
+position = Vector2(424, 480)
+new_direction = "R"
 
 [node name="Road 2" type="Node2D" parent="Enemies" index="1"]
 
