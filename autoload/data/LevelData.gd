@@ -1,12 +1,13 @@
 extends Node
 
-const LEVEL_1 = {
+
+
+const LEVEL_1: Dictionary = {
 	# Start data
 	"health": 150,
 	"money": 400,
 	"tower_level_limit": 2,
 	"wave_count": 3,
-	# Waves
 	"wave_1": {
 		"spawn_cooldown": 2.0,
 		"enemies": [
@@ -44,13 +45,12 @@ const LEVEL_1 = {
 	}
 }
 
-const LEVEL_2 = {
+const LEVEL_2: Dictionary = {
 	# Start data
 	"health": 200,
 	"money": 400,
 	"tower_level_limit": 3,
 	"wave_count": 5,
-	# Waves
 	"wave_1": {
 		"spawn_cooldown": 2.0,
 		"enemies": [
@@ -238,5 +238,14 @@ const LEVEL_2 = {
 			{"type": "slime", "road": "1"},
 			{"type": "slime", "road": "2"}
 		]
+	}
+}
+
+const LEVEL_3: Dictionary = {
+	"health": 100,
+	"money": 100,
+	"tower_level_limit": 4,
+	"wave_count": 1,
+	"wave_1": {
 	}
 }

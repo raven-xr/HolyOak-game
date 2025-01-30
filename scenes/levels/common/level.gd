@@ -21,7 +21,7 @@ enum States {
 
 ## Leave this field if there are no levels left
 @export var next_level_path: String = "res://scenes/main_menu/main_menu.tscn"
-@export var techical_name: StringName
+@export var technical_name: StringName
 
 
 
@@ -34,7 +34,7 @@ enum States {
 @onready var wave_timer = $"Timers/Wave Timer"
 @onready var spawn_timer = $"Timers/Spawn Timer"
 
-@onready var data: Dictionary = LevelData.get(techical_name)
+@onready var data: Dictionary = LevelData.get(technical_name)
 
 
 
