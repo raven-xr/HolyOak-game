@@ -286,31 +286,31 @@ position = Vector2(152, 432)
 
 [node name="Waypoints" type="Node" parent="Enemies/Road 2" index="0"]
 
-[node name="Waypoints" parent="Enemies/Road 2/Waypoints" index="0" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("9_tghr1")]
+[node name="Waypoints 1" parent="Enemies/Road 2/Waypoints" index="0" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("9_tghr1")]
 position = Vector2(936, 752)
 rotation = 1.5708
 new_direction = "U"
-next_roadpoint = NodePath("../Waypoints2")
+next_roadpoint = NodePath("../Waypoints 2")
 
-[node name="Waypoints2" parent="Enemies/Road 2/Waypoints" index="1" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("9_tghr1")]
+[node name="Waypoints 2" parent="Enemies/Road 2/Waypoints" index="1" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("9_tghr1")]
 position = Vector2(936, 552)
 rotation = 1.5708
 new_direction = "U-L"
-next_roadpoint = NodePath("../Waypoints3")
+next_roadpoint = NodePath("../Waypoints 3")
 
-[node name="Waypoints3" parent="Enemies/Road 2/Waypoints" index="2" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("9_tghr1")]
+[node name="Waypoints 3" parent="Enemies/Road 2/Waypoints" index="2" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("9_tghr1")]
 position = Vector2(848, 296)
 rotation = 1.0472
 new_direction = "L"
-next_roadpoint = NodePath("../Waypoints4")
+next_roadpoint = NodePath("../Waypoints 4")
 
-[node name="Waypoints4" parent="Enemies/Road 2/Waypoints" index="3" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("9_tghr1")]
+[node name="Waypoints 4" parent="Enemies/Road 2/Waypoints" index="3" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("9_tghr1")]
 position = Vector2(752, 328)
 rotation = -0.785398
 new_direction = "L"
-next_roadpoint = NodePath("../Waypoints5")
+next_roadpoint = NodePath("../Waypoints 5")
 
-[node name="Waypoints5" parent="Enemies/Road 2/Waypoints" index="4" instance=ExtResource("9_tghr1")]
+[node name="Waypoints 5" parent="Enemies/Road 2/Waypoints" index="4" instance=ExtResource("9_tghr1")]
 position = Vector2(152, 432)
 
 [node name="Holy Oak" parent="Map" index="0"]
