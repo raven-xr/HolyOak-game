@@ -112,7 +112,7 @@ tile_set = SubResource("TileSet_hxrqg")
 [node name="Waypoints" type="Node" parent="Enemies/Road 1" index="0"]
 
 [node name="Waypoint 1" parent="Enemies/Road 1/Waypoints" index="0" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("5_fqwq1")]
-position = Vector2(-8, 416)
+position = Vector2(-24, 416)
 new_direction = "U-R"
 next_roadpoint = NodePath("../Waypoint 2")
 
