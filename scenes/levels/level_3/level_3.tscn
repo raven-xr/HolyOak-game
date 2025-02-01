@@ -118,7 +118,7 @@ next_roadpoint = NodePath("../Waypoint 2")
 
 [node name="Waypoint 2" parent="Enemies/Road 1/Waypoints" index="1" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("5_fqwq1")]
 position = Vector2(128, 288)
-rotation = -0.820305
+rotation = -0.698132
 new_direction = "R"
 next_roadpoint = NodePath("../Waypoint 3")
 
@@ -139,7 +139,8 @@ new_direction = "D-R"
 next_roadpoint = NodePath("../Waypoint 6")
 
 [node name="Waypoint 6" parent="Enemies/Road 1/Waypoints" index="5" instance=ExtResource("5_fqwq1")]
-position = Vector2(424, 464)
+position = Vector2(416, 456)
+rotation = 0.715585
 new_direction = "R"
 
 [node name="Road 2" type="Node2D" parent="Enemies" index="1"]
@@ -147,30 +148,37 @@ new_direction = "R"
 [node name="Waypoints" type="Node" parent="Enemies/Road 2" index="0"]
 
 [node name="Waypoint 1" parent="Enemies/Road 2/Waypoints" index="0" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("5_fqwq1")]
-position = Vector2(128, 744)
+position = Vector2(160, 744)
 rotation = 1.5708
-new_direction = "U-R"
+new_direction = "U"
 next_roadpoint = NodePath("../Waypoint 2")
 
 [node name="Waypoint 2" parent="Enemies/Road 2/Waypoints" index="1" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("5_fqwq1")]
-position = Vector2(224, 576)
+position = Vector2(160, 664)
 rotation = 1.5708
-new_direction = "U"
+new_direction = "U-R"
 next_roadpoint = NodePath("../Waypoint 3")
 
 [node name="Waypoint 3" parent="Enemies/Road 2/Waypoints" index="2" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("5_fqwq1")]
-position = Vector2(224, 416)
+position = Vector2(224, 576)
 rotation = 1.5708
-new_direction = "R"
+new_direction = "U"
 next_roadpoint = NodePath("../Waypoint 4")
 
 [node name="Waypoint 4" parent="Enemies/Road 2/Waypoints" index="3" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("5_fqwq1")]
-position = Vector2(352, 416)
-new_direction = "D-R"
+position = Vector2(224, 412)
+rotation = 1.5708
+new_direction = "R"
 next_roadpoint = NodePath("../Waypoint 5")
 
-[node name="Waypoint 5" parent="Enemies/Road 2/Waypoints" index="4" instance=ExtResource("5_fqwq1")]
-position = Vector2(424, 480)
+[node name="Waypoint 5" parent="Enemies/Road 2/Waypoints" index="4" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("5_fqwq1")]
+position = Vector2(352, 412)
+new_direction = "D-R"
+next_roadpoint = NodePath("../Waypoint 6")
+
+[node name="Waypoint 6" parent="Enemies/Road 2/Waypoints" index="5" instance=ExtResource("5_fqwq1")]
+position = Vector2(416, 472)
+rotation = 0.750492
 new_direction = "R"
 
 [node name="Road 3" type="Node2D" parent="Enemies" index="2"]
@@ -195,27 +203,115 @@ new_direction = "U"
 next_roadpoint = NodePath("../Waypoint 4")
 
 [node name="Waypoint 4" parent="Enemies/Road 3/Waypoints" index="3" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("5_fqwq1")]
-position = Vector2(224, 432)
+position = Vector2(224, 424)
 rotation = 1.5708
 new_direction = "R"
 next_roadpoint = NodePath("../Waypoint 5")
 
 [node name="Waypoint 5" parent="Enemies/Road 3/Waypoints" index="4" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("5_fqwq1")]
-position = Vector2(352, 432)
+position = Vector2(352, 424)
 new_direction = "D-R"
 next_roadpoint = NodePath("../Waypoint 6")
 
 [node name="Waypoint 6" parent="Enemies/Road 3/Waypoints" index="5" instance=ExtResource("5_fqwq1")]
-position = Vector2(424, 496)
+position = Vector2(416, 488)
+rotation = 0.785398
 new_direction = "R"
 
 [node name="Road 4" type="Node2D" parent="Enemies" index="3"]
 
 [node name="Waypoints" type="Node" parent="Enemies/Road 4" index="0"]
 
+[node name="Waypoint 1" parent="Enemies/Road 4/Waypoints" index="0" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("5_fqwq1")]
+position = Vector2(1304, 176)
+new_direction = "L"
+next_roadpoint = NodePath("../Waypoint 2")
+
+[node name="Waypoint 2" parent="Enemies/Road 4/Waypoints" index="1" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("5_fqwq1")]
+position = Vector2(1016, 176)
+new_direction = "D-L"
+next_roadpoint = NodePath("../Waypoint 3")
+
+[node name="Waypoint 3" parent="Enemies/Road 4/Waypoints" index="2" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("5_fqwq1")]
+position = Vector2(912, 280)
+rotation = -0.785398
+new_direction = "L"
+next_roadpoint = NodePath("../Waypoint 4")
+
+[node name="Waypoint 4" parent="Enemies/Road 4/Waypoints" index="3" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("5_fqwq1")]
+position = Vector2(680, 280)
+new_direction = "D-L"
+next_roadpoint = NodePath("../Waypoint 5")
+
+[node name="Waypoint 5" parent="Enemies/Road 4/Waypoints" index="4" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("5_fqwq1")]
+position = Vector2(600, 360)
+rotation = -0.785398
+new_direction = "D"
+next_roadpoint = NodePath("../Waypoint 6")
+
+[node name="Waypoint 6" parent="Enemies/Road 4/Waypoints" index="5" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("5_fqwq1")]
+position = Vector2(600, 400)
+rotation = 1.5708
+new_direction = "D-L"
+next_roadpoint = NodePath("../Waypoint 7")
+
+[node name="Waypoint 7" parent="Enemies/Road 4/Waypoints" index="6" instance=ExtResource("5_fqwq1")]
+position = Vector2(528, 464)
+rotation = -0.733038
+new_direction = "L"
+
 [node name="Road 5" type="Node2D" parent="Enemies" index="4"]
 
 [node name="Waypoints" type="Node" parent="Enemies/Road 5" index="0"]
+
+[node name="Waypoint 1" parent="Enemies/Road 5/Waypoints" index="0" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("5_fqwq1")]
+position = Vector2(1304, 464)
+new_direction = "L"
+next_roadpoint = NodePath("../Waypoint 2")
+
+[node name="Waypoint 2" parent="Enemies/Road 5/Waypoints" index="1" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("5_fqwq1")]
+position = Vector2(1216, 464)
+new_direction = "U-L"
+next_roadpoint = NodePath("../Waypoint 3")
+
+[node name="Waypoint 3" parent="Enemies/Road 5/Waypoints" index="2" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("5_fqwq1")]
+position = Vector2(1136, 400)
+rotation = 0.680678
+new_direction = "L"
+next_roadpoint = NodePath("../Waypoint 4")
+
+[node name="Waypoint 4" parent="Enemies/Road 5/Waypoints" index="3" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("5_fqwq1")]
+position = Vector2(1040, 400)
+new_direction = "U-L"
+next_roadpoint = NodePath("../Waypoint 5")
+
+[node name="Waypoint 5" parent="Enemies/Road 5/Waypoints" index="4" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("5_fqwq1")]
+position = Vector2(912, 296)
+rotation = 0.680678
+new_direction = "L"
+next_roadpoint = NodePath("../Waypoint 6")
+
+[node name="Waypoint 6" parent="Enemies/Road 5/Waypoints" index="5" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("5_fqwq1")]
+position = Vector2(680, 296)
+new_direction = "D-L"
+next_roadpoint = NodePath("../Waypoint 7")
+
+[node name="Waypoint 7" parent="Enemies/Road 5/Waypoints" index="6" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("5_fqwq1")]
+position = Vector2(616, 360)
+rotation = -0.785398
+new_direction = "D"
+next_roadpoint = NodePath("../Waypoint 8")
+
+[node name="Waypoint 8" parent="Enemies/Road 5/Waypoints" index="7" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("5_fqwq1")]
+position = Vector2(616, 400)
+rotation = 1.5708
+new_direction = "D-L"
+next_roadpoint = NodePath("../Waypoint 9")
+
+[node name="Waypoint 9" parent="Enemies/Road 5/Waypoints" index="8" instance=ExtResource("5_fqwq1")]
+position = Vector2(528, 480)
+rotation = -0.733038
+new_direction = "L"
 
 [node name="Forest 1" type="Node2D" parent="Map" index="0"]
 
