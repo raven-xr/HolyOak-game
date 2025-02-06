@@ -890,12 +890,12 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
 [node name="Oak 20" type="Sprite2D" parent="Map/Trees" index="19"]
-position = Vector2(1136, 488)
+position = Vector2(1096, 416)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
 [node name="Oak 21" type="Sprite2D" parent="Map/Trees" index="20"]
-position = Vector2(1088, 432)
+position = Vector2(1120, 488)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
