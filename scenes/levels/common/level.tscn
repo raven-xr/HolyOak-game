@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bbsqvqymrojj5"]
+[gd_scene load_steps=13 format=3 uid="uid://bbsqvqymrojj5"]
 
 [ext_resource type="Script" path="res://scenes/levels/common/level.gd" id="1_8vq8d"]
 [ext_resource type="PackedScene" uid="uid://ceakiostnoxao" path="res://scenes/minor/hint/hint.tscn" id="2_5ps6b"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dqhv5ii03kgra" path="res://scenes/minor/victory_menu/victory_menu.tscn" id="6_r8y5h"]
 [ext_resource type="PackedScene" uid="uid://sqtg0w21y043" path="res://scenes/minor/game_menu/game_menu.tscn" id="7_165x0"]
 [ext_resource type="PackedScene" uid="uid://dgsn2o3sm3wgn" path="res://scenes/levels/common/holy_oak.tscn" id="9_eoj5e"]
+[ext_resource type="Script" path="res://scenes/levels/common/control.gd" id="12_2u1u3"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_8vq8d")
@@ -81,6 +82,10 @@ one_shot = true
 
 [node name="Spawn Timer" type="Timer" parent="Timers"]
 one_shot = true
+
+[node name="Control" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("12_2u1u3")
 
 [connection signal="pressed" from="UserInterface/Menu/Button" to="." method="_on_menu_button_pressed"]
 [connection signal="timeout" from="Timers/Start Timer" to="." method="_on_start_timer_timeout"]
