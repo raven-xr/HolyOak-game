@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv7vs3dhkjnjh"
-path="res://.godot/imported/D_Idle.png-1584fd2a4781c5cbdf83ac223fc48713.ctex"
+uid="uid://vdm11oykgjli"
+path="res://.godot/imported/R_Idle.png-8e0be417390626403f12faecad3cb7dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://models/units/archers/sprite/D_Idle.png"
-dest_files=["res://.godot/imported/D_Idle.png-1584fd2a4781c5cbdf83ac223fc48713.ctex"]
+source_file="res://models/units/archer/sprite/R_Idle.png"
+dest_files=["res://.godot/imported/R_Idle.png-8e0be417390626403f12faecad3cb7dd.ctex"]
 
 [params]
 
