@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6o16t77ww40d"]
+
+[ext_resource type="PackedScene" uid="uid://cenxr6q3w2dek" path="res://units/archer/archer.tscn" id="1_nrnv8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aqhqp"]
+resource_local_to_scene = true
+
+[node name="Fire Archer" instance=ExtResource("1_nrnv8")]
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("CircleShape2D_aqhqp")
