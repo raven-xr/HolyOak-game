@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bcb2hj7qx6c7h" path="res://tilesets/fences.png" id="7_x25lq"]
 [ext_resource type="Texture2D" uid="uid://dqfm4pmqposiy" path="res://models/objects/oak.png" id="8_cjtaa"]
 [ext_resource type="Texture2D" uid="uid://b0e3u22u8240c" path="res://tilesets/decor_16x16.png" id="8_jqacd"]
-[ext_resource type="PackedScene" uid="uid://ccqwn6n7il2n2" path="res://scenes/minor/point/point.tscn" id="9_tghr1"]
+[ext_resource type="PackedScene" uid="uid://ccqwn6n7il2n2" path="res://scenes/minor/waypoint/waypoint.tscn" id="9_tghr1"]
 [ext_resource type="Script" path="res://scenes/levels/level_1/platform_1.gd" id="10_8rgbm"]
 [ext_resource type="Texture2D" uid="uid://c2hl8w46j70b1" path="res://models/objects/tall_bush.png" id="10_ew2ns"]
 [ext_resource type="PackedScene" uid="uid://cnbl8aw2p0wrn" path="res://units/common/tower.tscn" id="11_ohp30"]
@@ -265,52 +265,52 @@ tile_set = SubResource("TileSet_cuabb")
 
 [node name="Road 1" type="Node2D" parent="Enemies" index="0"]
 
-[node name="Points" type="Node" parent="Enemies/Road 1" index="0"]
+[node name="Waypoints" type="Node" parent="Enemies/Road 1" index="0"]
 
-[node name="Point 1" parent="Enemies/Road 1/Points" index="0" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("9_tghr1")]
+[node name="Waypoint 1" parent="Enemies/Road 1/Waypoints" index="0" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("9_tghr1")]
 position = Vector2(1040, -64)
 rotation = 1.5708
 new_direction = "D-L"
-next_roadpoint = NodePath("../Point 2")
+next_roadpoint = NodePath("../Waypoint 2")
 
-[node name="Point 2" parent="Enemies/Road 1/Points" index="1" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("9_tghr1")]
+[node name="Waypoint 2" parent="Enemies/Road 1/Waypoints" index="1" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("9_tghr1")]
 position = Vector2(752, 328)
-rotation = -0.785398
+rotation = -0.942478
 new_direction = "L"
-next_roadpoint = NodePath("../Point 3")
+next_roadpoint = NodePath("../Waypoint 3")
 
-[node name="Point 3" parent="Enemies/Road 1/Points" index="2" instance=ExtResource("9_tghr1")]
+[node name="Waypoint 3" parent="Enemies/Road 1/Waypoints" index="2" instance=ExtResource("9_tghr1")]
 position = Vector2(152, 432)
 
 [node name="Road 2" type="Node2D" parent="Enemies" index="1"]
 
-[node name="Points" type="Node" parent="Enemies/Road 2" index="0"]
+[node name="Waypoints" type="Node" parent="Enemies/Road 2" index="0"]
 
-[node name="Point 1" parent="Enemies/Road 2/Points" index="0" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("9_tghr1")]
+[node name="Waypoint 1" parent="Enemies/Road 2/Waypoints" index="0" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("9_tghr1")]
 position = Vector2(936, 752)
 rotation = 1.5708
 new_direction = "U"
-next_roadpoint = NodePath("../Point 2")
+next_roadpoint = NodePath("../Waypoint 2")
 
-[node name="Point 2" parent="Enemies/Road 2/Points" index="1" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("9_tghr1")]
+[node name="Waypoint 2" parent="Enemies/Road 2/Waypoints" index="1" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("9_tghr1")]
 position = Vector2(936, 552)
 rotation = 1.5708
 new_direction = "U-L"
-next_roadpoint = NodePath("../Point 3")
+next_roadpoint = NodePath("../Waypoint 3")
 
-[node name="Point 3" parent="Enemies/Road 2/Points" index="2" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("9_tghr1")]
+[node name="Waypoint 3" parent="Enemies/Road 2/Waypoints" index="2" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("9_tghr1")]
 position = Vector2(848, 296)
-rotation = 1.0472
+rotation = 1.23918
 new_direction = "L"
-next_roadpoint = NodePath("../Point 4")
+next_roadpoint = NodePath("../Waypoint 4")
 
-[node name="Point 4" parent="Enemies/Road 2/Points" index="3" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("9_tghr1")]
+[node name="Waypoint 4" parent="Enemies/Road 2/Waypoints" index="3" node_paths=PackedStringArray("next_roadpoint") instance=ExtResource("9_tghr1")]
 position = Vector2(752, 328)
-rotation = -0.785398
+rotation = -0.942478
 new_direction = "L"
-next_roadpoint = NodePath("../Point 5")
+next_roadpoint = NodePath("../Waypoint 5")
 
-[node name="Point 5" parent="Enemies/Road 2/Points" index="4" instance=ExtResource("9_tghr1")]
+[node name="Waypoint 5" parent="Enemies/Road 2/Waypoints" index="4" instance=ExtResource("9_tghr1")]
 position = Vector2(152, 432)
 
 [node name="Holy Oak" parent="Map" index="0"]
@@ -835,16 +835,16 @@ default_view_direction = "D"
 autostart = false
 
 [connection signal="player_ended_tutorial" from="." to="Towers/Platform 1" method="_on_level_1_player_ended_tutorial"]
-[connection signal="pressed" from="Towers/Platform 1/TouchScreenButton" to="Towers/Platform 1" method="_on_local_touch_screen_button_pressed"]
 [connection signal="pressed" from="Towers/Platform 1/TouchScreenButton" to="Towers/Platform 1" method="_on_touch_screen_button_pressed"]
+[connection signal="pressed" from="Towers/Platform 1/TouchScreenButton" to="Towers/Platform 1" method="_on_local_touch_screen_button_pressed"]
 [connection signal="mouse_entered" from="Towers/Platform 1/Menu/Build Button" to="Towers/Platform 1/Menu/Build Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Towers/Platform 1/Menu/Build Button" to="Towers/Platform 1/Menu/Build Button" method="_on_mouse_exited"]
-[connection signal="pressed" from="Towers/Platform 1/Menu/Build Button" to="Towers/Platform 1" method="_on_local_build_button_pressed"]
 [connection signal="pressed" from="Towers/Platform 1/Menu/Build Button" to="Towers/Platform 1" method="_on_build_button_pressed"]
+[connection signal="pressed" from="Towers/Platform 1/Menu/Build Button" to="Towers/Platform 1" method="_on_local_build_button_pressed"]
 [connection signal="mouse_entered" from="Towers/Platform 1/Menu/Upgrade Button" to="Towers/Platform 1/Menu/Upgrade Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Towers/Platform 1/Menu/Upgrade Button" to="Towers/Platform 1/Menu/Upgrade Button" method="_on_mouse_exited"]
-[connection signal="pressed" from="Towers/Platform 1/Menu/Upgrade Button" to="Towers/Platform 1" method="_on_local_upgrade_button_pressed"]
 [connection signal="pressed" from="Towers/Platform 1/Menu/Upgrade Button" to="Towers/Platform 1" method="_on_upgrade_button_pressed"]
+[connection signal="pressed" from="Towers/Platform 1/Menu/Upgrade Button" to="Towers/Platform 1" method="_on_local_upgrade_button_pressed"]
 [connection signal="mouse_entered" from="Towers/Platform 1/Menu/Remove Button" to="Towers/Platform 1" method="_on_local_remove_button_mouse_entered"]
 [connection signal="mouse_entered" from="Towers/Platform 1/Menu/Remove Button" to="Towers/Platform 1/Menu/Remove Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Towers/Platform 1/Menu/Remove Button" to="Towers/Platform 1/Menu/Remove Button" method="_on_mouse_exited"]
@@ -852,5 +852,5 @@ autostart = false
 [connection signal="mouse_entered" from="Towers/Platform 1/Menu/Tower Stats Button" to="Towers/Platform 1" method="_on_local_tower_stats_button_mouse_entered"]
 [connection signal="mouse_entered" from="Towers/Platform 1/Menu/Tower Stats Button" to="Towers/Platform 1/Menu/Tower Stats Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Towers/Platform 1/Menu/Tower Stats Button" to="Towers/Platform 1/Menu/Tower Stats Button" method="_on_mouse_exited"]
-[connection signal="pressed" from="Towers/Platform 1/Menu/Tower Stats Button" to="Towers/Platform 1" method="_on_local_tower_stats_button_pressed"]
 [connection signal="pressed" from="Towers/Platform 1/Menu/Tower Stats Button" to="Towers/Platform 1" method="_on_tower_stats_button_pressed"]
+[connection signal="pressed" from="Towers/Platform 1/Menu/Tower Stats Button" to="Towers/Platform 1" method="_on_local_tower_stats_button_pressed"]

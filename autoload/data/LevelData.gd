@@ -2,8 +2,28 @@ extends Node
 
 
 
+#const EXAMPLE = {
+	#HP of the Holy Oak at the start
+	#"health": 100, 
+	#Player's money at the start
+	#"money": int,
+	#The max level a tower can be upgraded to
+	#"tower_level_limit": int,
+	#The count of waves
+	#"wave_count": int,
+	#All waves from 1 to wave_count
+	#"wave_1": {
+		#"spawn_cooldown": float,
+		#You should call your "road" nodes as "Road 1", "Road 2" and etc
+		#"enemies": [
+			#{"type": "ork", "road": "2"}
+		#]
+	#}
+#}
+
+
+
 const LEVEL_1: Dictionary = {
-	# Start data
 	"health": 150,
 	"money": 400,
 	"tower_level_limit": 2,
@@ -46,7 +66,6 @@ const LEVEL_1: Dictionary = {
 }
 
 const LEVEL_2: Dictionary = {
-	# Start data
 	"health": 200,
 	"money": 400,
 	"tower_level_limit": 3,

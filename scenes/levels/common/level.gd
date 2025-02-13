@@ -138,8 +138,8 @@ func new_wave():
 		spawn_timer.start()
 		await spawn_timer.timeout
 		# Place a new enemy at the 1st roadpoint
-		new_enemy.next_roadpoint_position = road.get_node("Points").get_node("Point 1").position
-		new_enemy.position = road.get_node("Points").get_node("Point 1").position
+		new_enemy.next_roadpoint_position = road.get_node("Waypoints").get_node("Waypoint 1").position
+		new_enemy.position = road.get_node("Waypoints").get_node("Waypoint 1").position
 		new_enemy.connect("died", Callable(self, "_on_enemy_died"))
 		road.add_child(new_enemy)
 		current_enemy_count += 1
