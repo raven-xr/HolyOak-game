@@ -1,11 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6o16t77ww40d"]
+[gd_scene load_steps=4 format=3 uid="uid://b6o16t77ww40d"]
 
-[ext_resource type="PackedScene" uid="uid://cenxr6q3w2dek" path="res://units/archer/archer.tscn" id="1_nrnv8"]
+[ext_resource type="PackedScene" uid="uid://dkswfpke4hlux" path="res://units/common/unit.tscn" id="1_1quro"]
+[ext_resource type="PackedScene" uid="uid://bandmxn21iglp" path="res://units/fire_archer/fire_arrow.tscn" id="2_4llkt"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_aqhqp"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_61r42"]
 resource_local_to_scene = true
 
-[node name="Fire Archer" instance=ExtResource("1_nrnv8")]
+[node name="Fire Archer" instance=ExtResource("1_1quro")]
+technical_name = &"FIRE_ARCHER"
+shell_scene = ExtResource("2_4llkt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+root_node = NodePath("../AnimatedSprite2D")
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
-shape = SubResource("CircleShape2D_aqhqp")
+shape = SubResource("CircleShape2D_61r42")
