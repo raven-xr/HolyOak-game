@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cnbl8aw2p0wrn" path="res://units/common/tower.tscn" id="2_73ia6"]
 [ext_resource type="PackedScene" uid="uid://c06g6da1scixg" path="res://units/common/tower_stats.tscn" id="3_a1ydp"]
 [ext_resource type="PackedScene" uid="uid://du20li6wou6fs" path="res://scenes/minor/message/message.tscn" id="4_d13pl"]
-[ext_resource type="PackedScene" uid="uid://cenxr6q3w2dek" path="res://units/archers/archer.tscn" id="5_ofpn2"]
+[ext_resource type="PackedScene" uid="uid://cenxr6q3w2dek" path="res://units/archer/archer.tscn" id="5_ofpn2"]
 [ext_resource type="Texture2D" uid="uid://b5ya13e41k2kt" path="res://ui/buttons/text_default.svg" id="6_m4jb5"]
 [ext_resource type="Texture2D" uid="uid://dsh51r6drxmtr" path="res://ui/buttons/text_hover.svg" id="7_tquk6"]
 [ext_resource type="Texture2D" uid="uid://csq5bonl77fkh" path="res://ui/buttons/text_disabled.svg" id="8_0f2vw"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=76 format=3 uid="uid://cenxr6q3w2dek"]
 
 [ext_resource type="PackedScene" uid="uid://dkswfpke4hlux" path="res://units/common/unit.tscn" id="1_n6yr7"]
-[ext_resource type="PackedScene" uid="uid://oo54cqtpti2t" path="res://units/archers/arrow.tscn" id="2_caila"]
+[ext_resource type="PackedScene" uid="uid://oo54cqtpti2t" path="res://units/archer/arrow.tscn" id="2_caila"]
 [ext_resource type="Texture2D" uid="uid://cqsb1h4k4upkg" path="res://models/units/archers/sprite/D_Attack.png" id="2_obtv1"]
 [ext_resource type="Texture2D" uid="uid://cv7vs3dhkjnjh" path="res://models/units/archers/sprite/D_Idle.png" id="3_idstf"]
 [ext_resource type="Texture2D" uid="uid://x4rjifkj0pvn" path="res://models/units/archers/sprite/D_Preattack.png" id="4_8eo51"]

@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://c4hsbyvxqgyxb" path="res://models/objects/small_bush.png" id="11_w2twk"]
 [ext_resource type="PackedScene" uid="uid://c06g6da1scixg" path="res://units/common/tower_stats.tscn" id="12_7xvv5"]
 [ext_resource type="PackedScene" uid="uid://du20li6wou6fs" path="res://scenes/minor/message/message.tscn" id="13_2ho3g"]
-[ext_resource type="PackedScene" uid="uid://cenxr6q3w2dek" path="res://units/archers/archer.tscn" id="14_kietl"]
+[ext_resource type="PackedScene" uid="uid://cenxr6q3w2dek" path="res://units/archer/archer.tscn" id="14_kietl"]
 [ext_resource type="Texture2D" uid="uid://cjyvn46nwilg0" path="res://models/units/tower/idle/0.png" id="15_5dy8q"]
 [ext_resource type="Texture2D" uid="uid://b5ya13e41k2kt" path="res://ui/buttons/text_default.svg" id="16_ugxp1"]
 [ext_resource type="Texture2D" uid="uid://dsh51r6drxmtr" path="res://ui/buttons/text_hover.svg" id="17_r7urm"]
