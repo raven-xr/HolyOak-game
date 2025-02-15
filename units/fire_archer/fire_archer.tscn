@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://b6o16t77ww40d"]
+[gd_scene load_steps=76 format=3 uid="uid://b6o16t77ww40d"]
 
 [ext_resource type="PackedScene" uid="uid://dkswfpke4hlux" path="res://units/common/unit.tscn" id="1_1quro"]
 [ext_resource type="PackedScene" uid="uid://bandmxn21iglp" path="res://units/fire_archer/fire_arrow.tscn" id="2_4llkt"]
@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://di7tj6r5lt65h" path="res://models/units/fire_archer/sprite/U_Attack.png" id="12_kra6w"]
 [ext_resource type="Texture2D" uid="uid://liuncuh7c674" path="res://models/units/fire_archer/sprite/U_Idle.png" id="13_v0fhj"]
 [ext_resource type="Texture2D" uid="uid://ckiobth43bhaa" path="res://models/units/fire_archer/sprite/U_Preattack.png" id="14_8vbgx"]
+[ext_resource type="AudioStream" uid="uid://cpmwou3iw52qq" path="res://audio/sfx/bowstring.mp3" id="15_dnx2x"]
+[ext_resource type="AudioStream" uid="uid://cgefjfqldx5cl" path="res://audio/sfx/bow_shot.mp3" id="16_u6el0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0auct"]
 atlas = ExtResource("3_j0cvq")
@@ -411,6 +413,32 @@ tracks/1/keys = {
 "update": 1,
 "values": ["D_Attack"]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"shoot"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../SFX/Preattack:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.366667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_0kesd"]
 length = 0.666667
@@ -491,6 +519,32 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": ["L_Attack"]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"shoot"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../SFX/Preattack:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.366667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_gw6dq"]
@@ -573,6 +627,32 @@ tracks/1/keys = {
 "update": 1,
 "values": ["R_Attack"]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"shoot"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../SFX/Preattack:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.366667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_i2dvc"]
 length = 0.666667
@@ -653,6 +733,32 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": ["U_Attack"]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"shoot"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../SFX/Preattack:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.366667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_5seqe"]
