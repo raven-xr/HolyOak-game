@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://units/common/tower.gd" id="1_ga7em"]
 [ext_resource type="Texture2D" uid="uid://dyj1b8lqm8l5x" path="res://models/units/tower/upgrade/1.png" id="2_6xap5"]
-[ext_resource type="Texture2D" uid="uid://cjyvn46nwilg0" path="res://models/units/tower/idle/0.png" id="2_bv0xj"]
+[ext_resource type="Texture2D" uid="uid://cjyvn46nwilg0" path="res://models/units/platform/0.png" id="2_bv0xj"]
 [ext_resource type="Texture2D" uid="uid://t8vwtgwke7jr" path="res://models/units/tower/upgrade/4_roof.png" id="2_pq2nx"]
 [ext_resource type="Texture2D" uid="uid://bqk852lqxeo15" path="res://models/units/tower/idle/1.png" id="3_0tv8s"]
 [ext_resource type="Texture2D" uid="uid://cnyq7sevn2fmk" path="res://models/units/tower/upgrade/5_roof.png" id="3_8es61"]

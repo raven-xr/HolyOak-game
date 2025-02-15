@@ -7,9 +7,7 @@ extends Node2D
 @export var message_scene: PackedScene
 ## Default unit of the tower
 @export var unit_scene: PackedScene
-## Default view direction of units: U - Up, D - Down, L - Left, R - Right[br]
-## The default is "U"
-@export var default_view_direction: String = "U"
+@export var default_view_direction: String = "D"
 
 
 
