@@ -9,6 +9,9 @@ resource_local_to_scene = true
 editor_description = "You have to create an AnimationPlayer (index=1) and load sprites for AnimatedSprite2D (index=0)"
 script = ExtResource("1_vuvce")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
 monitorable = false

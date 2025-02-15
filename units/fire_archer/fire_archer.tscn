@@ -733,10 +733,11 @@ resource_local_to_scene = true
 technical_name = &"FIRE_ARCHER"
 shell_scene = ExtResource("2_4llkt")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
-texture_filter = 1
+[node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(0, -8)
+scale = Vector2(1.125, 1.125)
 sprite_frames = SubResource("SpriteFrames_q13p6")
-animation = &"U_Preattack"
+animation = &"D_Attack"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 root_node = NodePath("../AnimatedSprite2D")
