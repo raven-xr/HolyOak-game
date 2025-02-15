@@ -853,3 +853,11 @@ libraries = {
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 shape = SubResource("CircleShape2D_61r42")
+
+[node name="Preattack" parent="SFX" index="0"]
+stream = ExtResource("15_dnx2x")
+volume_db = -25.0
+
+[node name="Attack" parent="SFX" index="1"]
+stream = ExtResource("16_u6el0")
+volume_db = -20.0
