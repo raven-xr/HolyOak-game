@@ -1,20 +1,14 @@
 extends Node2D
 class_name Unit
 
-
-
 enum States {
 	IDLE,
 	ATTACK,
 	COOLDOWN
 }
 
-
-
 @export var technical_name: StringName
 @export var shell_scene: PackedScene
-
-
 
 @onready var shell_container = get_tree().get_current_scene().get_node("Shell Container")
 
@@ -22,11 +16,9 @@ enum States {
 @onready var animation_player = $AnimationPlayer
 @onready var collision_shape_2d = $Area2D/CollisionShape2D
 @onready var find_timer = $"Find Timer"
-
 @onready var attack_sfx = $SFX/Attack
 
 @onready var default_view_direction = get_parent().get_parent().get_parent().default_view_direction
-
 @onready var level: int
 
 @onready var stats: Dictionary = UnitData.get(technical_name)["level_" + str(level)]
@@ -34,12 +26,8 @@ enum States {
 @onready var attack_range = stats["attack_range"]
 @onready var shell_speed = stats["shell_speed"]
 
-
-
 var available_enemies: Array[Enemy] = []
-
 var target: Enemy
-
 var state: int:
 	set(value):
 		state = value
@@ -59,8 +47,6 @@ var state: int:
 			States.COOLDOWN:
 				cooldown_state()
 var current_view_direction: String
-
-
 
 func _ready():
 	state = States.IDLE
@@ -113,7 +99,6 @@ func _on_area_2d_body_exited(body):
 func get_view_direction() -> String:
 	var angle_to_target = get_angle_to(target.global_position)
 	if angle_to_target < 0: angle_to_target += TAU
-	
 	if PI/4 < angle_to_target and angle_to_target <= 3*PI/4:
 		return "D"
 	elif 3*PI/4 < angle_to_target and angle_to_target <= 5*PI/4:
@@ -125,12 +110,10 @@ func get_view_direction() -> String:
 
 func choose_target() -> Enemy:
 	var preferred_target: Enemy = available_enemies[0]
-	
 	for enemy in available_enemies:
 		# Choose the enemy closest to the Holy Oak
 		var holy_oak = get_tree().get_current_scene().get_node("Map/Holy Oak")
 		if enemy.global_position.distance_to(holy_oak.global_position) < \
 		preferred_target.global_position.distance_to(holy_oak.global_position):
 			preferred_target = enemy
-	
 	return preferred_target
