@@ -1,12 +1,8 @@
 extends CharacterBody2D
 class_name Shell
 
-
-
 @onready var hit = $SFX/Hit
 @onready var area_2d = $Area2D
-
-
 
 # These values are given by the parent (unit.gd)
 var target: Enemy
@@ -14,8 +10,6 @@ var target_global_position: Vector2
 
 var damage: int
 var speed: int
-
-
 
 # Common
 func _ready():
