@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://cvwwyafne3ryg"]
+[gd_scene load_steps=44 format=4 uid="uid://cvwwyafne3ryg"]
 
 [ext_resource type="PackedScene" uid="uid://bbsqvqymrojj5" path="res://scenes/levels/common/level.tscn" id="1_rbgy0"]
 [ext_resource type="Script" path="res://scenes/levels/level_1/level_1.gd" id="2_c08mv"]
@@ -21,6 +21,8 @@
 [ext_resource type="Texture2D" uid="uid://b5ya13e41k2kt" path="res://ui/buttons/text_default.svg" id="16_ugxp1"]
 [ext_resource type="Texture2D" uid="uid://dsh51r6drxmtr" path="res://ui/buttons/text_hover.svg" id="17_r7urm"]
 [ext_resource type="Texture2D" uid="uid://csq5bonl77fkh" path="res://ui/buttons/text_disabled.svg" id="18_6jsc3"]
+[ext_resource type="Texture2D" uid="uid://dasycxvxc0xib" path="res://models/units/archer/shell/arrow.png" id="18_ccdp0"]
+[ext_resource type="Texture2D" uid="uid://d3h4ugvrsklj7" path="res://models/units/archer/logo/logo.png" id="18_nfpo6"]
 [ext_resource type="Script" path="res://scenes/minor/texture_button/texture_button.gd" id="19_lg656"]
 [ext_resource type="FontFile" uid="uid://car2t5itecnhr" path="res://ui/fonts/Bungee-Regular.ttf" id="20_d7u56"]
 [ext_resource type="PackedScene" uid="uid://d1hglytmquni" path="res://units/common/platform.tscn" id="24_vjn0v"]
@@ -702,6 +704,7 @@ tower_scene = ExtResource("11_ohp30")
 tower_stats_scene = ExtResource("12_7xvv5")
 message_scene = ExtResource("13_2ho3g")
 unit_scene = ExtResource("14_kietl")
+unit_logo = ExtResource("18_nfpo6")
 default_view_direction = "R"
 
 [node name="Sprite2D" type="Sprite2D" parent="Towers/Platform 1" index="0"]
@@ -821,30 +824,41 @@ text = "STATS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Logo" type="Sprite2D" parent="Towers/Platform 1" index="3"]
+editor_description = "Usually, it's the unit's shell"
+texture_filter = 1
+position = Vector2(0, -9)
+rotation = 0.785398
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("18_ccdp0")
+
 [node name="Platform 2" parent="Towers" index="1" instance=ExtResource("24_vjn0v")]
 process_mode = 4
 position = Vector2(1080, 80)
+unit_scene = ExtResource("14_kietl")
+unit_logo = ExtResource("18_nfpo6")
 default_view_direction = "L"
 
 [node name="Platform 3" parent="Towers" index="2" instance=ExtResource("24_vjn0v")]
 process_mode = 4
 position = Vector2(232, 320)
-default_view_direction = "D"
+unit_scene = ExtResource("14_kietl")
+unit_logo = ExtResource("18_nfpo6")
 
 [node name="Start Timer" parent="Timers" index="0"]
 autostart = false
 
 [connection signal="player_ended_tutorial" from="." to="Towers/Platform 1" method="_on_level_1_player_ended_tutorial"]
-[connection signal="pressed" from="Towers/Platform 1/TouchScreenButton" to="Towers/Platform 1" method="_on_touch_screen_button_pressed"]
 [connection signal="pressed" from="Towers/Platform 1/TouchScreenButton" to="Towers/Platform 1" method="_on_local_touch_screen_button_pressed"]
+[connection signal="pressed" from="Towers/Platform 1/TouchScreenButton" to="Towers/Platform 1" method="_on_touch_screen_button_pressed"]
 [connection signal="mouse_entered" from="Towers/Platform 1/Menu/Build Button" to="Towers/Platform 1/Menu/Build Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Towers/Platform 1/Menu/Build Button" to="Towers/Platform 1/Menu/Build Button" method="_on_mouse_exited"]
-[connection signal="pressed" from="Towers/Platform 1/Menu/Build Button" to="Towers/Platform 1" method="_on_build_button_pressed"]
 [connection signal="pressed" from="Towers/Platform 1/Menu/Build Button" to="Towers/Platform 1" method="_on_local_build_button_pressed"]
+[connection signal="pressed" from="Towers/Platform 1/Menu/Build Button" to="Towers/Platform 1" method="_on_build_button_pressed"]
 [connection signal="mouse_entered" from="Towers/Platform 1/Menu/Upgrade Button" to="Towers/Platform 1/Menu/Upgrade Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Towers/Platform 1/Menu/Upgrade Button" to="Towers/Platform 1/Menu/Upgrade Button" method="_on_mouse_exited"]
-[connection signal="pressed" from="Towers/Platform 1/Menu/Upgrade Button" to="Towers/Platform 1" method="_on_upgrade_button_pressed"]
 [connection signal="pressed" from="Towers/Platform 1/Menu/Upgrade Button" to="Towers/Platform 1" method="_on_local_upgrade_button_pressed"]
+[connection signal="pressed" from="Towers/Platform 1/Menu/Upgrade Button" to="Towers/Platform 1" method="_on_upgrade_button_pressed"]
 [connection signal="mouse_entered" from="Towers/Platform 1/Menu/Remove Button" to="Towers/Platform 1" method="_on_local_remove_button_mouse_entered"]
 [connection signal="mouse_entered" from="Towers/Platform 1/Menu/Remove Button" to="Towers/Platform 1/Menu/Remove Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Towers/Platform 1/Menu/Remove Button" to="Towers/Platform 1/Menu/Remove Button" method="_on_mouse_exited"]
@@ -852,5 +866,5 @@ autostart = false
 [connection signal="mouse_entered" from="Towers/Platform 1/Menu/Tower Stats Button" to="Towers/Platform 1" method="_on_local_tower_stats_button_mouse_entered"]
 [connection signal="mouse_entered" from="Towers/Platform 1/Menu/Tower Stats Button" to="Towers/Platform 1/Menu/Tower Stats Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Towers/Platform 1/Menu/Tower Stats Button" to="Towers/Platform 1/Menu/Tower Stats Button" method="_on_mouse_exited"]
-[connection signal="pressed" from="Towers/Platform 1/Menu/Tower Stats Button" to="Towers/Platform 1" method="_on_tower_stats_button_pressed"]
 [connection signal="pressed" from="Towers/Platform 1/Menu/Tower Stats Button" to="Towers/Platform 1" method="_on_local_tower_stats_button_pressed"]
+[connection signal="pressed" from="Towers/Platform 1/Menu/Tower Stats Button" to="Towers/Platform 1" method="_on_tower_stats_button_pressed"]

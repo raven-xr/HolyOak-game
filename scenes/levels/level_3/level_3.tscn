@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://jntda0nfq0ml"]
+[gd_scene load_steps=24 format=4 uid="uid://jntda0nfq0ml"]
 
 [ext_resource type="PackedScene" uid="uid://bbsqvqymrojj5" path="res://scenes/levels/common/level.tscn" id="1_6eesv"]
 [ext_resource type="Texture2D" uid="uid://ciyeb8o1ywukt" path="res://tilesets/grass.png" id="2_j5uvo"]
@@ -14,6 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://fbgyur18dijb" path="res://models/objects/sign.png" id="9_uhlv7"]
 [ext_resource type="Texture2D" uid="uid://c7mi2jbynpkv4" path="res://models/objects/stump.png" id="11_6wnts"]
 [ext_resource type="Texture2D" uid="uid://ch3ur0m58a0hk" path="res://models/objects/rock.png" id="12_ugjxr"]
+[ext_resource type="PackedScene" uid="uid://cenxr6q3w2dek" path="res://units/archer/archer.tscn" id="15_s48e1"]
+[ext_resource type="Texture2D" uid="uid://d3h4ugvrsklj7" path="res://models/units/archer/logo/logo.png" id="16_1dqcl"]
+[ext_resource type="PackedScene" uid="uid://b6o16t77ww40d" path="res://units/fire_archer/fire_archer.tscn" id="17_d1wd8"]
+[ext_resource type="Texture2D" uid="uid://c75q580hkw372" path="res://models/units/fire_archer/logo/logo.png" id="18_c7b71"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x7p3s"]
 texture = ExtResource("2_j5uvo")
@@ -1294,24 +1298,40 @@ position = Vector2(472, 416)
 
 [node name="Platform 1" parent="Towers" index="0" instance=ExtResource("5_272q0")]
 position = Vector2(88, 632)
+unit_scene = ExtResource("15_s48e1")
+unit_logo = ExtResource("16_1dqcl")
 
 [node name="Platform 2" parent="Towers" index="1" instance=ExtResource("5_272q0")]
 position = Vector2(136, 432)
+unit_scene = ExtResource("15_s48e1")
+unit_logo = ExtResource("16_1dqcl")
 
 [node name="Platform 3" parent="Towers" index="2" instance=ExtResource("5_272q0")]
 position = Vector2(320, 320)
+unit_scene = ExtResource("17_d1wd8")
+unit_logo = ExtResource("18_c7b71")
 
 [node name="Platform 4" parent="Towers" index="3" instance=ExtResource("5_272q0")]
 position = Vector2(584, 216)
+unit_scene = ExtResource("15_s48e1")
+unit_logo = ExtResource("16_1dqcl")
 
 [node name="Platform 5" parent="Towers" index="4" instance=ExtResource("5_272q0")]
 position = Vector2(624, 528)
+unit_scene = ExtResource("15_s48e1")
+unit_logo = ExtResource("16_1dqcl")
 
 [node name="Platform 6" parent="Towers" index="5" instance=ExtResource("5_272q0")]
 position = Vector2(864, 168)
+unit_scene = ExtResource("15_s48e1")
+unit_logo = ExtResource("16_1dqcl")
 
 [node name="Platform 7" parent="Towers" index="6" instance=ExtResource("5_272q0")]
 position = Vector2(1120, 80)
+unit_scene = ExtResource("15_s48e1")
+unit_logo = ExtResource("16_1dqcl")
 
 [node name="Platform 8" parent="Towers" index="7" instance=ExtResource("5_272q0")]
 position = Vector2(856, 384)
+unit_scene = ExtResource("15_s48e1")
+unit_logo = ExtResource("16_1dqcl")

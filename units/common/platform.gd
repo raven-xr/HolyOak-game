@@ -1,26 +1,24 @@
 extends Node2D
 
-
-
+@export_subgroup("Required scenes")
 @export var tower_scene: PackedScene
 @export var tower_stats_scene: PackedScene
 @export var message_scene: PackedScene
-## Default unit of the tower
+@export_subgroup("Unit")
 @export var unit_scene: PackedScene
+@export var unit_logo: Texture
+## The character's logo is displayed on the platform's sprite plate.
 @export var default_view_direction: String = "D"
-
-
 
 @onready var sprite_2d = $Sprite2D
 @onready var touch_screen_button = $TouchScreenButton
 @onready var menu = $Menu
+@onready var logo = $Logo
 
 @onready var build_button = $"Menu/Build Button"
 @onready var upgrade_button = $"Menu/Upgrade Button"
 @onready var remove_button = $"Menu/Remove Button"
 @onready var tower_stats_button = $"Menu/Tower Stats Button"
-
-
 
 # Common
 func _ready():
@@ -35,6 +33,8 @@ func _ready():
 		"L": menu.position = Vector2(-296.0, -64.0); menu.pivot_offset = Vector2(256.0, 64.0)
 	menu.modulate = Color(1, 1, 1, 0)
 	menu.visible = false
+	# Set the logo
+	logo.texture = unit_logo
 
 func open_menu():
 	menu.visible = true
@@ -67,8 +67,6 @@ func _on_upgrading_started():
 
 func _on_upgrading_finished():
 	touch_screen_button.visible = true
-
-
 
 # Build Button
 func _on_build_button_pressed():

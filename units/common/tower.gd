@@ -132,3 +132,8 @@ func can_be_upgraded():
 		return false
 	else:
 		return true
+
+# AnimationPlayer
+func hide_logo():
+	var platform = get_parent()
+	platform.logo.visible = false

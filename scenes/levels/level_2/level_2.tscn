@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://dtaq5avc8r7f"]
+[gd_scene load_steps=34 format=4 uid="uid://dtaq5avc8r7f"]
 
 [ext_resource type="PackedScene" uid="uid://bbsqvqymrojj5" path="res://scenes/levels/common/level.tscn" id="1_a26ah"]
 [ext_resource type="Texture2D" uid="uid://ciyeb8o1ywukt" path="res://tilesets/grass.png" id="2_dkgsg"]
@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://c7mi2jbynpkv4" path="res://models/objects/stump.png" id="8_k1w2h"]
 [ext_resource type="Texture2D" uid="uid://d1ygnmgujqnib" path="res://models/objects/box.png" id="9_6ju2p"]
 [ext_resource type="PackedScene" uid="uid://d1hglytmquni" path="res://units/common/platform.tscn" id="14_67110"]
+[ext_resource type="PackedScene" uid="uid://cenxr6q3w2dek" path="res://units/archer/archer.tscn" id="15_lytkh"]
+[ext_resource type="Texture2D" uid="uid://d3h4ugvrsklj7" path="res://models/units/archer/logo/logo.png" id="16_wqnhh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7r64l"]
 texture = ExtResource("2_dkgsg")
@@ -1079,15 +1081,23 @@ position = Vector2(80, 328)
 
 [node name="Platform 1" parent="Towers" index="0" instance=ExtResource("14_67110")]
 position = Vector2(1000, 136)
-default_view_direction = "D"
+unit_scene = ExtResource("15_lytkh")
+unit_logo = ExtResource("16_wqnhh")
+default_view_direction = "R"
 
 [node name="Platform 2" parent="Towers" index="1" instance=ExtResource("14_67110")]
 position = Vector2(552, 600)
+unit_scene = ExtResource("15_lytkh")
+unit_logo = ExtResource("16_wqnhh")
 default_view_direction = "R"
 
 [node name="Platform 3" parent="Towers" index="2" instance=ExtResource("14_67110")]
 position = Vector2(536, 200)
-default_view_direction = "D"
+unit_scene = ExtResource("15_lytkh")
+unit_logo = ExtResource("16_wqnhh")
 
 [node name="Platform 4" parent="Towers" index="3" instance=ExtResource("14_67110")]
 position = Vector2(216, 480)
+unit_scene = ExtResource("15_lytkh")
+unit_logo = ExtResource("16_wqnhh")
+default_view_direction = "U"

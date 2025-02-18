@@ -1,11 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://d1hglytmquni"]
+[gd_scene load_steps=13 format=3 uid="uid://d1hglytmquni"]
 
 [ext_resource type="Script" path="res://units/common/platform.gd" id="1_gvh2q"]
 [ext_resource type="Texture2D" uid="uid://cjyvn46nwilg0" path="res://models/units/platform/platform.png" id="2_8ll7e"]
 [ext_resource type="PackedScene" uid="uid://cnbl8aw2p0wrn" path="res://units/common/tower.tscn" id="2_73ia6"]
 [ext_resource type="PackedScene" uid="uid://c06g6da1scixg" path="res://units/common/tower_stats.tscn" id="3_a1ydp"]
 [ext_resource type="PackedScene" uid="uid://du20li6wou6fs" path="res://scenes/minor/message/message.tscn" id="4_d13pl"]
-[ext_resource type="PackedScene" uid="uid://cenxr6q3w2dek" path="res://units/archer/archer.tscn" id="5_ofpn2"]
 [ext_resource type="Texture2D" uid="uid://b5ya13e41k2kt" path="res://ui/buttons/text_default.svg" id="6_m4jb5"]
 [ext_resource type="Texture2D" uid="uid://dsh51r6drxmtr" path="res://ui/buttons/text_hover.svg" id="7_tquk6"]
 [ext_resource type="Texture2D" uid="uid://csq5bonl77fkh" path="res://ui/buttons/text_disabled.svg" id="8_0f2vw"]
@@ -28,7 +27,6 @@ script = ExtResource("1_gvh2q")
 tower_scene = ExtResource("2_73ia6")
 tower_stats_scene = ExtResource("3_a1ydp")
 message_scene = ExtResource("4_d13pl")
-unit_scene = ExtResource("5_ofpn2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -146,6 +144,13 @@ theme_override_font_sizes/font_size = 32
 text = "STATS"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Logo" type="Sprite2D" parent="."]
+editor_description = "Usually, it's the unit's shell"
+modulate = Color(1, 1, 1, 0.705882)
+texture_filter = 1
+position = Vector2(0, -9)
+rotation = 0.785398
 
 [connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
 [connection signal="mouse_entered" from="Menu/Build Button" to="Menu/Build Button" method="_on_mouse_entered"]
