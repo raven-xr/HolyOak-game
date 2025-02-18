@@ -261,10 +261,23 @@ const LEVEL_2: Dictionary = {
 }
 
 const LEVEL_3: Dictionary = {
-	"health": 100,
+	"health": 10000,
 	"money": 100,
 	"tower_level_limit": 4,
 	"wave_count": 1,
 	"wave_1": {
+		"spawn_cooldown": 1.0,
+		"enemies": [
+			{"type": "ork", "road": "1"},
+			{"type": "ork", "road": "2"},
+			{"type": "ork", "road": "3"},
+			{"type": "ork", "road": "4"},
+			{"type": "ork", "road": "5"},
+			{"type": "slime", "road": "1"},
+			{"type": "slime", "road": "2"},
+			{"type": "slime", "road": "3"},
+			{"type": "slime", "road": "4"},
+			{"type": "slime", "road": "5"}
+		]
 	}
 }
