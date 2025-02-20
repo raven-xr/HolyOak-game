@@ -147,10 +147,11 @@ vertical_alignment = 1
 
 [node name="Logo" type="Sprite2D" parent="."]
 editor_description = "Usually, it's the unit's shell"
-modulate = Color(1, 1, 1, 0.705882)
+modulate = Color(1, 1, 1, 0.784314)
 texture_filter = 1
 position = Vector2(0, -9)
 rotation = 0.785398
+scale = Vector2(1.1, 1.1)
 
 [connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
 [connection signal="mouse_entered" from="Menu/Build Button" to="Menu/Build Button" method="_on_mouse_entered"]
