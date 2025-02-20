@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://ceakiostnoxao"]
+
+[ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://ui/backgrounds/ui_border.png" id="1_u3aa6"]
+[ext_resource type="Script" path="res://gamedata/ui/hint/hint.gd" id="2_3a814"]
+[ext_resource type="Texture2D" uid="uid://d05x6ojus8mct" path="res://ui/icons/chevron_right.svg" id="3_kd84t"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_as0xe"]
+texture = ExtResource("1_u3aa6")
+texture_margin_left = 20.0
+texture_margin_top = 15.0
+texture_margin_right = 20.0
+texture_margin_bottom = 15.0
+
+[sub_resource type="Theme" id="Theme_iqujp"]
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_as0xe")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h26tr"]
+resource_local_to_scene = true
+size = Vector2(0, 0)
+
+[node name="Hint" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 128.0
+offset_bottom = 64.0
+script = ExtResource("2_3a814")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = -2.0
+offset_right = 130.0
+offset_bottom = 64.0
+theme = SubResource("Theme_iqujp")
+
+[node name="Label" type="Label" parent="PanelContainer"]
+texture_filter = 2
+custom_minimum_size = Vector2(92, 23)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.783523, 0.783523, 0.783523, 1)
+texture_filter = 2
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 32.0
+offset_bottom = 32.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_kd84t")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2(64, 0)
+shape = SubResource("RectangleShape2D_h26tr")
+
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]

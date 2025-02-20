@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkswfpke4hlux"]
+
+[ext_resource type="Script" path="res://gamedata/common/unit/unit.gd" id="1_vuvce"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0ddoe"]
+resource_local_to_scene = true
+
+[node name="Unit" type="Node2D"]
+editor_description = "You have to create an AnimationPlayer (index=1) and load sprites for AnimatedSprite2D (index=0)"
+script = ExtResource("1_vuvce")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_0ddoe")
+
+[node name="SFX" type="Node2D" parent="."]
+
+[node name="Preattack" type="AudioStreamPlayer2D" parent="SFX"]
+bus = &"SFX"
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="SFX"]
+bus = &"SFX"
+
+[node name="Find Timer" type="Timer" parent="."]
+editor_description = "Find Timer is designed to give a unit some time to find all enemies.
+
+When a unit find an enemy, he immediately starts shooting and he start shooting the first enemy he saw and he doesn't even check which target is better because at the moment the unit found an enemy variable \"available enemies: Array[Enemy]\" has only one item. For the next time the unit shoots, he chooses the best target.
+
+It can be reproduced: 1. Let 2 or more enemies be in the attack range of units (the tower mustn't be built yet). 2. Build a tower so that there is more than one enemy is in the attack range of the units. For the first time, the units often chooses not the best target (the best target is not a dying enemy closest to the Holy Oak)"
+wait_time = 0.1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
