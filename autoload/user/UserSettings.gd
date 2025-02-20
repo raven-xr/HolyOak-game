@@ -50,7 +50,7 @@ func _ready():
 		load_settings()
 	else:
 		# Autoscaling
-		gui_scale = match_scale(OS.get_name())
+		gui_scale = match_scale()
 
 func load_settings():
 	print()
@@ -67,8 +67,8 @@ func _on_parameter_changed():
 	settings.store_var(sfx_volume)
 	settings.store_var(gui_scale)
 
-static func match_scale(device: String) -> float:
-	if device == "Android":
+func match_scale() -> float:
+	if OS.get_name() == "Android":
 		return 1.4
 	else:
 		return 1.0

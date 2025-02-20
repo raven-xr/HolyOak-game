@@ -94,8 +94,8 @@ func _on_reset_settings_button_pressed():
 	master_h_slider.value = UserSettings.DEFAULT_MASTER_VOLUME
 	music_h_slider.value = UserSettings.DEFAULT_MUSIC_VOLUME
 	sfx_h_slider.value = UserSettings.DEFAULT_SFX_VOLUME
-	scale_option_button.select({0.8: 0, 1.0: 1, 1.2: 2, 1.4: 3}[UserSettings.match_scale(OS.get_name())])
-	scale_option_button.emit_signal("item_selected", {0.8: 0, 1.0: 1, 1.2: 2, 1.4: 3}[UserSettings.match_scale(OS.get_name())])
+	scale_option_button.select({0.8: 0, 1.0: 1, 1.2: 2, 1.4: 3}[UserSettings.match_scale()])
+	scale_option_button.emit_signal("item_selected", {0.8: 0, 1.0: 1, 1.2: 2, 1.4: 3}[UserSettings.match_scale()])
 
 func _on_reset_progress_button_pressed():
 	SoundManager.click.play()
