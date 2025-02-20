@@ -155,14 +155,14 @@ func _on_confirm_pressed():
 	await tween.finished
 	confirmation.visible = false
 	
-	for level in UserData.level_data.keys():
-		UserData.level_data[level]["is_completed"] = false
-		UserData.level_data[level]["stars"] = 0
+	for level in UserData.progress.keys():
+		UserData.progress[level]["is_completed"] = false
+		UserData.progress[level]["stars"] = 0
 	var save = FileAccess.open(UserData.SAVE_PATH, FileAccess.WRITE)
-	save.store_var(UserData.level_data)
+	save.store_var(UserData.progress)
 	
 	var new_message = message_scene.instantiate()
-	new_message.text = 'Перезагрузка...'
+	new_message.text = 'Сохранение... Игра будет выключена. Необходим перезапуск!'
 	add_child(new_message)
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(2.0).timeout
 	get_tree().quit()
