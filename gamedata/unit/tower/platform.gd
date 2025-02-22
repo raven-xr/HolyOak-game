@@ -127,17 +127,15 @@ func _on_tower_stats_button_pressed():
 		"D": {"position": Vector2(-132, 61), "pivot_offset": Vector2(130, 0)},
 		"L": {"position": Vector2(-321, -101), "pivot_offset": Vector2(260, 101)}
 	}
-	
-	new_tower_stats.text = str(
+	new_tower_stats.values = str(
 		tower.unit_stats["level_" + str(tower.level)]["attack_range"], "\n",
 		tower.unit_stats["level_" + str(tower.level)]["damage"], "\n",
 		tower.unit_stats["level_" + str(tower.level)]["unit_count"], "\n",
 		tower.current_cost, "\n",
 		tower.level_limit
 	)
-	
-	new_tower_stats.control_position = position + positions[default_view_direction]["position"]
-	new_tower_stats.control_pivot_offset = positions[default_view_direction]["pivot_offset"]
+	new_tower_stats.position = positions[default_view_direction]["position"]
+	new_tower_stats.pivot_offset = positions[default_view_direction]["pivot_offset"]
 	add_child(new_tower_stats)
 	close_menu()
 
