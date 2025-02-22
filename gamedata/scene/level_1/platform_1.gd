@@ -1,4 +1,4 @@
-extends "res://gamedata/common/unit/platform.gd"
+extends "res://gamedata/unit/tower/platform.gd"
 
 
 

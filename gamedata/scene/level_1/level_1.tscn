@@ -13,11 +13,11 @@
 [ext_resource type="Script" path="res://gamedata/scene/level_1/platform_1.gd" id="10_8rgbm"]
 [ext_resource type="Texture2D" uid="uid://c2hl8w46j70b1" path="res://gfx/models/object/tall_bush.png" id="10_ew2ns"]
 [ext_resource type="Texture2D" uid="uid://c4hsbyvxqgyxb" path="res://gfx/models/object/small_bush.png" id="11_w2twk"]
-[ext_resource type="PackedScene" uid="uid://cnbl8aw2p0wrn" path="res://gamedata/unit/tower/tower.tscn" id="14_ibovg"]
+[ext_resource type="PackedScene" uid="uid://cnbl8aw2p0wrn" path="res://gamedata/unit/tower/tower.tscn" id="14_66d5a"]
 [ext_resource type="PackedScene" uid="uid://cenxr6q3w2dek" path="res://gamedata/unit/archer/archer.tscn" id="14_kietl"]
 [ext_resource type="Texture2D" uid="uid://cjyvn46nwilg0" path="res://gfx/models/unit/platform/platform.png" id="15_5dy8q"]
-[ext_resource type="PackedScene" uid="uid://c06g6da1scixg" path="res://gamedata/unit/tower/tower_stats.tscn" id="15_8a2p4"]
-[ext_resource type="PackedScene" uid="uid://du20li6wou6fs" path="res://gamedata/ui/message/message.tscn" id="16_1svd4"]
+[ext_resource type="PackedScene" uid="uid://c06g6da1scixg" path="res://gamedata/unit/tower/tower_stats.tscn" id="15_ntf08"]
+[ext_resource type="PackedScene" uid="uid://du20li6wou6fs" path="res://gamedata/ui/message/message.tscn" id="16_akk1r"]
 [ext_resource type="Texture2D" uid="uid://b5ya13e41k2kt" path="res://interface/buttons/text_default.svg" id="16_ugxp1"]
 [ext_resource type="Texture2D" uid="uid://dsh51r6drxmtr" path="res://interface/buttons/text_hover.svg" id="17_r7urm"]
 [ext_resource type="Texture2D" uid="uid://csq5bonl77fkh" path="res://interface/buttons/text_disabled.svg" id="18_6jsc3"]
@@ -698,9 +698,9 @@ occluder = SubResource("OccluderPolygon2D_dt85v")
 process_mode = 4
 position = Vector2(720, 176)
 script = ExtResource("10_8rgbm")
-tower_scene = ExtResource("14_ibovg")
-tower_stats_scene = ExtResource("15_8a2p4")
-message_scene = ExtResource("16_1svd4")
+tower_scene = ExtResource("14_66d5a")
+tower_stats_scene = ExtResource("15_ntf08")
+message_scene = ExtResource("16_akk1r")
 unit_scene = ExtResource("14_kietl")
 unit_logo = ExtResource("18_nfpo6")
 default_view_direction = "R"
