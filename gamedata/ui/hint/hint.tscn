@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://ceakiostnoxao"]
 
-[ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://ui/backgrounds/ui_border.png" id="1_u3aa6"]
+[ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://interface/backgrounds/ui_border.png" id="1_u3aa6"]
 [ext_resource type="Script" path="res://gamedata/ui/hint/hint.gd" id="2_3a814"]
-[ext_resource type="Texture2D" uid="uid://d05x6ojus8mct" path="res://ui/icons/chevron_right.svg" id="3_kd84t"]
+[ext_resource type="Texture2D" uid="uid://d05x6ojus8mct" path="res://interface/icons/chevron_right.svg" id="3_kd84t"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_as0xe"]
 texture = ExtResource("1_u3aa6")

@@ -19,18 +19,18 @@ config/icon="res://icon.png"
 
 [audio]
 
-buses/default_bus_layout="res://audio/default_bus_layout.tres"
+buses/default_bus_layout="res://gamedata/autoload/default_bus_layout.tres"
 
 [autoload]
 
-UserSettings="*res://autoload/user/UserSettings.gd"
-UserData="*res://autoload/user/UserData.gd"
-EnemyData="*res://autoload/data/EnemyData.gd"
-UnitData="*res://autoload/data/UnitData.gd"
-LevelData="*res://autoload/data/LevelData.gd"
-SoundManager="*res://autoload/game/SoundManager.tscn"
-Signals="*res://autoload/game/Signals.gd"
-PlayerStats="*res://autoload/player/PlayerStats.gd"
+UserSettings="*res://gamedata/autoload/user/UserSettings.gd"
+UserData="*res://gamedata/autoload/user/UserData.gd"
+EnemyData="*res://gamedata/autoload/data/EnemyData.gd"
+UnitData="*res://gamedata/autoload/data/UnitData.gd"
+LevelData="*res://gamedata/autoload/data/LevelData.gd"
+SoundManager="*res://gamedata/autoload/game/SoundManager.tscn"
+Signals="*res://gamedata/autoload/game/Signals.gd"
+PlayerStats="*res://gamedata/autoload/player/PlayerStats.gd"
 
 [display]
 

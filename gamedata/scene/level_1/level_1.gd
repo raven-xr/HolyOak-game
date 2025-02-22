@@ -16,7 +16,7 @@ signal player_ended_tutorial()
 
 
 
-# Common
+# Common\
 func idle_state():
 	SoundManager.music_idle.play()
 	tutorial()

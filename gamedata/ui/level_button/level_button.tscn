@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://xyhf2gmk3oyv"]
 
-[ext_resource type="Texture2D" uid="uid://bndqygcma1us1" path="res://ui/buttons/level_default.svg" id="1_mqwot"]
-[ext_resource type="Texture2D" uid="uid://eoofx4ysy5gn" path="res://ui/buttons/level_hover.svg" id="2_xcpun"]
-[ext_resource type="Texture2D" uid="uid://boeurit6h0hsl" path="res://ui/buttons/level_disabled.svg" id="3_epngo"]
-[ext_resource type="FontFile" uid="uid://car2t5itecnhr" path="res://ui/fonts/Bungee-Regular.ttf" id="4_e5qna"]
+[ext_resource type="Texture2D" uid="uid://bndqygcma1us1" path="res://interface/buttons/level_default.svg" id="1_mqwot"]
+[ext_resource type="Texture2D" uid="uid://eoofx4ysy5gn" path="res://interface/buttons/level_hover.svg" id="2_xcpun"]
+[ext_resource type="Texture2D" uid="uid://boeurit6h0hsl" path="res://interface/buttons/level_disabled.svg" id="3_epngo"]
+[ext_resource type="FontFile" uid="uid://car2t5itecnhr" path="res://interface/fonts/Bungee-Regular.ttf" id="4_e5qna"]
 [ext_resource type="Script" path="res://gamedata/ui/level_button/level_button.gd" id="4_t5f1k"]
 
 [sub_resource type="Theme" id="Theme_lbarj"]
