@@ -14,7 +14,7 @@ config/name="Holy Oak"
 config/version="0.4.2"
 run/main_scene="res://gamedata/scene/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-boot_splash/image="res://loadscreen.png"
+boot_splash/image="res://interface/backgrounds/loadscreen.png"
 config/icon="res://icon.png"
 
 [audio]
