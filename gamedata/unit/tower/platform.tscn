@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d1hglytmquni"]
+[gd_scene load_steps=14 format=3 uid="uid://d1hglytmquni"]
 
 [ext_resource type="Script" path="res://gamedata/unit/tower/platform.gd" id="1_gvh2q"]
 [ext_resource type="Texture2D" uid="uid://cjyvn46nwilg0" path="res://gfx/models/unit/platform/platform.png" id="2_8ll7e"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://csq5bonl77fkh" path="res://interface/buttons/text_disabled.svg" id="8_0f2vw"]
 [ext_resource type="Script" path="res://gamedata/ui/texture_button/texture_button.gd" id="8_54g0n"]
 [ext_resource type="FontFile" uid="uid://car2t5itecnhr" path="res://interface/fonts/Bungee-Regular.ttf" id="10_421q7"]
+[ext_resource type="FontFile" uid="uid://5wohy1go68x5" path="res://interface/fonts/Tribal Garamond.ttf" id="11_c6v47"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fil16"]
 radius = 54.0
@@ -38,6 +39,8 @@ texture = ExtResource("2_8ll7e")
 shape = SubResource("CircleShape2D_fil16")
 
 [node name="Menu" type="Control" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 0
 offset_left = -128.0
@@ -144,6 +147,19 @@ theme_override_font_sizes/font_size = 32
 text = "STATS"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Unit Name" type="Label" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+offset_left = -64.0
+offset_top = -80.0
+offset_right = 64.0
+offset_bottom = -55.0
+theme_override_colors/font_shadow_color = Color(0.099986, 0.099986, 0.099986, 1)
+theme_override_fonts/font = ExtResource("11_c6v47")
+theme_override_font_sizes/font_size = 20
+text = "Unit's Name"
+horizontal_alignment = 1
 
 [node name="Logo" type="Sprite2D" parent="."]
 editor_description = "Usually, it's the unit's shell"

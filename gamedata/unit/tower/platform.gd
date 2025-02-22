@@ -13,6 +13,7 @@ extends Node2D
 @onready var sprite_2d = $Sprite2D
 @onready var touch_screen_button = $TouchScreenButton
 @onready var menu = $Menu
+@onready var unit_name = $"Unit Name"
 @onready var logo = $Logo
 
 @onready var build_button = $"Menu/Build Button"
@@ -31,15 +32,16 @@ func _ready():
 		"R": menu.position = Vector2(40.0, -64.0); menu.pivot_offset = Vector2(0.0, 64.0)
 		"D": menu.position = Vector2(-128.0, 40.0); menu.pivot_offset = Vector2(128.0, 0.0)
 		"L": menu.position = Vector2(-296.0, -64.0); menu.pivot_offset = Vector2(256.0, 64.0)
-	menu.modulate = Color(1, 1, 1, 0)
-	menu.visible = false
 	# Set the logo
 	logo.texture = unit_logo
 
 func open_menu():
 	menu.visible = true
-	var tween = create_tween()
-	tween.tween_property(menu, "modulate", Color(1, 1, 1, 1), 0.1)
+	unit_name.visible = true
+	var tween_1 = create_tween()
+	tween_1.tween_property(menu, "modulate", Color(1, 1, 1, 1), 0.1)
+	var tween_2 = create_tween()
+	tween_2.tween_property(unit_name, "modulate", Color(1, 1, 1, 1), 0.1)
 	# Close tower stats
 	if has_node("Tower Stats"):
 		var tower_stats = get_node("Tower Stats")
@@ -53,12 +55,17 @@ func open_menu():
 		upgrade_button.disabled = true
 		remove_button.disabled = true
 		tower_stats_button.disabled = true
+	unit_name.text = unit_scene.instantiate().name
+	
 
 func close_menu():
-	var tween = create_tween()
-	tween.tween_property(menu, "modulate", Color(1, 1, 1, 0), 0.1)
-	await tween.finished
+	var tween_1 = create_tween()
+	tween_1.tween_property(menu, "modulate", Color(1, 1, 1, 0), 0.1)
+	var tween_2 = create_tween()
+	tween_2.tween_property(unit_name, "modulate", Color(1, 1, 1, 0), 0.1)
+	await tween_1.finished
 	menu.visible = false
+	unit_name.visible = false
 	for button in menu.get_children():
 		button.disabled = false
 
