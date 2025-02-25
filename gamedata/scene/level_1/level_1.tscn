@@ -824,10 +824,9 @@ vertical_alignment = 1
 
 [node name="Logo" type="Sprite2D" parent="Towers/Platform 1" index="3"]
 editor_description = "Usually, it's the unit's shell"
+modulate = Color(1, 1, 1, 0.784314)
 texture_filter = 1
 position = Vector2(0, -9)
-rotation = 0.785398
-scale = Vector2(1.2, 1.2)
 
 [node name="Platform 2" parent="Towers" index="1" instance=ExtResource("24_vjn0v")]
 process_mode = 4
