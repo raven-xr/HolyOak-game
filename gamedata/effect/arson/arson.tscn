@@ -1,11 +1,66 @@
-[gd_scene load_steps=2 format=3 uid="uid://dnjjg6o58r201"]
+[gd_scene load_steps=10 format=3 uid="uid://dnjjg6o58r201"]
 
 [ext_resource type="Script" path="res://gamedata/effect/arson/arson.gd" id="1_bq1jb"]
+[ext_resource type="Texture2D" uid="uid://cxhtaltfi1y35" path="res://gfx/FX/fire/fire.png" id="2_yrsj8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0l7x"]
+atlas = ExtResource("2_yrsj8")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28nd2"]
+atlas = ExtResource("2_yrsj8")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0thka"]
+atlas = ExtResource("2_yrsj8")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vq43"]
+atlas = ExtResource("2_yrsj8")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7olq"]
+atlas = ExtResource("2_yrsj8")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xm3gx"]
+atlas = ExtResource("2_yrsj8")
+region = Rect2(40, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2cfro"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0l7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28nd2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0thka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vq43")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7olq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xm3gx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
 
 [node name="Arson" type="Node2D"]
 script = ExtResource("1_bq1jb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -2)
+sprite_frames = SubResource("SpriteFrames_2cfro")
+autoplay = "default"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../AnimatedSprite2D")
+root_node = NodePath("")
