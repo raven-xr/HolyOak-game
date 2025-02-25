@@ -1,7 +1,5 @@
 extends Node
 
-
-
 const ORK = {
 	"speed": 2000,
 	"health": 60,
