@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://cvwwyafne3ryg"]
+[gd_scene load_steps=44 format=4 uid="uid://cvwwyafne3ryg"]
 
 [ext_resource type="PackedScene" uid="uid://bbsqvqymrojj5" path="res://gamedata/scene/common/level.tscn" id="1_rbgy0"]
 [ext_resource type="Script" path="res://gamedata/scene/level_1/level_1.gd" id="2_c08mv"]
@@ -25,6 +25,7 @@
 [ext_resource type="Script" path="res://gamedata/ui/texture_button/texture_button.gd" id="19_lg656"]
 [ext_resource type="FontFile" uid="uid://car2t5itecnhr" path="res://interface/fonts/Bungee-Regular.ttf" id="20_d7u56"]
 [ext_resource type="PackedScene" uid="uid://d1hglytmquni" path="res://gamedata/unit/tower/platform.tscn" id="24_vjn0v"]
+[ext_resource type="FontFile" uid="uid://5wohy1go68x5" path="res://interface/fonts/Tribal Garamond.ttf" id="25_32dll"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lj6gp"]
 texture = ExtResource("3_1gxpb")
@@ -822,7 +823,20 @@ text = "STATS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Logo" type="Sprite2D" parent="Towers/Platform 1" index="3"]
+[node name="Unit Name" type="Label" parent="Towers/Platform 1" index="3"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+offset_left = -64.0
+offset_top = -80.0
+offset_right = 64.0
+offset_bottom = -55.0
+theme_override_colors/font_shadow_color = Color(0.099986, 0.099986, 0.099986, 1)
+theme_override_fonts/font = ExtResource("25_32dll")
+theme_override_font_sizes/font_size = 20
+text = "Unit's Name"
+horizontal_alignment = 1
+
+[node name="Logo" type="Sprite2D" parent="Towers/Platform 1" index="4"]
 editor_description = "Usually, it's the unit's shell"
 modulate = Color(1, 1, 1, 0.784314)
 texture_filter = 1
