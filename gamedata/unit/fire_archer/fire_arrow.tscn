@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bari1ycd24fdd" path="res://gamedata/unit/common/shell.tscn" id="1_gj2g2"]
 [ext_resource type="Texture2D" uid="uid://cxhtaltfi1y35" path="res://gfx/FX/fire/fire.png" id="3_rjm01"]
-[ext_resource type="Texture2D" uid="uid://dvatolfyyuk3f" path="res://gfx/models/unit/fire_archer/shell/fire_arrow.png" id="3_u0mg5"]
+[ext_resource type="Texture2D" uid="uid://dvatolfyyuk3f" path="res://gfx/unit/fire_archer/shell/fire_arrow.png" id="3_u0mg5"]
 [ext_resource type="AudioStream" uid="uid://8irco7c15oms" path="res://audio/sfx/bow_hit.mp3" id="4_vtixi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a0l7x"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://dgsn2o3sm3wgn"]
 
-[ext_resource type="Texture2D" uid="uid://dqfm4pmqposiy" path="res://gfx/models/object/oak.png" id="2_0gefp"]
+[ext_resource type="Texture2D" uid="uid://dqfm4pmqposiy" path="res://gfx/object/oak.png" id="2_0gefp"]
 [ext_resource type="Texture2D" uid="uid://mjb5loi5fry3" path="res://interface/bar/2/under.png" id="2_01k4e"]
 [ext_resource type="Script" path="res://gamedata/scene/common/holy_oak.gd" id="2_7gaut"]
 [ext_resource type="Texture2D" uid="uid://js5imk206dmd" path="res://interface/bar/2/progress.png" id="3_74csr"]
