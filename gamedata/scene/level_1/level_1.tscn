@@ -716,6 +716,7 @@ texture = ExtResource("15_5dy8q")
 shape = SubResource("CircleShape2D_fil16")
 
 [node name="Menu" type="Control" parent="Towers/Platform 1" index="2"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = -128.0
