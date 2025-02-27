@@ -1,13 +1,14 @@
 extends CharacterBody2D
 class_name Shell
 
+@export var effect: PackedScene
+
 @onready var hit = $SFX/Hit
 @onready var area_2d = $Area2D
 
 # These values are given by the parent (unit.gd)
 var target: Enemy
 var target_global_position: Vector2
-
 var damage: int
 var speed: int
 
@@ -36,6 +37,8 @@ func _on_area_2d_body_entered(body):
 	if body == target:
 		body.health -= damage
 		hit.play()
+		if effect and not body.has_node(str(effect.instantiate().name)):
+			body.add_child(effect.instantiate())
 		self_destruct()
 
 func self_destruct():

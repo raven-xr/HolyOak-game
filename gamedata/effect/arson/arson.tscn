@@ -55,12 +55,19 @@ animations = [{
 
 [node name="Arson" type="Node2D"]
 script = ExtResource("1_bq1jb")
+technical_name = &"ARSON"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0, -2)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_2cfro")
 autoplay = "default"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
