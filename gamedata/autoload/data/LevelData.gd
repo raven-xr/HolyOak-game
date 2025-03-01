@@ -1,7 +1,5 @@
 extends Node
 
-
-
 #const EXAMPLE = {
 	#HP of the Holy Oak at the start
 	#"health": 100, 
@@ -20,8 +18,6 @@ extends Node
 		#]
 	#}
 #}
-
-
 
 const LEVEL_1: Dictionary = {
 	"health": 150,
