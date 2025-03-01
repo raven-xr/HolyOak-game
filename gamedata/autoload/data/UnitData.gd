@@ -1,5 +1,16 @@
 extends Node
 
+#const EXAMPLE = {
+	#"level_1": {
+		#"shell_speed": 7000, # float or int
+		#"damage": 10, # int
+		#"cost": 100, # int
+		#"unit_count": 1, # int
+		#"spawnpoints": [Vector2(0, 0)], # Array[Vector2] with "unit_count" items
+		#"attack_range": 200, # int or float
+	#}
+#}
+
 const ARCHER = {
 	"level_1": {
 		"shell_speed": 7000,
