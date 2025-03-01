@@ -81,7 +81,9 @@ func affect(effect: Effect):
 	if is_affected(effect):
 		for active_effect: Effect in effects.get_children():
 			if active_effect.technical_name == effect.technical_name:
+				active_effect.enemy.future_health -= active_effect.total_damage
 				active_effect.total_damage = 0
+				break
 	else:
 		effects.add_child(effect)
 

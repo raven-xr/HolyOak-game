@@ -11,17 +11,21 @@ class_name Effect
 @onready var target_damage: int = damage * duration
 
 var total_damage: int = 0
+var is_ending: bool = false
 
 func _ready():
 	enemy.future_health -= target_damage
 
 func _on_timer_timeout():
 	total_damage += damage
-	if total_damage == target_damage:
+	if total_damage == target_damage or enemy.health - damage <= 0:
 		expire()
 	enemy.health -= damage
+	if is_ending:
+		queue_free()
 
 func expire():
 	timer.stop()
+	is_ending = true
 	# w.i.p.
 	visible = false
