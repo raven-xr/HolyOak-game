@@ -117,7 +117,8 @@ func destruction():
 		gfx_smoke.add_child(new_smoke)
 	# Hide the tower
 	var tween_2 = get_tree().create_tween()
-	tween_2.tween_property(self, "modulate", Color(1, 1, 1, 0), 1.0)
+	var tween_3 = get_tree().create_tween()
+	tween_3.tween_property(get_parent().logo, "modulate", Color(1.0, 1.0, 1.0, 1.0), 1.0)
 	await tween_2.finished
 	await get_tree().create_timer(2.0).timeout
 	# Make smokes stop repeating
@@ -135,5 +136,4 @@ func can_be_upgraded():
 
 # AnimationPlayer
 func hide_logo():
-	var platform = get_parent()
-	platform.logo.visible = false
+	get_parent().logo.modulate = Color(1.0, 1.0, 1.0, 0.0)

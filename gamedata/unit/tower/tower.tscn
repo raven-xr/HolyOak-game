@@ -1288,7 +1288,7 @@ texture_filter = 1
 position = Vector2(0, -56)
 scale = Vector2(1.72308, 1.72308)
 sprite_frames = SubResource("SpriteFrames_0bfev")
-animation = &"Level_0_Idle"
+animation = &"Level_1"
 autoplay = "Level_0_Idle"
 
 [node name="Units" type="Node2D" parent="."]
