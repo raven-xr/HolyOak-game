@@ -1,5 +1,12 @@
 extends Node
 
+#const EXAMPLE = {
+	#"speed": 1000, # int or float
+	#"health": 100, # int
+	#"damage": 10, # int
+	#"reward": 10, # int
+#}
+
 const ORK = {
 	"speed": 2000,
 	"health": 60,
