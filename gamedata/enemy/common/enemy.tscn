@@ -44,3 +44,5 @@ bus = &"SFX"
 
 [node name="Hit" type="AudioStreamPlayer2D" parent="SFX"]
 bus = &"SFX"
+
+[node name="Effects" type="Node2D" parent="."]

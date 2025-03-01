@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Shell
 
-@export var effect: PackedScene
+@export var effect_scene: PackedScene
 
 @onready var hit = $SFX/Hit
 @onready var area_2d = $Area2D
@@ -34,12 +34,12 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _on_area_2d_body_entered(body):
-	if body == target:
-		body.health -= damage
-		hit.play()
-		if effect and not body.has_node(str(effect.instantiate().name)):
-			body.add_child(effect.instantiate())
-		self_destruct()
+	if body != target: return
+	body.health -= damage
+	hit.play()
+	if effect_scene and body.health > 0:
+		body.affect(effect_scene.instantiate())
+	self_destruct()
 
 func self_destruct():
 	area_2d.set_deferred("monitoring", false)

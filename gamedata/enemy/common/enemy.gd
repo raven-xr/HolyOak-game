@@ -1,17 +1,14 @@
 extends CharacterBody2D
 class_name Enemy
 
-
-
 @export var technical_name: StringName
 
-
-
-@onready var death = $SFX/Death
-@onready var hit_sfx = $SFX/Hit
 @onready var animation_player = $AnimationPlayer
 @onready var collision_shape_2d = $CollisionShape2D
 @onready var pivot = $Pivot
+@onready var death = $SFX/Death
+@onready var hit_sfx = $SFX/Hit
+@onready var effects = $Effects
 
 @onready var stats: Dictionary = EnemyData.get(technical_name)
 @onready var speed: int = stats["speed"]
@@ -22,8 +19,6 @@ class_name Enemy
 			die()
 @onready var damage: int = stats["damage"]
 @onready var reward: int = stats["reward"]
-
-
 
 var direction: Vector2 # Updates in next_roadpoint_position's setter
 var view_direction: String: # The value is being given by points on the road
@@ -36,7 +31,7 @@ var next_roadpoint_position: Vector2:
 		next_roadpoint_position = value
 		if is_available:
 			direction = (value - position).normalized()
-## If an enemy isn't available, he can't change its direction and animation.[br]
+## If the enemy isn't available, he can't change its direction and animation.[br]
 ## If he gets available, the enemy updates its animation and direction.
 var is_available: bool = true:
 	set(value):
@@ -44,7 +39,6 @@ var is_available: bool = true:
 		if is_available:
 			animation_player.play(view_direction + "_Move")
 			direction = (next_roadpoint_position - position).normalized()
-
 ## This variable is used in unit.gd when a unit chooses the best target
 var future_health: int:
 	set(value):
@@ -53,14 +47,9 @@ var future_health: int:
 		if future_health <= 0:
 			set_collision_layer_value(1, false)
 
-
-
 signal moved()
 signal died()
 
-
-
-# Common
 func _ready():
 	future_health = health
 
@@ -86,3 +75,18 @@ func die():
 	animation_player.play(view_direction + "_Death")
 	await animation_player.animation_finished
 	queue_free()
+
+func affect(effect: Effect):
+	# If the enemy already has the given effect, then extend it
+	if is_affected(effect):
+		for active_effect: Effect in effects.get_children():
+			if active_effect.technical_name == effect.technical_name:
+				active_effect.total_damage = 0
+	else:
+		effects.add_child(effect)
+
+func is_affected(effect: Effect) -> bool:
+	for active_effect: Effect in effects.get_children():
+		if active_effect.technical_name == effect.technical_name:
+			return true
+	return false

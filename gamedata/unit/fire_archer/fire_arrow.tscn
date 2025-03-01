@@ -61,7 +61,7 @@ resource_local_to_scene = true
 size = Vector2(20, 4)
 
 [node name="Fire Arrow" instance=ExtResource("1_gj2g2")]
-effect = ExtResource("2_0nvsn")
+effect_scene = ExtResource("2_0nvsn")
 
 [node name="Sprite2D" parent="." index="0"]
 scale = Vector2(1.408, 1.408)
