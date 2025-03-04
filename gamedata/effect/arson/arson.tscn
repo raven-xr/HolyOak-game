@@ -1,52 +1,52 @@
 [gd_scene load_steps=10 format=3 uid="uid://dnjjg6o58r201"]
 
 [ext_resource type="Script" uid="uid://deko67i3qled4" path="res://gamedata/effect/arson/arson.gd" id="1_bq1jb"]
-[ext_resource type="Texture2D" uid="uid://cxhtaltfi1y35" path="res://gfx/FX/fire/fire.png" id="2_yrsj8"]
+[ext_resource type="Texture2D" uid="uid://b0cuabe1ontyj" path="res://gfx/effect/arson/arson.png" id="2_cmu8b"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a0l7x"]
-atlas = ExtResource("2_yrsj8")
-region = Rect2(0, 0, 8, 8)
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqqb0"]
+atlas = ExtResource("2_cmu8b")
+region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_28nd2"]
-atlas = ExtResource("2_yrsj8")
-region = Rect2(8, 0, 8, 8)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ldpm8"]
+atlas = ExtResource("2_cmu8b")
+region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0thka"]
-atlas = ExtResource("2_yrsj8")
-region = Rect2(16, 0, 8, 8)
+[sub_resource type="AtlasTexture" id="AtlasTexture_302iw"]
+atlas = ExtResource("2_cmu8b")
+region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5vq43"]
-atlas = ExtResource("2_yrsj8")
-region = Rect2(24, 0, 8, 8)
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ymgo"]
+atlas = ExtResource("2_cmu8b")
+region = Rect2(48, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w7olq"]
-atlas = ExtResource("2_yrsj8")
-region = Rect2(32, 0, 8, 8)
+[sub_resource type="AtlasTexture" id="AtlasTexture_atmeq"]
+atlas = ExtResource("2_cmu8b")
+region = Rect2(64, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xm3gx"]
-atlas = ExtResource("2_yrsj8")
-region = Rect2(40, 0, 8, 8)
+[sub_resource type="AtlasTexture" id="AtlasTexture_3beuo"]
+atlas = ExtResource("2_cmu8b")
+region = Rect2(80, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2cfro"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_a0l7x")
+"texture": SubResource("AtlasTexture_uqqb0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_28nd2")
+"texture": SubResource("AtlasTexture_ldpm8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0thka")
+"texture": SubResource("AtlasTexture_302iw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5vq43")
+"texture": SubResource("AtlasTexture_1ymgo")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_w7olq")
+"texture": SubResource("AtlasTexture_atmeq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xm3gx")
+"texture": SubResource("AtlasTexture_3beuo")
 }],
 "loop": true,
 "name": &"default",
@@ -58,9 +58,10 @@ script = ExtResource("1_bq1jb")
 technical_name = &"ARSON"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.580392)
 texture_filter = 1
-position = Vector2(0, -2)
-scale = Vector2(2, 2)
+position = Vector2(0, 2)
+scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_2cfro")
 autoplay = "default"
 
