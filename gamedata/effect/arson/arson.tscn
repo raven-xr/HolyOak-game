@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dnjjg6o58r201"]
+[gd_scene load_steps=14 format=3 uid="uid://dnjjg6o58r201"]
 
 [ext_resource type="Script" uid="uid://deko67i3qled4" path="res://gamedata/effect/arson/arson.gd" id="1_bq1jb"]
 [ext_resource type="Texture2D" uid="uid://b0cuabe1ontyj" path="res://gfx/effect/arson/arson.png" id="2_cmu8b"]
@@ -53,6 +53,60 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="Animation" id="Animation_cmu8b"]
+resource_name = "Appear"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.580392)]
+}
+
+[sub_resource type="Animation" id="Animation_uqqb0"]
+resource_name = "Expire"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.580392), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ldpm8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.580392)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ldpm8"]
+_data = {
+&"Appear": SubResource("Animation_cmu8b"),
+&"Expire": SubResource("Animation_uqqb0"),
+&"RESET": SubResource("Animation_ldpm8")
+}
+
 [node name="Arson" type="Node2D"]
 script = ExtResource("1_bq1jb")
 technical_name = &"ARSON"
@@ -66,7 +120,10 @@ sprite_frames = SubResource("SpriteFrames_2cfro")
 autoplay = "default"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("")
+libraries = {
+&"": SubResource("AnimationLibrary_ldpm8")
+}
+autoplay = "Appear"
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
