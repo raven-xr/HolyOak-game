@@ -818,18 +818,18 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gj228"]
 _data = {
-"D_Attack": SubResource("Animation_lgq0h"),
-"D_Idle": SubResource("Animation_0kesd"),
-"D_Preattack": SubResource("Animation_5caxx"),
-"L_Attack": SubResource("Animation_crxwn"),
-"L_Idle": SubResource("Animation_gw6dq"),
-"L_Preattack": SubResource("Animation_h7d4t"),
-"R_Attack": SubResource("Animation_r5gkn"),
-"R_Idle": SubResource("Animation_i2dvc"),
-"R_Preattack": SubResource("Animation_0d2rl"),
-"U_Attack": SubResource("Animation_du6bn"),
-"U_Idle": SubResource("Animation_5seqe"),
-"U_Preattack": SubResource("Animation_gkkpy")
+&"D_Attack": SubResource("Animation_lgq0h"),
+&"D_Idle": SubResource("Animation_0kesd"),
+&"D_Preattack": SubResource("Animation_5caxx"),
+&"L_Attack": SubResource("Animation_crxwn"),
+&"L_Idle": SubResource("Animation_gw6dq"),
+&"L_Preattack": SubResource("Animation_h7d4t"),
+&"R_Attack": SubResource("Animation_r5gkn"),
+&"R_Idle": SubResource("Animation_i2dvc"),
+&"R_Preattack": SubResource("Animation_0d2rl"),
+&"U_Attack": SubResource("Animation_du6bn"),
+&"U_Idle": SubResource("Animation_5seqe"),
+&"U_Preattack": SubResource("Animation_gkkpy")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_61r42"]

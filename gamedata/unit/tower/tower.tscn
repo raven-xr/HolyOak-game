@@ -1,6 +1,6 @@
 [gd_scene load_steps=128 format=3 uid="uid://cnbl8aw2p0wrn"]
 
-[ext_resource type="Script" path="res://gamedata/unit/tower/tower.gd" id="1_ga7em"]
+[ext_resource type="Script" uid="uid://cdnxduowdebjm" path="res://gamedata/unit/tower/tower.gd" id="1_ga7em"]
 [ext_resource type="Texture2D" uid="uid://dyj1b8lqm8l5x" path="res://gfx/unit/tower/upgrade/1.png" id="2_6xap5"]
 [ext_resource type="Texture2D" uid="uid://cjyvn46nwilg0" path="res://gfx/unit/platform/platform.png" id="2_bv0xj"]
 [ext_resource type="Texture2D" uid="uid://t8vwtgwke7jr" path="res://gfx/unit/tower/upgrade/4_roof.png" id="2_pq2nx"]
@@ -538,20 +538,20 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mo32q"]
 _data = {
-"Level_1": SubResource("Animation_68f7d"),
-"Level_1_Idle": SubResource("Animation_vb0je"),
-"Level_2": SubResource("Animation_e0yms"),
-"Level_2_Idle": SubResource("Animation_q58pf"),
-"Level_3": SubResource("Animation_ys8xs"),
-"Level_3_Idle": SubResource("Animation_bhca1"),
-"Level_4": SubResource("Animation_mqvh0"),
-"Level_4_Idle": SubResource("Animation_b3fjd"),
-"Level_5": SubResource("Animation_21lfq"),
-"Level_5_Idle": SubResource("Animation_an7qr"),
-"Level_6": SubResource("Animation_syi3y"),
-"Level_6_Idle": SubResource("Animation_ltkcg"),
-"Level_7": SubResource("Animation_r15c0"),
-"Level_7_Idle": SubResource("Animation_tegrb")
+&"Level_1": SubResource("Animation_68f7d"),
+&"Level_1_Idle": SubResource("Animation_vb0je"),
+&"Level_2": SubResource("Animation_e0yms"),
+&"Level_2_Idle": SubResource("Animation_q58pf"),
+&"Level_3": SubResource("Animation_ys8xs"),
+&"Level_3_Idle": SubResource("Animation_bhca1"),
+&"Level_4": SubResource("Animation_mqvh0"),
+&"Level_4_Idle": SubResource("Animation_b3fjd"),
+&"Level_5": SubResource("Animation_21lfq"),
+&"Level_5_Idle": SubResource("Animation_an7qr"),
+&"Level_6": SubResource("Animation_syi3y"),
+&"Level_6_Idle": SubResource("Animation_ltkcg"),
+&"Level_7": SubResource("Animation_r15c0"),
+&"Level_7_Idle": SubResource("Animation_tegrb")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_efmp6"]

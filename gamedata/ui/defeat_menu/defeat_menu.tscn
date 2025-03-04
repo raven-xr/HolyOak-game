@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bpv032thoan7a"]
 
-[ext_resource type="Script" path="res://gamedata/ui/defeat_menu/defeat_menu.gd" id="1_xr44m"]
+[ext_resource type="Script" uid="uid://c504se88wunti" path="res://gamedata/ui/defeat_menu/defeat_menu.gd" id="1_xr44m"]
 [ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://interface/backgrounds/ui_border.png" id="2_i7sav"]
 [ext_resource type="Texture2D" uid="uid://bovpfmhts66wt" path="res://interface/icons/restart.svg" id="3_q1ncl"]
 [ext_resource type="Texture2D" uid="uid://c17d2n1jjcd8t" path="res://interface/icons/menu.svg" id="4_ioxxa"]

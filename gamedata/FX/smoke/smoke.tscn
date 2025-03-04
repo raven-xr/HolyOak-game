@@ -1,7 +1,7 @@
 [gd_scene load_steps=37 format=3 uid="uid://fp8vxfd5r20l"]
 
 [ext_resource type="Texture2D" uid="uid://bomwb7pqmtp81" path="res://gfx/FX/smoke/smoke_05.png" id="1_dh6eu"]
-[ext_resource type="Script" path="res://gamedata/FX/smoke/smoke.gd" id="1_h06gy"]
+[ext_resource type="Script" uid="uid://cypnshfeym0uj" path="res://gamedata/FX/smoke/smoke.gd" id="1_h06gy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rctvp"]
 atlas = ExtResource("1_dh6eu")

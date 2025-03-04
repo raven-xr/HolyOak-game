@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dqfm4pmqposiy" path="res://gfx/object/oak.png" id="2_0gefp"]
 [ext_resource type="Texture2D" uid="uid://mjb5loi5fry3" path="res://interface/bar/2/under.png" id="2_01k4e"]
-[ext_resource type="Script" path="res://gamedata/scene/common/holy_oak.gd" id="2_7gaut"]
+[ext_resource type="Script" uid="uid://bdrwjtmih0ns4" path="res://gamedata/scene/common/holy_oak.gd" id="2_7gaut"]
 [ext_resource type="Texture2D" uid="uid://js5imk206dmd" path="res://interface/bar/2/progress.png" id="3_74csr"]
 [ext_resource type="PackedScene" uid="uid://cfcu8rgqvu2xp" path="res://gamedata/FX/leaf/leaf.tscn" id="3_lbct2"]
 [ext_resource type="Texture2D" uid="uid://bpnrlouguuu7u" path="res://gfx/FX/leaf/leaf.png" id="4_biqay"]
@@ -14,7 +14,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.501961)
 gradient = SubResource("Gradient_xa468")
 
 [sub_resource type="Curve" id="Curve_t8h76"]
-min_value = -1.0
+_limits = [-1.0, 1.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
@@ -22,8 +22,7 @@ point_count = 2
 curve = SubResource("Curve_t8h76")
 
 [sub_resource type="Curve" id="Curve_jyfqa"]
-min_value = -200.0
-max_value = 200.0
+_limits = [-200.0, 200.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 

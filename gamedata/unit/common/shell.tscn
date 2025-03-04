@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bari1ycd24fdd"]
 
-[ext_resource type="Script" path="res://gamedata/unit/common/shell.gd" id="1_ksye2"]
+[ext_resource type="Script" uid="uid://ldyk1r0wjl77" path="res://gamedata/unit/common/shell.gd" id="1_ksye2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dpy7y"]
 radius = 0.01

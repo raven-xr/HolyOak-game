@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dkswfpke4hlux"]
 
-[ext_resource type="Script" path="res://gamedata/unit/common/unit.gd" id="1_vuvce"]
+[ext_resource type="Script" uid="uid://defqndokw8nb3" path="res://gamedata/unit/common/unit.gd" id="1_vuvce"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0ddoe"]
 resource_local_to_scene = true

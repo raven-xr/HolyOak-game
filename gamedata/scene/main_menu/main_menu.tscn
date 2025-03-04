@@ -1,12 +1,12 @@
 [gd_scene load_steps=29 format=3 uid="uid://die1k42jfmahn"]
 
-[ext_resource type="Script" path="res://gamedata/scene/main_menu/main_menu.gd" id="1_ab7jh"]
+[ext_resource type="Script" uid="uid://dfi0gclyc5igs" path="res://gamedata/scene/main_menu/main_menu.gd" id="1_ab7jh"]
 [ext_resource type="Texture2D" uid="uid://bdbcrxa2815rn" path="res://interface/backgrounds/main_menu.jpeg" id="1_tludv"]
 [ext_resource type="PackedScene" uid="uid://5somsbnrlalg" path="res://gamedata/ui/star/star.tscn" id="2_ndcgm"]
 [ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://interface/backgrounds/ui_border.png" id="3_m4171"]
 [ext_resource type="Texture2D" uid="uid://b5ya13e41k2kt" path="res://interface/buttons/text_default.svg" id="5_c58i8"]
 [ext_resource type="Texture2D" uid="uid://dsh51r6drxmtr" path="res://interface/buttons/text_hover.svg" id="6_si5nj"]
-[ext_resource type="Script" path="res://gamedata/ui/texture_button/texture_button.gd" id="7_bejr1"]
+[ext_resource type="Script" uid="uid://bc6bgbd55qvb3" path="res://gamedata/ui/texture_button/texture_button.gd" id="7_bejr1"]
 [ext_resource type="Texture2D" uid="uid://csq5bonl77fkh" path="res://interface/buttons/text_disabled.svg" id="7_tvwr8"]
 [ext_resource type="FontFile" uid="uid://car2t5itecnhr" path="res://interface/fonts/Bungee-Regular.ttf" id="9_d8en2"]
 [ext_resource type="Texture2D" uid="uid://dy2ndup68fcj0" path="res://interface/buttons/arrow_left_default.svg" id="10_pcypl"]
@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://eoofx4ysy5gn" path="res://interface/buttons/level_hover.svg" id="11_bbs4v"]
 [ext_resource type="Texture2D" uid="uid://d3p11abw8yorb" path="res://interface/buttons/arrow_left_hover.svg" id="11_jr0j5"]
 [ext_resource type="Texture2D" uid="uid://boeurit6h0hsl" path="res://interface/buttons/level_disabled.svg" id="11_n28j3"]
-[ext_resource type="Script" path="res://gamedata/ui/level_button/level_button.gd" id="13_adb1k"]
+[ext_resource type="Script" uid="uid://w4ahvf7okxlu" path="res://gamedata/ui/level_button/level_button.gd" id="13_adb1k"]
 [ext_resource type="Theme" uid="uid://b1dojytjydmpw" path="res://interface/themes/value.tres" id="15_gncvb"]
 [ext_resource type="Texture2D" uid="uid://bi3kg1fix3bcw" path="res://interface/backgrounds/ui_back.svg" id="16_npgut"]
 [ext_resource type="PackedScene" uid="uid://cci0owdbk2fr5" path="res://gamedata/scene/settings/settings.tscn" id="19_inpo7"]
@@ -143,8 +143,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0qjj4"]
 _data = {
-"Popup": SubResource("Animation_dy4fm"),
-"RESET": SubResource("Animation_3n44e")
+&"Popup": SubResource("Animation_dy4fm"),
+&"RESET": SubResource("Animation_3n44e")
 }
 
 [node name="Main Menu" type="Control"]

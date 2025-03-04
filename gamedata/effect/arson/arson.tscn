@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dnjjg6o58r201"]
 
-[ext_resource type="Script" path="res://gamedata/effect/arson/arson.gd" id="1_bq1jb"]
+[ext_resource type="Script" uid="uid://deko67i3qled4" path="res://gamedata/effect/arson/arson.gd" id="1_bq1jb"]
 [ext_resource type="Texture2D" uid="uid://cxhtaltfi1y35" path="res://gfx/FX/fire/fire.png" id="2_yrsj8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a0l7x"]

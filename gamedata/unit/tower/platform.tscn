@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://d1hglytmquni"]
 
-[ext_resource type="Script" path="res://gamedata/unit/tower/platform.gd" id="1_gvh2q"]
+[ext_resource type="Script" uid="uid://bc26l2y6353dy" path="res://gamedata/unit/tower/platform.gd" id="1_gvh2q"]
 [ext_resource type="Texture2D" uid="uid://cjyvn46nwilg0" path="res://gfx/unit/platform/platform.png" id="2_8ll7e"]
 [ext_resource type="PackedScene" uid="uid://cnbl8aw2p0wrn" path="res://gamedata/unit/tower/tower.tscn" id="2_73ia6"]
 [ext_resource type="PackedScene" uid="uid://c06g6da1scixg" path="res://gamedata/unit/tower/tower_stats.tscn" id="3_a1ydp"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b5ya13e41k2kt" path="res://interface/buttons/text_default.svg" id="6_m4jb5"]
 [ext_resource type="Texture2D" uid="uid://dsh51r6drxmtr" path="res://interface/buttons/text_hover.svg" id="7_tquk6"]
 [ext_resource type="Texture2D" uid="uid://csq5bonl77fkh" path="res://interface/buttons/text_disabled.svg" id="8_0f2vw"]
-[ext_resource type="Script" path="res://gamedata/ui/texture_button/texture_button.gd" id="8_54g0n"]
+[ext_resource type="Script" uid="uid://bc6bgbd55qvb3" path="res://gamedata/ui/texture_button/texture_button.gd" id="8_54g0n"]
 [ext_resource type="FontFile" uid="uid://car2t5itecnhr" path="res://interface/fonts/Bungee-Regular.ttf" id="10_421q7"]
 [ext_resource type="FontFile" uid="uid://5wohy1go68x5" path="res://interface/fonts/Tribal Garamond.ttf" id="11_c6v47"]
 

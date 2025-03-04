@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://sqtg0w21y043"]
 
 [ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://interface/backgrounds/ui_border.png" id="1_tykjn"]
-[ext_resource type="Script" path="res://gamedata/ui/game_menu/game_menu.gd" id="1_ux5sl"]
+[ext_resource type="Script" uid="uid://t4uhbvnbg6rv" path="res://gamedata/ui/game_menu/game_menu.gd" id="1_ux5sl"]
 [ext_resource type="FontFile" uid="uid://5wohy1go68x5" path="res://interface/fonts/Tribal Garamond.ttf" id="2_td3s4"]
 [ext_resource type="PackedScene" uid="uid://cci0owdbk2fr5" path="res://gamedata/scene/settings/settings.tscn" id="4_b64ly"]
 

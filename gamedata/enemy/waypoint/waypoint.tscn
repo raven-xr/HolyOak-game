@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ccqwn6n7il2n2"]
 
-[ext_resource type="Script" path="res://gamedata/enemy/waypoint/waypoint.gd" id="1_0ct1n"]
+[ext_resource type="Script" uid="uid://b4dnrq6c33aex" path="res://gamedata/enemy/waypoint/waypoint.gd" id="1_0ct1n"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_fm8iq"]
 a = Vector2(0, -48)

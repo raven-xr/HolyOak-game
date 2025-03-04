@@ -1,7 +1,7 @@
 [gd_scene load_steps=192 format=3 uid="uid://cdb4s0kj5v3yf"]
 
 [ext_resource type="PackedScene" uid="uid://o8gktvpjtfgh" path="res://gamedata/enemy/common/enemy.tscn" id="1_226lk"]
-[ext_resource type="Script" path="res://gamedata/enemy/slime/slime.gd" id="2_4hr8c"]
+[ext_resource type="Script" uid="uid://dybh7d44erikj" path="res://gamedata/enemy/slime/slime.gd" id="2_4hr8c"]
 [ext_resource type="Texture2D" uid="uid://4atuaj1ndckf" path="res://gfx/enemy/slime/D_Death.png" id="2_nlpxs"]
 [ext_resource type="Texture2D" uid="uid://bqo7fn2no1anf" path="res://gfx/enemy/slime/D_Move.png" id="3_jtcbs"]
 [ext_resource type="Texture2D" uid="uid://y5adfkegutda" path="res://gfx/enemy/slime/D_Split.png" id="4_ysq8m"]
@@ -2170,30 +2170,30 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wn6xb"]
 _data = {
-"D-L_Death": SubResource("Animation_frdgk"),
-"D-L_Move": SubResource("Animation_acgrt"),
-"D-R_Death": SubResource("Animation_kxjpc"),
-"D-R_Move": SubResource("Animation_8e47j"),
-"D_Attack": SubResource("Animation_54tpg"),
-"D_Death": SubResource("Animation_g7e2r"),
-"D_Move": SubResource("Animation_wgov8"),
-"D_Split": SubResource("Animation_w2gq1"),
-"L_Attack": SubResource("Animation_rjbaj"),
-"L_Death": SubResource("Animation_ml701"),
-"L_Move": SubResource("Animation_nudfi"),
-"L_Split": SubResource("Animation_g0kcg"),
-"R_Attack": SubResource("Animation_mmq24"),
-"R_Death": SubResource("Animation_s4lng"),
-"R_Move": SubResource("Animation_qhnb4"),
-"R_Split": SubResource("Animation_crk4m"),
-"U-L_Death": SubResource("Animation_dviy6"),
-"U-L_Move": SubResource("Animation_v1htb"),
-"U-R_Death": SubResource("Animation_kjtlk"),
-"U-R_Move": SubResource("Animation_gu5s3"),
-"U_Attack": SubResource("Animation_eq85u"),
-"U_Death": SubResource("Animation_44lh2"),
-"U_Move": SubResource("Animation_mu3wv"),
-"U_Split": SubResource("Animation_t4neq")
+&"D-L_Death": SubResource("Animation_frdgk"),
+&"D-L_Move": SubResource("Animation_acgrt"),
+&"D-R_Death": SubResource("Animation_kxjpc"),
+&"D-R_Move": SubResource("Animation_8e47j"),
+&"D_Attack": SubResource("Animation_54tpg"),
+&"D_Death": SubResource("Animation_g7e2r"),
+&"D_Move": SubResource("Animation_wgov8"),
+&"D_Split": SubResource("Animation_w2gq1"),
+&"L_Attack": SubResource("Animation_rjbaj"),
+&"L_Death": SubResource("Animation_ml701"),
+&"L_Move": SubResource("Animation_nudfi"),
+&"L_Split": SubResource("Animation_g0kcg"),
+&"R_Attack": SubResource("Animation_mmq24"),
+&"R_Death": SubResource("Animation_s4lng"),
+&"R_Move": SubResource("Animation_qhnb4"),
+&"R_Split": SubResource("Animation_crk4m"),
+&"U-L_Death": SubResource("Animation_dviy6"),
+&"U-L_Move": SubResource("Animation_v1htb"),
+&"U-R_Death": SubResource("Animation_kjtlk"),
+&"U-R_Move": SubResource("Animation_gu5s3"),
+&"U_Attack": SubResource("Animation_eq85u"),
+&"U_Death": SubResource("Animation_44lh2"),
+&"U_Move": SubResource("Animation_mu3wv"),
+&"U_Split": SubResource("Animation_t4neq")
 }
 
 [node name="Slime" instance=ExtResource("1_226lk")]

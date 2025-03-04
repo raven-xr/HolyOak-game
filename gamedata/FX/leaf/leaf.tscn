@@ -7,7 +7,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.501961)
 gradient = SubResource("Gradient_xa468")
 
 [sub_resource type="Curve" id="Curve_t8h76"]
-min_value = -1.0
+_limits = [-1.0, 1.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
