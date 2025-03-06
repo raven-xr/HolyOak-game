@@ -258,8 +258,8 @@ const LEVEL_2: Dictionary = {
 
 const LEVEL_3: Dictionary = {
 	"health": 10000,
-	"money": 100,
-	"tower_level_limit": 4,
+	"money": 10000,
+	"tower_level_limit": 100,
 	"wave_count": 1,
 	"wave_1": {
 		"spawn_cooldown": 1.0,
