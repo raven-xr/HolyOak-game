@@ -21,7 +21,7 @@ const MAX_LEVEL: int = 7
 
 
 
-var level_limit: int = PlayerStats.tower_level_limit
+var tower_level_limit: int = PlayerStats.tower_level_limit
 var level: int = 0:
 	set(value):
 		level = value
@@ -75,8 +75,8 @@ func upgrading():
 	unit_spawnpoints = unit_stats["level_" + str(level)]["spawnpoints"]
 	
 	last_cost = current_cost
-	if MAX_LEVEL == level_limit:
-		current_cost = "-"
+	if level in [MAX_LEVEL, tower_level_limit]:
+		current_cost = "-" # for tower stats
 	else:
 		current_cost = unit_stats["level_" + str(level + 1)]["cost"]
 	# Play animation, SFX and GFX
@@ -130,7 +130,7 @@ func destruction():
 	queue_free()
 
 func can_be_upgraded():
-	if is_upgrading or level in [MAX_LEVEL, level_limit]:
+	if is_upgrading or level in [MAX_LEVEL, tower_level_limit]:
 		return false
 	else:
 		return true
