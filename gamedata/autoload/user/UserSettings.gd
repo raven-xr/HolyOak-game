@@ -4,7 +4,7 @@ extends Node
 
 # Default settings
 const DEFAULT_MASTER_VOLUME: float = 1.0
-const DEFAULT_MUSIC_VOLUME: float = 1.0
+const DEFAULT_MUSIC_VOLUME: float = 0.65
 const DEFAULT_SFX_VOLUME: float = 1.0
 #const DEFAULT_GUI_SCALE: float = 1.0
 
@@ -21,7 +21,7 @@ var master_volume: float = 1.0:
 		parameter_changed.emit()
 		AudioServer.set_bus_volume_db(master_bus, linear_to_db(value))
 ## Equals [0.0; 1.0] (linear)
-var music_volume: float = 1.0:
+var music_volume: float = 0.65:
 	set(value):
 		music_volume = value
 		parameter_changed.emit()
