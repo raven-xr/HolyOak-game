@@ -499,7 +499,7 @@ offset_bottom = 0.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_0qjj4")
+&"": SubResource("AnimationLibrary_0qjj4")
 }
 autoplay = "Popup"
 
