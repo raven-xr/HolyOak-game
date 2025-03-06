@@ -56,7 +56,7 @@ func _ready():
 func _physics_process(delta):
 	velocity = speed * direction * delta
 	move_and_slide()
-	moved.emit(global_position)
+	moved.emit(collision_shape_2d.global_position)
 
 func attack():
 	speed = 0
