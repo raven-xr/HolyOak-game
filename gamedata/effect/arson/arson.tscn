@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://dnjjg6o58r201"]
+[gd_scene load_steps=15 format=3 uid="uid://dnjjg6o58r201"]
 
 [ext_resource type="Script" uid="uid://deko67i3qled4" path="res://gamedata/effect/arson/arson.gd" id="1_bq1jb"]
 [ext_resource type="Texture2D" uid="uid://b0cuabe1ontyj" path="res://gfx/effect/arson/arson.png" id="2_cmu8b"]
+[ext_resource type="AudioStream" uid="uid://crx41mxykgpm0" path="res://audio/sfx/ignition.mp3" id="3_uqqb0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uqqb0"]
 atlas = ExtResource("2_cmu8b")
@@ -127,5 +128,12 @@ autoplay = "Appear"
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="Ignition" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_uqqb0")
+volume_db = -35.0
+pitch_scale = 1.5
+autoplay = true
+bus = &"SFX"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
