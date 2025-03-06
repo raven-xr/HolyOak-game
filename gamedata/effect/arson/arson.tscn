@@ -131,7 +131,7 @@ autostart = true
 
 [node name="Ignition" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_uqqb0")
-volume_db = -35.0
+volume_db = -40.0
 pitch_scale = 1.5
 autoplay = true
 bus = &"SFX"
