@@ -139,7 +139,7 @@ func _on_tower_stats_button_pressed():
 		tower.unit_stats["level_" + str(tower.level)]["damage"], "\n",
 		tower.unit_stats["level_" + str(tower.level)]["unit_count"], "\n",
 		tower.current_cost, "\n",
-		tower.level_limit
+		tower.tower_level_limit
 	)
 	new_tower_stats.position = positions[default_view_direction]["position"]
 	new_tower_stats.pivot_offset = positions[default_view_direction]["pivot_offset"]
