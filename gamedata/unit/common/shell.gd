@@ -39,14 +39,14 @@ func _on_area_2d_body_entered(body):
 	hit.play()
 	if effect_scene and body.health > 0:
 		body.affect(effect_scene.instantiate())
-	self_destruct()
-
-func self_destruct():
 	# These two (target.disconnect) lines prevent situations where the shell is too fast, 
 	# so it manages to reach the enemy's position and start rotating.
 	# If the signals are disconneted, shells just pass through the enemy, not rotate
 	target.disconnect("died", Callable(self, "_on_target_died"))
 	target.disconnect("moved", Callable(self, "_on_target_moved"))
+	self_destruct()
+
+func self_destruct():
 	area_2d.set_deferred("monitoring", false)
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 0.15)
