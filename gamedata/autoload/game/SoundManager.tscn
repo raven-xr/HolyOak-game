@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://brxuwmiq2ri1w"]
+
+[ext_resource type="Script" uid="uid://ca1icd6my84pk" path="res://gamedata/autoload/game/SoundManager.gd" id="1_0lbtt"]
+[ext_resource type="AudioStream" uid="uid://c67yq2gixjlbo" path="res://audio/sfx/click.mp3" id="2_vrprk"]
+[ext_resource type="AudioStream" uid="uid://corhdd0psymkp" path="res://audio/sfx/victory.mp3" id="3_ophsb"]
+[ext_resource type="AudioStream" uid="uid://05iep57nlfbr" path="res://audio/sfx/success.mp3" id="3_pv00y"]
+[ext_resource type="AudioStream" uid="uid://b72mibwh38ava" path="res://audio/sfx/defeat.mp3" id="3_t14o7"]
+[ext_resource type="AudioStream" uid="uid://c1ry2e65jvwxj" path="res://audio/music/alexander_nakarada-adventure_beyond.mp3" id="5_kb7kg"]
+[ext_resource type="AudioStream" uid="uid://b4ct4b03ouqvg" path="res://audio/music/alexander_nakarada-traveler.mp3" id="5_l1pbm"]
+[ext_resource type="AudioStream" uid="uid://dx2gq0qwtk4a4" path="res://audio/music/alexander_nakarada-leaving_for_valhalla.mp3" id="6_1t1b8"]
+
+[node name="SoundManager" type="Node"]
+process_mode = 3
+script = ExtResource("1_0lbtt")
+
+[node name="UserInterface" type="Node" parent="."]
+
+[node name="Click" type="AudioStreamPlayer" parent="UserInterface"]
+stream = ExtResource("2_vrprk")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="Success" type="AudioStreamPlayer" parent="UserInterface"]
+stream = ExtResource("3_pv00y")
+volume_db = -25.0
+pitch_scale = 0.9
+bus = &"SFX"
+
+[node name="Victory" type="AudioStreamPlayer" parent="UserInterface"]
+stream = ExtResource("3_ophsb")
+volume_db = -15.0
+bus = &"SFX"
+
+[node name="Defeat" type="AudioStreamPlayer" parent="UserInterface"]
+stream = ExtResource("3_t14o7")
+volume_db = -15.0
+bus = &"SFX"
+
+[node name="Music" type="Node" parent="."]
+
+[node name="Music Main" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("5_kb7kg")
+volume_db = -20.0
+bus = &"Music"
+parameters/looping = true
+
+[node name="Music Idle" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("5_l1pbm")
+volume_db = -40.0
+bus = &"Music"
+parameters/looping = true
+
+[node name="Music Fight" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("6_1t1b8")
+volume_db = -40.0
+bus = &"Music"
+parameters/looping = true

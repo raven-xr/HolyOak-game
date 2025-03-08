@@ -12,25 +12,26 @@ config_version=5
 
 config/name="Holy Oak"
 config/version="0.4.2"
-run/main_scene="res://scenes/main_menu/main_menu.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
-boot_splash/image="res://loadscreen.png"
+run/main_scene="res://gamedata/scene/main_menu/main_menu.tscn"
+config/features=PackedStringArray("4.4", "Forward Plus")
+boot_splash/image="res://interface/backgrounds/loadscreen.png"
 config/icon="res://icon.png"
 
 [audio]
 
-buses/default_bus_layout="res://audio/default_bus_layout.tres"
+buses/default_bus_layout="res://gamedata/autoload/default_bus_layout.tres"
 
 [autoload]
 
-UserSettings="*res://autoload/user/UserSettings.gd"
-UserData="*res://autoload/user/UserData.gd"
-EnemyData="*res://autoload/data/EnemyData.gd"
-UnitData="*res://autoload/data/UnitData.gd"
-LevelData="*res://autoload/data/LevelData.gd"
-SoundManager="*res://autoload/game/SoundManager.tscn"
-Signals="*res://autoload/game/Signals.gd"
-PlayerStats="*res://autoload/player/PlayerStats.gd"
+UserSettings="*res://gamedata/autoload/user/UserSettings.gd"
+UserData="*res://gamedata/autoload/user/UserData.gd"
+EnemyData="*res://gamedata/autoload/data/EnemyData.gd"
+UnitData="*res://gamedata/autoload/data/UnitData.gd"
+EffectData="*res://gamedata/autoload/data/EffectData.gd"
+LevelData="*res://gamedata/autoload/data/LevelData.gd"
+SoundManager="*res://gamedata/autoload/game/SoundManager.tscn"
+Signals="*res://gamedata/autoload/game/Signals.gd"
+PlayerStats="*res://gamedata/autoload/player/PlayerStats.gd"
 
 [display]
 

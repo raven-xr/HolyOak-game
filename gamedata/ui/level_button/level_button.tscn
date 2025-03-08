@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://xyhf2gmk3oyv"]
+
+[ext_resource type="Texture2D" uid="uid://bndqygcma1us1" path="res://interface/buttons/level_default.svg" id="1_mqwot"]
+[ext_resource type="Texture2D" uid="uid://eoofx4ysy5gn" path="res://interface/buttons/level_hover.svg" id="2_xcpun"]
+[ext_resource type="Texture2D" uid="uid://boeurit6h0hsl" path="res://interface/buttons/level_disabled.svg" id="3_epngo"]
+[ext_resource type="FontFile" uid="uid://car2t5itecnhr" path="res://interface/fonts/Bungee-Regular.ttf" id="4_e5qna"]
+[ext_resource type="Script" uid="uid://w4ahvf7okxlu" path="res://gamedata/ui/level_button/level_button.gd" id="4_t5f1k"]
+
+[sub_resource type="Theme" id="Theme_lbarj"]
+Label/colors/font_color = Color(0.992157, 0.886275, 0.580392, 1)
+Label/colors/font_shadow_color = Color(0.4, 0.305882, 0.27451, 1)
+Label/constants/shadow_offset_x = 0
+Label/constants/shadow_offset_y = 5
+Label/font_sizes/font_size = 52
+Label/fonts/font = ExtResource("4_e5qna")
+
+[node name="Level Button" type="TextureButton"]
+texture_normal = ExtResource("1_mqwot")
+texture_pressed = ExtResource("1_mqwot")
+texture_hover = ExtResource("2_xcpun")
+texture_disabled = ExtResource("3_epngo")
+script = ExtResource("4_t5f1k")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 90.0
+offset_bottom = 71.0
+theme = SubResource("Theme_lbarj")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
