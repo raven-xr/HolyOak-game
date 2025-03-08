@@ -1300,16 +1300,19 @@ position = Vector2(472, 416)
 position = Vector2(88, 632)
 unit_scene = ExtResource("15_s48e1")
 unit_logo = ExtResource("16_1dqcl")
+default_view_direction = "R"
 
 [node name="Platform 2" parent="Towers" index="1" instance=ExtResource("5_272q0")]
 position = Vector2(136, 432)
 unit_scene = ExtResource("15_s48e1")
 unit_logo = ExtResource("16_1dqcl")
+default_view_direction = "U"
 
 [node name="Platform 3" parent="Towers" index="2" instance=ExtResource("5_272q0")]
 position = Vector2(320, 320)
 unit_scene = ExtResource("17_d1wd8")
 unit_logo = ExtResource("18_c7b71")
+default_view_direction = "L"
 
 [node name="Platform 4" parent="Towers" index="3" instance=ExtResource("5_272q0")]
 position = Vector2(584, 216)
@@ -1320,11 +1323,13 @@ unit_logo = ExtResource("16_1dqcl")
 position = Vector2(624, 528)
 unit_scene = ExtResource("15_s48e1")
 unit_logo = ExtResource("16_1dqcl")
+default_view_direction = "U"
 
 [node name="Platform 6" parent="Towers" index="5" instance=ExtResource("5_272q0")]
 position = Vector2(864, 168)
-unit_scene = ExtResource("15_s48e1")
-unit_logo = ExtResource("16_1dqcl")
+unit_scene = ExtResource("17_d1wd8")
+unit_logo = ExtResource("18_c7b71")
+default_view_direction = "R"
 
 [node name="Platform 7" parent="Towers" index="6" instance=ExtResource("5_272q0")]
 position = Vector2(1120, 80)
@@ -1333,5 +1338,6 @@ unit_logo = ExtResource("16_1dqcl")
 
 [node name="Platform 8" parent="Towers" index="7" instance=ExtResource("5_272q0")]
 position = Vector2(856, 384)
-unit_scene = ExtResource("15_s48e1")
-unit_logo = ExtResource("16_1dqcl")
+unit_scene = ExtResource("17_d1wd8")
+unit_logo = ExtResource("18_c7b71")
+default_view_direction = "R"
