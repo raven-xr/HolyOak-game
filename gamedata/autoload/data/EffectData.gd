@@ -6,6 +6,6 @@ extends Node
 #}
 
 const ARSON = {
-	"damage": 3,
+	"damage": 5,
 	"duration": 5
 }
