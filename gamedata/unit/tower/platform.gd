@@ -34,6 +34,7 @@ func _ready():
 		"L": menu.position = Vector2(-296.0, -64.0); menu.pivot_offset = Vector2(256.0, 64.0)
 	# Set the logo
 	logo.texture = unit_logo
+	unit_name.text = unit_scene.instantiate().name
 
 func open_menu():
 	menu.visible = true
@@ -44,8 +45,7 @@ func open_menu():
 	tween_2.tween_property(unit_name, "modulate", Color(1, 1, 1, 1), 0.1)
 	# Close tower stats
 	if has_node("Tower Stats"):
-		var tower_stats = get_node("Tower Stats")
-		tower_stats.close()
+		get_node("Tower Stats").close()
 	# Disable buttons
 	if has_node("Tower"):
 		build_button.disabled = true
@@ -55,7 +55,6 @@ func open_menu():
 		upgrade_button.disabled = true
 		remove_button.disabled = true
 		tower_stats_button.disabled = true
-	unit_name.text = unit_scene.instantiate().name
 	
 
 func close_menu():
