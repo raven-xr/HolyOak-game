@@ -65,7 +65,7 @@ func upgrading():
 	# Take money away from the player
 	PlayerStats.money -= current_cost
 	# Remove units
-	var tween = get_tree().create_tween()
+	var tween = create_tween()
 	tween.tween_property(units, "modulate", Color(1, 1, 1, 0), 0.15)
 	await tween.finished
 	for unit in units.get_children():
