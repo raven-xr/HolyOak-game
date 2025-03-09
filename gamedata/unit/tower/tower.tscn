@@ -1280,7 +1280,7 @@ smoke_preload = ExtResource("3_mq57i")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_mo32q")
+&"": SubResource("AnimationLibrary_mo32q")
 }
 
 [node name="MainAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
