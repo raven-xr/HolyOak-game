@@ -9,7 +9,7 @@ var health: int:
 			value = 0
 		health = value
 		Signals.emit_signal("health_changed", health)
-var money: int:
+var money: int = 0:
 	set(value):
 		money = value
 		Signals.emit_signal("money_changed", money)
