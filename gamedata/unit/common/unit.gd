@@ -19,7 +19,7 @@ enum States {
 @onready var attack_sfx = $SFX/Attack
 
 @onready var default_view_direction = get_parent().get_parent().get_parent().default_view_direction
-@onready var level: int
+var level: int
 
 @onready var stats: Dictionary = UnitData.get(technical_name)["level_" + str(level)]
 @onready var damage = stats["damage"]
