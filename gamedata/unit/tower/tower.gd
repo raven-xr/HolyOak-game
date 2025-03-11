@@ -56,7 +56,7 @@ func new_unit():
 	unit.position = unit_spawnpoints[units.get_child_count()]
 	unit.level = level
 	units.add_child(unit)
-	var tween = get_tree().create_tween()
+	var tween = create_tween()
 	tween.tween_property(units, "modulate", Color(1, 1, 1, 1), 0.15)
 
 func upgrading():
@@ -96,7 +96,7 @@ func destruction():
 	# Refund 50% of the last cost
 	PlayerStats.money += int(float(last_cost) / 2)
 	# Remove units
-	var tween_1 = get_tree().create_tween()
+	var tween_1 = create_tween()
 	tween_1.tween_property(units, "modulate", Color(1, 1, 1, 0), 0.15)
 	await tween_1.finished
 	for unit in units.get_children():
@@ -116,10 +116,10 @@ func destruction():
 		new_smoke.position = smoke_spawnpoints[gfx_smoke.get_child_count()-1]
 		gfx_smoke.add_child(new_smoke)
 	# Hide the tower
-	var tween_2 = get_tree().create_tween()
+	var tween_2 = create_tween()
 	tween_2.tween_property(self, "modulate", Color(1.0, 1.0, 1.0, 0.0), 1.0)
-	var tween_3 = get_tree().create_tween()
-	tween_3.tween_property(get_parent().logo, "modulate", Color(1.0, 1.0, 1.0, 1.0), 1.0)
+	var tween_3 = create_tween()
+	tween_3.tween_property(get_parent().logo, "modulate", Color(1.0, 1.0, 1.0, 0.784), 1.0)
 	await tween_2.finished
 	await get_tree().create_timer(2.0).timeout
 	# Make smokes stop repeating
@@ -129,7 +129,7 @@ func destruction():
 	is_upgrading = false
 	queue_free()
 
-func can_be_upgraded():
+func can_be_upgraded() -> float:
 	if is_upgrading or level in [MAX_LEVEL, tower_level_limit]:
 		return false
 	else:
