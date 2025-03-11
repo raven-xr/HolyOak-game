@@ -10,22 +10,22 @@ enum States {
 @export var technical_name: StringName
 @export var shell_scene: PackedScene
 
-@onready var shell_container = get_tree().get_current_scene().get_node("Shell Container")
+@onready var shell_container: Node2D = get_tree().get_current_scene().get_node("Shell Container")
 
-@onready var animated_sprite_2d = $AnimatedSprite2D
-@onready var animation_player = $AnimationPlayer
-@onready var collision_shape_2d = $Area2D/CollisionShape2D
-@onready var find_timer = $"Find Timer"
-@onready var attack_sfx = $SFX/Attack
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
+@onready var find_timer: Timer = $"Find Timer"
+@onready var attack_sfx: AudioStreamPlayer2D = $SFX/Attack
 
-@onready var default_view_direction = get_parent().get_parent().get_parent().default_view_direction
-var level: int
+@onready var default_view_direction: String = get_parent().get_parent().get_parent().default_view_direction
 
 @onready var stats: Dictionary = UnitData.get(technical_name)["level_" + str(level)]
 @onready var damage = stats["damage"]
 @onready var attack_range = stats["attack_range"]
 @onready var shell_speed = stats["shell_speed"]
 
+var level: int = 0
 var available_enemies: Array[Enemy] = []
 var target: Enemy
 var state: int:
@@ -48,20 +48,20 @@ var state: int:
 				cooldown_state()
 var current_view_direction: String
 
-func _ready():
+func _ready() -> void:
 	state = States.IDLE
 	collision_shape_2d.shape.radius = attack_range
 
-func idle_state():
+func idle_state() -> void:
 	current_view_direction = default_view_direction
 	animation_player.play(current_view_direction + "_Idle")
 
-func attack_state():
+func attack_state() -> void:
 	target = choose_target()
 	current_view_direction = get_view_direction()
 	animation_player.play(current_view_direction + "_Attack")
 
-func cooldown_state():
+func cooldown_state() -> void:
 	animation_player.play(current_view_direction + "_Preattack")
 	await animation_player.animation_finished
 	if available_enemies:
@@ -70,7 +70,7 @@ func cooldown_state():
 		state = States.IDLE
 
 # Animation Player
-func shoot():
+func shoot() -> void:
 	# If the target hasn't run away or died yet
 	if target in available_enemies:
 		var new_shell = shell_scene.instantiate()
@@ -84,12 +84,12 @@ func shoot():
 	else:
 		state = States.IDLE
 
-func _on_area_2d_body_entered(body):
+func _on_area_2d_body_entered(body: Enemy) -> void:
 	available_enemies.append(body)
 	if state == States.IDLE:
 		state = States.ATTACK
 
-func _on_area_2d_body_exited(body):
+func _on_area_2d_body_exited(body: Enemy) -> void:
 	available_enemies.erase(body)
 	# If target died or ran away and there are available enemies and not cooldown,
 	# Choose a new target
@@ -110,7 +110,22 @@ func get_view_direction() -> String:
 
 func choose_target() -> Enemy:
 	var preferred_target: Enemy = available_enemies[0]
+	var preferred_enemies: Array[Enemy] = []
+	var dying_enemies: Array[Enemy] = []
+	var alive_enemies: Array[Enemy] = []
+	# Check enemies
 	for enemy in available_enemies:
+		if enemy.is_going_to_die():
+			dying_enemies.append(enemy)
+		else:
+			alive_enemies.append(enemy)
+	# If there are alive enemies, choose the best one
+	if alive_enemies:
+		preferred_enemies = alive_enemies
+	# Else, choose the best target from the dying enemies
+	else:
+		preferred_enemies = dying_enemies
+	for enemy in preferred_enemies:
 		# Choose the enemy closest to the Holy Oak
 		var holy_oak = get_tree().get_current_scene().get_node("Map/Holy Oak")
 		if enemy.global_position.distance_to(holy_oak.global_position) < \
