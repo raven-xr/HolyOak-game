@@ -9,14 +9,16 @@ class_name Shell
 # These values are given by the parent (unit.gd)
 var target: Enemy
 var target_global_position: Vector2
+var direction: Vector2
 var damage: int
 var speed: int
+var target_died: bool = false
+var self_destructing: bool = false
 
-# Common
 func _ready():
 	# Update the future health of the target
 	# Needed for units
-	# If the target is going to die (future_health became <= 0), it can't be detected
+	# If the target is going to die (future_health became <= 0), it becomes less attractive for units
 	target.future_health -= damage
 	# Connect signals
 	target.connect("died", Callable(self, "_on_target_died"))
@@ -27,11 +29,13 @@ func _ready():
 	tween.tween_property(self, "modulate", Color(1, 1, 1, 1), 0.67)
 
 func _physics_process(delta):
-	# Change direction if only target available (not dead or not too far)
-	var direction = (target_global_position - global_position).normalized()
-	look_at(target_global_position)
 	velocity = direction * speed * delta
 	move_and_slide()
+	if target_died and \
+	global_position.distance_to(target_global_position) < 10 and \
+	not self_destructing:
+		self_destruct()
+		hit.play()
 
 func _on_area_2d_body_entered(body):
 	if body != target: return
@@ -39,14 +43,10 @@ func _on_area_2d_body_entered(body):
 	hit.play()
 	if effect_scene and body.health > 0:
 		body.affect(effect_scene.instantiate())
-	# These two (target.disconnect) lines prevent situations where the shell is too fast, 
-	# so it manages to reach the enemy's position and start rotating.
-	# If the signals are disconneted, shells just pass through the enemy, not rotate
-	target.disconnect("died", Callable(self, "_on_target_died"))
-	target.disconnect("moved", Callable(self, "_on_target_moved"))
 	self_destruct()
 
 func self_destruct():
+	self_destructing = true
 	area_2d.set_deferred("monitoring", false)
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 0.15)
@@ -55,6 +55,8 @@ func self_destruct():
 
 func _on_target_moved(new_position):
 	target_global_position = new_position
+	direction = (target_global_position - global_position).normalized()
+	look_at(target_global_position)
 
 func _on_target_died():
-	self_destruct()
+	target_died = true
