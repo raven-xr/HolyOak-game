@@ -62,10 +62,10 @@ func hit() -> void:
 	hit_sfx.play()
 
 func die() -> void:
+	died.emit()
 	is_dying = true
 	collision_shape_2d.set_deferred("disabled", true)
 	death.play()
-	died.emit()
 	speed = 0
 	PlayerStats.money += reward
 	animation_player.play(view_direction + "_Death")
