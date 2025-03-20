@@ -25,9 +25,14 @@ enum States {
 @onready var attack_range = stats["attack_range"]
 @onready var shell_speed = stats["shell_speed"]
 
-var level: int = 0
 var available_enemies: Array[Enemy] = []
 var target: Enemy
+##TODO: TEST
+## The units use this variable to determine if the target previously died after it was chosen as the best
+var is_target_known_previously_died: bool
+## The units use this variable to determine if the target is still available after it was chosen as the best
+var is_target_still_available: bool = true
+var level: int = 0
 var state: int:
 	set(value):
 		state = value
@@ -58,6 +63,11 @@ func idle_state() -> void:
 
 func attack_state() -> void:
 	target = choose_target()
+	is_target_still_available = true
+	if target.is_previously_died():
+		is_target_known_previously_died = true
+	else:
+		is_target_known_previously_died = false
 	current_view_direction = get_view_direction()
 	animation_player.play(current_view_direction + "_Attack")
 
@@ -71,8 +81,20 @@ func cooldown_state() -> void:
 
 # Animation Player
 func shoot() -> void:
-	# If the target hasn't run away or died yet
-	if target in available_enemies:
+	# If the target died/left the attack range and if there are no other available enemies.
+	if not is_target_still_available and not available_enemies:
+		# then make the unit cooldowning
+		state = States.COOLDOWN
+	else:
+		# If the target died/left the attack range and if there are other available enemies,
+		if not is_target_still_available and available_enemies \
+		# or if the target just previously died, but it was OK when archer chose it,
+		# and if there are other available enemies,
+		or not is_target_known_previously_died and target.is_previously_died() and len(available_enemies) > 1:
+		# then choose another one
+			animation_player.stop() # Reset the animation
+			attack_state()
+		# Shot
 		var new_shell = shell_scene.instantiate()
 		new_shell.global_position = global_position + Vector2(0.0, -13.0)
 		new_shell.damage = damage
@@ -81,8 +103,6 @@ func shoot() -> void:
 		shell_container.add_child(new_shell)
 		attack_sfx.play()
 		state = States.COOLDOWN
-	else:
-		state = States.IDLE
 
 func _on_area_2d_body_entered(body: Enemy) -> void:
 	available_enemies.append(body)
@@ -91,10 +111,26 @@ func _on_area_2d_body_entered(body: Enemy) -> void:
 
 func _on_area_2d_body_exited(body: Enemy) -> void:
 	available_enemies.erase(body)
-	# If target died or ran away and there are available enemies and not cooldown,
-	# Choose a new target
-	if target == body and available_enemies and state != States.COOLDOWN:
-		attack_state()
+	is_target_still_available = false
+
+func choose_target() -> Enemy:
+	var preferred_target: Enemy = available_enemies[0]
+	var preferred_enemies: Array[Enemy] = []
+	var dying_enemies: Array[Enemy] = get_going_to_die_enemies()
+	var alive_enemies: Array[Enemy] = get_alive_enemies()
+	# If there are alive enemies, choose the best target from them
+	if alive_enemies:
+		preferred_enemies = alive_enemies.duplicate()
+	# Else, choose the best target from the dying enemies
+	else:
+		preferred_enemies = dying_enemies.duplicate()
+	for enemy in preferred_enemies:
+		# Choose the enemy closest to the Holy Oak
+		var holy_oak = get_tree().get_current_scene().get_node("Map/Holy Oak")
+		if enemy.global_position.distance_to(holy_oak.global_position) < \
+		preferred_target.global_position.distance_to(holy_oak.global_position):
+			preferred_target = enemy
+	return preferred_target
 
 func get_view_direction() -> String:
 	var angle_to_target = get_angle_to(target.global_position)
@@ -108,27 +144,16 @@ func get_view_direction() -> String:
 	else:
 		return "R"
 
-func choose_target() -> Enemy:
-	var preferred_target: Enemy = available_enemies[0]
-	var preferred_enemies: Array[Enemy] = []
+func get_going_to_die_enemies() -> Array[Enemy]:
 	var dying_enemies: Array[Enemy] = []
-	var alive_enemies: Array[Enemy] = []
-	# Check enemies
 	for enemy in available_enemies:
-		if enemy.is_going_to_die():
+		if enemy.is_previously_died():
 			dying_enemies.append(enemy)
-		else:
+	return dying_enemies
+
+func get_alive_enemies() -> Array[Enemy]:
+	var alive_enemies: Array[Enemy] = []
+	for enemy in available_enemies:
+		if not enemy.is_previously_died():
 			alive_enemies.append(enemy)
-	# If there are alive enemies, choose the best one
-	if alive_enemies:
-		preferred_enemies = alive_enemies
-	# Else, choose the best target from the dying enemies
-	else:
-		preferred_enemies = dying_enemies
-	for enemy in preferred_enemies:
-		# Choose the enemy closest to the Holy Oak
-		var holy_oak = get_tree().get_current_scene().get_node("Map/Holy Oak")
-		if enemy.global_position.distance_to(holy_oak.global_position) < \
-		preferred_target.global_position.distance_to(holy_oak.global_position):
-			preferred_target = enemy
-	return preferred_target
+	return alive_enemies

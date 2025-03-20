@@ -3,8 +3,8 @@ class_name Shell
 
 @export var effect_scene: PackedScene
 
-@onready var hit = $SFX/Hit
-@onready var area_2d = $Area2D
+@onready var hit: AudioStreamPlayer2D = $SFX/Hit
+@onready var area_2d: Area2D = $Area2D
 
 # These values are given by the parent (unit.gd)
 var target: Enemy
@@ -15,7 +15,7 @@ var speed: int
 var target_died: bool = false
 var self_destructing: bool = false
 
-func _ready():
+func _ready() -> void:
 	# Update the future health of the target
 	# Needed for units
 	# If the target is going to die (future_health became <= 0), it becomes less attractive for units
@@ -28,7 +28,7 @@ func _ready():
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color(1, 1, 1, 1), 0.67)
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
 	velocity = direction * speed * delta
 	move_and_slide()
 	if target_died and \
@@ -37,7 +37,7 @@ func _physics_process(delta):
 		self_destruct()
 		hit.play()
 
-func _on_area_2d_body_entered(body):
+func _on_area_2d_body_entered(body: Enemy):
 	if body != target: return
 	body.health -= damage
 	hit.play()
@@ -45,18 +45,17 @@ func _on_area_2d_body_entered(body):
 		body.affect(effect_scene.instantiate())
 	self_destruct()
 
-func self_destruct():
+func self_destruct() -> void:
 	self_destructing = true
-	area_2d.set_deferred("monitoring", false)
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 0.15)
 	await tween.finished
 	queue_free()
 
-func _on_target_moved(new_position):
+func _on_target_moved(new_position) -> void:
 	target_global_position = new_position
 	direction = (target_global_position - global_position).normalized()
 	look_at(target_global_position)
 
-func _on_target_died():
+func _on_target_died() -> void:
 	target_died = true

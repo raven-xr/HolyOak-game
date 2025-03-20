@@ -89,8 +89,8 @@ func is_affected(effect: Effect) -> bool:
 			return true
 	return false
 
-## Used in unit.gd (choose_target())
-func is_going_to_die() -> bool:
+# Used in unit.gd (choose_target())
+func is_previously_died() -> bool:
 	if future_health <= 0:
 		return true
 	return false

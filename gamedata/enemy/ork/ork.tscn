@@ -1629,7 +1629,7 @@ libraries = {
 
 [node name="AnimatedSprite2D" parent="." index="2"]
 sprite_frames = SubResource("SpriteFrames_vkq24")
-animation = &"U-R_Move"
+animation = &"D-L_Death"
 
 [node name="Death" parent="SFX" index="0"]
 stream = ExtResource("14_bx012")
