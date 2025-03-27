@@ -27,6 +27,7 @@ class_name Enemy
 		# If an enemy is going to die, make him invisible for attack ranges of units
 		if future_health <= 0:
 			set_collision_layer_value(1, false)
+			previously_died.emit()
 
 var direction: Vector2 # Updates in next_roadpoint_position's setter
 var view_direction: String: # The value is being given by points on the road
@@ -50,6 +51,7 @@ var is_available: bool = true:
 			direction = (next_roadpoint_position - position).normalized()
 
 signal moved()
+signal previously_died()
 signal died()
 
 func _physics_process(delta: float) -> void:
