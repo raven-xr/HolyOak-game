@@ -32,7 +32,8 @@ var direction: Vector2 # Updates in next_roadpoint_position's setter
 var view_direction: String: # The value is being given by points on the road
 	set(value):
 		view_direction = value
-		if is_available:
+		# If the enemy is available and isn't dying, then update his animation
+		if is_available and not "Death" in animation_player.current_animation:
 			animation_player.play(value + "_Move")
 var next_roadpoint_position: Vector2:
 	set(value):
@@ -65,9 +66,10 @@ func hit() -> void:
 	hit_sfx.play()
 
 func die() -> void:
+	set_physics_process(false)
+	collision_shape_2d.set_deferred("disabled", true)
 	death.play()
 	died.emit()
-	set_collision_layer_value(3, false)
 	PlayerStats.money += reward
 	animation_player.play(view_direction + "_Death")
 	await animation_player.animation_finished
