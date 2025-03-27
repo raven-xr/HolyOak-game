@@ -75,6 +75,8 @@ func shoot() -> void:
 	if available_enemies:
 		if not target in available_enemies:
 			target = choose_target()
+			# Ain't forgetting to change the view direction
+			current_view_direction = get_view_direction()
 		var new_shell = shell_scene.instantiate()
 		new_shell.global_position = global_position + Vector2(0.0, -13.0)
 		new_shell.damage = damage
