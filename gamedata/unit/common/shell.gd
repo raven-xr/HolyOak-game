@@ -33,6 +33,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	if global_position.distance_to(target_global_position) < 10 and \
 	is_target_died and not is_self_destructing:
+		hit.play()
 		self_destruct()
 
 func _on_area_2d_body_entered(body: Enemy) -> void:

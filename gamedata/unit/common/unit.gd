@@ -57,7 +57,12 @@ func idle_state() -> void:
 	animation_player.play(current_view_direction + "_Idle")
 
 func attack_state() -> void:
-	target = choose_target()
+	# If the unit doesn't have a target, choose it
+	if target == null:
+		target = choose_target()
+		# Connect the signal if it's not connected yet
+		if not target.is_connected("died", Callable(self, "_on_target_died")):
+			target.connect("died", Callable(self, "_on_target_died"))
 	current_view_direction = get_view_direction()
 	animation_player.play(current_view_direction + "_Attack")
 
@@ -70,13 +75,14 @@ func cooldown_state() -> void:
 		state = States.IDLE
 
 func shoot() -> void:
-	# If the target isn't available already and there are other available enemies,
-	# then just choose another one and shoot
+	# If there are available enemies (it means that target may be still available)
 	if available_enemies:
-		if not target in available_enemies:
+		if target == null:
+			# If the target has dead/ran away, choose another one
 			target = choose_target()
 			# Ain't forgetting to change the view direction
 			current_view_direction = get_view_direction()
+		# Shot
 		var new_shell = shell_scene.instantiate()
 		new_shell.global_position = global_position + Vector2(0.0, -13.0)
 		new_shell.damage = damage
@@ -94,6 +100,8 @@ func _on_area_2d_body_entered(body: Enemy) -> void:
 
 func _on_area_2d_body_exited(body: Enemy) -> void:
 	available_enemies.erase(body)
+	if body == target:
+		target = null
 
 func get_view_direction() -> String:
 	var angle_to_target = get_angle_to(target.global_position)
@@ -108,11 +116,37 @@ func get_view_direction() -> String:
 		return "R"
 
 func choose_target() -> Enemy:
-	var preferred_target: Enemy = available_enemies[0]
-	for enemy in available_enemies:
-		# Choose the enemy closest to the Holy Oak
+	var preferred_target: Enemy
+	var previously_died_enemies: Array[Enemy] = get_previously_died_enemies()
+	var alive_enemies: Array[Enemy] = get_alive_enemies()
+	var preferred_enemies: Array[Enemy]
+	# If there are alive enemies, choose some of them
+	if alive_enemies:
+		preferred_enemies = alive_enemies
+	else:
+		preferred_enemies = previously_died_enemies
+	# Find the target closest to the Holy Oak
+	preferred_target = preferred_enemies[0]
+	for enemy in preferred_enemies:
 		var holy_oak = get_tree().get_current_scene().get_node("Map/Holy Oak")
 		if enemy.global_position.distance_to(holy_oak.global_position) < \
 		preferred_target.global_position.distance_to(holy_oak.global_position):
 			preferred_target = enemy
 	return preferred_target
+
+func get_alive_enemies() -> Array[Enemy]:
+	var alive_enemies: Array[Enemy] = []
+	for enemy in available_enemies:
+		if not enemy.is_previously_died:
+			alive_enemies.append(enemy)
+	return alive_enemies
+
+func get_previously_died_enemies() -> Array[Enemy]:
+	var previously_died_enemies: Array[Enemy] = []
+	for enemy in available_enemies:
+		if enemy.is_previously_died:
+			previously_died_enemies.append(enemy)
+	return previously_died_enemies
+
+func _on_target_died() -> void:
+	target = null
