@@ -16,10 +16,11 @@ var damage: int # Defined by the parent unit
 var speed: int # Defined by the parent unit
 
 func _ready() -> void:
-	# Update the future health of the target
-	# Needed for units
-	# If the target is going to die (future_health became <= 0), it can't be detected
+	# Decrease the future health of the target to serve the best interaction
+	# Between enemies and units
 	target.future_health -= damage
+	# Then the value will be changed "_on_target_moved"
+	target_global_position = target.global_position
 	# Connect signals
 	target.connect("died", Callable(self, "_on_target_died"))
 	target.connect("moved", Callable(self, "_on_target_moved"))
