@@ -23,6 +23,8 @@ func _ready() -> void:
 	# Connect signals
 	target.connect("died", Callable(self, "_on_target_died"))
 	target.connect("moved", Callable(self, "_on_target_moved"))
+	# Change direction
+	change_direction()
 	# Animation
 	modulate = Color(1, 1, 1, 0)
 	var tween = create_tween()
@@ -51,11 +53,14 @@ func self_destruct() -> void:
 	await tween.finished
 	queue_free()
 
+func change_direction() -> void:
+	direction = global_position.direction_to(target_global_position)
+	look_at(target_global_position)
+
 func _on_target_moved(new_position: Vector2) -> void:
 	target_global_position = new_position
 	if not is_self_destructing:
-		direction = global_position.direction_to(target_global_position)
-		look_at(target_global_position)
+		change_direction()
 
 func _on_target_died() -> void:
 	is_target_died = true
