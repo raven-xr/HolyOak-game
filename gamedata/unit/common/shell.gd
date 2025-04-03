@@ -10,17 +10,16 @@ var is_self_destructing: bool = false
 var direction: Vector2
 
 var is_target_died: bool = false
-var target: Enemy # Defined by the parent unit
+# Value given by the parent unit
+var target: Enemy
 var target_global_position: Vector2
-var damage: int # Defined by the parent unit
-var speed: int # Defined by the parent unit
+var damage: int
+var speed: int
 
 func _ready() -> void:
 	# Decrease the future health of the target to serve the best interaction
 	# Between enemies and units
 	target.future_health -= damage
-	# Then the value will be changed "_on_target_moved"
-	target_global_position = target.global_position
 	# Connect signals
 	target.connect("died", Callable(self, "_on_target_died"))
 	target.connect("moved", Callable(self, "_on_target_moved"))
