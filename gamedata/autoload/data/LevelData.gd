@@ -258,7 +258,7 @@ const LEVEL_3: Dictionary = {
 	"tower_level_limit": 4,
 	"wave_count": 7,
 	"wave_1": {
-		"spawn_cooldown": 1.0,
+		"spawn_cooldown": 1.35,
 		"enemies": [
 			{"type": "ork", "road": "1"},
 			{"type": "ork", "road": "2"},
