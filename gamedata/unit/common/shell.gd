@@ -9,8 +9,8 @@ class_name Shell
 var is_self_destructing: bool = false
 var direction: Vector2
 
-var is_target_died: bool = false
-# Value given by the parent unit
+var is_target_just_died: bool = false
+# These values are given by the parent unit
 var target: Enemy
 var target_global_position: Vector2
 var damage: int
@@ -34,7 +34,8 @@ func _physics_process(delta: float) -> void:
 	velocity = direction * speed * delta
 	move_and_slide()
 	if global_position.distance_to(target_global_position) < 10 and \
-	is_target_died and not is_self_destructing:
+	(is_target_just_died or not is_instance_valid(target)) and \
+	not is_self_destructing:
 		hit.play()
 		self_destruct()
 
@@ -63,4 +64,4 @@ func _on_target_moved(new_position: Vector2) -> void:
 		change_direction()
 
 func _on_target_died() -> void:
-	is_target_died = true
+	is_target_just_died = true
