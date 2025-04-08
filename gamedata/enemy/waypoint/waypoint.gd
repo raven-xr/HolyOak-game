@@ -16,11 +16,10 @@ extends Area2D
 
 func _on_enemy_detected(pivot: Area2D):
 	var enemy: Enemy = pivot.get_parent()
-	# enemy.get_parent() -> the Road node
-	# get_parent().get_parent() -> the Road node
-	if enemy.get_parent() != get_parent().get_parent(): return
-	# If an enemy & a waypoint belong to different roads, then
-	# Ignore him
+	# If an enemy & a waypoint belong to different roads or he's going to die,
+	# then ignore him
+	if enemy.get_parent() != get_parent().get_parent() or enemy.health <= 0: return
+	
 	if new_direction:
 		enemy.view_direction = new_direction
 	if next_roadpoint:
