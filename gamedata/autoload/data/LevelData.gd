@@ -267,7 +267,6 @@ const LEVEL_3: Dictionary = {
 			{"type": "ork", "road": "5"},
 			{"type": "ork", "road": "1"},
 			{"type": "ork", "road": "2"},
-			{"type": "ork", "road": "3"},
 			{"type": "ork", "road": "4"},
 			{"type": "ork", "road": "5"}
 		]
@@ -282,7 +281,6 @@ const LEVEL_3: Dictionary = {
 			{"type": "ork", "road": "5"},
 			{"type": "slime", "road": "1"},
 			{"type": "slime", "road": "2"},
-			{"type": "slime", "road": "3"},
 			{"type": "ork", "road": "1"},
 			{"type": "ork", "road": "2"},
 			{"type": "ork", "road": "3"},
@@ -306,10 +304,6 @@ const LEVEL_3: Dictionary = {
 			{"type": "ork", "road": "3"},
 			{"type": "ork", "road": "4"},
 			{"type": "ork", "road": "5"},
-			{"type": "ork", "road": "1"},
-			{"type": "ork", "road": "2"},
-			{"type": "ork", "road": "3"},
-			{"type": "slime", "road": "3"},
 			{"type": "slime", "road": "4"},
 			{"type": "slime", "road": "5"}
 		]
@@ -422,7 +416,7 @@ const LEVEL_3: Dictionary = {
 		]
 	},
 	"wave_7": {
-		"spawn_cooldown": 0.3,
+		"spawn_cooldown": 0.45,
 		"enemies": [
 			{"type": "ork", "road": "1"},
 			{"type": "ork", "road": "2"},
@@ -460,12 +454,6 @@ const LEVEL_3: Dictionary = {
 			{"type": "ork", "road": "1"},
 			{"type": "ork", "road": "2"},
 			{"type": "ork", "road": "3"},
-			{"type": "ork", "road": "1"},
-			{"type": "ork", "road": "2"},
-			{"type": "ork", "road": "3"},
-			{"type": "ork", "road": "1"},
-			{"type": "ork", "road": "2"},
-			{"type": "ork", "road": "3"},
 			{"type": "slime", "road": "4"},
 			{"type": "slime", "road": "5"},
 			{"type": "slime", "road": "4"},
@@ -476,10 +464,6 @@ const LEVEL_3: Dictionary = {
 			{"type": "slime", "road": "5"},
 			{"type": "slime", "road": "4"},
 			{"type": "slime", "road": "5"},
-			{"type": "ork", "road": "4"},
-			{"type": "ork", "road": "5"},
-			{"type": "ork", "road": "4"},
-			{"type": "ork", "road": "5"},
 			{"type": "ork", "road": "4"},
 			{"type": "ork", "road": "5"},
 			{"type": "ork", "road": "1"},
