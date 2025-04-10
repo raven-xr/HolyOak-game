@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://cvwwyafne3ryg"]
+[gd_scene load_steps=45 format=4 uid="uid://cvwwyafne3ryg"]
 
 [ext_resource type="PackedScene" uid="uid://bbsqvqymrojj5" path="res://gamedata/scene/common/level.tscn" id="1_rbgy0"]
 [ext_resource type="Script" uid="uid://yp2vhfmqgtvy" path="res://gamedata/scene/level_1/level_1.gd" id="2_c08mv"]
@@ -26,6 +26,7 @@
 [ext_resource type="FontFile" uid="uid://car2t5itecnhr" path="res://interface/fonts/Bungee-Regular.ttf" id="20_d7u56"]
 [ext_resource type="PackedScene" uid="uid://d1hglytmquni" path="res://gamedata/unit/tower/platform.tscn" id="24_vjn0v"]
 [ext_resource type="FontFile" uid="uid://5wohy1go68x5" path="res://interface/fonts/Tribal Garamond.ttf" id="25_32dll"]
+[ext_resource type="PackedScene" uid="uid://ceakiostnoxao" path="res://gamedata/ui/hint/hint.tscn" id="27_x1t5x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lj6gp"]
 texture = ExtResource("3_1gxpb")
@@ -856,12 +857,14 @@ position = Vector2(232, 320)
 unit_scene = ExtResource("14_kietl")
 unit_logo = ExtResource("18_nfpo6")
 
+[node name="Hint" parent="UserInterface" index="2" instance=ExtResource("27_x1t5x")]
+
 [node name="Start Timer" parent="Timers" index="0"]
 autostart = false
 
 [connection signal="player_ended_tutorial" from="." to="Towers/Platform 1" method="_on_level_1_player_ended_tutorial"]
-[connection signal="pressed" from="Towers/Platform 1/TouchScreenButton" to="Towers/Platform 1" method="_on_local_touch_screen_button_pressed"]
 [connection signal="pressed" from="Towers/Platform 1/TouchScreenButton" to="Towers/Platform 1" method="_on_touch_screen_button_pressed"]
+[connection signal="pressed" from="Towers/Platform 1/TouchScreenButton" to="Towers/Platform 1" method="_on_local_touch_screen_button_pressed"]
 [connection signal="mouse_entered" from="Towers/Platform 1/Menu/Build Button" to="Towers/Platform 1/Menu/Build Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Towers/Platform 1/Menu/Build Button" to="Towers/Platform 1/Menu/Build Button" method="_on_mouse_exited"]
 [connection signal="pressed" from="Towers/Platform 1/Menu/Build Button" to="Towers/Platform 1" method="_on_local_build_button_pressed"]

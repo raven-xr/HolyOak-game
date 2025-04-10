@@ -1,23 +1,15 @@
 extends Control
 
-# Nodes
 @onready var panel_container = $PanelContainer
 @onready var label = $PanelContainer/Label
 @onready var texture_rect = $TextureRect
 @onready var touch_screen_button = $TouchScreenButton
 
-
-
 var can_be_pressed: bool = true
 var text: String = ""
 
-
-
 signal hidden_()
 
-
-
-# Common functions
 func _ready():
 	# Scale
 	scale = Vector2(UserSettings.gui_scale**2, UserSettings.gui_scale**2)
@@ -50,9 +42,6 @@ func close():
 	await hidden_
 	queue_free()
 
-
-
-# TouchScreenButton's functions
 func _on_touch_screen_button_pressed():
 	if can_be_pressed:
 		SoundManager.click.play()
