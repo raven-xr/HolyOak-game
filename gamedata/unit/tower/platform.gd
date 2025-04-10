@@ -6,9 +6,10 @@ extends Node2D
 @export var message_scene: PackedScene
 @export_subgroup("Unit")
 @export var unit_scene: PackedScene
+# The character's logo is displayed on the platform's sprite plate
 @export var unit_logo: Texture
-## The character's logo is displayed on the platform's sprite plate.
 @export var default_view_direction: String = "D"
+@export var menu_position: String = "D"
 
 @onready var sprite_2d = $Sprite2D
 @onready var touch_screen_button = $TouchScreenButton
@@ -25,9 +26,9 @@ extends Node2D
 func _ready():
 	# Scale the menu
 	# Square the scale to reach the best view
-	menu.scale = Vector2(UserSettings.gui_scale**2, UserSettings.gui_scale**2)
+	menu.scale = Vector2(UserSettings.gui_scale, UserSettings.gui_scale)
 	# Posite the menu
-	match default_view_direction:
+	match menu_position:
 		"U": menu.position = Vector2(-128.0, -160.0); menu.pivot_offset = Vector2(128.0, 128.0)
 		"R": menu.position = Vector2(40.0, -64.0); menu.pivot_offset = Vector2(0.0, 64.0)
 		"D": menu.position = Vector2(-128.0, 40.0); menu.pivot_offset = Vector2(128.0, 0.0)

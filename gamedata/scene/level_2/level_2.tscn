@@ -1090,6 +1090,7 @@ position = Vector2(552, 600)
 unit_scene = ExtResource("15_lytkh")
 unit_logo = ExtResource("16_wqnhh")
 default_view_direction = "R"
+menu_position = "U"
 
 [node name="Platform 3" parent="Towers" index="2" instance=ExtResource("14_67110")]
 position = Vector2(536, 200)
@@ -1101,3 +1102,4 @@ position = Vector2(216, 480)
 unit_scene = ExtResource("15_lytkh")
 unit_logo = ExtResource("16_wqnhh")
 default_view_direction = "U"
+menu_position = "U"

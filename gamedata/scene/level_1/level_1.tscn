@@ -706,6 +706,7 @@ message_scene = ExtResource("16_akk1r")
 unit_scene = ExtResource("14_kietl")
 unit_logo = ExtResource("18_nfpo6")
 default_view_direction = "R"
+menu_position = "R"
 
 [node name="Sprite2D" type="Sprite2D" parent="Towers/Platform 1" index="0"]
 texture_filter = 1
