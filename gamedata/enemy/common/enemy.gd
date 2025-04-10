@@ -14,9 +14,9 @@ class_name Enemy
 @onready var speed: int = stats["speed"]
 @onready var health: int = stats["health"]:
 	set(value):
-		health = value
-		if health <= 0:
+		if value <= 0 and health > 0:
 			die()
+		health = value
 @onready var damage: int = stats["damage"]
 @onready var reward: int = stats["reward"]
 

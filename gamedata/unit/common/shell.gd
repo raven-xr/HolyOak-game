@@ -9,20 +9,22 @@ class_name Shell
 var is_self_destructing: bool = false
 var direction: Vector2
 
-var is_target_died: bool = false
-var target: Enemy # Defined by the parent unit
+var is_target_just_died: bool = false
+# These values are given by the parent unit
+var target: Enemy
 var target_global_position: Vector2
-var damage: int # Defined by the parent unit
-var speed: int # Defined by the parent unit
+var damage: int
+var speed: int
 
 func _ready() -> void:
-	# Update the future health of the target
-	# Needed for units
-	# If the target is going to die (future_health became <= 0), it can't be detected
+	# Decrease the future health of the target to serve the best interaction
+	# Between enemies and units
 	target.future_health -= damage
 	# Connect signals
 	target.connect("died", Callable(self, "_on_target_died"))
 	target.connect("moved", Callable(self, "_on_target_moved"))
+	# Change direction
+	change_direction()
 	# Animation
 	modulate = Color(1, 1, 1, 0)
 	var tween = create_tween()
@@ -32,7 +34,8 @@ func _physics_process(delta: float) -> void:
 	velocity = direction * speed * delta
 	move_and_slide()
 	if global_position.distance_to(target_global_position) < 10 and \
-	is_target_died and not is_self_destructing:
+	(is_target_just_died or not is_instance_valid(target)) and \
+	not is_self_destructing:
 		hit.play()
 		self_destruct()
 
@@ -51,11 +54,14 @@ func self_destruct() -> void:
 	await tween.finished
 	queue_free()
 
+func change_direction() -> void:
+	direction = global_position.direction_to(target_global_position)
+	look_at(target_global_position)
+
 func _on_target_moved(new_position: Vector2) -> void:
 	target_global_position = new_position
 	if not is_self_destructing:
-		direction = global_position.direction_to(target_global_position)
-		look_at(target_global_position)
+		change_direction()
 
 func _on_target_died() -> void:
-	is_target_died = true
+	is_target_just_died = true

@@ -88,6 +88,7 @@ func shoot() -> void:
 		new_shell.damage = damage
 		new_shell.speed = shell_speed
 		new_shell.target = target
+		new_shell.target_global_position = target.global_position
 		shell_container.add_child(new_shell)
 		attack_sfx.play()
 	# Anyway, cooldown
