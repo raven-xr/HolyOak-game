@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://oo54cqtpti2t"]
+
+[ext_resource type="PackedScene" uid="uid://bari1ycd24fdd" path="res://gamedata/unit/common/shell.tscn" id="1_kcikl"]
+[ext_resource type="Texture2D" uid="uid://dasycxvxc0xib" path="res://gfx/unit/archer/shell/arrow.png" id="2_g34ls"]
+[ext_resource type="AudioStream" uid="uid://8irco7c15oms" path="res://audio/sfx/bow_hit.mp3" id="3_gqlm7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_skogl"]
+resource_local_to_scene = true
+size = Vector2(20, 4)
+
+[node name="Arrow" instance=ExtResource("1_kcikl")]
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(1.408, 1.408)
+texture = ExtResource("2_g34ls")
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("RectangleShape2D_skogl")
+
+[node name="Hit" parent="SFX" index="0"]
+stream = ExtResource("3_gqlm7")
+volume_db = -33.0
+pitch_scale = 1.5
