@@ -717,16 +717,18 @@ texture = ExtResource("15_5dy8q")
 [node name="TouchScreenButton" type="TouchScreenButton" parent="Towers/Platform 1" index="1"]
 shape = SubResource("CircleShape2D_fil16")
 
-[node name="Menu" type="Control" parent="Towers/Platform 1" index="2"]
+[node name="Interface" type="CanvasLayer" parent="Towers/Platform 1" index="2"]
+
+[node name="Menu" type="Control" parent="Towers/Platform 1/Interface" index="0"]
 visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_left = -128.0
-offset_top = -64.0
-offset_right = 128.0
-offset_bottom = 64.0
+offset_left = 592.0
+offset_top = 112.0
+offset_right = 848.0
+offset_bottom = 240.0
 
-[node name="Build Button" type="TextureButton" parent="Towers/Platform 1/Menu" index="0"]
+[node name="Build Button" type="TextureButton" parent="Towers/Platform 1/Interface/Menu" index="0"]
 layout_mode = 0
 offset_left = 20.0
 offset_top = 17.0
@@ -739,7 +741,7 @@ texture_hover = ExtResource("17_r7urm")
 texture_disabled = ExtResource("18_6jsc3")
 script = ExtResource("19_lg656")
 
-[node name="Label" type="Label" parent="Towers/Platform 1/Menu/Build Button" index="0"]
+[node name="Label" type="Label" parent="Towers/Platform 1/Interface/Menu/Build Button" index="0"]
 layout_mode = 0
 offset_left = 9.0
 offset_top = 7.0
@@ -751,7 +753,7 @@ text = "BUILD"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Upgrade Button" type="TextureButton" parent="Towers/Platform 1/Menu" index="1"]
+[node name="Upgrade Button" type="TextureButton" parent="Towers/Platform 1/Interface/Menu" index="1"]
 layout_mode = 0
 offset_left = 138.0
 offset_top = 17.0
@@ -764,7 +766,7 @@ texture_hover = ExtResource("17_r7urm")
 texture_disabled = ExtResource("18_6jsc3")
 script = ExtResource("19_lg656")
 
-[node name="Label" type="Label" parent="Towers/Platform 1/Menu/Upgrade Button" index="0"]
+[node name="Label" type="Label" parent="Towers/Platform 1/Interface/Menu/Upgrade Button" index="0"]
 layout_mode = 0
 offset_left = 9.0
 offset_top = 7.0
@@ -776,7 +778,7 @@ text = "UPGRADE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Remove Button" type="TextureButton" parent="Towers/Platform 1/Menu" index="2"]
+[node name="Remove Button" type="TextureButton" parent="Towers/Platform 1/Interface/Menu" index="2"]
 layout_mode = 0
 offset_left = 44.0
 offset_top = 65.0
@@ -789,7 +791,7 @@ texture_hover = ExtResource("17_r7urm")
 texture_disabled = ExtResource("18_6jsc3")
 script = ExtResource("19_lg656")
 
-[node name="Label" type="Label" parent="Towers/Platform 1/Menu/Remove Button" index="0"]
+[node name="Label" type="Label" parent="Towers/Platform 1/Interface/Menu/Remove Button" index="0"]
 layout_mode = 0
 offset_left = 9.0
 offset_top = 7.0
@@ -801,7 +803,7 @@ text = "REMOVE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Tower Stats Button" type="TextureButton" parent="Towers/Platform 1/Menu" index="3"]
+[node name="Tower Stats Button" type="TextureButton" parent="Towers/Platform 1/Interface/Menu" index="3"]
 layout_mode = 0
 offset_left = 133.0
 offset_top = 65.0
@@ -814,7 +816,7 @@ texture_hover = ExtResource("17_r7urm")
 texture_disabled = ExtResource("18_6jsc3")
 script = ExtResource("19_lg656")
 
-[node name="Label" type="Label" parent="Towers/Platform 1/Menu/Tower Stats Button" index="0"]
+[node name="Label" type="Label" parent="Towers/Platform 1/Interface/Menu/Tower Stats Button" index="0"]
 layout_mode = 0
 offset_left = 9.0
 offset_top = 7.0
@@ -866,20 +868,20 @@ autostart = false
 [connection signal="player_ended_tutorial" from="." to="Towers/Platform 1" method="_on_level_1_player_ended_tutorial"]
 [connection signal="pressed" from="Towers/Platform 1/TouchScreenButton" to="Towers/Platform 1" method="_on_touch_screen_button_pressed"]
 [connection signal="pressed" from="Towers/Platform 1/TouchScreenButton" to="Towers/Platform 1" method="_on_local_touch_screen_button_pressed"]
-[connection signal="mouse_entered" from="Towers/Platform 1/Menu/Build Button" to="Towers/Platform 1/Menu/Build Button" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Towers/Platform 1/Menu/Build Button" to="Towers/Platform 1/Menu/Build Button" method="_on_mouse_exited"]
-[connection signal="pressed" from="Towers/Platform 1/Menu/Build Button" to="Towers/Platform 1" method="_on_local_build_button_pressed"]
-[connection signal="pressed" from="Towers/Platform 1/Menu/Build Button" to="Towers/Platform 1" method="_on_build_button_pressed"]
-[connection signal="mouse_entered" from="Towers/Platform 1/Menu/Upgrade Button" to="Towers/Platform 1/Menu/Upgrade Button" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Towers/Platform 1/Menu/Upgrade Button" to="Towers/Platform 1/Menu/Upgrade Button" method="_on_mouse_exited"]
-[connection signal="pressed" from="Towers/Platform 1/Menu/Upgrade Button" to="Towers/Platform 1" method="_on_local_upgrade_button_pressed"]
-[connection signal="pressed" from="Towers/Platform 1/Menu/Upgrade Button" to="Towers/Platform 1" method="_on_upgrade_button_pressed"]
-[connection signal="mouse_entered" from="Towers/Platform 1/Menu/Remove Button" to="Towers/Platform 1" method="_on_local_remove_button_mouse_entered"]
-[connection signal="mouse_entered" from="Towers/Platform 1/Menu/Remove Button" to="Towers/Platform 1/Menu/Remove Button" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Towers/Platform 1/Menu/Remove Button" to="Towers/Platform 1/Menu/Remove Button" method="_on_mouse_exited"]
-[connection signal="pressed" from="Towers/Platform 1/Menu/Remove Button" to="Towers/Platform 1" method="_on_remove_button_pressed"]
-[connection signal="mouse_entered" from="Towers/Platform 1/Menu/Tower Stats Button" to="Towers/Platform 1" method="_on_local_tower_stats_button_mouse_entered"]
-[connection signal="mouse_entered" from="Towers/Platform 1/Menu/Tower Stats Button" to="Towers/Platform 1/Menu/Tower Stats Button" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Towers/Platform 1/Menu/Tower Stats Button" to="Towers/Platform 1/Menu/Tower Stats Button" method="_on_mouse_exited"]
-[connection signal="pressed" from="Towers/Platform 1/Menu/Tower Stats Button" to="Towers/Platform 1" method="_on_local_tower_stats_button_pressed"]
-[connection signal="pressed" from="Towers/Platform 1/Menu/Tower Stats Button" to="Towers/Platform 1" method="_on_tower_stats_button_pressed"]
+[connection signal="mouse_entered" from="Towers/Platform 1/Interface/Menu/Build Button" to="Towers/Platform 1/Interface/Menu/Build Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Towers/Platform 1/Interface/Menu/Build Button" to="Towers/Platform 1/Interface/Menu/Build Button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Towers/Platform 1/Interface/Menu/Build Button" to="Towers/Platform 1" method="_on_local_build_button_pressed"]
+[connection signal="pressed" from="Towers/Platform 1/Interface/Menu/Build Button" to="Towers/Platform 1" method="_on_build_button_pressed"]
+[connection signal="mouse_entered" from="Towers/Platform 1/Interface/Menu/Upgrade Button" to="Towers/Platform 1/Interface/Menu/Upgrade Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Towers/Platform 1/Interface/Menu/Upgrade Button" to="Towers/Platform 1/Interface/Menu/Upgrade Button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Towers/Platform 1/Interface/Menu/Upgrade Button" to="Towers/Platform 1" method="_on_local_upgrade_button_pressed"]
+[connection signal="pressed" from="Towers/Platform 1/Interface/Menu/Upgrade Button" to="Towers/Platform 1" method="_on_upgrade_button_pressed"]
+[connection signal="mouse_entered" from="Towers/Platform 1/Interface/Menu/Remove Button" to="Towers/Platform 1" method="_on_local_remove_button_mouse_entered"]
+[connection signal="mouse_entered" from="Towers/Platform 1/Interface/Menu/Remove Button" to="Towers/Platform 1/Interface/Menu/Remove Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Towers/Platform 1/Interface/Menu/Remove Button" to="Towers/Platform 1/Interface/Menu/Remove Button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Towers/Platform 1/Interface/Menu/Remove Button" to="Towers/Platform 1" method="_on_remove_button_pressed"]
+[connection signal="mouse_entered" from="Towers/Platform 1/Interface/Menu/Tower Stats Button" to="Towers/Platform 1" method="_on_local_tower_stats_button_mouse_entered"]
+[connection signal="mouse_entered" from="Towers/Platform 1/Interface/Menu/Tower Stats Button" to="Towers/Platform 1/Interface/Menu/Tower Stats Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Towers/Platform 1/Interface/Menu/Tower Stats Button" to="Towers/Platform 1/Interface/Menu/Tower Stats Button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Towers/Platform 1/Interface/Menu/Tower Stats Button" to="Towers/Platform 1" method="_on_local_tower_stats_button_pressed"]
+[connection signal="pressed" from="Towers/Platform 1/Interface/Menu/Tower Stats Button" to="Towers/Platform 1" method="_on_tower_stats_button_pressed"]
