@@ -1,12 +1,8 @@
 extends PanelContainer
 
-# Nodes
-@onready var menu_button = $"Menu Button"
-@onready var restart_button = $"Restart Button"
+@onready var menu_button: Button = $"Menu Button"
+@onready var restart_button: Button = $"Restart Button"
 
-
-
-# Common functions
 func _ready():
 	# Scale
 	scale = Vector2(UserSettings.gui_scale, UserSettings.gui_scale)
@@ -23,9 +19,6 @@ func disable_buttons():
 	menu_button.disabled = true
 	restart_button.disabled = true
 
-
-
-# Menu Button's functions
 func _on_menu_button_pressed():
 	SoundManager.click.play()
 	SoundManager.disable_music()
@@ -33,9 +26,6 @@ func _on_menu_button_pressed():
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://gamedata/scene/main_menu/main_menu.tscn")
 
-
-
-# Restart Button's functions
 func _on_restart_button_pressed():
 	SoundManager.click.play()
 	SoundManager.disable_music()

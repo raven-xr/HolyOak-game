@@ -1,10 +1,6 @@
 extends Control
 
-
-
 @export var message_scene: PackedScene
-
-
 
 @onready var master_h_slider = $"PanelContainer/VBoxContainer/Master Volume/Master HSlider"
 @onready var music_h_slider = $"PanelContainer/VBoxContainer/Music Volume/Music HSlider"
@@ -15,17 +11,12 @@ extends Control
 
 @onready var reset_progress_button = $"PanelContainer/VBoxContainer/Data Reset/Reset Progress Button"
 
-
-
 # Previous settings (will be used, if player didn't apply settings)
 # Gets values when settings is opened
 var last_master_volume: float = UserSettings.master_volume
 var last_music_volume: float = UserSettings.music_volume
 var last_sfx_volume: float = UserSettings.sfx_volume
 var last_gui_scale: float = UserSettings.gui_scale
-
-
-
 
 func _ready():
 	# Scale
@@ -63,9 +54,6 @@ func _on_visibility_changed():
 		UserSettings.sfx_volume = last_sfx_volume
 		UserSettings.gui_scale = last_gui_scale
 
-
-
-# Volume's functions
 func _on_master_h_slider_value_changed(value):
 	UserSettings.master_volume = value
 
@@ -75,9 +63,6 @@ func _on_music_h_slider_value_changed(value):
 func _on_sfx_h_slider_value_changed(value):
 	UserSettings.sfx_volume = value
 
-
-
-# GUI's functions
 func _on_scale_option_button_item_selected(index):
 	UserSettings.gui_scale = float(scale_option_button.get_item_text(index))
 
@@ -87,8 +72,6 @@ func _on_scale_option_button_pressed():
 func _on_popup_menu_id_pressed(_id):
 	SoundManager.click.play()
 
-
-# Data Reset functions
 func _on_reset_settings_button_pressed():
 	SoundManager.click.play()
 	master_h_slider.value = UserSettings.DEFAULT_MASTER_VOLUME
@@ -128,9 +111,6 @@ func _on_cancel_button_pressed():
 	sfx_h_slider.value = UserSettings.sfx_volume
 	scale_option_button.select({0.8: 0, 1.0: 1, 1.2: 2, 1.4: 3}[UserSettings.gui_scale])
 
-
-
-# Close button's functions
 func _on_close_button_pressed():
 	SoundManager.click.play()
 	var tween = create_tween()
@@ -138,9 +118,6 @@ func _on_close_button_pressed():
 	await tween.finished
 	visible = false
 
-
-
-# Confirmation's functions
 func _on_cancel_pressed():
 	SoundManager.click.play()
 	var tween = create_tween()

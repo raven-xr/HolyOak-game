@@ -395,6 +395,7 @@ texture = ExtResource("6_e7mfh")
 sources/0 = SubResource("TileSetAtlasSource_dwpjd")
 
 [node name="Level 2" instance=ExtResource("1_a26ah")]
+next_level_path = "res://gamedata/scene/level_3/level_3.tscn"
 technical_name = &"LEVEL_2"
 
 [node name="Layer 1" type="TileMapLayer" parent="Tilemap" index="0"]
@@ -1090,6 +1091,7 @@ position = Vector2(552, 600)
 unit_scene = ExtResource("15_lytkh")
 unit_logo = ExtResource("16_wqnhh")
 default_view_direction = "R"
+menu_position = "U"
 
 [node name="Platform 3" parent="Towers" index="2" instance=ExtResource("14_67110")]
 position = Vector2(536, 200)
@@ -1101,3 +1103,4 @@ position = Vector2(216, 480)
 unit_scene = ExtResource("15_lytkh")
 unit_logo = ExtResource("16_wqnhh")
 default_view_direction = "U"
+menu_position = "U"

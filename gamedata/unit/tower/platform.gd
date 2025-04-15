@@ -6,32 +6,42 @@ extends Node2D
 @export var message_scene: PackedScene
 @export_subgroup("Unit")
 @export var unit_scene: PackedScene
+# The character's logo is displayed on the platform's sprite plate
 @export var unit_logo: Texture
-## The character's logo is displayed on the platform's sprite plate.
 @export var default_view_direction: String = "D"
+@export var menu_position: String = "D"
 
 @onready var sprite_2d = $Sprite2D
 @onready var touch_screen_button = $TouchScreenButton
-@onready var menu = $Menu
+@onready var interface = $Interface
+@onready var menu = $Interface/Menu
 @onready var unit_name = $"Unit Name"
 @onready var logo = $Logo
 
-@onready var build_button = $"Menu/Build Button"
-@onready var upgrade_button = $"Menu/Upgrade Button"
-@onready var remove_button = $"Menu/Remove Button"
-@onready var tower_stats_button = $"Menu/Tower Stats Button"
+@onready var build_button = $"Interface/Menu/Build Button"
+@onready var upgrade_button = $"Interface/Menu/Upgrade Button"
+@onready var remove_button = $"Interface/Menu/Remove Button"
+@onready var tower_stats_button = $"Interface/Menu/Tower Stats Button"
 
 # Common
 func _ready():
 	# Scale the menu
-	# Square the scale to reach the best view
-	menu.scale = Vector2(UserSettings.gui_scale**2, UserSettings.gui_scale**2)
+	# Raise the scale to the power of 1.5 to get the best view
+	menu.scale = Vector2(UserSettings.gui_scale**1.5, UserSettings.gui_scale**1.5)
 	# Posite the menu
-	match default_view_direction:
-		"U": menu.position = Vector2(-128.0, -160.0); menu.pivot_offset = Vector2(128.0, 128.0)
-		"R": menu.position = Vector2(40.0, -64.0); menu.pivot_offset = Vector2(0.0, 64.0)
-		"D": menu.position = Vector2(-128.0, 40.0); menu.pivot_offset = Vector2(128.0, 0.0)
-		"L": menu.position = Vector2(-296.0, -64.0); menu.pivot_offset = Vector2(256.0, 64.0)
+	match menu_position:
+		"U":
+			menu.position = global_position + Vector2(-128.0, -160.0)
+			menu.pivot_offset = Vector2(128.0, 128.0)
+		"R":
+			menu.position = global_position + Vector2(40.0, -64.0)
+			menu.pivot_offset = Vector2(0.0, 64.0)
+		"D":
+			menu.position = global_position + Vector2(-128.0, 40.0)
+			menu.pivot_offset = Vector2(128.0, 0.0)
+		"L":
+			menu.position = global_position + Vector2(-296.0, -64.0)
+			menu.pivot_offset = Vector2(256.0, 64.0)
 	# Set the logo
 	logo.texture = unit_logo
 	unit_name.text = unit_scene.instantiate().name
@@ -128,10 +138,22 @@ func _on_tower_stats_button_pressed():
 	var tower = get_node("Tower")
 	var new_tower_stats = tower_stats_scene.instantiate()
 	var positions = {
-		"U": {"position": Vector2(-132, -263), "pivot_offset": Vector2(130, 202)},
-		"R": {"position": Vector2(61, -101), "pivot_offset": Vector2(10, 101)},
-		"D": {"position": Vector2(-132, 61), "pivot_offset": Vector2(130, 0)},
-		"L": {"position": Vector2(-321, -101), "pivot_offset": Vector2(260, 101)}
+		"U": {
+			"position": Vector2(-132, -263),
+			"pivot_offset": Vector2(130, 202)
+			},
+		"R": {
+			"position": Vector2(61, -101),
+			"pivot_offset": Vector2(10, 101)
+			},
+		"D": {
+			"position": Vector2(-132, 61),
+			"pivot_offset": Vector2(130, 0)
+			},
+		"L": {
+			"position": Vector2(-321, -101),
+			"pivot_offset": Vector2(260, 101)
+			}
 	}
 	new_tower_stats.values = str(
 		tower.unit_stats["level_" + str(tower.level)]["attack_range"], "\n",
@@ -140,9 +162,9 @@ func _on_tower_stats_button_pressed():
 		tower.current_cost, "\n",
 		tower.tower_level_limit
 	)
-	new_tower_stats.position = positions[default_view_direction]["position"]
-	new_tower_stats.pivot_offset = positions[default_view_direction]["pivot_offset"]
-	add_child(new_tower_stats)
+	new_tower_stats.position = global_position + positions[menu_position]["position"]
+	new_tower_stats.pivot_offset = positions[menu_position]["pivot_offset"]
+	interface.add_child(new_tower_stats)
 	close_menu()
 
 

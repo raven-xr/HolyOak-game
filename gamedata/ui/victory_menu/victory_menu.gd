@@ -1,15 +1,11 @@
 extends PanelContainer
 
+@onready var level: Level = get_parent().get_parent()
 
+@onready var menu_button: Button = $"Menu Button"
+@onready var next_button: Button = $"Next Button"
 
-@onready var level = get_parent().get_parent()
-
-@onready var menu_button = $"Menu Button"
-@onready var next_button = $"Next Button"
-
-
-
-func _ready():
+func _ready() -> void:
 	# Scale
 	scale = Vector2(UserSettings.gui_scale, UserSettings.gui_scale)
 	# Animate
@@ -21,24 +17,18 @@ func _ready():
 	# Play SFX
 	SoundManager.victory.play()
 
-func disable_buttons():
+func disable_buttons() -> void:
 	menu_button.disabled = true
 	next_button.disabled = true
 
-
-
-# Menu Button's functions
-func _on_menu_button_pressed():
+func _on_menu_button_pressed() -> void:
 	SoundManager.click.play()
 	SoundManager.disable_music()
 	disable_buttons()
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://gamedata/scene/main_menu/main_menu.tscn")
 
-
-
-# Next Button's functions
-func _on_next_button_pressed():
+func _on_next_button_pressed() -> void:
 	SoundManager.click.play()
 	SoundManager.disable_music()
 	disable_buttons()
