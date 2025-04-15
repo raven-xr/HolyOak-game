@@ -395,6 +395,7 @@ texture = ExtResource("6_e7mfh")
 sources/0 = SubResource("TileSetAtlasSource_dwpjd")
 
 [node name="Level 2" instance=ExtResource("1_a26ah")]
+next_level_path = "res://gamedata/scene/level_3/level_3.tscn"
 technical_name = &"LEVEL_2"
 
 [node name="Layer 1" type="TileMapLayer" parent="Tilemap" index="0"]

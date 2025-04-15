@@ -1,13 +1,9 @@
 extends PanelContainer
 
-
-
 @onready var level = get_parent().get_parent()
 
 @onready var menu_button = $"Menu Button"
 @onready var next_button = $"Next Button"
-
-
 
 func _ready():
 	# Scale
@@ -25,9 +21,6 @@ func disable_buttons():
 	menu_button.disabled = true
 	next_button.disabled = true
 
-
-
-# Menu Button's functions
 func _on_menu_button_pressed():
 	SoundManager.click.play()
 	SoundManager.disable_music()
@@ -35,9 +28,6 @@ func _on_menu_button_pressed():
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://gamedata/scene/main_menu/main_menu.tscn")
 
-
-
-# Next Button's functions
 func _on_next_button_pressed():
 	SoundManager.click.play()
 	SoundManager.disable_music()

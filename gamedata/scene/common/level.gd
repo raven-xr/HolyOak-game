@@ -1,8 +1,6 @@
 extends Node2D
 class_name Level
 
-
-
 enum States {
 	TUTORIAL,
 	IDLE,
@@ -20,23 +18,15 @@ enum States {
 @export var game_menu_scene: PackedScene
 
 ## Leave this field if there are no levels left
-@export var next_level_path: String = "res://scenes/main_menu/main_menu.tscn"
+@export var next_level_path: String = "res://gamedata/scene/main_menu/main_menu.tscn"
 @export var technical_name: StringName
-
-
-
 @onready var user_interface = $UserInterface
-
 @onready var menu = $UserInterface/Menu
-
 @onready var menu_button = $"UserInterface/Menu/Button"
-
 @onready var wave_timer = $"Timers/Wave Timer"
 @onready var spawn_timer = $"Timers/Spawn Timer"
 
 @onready var data: Dictionary = LevelData.get(technical_name)
-
-
 
 var wave_count: int = 0
 var wave: int = 0:
@@ -61,8 +51,6 @@ var state: int:
 		match state:
 			States.IDLE: idle_state()
 			States.FIGHT: fight_state()
-
-
 
 func _ready():
 	# Scale
@@ -153,9 +141,6 @@ func _on_health_changed(value):
 	if value <= 0:
 		defeat()
 
-
-
-# Menu Button
 func _on_menu_button_pressed():
 	SoundManager.click.play()
 	if not menu.has_node("Game Menu"):
@@ -165,9 +150,6 @@ func _on_menu_button_pressed():
 		var game_menu = menu.get_node("Game Menu")
 		game_menu.resume()
 
-
-
-# Wave Timer
 func _on_start_timer_timeout():
 	state = States.FIGHT
 
