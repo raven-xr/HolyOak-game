@@ -42,7 +42,6 @@ texture_filter = 1
 [node name="Shell Container" type="Node2D" parent="."]
 
 [node name="UserInterface" type="Control" parent="."]
-process_mode = 3
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -56,6 +55,7 @@ offset_right = 266.0
 offset_bottom = 72.0
 
 [node name="Menu" type="Control" parent="UserInterface"]
+process_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
