@@ -1,17 +1,17 @@
-extends Control
+extends Node2D
 
 @export var star_scene: PackedScene
 
-@onready var game_name = $"Game Name"
-@onready var explorer = $Explorer
-@onready var v_box_container = $Explorer/VBoxContainer
-@onready var levels = $Levels
-@onready var grid_container = $Levels/GridContainer
-@onready var back_button = $"Levels/Back Button"
-@onready var credits = $Credits
-@onready var settings = $Settings
+@onready var game_name: Label = $"Game Name"
+@onready var explorer: PanelContainer = $Explorer
+@onready var v_box_container: VBoxContainer = $Explorer/VBoxContainer
+@onready var levels: Control = $Levels
+@onready var grid_container: GridContainer = $Levels/GridContainer
+@onready var back_button: TextureButton = $"Levels/Back Button"
+@onready var credits: Control = $Credits
+@onready var settings: Control = $Settings
 
-func _ready():
+func _ready() -> void:
 	# Scale GUI
 	var gui_scale = Vector2(UserSettings.gui_scale, UserSettings.gui_scale)
 	game_name.scale = gui_scale
@@ -44,7 +44,7 @@ func _ready():
 	levels.modulate = Color(1, 1, 1, 0)
 	credits.modulate = Color(1, 1, 1, 0)
 
-func animate_transition():
+func animate_transition() -> void:
 	# Disable buttons
 	for button in v_box_container.get_children():
 		button.disabled = true
@@ -57,7 +57,7 @@ func animate_transition():
 	var tween_2 = create_tween()
 	tween_2.tween_property(SoundManager.music_main, "volume_db", -100, 0.2)
 
-func _on_play_button_pressed():
+func _on_play_button_pressed() -> void:
 	SoundManager.click.play()
 	explorer.visible = false
 	explorer.modulate = Color(1, 1, 1, 0)
@@ -65,24 +65,24 @@ func _on_play_button_pressed():
 	var tween = create_tween()
 	tween.tween_property(levels, "modulate", Color(1, 1, 1, 1), 0.1)
 
-func _on_credits_button_pressed():
+func _on_credits_button_pressed() -> void:
 	SoundManager.click.play()
 	explorer.visible = false
 	credits.visible = true
 	var tween = create_tween()
 	tween.tween_property(credits, "modulate", Color(1, 1, 1, 1), 0.1)
 
-func _on_settings_button_pressed():
+func _on_settings_button_pressed() -> void:
 	SoundManager.click.play()
 	settings.visible = true
 
-func _on_exit_button_pressed():
+func _on_exit_button_pressed() -> void:
 	SoundManager.click.play()
 	animate_transition()
 	await SoundManager.click.finished
 	get_tree().quit()
 
-func _on_levels_back_button_pressed():
+func _on_levels_back_button_pressed() -> void:
 	SoundManager.click.play()
 	levels.visible = false
 	levels.modulate = Color(1, 1, 1, 0)
@@ -90,37 +90,37 @@ func _on_levels_back_button_pressed():
 	var tween = create_tween()
 	tween.tween_property(explorer, "modulate", Color(1, 1, 1, 1), 0.1)
 
-func _on_level_1_pressed():
+func _on_level_1_pressed() -> void:
 	SoundManager.click.play()
 	animate_transition()
 	await SoundManager.click.finished
 	SoundManager.disable_music()
 	get_tree().change_scene_to_file("res://gamedata/scene/level_1/level_1.tscn")
 
-func _on_level_2_pressed():
+func _on_level_2_pressed() -> void:
 	SoundManager.click.play()
 	animate_transition()
 	await SoundManager.click.finished
 	SoundManager.disable_music()
 	get_tree().change_scene_to_file("res://gamedata/scene/level_2/level_2.tscn")
 
-func _on_level_3_pressed():
+func _on_level_3_pressed() -> void:
 	SoundManager.click.play()
 	animate_transition()
 	await SoundManager.click.finished
 	SoundManager.disable_music()
 	get_tree().change_scene_to_file("res://gamedata/scene/level_3/level_3.tscn")
 
-func _on_level_4_pressed():
+func _on_level_4_pressed() -> void:
 	SoundManager.click.play()
 
-func _on_level_5_pressed():
+func _on_level_5_pressed() -> void:
 	SoundManager.click.play()
 
-func _on_level_6_pressed():
+func _on_level_6_pressed() -> void:
 	SoundManager.click.play()
 
-func _on_credits_back_button_pressed():
+func _on_credits_back_button_pressed() -> void:
 	SoundManager.click.play()
 	explorer.visible = true
 	var tween = create_tween()
