@@ -147,23 +147,17 @@ _data = {
 &"RESET": SubResource("Animation_3n44e")
 }
 
-[node name="Main Menu" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Main Menu" type="Node2D"]
 script = ExtResource("1_ab7jh")
 star_scene = ExtResource("2_ndcgm")
 
 [node name="Background" type="TextureRect" parent="."]
-layout_mode = 0
 offset_right = 2560.0
 offset_bottom = 1462.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_tludv")
 
 [node name="Game Name" type="Label" parent="."]
-layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 128.0
 pivot_offset = Vector2(640, 0)
@@ -176,16 +170,15 @@ vertical_alignment = 1
 [node name="Explorer" type="PanelContainer" parent="."]
 texture_filter = 1
 clip_contents = true
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 507.0
-offset_top = 228.0
-offset_right = 733.0
-offset_bottom = 604.0
+offset_left = 527.0
+offset_top = 248.0
+offset_right = 753.0
+offset_bottom = 624.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(113, 188)
@@ -278,16 +271,16 @@ vertical_alignment = 1
 
 [node name="Levels" type="Control" parent="."]
 visible = false
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 482.0
-offset_top = 212.0
-offset_right = 760.0
-offset_bottom = 482.0
+offset_left = 502.0
+offset_top = 232.0
+offset_right = 780.0
+offset_bottom = 502.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(139, 135)
@@ -430,6 +423,7 @@ texture_hover = ExtResource("11_jr0j5")
 
 [node name="Credits" type="Control" parent="."]
 visible = false
+layout_mode = 3
 anchors_preset = 0
 offset_right = 1280.0
 offset_bottom = 720.0
@@ -493,7 +487,6 @@ texture_hover = ExtResource("11_jr0j5")
 
 [node name="Settings" parent="." instance=ExtResource("19_inpo7")]
 visible = false
-layout_mode = 0
 offset_right = 0.0
 offset_bottom = 0.0
 
