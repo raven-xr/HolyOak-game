@@ -861,7 +861,7 @@ position = Vector2(232, 320)
 unit_scene = ExtResource("14_kietl")
 unit_logo = ExtResource("18_nfpo6")
 
-[node name="Hint" parent="UserInterface" index="2" instance=ExtResource("27_x1t5x")]
+[node name="Hint" parent="User Interface" index="2" instance=ExtResource("27_x1t5x")]
 
 [node name="Start Timer" parent="Timers" index="0"]
 autostart = false

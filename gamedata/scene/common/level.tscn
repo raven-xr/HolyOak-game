@@ -41,26 +41,21 @@ texture_filter = 1
 
 [node name="Shell Container" type="Node2D" parent="."]
 
-[node name="UserInterface" type="Control" parent="."]
+[node name="User Interface" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="UI Stats" parent="UserInterface" instance=ExtResource("2_rdqft")]
+[node name="UI Stats" parent="User Interface" instance=ExtResource("2_rdqft")]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 266.0
 offset_bottom = 72.0
 
-[node name="Menu" type="Control" parent="UserInterface"]
+[node name="Menu Button" type="Button" parent="User Interface"]
 process_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Button" type="Button" parent="UserInterface/Menu"]
 layout_mode = 0
 offset_left = 1232.0
 offset_top = 16.0
@@ -87,6 +82,6 @@ one_shot = true
 process_mode = 3
 script = ExtResource("12_2u1u3")
 
-[connection signal="pressed" from="UserInterface/Menu/Button" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="User Interface/Menu Button" to="." method="_on_menu_button_pressed"]
 [connection signal="timeout" from="Timers/Start Timer" to="." method="_on_start_timer_timeout"]
 [connection signal="timeout" from="Timers/Wave Timer" to="." method="_on_wave_timer_timeout"]

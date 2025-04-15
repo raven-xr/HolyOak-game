@@ -20,6 +20,7 @@ expand_margin_bottom = 5.0
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_60xpl")
 
 [node name="Game Menu" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_ux5sl")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]

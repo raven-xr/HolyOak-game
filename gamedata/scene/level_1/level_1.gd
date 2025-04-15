@@ -1,6 +1,6 @@
 extends Level
 
-@onready var hint = $UserInterface/Hint
+@onready var hint = $"User Interface/Hint"
 @onready var towers = $Towers
 @onready var platform_1 = $"Towers/Platform 1"
 
@@ -10,11 +10,11 @@ signal player_upgraded_tower()
 signal player_checked_stats()
 signal player_ended_tutorial()
 
-func idle_state():
+func idle_state() -> void:
 	SoundManager.music_idle.play()
 	tutorial()
 
-func tutorial():
+func tutorial() -> void:
 	# Greet
 	hint.text = "Здравствуй, вождь. Добро пожаловать в Holy Oak!"
 	hint.pivot_offset.x = 64.0

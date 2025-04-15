@@ -20,9 +20,8 @@ enum States {
 ## Leave this field if there are no levels left
 @export var next_level_path: String = "res://gamedata/scene/main_menu/main_menu.tscn"
 @export var technical_name: StringName
-@onready var user_interface = $UserInterface
-@onready var menu = $UserInterface/Menu
-@onready var menu_button = $"UserInterface/Menu/Button"
+@onready var user_interface = $"User Interface"
+@onready var menu_button = $"User Interface/Menu Button"
 @onready var wave_timer = $"Timers/Wave Timer"
 @onready var spawn_timer = $"Timers/Spawn Timer"
 
@@ -52,7 +51,7 @@ var state: int:
 			States.IDLE: idle_state()
 			States.FIGHT: fight_state()
 
-func _ready():
+func _ready() -> void:
 	# Scale
 	# Square the scale to reach the best view
 	menu_button.scale = Vector2(UserSettings.gui_scale**2, UserSettings.gui_scale**2)
@@ -72,11 +71,11 @@ func _ready():
 	# Start the game
 	state = States.IDLE
 
-func idle_state():
+func idle_state() -> void:
 	# P.S. Start Timer autostarts
 	SoundManager.music_idle.play()
 
-func fight_state():
+func fight_state() -> void:
 	# Getting ready
 	SoundManager.music_fight.play()
 	var tween_1 = create_tween()
@@ -88,12 +87,12 @@ func fight_state():
 	# Fight
 	wave += 1
 
-func defeat():
+func defeat() -> void:
 	var defeat_menu = defeat_menu_scene.instantiate()
 	user_interface.add_child(defeat_menu)
 	menu_button.disabled = true
 
-func victory():
+func victory() -> void:
 	# Save
 	UserData.progress[name]["is_completed"] = true
 	UserData.progress[name]["stars"] = 3
@@ -107,7 +106,7 @@ func victory():
 	user_interface.add_child(victory_menu)
 	menu_button.disabled = true
 
-func new_wave():
+func new_wave() -> void:
 	# Declare the new wave
 	var new_message = message_scene.instantiate()
 	new_message.text = "Волна " + str(wave)
@@ -134,24 +133,24 @@ func new_wave():
 	
 	is_enemies_spawning = false
 
-func _on_enemy_died():
+func _on_enemy_died() -> void:
 	current_enemy_count -= 1
 
-func _on_health_changed(value):
+func _on_health_changed(value: int) -> void:
 	if value <= 0:
 		defeat()
 
-func _on_menu_button_pressed():
+func _on_menu_button_pressed() -> void:
 	SoundManager.click.play()
-	if not menu.has_node("Game Menu"):
+	if not user_interface.has_node("Game Menu"):
 		var game_menu = game_menu_scene.instantiate()
-		menu.add_child(game_menu)
+		user_interface.add_child(game_menu)
 	else:
-		var game_menu = menu.get_node("Game Menu")
+		var game_menu = user_interface.get_node("Game Menu")
 		game_menu.resume()
 
-func _on_start_timer_timeout():
+func _on_start_timer_timeout() -> void:
 	state = States.FIGHT
 
-func _on_wave_timer_timeout():
+func _on_wave_timer_timeout() -> void:
 	wave += 1
