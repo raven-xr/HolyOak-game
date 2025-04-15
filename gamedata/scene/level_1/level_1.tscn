@@ -251,7 +251,7 @@ Label/fonts/font = ExtResource("20_d7u56")
 
 [node name="Level 1" instance=ExtResource("1_rbgy0")]
 script = ExtResource("2_c08mv")
-next_level_path = "res://gamedata/scene/level_1/level_1.tscn"
+next_level_path = "res://gamedata/scene/level_2/level_2.tscn"
 technical_name = &"LEVEL_1"
 
 [node name="Layer 1" type="TileMapLayer" parent="Tilemap" index="0"]
