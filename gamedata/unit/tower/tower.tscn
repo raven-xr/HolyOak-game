@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=3 uid="uid://lxt2xv2lfkgu"]
+[gd_scene load_steps=130 format=3 uid="uid://lxt2xv2lfkgu"]
 
 [ext_resource type="Script" uid="uid://bdsofk2pt1nov" path="res://gamedata/unit/tower/tower.gd" id="1_ga7em"]
 [ext_resource type="Texture2D" uid="uid://dyj1b8lqm8l5x" path="res://gfx/unit/tower/upgrade/1.png" id="2_6xap5"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://nfgmn73ucg11" path="res://gfx/unit/tower/idle/7_no_roof.png" id="15_aqrl2"]
 [ext_resource type="Texture2D" uid="uid://cosy26s3684nq" path="res://gfx/unit/tower/idle/4_roof.png" id="17_fcx3d"]
 [ext_resource type="Texture2D" uid="uid://dxkv8nktd5xek" path="res://gfx/unit/tower/idle/7_roof.png" id="20_nqsl5"]
+[ext_resource type="AudioStream" uid="uid://vjtb87xelmbx" path="res://audio/sfx/building.mp3" id="22_y2klm"]
 
 [sub_resource type="Animation" id="Animation_pj6w1"]
 resource_name = "Destruct"
@@ -1543,10 +1544,19 @@ scale = Vector2(1.72308, 1.72308)
 sprite_frames = SubResource("SpriteFrames_t6ovq")
 animation = &"Level_0_Idle"
 
+[node name="Logo" type="Sprite2D" parent="."]
+
+[node name="Units" type="Node2D" parent="."]
+
 [node name="Roof" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0, -56)
 scale = Vector2(1.72308, 1.72308)
 sprite_frames = SubResource("SpriteFrames_y2klm")
 
-[node name="Logo" type="Sprite2D" parent="."]
+[node name="Building" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_y2klm")
+volume_db = -15.0
+bus = &"SFX"
+
+[node name="Smoke" type="Node2D" parent="."]
