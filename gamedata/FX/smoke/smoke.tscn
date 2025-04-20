@@ -173,7 +173,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Smoke_05_01",
-"speed": 8.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -211,7 +211,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Smoke_05_07",
-"speed": 8.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -249,7 +249,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Smoke_05_08",
-"speed": 8.0
+"speed": 5.0
 }]
 
 [node name="Smoke" type="AnimatedSprite2D"]
