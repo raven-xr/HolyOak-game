@@ -18,16 +18,16 @@ enum States {
 @onready var find_timer: Timer = $"Find Timer"
 @onready var attack_sfx: AudioStreamPlayer2D = $SFX/Attack
 
-@onready var default_view_direction: String = get_parent().get_parent().get_parent().default_view_direction
+@onready var default_view_direction: StringName = get_parent().get_parent().default_view_direction
 
-@onready var stats: Dictionary = UnitData.get(technical_name)["level_" + str(level)]
-@onready var damage: int = stats["damage"]
-@onready var attack_range: int = stats["attack_range"]
-@onready var shell_speed: int = stats["shell_speed"]
+@onready var stats: Dictionary[StringName, Dictionary] = UnitData.get(technical_name)
+@onready var damage: int = stats["level_" + str(level)]["damage"]
+@onready var attack_range: int = stats["level_" + str(level)]["attack_range"]
+@onready var shell_speed: int = stats["level_" + str(level)]["shell_speed"]
 
 var available_enemies: Array[Enemy] = []
 var target: Enemy
-var level: int
+var level: int = 0
 var state: int:
 	set(value):
 		state = value

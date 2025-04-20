@@ -1,27 +1,27 @@
 extends Control
 
-@onready var label = $Values/Label
 
-var values: String # Defined by the platform
 
-func _ready():
+@onready var label: Label = $Values/Label
+
+
+
+func _ready() -> void:
 	# Scale
 	scale = Vector2(UserSettings.gui_scale, UserSettings.gui_scale)
-	# Animate
-	modulate = Color(1, 1, 1, 0)
+
+func open() -> void:
+	modulate = Color(1.0, 1.0, 1.0, 0.0)
+	# Smooth appearance
 	var tween = create_tween()
-	tween.tween_property(self, "modulate", Color(1, 1, 1, 0.9), 0.1)
-	label.text = values
+	tween.tween_property(self, "modulate", Color(1.0, 1.0, 1.0, 0.9), 0.1)
 
-func close():
+func close() -> void:
+	# Smooth disappearance
 	var tween = create_tween()
-	tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 0.1)
-	await tween.finished
-	queue_free()
+	tween.tween_property(self, "modulate", Color(1.0, 1.0, 1.0, 0.0), 0.1)
 
-
-
-# Close Button's functions
-func _on_close_button_pressed():
+func _on_close_button_pressed() -> void:
 	SoundManager.click.play()
 	close()
+	visible = false

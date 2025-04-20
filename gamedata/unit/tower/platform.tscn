@@ -12,9 +12,6 @@
 [ext_resource type="FontFile" uid="uid://car2t5itecnhr" path="res://interface/fonts/Bungee-Regular.ttf" id="10_421q7"]
 [ext_resource type="FontFile" uid="uid://5wohy1go68x5" path="res://interface/fonts/Tribal Garamond.ttf" id="11_c6v47"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_fil16"]
-radius = 54.0
-
 [sub_resource type="Theme" id="Theme_esjrm"]
 Label/colors/font_color = Color(0.784314, 0.572549, 0.372549, 1)
 Label/colors/font_shadow_color = Color(0.427451, 0.392157, 0.298039, 1)
@@ -22,6 +19,9 @@ Label/constants/shadow_offset_x = 0
 Label/constants/shadow_offset_y = 2
 Label/constants/shadow_outline_size = 0
 Label/fonts/font = ExtResource("10_421q7")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fil16"]
+radius = 54.0
 
 [node name="Platform" type="Node2D"]
 script = ExtResource("1_gvh2q")
@@ -34,9 +34,6 @@ texture_filter = 1
 position = Vector2(0, -56)
 scale = Vector2(1.723, 1.723)
 texture = ExtResource("2_8ll7e")
-
-[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
-shape = SubResource("CircleShape2D_fil16")
 
 [node name="Interface" type="CanvasLayer" parent="."]
 
@@ -150,7 +147,7 @@ text = "STATS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Unit Name" type="Label" parent="."]
+[node name="Unit Name" type="Label" parent="Interface"]
 visible = false
 modulate = Color(1, 1, 1, 0)
 offset_left = -64.0
@@ -163,13 +160,15 @@ theme_override_font_sizes/font_size = 20
 text = "Unit's Name"
 horizontal_alignment = 1
 
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Interface"]
+shape = SubResource("CircleShape2D_fil16")
+
 [node name="Logo" type="Sprite2D" parent="."]
 editor_description = "Usually, it's the unit's shell"
 modulate = Color(1, 1, 1, 0.784314)
 texture_filter = 1
 position = Vector2(0, -9)
 
-[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
 [connection signal="mouse_entered" from="Interface/Menu/Build Button" to="Interface/Menu/Build Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Interface/Menu/Build Button" to="Interface/Menu/Build Button" method="_on_mouse_exited"]
 [connection signal="pressed" from="Interface/Menu/Build Button" to="." method="_on_build_button_pressed"]
@@ -182,3 +181,4 @@ position = Vector2(0, -9)
 [connection signal="mouse_entered" from="Interface/Menu/Tower Stats Button" to="Interface/Menu/Tower Stats Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Interface/Menu/Tower Stats Button" to="Interface/Menu/Tower Stats Button" method="_on_mouse_exited"]
 [connection signal="pressed" from="Interface/Menu/Tower Stats Button" to="." method="_on_tower_stats_button_pressed"]
+[connection signal="pressed" from="Interface/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
