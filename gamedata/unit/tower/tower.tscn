@@ -1,11 +1,13 @@
-[gd_scene load_steps=144 format=3 uid="uid://lxt2xv2lfkgu"]
+[gd_scene load_steps=146 format=3 uid="uid://lxt2xv2lfkgu"]
 
 [ext_resource type="Script" uid="uid://bdsofk2pt1nov" path="res://gamedata/unit/tower/tower.gd" id="1_ga7em"]
 [ext_resource type="Texture2D" uid="uid://dyj1b8lqm8l5x" path="res://gfx/unit/tower/upgrade/1.png" id="2_6xap5"]
 [ext_resource type="Texture2D" uid="uid://cjyvn46nwilg0" path="res://gfx/unit/tower/foundation.png" id="2_bv0xj"]
 [ext_resource type="Texture2D" uid="uid://t8vwtgwke7jr" path="res://gfx/unit/tower/upgrade/4_roof.png" id="2_pq2nx"]
+[ext_resource type="PackedScene" uid="uid://fp8vxfd5r20l" path="res://gamedata/FX/smoke/smoke.tscn" id="2_th4ks"]
 [ext_resource type="Texture2D" uid="uid://bqk852lqxeo15" path="res://gfx/unit/tower/idle/1.png" id="3_0tv8s"]
 [ext_resource type="Texture2D" uid="uid://cnyq7sevn2fmk" path="res://gfx/unit/tower/upgrade/5_roof.png" id="3_8es61"]
+[ext_resource type="PackedScene" uid="uid://du20li6wou6fs" path="res://gamedata/ui/message/message.tscn" id="3_cyn7f"]
 [ext_resource type="Texture2D" uid="uid://5txqbqpyebun" path="res://gfx/unit/tower/upgrade/2.png" id="3_fbeod"]
 [ext_resource type="Texture2D" uid="uid://rc20dqd1f02y" path="res://gfx/unit/tower/upgrade/7_roof.png" id="4_3o2b3"]
 [ext_resource type="Texture2D" uid="uid://dbw11823hkk2g" path="res://gfx/unit/tower/upgrade/3.png" id="4_7ulco"]
@@ -1628,6 +1630,8 @@ radius = 54.0
 [node name="Tower" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_ga7em")
+smoke_scene = ExtResource("2_th4ks")
+message_scene = ExtResource("3_cyn7f")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
