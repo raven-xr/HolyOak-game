@@ -1,8 +1,8 @@
-[gd_scene load_steps=145 format=3 uid="uid://lxt2xv2lfkgu"]
+[gd_scene load_steps=144 format=3 uid="uid://lxt2xv2lfkgu"]
 
 [ext_resource type="Script" uid="uid://bdsofk2pt1nov" path="res://gamedata/unit/tower/tower.gd" id="1_ga7em"]
 [ext_resource type="Texture2D" uid="uid://dyj1b8lqm8l5x" path="res://gfx/unit/tower/upgrade/1.png" id="2_6xap5"]
-[ext_resource type="Texture2D" uid="uid://cjyvn46nwilg0" path="res://gfx/unit/platform/platform.png" id="2_bv0xj"]
+[ext_resource type="Texture2D" uid="uid://cjyvn46nwilg0" path="res://gfx/unit/tower/foundation.png" id="2_bv0xj"]
 [ext_resource type="Texture2D" uid="uid://t8vwtgwke7jr" path="res://gfx/unit/tower/upgrade/4_roof.png" id="2_pq2nx"]
 [ext_resource type="Texture2D" uid="uid://bqk852lqxeo15" path="res://gfx/unit/tower/idle/1.png" id="3_0tv8s"]
 [ext_resource type="Texture2D" uid="uid://cnyq7sevn2fmk" path="res://gfx/unit/tower/upgrade/5_roof.png" id="3_8es61"]
@@ -36,7 +36,7 @@
 
 [sub_resource type="Animation" id="Animation_pj6w1"]
 resource_name = "Destruct"
-length = 3.7
+length = 2.7
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -44,7 +44,7 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.7, 3.7),
+"times": PackedFloat32Array(0, 0.7, 2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
 "args": [4, [Vector2(32, 0), Vector2(-32, 0), Vector2(0, 32), Vector2(0, -32)]],
@@ -64,10 +64,10 @@ tracks/1/path = NodePath("Tower:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.7, 1.7),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.7, 1.7, 1.73333),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -79,125 +79,43 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0.7, 1.7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.784)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Foundation:modulate")
+tracks/3/path = NodePath("Tower:animation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.7, 3.7),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_kpusy"]
-resource_name = "Level_0_Idle"
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Tower:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Tower:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["Level_0_Idle"]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Roof:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Roof:animation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(1.7),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [&"default"]
 }
-
-[sub_resource type="Animation" id="Animation_t6ovq"]
-resource_name = "Level_0_Upgrade"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Tower:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Tower:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Tower:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.7),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["Level_0_Upgrade"]
+"values": [0]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Logo:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(1),
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Foundation:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.7),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("AnimationPlayer")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(3),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [&"Level_1_Idle"],
-"method": &"play"
-}]
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_y2klm"]
@@ -228,7 +146,7 @@ tracks/1/keys = {
 "values": ["Level_1_Idle"]
 }
 
-[sub_resource type="Animation" id="Animation_iylsl"]
+[sub_resource type="Animation" id="Animation_t6ovq"]
 resource_name = "Level_1_Upgrade"
 length = 3.0
 tracks/0/type = "value"
@@ -238,7 +156,7 @@ tracks/0/path = NodePath("Tower:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3),
+"times": PackedFloat32Array(-2.92063e-06, 1, 2, 3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
@@ -253,21 +171,45 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["Level_1_Upgrade"]
+"values": [&"Level_1_Upgrade"]
 }
-tracks/2/type = "method"
+tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("AnimationPlayer")
+tracks/2/path = NodePath("Logo:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(3),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [&"Level_2_Idle"],
+"args": [&"Level_1_Idle"],
 "method": &"play"
 }]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Foundation:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_y4gkt"]
@@ -298,7 +240,7 @@ tracks/1/keys = {
 "values": ["Level_2_Idle"]
 }
 
-[sub_resource type="Animation" id="Animation_tcf8h"]
+[sub_resource type="Animation" id="Animation_iylsl"]
 resource_name = "Level_2_Upgrade"
 length = 3.0
 tracks/0/type = "value"
@@ -323,7 +265,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["Level_2_Upgrade"]
+"values": [&"Level_2_Upgrade"]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -335,7 +277,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(3),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [&"Level_3_Idle"],
+"args": [&"Level_2_Idle"],
 "method": &"play"
 }]
 }
@@ -368,7 +310,7 @@ tracks/1/keys = {
 "values": ["Level_3_Idle"]
 }
 
-[sub_resource type="Animation" id="Animation_yall2"]
+[sub_resource type="Animation" id="Animation_tcf8h"]
 resource_name = "Level_3_Upgrade"
 length = 3.0
 tracks/0/type = "value"
@@ -393,43 +335,19 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["Level_3_Upgrade"]
+"values": [&"Level_3_Upgrade"]
 }
-tracks/2/type = "value"
+tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Roof:frame")
+tracks/2/path = NodePath("AnimationPlayer")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Roof:animation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Level_3_Upgrade"]
-}
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("AnimationPlayer")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(3),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [&"Level_4_Idle"],
+"args": [&"Level_3_Idle"],
 "method": &"play"
 }]
 }
@@ -486,7 +404,7 @@ tracks/3/keys = {
 "values": [&"Level_4_Idle"]
 }
 
-[sub_resource type="Animation" id="Animation_2i6xb"]
+[sub_resource type="Animation" id="Animation_yall2"]
 resource_name = "Level_4_Upgrade"
 length = 3.0
 tracks/0/type = "value"
@@ -511,7 +429,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["Level_4_Upgrade"]
+"values": [&"Level_4_Upgrade"]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -535,7 +453,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"Level_4_Upgrade"]
+"values": [&"Level_3_Upgrade"]
 }
 tracks/4/type = "method"
 tracks/4/imported = false
@@ -547,7 +465,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(3),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [&"Level_5_Idle"],
+"args": [&"Level_4_Idle"],
 "method": &"play"
 }]
 }
@@ -604,7 +522,7 @@ tracks/3/keys = {
 "values": [&"default"]
 }
 
-[sub_resource type="Animation" id="Animation_whun5"]
+[sub_resource type="Animation" id="Animation_2i6xb"]
 resource_name = "Level_5_Upgrade"
 length = 3.0
 tracks/0/type = "value"
@@ -629,19 +547,43 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["Level_5_Upgrade"]
+"values": [&"Level_5_Upgrade"]
 }
-tracks/2/type = "method"
+tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("AnimationPlayer")
+tracks/2/path = NodePath("Roof:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Roof:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Level_4_Upgrade"]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimationPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(3),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [&"Level_6_Idle"],
+"args": [&"Level_5_Idle"],
 "method": &"play"
 }]
 }
@@ -674,7 +616,7 @@ tracks/1/keys = {
 "values": ["Level_6_Idle"]
 }
 
-[sub_resource type="Animation" id="Animation_linbm"]
+[sub_resource type="Animation" id="Animation_whun5"]
 resource_name = "Level_6_Upgrade"
 length = 3.0
 tracks/0/type = "value"
@@ -699,43 +641,19 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": ["Level_6_Upgrade"]
+"values": [&"Level_6_Upgrade"]
 }
-tracks/2/type = "value"
+tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Roof:frame")
+tracks/2/path = NodePath("AnimationPlayer")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1, 2, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Roof:animation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Level_6_Upgrade"]
-}
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("AnimationPlayer")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(3),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [&"Level_7_Idle"],
+"args": [&"Level_6_Idle"],
 "method": &"play"
 }]
 }
@@ -792,6 +710,72 @@ tracks/3/keys = {
 "values": [&"Level_7_Idle"]
 }
 
+[sub_resource type="Animation" id="Animation_linbm"]
+resource_name = "Level_7_Upgrade"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tower:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tower:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Level_7_Upgrade"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Roof:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Roof:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Level_6_Upgrade"]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimationPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"Level_7_Idle"],
+"method": &"play"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_cyn7f"]
 length = 0.001
 tracks/0/type = "value"
@@ -804,7 +788,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"Level_0_Idle"]
+"values": [&"default"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -852,7 +836,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0.784314)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -869,75 +853,54 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Foundation:modulate")
+tracks/6/path = NodePath("Foundation:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pj6w1"]
 _data = {
 &"Destruct": SubResource("Animation_pj6w1"),
-&"Level_0_Idle": SubResource("Animation_kpusy"),
-&"Level_0_Upgrade": SubResource("Animation_t6ovq"),
 &"Level_1_Idle": SubResource("Animation_y2klm"),
-&"Level_1_Upgrade": SubResource("Animation_iylsl"),
+&"Level_1_Upgrade": SubResource("Animation_t6ovq"),
 &"Level_2_Idle": SubResource("Animation_y4gkt"),
-&"Level_2_Upgrade": SubResource("Animation_tcf8h"),
+&"Level_2_Upgrade": SubResource("Animation_iylsl"),
 &"Level_3_Idle": SubResource("Animation_k3tqf"),
-&"Level_3_Upgrade": SubResource("Animation_yall2"),
+&"Level_3_Upgrade": SubResource("Animation_tcf8h"),
 &"Level_4_Idle": SubResource("Animation_qsccf"),
-&"Level_4_Upgrade": SubResource("Animation_2i6xb"),
+&"Level_4_Upgrade": SubResource("Animation_yall2"),
 &"Level_5_Idle": SubResource("Animation_l84ho"),
-&"Level_5_Upgrade": SubResource("Animation_whun5"),
+&"Level_5_Upgrade": SubResource("Animation_2i6xb"),
 &"Level_6_Idle": SubResource("Animation_tv0p2"),
-&"Level_6_Upgrade": SubResource("Animation_linbm"),
+&"Level_6_Upgrade": SubResource("Animation_whun5"),
 &"Level_7_Idle": SubResource("Animation_th4ks"),
+&"Level_7_Upgrade": SubResource("Animation_linbm"),
 &"RESET": SubResource("Animation_cyn7f")
 }
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_efmp6"]
-atlas = ExtResource("2_bv0xj")
-region = Rect2(0, 0, 70, 130)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uv27b"]
-atlas = ExtResource("2_6xap5")
-region = Rect2(0, 0, 70, 130)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3fux6"]
-atlas = ExtResource("2_6xap5")
-region = Rect2(70, 0, 70, 130)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6hhh5"]
-atlas = ExtResource("2_6xap5")
-region = Rect2(140, 0, 70, 130)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rxf2g"]
-atlas = ExtResource("2_6xap5")
-region = Rect2(210, 0, 70, 130)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nor1i"]
 atlas = ExtResource("3_0tv8s")
 region = Rect2(0, 0, 70, 130)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_woxr6"]
-atlas = ExtResource("3_fbeod")
+[sub_resource type="AtlasTexture" id="AtlasTexture_tv0p2"]
+atlas = ExtResource("2_6xap5")
 region = Rect2(0, 0, 70, 130)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rtbtj"]
-atlas = ExtResource("3_fbeod")
+[sub_resource type="AtlasTexture" id="AtlasTexture_linbm"]
+atlas = ExtResource("2_6xap5")
 region = Rect2(70, 0, 70, 130)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_litam"]
-atlas = ExtResource("3_fbeod")
+[sub_resource type="AtlasTexture" id="AtlasTexture_th4ks"]
+atlas = ExtResource("2_6xap5")
 region = Rect2(140, 0, 70, 130)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6fk6e"]
-atlas = ExtResource("3_fbeod")
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyn7f"]
+atlas = ExtResource("2_6xap5")
 region = Rect2(210, 0, 70, 130)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hp7qg"]
@@ -956,20 +919,20 @@ region = Rect2(140, 0, 70, 130)
 atlas = ExtResource("5_xqx2s")
 region = Rect2(210, 0, 70, 130)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_prtbb"]
-atlas = ExtResource("4_7ulco")
+[sub_resource type="AtlasTexture" id="AtlasTexture_woxr6"]
+atlas = ExtResource("3_fbeod")
 region = Rect2(0, 0, 70, 130)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_i1jlt"]
-atlas = ExtResource("4_7ulco")
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtbtj"]
+atlas = ExtResource("3_fbeod")
 region = Rect2(70, 0, 70, 130)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_h6qfc"]
-atlas = ExtResource("4_7ulco")
+[sub_resource type="AtlasTexture" id="AtlasTexture_litam"]
+atlas = ExtResource("3_fbeod")
 region = Rect2(140, 0, 70, 130)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_x0a73"]
-atlas = ExtResource("4_7ulco")
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fk6e"]
+atlas = ExtResource("3_fbeod")
 region = Rect2(210, 0, 70, 130)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n1egh"]
@@ -988,20 +951,20 @@ region = Rect2(140, 0, 70, 130)
 atlas = ExtResource("7_l7gq4")
 region = Rect2(210, 0, 70, 130)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a4spx"]
-atlas = ExtResource("5_kc6ri")
+[sub_resource type="AtlasTexture" id="AtlasTexture_prtbb"]
+atlas = ExtResource("4_7ulco")
 region = Rect2(0, 0, 70, 130)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_knsxd"]
-atlas = ExtResource("5_kc6ri")
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1jlt"]
+atlas = ExtResource("4_7ulco")
 region = Rect2(70, 0, 70, 130)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wskkk"]
-atlas = ExtResource("5_kc6ri")
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6qfc"]
+atlas = ExtResource("4_7ulco")
 region = Rect2(140, 0, 70, 130)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0gdkf"]
-atlas = ExtResource("5_kc6ri")
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0a73"]
+atlas = ExtResource("4_7ulco")
 region = Rect2(210, 0, 70, 130)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j21d1"]
@@ -1028,20 +991,20 @@ region = Rect2(280, 0, 70, 130)
 atlas = ExtResource("9_oxhei")
 region = Rect2(350, 0, 70, 130)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3pf3q"]
-atlas = ExtResource("6_o63gl")
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4spx"]
+atlas = ExtResource("5_kc6ri")
 region = Rect2(0, 0, 70, 130)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_osvgb"]
-atlas = ExtResource("6_o63gl")
+[sub_resource type="AtlasTexture" id="AtlasTexture_knsxd"]
+atlas = ExtResource("5_kc6ri")
 region = Rect2(70, 0, 70, 130)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6oi2x"]
-atlas = ExtResource("6_o63gl")
+[sub_resource type="AtlasTexture" id="AtlasTexture_wskkk"]
+atlas = ExtResource("5_kc6ri")
 region = Rect2(140, 0, 70, 130)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uh6mu"]
-atlas = ExtResource("6_o63gl")
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gdkf"]
+atlas = ExtResource("5_kc6ri")
 region = Rect2(210, 0, 70, 130)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0g1qe"]
@@ -1068,20 +1031,20 @@ region = Rect2(280, 0, 70, 130)
 atlas = ExtResource("11_7dsrh")
 region = Rect2(350, 0, 70, 130)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l8jns"]
-atlas = ExtResource("7_q5fcc")
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pf3q"]
+atlas = ExtResource("6_o63gl")
 region = Rect2(0, 0, 70, 130)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uqew6"]
-atlas = ExtResource("7_q5fcc")
+[sub_resource type="AtlasTexture" id="AtlasTexture_osvgb"]
+atlas = ExtResource("6_o63gl")
 region = Rect2(70, 0, 70, 130)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6608i"]
-atlas = ExtResource("7_q5fcc")
+[sub_resource type="AtlasTexture" id="AtlasTexture_6oi2x"]
+atlas = ExtResource("6_o63gl")
 region = Rect2(140, 0, 70, 130)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uw6v6"]
-atlas = ExtResource("7_q5fcc")
+[sub_resource type="AtlasTexture" id="AtlasTexture_uh6mu"]
+atlas = ExtResource("6_o63gl")
 region = Rect2(210, 0, 70, 130)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rak51"]
@@ -1108,20 +1071,20 @@ region = Rect2(280, 0, 70, 130)
 atlas = ExtResource("13_7dyp6")
 region = Rect2(350, 0, 70, 130)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_eja5l"]
-atlas = ExtResource("8_47av8")
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8jns"]
+atlas = ExtResource("7_q5fcc")
 region = Rect2(0, 0, 70, 130)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0bi4l"]
-atlas = ExtResource("8_47av8")
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqew6"]
+atlas = ExtResource("7_q5fcc")
 region = Rect2(70, 0, 70, 130)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4pvns"]
-atlas = ExtResource("8_47av8")
+[sub_resource type="AtlasTexture" id="AtlasTexture_6608i"]
+atlas = ExtResource("7_q5fcc")
 region = Rect2(140, 0, 70, 130)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8578p"]
-atlas = ExtResource("8_47av8")
+[sub_resource type="AtlasTexture" id="AtlasTexture_uw6v6"]
+atlas = ExtResource("7_q5fcc")
 region = Rect2(210, 0, 70, 130)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t2i0n"]
@@ -1148,33 +1111,28 @@ region = Rect2(280, 0, 70, 130)
 atlas = ExtResource("15_aqrl2")
 region = Rect2(350, 0, 70, 130)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_eja5l"]
+atlas = ExtResource("8_47av8")
+region = Rect2(0, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bi4l"]
+atlas = ExtResource("8_47av8")
+region = Rect2(70, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pvns"]
+atlas = ExtResource("8_47av8")
+region = Rect2(140, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8578p"]
+atlas = ExtResource("8_47av8")
+region = Rect2(210, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pj6w1"]
+atlas = ExtResource("2_bv0xj")
+region = Rect2(0, 0, 70, 130)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_t6ovq"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_efmp6")
-}],
-"loop": false,
-"name": &"Level_0_Idle",
-"speed": 0.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uv27b")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3fux6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6hhh5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rxf2g")
-}],
-"loop": false,
-"name": &"Level_0_Upgrade",
-"speed": 1.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nor1i")
@@ -1185,16 +1143,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_woxr6")
+"texture": SubResource("AtlasTexture_tv0p2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rtbtj")
+"texture": SubResource("AtlasTexture_linbm")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_litam")
+"texture": SubResource("AtlasTexture_th4ks")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6fk6e")
+"texture": SubResource("AtlasTexture_cyn7f")
 }],
 "loop": false,
 "name": &"Level_1_Upgrade",
@@ -1219,16 +1177,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_prtbb")
+"texture": SubResource("AtlasTexture_woxr6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_i1jlt")
+"texture": SubResource("AtlasTexture_rtbtj")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_h6qfc")
+"texture": SubResource("AtlasTexture_litam")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_x0a73")
+"texture": SubResource("AtlasTexture_6fk6e")
 }],
 "loop": false,
 "name": &"Level_2_Upgrade",
@@ -1253,16 +1211,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_a4spx")
+"texture": SubResource("AtlasTexture_prtbb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_knsxd")
+"texture": SubResource("AtlasTexture_i1jlt")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wskkk")
+"texture": SubResource("AtlasTexture_h6qfc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0gdkf")
+"texture": SubResource("AtlasTexture_x0a73")
 }],
 "loop": false,
 "name": &"Level_3_Upgrade",
@@ -1293,16 +1251,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3pf3q")
+"texture": SubResource("AtlasTexture_a4spx")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_osvgb")
+"texture": SubResource("AtlasTexture_knsxd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6oi2x")
+"texture": SubResource("AtlasTexture_wskkk")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_uh6mu")
+"texture": SubResource("AtlasTexture_0gdkf")
 }],
 "loop": false,
 "name": &"Level_4_Upgrade",
@@ -1333,16 +1291,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_l8jns")
+"texture": SubResource("AtlasTexture_3pf3q")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_uqew6")
+"texture": SubResource("AtlasTexture_osvgb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6608i")
+"texture": SubResource("AtlasTexture_6oi2x")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_uw6v6")
+"texture": SubResource("AtlasTexture_uh6mu")
 }],
 "loop": false,
 "name": &"Level_5_Upgrade",
@@ -1373,16 +1331,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_eja5l")
+"texture": SubResource("AtlasTexture_l8jns")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0bi4l")
+"texture": SubResource("AtlasTexture_uqew6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4pvns")
+"texture": SubResource("AtlasTexture_6608i")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8578p")
+"texture": SubResource("AtlasTexture_uw6v6")
 }],
 "loop": false,
 "name": &"Level_6_Upgrade",
@@ -1410,6 +1368,31 @@ animations = [{
 "loop": true,
 "name": &"Level_7_Idle",
 "speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eja5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bi4l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4pvns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8578p")
+}],
+"loop": false,
+"name": &"Level_7_Upgrade",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pj6w1")
+}],
+"loop": false,
+"name": &"default",
+"speed": 0.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vysc7"]
@@ -1650,11 +1633,9 @@ script = ExtResource("1_ga7em")
 libraries = {
 &"": SubResource("AnimationLibrary_pj6w1")
 }
-autoplay = "Level_0_Idle"
 
 [node name="Foundation" type="Sprite2D" parent="."]
 editor_description = "Used when player removes tower to provide the best view of the animation"
-modulate = Color(1, 1, 1, 0)
 position = Vector2(0, -56)
 scale = Vector2(1.723, 1.723)
 texture = ExtResource("2_bv0xj")
@@ -1663,10 +1644,10 @@ texture = ExtResource("2_bv0xj")
 position = Vector2(0, -56)
 scale = Vector2(1.72308, 1.72308)
 sprite_frames = SubResource("SpriteFrames_t6ovq")
-animation = &"Level_0_Idle"
 
 [node name="Logo" type="Sprite2D" parent="."]
 editor_description = "Usually, it's the unit's shell"
+modulate = Color(1, 1, 1, 0.784314)
 position = Vector2(0, -9)
 texture = ExtResource("17_tv0p2")
 

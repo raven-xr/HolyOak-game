@@ -185,7 +185,7 @@ func upgrade() -> void:
 	else:
 		current_cost = unit_stats["level_" + str(level + 1)]["cost"]
 	# Play animation, SFX and GFX
-	animation_player.play("Level_" + str(level - 1) + "_Upgrade") # level - 1 because it was increase before
+	animation_player.play("Level_" + str(level) + "_Upgrade") # level - 1 because it was increase before
 	sfx_building.play()
 	await animation_player.animation_finished
 	SoundManager.success.play()
@@ -204,11 +204,6 @@ func remove() -> void:
 	# Play animation, SFX, GFX
 	sfx_building.play()
 	animation_player.play("Destruct")
-	# Waiting for the end of the "Level_0_Idle" and "Destruct" animations
-	await animation_player.animation_finished
-	animation_player.play("Level_0_Idle")
-	$Tower.set_modulate(Color(1.0, 1.0, 1.0, 1.0))
-	animation_player
 	# Unblock touch screen button
 	touch_screen_button.visible = true
 
