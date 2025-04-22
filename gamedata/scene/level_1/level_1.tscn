@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://cvwwyafne3ryg"]
+[gd_scene load_steps=33 format=4 uid="uid://cvwwyafne3ryg"]
 
 [ext_resource type="PackedScene" uid="uid://bbsqvqymrojj5" path="res://gamedata/scene/common/level.tscn" id="1_rbgy0"]
 [ext_resource type="Script" uid="uid://yp2vhfmqgtvy" path="res://gamedata/scene/level_1/level_1.gd" id="2_c08mv"]
@@ -10,22 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://dqfm4pmqposiy" path="res://gfx/object/oak.png" id="8_cjtaa"]
 [ext_resource type="Texture2D" uid="uid://b0e3u22u8240c" path="res://gfx/tilesets/decor_16x16.png" id="8_jqacd"]
 [ext_resource type="PackedScene" uid="uid://ccqwn6n7il2n2" path="res://gamedata/enemy/waypoint/waypoint.tscn" id="9_tghr1"]
-[ext_resource type="Script" uid="uid://m454krs78c55" path="res://gamedata/scene/level_1/platform_1.gd" id="10_8rgbm"]
 [ext_resource type="Texture2D" uid="uid://c2hl8w46j70b1" path="res://gfx/object/tall_bush.png" id="10_ew2ns"]
 [ext_resource type="Texture2D" uid="uid://c4hsbyvxqgyxb" path="res://gfx/object/small_bush.png" id="11_w2twk"]
-[ext_resource type="PackedScene" uid="uid://cnbl8aw2p0wrn" path="res://gamedata/unit/tower/tower_old.tscn" id="14_66d5a"]
+[ext_resource type="PackedScene" uid="uid://lxt2xv2lfkgu" path="res://gamedata/unit/tower/tower.tscn" id="13_1k0nc"]
+[ext_resource type="Script" uid="uid://m454krs78c55" path="res://gamedata/scene/level_1/tower_1.gd" id="14_dqg4i"]
 [ext_resource type="PackedScene" uid="uid://cenxr6q3w2dek" path="res://gamedata/unit/archer/archer.tscn" id="14_kietl"]
-[ext_resource type="Texture2D" uid="uid://cjyvn46nwilg0" path="res://gfx/unit/tower/foundation.png" id="15_5dy8q"]
-[ext_resource type="PackedScene" uid="uid://c06g6da1scixg" path="res://gamedata/unit/tower/tower_stats.tscn" id="15_ntf08"]
-[ext_resource type="PackedScene" uid="uid://du20li6wou6fs" path="res://gamedata/ui/message/message.tscn" id="16_akk1r"]
-[ext_resource type="Texture2D" uid="uid://b5ya13e41k2kt" path="res://interface/buttons/text_default.svg" id="16_ugxp1"]
-[ext_resource type="Texture2D" uid="uid://dsh51r6drxmtr" path="res://interface/buttons/text_hover.svg" id="17_r7urm"]
-[ext_resource type="Texture2D" uid="uid://csq5bonl77fkh" path="res://interface/buttons/text_disabled.svg" id="18_6jsc3"]
 [ext_resource type="Texture2D" uid="uid://d3h4ugvrsklj7" path="res://gfx/unit/archer/logo/logo.png" id="18_nfpo6"]
-[ext_resource type="Script" uid="uid://bc6bgbd55qvb3" path="res://gamedata/ui/texture_button/texture_button.gd" id="19_lg656"]
-[ext_resource type="FontFile" uid="uid://car2t5itecnhr" path="res://interface/fonts/Bungee-Regular.ttf" id="20_d7u56"]
-[ext_resource type="PackedScene" uid="uid://d1hglytmquni" path="res://gamedata/unit/tower/platform.tscn" id="24_vjn0v"]
-[ext_resource type="FontFile" uid="uid://5wohy1go68x5" path="res://interface/fonts/Tribal Garamond.ttf" id="25_32dll"]
 [ext_resource type="PackedScene" uid="uid://ceakiostnoxao" path="res://gamedata/ui/hint/hint.tscn" id="27_x1t5x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lj6gp"]
@@ -238,17 +228,6 @@ fill_to = Vector2(0, 0)
 resource_local_to_scene = true
 polygon = PackedVector2Array(23, -54, 23, 64, -23, 64, -23, -54)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_fil16"]
-radius = 54.0
-
-[sub_resource type="Theme" id="Theme_esjrm"]
-Label/colors/font_color = Color(0.784314, 0.572549, 0.372549, 1)
-Label/colors/font_shadow_color = Color(0.427451, 0.392157, 0.298039, 1)
-Label/constants/shadow_offset_x = 0
-Label/constants/shadow_offset_y = 2
-Label/constants/shadow_outline_size = 0
-Label/fonts/font = ExtResource("20_d7u56")
-
 [node name="Level 1" instance=ExtResource("1_rbgy0")]
 script = ExtResource("2_c08mv")
 next_level_path = "res://gamedata/scene/level_2/level_2.tscn"
@@ -259,7 +238,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAA
 tile_set = SubResource("TileSet_wn7av")
 
 [node name="Layer 2" type="TileMapLayer" parent="Tilemap" index="1"]
-tile_map_data = PackedByteArray("AAAAACsAAAACAAMAAAABACsAAAACAAMAAAACACsAAAACAAMAAAADACsAAAADAAAAAAADACwAAAABAAIAAAAEACwAAAACAAMAAAAFACwAAAACAAMAAAAGACwAAAACAAMAAAAHACwAAAACAAMAAAAIACwAAAACAAMAAAAAAB0AAAACAAMAAAABAB0AAAADAAAAAAABAB4AAAABAAIAAAACAB4AAAACAAMAAAADAB4AAAACAAMAAAAEAB4AAAACAAMAAAAFAB4AAAACAAMAAAAGAB4AAAACAAMAAAAHAB4AAAACAAMAAAAIAB4AAAACAAIAAAAJAB4AAAADAAAAAAAJAB8AAAABAAIAAAAKAB8AAAACAAMAAAALAB8AAAACAAMAAAAMAB8AAAACAAMAAAANAB8AAAACAAMAAAAOAB8AAAACAAMAAAAPAB8AAAADAAAAAAAPACAAAAABAAIAAAAQACAAAAACAAMAAAARACAAAAACAAMAAAASACAAAAACAAMAAAATACAAAAACAAMAAAAUACAAAAACAAMAAAAVACAAAAACAAMAAAAWACAAAAACAAMAAAAXACAAAAACAAMAAAAYACAAAAADAAAAAAAYACEAAAABAAIAAAAZACEAAAACAAMAAAAaACEAAAACAAMAAAAbACEAAAACAAMAAAAcACEAAAACAAMAAAAdACEAAAACAAMAAAAeACEAAAACAAMAAAAfACEAAAACAAMAAAAgACEAAAACAAMAAAAhACEAAAACAAMAAAAiACEAAAACAAMAAAAjACEAAAADAAAAAAAjACIAAAABAAIAAAAkACIAAAACAAMAAAAlACIAAAACAAMAAAAmACIAAAACAAMAAAAnACIAAAACAAMAAAAoACIAAAACAAMAAAApACIAAAACAAMAAAArACIAAAADAAAAAAAqACIAAAACAAMAAAArACMAAAABAAIAAAAsACMAAAACAAMAAAAtACMAAAACAAMAAAAuACMAAAACAAMAAAAvACMAAAACAAMAAAAwACMAAAACAAMAAAAxACMAAAACAAMAAAAyACMAAAADAAAAAAAyACQAAAABAAIAAAAzACQAAAACAAMAAAA0ACQAAAACAAMAAAA1ACQAAAACAAMAAAA2ACQAAAACAAMAAAA3ACQAAAACAAMAAAA4ACQAAAADAAAAAAA9ACUAAAACAAMAAAA+ACUAAAACAAMAAAA/ACUAAAACAAMAAABAACUAAAACAAMAAABBACUAAAACAAMAAABCACUAAAACAAMAAABDACUAAAACAAMAAABEACUAAAADAAAAAABEACYAAAABAAIAAABFACYAAAACAAMAAABGACYAAAACAAMAAABHACYAAAACAAMAAABIACYAAAADAAAAAABIACcAAAABAAIAAABJACcAAAACAAMAAABKACcAAAACAAMAAABLACcAAAACAAMAAABMACcAAAADAAAAAABMACgAAAABAAIAAABNACgAAAACAAMAAABOACgAAAACAAMAAABPACgAAAACAAMAAAAIABYAAAAAAAEAAAAIABUAAAAAAAEAAAAHABQAAAABAAIAAAAIABQAAAADAAAAAAAHABMAAAADAAAAAAAGABMAAAACAAMAAAAFABMAAAACAAMAAAAEABMAAAABAAIAAAAEABIAAAAAAAEAAAAEABEAAAAAAAEAAAAEABAAAAADAAAAAAADABAAAAABAAIAAAADAA8AAAAAAAEAAAADAA4AAAAAAAEAAAADAA0AAAADAAAAAAACAA0AAAABAAIAAAACAAwAAAADAAAAAAABAAwAAAACAAMAAAAAAAwAAAABAAIAAAAIAB0AAAAAAAEAAAAIABwAAAAAAAEAAAAIABsAAAAAAAEAAAAIABoAAAAAAAEAAAAIABkAAAAAAAEAAAAIABgAAAAAAAEAAAAIABcAAAAAAAEAAAAAAAsAAAADAAAAAAA6ACYAAQACAAQAAAA6ACUAAQACAAMAAAA5ACUAAQABAAMAAAA7ACUAAQADAAMAAAA5ACYAAQABAAQAAAA7ACYAAQADAAQAAAA5ACcAAQADAAQAADA6ACcAAQACAAQAADA7ACcAAQABAAQAADA5ACgAAQADAAQAADA6ACgAAQACAAQAADA7ACgAAQABAAQAADA5ACkAAQABAAQAAAA5ACoAAQABAAQAAAA5ACsAAQADAAQAADA5ACwAAQADAAQAADA6ACwAAQACAAQAADA6ACsAAQACAAQAADA6ACoAAQACAAQAAAA6ACkAAQACAAQAAAA7ACkAAQADAAQAAAA7ACoAAQADAAQAAAA7ACsAAQABAAQAADA7ACwAAQABAAQAADA4ACUAAAAAAAIAAAA8ACUAAAABAAMAAAAcABcAAgAAAAQAAAA0AA0AAgAAAAQAAAAOABsAAgABAAQAAAAxABEAAgACAAQAAAAfABYAAgADAAQAAAAiABYAAgADAAQAAAA0ABIAAgADAAQAAAA0ABMAAgADAAQAAAA3ABwAAgADAAQAAAAWABoAAgABAAQAAAATABoAAgABAAQAAAAqABQAAgABAAQAAAAtABIAAgABAAQAAAA6AAgAAgAAAAQAAAA+AAAAAgADAAQAAAA6ACIAAgABAAQAAAA2ABcAAgABAAQAAAALAAEAAgAAAAAAAAANAAwAAgAAAAAAAAAOAAIAAgAAAAAAAAAPAAkAAgAAAAAAAAAPABAAAgAAAAAAAAASAAEAAgAAAAAAAAASAAUAAgAAAAAAAAASAAwAAgAAAAAAAAASAA8AAgAAAAAAAAATAAsAAgAAAAAAAAATAA4AAgAAAAAAAAAUAA4AAgAAAAAAAAAVAAcAAgAAAAAAAAAYAAoAAgAAAAAAAAAYAA4AAgAAAAAAAAAYABAAAgAAAAAAAAAdABEAAgAAAAAAAAAeAA0AAgAAAAAAAAAfAAoAAgAAAAAAAAAkAAUAAgAAAAAAAAAkABIAAgAAAAAAAAAlABIAAgAAAAAAAAArAAIAAgAAAAAAAAAsAAEAAgAAAAAAAAABAAMAAgAAAAAAAAACAAgAAgAAAAAAAAAFAAkAAgAAAAAAAAAHAAIAAgAAAAAAAAAIAAkAAgAAAAAAAAANAAYAAgAAAAAAAAAOAAcAAgADAAAAAAARAAUAAgAAAAAAAAA/ABcAAgAAAAAAAABEAAoAAgAAAAAAAABEABUAAgAAAAAAAABEABoAAgAAAAAAAABEAB0AAgAAAAAAAABIAAwAAgAAAAAAAABJAAwAAgAAAAAAAABJABUAAgAAAAAAAABJABoAAgAAAAAAAABOAA0AAgAAAAAAAABPAAkAAgAAAAAAAABPAAwAAgAAAAAAAABQABcAAgAAAAAAAAAjAB0AAgAAAAAAAAAoABwAAgAAAAAAAAAoAB4AAgAAAAAAAAAsAB4AAgAAAAAAAAAQAAUAAgABAAAAAAAQAAYAAgABAAAAAAAiAAgAAgABAAAAAAAnAAEAAgABAAAAAAAzAAAAAgABAAAAAAAzAAIAAgABAAAAAABFABIAAgABAAAAAABHABUAAgABAAAAAABMAA0AAgABAAAAAABRABQAAgABAAAAAAAwACEAAgABAAAAAAAzACIAAgABAAAAAAAoAAIAAgACAAAAAAAsAAkAAgACAAAAAABIACQAAgACAAAAAABMACYAAgADAAAAAAA9ACEAAgADAAAAAABCACIAAgADAAAAAAAeAB0AAgADAAAAAAALABIAAgADAAAAAAAPABEAAgADAAAAAABCABMAAgADAAAAAABCABYAAgADAAAAAABGAB0AAgADAAAAAABHAB0AAgADAAAAAABIABwAAgADAAAAAABKACAAAgADAAAAAAACABIAAgADAAAAAAAEABUAAgADAAAAAAAHAAwAAgADAAAAAAAAAA4AAgADAAAAAAAYAAAAAgADAAAAAAAYAAwAAgADAAAAAAAaAAoAAgADAAAAAAAbAAsAAgADAAAAAAAbABAAAgADAAAAAAAcAP3/AgADAAAAAAAdAAMAAgADAAAAAAAfABEAAgADAAAAAAAgAA8AAgADAAAAAAApAAQAAgADAAAAAAArAAQAAgADAAAAAAAFAAUAAgADAAAAAAASAAkAAgADAAAAAAATAAYAAgADAAAAAAAYAAIAAgADAAAAAAAYAAUAAgADAAAAAABAAAoAAgADAAAAAABAABsAAgADAAAAAABIABcAAgADAAAAAABJAA8AAgADAAAAAABJABsAAgADAAAAAABJAB4AAgADAAAAAABLAAoAAgADAAAAAABLABMAAgADAAAAAABMAB8AAgADAAAAAABNABEAAgADAAAAAABPABsAAgADAAAAAABSABsAAgADAAAAAABTAAsAAgADAAAAAABUAAoAAgADAAAAAAAyAB4AAgADAAAAAAAAACwAAgAAAAQAAAAZAB4AAgAAAAQAAAAgAB8AAgACAAQAAAAJACwAAAACAAMAAAAKACwAAAADAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAACsAAAACAAMAAAABACsAAAACAAMAAAACACsAAAACAAMAAAADACsAAAADAAAAAAADACwAAAABAAIAAAAEACwAAAACAAMAAAAFACwAAAACAAMAAAAGACwAAAACAAMAAAAHACwAAAACAAMAAAAIACwAAAACAAMAAAAAAB0AAAACAAMAAAABAB0AAAADAAAAAAABAB4AAAABAAIAAAACAB4AAAACAAMAAAADAB4AAAACAAMAAAAEAB4AAAACAAMAAAAFAB4AAAACAAMAAAAGAB4AAAACAAMAAAAHAB4AAAACAAMAAAAIAB4AAAACAAIAAAAJAB4AAAADAAAAAAAJAB8AAAABAAIAAAAKAB8AAAACAAMAAAALAB8AAAACAAMAAAAMAB8AAAACAAMAAAANAB8AAAACAAMAAAAOAB8AAAACAAMAAAAPAB8AAAADAAAAAAAPACAAAAABAAIAAAAQACAAAAACAAMAAAARACAAAAACAAMAAAASACAAAAACAAMAAAATACAAAAACAAMAAAAUACAAAAACAAMAAAAVACAAAAACAAMAAAAWACAAAAACAAMAAAAXACAAAAACAAMAAAAYACAAAAADAAAAAAAYACEAAAABAAIAAAAZACEAAAACAAMAAAAaACEAAAACAAMAAAAbACEAAAACAAMAAAAcACEAAAACAAMAAAAdACEAAAACAAMAAAAeACEAAAACAAMAAAAfACEAAAACAAMAAAAgACEAAAACAAMAAAAhACEAAAACAAMAAAAiACEAAAACAAMAAAAjACEAAAADAAAAAAAjACIAAAABAAIAAAAkACIAAAACAAMAAAAlACIAAAACAAMAAAAmACIAAAACAAMAAAAnACIAAAACAAMAAAAoACIAAAACAAMAAAApACIAAAACAAMAAAArACIAAAADAAAAAAAqACIAAAACAAMAAAArACMAAAABAAIAAAAsACMAAAACAAMAAAAtACMAAAACAAMAAAAuACMAAAACAAMAAAAvACMAAAACAAMAAAAwACMAAAACAAMAAAAxACMAAAACAAMAAAAyACMAAAADAAAAAAAyACQAAAABAAIAAAAzACQAAAACAAMAAAA0ACQAAAACAAMAAAA1ACQAAAACAAMAAAA2ACQAAAACAAMAAAA3ACQAAAACAAMAAAA4ACQAAAADAAAAAAA9ACUAAAACAAMAAAA+ACUAAAACAAMAAAA/ACUAAAACAAMAAABAACUAAAACAAMAAABBACUAAAACAAMAAABCACUAAAACAAMAAABDACUAAAACAAMAAABEACUAAAADAAAAAABEACYAAAABAAIAAABFACYAAAACAAMAAABGACYAAAACAAMAAABHACYAAAACAAMAAABIACYAAAADAAAAAABIACcAAAABAAIAAABJACcAAAACAAMAAABKACcAAAACAAMAAABLACcAAAACAAMAAABMACcAAAADAAAAAABMACgAAAABAAIAAABNACgAAAACAAMAAABOACgAAAACAAMAAABPACgAAAACAAMAAAAIABYAAAAAAAEAAAAIABUAAAAAAAEAAAAHABQAAAABAAIAAAAIABQAAAADAAAAAAAHABMAAAADAAAAAAAGABMAAAACAAMAAAAFABMAAAACAAMAAAAEABMAAAABAAIAAAAEABIAAAAAAAEAAAAEABEAAAAAAAEAAAAEABAAAAADAAAAAAADABAAAAABAAIAAAADAA8AAAAAAAEAAAADAA4AAAAAAAEAAAADAA0AAAADAAAAAAACAA0AAAABAAIAAAACAAwAAAADAAAAAAABAAwAAAACAAMAAAAAAAwAAAABAAIAAAAIAB0AAAAAAAEAAAAIABwAAAAAAAEAAAAIABsAAAAAAAEAAAAIABoAAAAAAAEAAAAIABkAAAAAAAEAAAAIABgAAAAAAAEAAAAIABcAAAAAAAEAAAAAAAsAAAADAAAAAAA6ACYAAQACAAQAAAA6ACUAAQACAAMAAAA5ACUAAQABAAMAAAA7ACUAAQADAAMAAAA5ACYAAQABAAQAAAA7ACYAAQADAAQAAAA5ACcAAQADAAQAADA6ACcAAQACAAQAADA7ACcAAQABAAQAADA5ACgAAQADAAQAADA6ACgAAQACAAQAADA7ACgAAQABAAQAADA5ACkAAQABAAQAAAA5ACoAAQABAAQAAAA5ACsAAQADAAQAADA5ACwAAQADAAQAADA6ACwAAQACAAQAADA6ACsAAQACAAQAADA6ACoAAQACAAQAAAA6ACkAAQACAAQAAAA7ACkAAQADAAQAAAA7ACoAAQADAAQAAAA7ACsAAQABAAQAADA7ACwAAQABAAQAADA4ACUAAAAAAAIAAAA8ACUAAAABAAMAAAAcABcAAgAAAAQAAAA0AA0AAgAAAAQAAAAOABsAAgABAAQAAAAxABEAAgACAAQAAAAfABYAAgADAAQAAAAiABYAAgADAAQAAAA0ABIAAgADAAQAAAA0ABMAAgADAAQAAAA3ABwAAgADAAQAAAAWABoAAgABAAQAAAATABoAAgABAAQAAAAqABQAAgABAAQAAAAtABIAAgABAAQAAAA6AAgAAgAAAAQAAAA+AAAAAgADAAQAAAA6ACIAAgABAAQAAAA2ABcAAgABAAQAAAALAAEAAgAAAAAAAAANAAwAAgAAAAAAAAAOAAIAAgAAAAAAAAAPAAkAAgAAAAAAAAAPABAAAgAAAAAAAAASAAEAAgAAAAAAAAASAAUAAgAAAAAAAAASAAwAAgAAAAAAAAASAA8AAgAAAAAAAAATAAsAAgAAAAAAAAATAA4AAgAAAAAAAAAUAA4AAgAAAAAAAAAVAAcAAgAAAAAAAAAYAAoAAgAAAAAAAAAYAA4AAgAAAAAAAAAYABAAAgAAAAAAAAAdABEAAgAAAAAAAAAeAA0AAgAAAAAAAAAfAAoAAgAAAAAAAAAkAAUAAgAAAAAAAAAkABIAAgAAAAAAAAAlABIAAgAAAAAAAAArAAIAAgAAAAAAAAAsAAEAAgAAAAAAAAABAAMAAgAAAAAAAAACAAgAAgAAAAAAAAAFAAkAAgAAAAAAAAAHAAIAAgAAAAAAAAAIAAkAAgAAAAAAAAANAAYAAgAAAAAAAAAOAAcAAgADAAAAAAARAAUAAgAAAAAAAAA/ABcAAgAAAAAAAABEAAoAAgAAAAAAAABEABUAAgAAAAAAAABEABoAAgAAAAAAAABEAB0AAgAAAAAAAABIAAwAAgAAAAAAAABJAAwAAgAAAAAAAABJABUAAgAAAAAAAABJABoAAgAAAAAAAABOAA0AAgAAAAAAAABPAAkAAgAAAAAAAABPAAwAAgAAAAAAAAAjAB0AAgAAAAAAAAAoABwAAgAAAAAAAAAoAB4AAgAAAAAAAAAsAB4AAgAAAAAAAAAQAAUAAgABAAAAAAAQAAYAAgABAAAAAAAiAAgAAgABAAAAAAAnAAEAAgABAAAAAAAzAAAAAgABAAAAAAAzAAIAAgABAAAAAABFABIAAgABAAAAAABHABUAAgABAAAAAABMAA0AAgABAAAAAABRABQAAgABAAAAAAAwACEAAgABAAAAAAAzACIAAgABAAAAAAAoAAIAAgACAAAAAAAsAAkAAgACAAAAAABIACQAAgACAAAAAABMACYAAgADAAAAAAA9ACEAAgADAAAAAABCACIAAgADAAAAAAAeAB0AAgADAAAAAAALABIAAgADAAAAAAAPABEAAgADAAAAAABCABMAAgADAAAAAABCABYAAgADAAAAAABGAB0AAgADAAAAAABHAB0AAgADAAAAAABIABwAAgADAAAAAABKACAAAgADAAAAAAACABIAAgADAAAAAAAEABUAAgADAAAAAAAHAAwAAgADAAAAAAAAAA4AAgADAAAAAAAYAAAAAgADAAAAAAAYAAwAAgADAAAAAAAaAAoAAgADAAAAAAAbAAsAAgADAAAAAAAbABAAAgADAAAAAAAdAAMAAgADAAAAAAAfABEAAgADAAAAAAAgAA8AAgADAAAAAAApAAQAAgADAAAAAAArAAQAAgADAAAAAAAFAAUAAgADAAAAAAASAAkAAgADAAAAAAATAAYAAgADAAAAAAAYAAIAAgADAAAAAAAYAAUAAgADAAAAAABAAAoAAgADAAAAAABAABsAAgADAAAAAABIABcAAgADAAAAAABJAA8AAgADAAAAAABJABsAAgADAAAAAABJAB4AAgADAAAAAABLAAoAAgADAAAAAABLABMAAgADAAAAAABMAB8AAgADAAAAAABNABEAAgADAAAAAABPABsAAgADAAAAAAAyAB4AAgADAAAAAAAAACwAAgAAAAQAAAAZAB4AAgAAAAQAAAAgAB8AAgACAAQAAAAJACwAAAACAAMAAAAKACwAAAADAAAAAAA=")
 tile_set = SubResource("TileSet_hkj2k")
 
 [node name="Layer 3" type="TileMapLayer" parent="Tilemap" index="2"]
@@ -697,192 +676,31 @@ texture_scale = 2.0
 position = Vector2(936, 656)
 occluder = SubResource("OccluderPolygon2D_dt85v")
 
-[node name="Platform 1" type="Node2D" parent="Towers" index="0"]
+[node name="Tower 1" parent="Towers" index="0" instance=ExtResource("13_1k0nc")]
 process_mode = 4
 position = Vector2(720, 176)
-script = ExtResource("10_8rgbm")
-tower_scene = ExtResource("14_66d5a")
-tower_stats_scene = ExtResource("15_ntf08")
-message_scene = ExtResource("16_akk1r")
+script = ExtResource("14_dqg4i")
 unit_scene = ExtResource("14_kietl")
+menu_position = &"R"
+default_view_direction = &"R"
 unit_logo = ExtResource("18_nfpo6")
-default_view_direction = "R"
-menu_position = "R"
 
-[node name="Sprite2D" type="Sprite2D" parent="Towers/Platform 1" index="0"]
-texture_filter = 1
-position = Vector2(0, -56)
-scale = Vector2(1.723, 1.723)
-texture = ExtResource("15_5dy8q")
-
-[node name="TouchScreenButton" type="TouchScreenButton" parent="Towers/Platform 1" index="1"]
-shape = SubResource("CircleShape2D_fil16")
-
-[node name="Interface" type="CanvasLayer" parent="Towers/Platform 1" index="2"]
-
-[node name="Menu" type="Control" parent="Towers/Platform 1/Interface" index="0"]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_left = 592.0
-offset_top = 112.0
-offset_right = 848.0
-offset_bottom = 240.0
-
-[node name="Build Button" type="TextureButton" parent="Towers/Platform 1/Interface/Menu" index="0"]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 17.0
-offset_right = 216.0
-offset_bottom = 101.0
-scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("16_ugxp1")
-texture_pressed = ExtResource("16_ugxp1")
-texture_hover = ExtResource("17_r7urm")
-texture_disabled = ExtResource("18_6jsc3")
-script = ExtResource("19_lg656")
-
-[node name="Label" type="Label" parent="Towers/Platform 1/Interface/Menu/Build Button" index="0"]
-layout_mode = 0
-offset_left = 9.0
-offset_top = 7.0
-offset_right = 187.0
-offset_bottom = 66.0
-theme = SubResource("Theme_esjrm")
-theme_override_font_sizes/font_size = 32
-text = "BUILD"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Upgrade Button" type="TextureButton" parent="Towers/Platform 1/Interface/Menu" index="1"]
-layout_mode = 0
-offset_left = 138.0
-offset_top = 17.0
-offset_right = 334.0
-offset_bottom = 101.0
-scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("16_ugxp1")
-texture_pressed = ExtResource("16_ugxp1")
-texture_hover = ExtResource("17_r7urm")
-texture_disabled = ExtResource("18_6jsc3")
-script = ExtResource("19_lg656")
-
-[node name="Label" type="Label" parent="Towers/Platform 1/Interface/Menu/Upgrade Button" index="0"]
-layout_mode = 0
-offset_left = 9.0
-offset_top = 7.0
-offset_right = 187.0
-offset_bottom = 66.0
-theme = SubResource("Theme_esjrm")
-theme_override_font_sizes/font_size = 32
-text = "UPGRADE"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Remove Button" type="TextureButton" parent="Towers/Platform 1/Interface/Menu" index="2"]
-layout_mode = 0
-offset_left = 44.0
-offset_top = 65.0
-offset_right = 240.0
-offset_bottom = 149.0
-scale = Vector2(0.4, 0.4)
-texture_normal = ExtResource("16_ugxp1")
-texture_pressed = ExtResource("16_ugxp1")
-texture_hover = ExtResource("17_r7urm")
-texture_disabled = ExtResource("18_6jsc3")
-script = ExtResource("19_lg656")
-
-[node name="Label" type="Label" parent="Towers/Platform 1/Interface/Menu/Remove Button" index="0"]
-layout_mode = 0
-offset_left = 9.0
-offset_top = 7.0
-offset_right = 187.0
-offset_bottom = 66.0
-theme = SubResource("Theme_esjrm")
-theme_override_font_sizes/font_size = 32
-text = "REMOVE"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Tower Stats Button" type="TextureButton" parent="Towers/Platform 1/Interface/Menu" index="3"]
-layout_mode = 0
-offset_left = 133.0
-offset_top = 65.0
-offset_right = 329.0
-offset_bottom = 149.0
-scale = Vector2(0.4, 0.4)
-texture_normal = ExtResource("16_ugxp1")
-texture_pressed = ExtResource("16_ugxp1")
-texture_hover = ExtResource("17_r7urm")
-texture_disabled = ExtResource("18_6jsc3")
-script = ExtResource("19_lg656")
-
-[node name="Label" type="Label" parent="Towers/Platform 1/Interface/Menu/Tower Stats Button" index="0"]
-layout_mode = 0
-offset_left = 9.0
-offset_top = 7.0
-offset_right = 187.0
-offset_bottom = 66.0
-theme = SubResource("Theme_esjrm")
-theme_override_font_sizes/font_size = 32
-text = "STATS"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Unit Name" type="Label" parent="Towers/Platform 1" index="3"]
-visible = false
-modulate = Color(1, 1, 1, 0)
-offset_left = -64.0
-offset_top = -80.0
-offset_right = 64.0
-offset_bottom = -55.0
-theme_override_colors/font_shadow_color = Color(0.099986, 0.099986, 0.099986, 1)
-theme_override_fonts/font = ExtResource("25_32dll")
-theme_override_font_sizes/font_size = 20
-text = "Unit's Name"
-horizontal_alignment = 1
-
-[node name="Logo" type="Sprite2D" parent="Towers/Platform 1" index="4"]
-editor_description = "Usually, it's the unit's shell"
-modulate = Color(1, 1, 1, 0.784314)
-texture_filter = 1
-position = Vector2(0, -9)
-
-[node name="Platform 2" parent="Towers" index="1" instance=ExtResource("24_vjn0v")]
+[node name="Tower 2" parent="Towers" index="1" instance=ExtResource("13_1k0nc")]
 process_mode = 4
 position = Vector2(1080, 80)
 unit_scene = ExtResource("14_kietl")
+default_view_direction = &"L"
 unit_logo = ExtResource("18_nfpo6")
-default_view_direction = "L"
 
-[node name="Platform 3" parent="Towers" index="2" instance=ExtResource("24_vjn0v")]
+[node name="Tower 3" parent="Towers" index="2" instance=ExtResource("13_1k0nc")]
 process_mode = 4
 position = Vector2(232, 320)
 unit_scene = ExtResource("14_kietl")
+menu_position = &"R"
+default_view_direction = &"R"
 unit_logo = ExtResource("18_nfpo6")
 
 [node name="Hint" parent="User Interface" index="2" instance=ExtResource("27_x1t5x")]
 
 [node name="Start Timer" parent="Timers" index="0"]
 autostart = false
-
-[connection signal="player_ended_tutorial" from="." to="Towers/Platform 1" method="_on_level_1_player_ended_tutorial"]
-[connection signal="pressed" from="Towers/Platform 1/TouchScreenButton" to="Towers/Platform 1" method="_on_local_touch_screen_button_pressed"]
-[connection signal="pressed" from="Towers/Platform 1/TouchScreenButton" to="Towers/Platform 1" method="_on_touch_screen_button_pressed"]
-[connection signal="mouse_entered" from="Towers/Platform 1/Interface/Menu/Build Button" to="Towers/Platform 1/Interface/Menu/Build Button" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Towers/Platform 1/Interface/Menu/Build Button" to="Towers/Platform 1/Interface/Menu/Build Button" method="_on_mouse_exited"]
-[connection signal="pressed" from="Towers/Platform 1/Interface/Menu/Build Button" to="Towers/Platform 1" method="_on_local_build_button_pressed"]
-[connection signal="pressed" from="Towers/Platform 1/Interface/Menu/Build Button" to="Towers/Platform 1" method="_on_build_button_pressed"]
-[connection signal="mouse_entered" from="Towers/Platform 1/Interface/Menu/Upgrade Button" to="Towers/Platform 1/Interface/Menu/Upgrade Button" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Towers/Platform 1/Interface/Menu/Upgrade Button" to="Towers/Platform 1/Interface/Menu/Upgrade Button" method="_on_mouse_exited"]
-[connection signal="pressed" from="Towers/Platform 1/Interface/Menu/Upgrade Button" to="Towers/Platform 1" method="_on_local_upgrade_button_pressed"]
-[connection signal="pressed" from="Towers/Platform 1/Interface/Menu/Upgrade Button" to="Towers/Platform 1" method="_on_upgrade_button_pressed"]
-[connection signal="mouse_entered" from="Towers/Platform 1/Interface/Menu/Remove Button" to="Towers/Platform 1" method="_on_local_remove_button_mouse_entered"]
-[connection signal="mouse_entered" from="Towers/Platform 1/Interface/Menu/Remove Button" to="Towers/Platform 1/Interface/Menu/Remove Button" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Towers/Platform 1/Interface/Menu/Remove Button" to="Towers/Platform 1/Interface/Menu/Remove Button" method="_on_mouse_exited"]
-[connection signal="pressed" from="Towers/Platform 1/Interface/Menu/Remove Button" to="Towers/Platform 1" method="_on_remove_button_pressed"]
-[connection signal="mouse_entered" from="Towers/Platform 1/Interface/Menu/Tower Stats Button" to="Towers/Platform 1" method="_on_local_tower_stats_button_mouse_entered"]
-[connection signal="mouse_entered" from="Towers/Platform 1/Interface/Menu/Tower Stats Button" to="Towers/Platform 1/Interface/Menu/Tower Stats Button" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Towers/Platform 1/Interface/Menu/Tower Stats Button" to="Towers/Platform 1/Interface/Menu/Tower Stats Button" method="_on_mouse_exited"]
-[connection signal="pressed" from="Towers/Platform 1/Interface/Menu/Tower Stats Button" to="Towers/Platform 1" method="_on_local_tower_stats_button_pressed"]
-[connection signal="pressed" from="Towers/Platform 1/Interface/Menu/Tower Stats Button" to="Towers/Platform 1" method="_on_tower_stats_button_pressed"]
