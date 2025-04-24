@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c4hsbyvxqgyxb" path="res://gfx/object/small_bush.png" id="8_gmu86"]
 [ext_resource type="Texture2D" uid="uid://c7mi2jbynpkv4" path="res://gfx/object/stump.png" id="8_k1w2h"]
 [ext_resource type="Texture2D" uid="uid://d1ygnmgujqnib" path="res://gfx/object/box.png" id="9_6ju2p"]
-[ext_resource type="PackedScene" uid="uid://d1hglytmquni" path="res://gamedata/unit/tower/platform.tscn" id="14_67110"]
+[ext_resource type="PackedScene" uid="uid://lxt2xv2lfkgu" path="res://gamedata/unit/tower/tower.tscn" id="14_j8r11"]
 [ext_resource type="PackedScene" uid="uid://cenxr6q3w2dek" path="res://gamedata/unit/archer/archer.tscn" id="15_lytkh"]
 [ext_resource type="Texture2D" uid="uid://d3h4ugvrsklj7" path="res://gfx/unit/archer/logo/logo.png" id="16_wqnhh"]
 
@@ -1080,27 +1080,26 @@ texture = ExtResource("6_rmyq5")
 [node name="Holy Oak" parent="Map" index="4"]
 position = Vector2(80, 328)
 
-[node name="Platform 1" parent="Towers" index="0" instance=ExtResource("14_67110")]
+[node name="Tower 1" parent="Towers" index="0" instance=ExtResource("14_j8r11")]
 position = Vector2(1000, 136)
 unit_scene = ExtResource("15_lytkh")
 unit_logo = ExtResource("16_wqnhh")
-default_view_direction = "R"
 
-[node name="Platform 2" parent="Towers" index="1" instance=ExtResource("14_67110")]
+[node name="Tower 2" parent="Towers" index="1" instance=ExtResource("14_j8r11")]
 position = Vector2(552, 600)
 unit_scene = ExtResource("15_lytkh")
+menu_position = &"U"
+default_view_direction = &"U"
 unit_logo = ExtResource("16_wqnhh")
-default_view_direction = "R"
-menu_position = "U"
 
-[node name="Platform 3" parent="Towers" index="2" instance=ExtResource("14_67110")]
+[node name="Tower 3" parent="Towers" index="2" instance=ExtResource("14_j8r11")]
 position = Vector2(536, 200)
 unit_scene = ExtResource("15_lytkh")
 unit_logo = ExtResource("16_wqnhh")
 
-[node name="Platform 4" parent="Towers" index="3" instance=ExtResource("14_67110")]
+[node name="Tower 4" parent="Towers" index="3" instance=ExtResource("14_j8r11")]
 position = Vector2(216, 480)
 unit_scene = ExtResource("15_lytkh")
+menu_position = &"U"
+default_view_direction = &"U"
 unit_logo = ExtResource("16_wqnhh")
-default_view_direction = "U"
-menu_position = "U"
