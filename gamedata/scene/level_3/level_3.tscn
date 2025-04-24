@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://fbgyur18dijb" path="res://gfx/object/sign.png" id="9_uhlv7"]
 [ext_resource type="Texture2D" uid="uid://c7mi2jbynpkv4" path="res://gfx/object/stump.png" id="11_6wnts"]
 [ext_resource type="Texture2D" uid="uid://ch3ur0m58a0hk" path="res://gfx/object/rock.png" id="12_ugjxr"]
-[ext_resource type="PackedScene" uid="uid://lxt2xv2lfkgu" path="res://gamedata/unit/tower/tower.tscn" id="14_ru426"]
+[ext_resource type="PackedScene" uid="uid://lxt2xv2lfkgu" path="res://gamedata/unit/common/tower.tscn" id="14_ru426"]
 [ext_resource type="PackedScene" uid="uid://cenxr6q3w2dek" path="res://gamedata/unit/archer/archer.tscn" id="15_s48e1"]
 [ext_resource type="PackedScene" uid="uid://b6o16t77ww40d" path="res://gamedata/unit/fire_archer/fire_archer.tscn" id="17_d1wd8"]
 

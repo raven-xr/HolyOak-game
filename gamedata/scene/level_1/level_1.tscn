@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ccqwn6n7il2n2" path="res://gamedata/enemy/waypoint/waypoint.tscn" id="9_tghr1"]
 [ext_resource type="Texture2D" uid="uid://c2hl8w46j70b1" path="res://gfx/object/tall_bush.png" id="10_ew2ns"]
 [ext_resource type="Texture2D" uid="uid://c4hsbyvxqgyxb" path="res://gfx/object/small_bush.png" id="11_w2twk"]
-[ext_resource type="PackedScene" uid="uid://lxt2xv2lfkgu" path="res://gamedata/unit/tower/tower.tscn" id="13_1k0nc"]
+[ext_resource type="PackedScene" uid="uid://lxt2xv2lfkgu" path="res://gamedata/unit/common/tower.tscn" id="13_1k0nc"]
 [ext_resource type="Script" uid="uid://m454krs78c55" path="res://gamedata/scene/level_1/tower_1.gd" id="14_dqg4i"]
 [ext_resource type="PackedScene" uid="uid://cenxr6q3w2dek" path="res://gamedata/unit/archer/archer.tscn" id="14_kietl"]
 [ext_resource type="PackedScene" uid="uid://ceakiostnoxao" path="res://gamedata/ui/hint/hint.tscn" id="27_x1t5x"]
