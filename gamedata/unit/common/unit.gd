@@ -8,6 +8,8 @@ enum States {
 }
 
 @export var technical_name: StringName
+
+@export var logo: Texture
 @export var shell_scene: PackedScene
 
 @onready var shell_container: Node2D = get_tree().get_current_scene().get_node("Shell Container")

@@ -8,7 +8,6 @@ extends Node2D
 @export_subgroup("Misc")
 @export var menu_position: StringName = "D"
 @export var default_view_direction: StringName = "D"
-@export var unit_logo: Texture
 
 @onready var logo: Sprite2D = $Logo
 @onready var units: Node2D = $Units
@@ -60,7 +59,7 @@ func _ready() -> void:
 			menu.position = global_position + Vector2(-296.0, -64.0)
 			menu.pivot_offset = Vector2(256.0, 64.0)
 	# Set the logo
-	logo.texture = unit_logo
+	logo.texture = unit_scene.instantiate().logo
 	unit_name.text = unit_scene.instantiate().name
 
 

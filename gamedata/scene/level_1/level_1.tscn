@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://cvwwyafne3ryg"]
+[gd_scene load_steps=32 format=4 uid="uid://cvwwyafne3ryg"]
 
 [ext_resource type="PackedScene" uid="uid://bbsqvqymrojj5" path="res://gamedata/scene/common/level.tscn" id="1_rbgy0"]
 [ext_resource type="Script" uid="uid://yp2vhfmqgtvy" path="res://gamedata/scene/level_1/level_1.gd" id="2_c08mv"]
@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://lxt2xv2lfkgu" path="res://gamedata/unit/tower/tower.tscn" id="13_1k0nc"]
 [ext_resource type="Script" uid="uid://m454krs78c55" path="res://gamedata/scene/level_1/tower_1.gd" id="14_dqg4i"]
 [ext_resource type="PackedScene" uid="uid://cenxr6q3w2dek" path="res://gamedata/unit/archer/archer.tscn" id="14_kietl"]
-[ext_resource type="Texture2D" uid="uid://d3h4ugvrsklj7" path="res://gfx/unit/archer/logo/logo.png" id="18_nfpo6"]
 [ext_resource type="PackedScene" uid="uid://ceakiostnoxao" path="res://gamedata/ui/hint/hint.tscn" id="27_x1t5x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lj6gp"]
@@ -683,14 +682,12 @@ script = ExtResource("14_dqg4i")
 unit_scene = ExtResource("14_kietl")
 menu_position = &"R"
 default_view_direction = &"R"
-unit_logo = ExtResource("18_nfpo6")
 
 [node name="Tower 2" parent="Towers" index="1" instance=ExtResource("13_1k0nc")]
 process_mode = 4
 position = Vector2(1080, 80)
 unit_scene = ExtResource("14_kietl")
 default_view_direction = &"L"
-unit_logo = ExtResource("18_nfpo6")
 
 [node name="Tower 3" parent="Towers" index="2" instance=ExtResource("13_1k0nc")]
 process_mode = 4
@@ -698,7 +695,6 @@ position = Vector2(232, 320)
 unit_scene = ExtResource("14_kietl")
 menu_position = &"R"
 default_view_direction = &"R"
-unit_logo = ExtResource("18_nfpo6")
 
 [node name="Hint" parent="User Interface" index="2" instance=ExtResource("27_x1t5x")]
 
