@@ -1,10 +1,9 @@
-[gd_scene load_steps=24 format=4 uid="uid://jntda0nfq0ml"]
+[gd_scene load_steps=22 format=4 uid="uid://jntda0nfq0ml"]
 
 [ext_resource type="PackedScene" uid="uid://bbsqvqymrojj5" path="res://gamedata/scene/common/level.tscn" id="1_6eesv"]
 [ext_resource type="Texture2D" uid="uid://ciyeb8o1ywukt" path="res://gfx/tilesets/grass.png" id="2_j5uvo"]
 [ext_resource type="Texture2D" uid="uid://b0e3u22u8240c" path="res://gfx/tilesets/decor_16x16.png" id="4_nubkq"]
 [ext_resource type="Texture2D" uid="uid://sasruh3frvel" path="res://gfx/tilesets/plains.png" id="4_yoaft"]
-[ext_resource type="PackedScene" uid="uid://d1hglytmquni" path="res://gamedata/unit/tower/platform.tscn" id="5_272q0"]
 [ext_resource type="PackedScene" uid="uid://ccqwn6n7il2n2" path="res://gamedata/enemy/waypoint/waypoint.tscn" id="5_fqwq1"]
 [ext_resource type="Texture2D" uid="uid://dqfm4pmqposiy" path="res://gfx/object/oak.png" id="5_pd1fw"]
 [ext_resource type="Texture2D" uid="uid://cktva0111rdpr" path="res://gfx/object/table.png" id="6_mx3ml"]
@@ -14,10 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://fbgyur18dijb" path="res://gfx/object/sign.png" id="9_uhlv7"]
 [ext_resource type="Texture2D" uid="uid://c7mi2jbynpkv4" path="res://gfx/object/stump.png" id="11_6wnts"]
 [ext_resource type="Texture2D" uid="uid://ch3ur0m58a0hk" path="res://gfx/object/rock.png" id="12_ugjxr"]
+[ext_resource type="PackedScene" uid="uid://lxt2xv2lfkgu" path="res://gamedata/unit/tower/tower.tscn" id="14_ru426"]
 [ext_resource type="PackedScene" uid="uid://cenxr6q3w2dek" path="res://gamedata/unit/archer/archer.tscn" id="15_s48e1"]
-[ext_resource type="Texture2D" uid="uid://d3h4ugvrsklj7" path="res://gfx/unit/archer/logo/logo.png" id="16_1dqcl"]
 [ext_resource type="PackedScene" uid="uid://b6o16t77ww40d" path="res://gamedata/unit/fire_archer/fire_archer.tscn" id="17_d1wd8"]
-[ext_resource type="Texture2D" uid="uid://cxokyjelqrt5l" path="res://gfx/unit/fire_archer/logo/logo.png" id="18_c7b71"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x7p3s"]
 texture = ExtResource("2_j5uvo")
@@ -704,23 +702,23 @@ position = Vector2(500, 209)
 texture = ExtResource("9_froo7")
 
 [node name="Box 16" type="Sprite2D" parent="Map/Forest 1" index="83"]
-position = Vector2(1027, 89)
+position = Vector2(1144, 90)
 texture = ExtResource("9_froo7")
 
 [node name="Box 17" type="Sprite2D" parent="Map/Forest 1" index="84"]
-position = Vector2(1042, 89)
+position = Vector2(1159, 90)
 texture = ExtResource("9_froo7")
 
 [node name="Box 18" type="Sprite2D" parent="Map/Forest 1" index="85"]
-position = Vector2(1029, 95)
+position = Vector2(1146, 96)
 texture = ExtResource("9_froo7")
 
 [node name="Box 19" type="Sprite2D" parent="Map/Forest 1" index="86"]
-position = Vector2(1044, 95)
+position = Vector2(1161, 96)
 texture = ExtResource("9_froo7")
 
 [node name="Box 20" type="Sprite2D" parent="Map/Forest 1" index="87"]
-position = Vector2(1034, 87)
+position = Vector2(1151, 88)
 texture = ExtResource("9_froo7")
 
 [node name="Stump 1" type="Sprite2D" parent="Map/Forest 1" index="88"]
@@ -1296,52 +1294,45 @@ texture = ExtResource("11_6wnts")
 [node name="Holy Oak" parent="Map" index="4"]
 position = Vector2(472, 416)
 
-[node name="Platform 1" parent="Towers" index="0" instance=ExtResource("5_272q0")]
+[node name="Tower 1" parent="Towers" index="0" instance=ExtResource("14_ru426")]
 position = Vector2(88, 632)
 unit_scene = ExtResource("15_s48e1")
-unit_logo = ExtResource("16_1dqcl")
-default_view_direction = "R"
-menu_position = "R"
+menu_position = &"R"
+default_view_direction = &"R"
 
-[node name="Platform 2" parent="Towers" index="1" instance=ExtResource("5_272q0")]
+[node name="Tower 2" parent="Towers" index="1" instance=ExtResource("14_ru426")]
 position = Vector2(136, 432)
 unit_scene = ExtResource("15_s48e1")
-unit_logo = ExtResource("16_1dqcl")
-default_view_direction = "U"
-menu_position = "R"
+menu_position = &"R"
+default_view_direction = &"L"
 
-[node name="Platform 3" parent="Towers" index="2" instance=ExtResource("5_272q0")]
+[node name="Tower 3" parent="Towers" index="2" instance=ExtResource("14_ru426")]
 position = Vector2(320, 320)
 unit_scene = ExtResource("17_d1wd8")
-unit_logo = ExtResource("18_c7b71")
-default_view_direction = "L"
+default_view_direction = &"L"
 
-[node name="Platform 4" parent="Towers" index="3" instance=ExtResource("5_272q0")]
+[node name="Tower 4" parent="Towers" index="3" instance=ExtResource("14_ru426")]
 position = Vector2(584, 216)
 unit_scene = ExtResource("15_s48e1")
-unit_logo = ExtResource("16_1dqcl")
 
-[node name="Platform 5" parent="Towers" index="4" instance=ExtResource("5_272q0")]
+[node name="Tower 5" parent="Towers" index="4" instance=ExtResource("14_ru426")]
 position = Vector2(624, 528)
 unit_scene = ExtResource("15_s48e1")
-unit_logo = ExtResource("16_1dqcl")
-default_view_direction = "U"
-menu_position = "U"
+menu_position = &"U"
+default_view_direction = &"U"
 
-[node name="Platform 6" parent="Towers" index="5" instance=ExtResource("5_272q0")]
+[node name="Tower 6" parent="Towers" index="5" instance=ExtResource("14_ru426")]
 position = Vector2(864, 168)
 unit_scene = ExtResource("17_d1wd8")
-unit_logo = ExtResource("18_c7b71")
-default_view_direction = "R"
+default_view_direction = &"R"
 
-[node name="Platform 7" parent="Towers" index="6" instance=ExtResource("5_272q0")]
-position = Vector2(1120, 80)
+[node name="Tower 7" parent="Towers" index="6" instance=ExtResource("14_ru426")]
+position = Vector2(1072, 80)
 unit_scene = ExtResource("15_s48e1")
-unit_logo = ExtResource("16_1dqcl")
+default_view_direction = &"R"
 
-[node name="Platform 8" parent="Towers" index="7" instance=ExtResource("5_272q0")]
+[node name="Tower 8" parent="Towers" index="7" instance=ExtResource("14_ru426")]
 position = Vector2(856, 384)
 unit_scene = ExtResource("17_d1wd8")
-unit_logo = ExtResource("18_c7b71")
-default_view_direction = "R"
-menu_position = "U"
+menu_position = &"U"
+default_view_direction = &"R"

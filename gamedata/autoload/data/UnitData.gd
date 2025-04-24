@@ -70,7 +70,7 @@ const ARCHER: Dictionary[StringName, Dictionary] = {
 	}
 }
 
-const FIRE_ARCHER = {
+const FIRE_ARCHER: Dictionary[StringName, Dictionary] = {
 	"level_1": {
 		"shell_speed": 7000,
 		"damage": 10,
