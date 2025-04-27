@@ -8,9 +8,9 @@ var health: int:
 		if value <= 0:
 			value = 0
 		health = value
-		Signals.emit_signal("health_changed", health)
+		Signals.health_changed.emit(value)
 var money: int = 0:
 	set(value):
 		money = value
-		Signals.emit_signal("money_changed", money)
+		Signals.money_changed.emit(value)
 var tower_level_limit: int

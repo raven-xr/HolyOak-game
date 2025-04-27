@@ -1,0 +1,1890 @@
+[gd_scene load_steps=146 format=3 uid="uid://lxt2xv2lfkgu"]
+
+[ext_resource type="Script" uid="uid://bdsofk2pt1nov" path="res://gamedata/unit/common/tower.gd" id="1_ga7em"]
+[ext_resource type="Texture2D" uid="uid://dyj1b8lqm8l5x" path="res://gfx/unit/tower/upgrade/1.png" id="2_6xap5"]
+[ext_resource type="Texture2D" uid="uid://cjyvn46nwilg0" path="res://gfx/unit/tower/foundation.png" id="2_bv0xj"]
+[ext_resource type="Texture2D" uid="uid://t8vwtgwke7jr" path="res://gfx/unit/tower/upgrade/4_roof.png" id="2_pq2nx"]
+[ext_resource type="PackedScene" uid="uid://fp8vxfd5r20l" path="res://gamedata/FX/smoke/smoke.tscn" id="2_th4ks"]
+[ext_resource type="Texture2D" uid="uid://bqk852lqxeo15" path="res://gfx/unit/tower/idle/1.png" id="3_0tv8s"]
+[ext_resource type="Texture2D" uid="uid://cnyq7sevn2fmk" path="res://gfx/unit/tower/upgrade/5_roof.png" id="3_8es61"]
+[ext_resource type="PackedScene" uid="uid://du20li6wou6fs" path="res://gamedata/ui/message/message.tscn" id="3_cyn7f"]
+[ext_resource type="Texture2D" uid="uid://5txqbqpyebun" path="res://gfx/unit/tower/upgrade/2.png" id="3_fbeod"]
+[ext_resource type="Texture2D" uid="uid://rc20dqd1f02y" path="res://gfx/unit/tower/upgrade/7_roof.png" id="4_3o2b3"]
+[ext_resource type="Texture2D" uid="uid://dbw11823hkk2g" path="res://gfx/unit/tower/upgrade/3.png" id="4_7ulco"]
+[ext_resource type="Texture2D" uid="uid://m5q8yh6g0l2t" path="res://gfx/unit/tower/upgrade/4_no_roof.png" id="5_kc6ri"]
+[ext_resource type="Texture2D" uid="uid://diymddp45tvua" path="res://gfx/unit/tower/idle/2.png" id="5_xqx2s"]
+[ext_resource type="Texture2D" uid="uid://bnb04jvuda423" path="res://gfx/unit/tower/upgrade/5_no_roof.png" id="6_o63gl"]
+[ext_resource type="Texture2D" uid="uid://b32dob83pnetc" path="res://gfx/unit/tower/idle/3.png" id="7_l7gq4"]
+[ext_resource type="Texture2D" uid="uid://878hw6ro3stj" path="res://gfx/unit/tower/upgrade/6.png" id="7_q5fcc"]
+[ext_resource type="Texture2D" uid="uid://1v627qh26a8k" path="res://gfx/unit/tower/upgrade/7_no_roof.png" id="8_47av8"]
+[ext_resource type="Texture2D" uid="uid://8ahp0uduw0v3" path="res://gfx/unit/tower/idle/4_no_roof.png" id="9_oxhei"]
+[ext_resource type="Texture2D" uid="uid://dftl8jjbwsij7" path="res://gfx/unit/tower/idle/5.png" id="11_7dsrh"]
+[ext_resource type="Texture2D" uid="uid://5vbjapv0avu0" path="res://gfx/unit/tower/idle/6.png" id="13_7dyp6"]
+[ext_resource type="Texture2D" uid="uid://nfgmn73ucg11" path="res://gfx/unit/tower/idle/7_no_roof.png" id="15_aqrl2"]
+[ext_resource type="Texture2D" uid="uid://cosy26s3684nq" path="res://gfx/unit/tower/idle/4_roof.png" id="17_fcx3d"]
+[ext_resource type="Texture2D" uid="uid://d3h4ugvrsklj7" path="res://gfx/unit/archer/logo/logo.png" id="17_tv0p2"]
+[ext_resource type="Texture2D" uid="uid://dxkv8nktd5xek" path="res://gfx/unit/tower/idle/7_roof.png" id="20_nqsl5"]
+[ext_resource type="AudioStream" uid="uid://vjtb87xelmbx" path="res://audio/sfx/building.mp3" id="22_y2klm"]
+[ext_resource type="Texture2D" uid="uid://b5ya13e41k2kt" path="res://interface/buttons/text_default.svg" id="22_yall2"]
+[ext_resource type="Texture2D" uid="uid://dsh51r6drxmtr" path="res://interface/buttons/text_hover.svg" id="23_qsccf"]
+[ext_resource type="Texture2D" uid="uid://csq5bonl77fkh" path="res://interface/buttons/text_disabled.svg" id="24_2i6xb"]
+[ext_resource type="Script" uid="uid://bc6bgbd55qvb3" path="res://gamedata/ui/texture_button/texture_button.gd" id="25_l84ho"]
+[ext_resource type="FontFile" uid="uid://car2t5itecnhr" path="res://interface/fonts/Bungee-Regular.ttf" id="26_whun5"]
+[ext_resource type="FontFile" uid="uid://5wohy1go68x5" path="res://interface/fonts/Tribal Garamond.ttf" id="27_tv0p2"]
+[ext_resource type="Script" uid="uid://2eicort0wiyk" path="res://gamedata/unit/common/tower_stats.gd" id="28_whun5"]
+[ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://interface/backgrounds/ui_border.png" id="29_tv0p2"]
+[ext_resource type="Theme" uid="uid://b1fx26em7338w" path="res://interface/themes/panel_container.tres" id="30_linbm"]
+[ext_resource type="Texture2D" uid="uid://diotcuia4nehk" path="res://interface/icons/close.svg" id="31_th4ks"]
+
+[sub_resource type="Animation" id="Animation_pj6w1"]
+resource_name = "Destruct"
+length = 2.7
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [4, [Vector2(32, 0), Vector2(-32, 0), Vector2(0, 32), Vector2(0, -32)]],
+"method": &"spawn_smoke"
+}, {
+"args": [4, [Vector2(32, 32), Vector2(-32, 32), Vector2(32, -32), Vector2(-32, -32)]],
+"method": &"spawn_smoke"
+}, {
+"args": [],
+"method": &"remove_smoke"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tower:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.7, 1.7, 1.73333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Logo:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.7, 1.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.784)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Tower:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Tower:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Foundation:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_y2klm"]
+resource_name = "Level_1_Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tower:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tower:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Level_1_Idle"]
+}
+
+[sub_resource type="Animation" id="Animation_t6ovq"]
+resource_name = "Level_1_Upgrade"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tower:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-2.92063e-06, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tower:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Level_1_Upgrade"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Logo:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"Level_1_Idle"],
+"method": &"play"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Foundation:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_y4gkt"]
+resource_name = "Level_2_Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tower:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tower:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Level_2_Idle"]
+}
+
+[sub_resource type="Animation" id="Animation_iylsl"]
+resource_name = "Level_2_Upgrade"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tower:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tower:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Level_2_Upgrade"]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"Level_2_Idle"],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_k3tqf"]
+resource_name = "Level_3_Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tower:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tower:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Level_3_Idle"]
+}
+
+[sub_resource type="Animation" id="Animation_tcf8h"]
+resource_name = "Level_3_Upgrade"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tower:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tower:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Level_3_Upgrade"]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"Level_3_Idle"],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_qsccf"]
+resource_name = "Level_4_Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tower:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5, 0.666667, 0.833333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tower:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Level_4_Idle"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Roof:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.3333, 0.5, 0.6667, 0.833333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Roof:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Level_4_Idle"]
+}
+
+[sub_resource type="Animation" id="Animation_yall2"]
+resource_name = "Level_4_Upgrade"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tower:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tower:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Level_4_Upgrade"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Roof:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Roof:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Level_3_Upgrade"]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimationPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"Level_4_Idle"],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_l84ho"]
+resource_name = "Level_5_Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tower:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5, 0.666667, 0.833333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tower:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Level_5_Idle"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Roof:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Roof:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+
+[sub_resource type="Animation" id="Animation_2i6xb"]
+resource_name = "Level_5_Upgrade"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tower:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tower:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Level_5_Upgrade"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Roof:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Roof:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Level_4_Upgrade"]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimationPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"Level_5_Idle"],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_tv0p2"]
+resource_name = "Level_6_Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tower:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5, 0.666667, 0.833333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tower:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Level_6_Idle"]
+}
+
+[sub_resource type="Animation" id="Animation_whun5"]
+resource_name = "Level_6_Upgrade"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tower:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tower:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Level_6_Upgrade"]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"Level_6_Idle"],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_th4ks"]
+resource_name = "Level_7_Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tower:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5, 0.666667, 0.833333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tower:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Level_7_Idle"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Roof:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5, 0.6667, 0.8333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 3, 3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Roof:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Level_7_Idle"]
+}
+
+[sub_resource type="Animation" id="Animation_linbm"]
+resource_name = "Level_7_Upgrade"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tower:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tower:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Level_7_Upgrade"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Roof:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Roof:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Level_6_Upgrade"]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimationPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"Level_7_Idle"],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_cyn7f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tower:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tower:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Roof:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Roof:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Logo:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.784314)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Tower:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Foundation:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pj6w1"]
+_data = {
+&"Destruct": SubResource("Animation_pj6w1"),
+&"Level_1_Idle": SubResource("Animation_y2klm"),
+&"Level_1_Upgrade": SubResource("Animation_t6ovq"),
+&"Level_2_Idle": SubResource("Animation_y4gkt"),
+&"Level_2_Upgrade": SubResource("Animation_iylsl"),
+&"Level_3_Idle": SubResource("Animation_k3tqf"),
+&"Level_3_Upgrade": SubResource("Animation_tcf8h"),
+&"Level_4_Idle": SubResource("Animation_qsccf"),
+&"Level_4_Upgrade": SubResource("Animation_yall2"),
+&"Level_5_Idle": SubResource("Animation_l84ho"),
+&"Level_5_Upgrade": SubResource("Animation_2i6xb"),
+&"Level_6_Idle": SubResource("Animation_tv0p2"),
+&"Level_6_Upgrade": SubResource("Animation_whun5"),
+&"Level_7_Idle": SubResource("Animation_th4ks"),
+&"Level_7_Upgrade": SubResource("Animation_linbm"),
+&"RESET": SubResource("Animation_cyn7f")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nor1i"]
+atlas = ExtResource("3_0tv8s")
+region = Rect2(0, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tv0p2"]
+atlas = ExtResource("2_6xap5")
+region = Rect2(0, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_linbm"]
+atlas = ExtResource("2_6xap5")
+region = Rect2(70, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_th4ks"]
+atlas = ExtResource("2_6xap5")
+region = Rect2(140, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyn7f"]
+atlas = ExtResource("2_6xap5")
+region = Rect2(210, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hp7qg"]
+atlas = ExtResource("5_xqx2s")
+region = Rect2(0, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j18vs"]
+atlas = ExtResource("5_xqx2s")
+region = Rect2(70, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0m5p"]
+atlas = ExtResource("5_xqx2s")
+region = Rect2(140, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7ngp"]
+atlas = ExtResource("5_xqx2s")
+region = Rect2(210, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_woxr6"]
+atlas = ExtResource("3_fbeod")
+region = Rect2(0, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtbtj"]
+atlas = ExtResource("3_fbeod")
+region = Rect2(70, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_litam"]
+atlas = ExtResource("3_fbeod")
+region = Rect2(140, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fk6e"]
+atlas = ExtResource("3_fbeod")
+region = Rect2(210, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1egh"]
+atlas = ExtResource("7_l7gq4")
+region = Rect2(0, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwcpa"]
+atlas = ExtResource("7_l7gq4")
+region = Rect2(70, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpa4p"]
+atlas = ExtResource("7_l7gq4")
+region = Rect2(140, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ndvo"]
+atlas = ExtResource("7_l7gq4")
+region = Rect2(210, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prtbb"]
+atlas = ExtResource("4_7ulco")
+region = Rect2(0, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1jlt"]
+atlas = ExtResource("4_7ulco")
+region = Rect2(70, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6qfc"]
+atlas = ExtResource("4_7ulco")
+region = Rect2(140, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0a73"]
+atlas = ExtResource("4_7ulco")
+region = Rect2(210, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j21d1"]
+atlas = ExtResource("9_oxhei")
+region = Rect2(0, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m28fa"]
+atlas = ExtResource("9_oxhei")
+region = Rect2(70, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3iklh"]
+atlas = ExtResource("9_oxhei")
+region = Rect2(140, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1636e"]
+atlas = ExtResource("9_oxhei")
+region = Rect2(210, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bnqy"]
+atlas = ExtResource("9_oxhei")
+region = Rect2(280, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54bvl"]
+atlas = ExtResource("9_oxhei")
+region = Rect2(350, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4spx"]
+atlas = ExtResource("5_kc6ri")
+region = Rect2(0, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_knsxd"]
+atlas = ExtResource("5_kc6ri")
+region = Rect2(70, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wskkk"]
+atlas = ExtResource("5_kc6ri")
+region = Rect2(140, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gdkf"]
+atlas = ExtResource("5_kc6ri")
+region = Rect2(210, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0g1qe"]
+atlas = ExtResource("11_7dsrh")
+region = Rect2(0, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cc2hf"]
+atlas = ExtResource("11_7dsrh")
+region = Rect2(70, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkun1"]
+atlas = ExtResource("11_7dsrh")
+region = Rect2(140, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14bjo"]
+atlas = ExtResource("11_7dsrh")
+region = Rect2(210, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w15ce"]
+atlas = ExtResource("11_7dsrh")
+region = Rect2(280, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ip5qp"]
+atlas = ExtResource("11_7dsrh")
+region = Rect2(350, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pf3q"]
+atlas = ExtResource("6_o63gl")
+region = Rect2(0, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_osvgb"]
+atlas = ExtResource("6_o63gl")
+region = Rect2(70, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6oi2x"]
+atlas = ExtResource("6_o63gl")
+region = Rect2(140, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uh6mu"]
+atlas = ExtResource("6_o63gl")
+region = Rect2(210, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rak51"]
+atlas = ExtResource("13_7dyp6")
+region = Rect2(0, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wn4e8"]
+atlas = ExtResource("13_7dyp6")
+region = Rect2(70, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xk4fp"]
+atlas = ExtResource("13_7dyp6")
+region = Rect2(140, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aje74"]
+atlas = ExtResource("13_7dyp6")
+region = Rect2(210, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmyra"]
+atlas = ExtResource("13_7dyp6")
+region = Rect2(280, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wtqd"]
+atlas = ExtResource("13_7dyp6")
+region = Rect2(350, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8jns"]
+atlas = ExtResource("7_q5fcc")
+region = Rect2(0, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqew6"]
+atlas = ExtResource("7_q5fcc")
+region = Rect2(70, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6608i"]
+atlas = ExtResource("7_q5fcc")
+region = Rect2(140, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uw6v6"]
+atlas = ExtResource("7_q5fcc")
+region = Rect2(210, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2i0n"]
+atlas = ExtResource("15_aqrl2")
+region = Rect2(0, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtnuy"]
+atlas = ExtResource("15_aqrl2")
+region = Rect2(70, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwspc"]
+atlas = ExtResource("15_aqrl2")
+region = Rect2(140, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nk6aw"]
+atlas = ExtResource("15_aqrl2")
+region = Rect2(210, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_057h1"]
+atlas = ExtResource("15_aqrl2")
+region = Rect2(280, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5x6q"]
+atlas = ExtResource("15_aqrl2")
+region = Rect2(350, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eja5l"]
+atlas = ExtResource("8_47av8")
+region = Rect2(0, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bi4l"]
+atlas = ExtResource("8_47av8")
+region = Rect2(70, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pvns"]
+atlas = ExtResource("8_47av8")
+region = Rect2(140, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8578p"]
+atlas = ExtResource("8_47av8")
+region = Rect2(210, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pj6w1"]
+atlas = ExtResource("2_bv0xj")
+region = Rect2(0, 0, 70, 130)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t6ovq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nor1i")
+}],
+"loop": true,
+"name": &"Level_1_Idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tv0p2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_linbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_th4ks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cyn7f")
+}],
+"loop": false,
+"name": &"Level_1_Upgrade",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hp7qg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j18vs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0m5p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7ngp")
+}],
+"loop": true,
+"name": &"Level_2_Idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_woxr6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtbtj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_litam")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fk6e")
+}],
+"loop": false,
+"name": &"Level_2_Upgrade",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1egh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwcpa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpa4p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ndvo")
+}],
+"loop": true,
+"name": &"Level_3_Idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prtbb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1jlt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6qfc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0a73")
+}],
+"loop": false,
+"name": &"Level_3_Upgrade",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j21d1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m28fa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3iklh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1636e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bnqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_54bvl")
+}],
+"loop": true,
+"name": &"Level_4_Idle",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4spx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_knsxd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wskkk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0gdkf")
+}],
+"loop": false,
+"name": &"Level_4_Upgrade",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0g1qe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cc2hf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkun1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14bjo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w15ce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ip5qp")
+}],
+"loop": true,
+"name": &"Level_5_Idle",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3pf3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_osvgb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6oi2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uh6mu")
+}],
+"loop": false,
+"name": &"Level_5_Upgrade",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rak51")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wn4e8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xk4fp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aje74")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmyra")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wtqd")
+}],
+"loop": true,
+"name": &"Level_6_Idle",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8jns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqew6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6608i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uw6v6")
+}],
+"loop": false,
+"name": &"Level_6_Upgrade",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2i0n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dtnuy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwspc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nk6aw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_057h1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i5x6q")
+}],
+"loop": true,
+"name": &"Level_7_Idle",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eja5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bi4l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4pvns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8578p")
+}],
+"loop": false,
+"name": &"Level_7_Upgrade",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pj6w1")
+}],
+"loop": false,
+"name": &"default",
+"speed": 0.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vysc7"]
+atlas = ExtResource("2_pq2nx")
+region = Rect2(0, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xai72"]
+atlas = ExtResource("2_pq2nx")
+region = Rect2(70, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijr2g"]
+atlas = ExtResource("2_pq2nx")
+region = Rect2(140, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3asw"]
+atlas = ExtResource("2_pq2nx")
+region = Rect2(210, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13xju"]
+atlas = ExtResource("17_fcx3d")
+region = Rect2(0, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lcmj"]
+atlas = ExtResource("17_fcx3d")
+region = Rect2(70, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mli4"]
+atlas = ExtResource("17_fcx3d")
+region = Rect2(140, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5uikv"]
+atlas = ExtResource("17_fcx3d")
+region = Rect2(210, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c41uk"]
+atlas = ExtResource("17_fcx3d")
+region = Rect2(280, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iu3wl"]
+atlas = ExtResource("17_fcx3d")
+region = Rect2(350, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_510sx"]
+atlas = ExtResource("3_8es61")
+region = Rect2(0, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ny8t7"]
+atlas = ExtResource("3_8es61")
+region = Rect2(70, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkbq1"]
+atlas = ExtResource("3_8es61")
+region = Rect2(140, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pe50x"]
+atlas = ExtResource("3_8es61")
+region = Rect2(210, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0udoc"]
+atlas = ExtResource("4_3o2b3")
+region = Rect2(0, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xn3je"]
+atlas = ExtResource("4_3o2b3")
+region = Rect2(70, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dd7k0"]
+atlas = ExtResource("4_3o2b3")
+region = Rect2(140, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plxso"]
+atlas = ExtResource("4_3o2b3")
+region = Rect2(210, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34cl2"]
+atlas = ExtResource("20_nqsl5")
+region = Rect2(0, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wuo3q"]
+atlas = ExtResource("20_nqsl5")
+region = Rect2(70, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0tsb"]
+atlas = ExtResource("20_nqsl5")
+region = Rect2(140, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bw1p"]
+atlas = ExtResource("20_nqsl5")
+region = Rect2(210, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_117r6"]
+atlas = ExtResource("20_nqsl5")
+region = Rect2(280, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_343cy"]
+atlas = ExtResource("20_nqsl5")
+region = Rect2(350, 0, 70, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wuoia"]
+atlas = ExtResource("3_8es61")
+region = Rect2(140, 0, 70, 130)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y2klm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vysc7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xai72")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijr2g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3asw")
+}],
+"loop": false,
+"name": &"Level_3_Upgrade",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13xju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1lcmj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mli4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5uikv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c41uk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iu3wl")
+}],
+"loop": true,
+"name": &"Level_4_Idle",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_510sx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ny8t7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkbq1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pe50x")
+}],
+"loop": false,
+"name": &"Level_4_Upgrade",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0udoc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xn3je")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dd7k0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plxso")
+}],
+"loop": false,
+"name": &"Level_6_Upgrade",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34cl2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wuo3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0tsb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bw1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_117r6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_343cy")
+}],
+"loop": true,
+"name": &"Level_7_Idle",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wuoia")
+}],
+"loop": false,
+"name": &"default",
+"speed": 0.0
+}]
+
+[sub_resource type="Theme" id="Theme_linbm"]
+Label/colors/font_color = Color(0.784314, 0.572549, 0.372549, 1)
+Label/colors/font_shadow_color = Color(0.427451, 0.392157, 0.298039, 1)
+Label/constants/shadow_offset_x = 0
+Label/constants/shadow_offset_y = 2
+Label/constants/shadow_outline_size = 0
+Label/fonts/font = ExtResource("26_whun5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qpd0x"]
+texture = ExtResource("29_tv0p2")
+texture_margin_left = 15.0
+texture_margin_top = 10.0
+texture_margin_right = 15.0
+texture_margin_bottom = 10.0
+expand_margin_left = 20.0
+
+[sub_resource type="Theme" id="Theme_nogtx"]
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_qpd0x")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_th4ks"]
+radius = 54.0
+
+[node name="Tower" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_ga7em")
+smoke_scene = ExtResource("2_th4ks")
+message_scene = ExtResource("3_cyn7f")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_pj6w1")
+}
+
+[node name="Foundation" type="Sprite2D" parent="."]
+editor_description = "Used when player removes tower to provide the best view of the animation"
+position = Vector2(0, -56)
+scale = Vector2(1.723, 1.723)
+texture = ExtResource("2_bv0xj")
+
+[node name="Tower" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -56)
+scale = Vector2(1.72308, 1.72308)
+sprite_frames = SubResource("SpriteFrames_t6ovq")
+
+[node name="Logo" type="Sprite2D" parent="."]
+editor_description = "Usually, it's the unit's shell"
+modulate = Color(1, 1, 1, 0.784314)
+position = Vector2(0, -9)
+texture = ExtResource("17_tv0p2")
+
+[node name="Units" type="Node2D" parent="."]
+
+[node name="Roof" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -56)
+scale = Vector2(1.72308, 1.72308)
+sprite_frames = SubResource("SpriteFrames_y2klm")
+
+[node name="Interface" type="CanvasLayer" parent="."]
+
+[node name="Menu" type="Control" parent="Interface"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+texture_filter = 2
+layout_mode = 3
+anchors_preset = 0
+offset_left = -128.0
+offset_top = -64.0
+offset_right = 128.0
+offset_bottom = 64.0
+
+[node name="Build Button" type="TextureButton" parent="Interface/Menu"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 17.0
+offset_right = 216.0
+offset_bottom = 101.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("22_yall2")
+texture_pressed = ExtResource("22_yall2")
+texture_hover = ExtResource("23_qsccf")
+texture_disabled = ExtResource("24_2i6xb")
+script = ExtResource("25_l84ho")
+
+[node name="Label" type="Label" parent="Interface/Menu/Build Button"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 187.0
+offset_bottom = 66.0
+theme = SubResource("Theme_linbm")
+theme_override_font_sizes/font_size = 32
+text = "BUILD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Upgrade Button" type="TextureButton" parent="Interface/Menu"]
+layout_mode = 0
+offset_left = 138.0
+offset_top = 17.0
+offset_right = 334.0
+offset_bottom = 101.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("22_yall2")
+texture_pressed = ExtResource("22_yall2")
+texture_hover = ExtResource("23_qsccf")
+texture_disabled = ExtResource("24_2i6xb")
+script = ExtResource("25_l84ho")
+
+[node name="Label" type="Label" parent="Interface/Menu/Upgrade Button"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 187.0
+offset_bottom = 66.0
+theme = SubResource("Theme_linbm")
+theme_override_font_sizes/font_size = 32
+text = "UPGRADE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Remove Button" type="TextureButton" parent="Interface/Menu"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 65.0
+offset_right = 240.0
+offset_bottom = 149.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("22_yall2")
+texture_pressed = ExtResource("22_yall2")
+texture_hover = ExtResource("23_qsccf")
+texture_disabled = ExtResource("24_2i6xb")
+script = ExtResource("25_l84ho")
+
+[node name="Label" type="Label" parent="Interface/Menu/Remove Button"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 187.0
+offset_bottom = 66.0
+theme = SubResource("Theme_linbm")
+theme_override_font_sizes/font_size = 32
+text = "REMOVE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tower Stats Button" type="TextureButton" parent="Interface/Menu"]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 65.0
+offset_right = 329.0
+offset_bottom = 149.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("22_yall2")
+texture_pressed = ExtResource("22_yall2")
+texture_hover = ExtResource("23_qsccf")
+texture_disabled = ExtResource("24_2i6xb")
+script = ExtResource("25_l84ho")
+
+[node name="Label" type="Label" parent="Interface/Menu/Tower Stats Button"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 187.0
+offset_bottom = 66.0
+theme = SubResource("Theme_linbm")
+theme_override_font_sizes/font_size = 32
+text = "STATS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Unit Name" type="Label" parent="Interface"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+texture_filter = 2
+offset_left = -64.0
+offset_top = -80.0
+offset_right = 64.0
+offset_bottom = -55.0
+theme_override_colors/font_shadow_color = Color(0.099986, 0.099986, 0.099986, 1)
+theme_override_fonts/font = ExtResource("27_tv0p2")
+theme_override_font_sizes/font_size = 20
+text = "Unit's Name"
+horizontal_alignment = 1
+
+[node name="Tower Stats" type="Control" parent="Interface"]
+visible = false
+modulate = Color(1, 1, 1, 0.9)
+texture_filter = 2
+layout_mode = 3
+anchors_preset = 0
+offset_right = 260.0
+offset_bottom = 202.0
+script = ExtResource("28_whun5")
+
+[node name="Head" type="PanelContainer" parent="Interface/Tower Stats"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 20.0
+offset_right = 260.0
+offset_bottom = 65.0
+theme = SubResource("Theme_nogtx")
+
+[node name="Label" type="Label" parent="Interface/Tower Stats/Head"]
+texture_filter = 2
+layout_mode = 2
+theme_override_fonts/font = ExtResource("27_tv0p2")
+theme_override_font_sizes/font_size = 32
+text = "Stats"
+vertical_alignment = 1
+
+[node name="Keys" type="PanelContainer" parent="Interface/Tower Stats"]
+texture_filter = 1
+layout_mode = 0
+offset_top = 55.0
+offset_right = 137.0
+offset_bottom = 202.0
+theme = ExtResource("30_linbm")
+
+[node name="Label" type="Label" parent="Interface/Tower Stats/Keys"]
+texture_filter = 2
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("27_tv0p2")
+theme_override_font_sizes/font_size = 18
+text = "Attack Range
+Damage
+Units
+Upgrade Cost
+Max Level"
+horizontal_alignment = 1
+
+[node name="Values" type="PanelContainer" parent="Interface/Tower Stats"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 127.0
+offset_top = 55.0
+offset_right = 260.0
+offset_bottom = 202.0
+theme = ExtResource("30_linbm")
+
+[node name="Label" type="Label" parent="Interface/Tower Stats/Values"]
+texture_filter = 2
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("27_tv0p2")
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+
+[node name="Close Button" type="Button" parent="Interface/Tower Stats"]
+texture_filter = 2
+layout_mode = 0
+offset_left = 204.0
+offset_top = 16.0
+offset_right = 236.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 16
+icon = ExtResource("31_th4ks")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+shape = SubResource("CircleShape2D_th4ks")
+
+[node name="Building" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_y2klm")
+volume_db = -15.0
+bus = &"SFX"
+
+[node name="Smoke" type="Node2D" parent="."]
+
+[connection signal="mouse_entered" from="Interface/Menu/Build Button" to="Interface/Menu/Build Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Interface/Menu/Build Button" to="Interface/Menu/Build Button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Interface/Menu/Build Button" to="." method="_on_build_button_pressed"]
+[connection signal="mouse_entered" from="Interface/Menu/Upgrade Button" to="Interface/Menu/Upgrade Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Interface/Menu/Upgrade Button" to="Interface/Menu/Upgrade Button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Interface/Menu/Upgrade Button" to="." method="_on_upgrade_button_pressed"]
+[connection signal="mouse_entered" from="Interface/Menu/Remove Button" to="Interface/Menu/Remove Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Interface/Menu/Remove Button" to="Interface/Menu/Remove Button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Interface/Menu/Remove Button" to="." method="_on_remove_button_pressed"]
+[connection signal="mouse_entered" from="Interface/Menu/Tower Stats Button" to="Interface/Menu/Tower Stats Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Interface/Menu/Tower Stats Button" to="Interface/Menu/Tower Stats Button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Interface/Menu/Tower Stats Button" to="." method="_on_tower_stats_button_pressed"]
+[connection signal="pressed" from="Interface/Tower Stats/Close Button" to="Interface/Tower Stats" method="_on_close_button_pressed"]
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]

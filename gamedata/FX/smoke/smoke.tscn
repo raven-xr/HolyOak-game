@@ -253,7 +253,7 @@ animations = [{
 }]
 
 [node name="Smoke" type="AnimatedSprite2D"]
-modulate = Color(0.690196, 0.690196, 0.690196, 0.784314)
+modulate = Color(0.745098, 0.745098, 0.745098, 0.784314)
 sprite_frames = SubResource("SpriteFrames_jpqjx")
 animation = &"Smoke_05_01"
 script = ExtResource("1_h06gy")

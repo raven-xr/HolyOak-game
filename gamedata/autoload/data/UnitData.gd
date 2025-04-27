@@ -5,18 +5,18 @@ extends Node
 		#"shell_speed": 7000, # float or int
 		#"damage": 10, # int
 		#"cost": 100, # int
-		#"unit_count": 1, # int
-		#"spawnpoints": [Vector2(0, 0)], # Array[Vector2] with "unit_count" items
+		#"count": 1, # int
+		#"spawnpoints": [Vector2(0, 0)], # Array[Vector2] with "count" items
 		#"attack_range": 200, # int or float
 	#}
 #}
 
-const ARCHER = {
+const ARCHER: Dictionary[StringName, Dictionary] = {
 	"level_1": {
 		"shell_speed": 7000,
 		"damage": 10,
 		"cost": 100,
-		"unit_count": 1,
+		"count": 1,
 		"spawnpoints": [Vector2(0, 0)],
 		"attack_range": 200
 	},
@@ -24,7 +24,7 @@ const ARCHER = {
 		"shell_speed": 7000,
 		"damage": 20,
 		"cost": 300,
-		"unit_count": 1,
+		"count": 1,
 		"spawnpoints": [Vector2(0, -20)],
 		"attack_range": 225
 	},
@@ -32,7 +32,7 @@ const ARCHER = {
 		"shell_speed": 7000,
 		"damage": 20,
 		"cost": 1000,
-		"unit_count": 2,
+		"count": 2,
 		"spawnpoints": [Vector2(-14, -35), Vector2(16, -35)],
 		"attack_range": 250
 	},
@@ -40,7 +40,7 @@ const ARCHER = {
 		"shell_speed": 7000,
 		"damage": 30,
 		"cost": 1800,
-		"unit_count": 2,
+		"count": 2,
 		"spawnpoints": [Vector2(16, -32), Vector2(-16, -32)],
 		"attack_range": 275
 	},
@@ -48,7 +48,7 @@ const ARCHER = {
 		"shell_speed": 7000,
 		"damage": 30,
 		"cost": 3600,
-		"unit_count": 3,
+		"count": 3,
 		"spawnpoints": [Vector2(0, -42), Vector2(-16, -32), Vector2(16, -32)],
 		"attack_range": 300
 	},
@@ -56,7 +56,7 @@ const ARCHER = {
 		"shell_speed": 7000,
 		"damage": 40,
 		"cost": 4800,
-		"unit_count": 3,
+		"count": 3,
 		"spawnpoints": [Vector2(0, -44), Vector2(-16, -34), Vector2(16, -34)],
 		"attack_range": 325
 	},
@@ -64,18 +64,18 @@ const ARCHER = {
 		"shell_speed": 7000,
 		"damage": 50,
 		"cost": 9600,
-		"unit_count": 3,
+		"count": 3,
 		"spawnpoints": [Vector2(0, -44), Vector2(-16, -34), Vector2(16, -34)],
 		"attack_range": 350
 	}
 }
 
-const FIRE_ARCHER = {
+const FIRE_ARCHER: Dictionary[StringName, Dictionary] = {
 	"level_1": {
 		"shell_speed": 7000,
 		"damage": 10,
 		"cost": 150,
-		"unit_count": 1,
+		"count": 1,
 		"spawnpoints": [Vector2(0, 0)],
 		"attack_range": 200
 	},
@@ -83,7 +83,7 @@ const FIRE_ARCHER = {
 		"shell_speed": 7000,
 		"damage": 20,
 		"cost": 450,
-		"unit_count": 1,
+		"count": 1,
 		"spawnpoints": [Vector2(0, -20)],
 		"attack_range": 225
 	},
@@ -91,7 +91,7 @@ const FIRE_ARCHER = {
 		"shell_speed": 7000,
 		"damage": 20,
 		"cost": 1500,
-		"unit_count": 2,
+		"count": 2,
 		"spawnpoints": [Vector2(-14, -35), Vector2(16, -35)],
 		"attack_range": 250
 	},
@@ -99,7 +99,7 @@ const FIRE_ARCHER = {
 		"shell_speed": 7000,
 		"damage": 30,
 		"cost": 2700,
-		"unit_count": 2,
+		"count": 2,
 		"spawnpoints": [Vector2(16, -32), Vector2(-16, -32)],
 		"attack_range": 275
 	},
@@ -107,7 +107,7 @@ const FIRE_ARCHER = {
 		"shell_speed": 7000,
 		"damage": 30,
 		"cost": 5400,
-		"unit_count": 3,
+		"count": 3,
 		"spawnpoints": [Vector2(0, -42), Vector2(-16, -32), Vector2(16, -32)],
 		"attack_range": 300
 	},
@@ -115,7 +115,7 @@ const FIRE_ARCHER = {
 		"shell_speed": 7000,
 		"damage": 40,
 		"cost": 7200,
-		"unit_count": 3,
+		"count": 3,
 		"spawnpoints": [Vector2(0, -44), Vector2(-16, -34), Vector2(16, -34)],
 		"attack_range": 325
 	},
@@ -123,7 +123,7 @@ const FIRE_ARCHER = {
 		"shell_speed": 7000,
 		"damage": 50,
 		"cost": 14400,
-		"unit_count": 3,
+		"count": 3,
 		"spawnpoints": [Vector2(0, -44), Vector2(-16, -34), Vector2(16, -34)],
 		"attack_range": 350
 	}

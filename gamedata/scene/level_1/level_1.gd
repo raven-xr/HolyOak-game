@@ -1,14 +1,12 @@
 extends Level
 
-@onready var hint = $"User Interface/Hint"
-@onready var towers = $Towers
-@onready var platform_1 = $"Towers/Platform 1"
 
-signal player_opened_platform()
-signal player_built_tower()
-signal player_upgraded_tower()
-signal player_checked_stats()
-signal player_ended_tutorial()
+
+@onready var hint: Control = $"User Interface/Hint"
+@onready var towers: Node2D = $Towers
+@onready var tower_1: Node2D = $"Towers/Tower 1"
+
+
 
 func idle_state() -> void:
 	SoundManager.music_idle.play()
@@ -25,39 +23,39 @@ func tutorial() -> void:
 	hint.text = "В этой игре ваша главная задача - защитить Священный дуб"
 	hint.show_()
 	await hint.hidden_
-	# Open the platform menu
+	# Open the tower menu
 	hint.text = "Для начала построим башню. Нажмите на пустое поле справа от подсказки"
 	hint.pivot_offset.x = 128.0
 	hint.position = Vector2(484.0, 128.0)
 	hint.can_be_pressed = false
 	hint.show_()
-	# Unblock the platform 1
-	platform_1.set_process_mode(Node.PROCESS_MODE_INHERIT)
-	# Await for player to open the platform menu
-	await player_opened_platform
+	# Unlock the tower 1
+	tower_1.set_process_mode(Node.PROCESS_MODE_INHERIT)
+	# Await for player to open the tower menu
+	await tower_1.player_opened_menu
 	hint.hide_()
 	await hint.hidden_
 	# Build the tower
 	hint.text = "Теперь нажмите 'Build', чтобы её построить"
 	hint.show_()
 	# Await for player to build the tower
-	await player_built_tower
+	await tower_1.player_built_tower
 	hint.hide_()
 	await hint.hidden_
 	# Upgrade the tower
 	hint.text = "Чтобы повысить эффективность защиты, необходимо улучшить башню. Откройте меню и нажмите 'Upgrade'"
 	hint.show_()
 	# Await for player to upgrade the tower
-	await player_upgraded_tower
+	await tower_1.player_upgraded_tower
 	hint.hide_()
 	await hint.hidden_
 	# Check current stats
 	hint.text = "Отлично. Нажми на кнопку 'Stats', чтобы посмотреть текущие характеристики башни и юнитов"
 	hint.show_()
-	# Unblock the TowerStats button
-	platform_1.tower_stats_button.disconnect("mouse_entered", Callable(platform_1, "_on_local_tower_stats_button_mouse_entered"))
+	# Unlock the TowerStats button
+	tower_1.is_tower_stats_button_locked = false
 	# Await for player to check current stats
-	await player_checked_stats
+	await tower_1.player_opened_tower_stats
 	hint.hide_()
 	await hint.hidden_
 	# Tell about removing towers
@@ -75,7 +73,9 @@ func tutorial() -> void:
 	await hint.hidden_
 	# End the tutorial
 	hint.close()
-	player_ended_tutorial.emit()
-	for platform in towers.get_children():
-		platform.set_process_mode(Node.PROCESS_MODE_INHERIT)
+	# Unlock the remove button of the tower 1
+	tower_1.is_remove_button_locked = false
+	# Unlock tower
+	for tower in towers.get_children():
+		tower.set_process_mode(Node.PROCESS_MODE_INHERIT)
 	state = States.FIGHT
