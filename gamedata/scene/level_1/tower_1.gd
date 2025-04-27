@@ -97,7 +97,7 @@ func _on_tower_stats_button_pressed() -> void:
 		unit_stats["level_" + str(level)]["damage"], "\n",
 		unit_stats["level_" + str(level)]["count"], "\n",
 		current_cost, "\n",
-		tower_level_limit
+		min(MAX_LEVEL, PlayerStats.tower_level_limit)
 	)
 	tower_stats.position = global_position + POSITIONS[menu_position]["position"]
 	tower_stats.pivot_offset = POSITIONS[menu_position]["pivot_offset"]

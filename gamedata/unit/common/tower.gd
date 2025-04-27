@@ -27,7 +27,6 @@ extends Node2D
 @onready var unit_stats: Dictionary[StringName, Dictionary] = UnitData.get(unit_scene.instantiate().technical_name)
 
 const MAX_LEVEL: int = 7
-var tower_level_limit: int = PlayerStats.tower_level_limit
 var level: int = 0
 var unit_count: int = 0
 var unit_spawnpoints: Array 
@@ -158,7 +157,7 @@ func _on_tower_stats_button_pressed() -> void:
 		unit_stats["level_" + str(level)]["damage"], "\n",
 		unit_stats["level_" + str(level)]["count"], "\n",
 		current_cost, "\n",
-		tower_level_limit
+		min(MAX_LEVEL, PlayerStats.tower_level_limit)
 	)
 	tower_stats.position = global_position + POSITIONS[menu_position]["position"]
 	tower_stats.pivot_offset = POSITIONS[menu_position]["pivot_offset"]
@@ -237,6 +236,6 @@ func remove_smoke() -> void:
 		smoke.is_active = false
 
 func can_be_upgraded() -> bool:
-	if level in [MAX_LEVEL, tower_level_limit]:
+	if level in [MAX_LEVEL, PlayerStats.tower_level_limit]:
 		return false
 	return true
