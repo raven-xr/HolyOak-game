@@ -9,29 +9,29 @@
 [ext_resource type="AudioStream" uid="uid://b4ct4b03ouqvg" path="res://audio/music/alexander_nakarada-traveler.mp3" id="5_l1pbm"]
 [ext_resource type="AudioStream" uid="uid://dx2gq0qwtk4a4" path="res://audio/music/alexander_nakarada-leaving_for_valhalla.mp3" id="6_1t1b8"]
 
-[node name="SoundManager" type="Node"]
+[node name="Sound Manager" type="Node"]
 process_mode = 3
 script = ExtResource("1_0lbtt")
 
-[node name="UserInterface" type="Node" parent="."]
+[node name="User Interface" type="Node" parent="."]
 
-[node name="Click" type="AudioStreamPlayer" parent="UserInterface"]
+[node name="Click" type="AudioStreamPlayer" parent="User Interface"]
 stream = ExtResource("2_vrprk")
 volume_db = -10.0
 bus = &"SFX"
 
-[node name="Success" type="AudioStreamPlayer" parent="UserInterface"]
+[node name="Success" type="AudioStreamPlayer" parent="User Interface"]
 stream = ExtResource("3_pv00y")
 volume_db = -25.0
 pitch_scale = 0.9
 bus = &"SFX"
 
-[node name="Victory" type="AudioStreamPlayer" parent="UserInterface"]
+[node name="Victory" type="AudioStreamPlayer" parent="User Interface"]
 stream = ExtResource("3_ophsb")
 volume_db = -15.0
 bus = &"SFX"
 
-[node name="Defeat" type="AudioStreamPlayer" parent="UserInterface"]
+[node name="Defeat" type="AudioStreamPlayer" parent="User Interface"]
 stream = ExtResource("3_t14o7")
 volume_db = -15.0
 bus = &"SFX"

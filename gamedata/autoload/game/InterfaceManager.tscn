@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://die1brf78v8gp"]
+
+[ext_resource type="Script" uid="uid://cuu6bn6gtjsa4" path="res://gamedata/autoload/game/InterfaceManager.gd" id="1_45edq"]
+
+[node name="Interface Manager" type="Node"]
+script = ExtResource("1_45edq")
