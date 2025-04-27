@@ -60,10 +60,9 @@ func animate_transition() -> void:
 func _on_play_button_pressed() -> void:
 	SoundManager.click.play()
 	explorer.visible = false
-	explorer.modulate = Color(1, 1, 1, 0)
 	levels.visible = true
 	var tween = create_tween()
-	tween.tween_property(levels, "modulate", Color(1, 1, 1, 1), 0.1)
+	tween.tween_property(levels, "modulate", Color(1.0, 1.0, 1.0, 1.0), 0.1)
 
 func _on_credits_button_pressed() -> void:
 	SoundManager.click.play()
@@ -85,10 +84,11 @@ func _on_exit_button_pressed() -> void:
 func _on_levels_back_button_pressed() -> void:
 	SoundManager.click.play()
 	levels.visible = false
-	levels.modulate = Color(1, 1, 1, 0)
+	levels.modulate = Color(1.0, 1.0, 1.0, 0.0)
+	explorer.modulate = Color(1.0, 1.0, 1.0, 0.0)
 	explorer.visible = true
 	var tween = create_tween()
-	tween.tween_property(explorer, "modulate", Color(1, 1, 1, 1), 0.1)
+	tween.tween_property(explorer, "modulate", Color(1.0, 1.0, 1.0, 1.0), 0.1)
 
 func _on_level_1_pressed() -> void:
 	SoundManager.click.play()

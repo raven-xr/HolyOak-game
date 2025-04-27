@@ -271,6 +271,7 @@ vertical_alignment = 1
 
 [node name="Levels" type="Control" parent="."]
 visible = false
+modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -423,6 +424,7 @@ texture_hover = ExtResource("11_jr0j5")
 
 [node name="Credits" type="Control" parent="."]
 visible = false
+modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1280.0
@@ -487,6 +489,7 @@ texture_hover = ExtResource("11_jr0j5")
 
 [node name="Settings" parent="." instance=ExtResource("19_inpo7")]
 visible = false
+self_modulate = Color(1, 1, 1, 0)
 offset_right = 0.0
 offset_bottom = 0.0
 
