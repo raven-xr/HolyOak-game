@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://die1brf78v8gp"]
+[gd_scene load_steps=4 format=3 uid="uid://die1brf78v8gp"]
 
 [ext_resource type="Script" uid="uid://cuu6bn6gtjsa4" path="res://gamedata/autoload/game/InterfaceManager.gd" id="1_45edq"]
+[ext_resource type="PackedScene" uid="uid://dqhv5ii03kgra" path="res://gamedata/ui/victory_menu/victory_menu.tscn" id="2_ige8q"]
+[ext_resource type="PackedScene" uid="uid://bpv032thoan7a" path="res://gamedata/ui/defeat_menu/defeat_menu.tscn" id="3_wphkd"]
 
-[node name="Interface Manager" type="Node"]
+[node name="Interface Manager" type="CanvasLayer"]
 script = ExtResource("1_45edq")
+victory_menu = ExtResource("2_ige8q")
+defeat_menu = ExtResource("3_wphkd")

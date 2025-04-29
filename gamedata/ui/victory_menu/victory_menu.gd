@@ -1,6 +1,6 @@
 extends PanelContainer
 
-@onready var level: Level = get_parent().get_parent()
+@onready var level: Level = get_tree().get_current_scene()
 
 @onready var menu_button: Button = $"Menu Button"
 @onready var next_button: Button = $"Next Button"
@@ -8,13 +8,11 @@ extends PanelContainer
 func _ready() -> void:
 	# Scale
 	scale = Vector2(UserSettings.gui_scale, UserSettings.gui_scale)
-	# Animate
-	modulate = Color(1, 1, 1, 0)
+	# Smooth appearance
+	modulate = Color(1.0, 1.0, 1.0, 0.0)
 	var tween = create_tween()
-	tween.tween_property(self, "modulate", Color(1, 1, 1, 1), 0.2)
-	# Pause the game
+	tween.tween_property(self, "modulate", Color(1.0, 1.0, 1.0, 1.0), 0.2)
 	get_tree().paused = true
-	# Play SFX
 	SoundManager.victory.play()
 
 func disable_buttons() -> void:
@@ -27,6 +25,11 @@ func _on_menu_button_pressed() -> void:
 	disable_buttons()
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://gamedata/scene/main_menu/main_menu.tscn")
+	# Smooth disappearance
+	var tween = create_tween()
+	tween.tween_property(self, "modulate", Color(1.0, 1.0, 1.0, 0.0), 0.2)
+	await tween.finished
+	queue_free()
 
 func _on_next_button_pressed() -> void:
 	SoundManager.click.play()
@@ -34,3 +37,8 @@ func _on_next_button_pressed() -> void:
 	disable_buttons()
 	get_tree().paused = false
 	get_tree().change_scene_to_file(level.next_level_path)
+	# Smooth disappearance
+	var tween = create_tween()
+	tween.tween_property(self, "modulate", Color(1.0, 1.0, 1.0, 0.0), 0.2)
+	await tween.finished
+	queue_free()

@@ -92,8 +92,7 @@ func fight_state() -> void:
 	wave += 1
 
 func defeat() -> void:
-	var defeat_menu = defeat_menu_scene.instantiate()
-	user_interface.add_child(defeat_menu)
+	InterfaceManager.add("defeat_menu")
 	menu_button.disabled = true
 
 func victory() -> void:
@@ -106,8 +105,7 @@ func victory() -> void:
 	new_message.text = "Автосохранение..."
 	user_interface.add_child(new_message)
 	
-	var victory_menu = victory_menu_scene.instantiate()
-	user_interface.add_child(victory_menu)
+	InterfaceManager.add("victory_menu")
 	menu_button.disabled = true
 
 func new_wave() -> void:
