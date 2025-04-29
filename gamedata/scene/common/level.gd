@@ -1,6 +1,8 @@
 extends Node2D
 class_name Level
 
+
+
 enum States {
 	TUTORIAL,
 	IDLE,
@@ -51,6 +53,8 @@ var state: int:
 			States.IDLE: idle_state()
 			States.FIGHT: fight_state()
 
+
+
 func _ready() -> void:
 	# Scale
 	# Square the scale to reach the best view
@@ -65,9 +69,9 @@ func _ready() -> void:
 	# Transition
 	modulate = Color(0, 0, 0, 1)
 	var tween_1 = create_tween()
-	tween_1.parallel().tween_property(self, "modulate", Color(1, 1, 1, 1), 2.0)
+	tween_1.tween_property(self, "modulate", Color(1, 1, 1, 1), 2.0)
 	var tween_2 = create_tween()
-	tween_2.parallel().tween_property(SoundManager.music_idle, "volume_db", -20, 4.0)
+	tween_2.tween_property(SoundManager.music_idle, "volume_db", -20, 4.0)
 	# Start the game
 	state = States.IDLE
 
@@ -79,10 +83,10 @@ func fight_state() -> void:
 	# Getting ready
 	SoundManager.music_fight.play()
 	var tween_1 = create_tween()
-	tween_1.parallel().tween_property(SoundManager.music_idle, "volume_db", -100, 4.0)
+	tween_1.tween_property(SoundManager.music_idle, "volume_db", -100, 4.0)
 	tween_1.connect("finished", SoundManager.music_idle.stop)
 	var tween_2 = create_tween()
-	tween_2.parallel().tween_property(SoundManager.music_fight, "volume_db", -20, 4.0)
+	tween_2.tween_property(SoundManager.music_fight, "volume_db", -20.0, 4.0)
 	await tween_2.finished
 	# Fight
 	wave += 1
