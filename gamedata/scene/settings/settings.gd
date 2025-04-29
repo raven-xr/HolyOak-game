@@ -1,15 +1,19 @@
 extends Control
 
+
+
 @export var message_scene: PackedScene
 
-@onready var master_h_slider = $"PanelContainer/VBoxContainer/Master Volume/Master HSlider"
-@onready var music_h_slider = $"PanelContainer/VBoxContainer/Music Volume/Music HSlider"
-@onready var sfx_h_slider = $"PanelContainer/VBoxContainer/SFX Volume/SFX HSlider"
-@onready var scale_option_button = $"PanelContainer/VBoxContainer/GUI Scale/Scale OptionButton"
+@onready var master_h_slider: HSlider = $"PanelContainer/VBoxContainer/Master Volume/Master HSlider"
+@onready var music_h_slider: HSlider = $"PanelContainer/VBoxContainer/Music Volume/Music HSlider"
+@onready var sfx_h_slider: HSlider = $"PanelContainer/VBoxContainer/SFX Volume/SFX HSlider"
+@onready var scale_option_button: OptionButton = $"PanelContainer/VBoxContainer/GUI Scale/Scale OptionButton"
 
-@onready var confirmation = $"PanelContainer/VBoxContainer/Data Reset/Reset Progress Button/Confirmation"
+@onready var confirmation: Control = $"PanelContainer/VBoxContainer/Data Reset/Reset Progress Button/Confirmation"
 
-@onready var reset_progress_button = $"PanelContainer/VBoxContainer/Data Reset/Reset Progress Button"
+@onready var reset_progress_button: Button = $"PanelContainer/VBoxContainer/Data Reset/Reset Progress Button"
+
+
 
 # Previous settings (will be used, if player didn't apply settings)
 # Gets values when settings is opened
@@ -17,6 +21,8 @@ var last_master_volume: float = UserSettings.master_volume
 var last_music_volume: float = UserSettings.music_volume
 var last_sfx_volume: float = UserSettings.sfx_volume
 var last_gui_scale: float = UserSettings.gui_scale
+
+
 
 func _ready():
 	# Scale
