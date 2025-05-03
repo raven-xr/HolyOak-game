@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://brxuwmiq2ri1w"]
 
-[ext_resource type="Script" uid="uid://ca1icd6my84pk" path="res://gamedata/autoload/game/SoundManager.gd" id="1_0lbtt"]
+[ext_resource type="Script" uid="uid://ca1icd6my84pk" path="res://gamedata/autoload/sound_manager/SoundManager.gd" id="1_0lbtt"]
 [ext_resource type="AudioStream" uid="uid://c67yq2gixjlbo" path="res://audio/sfx/click.mp3" id="2_vrprk"]
 [ext_resource type="AudioStream" uid="uid://corhdd0psymkp" path="res://audio/sfx/victory.mp3" id="3_ophsb"]
 [ext_resource type="AudioStream" uid="uid://05iep57nlfbr" path="res://audio/sfx/success.mp3" id="3_pv00y"]

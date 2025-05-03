@@ -19,7 +19,7 @@ config/icon="res://icon.png"
 
 [audio]
 
-buses/default_bus_layout="res://gamedata/autoload/default_bus_layout.tres"
+buses/default_bus_layout="res://gamedata/autoload/audiobus/default_bus_layout.tres"
 
 [autoload]
 
@@ -29,8 +29,8 @@ EnemyData="*res://gamedata/autoload/data/EnemyData.gd"
 UnitData="*res://gamedata/autoload/data/UnitData.gd"
 EffectData="*res://gamedata/autoload/data/EffectData.gd"
 LevelData="*res://gamedata/autoload/data/LevelData.gd"
-SoundManager="*res://gamedata/autoload/game/SoundManager.tscn"
-Signals="*res://gamedata/autoload/game/Signals.gd"
+SoundManager="*res://gamedata/autoload/sound_manager/SoundManager.tscn"
+Signals="*res://gamedata/autoload/signals/Signals.gd"
 PlayerStats="*res://gamedata/autoload/player/PlayerStats.gd"
 
 [display]
