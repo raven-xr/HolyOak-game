@@ -1,5 +1,9 @@
 extends Node2D
 
+@export var level_1: PackedScene
+@export var level_2: PackedScene
+@export var level_3: PackedScene
+
 @export var star_scene: PackedScene
 
 @onready var game_name: Label = $GameName
@@ -79,32 +83,32 @@ func _on_exit_button_pressed() -> void:
 func _on_levels_back_button_pressed() -> void:
 	SoundManager.click.play()
 	levels.visible = false
-	levels.modulate = Color(1, 1, 1, 0)
+	levels.modulate = Color(1.0, 1.0, 1.0, 0.0)
 	explorer.visible = true
-	explorer.modulate = Color(1, 1, 1, 0)
+	explorer.modulate = Color(1.0, 1.0, 1.0, 0.0)
 	var tween = create_tween()
-	tween.tween_property(explorer, "modulate", Color(1, 1, 1, 1), 0.1)
+	tween.tween_property(explorer, "modulate", Color(1.0, 1.0, 1.0, 1.0), 0.1)
 
 func _on_level_1_pressed() -> void:
 	SoundManager.click.play()
 	animate_transition()
 	await SoundManager.click.finished
 	SoundManager.disable_music()
-	get_tree().change_scene_to_file("res://gamedata/scene/level_1/level_1.tscn")
+	get_tree().change_scene_to_packed(level_1)
 
 func _on_level_2_pressed() -> void:
 	SoundManager.click.play()
 	animate_transition()
 	await SoundManager.click.finished
 	SoundManager.disable_music()
-	get_tree().change_scene_to_file("res://gamedata/scene/level_2/level_2.tscn")
+	get_tree().change_scene_to_packed(level_2)
 
 func _on_level_3_pressed() -> void:
 	SoundManager.click.play()
 	animate_transition()
 	await SoundManager.click.finished
 	SoundManager.disable_music()
-	get_tree().change_scene_to_file("res://gamedata/scene/level_3/level_3.tscn")
+	get_tree().change_scene_to_packed(level_3)
 
 func _on_level_4_pressed() -> void:
 	SoundManager.click.play()
