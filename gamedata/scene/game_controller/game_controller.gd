@@ -1,8 +1,11 @@
 extends Node
 class_name GameController
 
+@export_group("2D Scenes")
 @export var main_menu: PackedScene
+@export_group("GUI Scenes")
 @export var settings: PackedScene
+@export var message: PackedScene
 
 @onready var world_2d: Node2D = $World2D
 @onready var gui: Control = $GUI
