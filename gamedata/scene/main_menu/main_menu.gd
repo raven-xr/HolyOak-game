@@ -2,14 +2,13 @@ extends Node2D
 
 @export var star_scene: PackedScene
 
-@onready var game_name: Label = $"Game Name"
+@onready var game_name: Label = $GameName
 @onready var explorer: PanelContainer = $Explorer
 @onready var v_box_container: VBoxContainer = $Explorer/VBoxContainer
 @onready var levels: Control = $Levels
 @onready var grid_container: GridContainer = $Levels/GridContainer
 @onready var back_button: TextureButton = $"Levels/Back Button"
 @onready var credits: Control = $Credits
-@onready var settings: Control = $Settings
 
 func _ready() -> void:
 	# Scale GUI
@@ -18,7 +17,6 @@ func _ready() -> void:
 	explorer.scale = gui_scale
 	levels.scale = gui_scale
 	credits.scale = gui_scale
-	settings.scale = gui_scale
 	# Load save
 	if FileAccess.file_exists(UserData.SAVE_PATH):
 		var save = FileAccess.open(UserData.SAVE_PATH, FileAccess.READ)
@@ -38,11 +36,8 @@ func _ready() -> void:
 		var level_name = button.name
 		for i in range(UserData.progress[level_name]["stars"]):
 			var star = star_scene.instantiate()
-			star.position = Vector2(13 + 23*i, 74)
+			star.position = Vector2(13 + 23 * i, 74)
 			button.add_child(star)
-	# Set modulate
-	levels.modulate = Color(1, 1, 1, 0)
-	credits.modulate = Color(1, 1, 1, 0)
 
 func animate_transition() -> void:
 	# Disable buttons
@@ -53,14 +48,13 @@ func animate_transition() -> void:
 	back_button.disabled = true
 	# Animate
 	var tween_1 = create_tween()
-	tween_1.tween_property(self, "modulate", Color(0, 0, 0, 1), 0.1)
+	tween_1.tween_property(self, "modulate", Color(0.0, 0.0, 0.0, 1.0), 0.1)
 	var tween_2 = create_tween()
 	tween_2.tween_property(SoundManager.music_main, "volume_db", -100, 0.2)
 
 func _on_play_button_pressed() -> void:
 	SoundManager.click.play()
 	explorer.visible = false
-	explorer.modulate = Color(1, 1, 1, 0)
 	levels.visible = true
 	var tween = create_tween()
 	tween.tween_property(levels, "modulate", Color(1, 1, 1, 1), 0.1)
@@ -74,7 +68,7 @@ func _on_credits_button_pressed() -> void:
 
 func _on_settings_button_pressed() -> void:
 	SoundManager.click.play()
-	settings.visible = true
+	Global.game_controller.change_gui_scene("settings")
 
 func _on_exit_button_pressed() -> void:
 	SoundManager.click.play()
@@ -87,6 +81,7 @@ func _on_levels_back_button_pressed() -> void:
 	levels.visible = false
 	levels.modulate = Color(1, 1, 1, 0)
 	explorer.visible = true
+	explorer.modulate = Color(1, 1, 1, 0)
 	var tween = create_tween()
 	tween.tween_property(explorer, "modulate", Color(1, 1, 1, 1), 0.1)
 

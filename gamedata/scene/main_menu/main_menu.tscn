@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://die1k42jfmahn"]
+[gd_scene load_steps=28 format=3 uid="uid://die1k42jfmahn"]
 
 [ext_resource type="Script" uid="uid://dfi0gclyc5igs" path="res://gamedata/scene/main_menu/main_menu.gd" id="1_ab7jh"]
 [ext_resource type="Texture2D" uid="uid://bdbcrxa2815rn" path="res://interface/backgrounds/main_menu.jpeg" id="1_tludv"]
@@ -18,7 +18,6 @@
 [ext_resource type="Script" uid="uid://w4ahvf7okxlu" path="res://gamedata/ui/level_button/level_button.gd" id="13_adb1k"]
 [ext_resource type="Theme" uid="uid://b1dojytjydmpw" path="res://interface/themes/value.tres" id="15_gncvb"]
 [ext_resource type="Texture2D" uid="uid://bi3kg1fix3bcw" path="res://interface/backgrounds/ui_back.svg" id="16_npgut"]
-[ext_resource type="PackedScene" uid="uid://cci0owdbk2fr5" path="res://gamedata/scene/settings/settings.tscn" id="19_inpo7"]
 [ext_resource type="FontFile" uid="uid://5wohy1go68x5" path="res://interface/fonts/Tribal Garamond.ttf" id="19_mmsxt"]
 
 [sub_resource type="Theme" id="Theme_ks3a0"]
@@ -80,7 +79,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Game Name:position")
+tracks/2/path = NodePath("GameName:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -92,7 +91,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Game Name:modulate")
+tracks/3/path = NodePath("GameName:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -119,7 +118,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Game Name:position")
+tracks/1/path = NodePath("GameName:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -131,7 +130,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Game Name:modulate")
+tracks/2/path = NodePath("GameName:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -140,6 +139,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Explorer:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(527, 248)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0qjj4"]
 _data = {
@@ -147,7 +158,7 @@ _data = {
 &"RESET": SubResource("Animation_3n44e")
 }
 
-[node name="Main Menu" type="Node2D"]
+[node name="MainMenu" type="Node2D"]
 script = ExtResource("1_ab7jh")
 star_scene = ExtResource("2_ndcgm")
 
@@ -157,7 +168,7 @@ offset_bottom = 1462.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_tludv")
 
-[node name="Game Name" type="Label" parent="."]
+[node name="GameName" type="Label" parent="."]
 offset_right = 1280.0
 offset_bottom = 128.0
 pivot_offset = Vector2(640, 0)
@@ -271,6 +282,7 @@ vertical_alignment = 1
 
 [node name="Levels" type="Control" parent="."]
 visible = false
+modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -423,6 +435,7 @@ texture_hover = ExtResource("11_jr0j5")
 
 [node name="Credits" type="Control" parent="."]
 visible = false
+modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1280.0
@@ -484,11 +497,6 @@ scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("10_pcypl")
 texture_pressed = ExtResource("10_pcypl")
 texture_hover = ExtResource("11_jr0j5")
-
-[node name="Settings" parent="." instance=ExtResource("19_inpo7")]
-visible = false
-offset_right = 0.0
-offset_bottom = 0.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
