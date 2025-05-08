@@ -15,6 +15,12 @@ func _ready() -> void:
 	change_2d_scene("main_menu")
 	gui.scale = Vector2(UserSettings.gui_scale, UserSettings.gui_scale)
 
+func _physics_process(_delta: float) -> void:
+	if Input.is_action_just_pressed("ui_escape") and current_gui_scene:
+		# All GUI scenes have to have the function "close"
+		current_gui_scene.close()
+		current_gui_scene = null
+
 ## Scene name must be determined by the file name without the extension:[br]
 ## e.g. main_menu, level_1
 func change_2d_scene(scene_name: StringName, delete: bool = true, keep_running: bool = false) -> void:
