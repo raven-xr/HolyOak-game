@@ -44,7 +44,7 @@ func _ready() -> void:
 			star.position = Vector2(13 + 23 * i, 74)
 			button.add_child(star)
 
-func _physics_process(_delta):
+func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		if levels.visible and not levels_back_button.disabled:
 			levels_back_button.pressed.emit()
@@ -102,21 +102,21 @@ func _on_level_1_pressed() -> void:
 	animate_transition()
 	await SoundManager.click.finished
 	SoundManager.disable_music()
-	get_tree().change_scene_to_packed(level_1)
+	Global.game_controller.change_2d_scene("level_1")
 
 func _on_level_2_pressed() -> void:
 	SoundManager.click.play()
 	animate_transition()
 	await SoundManager.click.finished
 	SoundManager.disable_music()
-	get_tree().change_scene_to_packed(level_2)
+	Global.game_controller.change_2d_scene("level_2")
 
 func _on_level_3_pressed() -> void:
 	SoundManager.click.play()
 	animate_transition()
 	await SoundManager.click.finished
 	SoundManager.disable_music()
-	get_tree().change_scene_to_packed(level_3)
+	Global.game_controller.change_2d_scene("level_3")
 
 func _on_level_4_pressed() -> void:
 	SoundManager.click.play()

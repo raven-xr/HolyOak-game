@@ -3,6 +3,9 @@ class_name GameController
 
 @export_group("2D Scenes")
 @export var main_menu: PackedScene
+@export var level_1: PackedScene
+@export var level_2: PackedScene
+@export var level_3: PackedScene
 @export_group("GUI Scenes")
 @export var settings: PackedScene
 @export var message: PackedScene
