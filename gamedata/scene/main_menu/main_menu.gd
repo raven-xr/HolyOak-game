@@ -11,7 +11,8 @@ extends Node2D
 @onready var v_box_container: VBoxContainer = $Explorer/VBoxContainer
 @onready var levels: Control = $Levels
 @onready var grid_container: GridContainer = $Levels/GridContainer
-@onready var back_button: TextureButton = $"Levels/Back Button"
+@onready var levels_back_button: TextureButton = $"Levels/Back Button"
+@onready var credits_back_button: TextureButton = $"Credits/Back Button"
 @onready var credits: Control = $Credits
 
 func _ready() -> void:
@@ -43,13 +44,20 @@ func _ready() -> void:
 			star.position = Vector2(13 + 23 * i, 74)
 			button.add_child(star)
 
+func _physics_process(_delta):
+	if Input.is_action_just_pressed("ui_cancel"):
+		if levels.visible and not levels_back_button.disabled:
+			levels_back_button.pressed.emit()
+		elif credits.visible:
+			credits_back_button.pressed.emit()
+
 func animate_transition() -> void:
 	# Disable buttons
 	for button in v_box_container.get_children():
 		button.disabled = true
 	for button in grid_container.get_children():
 		button.visible = false
-	back_button.disabled = true
+	levels_back_button.disabled = true
 	# Animate
 	var tween_1 = create_tween()
 	tween_1.tween_property(self, "modulate", Color(0.0, 0.0, 0.0, 1.0), 0.1)
