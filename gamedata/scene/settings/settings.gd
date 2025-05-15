@@ -18,8 +18,8 @@ var last_music_volume: float = UserSettings.music_volume
 var last_sfx_volume: float = UserSettings.sfx_volume
 var last_gui_scale: float = UserSettings.gui_scale
 
+
 func _ready() -> void:
-	# Connects signal
 	scale_option_button.get_popup().connect("id_pressed", Callable(self, "_on_popup_menu_id_pressed"))
 	# Unless the current scene is the main menu, disables the reset progress button
 	if Global.game_controller.current_2d_scene.name != "MainMenu":
