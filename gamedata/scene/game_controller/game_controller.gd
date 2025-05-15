@@ -38,6 +38,7 @@ func change_2d_scene(scene_name: StringName, delete: bool = true, keep_running: 
 	world_2d.add_child(new_scene)
 	current_2d_scene = new_scene
 
+## You should change GUI Scene with GameConroller only if it's really needed (can be used in any scene, e. g. console)
 ## Scene name must be determined by the file name without the extension:[br]
 ## e.g. victory_menu, settings
 func change_gui_scene(scene_name: StringName, delete: bool = true, keep_running: bool = false) -> void:
