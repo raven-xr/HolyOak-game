@@ -21,9 +21,8 @@ func _ready() -> void:
 	change_2d_scene("main_menu")
 	gui.scale = Vector2(UserSettings.gui_scale, UserSettings.gui_scale)
 
-func _physics_process(_delta: float) -> void:
-	if Input.is_action_just_pressed("ui_escape") and current_gui_scene:
-		# All GUI scenes have to have the function "close"
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("ui_cancel") and current_gui_scene and current_gui_scene.has_method("close"):
 		current_gui_scene.close()
 		current_gui_scene = null
 
