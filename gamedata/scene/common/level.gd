@@ -18,10 +18,11 @@ enum States {
 @export var game_menu_scene: PackedScene
 
 ## Leave this field if there are no levels left
-@export var next_level_path: String = "res://gamedata/scene/main_menu/main_menu.tscn"
+@export var next_level: StringName = "main_menu"
+
 @export var technical_name: StringName
-@onready var user_interface = $"User Interface"
-@onready var menu_button = $"User Interface/Menu Button"
+@onready var user_interface = $UserInterface
+@onready var menu_button = $UserInterface/MenuButton
 @onready var wave_timer = $"Timers/Wave Timer"
 @onready var spawn_timer = $"Timers/Spawn Timer"
 
@@ -53,7 +54,6 @@ var state: int:
 
 func _ready() -> void:
 	# Scale
-	# Square the scale to reach the best view
 	menu_button.scale = Vector2(UserSettings.gui_scale**2, UserSettings.gui_scale**2)
 	# Connect signals
 	Signals.connect("health_changed", Callable(self, "_on_health_changed"))
@@ -98,9 +98,8 @@ func victory() -> void:
 	UserData.progress[name]["stars"] = 3
 	var save = FileAccess.open(UserData.SAVE_PATH, FileAccess.WRITE)
 	save.store_var(UserData.progress)
-	var new_message = message_scene.instantiate()
-	new_message.text = "Автосохранение..."
-	user_interface.add_child(new_message)
+	Global.game_controller.change_gui_scene("message")
+	Global.game_controller.current_gui_scene.set_text("Автосохранение...")
 	
 	var victory_menu = victory_menu_scene.instantiate()
 	user_interface.add_child(victory_menu)
@@ -108,9 +107,8 @@ func victory() -> void:
 
 func new_wave() -> void:
 	# Declare the new wave
-	var new_message = message_scene.instantiate()
-	new_message.text = "Волна " + str(wave)
-	user_interface.add_child(new_message)
+	Global.game_controller.change_gui_scene("message")
+	Global.game_controller.current_gui_scene.set_text("Волна " + str(wave))
 	# Spawn enemies
 	var spawn_cooldown: float = data["wave_" + str(wave)]["spawn_cooldown"]
 	var enemies: Array = data["wave_" + str(wave)]["enemies"]
@@ -142,11 +140,11 @@ func _on_health_changed(value: int) -> void:
 
 func _on_menu_button_pressed() -> void:
 	SoundManager.click.play()
-	if not user_interface.has_node("Game Menu"):
+	if not user_interface.has_node("GameMenu"):
 		var game_menu = game_menu_scene.instantiate()
 		user_interface.add_child(game_menu)
 	else:
-		var game_menu = user_interface.get_node("Game Menu")
+		var game_menu = user_interface.get_node("GameMenu")
 		game_menu.resume()
 
 func _on_start_timer_timeout() -> void:

@@ -11,7 +11,16 @@
 [ext_resource type="PackedScene" uid="uid://dqhv5ii03kgra" path="res://gamedata/ui/victory_menu/victory_menu.tscn" id="6_r8y5h"]
 [ext_resource type="PackedScene" uid="uid://sqtg0w21y043" path="res://gamedata/ui/game_menu/game_menu.tscn" id="7_165x0"]
 [ext_resource type="PackedScene" uid="uid://dgsn2o3sm3wgn" path="res://gamedata/scene/common/holy_oak.tscn" id="9_eoj5e"]
-[ext_resource type="Script" uid="uid://4rfudo777jkh" path="res://gamedata/scene/common/control.gd" id="12_2u1u3"]
+
+[sub_resource type="GDScript" id="GDScript_1jmb8"]
+script/source = "extends Node
+
+@onready var menu_button: Button = $\"../UserInterface/MenuButton\"
+
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed(\"ui_cancel\") and not Global.game_controller.current_gui_scene:
+		menu_button.pressed.emit()
+"
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_8vq8d")
@@ -39,22 +48,22 @@ texture_filter = 1
 
 [node name="Towers" type="Node2D" parent="."]
 
-[node name="Shell Container" type="Node2D" parent="."]
+[node name="ShellContainer" type="Node2D" parent="."]
 
-[node name="User Interface" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="UI Stats" parent="User Interface" instance=ExtResource("2_rdqft")]
-layout_mode = 0
+[node name="PlayerStats" parent="." instance=ExtResource("2_rdqft")]
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 266.0
 offset_bottom = 72.0
 
-[node name="Menu Button" type="Button" parent="User Interface"]
+[node name="UserInterface" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MenuButton" type="Button" parent="UserInterface"]
 process_mode = 3
 layout_mode = 0
 offset_left = 1232.0
@@ -80,8 +89,8 @@ one_shot = true
 
 [node name="Control" type="Node" parent="."]
 process_mode = 3
-script = ExtResource("12_2u1u3")
+script = SubResource("GDScript_1jmb8")
 
-[connection signal="pressed" from="User Interface/Menu Button" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="UserInterface/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="timeout" from="Timers/Start Timer" to="." method="_on_start_timer_timeout"]
 [connection signal="timeout" from="Timers/Wave Timer" to="." method="_on_wave_timer_timeout"]

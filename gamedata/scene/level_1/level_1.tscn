@@ -229,7 +229,7 @@ polygon = PackedVector2Array(23, -54, 23, 64, -23, 64, -23, -54)
 
 [node name="Level 1" instance=ExtResource("1_rbgy0")]
 script = ExtResource("2_c08mv")
-next_level_path = "res://gamedata/scene/level_2/level_2.tscn"
+next_level = &"level_2"
 technical_name = &"LEVEL_1"
 
 [node name="Layer 1" type="TileMapLayer" parent="Tilemap" index="0"]
@@ -696,7 +696,8 @@ unit_scene = ExtResource("14_kietl")
 menu_position = &"R"
 default_view_direction = &"R"
 
-[node name="Hint" parent="User Interface" index="2" instance=ExtResource("27_x1t5x")]
+[node name="Hint" parent="UserInterface" index="1" instance=ExtResource("27_x1t5x")]
+process_mode = 1
 
 [node name="Start Timer" parent="Timers" index="0"]
 autostart = false
