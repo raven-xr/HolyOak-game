@@ -1,6 +1,7 @@
 extends Node
 
 #const EXAMPLE = {
+	#"name": "level"
 	#HP of the Holy Oak at the start
 	#"health": 100, 
 	#Player's money at the start
@@ -20,6 +21,7 @@ extends Node
 #}
 
 const LEVEL_1: Dictionary = {
+	"name": "level_1",
 	"health": 150,
 	"money": 400,
 	"tower_level_limit": 2,
@@ -62,6 +64,7 @@ const LEVEL_1: Dictionary = {
 }
 
 const LEVEL_2: Dictionary = {
+	"name": "level_2",
 	"health": 200,
 	"money": 400,
 	"tower_level_limit": 3,
@@ -253,6 +256,7 @@ const LEVEL_2: Dictionary = {
 }
 
 const LEVEL_3: Dictionary = {
+	"name": "level_3",
 	"health": 500,
 	"money": 500,
 	"tower_level_limit": 4,
