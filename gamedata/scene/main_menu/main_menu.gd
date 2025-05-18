@@ -44,7 +44,7 @@ func _ready() -> void:
 			star.position = Vector2(13 + 23 * i, 74)
 			button.add_child(star)
 
-func _physics_process(_delta: float) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		if levels.visible and not levels_back_button.disabled:
 			levels_back_button.pressed.emit()
