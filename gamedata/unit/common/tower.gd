@@ -110,9 +110,8 @@ func _on_build_button_pressed() -> void:
 	if PlayerStats.money >= current_cost:
 		upgrade()
 	else:
-		var new_message = message_scene.instantiate()
-		new_message.text = "У вас недостаточно монет. Текущая стоимость строительства — " + str(current_cost) + " монет"
-		add_child(new_message)
+		Global.game_controller.change_gui_scene("message")
+		Global.game_controller.current_gui_scene.set_text("У вас недостаточно монет. Текущая стоимость строительства — " + str(current_cost) + " монет")
 	close_menu()
 
 func _on_upgrade_button_pressed() -> void:
@@ -121,9 +120,8 @@ func _on_upgrade_button_pressed() -> void:
 	if PlayerStats.money >= current_cost:
 		upgrade()
 	else:
-		var new_message = message_scene.instantiate()
-		new_message.text = "У вас недостаточно монет. Текущая стоимость улучшения — " + str(current_cost) + " монет"
-		add_child(new_message)
+		Global.game_controller.change_gui_scene("message")
+		Global.game_controller.current_gui_scene.set_text("У вас недостаточно монет. Текущая стоимость улучшения — " + str(current_cost) + " монет")
 	close_menu()
 
 func _on_remove_button_pressed() -> void:
@@ -164,8 +162,6 @@ func _on_tower_stats_button_pressed() -> void:
 	tower_stats.open()
 	close_menu()
 
-
-
 func upgrade() -> void:
 	remove_units()
 	# Block touch screen button to not let player interact with the interface
@@ -178,7 +174,7 @@ func upgrade() -> void:
 	PlayerStats.money -= current_cost
 	# Update cost
 	last_cost = current_cost
-	if level == MAX_LEVEL:
+	if not can_be_upgraded():
 		current_cost = "—"
 	else:
 		current_cost = unit_stats["level_" + str(level + 1)]["cost"]
