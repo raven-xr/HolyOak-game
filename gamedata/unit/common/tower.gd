@@ -200,6 +200,8 @@ func remove() -> void:
 	animation_player.play("Destruct")
 	# Unblock touch screen button
 	touch_screen_button.visible = true
+	# Update current cost
+	current_cost = unit_stats["level_1"]["cost"]
 
 func spawn_units(count: int, spawnpoints: Array) -> void:
 	# Spawn units
