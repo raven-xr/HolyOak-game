@@ -199,6 +199,7 @@ func remove() -> void:
 	sfx_building.play()
 	animation_player.play("Destruct")
 	# Unblock touch screen button
+	await animation_player.animation_finished
 	touch_screen_button.visible = true
 	# Update current cost
 	current_cost = unit_stats["level_1"]["cost"]
