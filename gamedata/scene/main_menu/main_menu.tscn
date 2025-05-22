@@ -18,9 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://eoofx4ysy5gn" path="res://interface/buttons/level_hover.svg" id="11_bbs4v"]
 [ext_resource type="Texture2D" uid="uid://d3p11abw8yorb" path="res://interface/buttons/arrow_left_hover.svg" id="11_jr0j5"]
 [ext_resource type="Texture2D" uid="uid://boeurit6h0hsl" path="res://interface/buttons/level_disabled.svg" id="11_n28j3"]
-[ext_resource type="Script" uid="uid://w4ahvf7okxlu" path="res://gamedata/ui/level_button/level_button.gd" id="13_adb1k"]
 [ext_resource type="Theme" uid="uid://b1dojytjydmpw" path="res://interface/themes/value.tres" id="15_gncvb"]
 [ext_resource type="Texture2D" uid="uid://bi3kg1fix3bcw" path="res://interface/backgrounds/ui_back.svg" id="16_npgut"]
+[ext_resource type="Script" uid="uid://b7ccti8loiw73" path="res://gamedata/scene/main_menu/level_button.gd" id="17_jx0ix"]
 [ext_resource type="FontFile" uid="uid://5wohy1go68x5" path="res://interface/fonts/Tribal Garamond.ttf" id="19_mmsxt"]
 
 [sub_resource type="Theme" id="Theme_ks3a0"]
@@ -318,7 +318,8 @@ texture_normal = ExtResource("10_xgh0e")
 texture_pressed = ExtResource("10_xgh0e")
 texture_hover = ExtResource("11_bbs4v")
 texture_disabled = ExtResource("11_n28j3")
-script = ExtResource("13_adb1k")
+script = ExtResource("17_jx0ix")
+level_technical_name = &"LEVEL_1"
 
 [node name="Label" type="Label" parent="Levels/GridContainer/Level 1"]
 layout_mode = 0
@@ -337,7 +338,8 @@ texture_normal = ExtResource("10_xgh0e")
 texture_pressed = ExtResource("10_xgh0e")
 texture_hover = ExtResource("11_bbs4v")
 texture_disabled = ExtResource("11_n28j3")
-script = ExtResource("13_adb1k")
+script = ExtResource("17_jx0ix")
+level_technical_name = &"LEVEL_2"
 
 [node name="Label" type="Label" parent="Levels/GridContainer/Level 2"]
 visible = false
@@ -357,7 +359,8 @@ texture_normal = ExtResource("10_xgh0e")
 texture_pressed = ExtResource("10_xgh0e")
 texture_hover = ExtResource("11_bbs4v")
 texture_disabled = ExtResource("11_n28j3")
-script = ExtResource("13_adb1k")
+script = ExtResource("17_jx0ix")
+level_technical_name = &"LEVEL_3"
 
 [node name="Label" type="Label" parent="Levels/GridContainer/Level 3"]
 visible = false
@@ -377,7 +380,8 @@ texture_normal = ExtResource("10_xgh0e")
 texture_pressed = ExtResource("10_xgh0e")
 texture_hover = ExtResource("11_bbs4v")
 texture_disabled = ExtResource("11_n28j3")
-script = ExtResource("13_adb1k")
+script = ExtResource("17_jx0ix")
+level_technical_name = &"LEVEL_4"
 
 [node name="Label" type="Label" parent="Levels/GridContainer/Level 4"]
 visible = false
@@ -397,7 +401,8 @@ texture_normal = ExtResource("10_xgh0e")
 texture_pressed = ExtResource("10_xgh0e")
 texture_hover = ExtResource("11_bbs4v")
 texture_disabled = ExtResource("11_n28j3")
-script = ExtResource("13_adb1k")
+script = ExtResource("17_jx0ix")
+level_technical_name = &"LEVEL_5"
 
 [node name="Label" type="Label" parent="Levels/GridContainer/Level 5"]
 visible = false
@@ -417,7 +422,8 @@ texture_normal = ExtResource("10_xgh0e")
 texture_pressed = ExtResource("10_xgh0e")
 texture_hover = ExtResource("11_bbs4v")
 texture_disabled = ExtResource("11_n28j3")
-script = ExtResource("13_adb1k")
+script = ExtResource("17_jx0ix")
+level_technical_name = &"LEVEL_6"
 
 [node name="Label" type="Label" parent="Levels/GridContainer/Level 6"]
 visible = false

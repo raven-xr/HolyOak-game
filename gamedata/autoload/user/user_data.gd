@@ -1,34 +1,30 @@
 extends Node
 
-
-
-const SAVE_PATH = "user://SAVE.save"
-const SETTINGS_PATH = "user://SETTINGS.save"
-
-
+const SAVE_PATH: String = "user://SAVE.save"
+const SETTINGS_PATH: String = "user://SETTINGS.save"
 
 var progress = {
-	"Level 1": {
+	"LEVEL_1": {
 		"is_completed": false,
 		"stars": 0
 	},
-	"Level 2": {
+	"LEVEL_2": {
 		"is_completed": false,
 		"stars": 0
 	},
-	"Level 3": {
+	"LEVEL_3": {
 		"is_completed": false,
 		"stars": 0
 	},
-	"Level 4": {
+	"LEVEL_4": {
 		"is_completed": false,
 		"stars": 0
 	},
-	"Level 5": {
+	"LEVEL_5": {
 		"is_completed": false,
 		"stars": 0
 	},
-	"Level 6": {
+	"LEVEL_6": {
 		"is_completed": false,
 		"stars": 0
 	},

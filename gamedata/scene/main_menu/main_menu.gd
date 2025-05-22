@@ -31,14 +31,15 @@ func _ready() -> void:
 	# Unblock levels
 	for i in range(1, grid_container.get_child_count()):
 		var button = grid_container.get_child(i)
-		var required_level_name = grid_container.get_child(i - 1).name
+		# Get buttons and the levels they redirect to and check if they are completed
+		var required_level_name: StringName = grid_container.get_child(i - 1).level_technical_name
 		if UserData.progress[required_level_name]["is_completed"]:
 			button.disabled = false
 			# If level is available, show its number
 			button.get_node("Label").visible = true
 	# Giving stars to levels
 	for button in grid_container.get_children():
-		var level_name = button.name
+		var level_name: StringName = button.level_technical_name
 		for i in range(UserData.progress[level_name]["stars"]):
 			var star = star_scene.instantiate()
 			star.position = Vector2(13 + 23 * i, 74)

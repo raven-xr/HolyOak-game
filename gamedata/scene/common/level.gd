@@ -94,8 +94,8 @@ func defeat() -> void:
 
 func victory() -> void:
 	# Save
-	UserData.progress[name]["is_completed"] = true
-	UserData.progress[name]["stars"] = 3
+	UserData.progress[technical_name]["is_completed"] = true
+	UserData.progress[technical_name]["stars"] = 3
 	var save = FileAccess.open(UserData.SAVE_PATH, FileAccess.WRITE)
 	save.store_var(UserData.progress)
 	Global.game_controller.change_gui_scene("message")
