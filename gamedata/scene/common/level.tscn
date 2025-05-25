@@ -15,7 +15,7 @@
 [sub_resource type="GDScript" id="GDScript_1jmb8"]
 script/source = "extends Node
 
-@onready var menu_button: Button = $\"../UserInterface/MenuButton\"
+@onready var menu_button: Button = $\"../GUI/MenuButton\"
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed(\"ui_cancel\") and not Global.game_controller.current_gui_scene:
@@ -56,15 +56,14 @@ offset_top = 16.0
 offset_right = 266.0
 offset_bottom = 72.0
 
-[node name="UserInterface" type="Control" parent="."]
+[node name="GUI" type="Control" parent="."]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1280.0
+offset_bottom = 720.0
 
-[node name="MenuButton" type="Button" parent="UserInterface"]
-process_mode = 3
+[node name="MenuButton" type="Button" parent="GUI"]
 layout_mode = 0
 offset_left = 1232.0
 offset_top = 16.0
@@ -91,6 +90,6 @@ one_shot = true
 process_mode = 3
 script = SubResource("GDScript_1jmb8")
 
-[connection signal="pressed" from="UserInterface/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="GUI/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="timeout" from="Timers/Start Timer" to="." method="_on_start_timer_timeout"]
 [connection signal="timeout" from="Timers/Wave Timer" to="." method="_on_wave_timer_timeout"]

@@ -1,0 +1,150 @@
+[gd_scene load_steps=9 format=3 uid="uid://cshahv76xkg1e"]
+
+[ext_resource type="Texture2D" uid="uid://b5ya13e41k2kt" path="res://interface/buttons/text_default.svg" id="1_87goc"]
+[ext_resource type="Script" uid="uid://cas7svkvuq7n" path="res://gamedata/unit/common/tower_menu.gd" id="1_wolsd"]
+[ext_resource type="Texture2D" uid="uid://dsh51r6drxmtr" path="res://interface/buttons/text_hover.svg" id="2_e5qv2"]
+[ext_resource type="Texture2D" uid="uid://csq5bonl77fkh" path="res://interface/buttons/text_disabled.svg" id="3_wolsd"]
+[ext_resource type="Script" uid="uid://bc6bgbd55qvb3" path="res://gamedata/ui/texture_button/texture_button.gd" id="4_7e2yb"]
+[ext_resource type="FontFile" uid="uid://car2t5itecnhr" path="res://interface/fonts/Bungee-Regular.ttf" id="5_mntfm"]
+[ext_resource type="FontFile" uid="uid://5wohy1go68x5" path="res://interface/fonts/Tribal Garamond.ttf" id="6_e5qv2"]
+
+[sub_resource type="Theme" id="Theme_linbm"]
+Label/colors/font_color = Color(0.784314, 0.572549, 0.372549, 1)
+Label/colors/font_shadow_color = Color(0.427451, 0.392157, 0.298039, 1)
+Label/constants/shadow_offset_x = 0
+Label/constants/shadow_offset_y = 2
+Label/constants/shadow_outline_size = 0
+Label/fonts/font = ExtResource("5_mntfm")
+
+[node name="TowerMenu" type="Control"]
+process_mode = 1
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+offset_left = -128.0
+offset_top = -64.0
+offset_right = 128.0
+offset_bottom = 64.0
+script = ExtResource("1_wolsd")
+
+[node name="Build Button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 17.0
+offset_right = 216.0
+offset_bottom = 101.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("1_87goc")
+texture_pressed = ExtResource("1_87goc")
+texture_hover = ExtResource("2_e5qv2")
+texture_disabled = ExtResource("3_wolsd")
+script = ExtResource("4_7e2yb")
+
+[node name="Label" type="Label" parent="Build Button"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 187.0
+offset_bottom = 66.0
+theme = SubResource("Theme_linbm")
+theme_override_font_sizes/font_size = 32
+text = "BUILD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Upgrade Button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 138.0
+offset_top = 17.0
+offset_right = 334.0
+offset_bottom = 101.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("1_87goc")
+texture_pressed = ExtResource("1_87goc")
+texture_hover = ExtResource("2_e5qv2")
+texture_disabled = ExtResource("3_wolsd")
+script = ExtResource("4_7e2yb")
+
+[node name="Label" type="Label" parent="Upgrade Button"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 187.0
+offset_bottom = 66.0
+theme = SubResource("Theme_linbm")
+theme_override_font_sizes/font_size = 32
+text = "UPGRADE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Remove Button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 65.0
+offset_right = 240.0
+offset_bottom = 149.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("1_87goc")
+texture_pressed = ExtResource("1_87goc")
+texture_hover = ExtResource("2_e5qv2")
+texture_disabled = ExtResource("3_wolsd")
+script = ExtResource("4_7e2yb")
+
+[node name="Label" type="Label" parent="Remove Button"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 187.0
+offset_bottom = 66.0
+theme = SubResource("Theme_linbm")
+theme_override_font_sizes/font_size = 32
+text = "REMOVE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tower Stats Button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 65.0
+offset_right = 329.0
+offset_bottom = 149.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("1_87goc")
+texture_pressed = ExtResource("1_87goc")
+texture_hover = ExtResource("2_e5qv2")
+texture_disabled = ExtResource("3_wolsd")
+script = ExtResource("4_7e2yb")
+
+[node name="Label" type="Label" parent="Tower Stats Button"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 187.0
+offset_bottom = 66.0
+theme = SubResource("Theme_linbm")
+theme_override_font_sizes/font_size = 32
+text = "STATS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UnitName" type="Label" parent="."]
+texture_filter = 2
+layout_mode = 0
+offset_left = 64.0
+offset_top = -24.0
+offset_right = 192.0
+offset_bottom = 1.0
+theme_override_colors/font_shadow_color = Color(0.099986, 0.099986, 0.099986, 1)
+theme_override_fonts/font = ExtResource("6_e5qv2")
+theme_override_font_sizes/font_size = 20
+text = "Unit's Name"
+horizontal_alignment = 1
+
+[connection signal="mouse_entered" from="Build Button" to="Build Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Build Button" to="Build Button" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Upgrade Button" to="Upgrade Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Upgrade Button" to="Upgrade Button" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Remove Button" to="Remove Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Remove Button" to="Remove Button" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Tower Stats Button" to="Tower Stats Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Tower Stats Button" to="Tower Stats Button" method="_on_mouse_exited"]

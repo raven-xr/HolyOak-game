@@ -15,33 +15,33 @@ var is_remove_button_locked: bool = true
 
 
 func open_menu() -> void:
-	menu.visible = true
-	unit_name.visible = true
+	tower_menu = tower_menu_scene.instantiate()
+	tower_menu.unit_name.text = unit_scene.instantiate().name
+	tower_menu.menu_position = menu_position
+	level_gui.add_child(tower_menu)
 	# Smooth appearance
-	var tween_1 = create_tween()
-	tween_1.tween_property(menu, "modulate", Color(1, 1, 1, 1), 0.1)
-	var tween_2 = create_tween()
-	tween_2.tween_property(unit_name, "modulate", Color(1, 1, 1, 1), 0.1)
+	var tween = create_tween()
+	tween.tween_property(tower_menu, "modulate", Color(1.0, 1.0, 1.0, 1.0), 0.1)
 	# Close tower stats if they are opened
-	if tower_stats.visible:
-		tower_stats.close()
+	if level_gui.has_node("TowerStats"):
+		level_gui.get_node("TowerStats").close()
 	# Disable buttons (unique for this tower)
 	if level > 0:
-		build_button.disabled = true
+		tower_menu.build_button.disabled = true
 		if not can_be_upgraded():
-			upgrade_button.disabled = true
+			tower_menu.upgrade_button.disabled = true
 		if is_tower_stats_button_locked:
-			tower_stats_button.disabled = true
+			tower_menu.tower_stats_button.disabled = true
 		if is_remove_button_locked:
-			remove_button.disabled = true
+			tower_menu.remove_button.disabled = true
 	else:
-		tower_stats_button.disabled = true
-		remove_button.disabled = true
-		upgrade_button.disabled = true
+		tower_menu.tower_stats_button.disabled = true
+		tower_menu.remove_button.disabled = true
+		tower_menu.upgrade_button.disabled = true
 
 func _on_touch_screen_button_pressed() -> void:
 	SoundManager.click.play()
-	if not menu.visible:
+	if not level_gui.has_node("TowerMenu"):
 		open_menu()
 	else:
 		close_menu()
@@ -107,5 +107,5 @@ func _on_tower_stats_button_pressed() -> void:
 
 func _on_level_1_player_ended_tutorial() -> void:
 	# Enable the remove button if the menu is opened
-	if menu.visible:
-		remove_button.disabled = false
+	if tower_menu.visible:
+		tower_menu.remove_button.disabled = false

@@ -4,6 +4,8 @@ extends Node2D
 @export var unit_scene: PackedScene
 @export var smoke_scene: PackedScene
 @export var message_scene: PackedScene
+@export var tower_menu_scene: PackedScene
+@export var tower_stats_scene: PackedScene
 
 @export_subgroup("Misc")
 @export var menu_position: StringName = "D"
@@ -13,24 +15,19 @@ extends Node2D
 @onready var units: Node2D = $Units
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-@onready var menu: Control = $Interface/Menu
-@onready var build_button: TextureButton = $"Interface/Menu/Build Button"
-@onready var upgrade_button: TextureButton  = $"Interface/Menu/Upgrade Button"
-@onready var remove_button: TextureButton  = $"Interface/Menu/Remove Button"
-@onready var tower_stats_button: TextureButton  = $"Interface/Menu/Tower Stats Button"
-@onready var unit_name: Label = $"Interface/Unit Name"
-@onready var tower_stats: Control = $"Interface/Tower Stats"
 @onready var touch_screen_button: TouchScreenButton = $TouchScreenButton
 
 @onready var sfx_building: AudioStreamPlayer2D = $Building
 @onready var gfx_smoke: Node2D = $Smoke
 @onready var unit_stats: Dictionary[StringName, Dictionary] = UnitData.get(unit_scene.instantiate().technical_name)
 
+# GUI of the current level
+@onready var level_gui: Control = Global.game_controller.current_2d_scene.get_node("GUI")
+
 const MAX_LEVEL: int = 7
 var level: int = 0
 var unit_count: int = 0
 var unit_spawnpoints: Array 
-
 ## Not always integer, when level equals MAX_LEVEL, it becomes the "-" string to
 ## show player he can't upgrade the tower anymore.
 @onready var current_cost = unit_stats["level_1"]["cost"]
@@ -38,71 +35,51 @@ var unit_spawnpoints: Array
 ## spent on the last upgrade after the pressing Remove Button.
 var last_cost: int = 0
 
-
+var tower_menu
+var tower_stats
 
 func _ready() -> void:
-	# Scale the interface and raise the scaling to the power of 1.5 to make it look better
-	menu.scale = Vector2(UserSettings.gui_scale**1.5, UserSettings.gui_scale**1.5)
-	# Posite the menu
-	match menu_position:
-		"U":
-			menu.position = global_position + Vector2(-128.0, -160.0)
-			menu.pivot_offset = Vector2(128.0, 128.0)
-		"R":
-			menu.position = global_position + Vector2(40.0, -64.0)
-			menu.pivot_offset = Vector2(0.0, 64.0)
-		"D":
-			menu.position = global_position + Vector2(-128.0, 40.0)
-			menu.pivot_offset = Vector2(128.0, 0.0)
-		"L":
-			menu.position = global_position + Vector2(-296.0, -64.0)
-			menu.pivot_offset = Vector2(256.0, 64.0)
 	# Set the logo
 	logo.texture = unit_scene.instantiate().logo
-	unit_name.text = unit_scene.instantiate().name
-
-
-
-func open_menu() -> void:
-	menu.visible = true
-	unit_name.visible = true
-	# Smooth appearance
-	var tween_1 = create_tween()
-	tween_1.tween_property(menu, "modulate", Color(1, 1, 1, 1), 0.1)
-	var tween_2 = create_tween()
-	tween_2.tween_property(unit_name, "modulate", Color(1, 1, 1, 1), 0.1)
-	# Close tower stats if they are opened
-	if tower_stats.visible:
-		tower_stats.close()
-	# Disable buttons
-	if level > 0:
-		build_button.disabled = true
-		if not can_be_upgraded():
-			upgrade_button.disabled = true
-	else:
-		upgrade_button.disabled = true
-		remove_button.disabled = true
-		tower_stats_button.disabled = true
-
-func close_menu() -> void:
-	# Smooth disappearance
-	var tween_1 = create_tween()
-	tween_1.tween_property(menu, "modulate", Color(1, 1, 1, 0), 0.1)
-	var tween_2 = create_tween()
-	tween_2.tween_property(unit_name, "modulate", Color(1, 1, 1, 0), 0.1)
-	await tween_1.finished
-	menu.visible = false
-	unit_name.visible = false
-	# Enable all buttons to disable them after the opening
-	for button in menu.get_children():
-		button.disabled = false
 
 func _on_touch_screen_button_pressed() -> void:
 	SoundManager.click.play()
-	if not menu.visible:
-		open_menu()
-	else:
+	if level_gui.has_node("TowerMenu"):
 		close_menu()
+	else:
+		open_menu()
+
+func open_menu() -> void:
+	tower_menu = tower_menu_scene.instantiate()
+	tower_menu.unit_name = unit_scene.instantiate().name
+	tower_menu.menu_position = menu_position
+	tower_menu.tower_position = position
+	level_gui.add_child(tower_menu)
+	tower_menu.build_button.connect("pressed", Callable(self, "_on_build_button_pressed"))
+	tower_menu.upgrade_button.connect("pressed", Callable(self, "_on_upgrade_button_pressed"))
+	tower_menu.remove_button.connect("pressed", Callable(self, "_on_remove_button_pressed"))
+	tower_menu.tower_stats_button.connect("pressed", Callable(self, "_on_tower_stats_button_pressed"))
+	# Close tower stats if they are opened
+	if level_gui.has_node("TowerStats"):
+		level_gui.get_node("TowerStats").close()
+	# Disable buttons
+	if level > 0:
+		tower_menu.build_button.disabled = true
+		if not can_be_upgraded():
+			tower_menu.upgrade_button.disabled = true
+	else:
+		tower_menu.upgrade_button.disabled = true
+		tower_menu.remove_button.disabled = true
+		tower_menu.tower_stats_button.disabled = true
+
+func close_menu() -> void:
+	var current_tower_menu: Control = level_gui.get_node("TowerMenu")
+	current_tower_menu.close()
+	if tower_menu == current_tower_menu:
+		tower_menu = null
+	else:
+		await current_tower_menu.tree_exited
+		open_menu()
 
 func _on_build_button_pressed() -> void:
 	SoundManager.click.play()

@@ -21,10 +21,10 @@ enum States {
 @export var next_level: StringName = "main_menu"
 
 @export var technical_name: StringName
-@onready var user_interface = $UserInterface
-@onready var menu_button = $UserInterface/MenuButton
-@onready var wave_timer = $"Timers/Wave Timer"
-@onready var spawn_timer = $"Timers/Spawn Timer"
+@onready var gui: Control = $GUI
+@onready var menu_button: Button = $GUI/MenuButton
+@onready var wave_timer: Timer = $"Timers/Wave Timer"
+@onready var spawn_timer: Timer = $"Timers/Spawn Timer"
 
 @onready var data: Dictionary = LevelData.get(technical_name)
 
@@ -89,7 +89,7 @@ func fight_state() -> void:
 
 func defeat() -> void:
 	var defeat_menu = defeat_menu_scene.instantiate()
-	user_interface.add_child(defeat_menu)
+	gui.add_child(defeat_menu)
 	menu_button.disabled = true
 
 func victory() -> void:
@@ -102,7 +102,7 @@ func victory() -> void:
 	Global.game_controller.current_gui_scene.set_text("Автосохранение...")
 	
 	var victory_menu = victory_menu_scene.instantiate()
-	user_interface.add_child(victory_menu)
+	gui.add_child(victory_menu)
 	menu_button.disabled = true
 
 func new_wave() -> void:
@@ -140,11 +140,11 @@ func _on_health_changed(value: int) -> void:
 
 func _on_menu_button_pressed() -> void:
 	SoundManager.click.play()
-	if not user_interface.has_node("GameMenu"):
+	if not gui.has_node("GameMenu"):
 		var game_menu = game_menu_scene.instantiate()
-		user_interface.add_child(game_menu)
+		gui.add_child(game_menu)
 	else:
-		var game_menu = user_interface.get_node("GameMenu")
+		var game_menu = gui.get_node("GameMenu")
 		game_menu.resume()
 
 func _on_start_timer_timeout() -> void:
