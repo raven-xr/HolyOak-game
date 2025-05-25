@@ -37,8 +37,8 @@ func change_2d_scene(scene_name: StringName, delete: bool = true, keep_running: 
 		else:
 			world_2d.remove_child(current_2d_scene) # Removes node from the tree, but keeps in memory
 	var new_scene = get(scene_name).instantiate()
-	world_2d.add_child(new_scene)
 	current_2d_scene = new_scene
+	world_2d.add_child(new_scene)
 
 ## You should change GUI Scene with GameConroller only if it's really needed (can be used in any scene, e. g. console)
 ## Scene name must be determined by the file name without the extension:[br]
@@ -52,5 +52,5 @@ func change_gui_scene(scene_name: StringName, delete: bool = true, keep_running:
 		else:
 			gui.remove_child(current_gui_scene) # Removes node from the tree, but keeps in memory
 	var new_scene = get(scene_name).instantiate()
-	gui.add_child(new_scene)
 	current_gui_scene = new_scene
+	gui.add_child(new_scene)
