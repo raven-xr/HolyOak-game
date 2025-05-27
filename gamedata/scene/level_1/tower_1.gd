@@ -12,19 +12,20 @@ signal player_opened_tower_stats()
 var is_tower_stats_button_locked: bool = true
 var is_remove_button_locked: bool = true
 
-
-
 func open_menu() -> void:
 	tower_menu = tower_menu_scene.instantiate()
-	tower_menu.unit_name.text = unit_scene.instantiate().name
+	tower_menu.unit_name = unit_scene.instantiate().name
 	tower_menu.menu_position = menu_position
-	level_gui.add_child(tower_menu)
-	# Smooth appearance
-	var tween = create_tween()
-	tween.tween_property(tower_menu, "modulate", Color(1.0, 1.0, 1.0, 1.0), 0.1)
-	# Close tower stats if they are opened
-	if level_gui.has_node("TowerStats"):
-		level_gui.get_node("TowerStats").close()
+	tower_menu.tower_position = position
+	# Connects the "opened" and "closed" signals to the level
+	tower_menu.connect("opened", Callable(Global.game_controller.current_2d_scene, "_on_tower_menu_opened"))
+	tower_menu.connect("closed", Callable(Global.game_controller.current_2d_scene, "_on_tower_menu_closed"))
+	level_gui.add_child(tower_menu) # Enters the tree
+	# Connects the other signals
+	tower_menu.build_button.connect("pressed", Callable(self, "_on_build_button_pressed"))
+	tower_menu.upgrade_button.connect("pressed", Callable(self, "_on_upgrade_button_pressed"))
+	tower_menu.remove_button.connect("pressed", Callable(self, "_on_remove_button_pressed"))
+	tower_menu.tower_stats_button.connect("pressed", Callable(self, "_on_tower_stats_button_pressed"))
 	# Disable buttons (unique for this tower)
 	if level > 0:
 		tower_menu.build_button.disabled = true
@@ -74,34 +75,20 @@ func _on_upgrade_button_pressed() -> void:
 func _on_tower_stats_button_pressed() -> void:
 	SoundManager.click.play()
 	# The dictionary is required for positioning tower stats and offsetting their pivots
-	const POSITIONS: Dictionary[StringName, Dictionary] = {
-		"U": {
-			"position": Vector2(-132, -263),
-			"pivot_offset": Vector2(130, 202)
-			},
-		"R": {
-			"position": Vector2(61, -101),
-			"pivot_offset": Vector2(10, 101)
-			},
-		"D": {
-			"position": Vector2(-132, 61),
-			"pivot_offset": Vector2(130, 0)
-			},
-		"L": {
-			"position": Vector2(-321, -101),
-			"pivot_offset": Vector2(260, 101)
-			}
-	}
-	tower_stats.label.text = str(
+	var tower_stats = tower_stats_scene.instantiate()
+	tower_stats.menu_position = menu_position
+	tower_stats.tower_position = position
+	# Connects the "opened" and "closed" signals to the level
+	tower_stats.connect("opened", Callable(Global.game_controller.current_2d_scene, "_on_tower_stats_opened"))
+	tower_stats.connect("closed", Callable(Global.game_controller.current_2d_scene, "_on_tower_stats_closed"))
+	level_gui.add_child(tower_stats) # Enters the tree
+	tower_stats.values_label.text = str(
 		unit_stats["level_" + str(level)]["attack_range"], "\n",
 		unit_stats["level_" + str(level)]["damage"], "\n",
 		unit_stats["level_" + str(level)]["count"], "\n",
 		current_cost, "\n",
 		min(MAX_LEVEL, PlayerStats.tower_level_limit)
 	)
-	tower_stats.position = global_position + POSITIONS[menu_position]["position"]
-	tower_stats.pivot_offset = POSITIONS[menu_position]["pivot_offset"]
-	tower_stats.open()
 	close_menu()
 	player_opened_tower_stats.emit()
 

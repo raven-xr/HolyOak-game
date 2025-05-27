@@ -21,6 +21,8 @@ enum States {
 @export var next_level: StringName = "main_menu"
 
 @export var technical_name: StringName
+
+@onready var towers: Node2D = $Towers
 @onready var gui: Control = $GUI
 @onready var menu_button: Button = $GUI/MenuButton
 @onready var wave_timer: Timer = $"Timers/Wave Timer"
@@ -153,9 +155,12 @@ func _on_start_timer_timeout() -> void:
 func _on_wave_timer_timeout() -> void:
 	wave += 1
 
+# -------------------------------------------------------------------------------- #
+# ----------------------------------GUI------------------------------------------- #
+
 func _on_tower_menu_opened(tower_menu: Control) -> void:
 	# If any tower menu was opened, disable the other ones
-	for tower in $Towers.get_children():
+	for tower in towers.get_children():
 		# If the opened tower menu is the tower menu of the tower of the current iteration,
 		# leave its TouchScreenButton enabled
 		if tower.tower_menu == tower_menu:
@@ -163,11 +168,21 @@ func _on_tower_menu_opened(tower_menu: Control) -> void:
 		tower.touch_screen_button.visible = false
 
 func _on_tower_menu_closed(tower_menu: Control) -> void:
-	# If the tower menu was closed, enable the other ones=
-	for tower in $Towers.get_children():
+	# If the tower menu was closed, enable the other ones
+	for tower in towers.get_children():
 		# If the opened tower menu is the tower menu of the tower of the current iteration
 		# or the tower is upgrading, leave its TouchScreenButton disabled/enabled
 		# (depends on whether you started building/upgrading it now)
 		if tower.tower_menu == tower_menu or tower.is_upgrading:
+			continue
+		tower.touch_screen_button.visible = true
+
+func _on_tower_stats_opened() -> void:
+	for tower in towers.get_children():
+		tower.touch_screen_button.visible = false
+
+func _on_tower_stats_closed() -> void:
+	for tower in towers.get_children():
+		if tower.is_upgrading:
 			continue
 		tower.touch_screen_button.visible = true

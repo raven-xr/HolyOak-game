@@ -1,7 +1,6 @@
 extends Level
 
-@onready var hint: Control = $UserInterface/Hint
-@onready var towers: Node2D = $Towers
+@onready var hint: Control = $GUI/Hint
 @onready var tower_1: Node2D = $"Towers/Tower 1"
 
 func idle_state() -> void:
