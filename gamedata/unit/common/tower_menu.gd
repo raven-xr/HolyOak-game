@@ -8,9 +8,12 @@ extends Control
 var unit_name: String
 var menu_position: StringName
 var tower_position: Vector2
-var is_closing: bool = false
+
+signal opened()
+signal closed()
 
 func _ready() -> void:
+	opened.emit(self)
 	scale = Vector2(UserSettings.gui_scale**1.5, UserSettings.gui_scale**1.5)
 	# Smooth appearance
 	modulate = Color(1.0, 1.0, 1.0, 0.0)
@@ -34,7 +37,7 @@ func _ready() -> void:
 	$UnitName.text = unit_name
 
 func close() -> void:
-	is_closing = true
+	closed.emit(self)
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color(1.0, 1.0, 1.0, 0.0), 0.15)
 	await tween.finished

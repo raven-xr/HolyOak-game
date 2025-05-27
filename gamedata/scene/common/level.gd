@@ -152,3 +152,22 @@ func _on_start_timer_timeout() -> void:
 
 func _on_wave_timer_timeout() -> void:
 	wave += 1
+
+func _on_tower_menu_opened(tower_menu: Control) -> void:
+	# If any tower menu was opened, disable the other ones
+	for tower in $Towers.get_children():
+		# If the opened tower menu is the tower menu of the tower of the current iteration,
+		# leave its TouchScreenButton enabled
+		if tower.tower_menu == tower_menu:
+			continue
+		tower.touch_screen_button.visible = false
+
+func _on_tower_menu_closed(tower_menu: Control) -> void:
+	# If the tower menu was closed, enable the other ones=
+	for tower in $Towers.get_children():
+		# If the opened tower menu is the tower menu of the tower of the current iteration,
+		# leave its TouchScreenButton disabled/enabled
+		# (depends on whether you started building/upgrading it now)
+		if tower.tower_menu == tower_menu:
+			continue
+		tower.touch_screen_button.visible = true

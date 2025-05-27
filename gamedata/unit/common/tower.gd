@@ -44,7 +44,7 @@ func _ready() -> void:
 
 func _on_touch_screen_button_pressed() -> void:
 	SoundManager.click.play()
-	if level_gui.has_node("TowerMenu"):
+	if tower_menu:
 		close_menu()
 	else:
 		open_menu()
@@ -54,14 +54,15 @@ func open_menu() -> void:
 	tower_menu.unit_name = unit_scene.instantiate().name
 	tower_menu.menu_position = menu_position
 	tower_menu.tower_position = position
-	level_gui.add_child(tower_menu)
+	# Connects the "opened" and "closed" signals to the level
+	tower_menu.connect("opened", Callable(Global.game_controller.current_2d_scene, "_on_tower_menu_opened"))
+	tower_menu.connect("closed", Callable(Global.game_controller.current_2d_scene, "_on_tower_menu_closed"))
+	level_gui.add_child(tower_menu) # Enters the tree
+	# Connects the other signals
 	tower_menu.build_button.connect("pressed", Callable(self, "_on_build_button_pressed"))
 	tower_menu.upgrade_button.connect("pressed", Callable(self, "_on_upgrade_button_pressed"))
 	tower_menu.remove_button.connect("pressed", Callable(self, "_on_remove_button_pressed"))
 	tower_menu.tower_stats_button.connect("pressed", Callable(self, "_on_tower_stats_button_pressed"))
-	# Close tower stats if they are opened
-	if level_gui.has_node("TowerStats"):
-		level_gui.get_node("TowerStats").close()
 	# Disable buttons
 	if level > 0:
 		tower_menu.build_button.disabled = true
@@ -73,13 +74,8 @@ func open_menu() -> void:
 		tower_menu.tower_stats_button.disabled = true
 
 func close_menu() -> void:
-	var current_tower_menu: Control = level_gui.get_node("TowerMenu")
-	current_tower_menu.close()
-	if tower_menu == current_tower_menu:
-		tower_menu = null
-	else:
-		await current_tower_menu.tree_exited
-		open_menu()
+	tower_menu.close()
+	tower_menu = null
 
 func _on_build_button_pressed() -> void:
 	SoundManager.click.play()
