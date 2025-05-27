@@ -145,8 +145,9 @@ func upgrade() -> void:
 	SoundManager.success.play()
 	# Create units
 	spawn_units(unit_count, unit_spawnpoints)
-	# Unblock touch screen button
-	touch_screen_button.visible = true
+	# Unless there is an opened TowerStats in the level GUI, enable the TouchScreenButton
+	if not level_gui.has_node("TowerStats"):
+		touch_screen_button.visible = true
 	is_upgrading = false
 
 func remove() -> void:
@@ -162,7 +163,9 @@ func remove() -> void:
 	animation_player.play("Destruct")
 	# Unblock touch screen button
 	await animation_player.animation_finished
-	touch_screen_button.visible = true
+	# Unless there is an opened TowerStats in the level GUI, enable the TouchScreenButton
+	if not level_gui.has_node("TowerStats"):
+		touch_screen_button.visible = true
 	# Update current cost
 	current_cost = unit_stats["level_1"]["cost"]
 	is_upgrading = false
