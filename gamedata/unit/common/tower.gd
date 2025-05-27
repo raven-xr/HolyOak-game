@@ -34,6 +34,7 @@ var unit_spawnpoints: Array
 ## Used to give half of the money back player
 ## spent on the last upgrade after the pressing Remove Button.
 var last_cost: int = 0
+var is_upgrading: bool = false
 
 var tower_menu
 var tower_stats
@@ -136,6 +137,7 @@ func _on_tower_stats_button_pressed() -> void:
 	close_menu()
 
 func upgrade() -> void:
+	is_upgrading = true
 	remove_units()
 	# Block touch screen button to not let player interact with the interface
 	touch_screen_button.visible = false
@@ -160,8 +162,10 @@ func upgrade() -> void:
 	spawn_units(unit_count, unit_spawnpoints)
 	# Unblock touch screen button
 	touch_screen_button.visible = true
+	is_upgrading = false
 
 func remove() -> void:
+	is_upgrading = true
 	remove_units()
 	# Block touch screen button to not let player interact with the interface
 	touch_screen_button.visible = false
@@ -176,6 +180,7 @@ func remove() -> void:
 	touch_screen_button.visible = true
 	# Update current cost
 	current_cost = unit_stats["level_1"]["cost"]
+	is_upgrading = false
 
 func spawn_units(count: int, spawnpoints: Array) -> void:
 	# Spawn units

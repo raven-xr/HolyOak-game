@@ -165,9 +165,9 @@ func _on_tower_menu_opened(tower_menu: Control) -> void:
 func _on_tower_menu_closed(tower_menu: Control) -> void:
 	# If the tower menu was closed, enable the other ones=
 	for tower in $Towers.get_children():
-		# If the opened tower menu is the tower menu of the tower of the current iteration,
-		# leave its TouchScreenButton disabled/enabled
+		# If the opened tower menu is the tower menu of the tower of the current iteration
+		# or the tower is upgrading, leave its TouchScreenButton disabled/enabled
 		# (depends on whether you started building/upgrading it now)
-		if tower.tower_menu == tower_menu:
+		if tower.tower_menu == tower_menu or tower.is_upgrading:
 			continue
 		tower.touch_screen_button.visible = true
