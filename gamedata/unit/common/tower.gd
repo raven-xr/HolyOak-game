@@ -146,7 +146,7 @@ func upgrade() -> void:
 	# Create units
 	spawn_units(unit_count, unit_spawnpoints)
 	# Unless there is an opened TowerStats in the level GUI, enable the TouchScreenButton
-	if not level_gui.has_node("TowerStats"):
+	if not level_gui.has_node("TowerStats") and not level_gui.has_node("TowerMenu"):
 		touch_screen_button.visible = true
 	is_upgrading = false
 
@@ -163,8 +163,8 @@ func remove() -> void:
 	animation_player.play("Destruct")
 	# Unblock touch screen button
 	await animation_player.animation_finished
-	# Unless there is an opened TowerStats in the level GUI, enable the TouchScreenButton
-	if not level_gui.has_node("TowerStats"):
+	# Unless there is an opened TowerStats or TowerMenu in the level GUI, enable the TouchScreenButton
+	if not level_gui.has_node("TowerStats") and not level_gui.has_node("TowerMenu"):
 		touch_screen_button.visible = true
 	# Update current cost
 	current_cost = unit_stats["level_1"]["cost"]
