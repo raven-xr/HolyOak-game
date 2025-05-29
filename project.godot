@@ -14,7 +14,7 @@ config/name="Holy Oak"
 config/version="0.5.0"
 run/main_scene="uid://b4vwc1l7latan"
 config/features=PackedStringArray("4.4", "Forward Plus")
-boot_splash/image="res://interface/backgrounds/loadscreen.png"
+boot_splash/image="res://gui/backgrounds/loadscreen.png"
 config/icon="res://icon.png"
 
 [audio]

@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://lxt2xv2lfkgu" path="res://gamedata/unit/common/tower.tscn" id="13_1k0nc"]
 [ext_resource type="Script" uid="uid://m454krs78c55" path="res://gamedata/scene/level_1/tower_1.gd" id="14_dqg4i"]
 [ext_resource type="PackedScene" uid="uid://cenxr6q3w2dek" path="res://gamedata/unit/archer/archer.tscn" id="14_kietl"]
-[ext_resource type="PackedScene" uid="uid://ceakiostnoxao" path="res://gamedata/ui/hint/hint.tscn" id="27_x1t5x"]
+[ext_resource type="PackedScene" uid="uid://ceakiostnoxao" path="res://gamedata/gui/hint/hint.tscn" id="27_x1t5x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lj6gp"]
 texture = ExtResource("3_1gxpb")
