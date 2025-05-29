@@ -6,10 +6,9 @@ extends Control
 @onready var music_h_slider: HSlider = $"PanelContainer/VBoxContainer/Music Volume/Music HSlider"
 @onready var sfx_h_slider: HSlider = $"PanelContainer/VBoxContainer/SFX Volume/SFX HSlider"
 @onready var scale_option_button: OptionButton = $"PanelContainer/VBoxContainer/GUI Scale/Scale OptionButton"
-
 @onready var confirmation: Control = $"PanelContainer/VBoxContainer/Data Reset/Reset Progress Button/Confirmation"
-
 @onready var reset_progress_button: Button = $"PanelContainer/VBoxContainer/Data Reset/Reset Progress Button"
+@onready var popup_menu: PopupMenu = scale_option_button.get_popup()
 
 # Previous settings (will be used, if player didn't apply settings)
 # Gets values when settings is opened
@@ -20,7 +19,7 @@ var last_gui_scale: float = UserSettings.gui_scale
 
 
 func _ready() -> void:
-	scale_option_button.get_popup().connect("id_pressed", Callable(self, "_on_popup_menu_id_pressed"))
+	popup_menu.connect("id_pressed", Callable(self, "_on_popup_menu_id_pressed"))
 	# Unless the current scene is the main menu, disables the reset progress button
 	if Global.game_controller.current_2d_scene.name != "MainMenu":
 		reset_progress_button.disabled = true
@@ -104,14 +103,14 @@ func _on_close_button_pressed() -> void:
 func _on_cancel_pressed() -> void:
 	SoundManager.click.play()
 	var tween = create_tween()
-	tween.tween_property(confirmation, "modulate", Color(1, 1, 1, 0), 0.1)
+	tween.tween_property(confirmation, "modulate", Color(1.0, 1.0, 1.0, 0.0), 0.1)
 	await tween.finished
 	confirmation.visible = false
 
 func _on_confirm_pressed() -> void:
 	SoundManager.click.play()
 	var tween = create_tween()
-	tween.tween_property(confirmation, "modulate", Color(1, 1, 1, 0), 0.1)
+	tween.tween_property(confirmation, "modulate", Color(1.0, 1.0, 1.0, 0.0), 0.1)
 	await tween.finished
 	confirmation.visible = false
 	for level in UserData.progress.keys():
