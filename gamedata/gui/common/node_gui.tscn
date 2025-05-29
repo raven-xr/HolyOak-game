@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://i7ihkn2i5v5n"]
+
+[ext_resource type="Script" uid="uid://1cmn05vqg4lx" path="res://gamedata/gui/common/node_gui.gd" id="1_tygp5"]
+
+[node name="NodeGUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tygp5")
