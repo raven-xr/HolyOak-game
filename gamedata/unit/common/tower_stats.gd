@@ -31,12 +31,12 @@ func _ready() -> void:
 			pivot_offset = Vector2(260.0, 101.0)
 
 func close() -> void:
-	closed.emit()
 	# Smooth disappearance
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color(1.0, 1.0, 1.0, 0.0), 0.1)
 	await tween.finished
-	visible = false
+	queue_free()
+	closed.emit()
 
 func _on_close_button_pressed() -> void:
 	SoundManager.click.play()
