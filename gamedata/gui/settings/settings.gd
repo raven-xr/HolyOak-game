@@ -4,7 +4,6 @@ extends NodeGUI
 @onready var music_h_slider: HSlider = $"PanelContainer/VBoxContainer/Music Volume/Music HSlider"
 @onready var sfx_h_slider: HSlider = $"PanelContainer/VBoxContainer/SFX Volume/SFX HSlider"
 @onready var scale_option_button: OptionButton = $"PanelContainer/VBoxContainer/GUI Scale/Scale OptionButton"
-@onready var confirmation: Control = $"PanelContainer/VBoxContainer/Data Reset/Reset Progress Button/Confirmation"
 @onready var reset_progress_button: Button = $"PanelContainer/VBoxContainer/Data Reset/Reset Progress Button"
 @onready var popup_menu: PopupMenu = scale_option_button.get_popup()
 
@@ -62,10 +61,10 @@ func _on_reset_settings_button_pressed() -> void:
 
 func _on_reset_progress_button_pressed() -> void:
 	SoundManager.click.play()
-	confirmation.visible = true
-	confirmation.modulate = Color(1.0, 1.0, 1.0, 0.0)
-	var tween = create_tween()
-	tween.tween_property(confirmation, "modulate", Color(1.0, 1.0, 1.0, 1.0), 0.1)
+	Global.game_controller.change_gui_scene("confirmation", false, true)
+	var confirmation: NodeGUI = Global.game_controller.current_gui_scene
+	confirmation.connect("confirmed", Callable(self, "_on_confirmed"))
+	confirmation.connect("canceled", Callable(self, "_on_canceled"))
 
 func _on_apply_button_pressed() -> void:
 	SoundManager.click.play()
@@ -90,21 +89,14 @@ func _on_close_button_pressed() -> void:
 	reset()
 	close()
 
-func _on_cancel_pressed() -> void:
-	# Confirmation Cancel Button
+func _on_canceled() -> void:
+	# Confirmation canceled
 	SoundManager.click.play()
-	var tween = create_tween()
-	tween.tween_property(confirmation, "modulate", Color(1.0, 1.0, 1.0, 0.0), 0.1)
-	await tween.finished
-	confirmation.visible = false
+	visible = true
+	animation_player.play("Appearance")
 
-func _on_confirm_pressed() -> void:
-	# Confirmation Confirm Button
-	SoundManager.click.play()
-	var tween = create_tween()
-	tween.tween_property(confirmation, "modulate", Color(1.0, 1.0, 1.0, 0.0), 0.1)
-	await tween.finished
-	confirmation.visible = false
+func _on_confirmed() -> void:
+	# Confirmation... confirmed?
 	for level in UserData.progress.keys():
 		UserData.progress[level]["is_completed"] = false
 		UserData.progress[level]["stars"] = 0
