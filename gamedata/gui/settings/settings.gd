@@ -1,6 +1,4 @@
-extends Control
-
-@export var message_scene: PackedScene
+extends NodeGUI
 
 @onready var master_h_slider: HSlider = $"PanelContainer/VBoxContainer/Master Volume/Master HSlider"
 @onready var music_h_slider: HSlider = $"PanelContainer/VBoxContainer/Music Volume/Music HSlider"
@@ -23,10 +21,6 @@ func _ready() -> void:
 	# Unless the current scene is the main menu, disables the reset progress button
 	if Global.game_controller.current_2d_scene.name != "MainMenu":
 		reset_progress_button.disabled = true
-	# Smooth appearance
-	modulate = Color(1.0, 1.0, 1.0, 0.0)
-	var tween = create_tween()
-	tween.tween_property(self, "modulate", Color(1.0, 1.0, 1.0, 1.0), 0.1)
 	# Updates last settings
 	last_master_volume = UserSettings.master_volume
 	last_music_volume = UserSettings.music_volume
@@ -87,20 +81,15 @@ func _on_apply_button_pressed() -> void:
 
 func _on_cancel_button_pressed() -> void:
 	SoundManager.click.play()
-	UserSettings.master_volume = last_master_volume
-	UserSettings.music_volume = last_music_volume
-	UserSettings.sfx_volume = last_sfx_volume
-	UserSettings.gui_scale = last_gui_scale
-	# Load settings
-	master_h_slider.value = UserSettings.master_volume
-	music_h_slider.value = UserSettings.music_volume
-	sfx_h_slider.value = UserSettings.sfx_volume
-	scale_option_button.select({0.8: 0, 1.0: 1, 1.2: 2, 1.4: 3}[UserSettings.gui_scale])
+	reset()
 
 func _on_close_button_pressed() -> void:
+	SoundManager.click.play()
+	reset()
 	close()
 
 func _on_cancel_pressed() -> void:
+	# Confirmation Cancel Button
 	SoundManager.click.play()
 	var tween = create_tween()
 	tween.tween_property(confirmation, "modulate", Color(1.0, 1.0, 1.0, 0.0), 0.1)
@@ -108,6 +97,7 @@ func _on_cancel_pressed() -> void:
 	confirmation.visible = false
 
 func _on_confirm_pressed() -> void:
+	# Confirmation Confirm Button
 	SoundManager.click.play()
 	var tween = create_tween()
 	tween.tween_property(confirmation, "modulate", Color(1.0, 1.0, 1.0, 0.0), 0.1)
@@ -123,15 +113,24 @@ func _on_confirm_pressed() -> void:
 	await get_tree().create_timer(5.0).timeout
 	get_tree().quit()
 
-func close() -> void:
-	SoundManager.click.play()
-	var tween = create_tween()
-	tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 0.1)
-	await tween.finished
+func reset() -> void:
 	# If settings weren't applied, cancel them
 	# P.S. Nothing will change if they were
 	UserSettings.master_volume = last_master_volume
 	UserSettings.music_volume = last_music_volume
 	UserSettings.sfx_volume = last_sfx_volume
 	UserSettings.gui_scale = last_gui_scale
+	# Load settings
+	master_h_slider.value = UserSettings.master_volume
+	music_h_slider.value = UserSettings.music_volume
+	sfx_h_slider.value = UserSettings.sfx_volume
+	scale_option_button.select({0.8: 0, 1.0: 1, 1.2: 2, 1.4: 3}[UserSettings.gui_scale])
+
+func close() -> void:
+	reset()
+	animation_player.play("Disappearance")
+	await animation_player.animation_finished
+	# Remove the value of the "current_gui_scene" variable if this NodeGUI is the current_gui_scene
+	if Global.game_controller.current_gui_scene == self:
+		Global.game_controller.current_gui_scene = null
 	queue_free()

@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cci0owdbk2fr5"]
+[gd_scene load_steps=9 format=3 uid="uid://bhby1rfvkkxt0"]
 
 [ext_resource type="Theme" uid="uid://b1fx26em7338w" path="res://gui/themes/panel_container.tres" id="1_8yuru"]
+[ext_resource type="PackedScene" uid="uid://i7ihkn2i5v5n" path="res://gamedata/gui/common/node_gui.tscn" id="1_sltxs"]
 [ext_resource type="Script" uid="uid://ikwf35se5uyd" path="res://gamedata/gui/settings/settings.gd" id="1_vu2hh"]
-[ext_resource type="PackedScene" uid="uid://du20li6wou6fs" path="res://gamedata/gui/message/message.tscn" id="2_2a6w7"]
 [ext_resource type="FontFile" uid="uid://5wohy1go68x5" path="res://gui/fonts/Tribal Garamond.ttf" id="2_yf67p"]
 [ext_resource type="Texture2D" uid="uid://diotcuia4nehk" path="res://gui/icons/close.svg" id="4_1vq1p"]
 [ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://gui/backgrounds/ui_border.png" id="5_cysmy"]
@@ -15,18 +15,13 @@ texture_margin_right = 10.0
 texture_margin_bottom = 10.0
 expand_margin_top = 10.0
 
-[sub_resource type="Theme" id="Theme_c3y7c"]
+[sub_resource type="Theme" id="Theme_clefv"]
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_ecn84")
 
-[node name="Settings" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1280.0
-offset_bottom = 720.0
+[node name="Settings" instance=ExtResource("1_sltxs")]
 script = ExtResource("1_vu2hh")
-message_scene = ExtResource("2_2a6w7")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="." index="1"]
 layout_mode = 0
 offset_left = 480.0
 offset_top = 178.0
@@ -34,10 +29,10 @@ offset_right = 800.0
 offset_bottom = 586.0
 theme = ExtResource("1_8yuru")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" index="0"]
 layout_mode = 2
 
-[node name="Volume" type="Label" parent="PanelContainer/VBoxContainer"]
+[node name="Volume" type="Label" parent="PanelContainer/VBoxContainer" index="0"]
 custom_minimum_size = Vector2(300, 48)
 layout_mode = 2
 size_flags_vertical = 1
@@ -47,11 +42,11 @@ text = "Volume"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Master Volume" type="Control" parent="PanelContainer/VBoxContainer"]
+[node name="Master Volume" type="Control" parent="PanelContainer/VBoxContainer" index="1"]
 custom_minimum_size = Vector2(300, 32)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Master Volume"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Master Volume" index="0"]
 layout_mode = 0
 offset_left = 14.0
 offset_right = 118.0
@@ -61,7 +56,7 @@ theme_override_font_sizes/font_size = 24
 text = "Master"
 vertical_alignment = 1
 
-[node name="Master HSlider" type="HSlider" parent="PanelContainer/VBoxContainer/Master Volume"]
+[node name="Master HSlider" type="HSlider" parent="PanelContainer/VBoxContainer/Master Volume" index="1"]
 layout_mode = 0
 offset_left = 118.0
 offset_right = 286.0
@@ -70,11 +65,11 @@ max_value = 1.0
 step = 0.001
 value = 1.0
 
-[node name="Music Volume" type="Control" parent="PanelContainer/VBoxContainer"]
+[node name="Music Volume" type="Control" parent="PanelContainer/VBoxContainer" index="2"]
 custom_minimum_size = Vector2(300, 32)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Music Volume"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Music Volume" index="0"]
 layout_mode = 0
 offset_left = 14.0
 offset_right = 118.0
@@ -84,7 +79,7 @@ theme_override_font_sizes/font_size = 24
 text = "Music"
 vertical_alignment = 1
 
-[node name="Music HSlider" type="HSlider" parent="PanelContainer/VBoxContainer/Music Volume"]
+[node name="Music HSlider" type="HSlider" parent="PanelContainer/VBoxContainer/Music Volume" index="1"]
 layout_mode = 0
 offset_left = 118.0
 offset_right = 286.0
@@ -93,11 +88,11 @@ max_value = 1.0
 step = 0.001
 value = 1.0
 
-[node name="SFX Volume" type="Control" parent="PanelContainer/VBoxContainer"]
+[node name="SFX Volume" type="Control" parent="PanelContainer/VBoxContainer" index="3"]
 custom_minimum_size = Vector2(300, 32)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/SFX Volume"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/SFX Volume" index="0"]
 layout_mode = 0
 offset_left = 14.0
 offset_right = 118.0
@@ -107,7 +102,7 @@ theme_override_font_sizes/font_size = 24
 text = "SFX "
 vertical_alignment = 1
 
-[node name="SFX HSlider" type="HSlider" parent="PanelContainer/VBoxContainer/SFX Volume"]
+[node name="SFX HSlider" type="HSlider" parent="PanelContainer/VBoxContainer/SFX Volume" index="1"]
 layout_mode = 0
 offset_left = 118.0
 offset_right = 286.0
@@ -116,7 +111,7 @@ max_value = 1.0
 step = 0.001
 value = 1.0
 
-[node name="GUI" type="Label" parent="PanelContainer/VBoxContainer"]
+[node name="GUI" type="Label" parent="PanelContainer/VBoxContainer" index="4"]
 custom_minimum_size = Vector2(300, 48)
 layout_mode = 2
 size_flags_vertical = 1
@@ -126,12 +121,12 @@ text = "GUI"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GUI Scale" type="Control" parent="PanelContainer/VBoxContainer"]
+[node name="GUI Scale" type="Control" parent="PanelContainer/VBoxContainer" index="5"]
 texture_filter = 2
 custom_minimum_size = Vector2(300, 32)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/GUI Scale"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/GUI Scale" index="0"]
 layout_mode = 0
 offset_left = 14.0
 offset_right = 118.0
@@ -141,7 +136,7 @@ theme_override_font_sizes/font_size = 24
 text = "Scale"
 vertical_alignment = 1
 
-[node name="Scale OptionButton" type="OptionButton" parent="PanelContainer/VBoxContainer/GUI Scale"]
+[node name="Scale OptionButton" type="OptionButton" parent="PanelContainer/VBoxContainer/GUI Scale" index="1"]
 layout_mode = 0
 offset_left = 118.0
 offset_right = 286.0
@@ -157,7 +152,7 @@ popup/item_2/id = 2
 popup/item_3/text = "1.4"
 popup/item_3/id = 3
 
-[node name="Data" type="Label" parent="PanelContainer/VBoxContainer"]
+[node name="Data" type="Label" parent="PanelContainer/VBoxContainer" index="6"]
 custom_minimum_size = Vector2(300, 48)
 layout_mode = 2
 size_flags_vertical = 1
@@ -167,25 +162,25 @@ text = "Data"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Data Reset" type="Control" parent="PanelContainer/VBoxContainer"]
+[node name="Data Reset" type="Control" parent="PanelContainer/VBoxContainer" index="7"]
 custom_minimum_size = Vector2(300, 32)
 layout_mode = 2
 
-[node name="Reset Settings Button" type="Button" parent="PanelContainer/VBoxContainer/Data Reset"]
+[node name="Reset Settings Button" type="Button" parent="PanelContainer/VBoxContainer/Data Reset" index="0"]
 layout_mode = 0
 offset_left = 14.0
 offset_right = 138.0
 offset_bottom = 32.0
 text = "Reset Settings"
 
-[node name="Reset Progress Button" type="Button" parent="PanelContainer/VBoxContainer/Data Reset"]
+[node name="Reset Progress Button" type="Button" parent="PanelContainer/VBoxContainer/Data Reset" index="1"]
 layout_mode = 0
 offset_left = 162.0
 offset_right = 286.0
 offset_bottom = 32.0
 text = "Reset Data"
 
-[node name="Confirmation" type="Control" parent="PanelContainer/VBoxContainer/Data Reset/Reset Progress Button"]
+[node name="Confirmation" type="Control" parent="PanelContainer/VBoxContainer/Data Reset/Reset Progress Button" index="0"]
 visible = false
 anchors_preset = 0
 offset_left = -108.0
@@ -193,14 +188,14 @@ offset_top = -198.0
 offset_right = 84.0
 offset_bottom = -62.0
 
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer/Data Reset/Reset Progress Button/Confirmation"]
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer/Data Reset/Reset Progress Button/Confirmation" index="0"]
 texture_filter = 1
 layout_mode = 0
 offset_right = 192.0
 offset_bottom = 140.0
-theme = SubResource("Theme_c3y7c")
+theme = SubResource("Theme_clefv")
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Data Reset/Reset Progress Button/Confirmation/PanelContainer"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Data Reset/Reset Progress Button/Confirmation/PanelContainer" index="0"]
 texture_filter = 2
 layout_mode = 2
 size_flags_vertical = 0
@@ -210,7 +205,7 @@ text = "Вы потеряете
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Confirm" type="Button" parent="PanelContainer/VBoxContainer/Data Reset/Reset Progress Button/Confirmation"]
+[node name="Confirm" type="Button" parent="PanelContainer/VBoxContainer/Data Reset/Reset Progress Button/Confirmation" index="1"]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 96.0
@@ -218,7 +213,7 @@ offset_right = 88.0
 offset_bottom = 127.0
 text = "ОК"
 
-[node name="Cancel" type="Button" parent="PanelContainer/VBoxContainer/Data Reset/Reset Progress Button/Confirmation"]
+[node name="Cancel" type="Button" parent="PanelContainer/VBoxContainer/Data Reset/Reset Progress Button/Confirmation" index="2"]
 layout_mode = 0
 offset_left = 104.0
 offset_top = 96.0
@@ -226,11 +221,11 @@ offset_right = 175.0
 offset_bottom = 127.0
 text = "Отмена"
 
-[node name="Apply_Cancel" type="Control" parent="PanelContainer/VBoxContainer"]
+[node name="Apply_Cancel" type="Control" parent="PanelContainer/VBoxContainer" index="8"]
 custom_minimum_size = Vector2(300, 48)
 layout_mode = 2
 
-[node name="Apply Button" type="Button" parent="PanelContainer/VBoxContainer/Apply_Cancel"]
+[node name="Apply Button" type="Button" parent="PanelContainer/VBoxContainer/Apply_Cancel" index="0"]
 layout_mode = 0
 offset_left = 14.0
 offset_top = 16.0
@@ -238,7 +233,7 @@ offset_right = 118.0
 offset_bottom = 48.0
 text = "Применить"
 
-[node name="Cancel Button" type="Button" parent="PanelContainer/VBoxContainer/Apply_Cancel"]
+[node name="Cancel Button" type="Button" parent="PanelContainer/VBoxContainer/Apply_Cancel" index="1"]
 layout_mode = 0
 offset_left = 182.0
 offset_top = 16.0
@@ -246,7 +241,7 @@ offset_right = 286.0
 offset_bottom = 48.0
 text = "Отменить"
 
-[node name="Close Button" type="Button" parent="."]
+[node name="Close Button" type="Button" parent="." index="2"]
 layout_mode = 0
 offset_left = 750.0
 offset_top = 196.0
