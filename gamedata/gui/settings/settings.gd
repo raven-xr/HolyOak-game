@@ -21,6 +21,7 @@ func _ready() -> void:
 	# Unless the current scene is the main menu, disables the reset progress button
 	if Global.game_controller.current_2d_scene.name != "MainMenu":
 		reset_progress_button.disabled = true
+		scale_option_button.disabled = true
 	# Updates last settings
 	last_master_volume = UserSettings.master_volume
 	last_music_volume = UserSettings.music_volume
