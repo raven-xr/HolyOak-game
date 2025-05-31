@@ -1,4 +1,5 @@
 extends Control
+class_name NodeGUI
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
