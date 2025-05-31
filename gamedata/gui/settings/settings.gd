@@ -72,6 +72,7 @@ func _on_apply_button_pressed() -> void:
 	if last_gui_scale != UserSettings.gui_scale:
 		Global.game_controller.change_gui_scene("message", false, true)
 		Global.game_controller.current_gui_scene.set_text("Сохранение... Нужен перезапуск! Игра выключится самостоятельно через 5 секунд")
+		get_viewport().gui_disable_input = true # Makes player unable to interact with the GUI
 		await get_tree().create_timer(5.0).timeout
 		get_tree().quit()
 	last_master_volume = UserSettings.master_volume
@@ -110,6 +111,7 @@ func _on_confirm_pressed() -> void:
 	save.store_var(UserData.progress)
 	Global.game_controller.change_gui_scene("message", false, true)
 	Global.game_controller.current_gui_scene.set_text("Сохранение... Нужен перезапуск! Игра выключится самостоятельно через 5 секунд")
+	get_viewport().gui_disable_input = true # Makes player not able to interact with the GUI
 	await get_tree().create_timer(5.0).timeout
 	get_tree().quit()
 
