@@ -5,6 +5,7 @@ class_name NodeGUI
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
+		SoundManager.click.play()
 		close()
 
 func close() -> void:
