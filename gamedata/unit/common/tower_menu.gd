@@ -41,5 +41,5 @@ func close() -> void:
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color(1.0, 1.0, 1.0, 0.0), 0.15)
 	await tween.finished
-	queue_free()
 	closed.emit(self)
+	queue_free()

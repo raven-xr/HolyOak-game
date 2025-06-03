@@ -168,6 +168,9 @@ func _on_tower_menu_opened(tower_menu: Control) -> void:
 		tower.touch_screen_button.visible = false
 
 func _on_tower_menu_closed(tower_menu: Control) -> void:
+	# Do not turn the TowerMenu on if a TowerStats has just been opened
+	if gui.has_node("TowerStats"):
+		return
 	# If the tower menu was closed, enable the other ones
 	for tower in towers.get_children():
 		# If the opened tower menu is the tower menu of the tower of the current iteration
