@@ -1,6 +1,8 @@
 extends Control
 class_name NodeGUI
 
+@export var can_be_closed: bool = true
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _init() -> void:
