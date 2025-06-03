@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bpv032thoan7a"]
+[gd_scene load_steps=8 format=3 uid="uid://ct70ofombeymi"]
 
+[ext_resource type="PackedScene" uid="uid://i7ihkn2i5v5n" path="res://gamedata/gui/common/node_gui.tscn" id="1_xpbbb"]
 [ext_resource type="Script" uid="uid://c504se88wunti" path="res://gamedata/gui/defeat_menu/defeat_menu.gd" id="1_xr44m"]
 [ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://gui/backgrounds/ui_border.png" id="2_i7sav"]
 [ext_resource type="Texture2D" uid="uid://bovpfmhts66wt" path="res://gui/icons/restart.svg" id="3_q1ncl"]
@@ -15,37 +16,40 @@ texture_margin_bottom = 10.0
 [sub_resource type="Theme" id="Theme_oedc1"]
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_2fqrf")
 
-[node name="Defeat Menu" type="PanelContainer"]
+[node name="DefeatMenu" instance=ExtResource("1_xpbbb")]
+pivot_offset = Vector2(640, 360)
+script = ExtResource("1_xr44m")
+
+[node name="PanelContainer" type="PanelContainer" parent="." index="1"]
 process_mode = 3
 texture_filter = 1
+layout_mode = 0
 offset_left = 512.0
 offset_top = 320.0
 offset_right = 768.0
 offset_bottom = 384.0
-pivot_offset = Vector2(128, 32)
 theme = SubResource("Theme_oedc1")
-script = ExtResource("1_xr44m")
 
-[node name="Menu Button" type="Button" parent="."]
+[node name="Menu Button" type="Button" parent="PanelContainer" index="0"]
 texture_filter = 2
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 icon = ExtResource("4_ioxxa")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="PanelContainer" index="1"]
 texture_filter = 2
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Вы проиграли"
 horizontal_alignment = 1
 
-[node name="Restart Button" type="Button" parent="."]
+[node name="Restart Button" type="Button" parent="PanelContainer" index="2"]
 texture_filter = 2
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 icon = ExtResource("3_q1ncl")
 
-[connection signal="pressed" from="Menu Button" to="." method="_on_menu_button_pressed"]
-[connection signal="pressed" from="Restart Button" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="PanelContainer/Menu Button" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="PanelContainer/Restart Button" to="." method="_on_restart_button_pressed"]
