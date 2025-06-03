@@ -20,7 +20,6 @@ var current_gui_scene
 func _ready() -> void:
 	Global.game_controller = self
 	change_2d_scene("main_menu")
-	gui.scale = Vector2(UserSettings.gui_scale, UserSettings.gui_scale)
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel") and current_gui_scene and current_gui_scene.has_method("close"):

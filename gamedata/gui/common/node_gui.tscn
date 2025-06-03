@@ -57,6 +57,7 @@ _data = {
 }
 
 [node name="NodeGUI" type="Control"]
+editor_description = "Do NOT create the \"_init\", \"_input\" and \"close\" functions if this can be avoided. They are used in the script of the NodeGUI"
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

@@ -3,6 +3,9 @@ class_name NodeGUI
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+func _init() -> void:
+	scale = Vector2(UserSettings.gui_scale, UserSettings.gui_scale)
+
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		SoundManager.click.play()
