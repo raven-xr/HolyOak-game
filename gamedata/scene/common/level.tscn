@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c17d2n1jjcd8t" path="res://gui/icons/menu.svg" id="3_qnfjt"]
 [ext_resource type="PackedScene" uid="uid://du20li6wou6fs" path="res://gamedata/gui/message/message.tscn" id="4_1nbs4"]
 [ext_resource type="PackedScene" uid="uid://ct70ofombeymi" path="res://gamedata/gui/defeat_menu/defeat_menu.tscn" id="5_tbcgi"]
-[ext_resource type="PackedScene" uid="uid://dqhv5ii03kgra" path="res://gamedata/gui/victory_menu/victory_menu.tscn" id="6_r8y5h"]
+[ext_resource type="PackedScene" uid="uid://bojk4803caaro" path="res://gamedata/gui/victory_menu/victory_menu.tscn" id="6_r8y5h"]
 [ext_resource type="PackedScene" uid="uid://sqtg0w21y043" path="res://gamedata/gui/game_menu/game_menu.tscn" id="7_165x0"]
 [ext_resource type="PackedScene" uid="uid://dgsn2o3sm3wgn" path="res://gamedata/scene/common/holy_oak.tscn" id="9_eoj5e"]
 
