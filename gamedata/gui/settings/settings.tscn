@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://diotcuia4nehk" path="res://gui/icons/close.svg" id="4_1vq1p"]
 
 [node name="Settings" instance=ExtResource("1_sltxs")]
+pivot_offset = Vector2(640, 360)
 script = ExtResource("1_vu2hh")
 
 [node name="PanelContainer" type="PanelContainer" parent="." index="1"]
