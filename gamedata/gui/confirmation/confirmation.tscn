@@ -17,6 +17,7 @@ PanelContainer/styles/panel = SubResource("StyleBoxTexture_ecn84")
 
 [node name="Confirmation" instance=ExtResource("1_r5xpi")]
 script = ExtResource("1_gq6vv")
+can_be_closed = false
 
 [node name="PanelContainer" type="PanelContainer" parent="." index="0"]
 texture_filter = 1
