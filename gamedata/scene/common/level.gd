@@ -10,7 +10,6 @@ enum States {
 @export var ork_scene: PackedScene
 @export var slime_scene: PackedScene
 
-@export var hint_scene: PackedScene
 @export var message_scene: PackedScene
 
 @export var defeat_menu_scene: PackedScene
