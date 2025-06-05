@@ -1,6 +1,6 @@
 extends Level
 
-@onready var hint: Control = $GUI/Hint
+@onready var hint: NodeGUI = $GUI/Hint
 @onready var tower_1: Node2D = $"Towers/Tower 1"
 
 func idle_state() -> void:
@@ -22,7 +22,7 @@ func tutorial() -> void:
 	hint.text = "Для начала построим башню. Нажмите на пустое поле справа от подсказки"
 	hint.pivot_offset.x = 128.0
 	hint.position = Vector2(484.0, 128.0)
-	hint.can_be_pressed = false
+	hint.can_be_skipped = false
 	hint.show_()
 	# Unlock the tower 1
 	tower_1.set_process_mode(Node.PROCESS_MODE_INHERIT)
@@ -55,7 +55,7 @@ func tutorial() -> void:
 	await hint.hidden_
 	# Tell about removing towers
 	hint.text = "Запомни, что в случае, если нужно построить башню в другом месте, а у тебя не хватает денег, ты всегда можешь избавиться от другой, нажав 'Remove' и получив обратно 50% от стоимости (уничтожать эту башню не нужно)"
-	hint.can_be_pressed = true
+	hint.can_be_skipped = true
 	hint.show_()
 	# Await for player to close the hint
 	await hint.hidden_

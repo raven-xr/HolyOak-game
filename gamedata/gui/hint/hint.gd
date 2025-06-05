@@ -1,48 +1,42 @@
-extends Control
+extends NodeGUI
 
-@onready var panel_container = $PanelContainer
-@onready var label = $PanelContainer/Label
-@onready var texture_rect = $TextureRect
-@onready var touch_screen_button = $TouchScreenButton
+@onready var panel_container: PanelContainer = $PanelContainer
+@onready var label: Label = $PanelContainer/Label
+@onready var texture_rect: TextureRect = $TextureRect
+@onready var touch_screen_button: TouchScreenButton = $TouchScreenButton
 
-var can_be_pressed: bool = true
+var can_be_skipped: bool = true
 var text: String = ""
 
 signal hidden_()
 
-func _ready():
-	# Scale
-	scale = Vector2(UserSettings.gui_scale**2, UserSettings.gui_scale**2)
-	# Animate
+func _ready() -> void:
+	scale *= UserSettings.gui_scale # Scales the hint even more
 	flick_chevron_right()
-	modulate = Color(1, 1, 1, 0)
 
-func flick_chevron_right():
+func flick_chevron_right() -> void:
 	await get_tree().create_timer(0.5).timeout
-	texture_rect.visible = !texture_rect.visible
+	texture_rect.visible = not texture_rect.visible
 	flick_chevron_right()
 
-func show_():
+func show_() -> void:
 	label.text = text
-	var tween = create_tween()
-	tween.tween_property(self, "modulate", Color(1, 1, 1, 1), 0.2)
-	await get_tree().create_timer(1.0).timeout
+	animation_player.play("Appearance")
+	await animation_player.animation_finished
+	resize()
+	touch_screen_button.visible = true
+
+func hide_() -> void:
+	touch_screen_button.visible = false
+	animation_player.play("Disappearance")
+	await animation_player.animation_finished
+	hidden_.emit()
+
+func resize() -> void:
 	touch_screen_button.shape.size = panel_container.size
 	touch_screen_button.position.y = panel_container.size.y / 2
 
-func hide_():
-	touch_screen_button.shape.size = Vector2(0, 0)
-	var tween = create_tween()
-	tween.tween_property(self, "modulate", Color(1, 1, 1, 0), 0.2)
-	await tween.finished
-	emit_signal("hidden_")
-
-func close():
-	hide_()
-	await hidden_
-	queue_free()
-
-func _on_touch_screen_button_pressed():
-	if can_be_pressed:
+func _on_touch_screen_button_pressed() -> void:
+	if can_be_skipped:
 		SoundManager.click.play()
 		hide_()

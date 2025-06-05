@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://ceakiostnoxao"]
+[gd_scene load_steps=8 format=3 uid="uid://7e2pd0k28f4x"]
 
+[ext_resource type="PackedScene" uid="uid://i7ihkn2i5v5n" path="res://gamedata/gui/common/node_gui.tscn" id="1_tpicn"]
 [ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://gui/backgrounds/ui_border.png" id="1_u3aa6"]
 [ext_resource type="Script" uid="uid://c2rj6ath7fttl" path="res://gamedata/gui/hint/hint.gd" id="2_3a814"]
 [ext_resource type="Texture2D" uid="uid://d05x6ojus8mct" path="res://gui/icons/chevron_right.svg" id="3_kd84t"]
@@ -11,29 +12,26 @@ texture_margin_top = 15.0
 texture_margin_right = 20.0
 texture_margin_bottom = 15.0
 
-[sub_resource type="Theme" id="Theme_iqujp"]
+[sub_resource type="Theme" id="Theme_13or0"]
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_as0xe")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h26tr"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_23t7m"]
 resource_local_to_scene = true
 size = Vector2(0, 0)
 
-[node name="Hint" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 128.0
-offset_bottom = 64.0
+[node name="Hint" instance=ExtResource("1_tpicn")]
 script = ExtResource("2_3a814")
+can_be_closed = false
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="." index="1"]
 texture_filter = 1
 layout_mode = 0
 offset_left = -2.0
 offset_right = 130.0
 offset_bottom = 64.0
-theme = SubResource("Theme_iqujp")
+theme = SubResource("Theme_13or0")
 
-[node name="Label" type="Label" parent="PanelContainer"]
+[node name="Label" type="Label" parent="PanelContainer" index="0"]
 texture_filter = 2
 custom_minimum_size = Vector2(92, 23)
 layout_mode = 2
@@ -41,7 +39,7 @@ theme_override_font_sizes/font_size = 10
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." index="2"]
 modulate = Color(0.783523, 0.783523, 0.783523, 1)
 texture_filter = 2
 layout_mode = 0
@@ -52,8 +50,8 @@ offset_bottom = 32.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_kd84t")
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+[node name="TouchScreenButton" type="TouchScreenButton" parent="." index="3"]
 position = Vector2(64, 0)
-shape = SubResource("RectangleShape2D_h26tr")
+shape = SubResource("RectangleShape2D_23t7m")
 
 [connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
