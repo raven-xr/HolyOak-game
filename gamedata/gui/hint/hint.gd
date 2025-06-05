@@ -21,15 +21,17 @@ func flick_chevron_right() -> void:
 
 func show_() -> void:
 	label.text = text
-	animation_player.play("Appearance")
-	await animation_player.animation_finished
+	var tween = create_tween()
+	tween.tween_property(self, "modulate:a", 1.0, 0.15)
+	await tween.finished
 	resize()
 	touch_screen_button.visible = true
 
 func hide_() -> void:
 	touch_screen_button.visible = false
-	animation_player.play("Disappearance")
-	await animation_player.animation_finished
+	var tween = create_tween()
+	tween.tween_property(self, "modulate", Color(1.0, 1.0, 1.0, 0.0), 0.15)
+	await tween.finished
 	hidden_.emit()
 
 func resize() -> void:

@@ -93,7 +93,8 @@ func _on_canceled() -> void:
 	# Confirmation canceled
 	SoundManager.click.play()
 	visible = true
-	animation_player.play("Appearance")
+	var tween = create_tween()
+	tween.tween_property(self, "modulate:a", 1.0, 0.15)
 
 func _on_confirmed() -> void:
 	# Confirmation... confirmed?
@@ -123,8 +124,9 @@ func reset() -> void:
 
 func close() -> void:
 	reset()
-	animation_player.play("Disappearance")
-	await animation_player.animation_finished
+	var tween = create_tween()
+	tween.tween_property(self, "modulate", Color(1.0, 1.0, 1.0, 0.0), 0.15)
+	await tween.finished
 	# Remove the value of the "current_gui_scene" variable if this NodeGUI is the current_gui_scene
 	if Global.game_controller.current_gui_scene == self:
 		Global.game_controller.current_gui_scene = null

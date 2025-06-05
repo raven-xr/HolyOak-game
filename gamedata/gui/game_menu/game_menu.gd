@@ -12,7 +12,6 @@ func _input(_event: InputEvent) -> void:
 
 func _ready() -> void:
 	get_tree().paused = true
-	await animation_player.animation_finished
 	can_be_closed = true
 
 func disable_buttons() -> void:
@@ -23,8 +22,9 @@ func disable_buttons() -> void:
 func close() -> void:
 	disable_buttons()
 	get_tree().paused = false
-	animation_player.play("Disappearance")
-	await animation_player.animation_finished
+	var tween = create_tween()
+	tween.tween_property(self, "modulate", Color(1.0, 1.0, 1.0, 0.0), 0.15)
+	await tween.finished
 	Global.game_controller.current_2d_scene.menu_button.disabled = false # Enables the menu button of the level
 	queue_free()
 
