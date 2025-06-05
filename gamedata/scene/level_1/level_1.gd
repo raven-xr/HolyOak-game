@@ -67,10 +67,10 @@ func tutorial() -> void:
 	# Await for player to close the hint
 	await hint.hidden_
 	# End the tutorial
-	hint.close()
+	hint.queue_free()
 	# Unlock the remove button of the tower 1
 	tower_1.is_remove_button_locked = false
-	# Unlock tower
-	for tower in towers.get_children():
-		tower.set_process_mode(Node.PROCESS_MODE_INHERIT)
+	# Unlock the interaction with the other towers
+	$"Towers/Tower 2".set_process_mode(Node.PROCESS_MODE_INHERIT)
+	$"Towers/Tower 3".set_process_mode(Node.PROCESS_MODE_INHERIT)
 	state = States.FIGHT
