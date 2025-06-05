@@ -1,35 +1,36 @@
-extends PanelContainer
+extends NodeGUI
 
-@onready var resume_button: Button = $"VBoxContainer/Resume Button"
-@onready var settings_button: Button = $"VBoxContainer/Settings Button"
-@onready var exit_button: Button = $"VBoxContainer/Exit Button"
+@onready var resume_button: Button = $"PanelContainer/VBoxContainer/Resume Button"
+@onready var settings_button: Button = $"PanelContainer/VBoxContainer/Settings Button"
+@onready var exit_button: Button = $"PanelContainer/VBoxContainer/Exit Button"
+
+func _input(_event: InputEvent) -> void:
+	# Can't be closed if settings are opened
+	if Input.is_action_just_pressed("ui_cancel") and can_be_closed and not Global.game_controller.gui.has_node("Settings"):
+		SoundManager.click.play()
+		close()
 
 func _ready() -> void:
-	scale = Vector2(UserSettings.gui_scale, UserSettings.gui_scale)
-	# Smooth appearance
-	modulate = Color(1.0, 1.0, 1.0, 0.0)
-	var tween = create_tween()
-	tween.tween_property(self, "modulate", Color(1.0, 1.0, 1.0, 1.0), 0.2)
-	await tween.finished
-	# Pause the game
 	get_tree().paused = true
+	await animation_player.animation_finished
+	can_be_closed = true
 
 func disable_buttons() -> void:
 	resume_button.disabled = true
 	settings_button.disabled = true
 	exit_button.disabled = true
 
-func resume() -> void: # Is used by parent/siblings in the tree
+func close() -> void:
 	disable_buttons()
-	var tween = create_tween()
-	tween.tween_property(self, "modulate", Color(1.0, 1.0, 1.0, 0.0), 0.2)
-	await tween.finished
 	get_tree().paused = false
+	animation_player.play("Disappearance")
+	await animation_player.animation_finished
+	Global.game_controller.current_2d_scene.menu_button.disabled = false # Enables the menu button of the level
 	queue_free()
 
 func _on_resume_button_pressed() -> void:
 	SoundManager.click.play()
-	resume()
+	close()
 
 func _on_settings_button_pressed() -> void:
 	SoundManager.click.play()

@@ -142,12 +142,8 @@ func _on_health_changed(value: int) -> void:
 
 func _on_menu_button_pressed() -> void:
 	SoundManager.click.play()
-	if not gui.has_node("GameMenu"):
-		var game_menu = game_menu_scene.instantiate()
-		gui.add_child(game_menu)
-	else:
-		var game_menu = gui.get_node("GameMenu")
-		game_menu.resume()
+	gui.add_child(game_menu_scene.instantiate())
+	menu_button.disabled = true
 
 func _on_start_timer_timeout() -> void:
 	state = States.FIGHT
