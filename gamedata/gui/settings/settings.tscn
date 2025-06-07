@@ -10,7 +10,7 @@
 pivot_offset = Vector2(640, 360)
 script = ExtResource("1_vu2hh")
 
-[node name="PanelContainer" type="PanelContainer" parent="." index="1"]
+[node name="PanelContainer" type="PanelContainer" parent="." index="0"]
 layout_mode = 0
 offset_left = 480.0
 offset_top = 178.0
@@ -189,7 +189,7 @@ offset_right = 286.0
 offset_bottom = 48.0
 text = "Отменить"
 
-[node name="Close Button" type="Button" parent="." index="2"]
+[node name="Close Button" type="Button" parent="." index="1"]
 layout_mode = 0
 offset_left = 750.0
 offset_top = 196.0
