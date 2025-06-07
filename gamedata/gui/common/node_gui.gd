@@ -2,6 +2,7 @@ extends Control
 ## Don't overwrite the "_on_ready", "_input" and "close" functions if this isn't a necessary
 class_name NodeGUI
 
+## Uncheck the box if it isn't implied that this scene can be closed with the "ui_cancel" action (e.g. Esc)
 @export var can_be_closed: bool = true
 
 func _on_ready() -> void:
