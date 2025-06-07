@@ -10,20 +10,20 @@ enum States {
 @export var ork_scene: PackedScene
 @export var slime_scene: PackedScene
 
-@export var hint_scene: PackedScene
-@export var message_scene: PackedScene
-
 @export var defeat_menu_scene: PackedScene
 @export var victory_menu_scene: PackedScene
 @export var game_menu_scene: PackedScene
 
 ## Leave this field if there are no levels left
-@export var next_level_path: String = "res://gamedata/scene/main_menu/main_menu.tscn"
+@export var next_level: StringName = "main_menu"
+
 @export var technical_name: StringName
-@onready var user_interface = $"User Interface"
-@onready var menu_button = $"User Interface/Menu Button"
-@onready var wave_timer = $"Timers/Wave Timer"
-@onready var spawn_timer = $"Timers/Spawn Timer"
+
+@onready var towers: Node2D = $Towers
+@onready var gui: Control = $GUI
+@onready var menu_button: Button = $GUI/MenuButton
+@onready var wave_timer: Timer = $"Timers/Wave Timer"
+@onready var spawn_timer: Timer = $"Timers/Spawn Timer"
 
 @onready var data: Dictionary = LevelData.get(technical_name)
 
@@ -53,7 +53,6 @@ var state: int:
 
 func _ready() -> void:
 	# Scale
-	# Square the scale to reach the best view
 	menu_button.scale = Vector2(UserSettings.gui_scale**2, UserSettings.gui_scale**2)
 	# Connect signals
 	Signals.connect("health_changed", Callable(self, "_on_health_changed"))
@@ -89,28 +88,26 @@ func fight_state() -> void:
 
 func defeat() -> void:
 	var defeat_menu = defeat_menu_scene.instantiate()
-	user_interface.add_child(defeat_menu)
+	gui.add_child(defeat_menu)
 	menu_button.disabled = true
 
 func victory() -> void:
 	# Save
-	UserData.progress[name]["is_completed"] = true
-	UserData.progress[name]["stars"] = 3
+	UserData.progress[technical_name]["is_completed"] = true
+	UserData.progress[technical_name]["stars"] = 3
 	var save = FileAccess.open(UserData.SAVE_PATH, FileAccess.WRITE)
 	save.store_var(UserData.progress)
-	var new_message = message_scene.instantiate()
-	new_message.text = "Автосохранение..."
-	user_interface.add_child(new_message)
+	Global.game_controller.change_gui_scene("message")
+	Global.game_controller.current_gui_scene.set_text("Автосохранение...")
 	
 	var victory_menu = victory_menu_scene.instantiate()
-	user_interface.add_child(victory_menu)
+	gui.add_child(victory_menu)
 	menu_button.disabled = true
 
 func new_wave() -> void:
 	# Declare the new wave
-	var new_message = message_scene.instantiate()
-	new_message.text = "Волна " + str(wave)
-	user_interface.add_child(new_message)
+	Global.game_controller.change_gui_scene("message")
+	Global.game_controller.current_gui_scene.set_text("Волна " + str(wave))
 	# Spawn enemies
 	var spawn_cooldown: float = data["wave_" + str(wave)]["spawn_cooldown"]
 	var enemies: Array = data["wave_" + str(wave)]["enemies"]
@@ -142,15 +139,46 @@ func _on_health_changed(value: int) -> void:
 
 func _on_menu_button_pressed() -> void:
 	SoundManager.click.play()
-	if not user_interface.has_node("Game Menu"):
-		var game_menu = game_menu_scene.instantiate()
-		user_interface.add_child(game_menu)
-	else:
-		var game_menu = user_interface.get_node("Game Menu")
-		game_menu.resume()
+	gui.add_child(game_menu_scene.instantiate())
+	menu_button.disabled = true
 
 func _on_start_timer_timeout() -> void:
 	state = States.FIGHT
 
 func _on_wave_timer_timeout() -> void:
 	wave += 1
+
+# -------------------------------------------------------------------------------- #
+# ----------------------------------GUI------------------------------------------- #
+
+func _on_tower_menu_opened(tower_menu: Control) -> void:
+	# If any tower menu was opened, disable the other ones
+	for tower in towers.get_children():
+		# If the opened tower menu is the tower menu of the tower of the current iteration,
+		# leave its TouchScreenButton enabled
+		if tower.tower_menu == tower_menu:
+			continue
+		tower.touch_screen_button.visible = false
+
+func _on_tower_menu_closed(tower_menu: Control) -> void:
+	# Do not turn TouchScreenButtons on if a TowerStats has just been opened
+	if gui.has_node("TowerStats"):
+		return
+	# If the tower menu was closed, enable the other ones
+	for tower in towers.get_children():
+		# If the opened tower menu is the tower menu of the tower of the current iteration
+		# or the tower is upgrading, leave its TouchScreenButton disabled/enabled
+		# (depends on whether you started building/upgrading it now)
+		if tower.tower_menu == tower_menu or tower.is_upgrading:
+			continue
+		tower.touch_screen_button.visible = true
+
+func _on_tower_stats_opened() -> void:
+	for tower in towers.get_children():
+		tower.touch_screen_button.visible = false
+
+func _on_tower_stats_closed() -> void:
+	for tower in towers.get_children():
+		if tower.is_upgrading:
+			continue
+		tower.touch_screen_button.visible = true

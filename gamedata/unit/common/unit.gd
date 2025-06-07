@@ -12,7 +12,7 @@ enum States {
 @export var logo: Texture
 @export var shell_scene: PackedScene
 
-@onready var shell_container: Node2D = get_tree().get_current_scene().get_node("Shell Container")
+@onready var shell_container: Node2D = Global.game_controller.current_2d_scene.get_node("ShellContainer")
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -131,7 +131,7 @@ func choose_target() -> Enemy:
 	# Find the target closest to the Holy Oak
 	preferred_target = preferred_enemies[0]
 	for enemy in preferred_enemies:
-		var holy_oak = get_tree().get_current_scene().get_node("Map/Holy Oak")
+		var holy_oak = Global.game_controller.current_2d_scene.get_node("Map/Holy Oak")
 		if enemy.global_position.distance_to(holy_oak.global_position) < \
 		preferred_target.global_position.distance_to(holy_oak.global_position):
 			preferred_target = enemy

@@ -1,24 +1,29 @@
-[gd_scene load_steps=13 format=3 uid="uid://bbsqvqymrojj5"]
+[gd_scene load_steps=11 format=3 uid="uid://bbsqvqymrojj5"]
 
 [ext_resource type="Script" uid="uid://2edsptc0xr5r" path="res://gamedata/scene/common/level.gd" id="1_8vq8d"]
-[ext_resource type="PackedScene" uid="uid://ceakiostnoxao" path="res://gamedata/ui/hint/hint.tscn" id="2_5ps6b"]
-[ext_resource type="PackedScene" uid="uid://bqlwentuopcga" path="res://gamedata/ui/ui_stats/ui_stats.tscn" id="2_rdqft"]
 [ext_resource type="PackedScene" uid="uid://cdb4s0kj5v3yf" path="res://gamedata/enemy/slime/slime.tscn" id="3_36ads"]
 [ext_resource type="PackedScene" uid="uid://cmgfgbdj1o7aw" path="res://gamedata/enemy/ork/ork.tscn" id="3_72mh5"]
-[ext_resource type="Texture2D" uid="uid://c17d2n1jjcd8t" path="res://interface/icons/menu.svg" id="3_qnfjt"]
-[ext_resource type="PackedScene" uid="uid://du20li6wou6fs" path="res://gamedata/ui/message/message.tscn" id="4_1nbs4"]
-[ext_resource type="PackedScene" uid="uid://bpv032thoan7a" path="res://gamedata/ui/defeat_menu/defeat_menu.tscn" id="5_tbcgi"]
-[ext_resource type="PackedScene" uid="uid://dqhv5ii03kgra" path="res://gamedata/ui/victory_menu/victory_menu.tscn" id="6_r8y5h"]
-[ext_resource type="PackedScene" uid="uid://sqtg0w21y043" path="res://gamedata/ui/game_menu/game_menu.tscn" id="7_165x0"]
+[ext_resource type="Texture2D" uid="uid://c17d2n1jjcd8t" path="res://gui/icons/menu.svg" id="3_qnfjt"]
+[ext_resource type="PackedScene" uid="uid://ct70ofombeymi" path="res://gamedata/gui/defeat_menu/defeat_menu.tscn" id="5_tbcgi"]
+[ext_resource type="PackedScene" uid="uid://bojk4803caaro" path="res://gamedata/gui/victory_menu/victory_menu.tscn" id="6_r8y5h"]
+[ext_resource type="PackedScene" uid="uid://bwfjylls4graf" path="res://gamedata/gui/game_menu/game_menu.tscn" id="7_165x0"]
+[ext_resource type="PackedScene" uid="uid://c7psph5vsrocc" path="res://gamedata/gui/common/player_stats.tscn" id="8_otqld"]
 [ext_resource type="PackedScene" uid="uid://dgsn2o3sm3wgn" path="res://gamedata/scene/common/holy_oak.tscn" id="9_eoj5e"]
-[ext_resource type="Script" uid="uid://4rfudo777jkh" path="res://gamedata/scene/common/control.gd" id="12_2u1u3"]
+
+[sub_resource type="GDScript" id="GDScript_1jmb8"]
+script/source = "extends Node
+
+@onready var menu_button: Button = $\"../GUI/MenuButton\"
+
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed(\"ui_cancel\") and not menu_button.disabled:
+		menu_button.pressed.emit()
+"
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_8vq8d")
 ork_scene = ExtResource("3_72mh5")
 slime_scene = ExtResource("3_36ads")
-hint_scene = ExtResource("2_5ps6b")
-message_scene = ExtResource("4_1nbs4")
 defeat_menu_scene = ExtResource("5_tbcgi")
 victory_menu_scene = ExtResource("6_r8y5h")
 game_menu_scene = ExtResource("7_165x0")
@@ -39,23 +44,18 @@ texture_filter = 1
 
 [node name="Towers" type="Node2D" parent="."]
 
-[node name="Shell Container" type="Node2D" parent="."]
+[node name="ShellContainer" type="Node2D" parent="."]
 
-[node name="User Interface" type="Control" parent="."]
+[node name="PlayerStats" parent="." instance=ExtResource("8_otqld")]
+
+[node name="GUI" type="Control" parent="."]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1280.0
+offset_bottom = 720.0
 
-[node name="UI Stats" parent="User Interface" instance=ExtResource("2_rdqft")]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 266.0
-offset_bottom = 72.0
-
-[node name="Menu Button" type="Button" parent="User Interface"]
-process_mode = 3
+[node name="MenuButton" type="Button" parent="GUI"]
 layout_mode = 0
 offset_left = 1232.0
 offset_top = 16.0
@@ -80,8 +80,8 @@ one_shot = true
 
 [node name="Control" type="Node" parent="."]
 process_mode = 3
-script = ExtResource("12_2u1u3")
+script = SubResource("GDScript_1jmb8")
 
-[connection signal="pressed" from="User Interface/Menu Button" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="GUI/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="timeout" from="Timers/Start Timer" to="." method="_on_start_timer_timeout"]
 [connection signal="timeout" from="Timers/Wave Timer" to="." method="_on_wave_timer_timeout"]

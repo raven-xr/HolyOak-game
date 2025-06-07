@@ -1,0 +1,209 @@
+[gd_scene load_steps=6 format=3 uid="uid://bhby1rfvkkxt0"]
+
+[ext_resource type="Theme" uid="uid://b1fx26em7338w" path="res://gui/themes/panel_container.tres" id="1_8yuru"]
+[ext_resource type="PackedScene" uid="uid://i7ihkn2i5v5n" path="res://gamedata/gui/common/node_gui.tscn" id="1_sltxs"]
+[ext_resource type="Script" uid="uid://ikwf35se5uyd" path="res://gamedata/gui/settings/settings.gd" id="1_vu2hh"]
+[ext_resource type="FontFile" uid="uid://5wohy1go68x5" path="res://gui/fonts/Tribal Garamond.ttf" id="2_yf67p"]
+[ext_resource type="Texture2D" uid="uid://diotcuia4nehk" path="res://gui/icons/close.svg" id="4_1vq1p"]
+
+[node name="Settings" instance=ExtResource("1_sltxs")]
+pivot_offset = Vector2(640, 360)
+script = ExtResource("1_vu2hh")
+
+[node name="PanelContainer" type="PanelContainer" parent="." index="0"]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 178.0
+offset_right = 800.0
+offset_bottom = 586.0
+theme = ExtResource("1_8yuru")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" index="0"]
+layout_mode = 2
+
+[node name="Volume" type="Label" parent="PanelContainer/VBoxContainer" index="0"]
+custom_minimum_size = Vector2(300, 48)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_yf67p")
+theme_override_font_sizes/font_size = 32
+text = "Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Master Volume" type="Control" parent="PanelContainer/VBoxContainer" index="1"]
+custom_minimum_size = Vector2(300, 32)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Master Volume" index="0"]
+layout_mode = 0
+offset_left = 14.0
+offset_right = 118.0
+offset_bottom = 32.0
+theme_override_fonts/font = ExtResource("2_yf67p")
+theme_override_font_sizes/font_size = 24
+text = "Master"
+vertical_alignment = 1
+
+[node name="Master HSlider" type="HSlider" parent="PanelContainer/VBoxContainer/Master Volume" index="1"]
+layout_mode = 0
+offset_left = 118.0
+offset_right = 286.0
+offset_bottom = 32.0
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="Music Volume" type="Control" parent="PanelContainer/VBoxContainer" index="2"]
+custom_minimum_size = Vector2(300, 32)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Music Volume" index="0"]
+layout_mode = 0
+offset_left = 14.0
+offset_right = 118.0
+offset_bottom = 32.0
+theme_override_fonts/font = ExtResource("2_yf67p")
+theme_override_font_sizes/font_size = 24
+text = "Music"
+vertical_alignment = 1
+
+[node name="Music HSlider" type="HSlider" parent="PanelContainer/VBoxContainer/Music Volume" index="1"]
+layout_mode = 0
+offset_left = 118.0
+offset_right = 286.0
+offset_bottom = 32.0
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="SFX Volume" type="Control" parent="PanelContainer/VBoxContainer" index="3"]
+custom_minimum_size = Vector2(300, 32)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/SFX Volume" index="0"]
+layout_mode = 0
+offset_left = 14.0
+offset_right = 118.0
+offset_bottom = 32.0
+theme_override_fonts/font = ExtResource("2_yf67p")
+theme_override_font_sizes/font_size = 24
+text = "SFX "
+vertical_alignment = 1
+
+[node name="SFX HSlider" type="HSlider" parent="PanelContainer/VBoxContainer/SFX Volume" index="1"]
+layout_mode = 0
+offset_left = 118.0
+offset_right = 286.0
+offset_bottom = 32.0
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="GUI" type="Label" parent="PanelContainer/VBoxContainer" index="4"]
+custom_minimum_size = Vector2(300, 48)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_yf67p")
+theme_override_font_sizes/font_size = 32
+text = "GUI"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GUI Scale" type="Control" parent="PanelContainer/VBoxContainer" index="5"]
+texture_filter = 2
+custom_minimum_size = Vector2(300, 32)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/GUI Scale" index="0"]
+layout_mode = 0
+offset_left = 14.0
+offset_right = 118.0
+offset_bottom = 32.0
+theme_override_fonts/font = ExtResource("2_yf67p")
+theme_override_font_sizes/font_size = 24
+text = "Scale"
+vertical_alignment = 1
+
+[node name="Scale OptionButton" type="OptionButton" parent="PanelContainer/VBoxContainer/GUI Scale" index="1"]
+layout_mode = 0
+offset_left = 118.0
+offset_right = 286.0
+offset_bottom = 32.0
+selected = 1
+item_count = 4
+popup/item_0/text = "0.8"
+popup/item_0/id = 0
+popup/item_1/text = "1.0"
+popup/item_1/id = 1
+popup/item_2/text = "1.2"
+popup/item_2/id = 2
+popup/item_3/text = "1.4"
+popup/item_3/id = 3
+
+[node name="Data" type="Label" parent="PanelContainer/VBoxContainer" index="6"]
+custom_minimum_size = Vector2(300, 48)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_yf67p")
+theme_override_font_sizes/font_size = 32
+text = "Data"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Data Reset" type="Control" parent="PanelContainer/VBoxContainer" index="7"]
+custom_minimum_size = Vector2(300, 32)
+layout_mode = 2
+
+[node name="Reset Settings Button" type="Button" parent="PanelContainer/VBoxContainer/Data Reset" index="0"]
+layout_mode = 0
+offset_left = 14.0
+offset_right = 138.0
+offset_bottom = 32.0
+text = "Reset Settings"
+
+[node name="Reset Progress Button" type="Button" parent="PanelContainer/VBoxContainer/Data Reset" index="1"]
+layout_mode = 0
+offset_left = 162.0
+offset_right = 286.0
+offset_bottom = 32.0
+text = "Reset Data"
+
+[node name="Apply or Cancel" type="Control" parent="PanelContainer/VBoxContainer" index="8"]
+custom_minimum_size = Vector2(300, 48)
+layout_mode = 2
+
+[node name="Apply Button" type="Button" parent="PanelContainer/VBoxContainer/Apply or Cancel" index="0"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 16.0
+offset_right = 118.0
+offset_bottom = 48.0
+text = "Применить"
+
+[node name="Cancel Button" type="Button" parent="PanelContainer/VBoxContainer/Apply or Cancel" index="1"]
+layout_mode = 0
+offset_left = 182.0
+offset_top = 16.0
+offset_right = 286.0
+offset_bottom = 48.0
+text = "Отменить"
+
+[node name="Close Button" type="Button" parent="." index="1"]
+layout_mode = 0
+offset_left = 750.0
+offset_top = 196.0
+offset_right = 782.0
+offset_bottom = 228.0
+icon = ExtResource("4_1vq1p")
+
+[connection signal="value_changed" from="PanelContainer/VBoxContainer/Master Volume/Master HSlider" to="." method="_on_master_h_slider_value_changed"]
+[connection signal="value_changed" from="PanelContainer/VBoxContainer/Music Volume/Music HSlider" to="." method="_on_music_h_slider_value_changed"]
+[connection signal="value_changed" from="PanelContainer/VBoxContainer/SFX Volume/SFX HSlider" to="." method="_on_sfx_h_slider_value_changed"]
+[connection signal="item_selected" from="PanelContainer/VBoxContainer/GUI Scale/Scale OptionButton" to="." method="_on_scale_option_button_item_selected"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/GUI Scale/Scale OptionButton" to="." method="_on_scale_option_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Data Reset/Reset Settings Button" to="." method="_on_reset_settings_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Data Reset/Reset Progress Button" to="." method="_on_reset_progress_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Apply or Cancel/Apply Button" to="." method="_on_apply_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Apply or Cancel/Cancel Button" to="." method="_on_cancel_button_pressed"]
+[connection signal="pressed" from="Close Button" to="." method="_on_close_button_pressed"]

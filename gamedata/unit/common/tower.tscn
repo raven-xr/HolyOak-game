@@ -1,4 +1,4 @@
-[gd_scene load_steps=146 format=3 uid="uid://lxt2xv2lfkgu"]
+[gd_scene load_steps=134 format=3 uid="uid://lxt2xv2lfkgu"]
 
 [ext_resource type="Script" uid="uid://bdsofk2pt1nov" path="res://gamedata/unit/common/tower.gd" id="1_ga7em"]
 [ext_resource type="Texture2D" uid="uid://dyj1b8lqm8l5x" path="res://gfx/unit/tower/upgrade/1.png" id="2_6xap5"]
@@ -7,11 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://fp8vxfd5r20l" path="res://gamedata/FX/smoke/smoke.tscn" id="2_th4ks"]
 [ext_resource type="Texture2D" uid="uid://bqk852lqxeo15" path="res://gfx/unit/tower/idle/1.png" id="3_0tv8s"]
 [ext_resource type="Texture2D" uid="uid://cnyq7sevn2fmk" path="res://gfx/unit/tower/upgrade/5_roof.png" id="3_8es61"]
-[ext_resource type="PackedScene" uid="uid://du20li6wou6fs" path="res://gamedata/ui/message/message.tscn" id="3_cyn7f"]
 [ext_resource type="Texture2D" uid="uid://5txqbqpyebun" path="res://gfx/unit/tower/upgrade/2.png" id="3_fbeod"]
 [ext_resource type="Texture2D" uid="uid://rc20dqd1f02y" path="res://gfx/unit/tower/upgrade/7_roof.png" id="4_3o2b3"]
 [ext_resource type="Texture2D" uid="uid://dbw11823hkk2g" path="res://gfx/unit/tower/upgrade/3.png" id="4_7ulco"]
+[ext_resource type="PackedScene" uid="uid://cshahv76xkg1e" path="res://gamedata/unit/common/tower_menu.tscn" id="4_khjre"]
 [ext_resource type="Texture2D" uid="uid://m5q8yh6g0l2t" path="res://gfx/unit/tower/upgrade/4_no_roof.png" id="5_kc6ri"]
+[ext_resource type="PackedScene" uid="uid://c06g6da1scixg" path="res://gamedata/unit/common/tower_stats.tscn" id="5_rxukx"]
 [ext_resource type="Texture2D" uid="uid://diymddp45tvua" path="res://gfx/unit/tower/idle/2.png" id="5_xqx2s"]
 [ext_resource type="Texture2D" uid="uid://bnb04jvuda423" path="res://gfx/unit/tower/upgrade/5_no_roof.png" id="6_o63gl"]
 [ext_resource type="Texture2D" uid="uid://b32dob83pnetc" path="res://gfx/unit/tower/idle/3.png" id="7_l7gq4"]
@@ -25,16 +26,6 @@
 [ext_resource type="Texture2D" uid="uid://d3h4ugvrsklj7" path="res://gfx/unit/archer/logo/logo.png" id="17_tv0p2"]
 [ext_resource type="Texture2D" uid="uid://dxkv8nktd5xek" path="res://gfx/unit/tower/idle/7_roof.png" id="20_nqsl5"]
 [ext_resource type="AudioStream" uid="uid://vjtb87xelmbx" path="res://audio/sfx/building.mp3" id="22_y2klm"]
-[ext_resource type="Texture2D" uid="uid://b5ya13e41k2kt" path="res://interface/buttons/text_default.svg" id="22_yall2"]
-[ext_resource type="Texture2D" uid="uid://dsh51r6drxmtr" path="res://interface/buttons/text_hover.svg" id="23_qsccf"]
-[ext_resource type="Texture2D" uid="uid://csq5bonl77fkh" path="res://interface/buttons/text_disabled.svg" id="24_2i6xb"]
-[ext_resource type="Script" uid="uid://bc6bgbd55qvb3" path="res://gamedata/ui/texture_button/texture_button.gd" id="25_l84ho"]
-[ext_resource type="FontFile" uid="uid://car2t5itecnhr" path="res://interface/fonts/Bungee-Regular.ttf" id="26_whun5"]
-[ext_resource type="FontFile" uid="uid://5wohy1go68x5" path="res://interface/fonts/Tribal Garamond.ttf" id="27_tv0p2"]
-[ext_resource type="Script" uid="uid://2eicort0wiyk" path="res://gamedata/unit/common/tower_stats.gd" id="28_whun5"]
-[ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://interface/backgrounds/ui_border.png" id="29_tv0p2"]
-[ext_resource type="Theme" uid="uid://b1fx26em7338w" path="res://interface/themes/panel_container.tres" id="30_linbm"]
-[ext_resource type="Texture2D" uid="uid://diotcuia4nehk" path="res://interface/icons/close.svg" id="31_th4ks"]
 
 [sub_resource type="Animation" id="Animation_pj6w1"]
 resource_name = "Destruct"
@@ -1605,25 +1596,6 @@ animations = [{
 "speed": 0.0
 }]
 
-[sub_resource type="Theme" id="Theme_linbm"]
-Label/colors/font_color = Color(0.784314, 0.572549, 0.372549, 1)
-Label/colors/font_shadow_color = Color(0.427451, 0.392157, 0.298039, 1)
-Label/constants/shadow_offset_x = 0
-Label/constants/shadow_offset_y = 2
-Label/constants/shadow_outline_size = 0
-Label/fonts/font = ExtResource("26_whun5")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qpd0x"]
-texture = ExtResource("29_tv0p2")
-texture_margin_left = 15.0
-texture_margin_top = 10.0
-texture_margin_right = 15.0
-texture_margin_bottom = 10.0
-expand_margin_left = 20.0
-
-[sub_resource type="Theme" id="Theme_nogtx"]
-PanelContainer/styles/panel = SubResource("StyleBoxTexture_qpd0x")
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_th4ks"]
 radius = 54.0
 
@@ -1631,7 +1603,8 @@ radius = 54.0
 texture_filter = 1
 script = ExtResource("1_ga7em")
 smoke_scene = ExtResource("2_th4ks")
-message_scene = ExtResource("3_cyn7f")
+tower_menu_scene = ExtResource("4_khjre")
+tower_stats_scene = ExtResource("5_rxukx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1662,208 +1635,6 @@ position = Vector2(0, -56)
 scale = Vector2(1.72308, 1.72308)
 sprite_frames = SubResource("SpriteFrames_y2klm")
 
-[node name="Interface" type="CanvasLayer" parent="."]
-
-[node name="Menu" type="Control" parent="Interface"]
-visible = false
-modulate = Color(1, 1, 1, 0)
-texture_filter = 2
-layout_mode = 3
-anchors_preset = 0
-offset_left = -128.0
-offset_top = -64.0
-offset_right = 128.0
-offset_bottom = 64.0
-
-[node name="Build Button" type="TextureButton" parent="Interface/Menu"]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 17.0
-offset_right = 216.0
-offset_bottom = 101.0
-scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("22_yall2")
-texture_pressed = ExtResource("22_yall2")
-texture_hover = ExtResource("23_qsccf")
-texture_disabled = ExtResource("24_2i6xb")
-script = ExtResource("25_l84ho")
-
-[node name="Label" type="Label" parent="Interface/Menu/Build Button"]
-layout_mode = 0
-offset_left = 9.0
-offset_top = 7.0
-offset_right = 187.0
-offset_bottom = 66.0
-theme = SubResource("Theme_linbm")
-theme_override_font_sizes/font_size = 32
-text = "BUILD"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Upgrade Button" type="TextureButton" parent="Interface/Menu"]
-layout_mode = 0
-offset_left = 138.0
-offset_top = 17.0
-offset_right = 334.0
-offset_bottom = 101.0
-scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("22_yall2")
-texture_pressed = ExtResource("22_yall2")
-texture_hover = ExtResource("23_qsccf")
-texture_disabled = ExtResource("24_2i6xb")
-script = ExtResource("25_l84ho")
-
-[node name="Label" type="Label" parent="Interface/Menu/Upgrade Button"]
-layout_mode = 0
-offset_left = 9.0
-offset_top = 7.0
-offset_right = 187.0
-offset_bottom = 66.0
-theme = SubResource("Theme_linbm")
-theme_override_font_sizes/font_size = 32
-text = "UPGRADE"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Remove Button" type="TextureButton" parent="Interface/Menu"]
-layout_mode = 0
-offset_left = 44.0
-offset_top = 65.0
-offset_right = 240.0
-offset_bottom = 149.0
-scale = Vector2(0.4, 0.4)
-texture_normal = ExtResource("22_yall2")
-texture_pressed = ExtResource("22_yall2")
-texture_hover = ExtResource("23_qsccf")
-texture_disabled = ExtResource("24_2i6xb")
-script = ExtResource("25_l84ho")
-
-[node name="Label" type="Label" parent="Interface/Menu/Remove Button"]
-layout_mode = 0
-offset_left = 9.0
-offset_top = 7.0
-offset_right = 187.0
-offset_bottom = 66.0
-theme = SubResource("Theme_linbm")
-theme_override_font_sizes/font_size = 32
-text = "REMOVE"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Tower Stats Button" type="TextureButton" parent="Interface/Menu"]
-layout_mode = 0
-offset_left = 133.0
-offset_top = 65.0
-offset_right = 329.0
-offset_bottom = 149.0
-scale = Vector2(0.4, 0.4)
-texture_normal = ExtResource("22_yall2")
-texture_pressed = ExtResource("22_yall2")
-texture_hover = ExtResource("23_qsccf")
-texture_disabled = ExtResource("24_2i6xb")
-script = ExtResource("25_l84ho")
-
-[node name="Label" type="Label" parent="Interface/Menu/Tower Stats Button"]
-layout_mode = 0
-offset_left = 9.0
-offset_top = 7.0
-offset_right = 187.0
-offset_bottom = 66.0
-theme = SubResource("Theme_linbm")
-theme_override_font_sizes/font_size = 32
-text = "STATS"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Unit Name" type="Label" parent="Interface"]
-visible = false
-modulate = Color(1, 1, 1, 0)
-texture_filter = 2
-offset_left = -64.0
-offset_top = -80.0
-offset_right = 64.0
-offset_bottom = -55.0
-theme_override_colors/font_shadow_color = Color(0.099986, 0.099986, 0.099986, 1)
-theme_override_fonts/font = ExtResource("27_tv0p2")
-theme_override_font_sizes/font_size = 20
-text = "Unit's Name"
-horizontal_alignment = 1
-
-[node name="Tower Stats" type="Control" parent="Interface"]
-visible = false
-modulate = Color(1, 1, 1, 0.9)
-texture_filter = 2
-layout_mode = 3
-anchors_preset = 0
-offset_right = 260.0
-offset_bottom = 202.0
-script = ExtResource("28_whun5")
-
-[node name="Head" type="PanelContainer" parent="Interface/Tower Stats"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 20.0
-offset_right = 260.0
-offset_bottom = 65.0
-theme = SubResource("Theme_nogtx")
-
-[node name="Label" type="Label" parent="Interface/Tower Stats/Head"]
-texture_filter = 2
-layout_mode = 2
-theme_override_fonts/font = ExtResource("27_tv0p2")
-theme_override_font_sizes/font_size = 32
-text = "Stats"
-vertical_alignment = 1
-
-[node name="Keys" type="PanelContainer" parent="Interface/Tower Stats"]
-texture_filter = 1
-layout_mode = 0
-offset_top = 55.0
-offset_right = 137.0
-offset_bottom = 202.0
-theme = ExtResource("30_linbm")
-
-[node name="Label" type="Label" parent="Interface/Tower Stats/Keys"]
-texture_filter = 2
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_fonts/font = ExtResource("27_tv0p2")
-theme_override_font_sizes/font_size = 18
-text = "Attack Range
-Damage
-Units
-Upgrade Cost
-Max Level"
-horizontal_alignment = 1
-
-[node name="Values" type="PanelContainer" parent="Interface/Tower Stats"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 127.0
-offset_top = 55.0
-offset_right = 260.0
-offset_bottom = 202.0
-theme = ExtResource("30_linbm")
-
-[node name="Label" type="Label" parent="Interface/Tower Stats/Values"]
-texture_filter = 2
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("27_tv0p2")
-theme_override_font_sizes/font_size = 18
-horizontal_alignment = 1
-
-[node name="Close Button" type="Button" parent="Interface/Tower Stats"]
-texture_filter = 2
-layout_mode = 0
-offset_left = 204.0
-offset_top = 16.0
-offset_right = 236.0
-offset_bottom = 48.0
-theme_override_font_sizes/font_size = 16
-icon = ExtResource("31_th4ks")
-
 [node name="TouchScreenButton" type="TouchScreenButton" parent="."]
 shape = SubResource("CircleShape2D_th4ks")
 
@@ -1874,17 +1645,4 @@ bus = &"SFX"
 
 [node name="Smoke" type="Node2D" parent="."]
 
-[connection signal="mouse_entered" from="Interface/Menu/Build Button" to="Interface/Menu/Build Button" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Interface/Menu/Build Button" to="Interface/Menu/Build Button" method="_on_mouse_exited"]
-[connection signal="pressed" from="Interface/Menu/Build Button" to="." method="_on_build_button_pressed"]
-[connection signal="mouse_entered" from="Interface/Menu/Upgrade Button" to="Interface/Menu/Upgrade Button" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Interface/Menu/Upgrade Button" to="Interface/Menu/Upgrade Button" method="_on_mouse_exited"]
-[connection signal="pressed" from="Interface/Menu/Upgrade Button" to="." method="_on_upgrade_button_pressed"]
-[connection signal="mouse_entered" from="Interface/Menu/Remove Button" to="Interface/Menu/Remove Button" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Interface/Menu/Remove Button" to="Interface/Menu/Remove Button" method="_on_mouse_exited"]
-[connection signal="pressed" from="Interface/Menu/Remove Button" to="." method="_on_remove_button_pressed"]
-[connection signal="mouse_entered" from="Interface/Menu/Tower Stats Button" to="Interface/Menu/Tower Stats Button" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Interface/Menu/Tower Stats Button" to="Interface/Menu/Tower Stats Button" method="_on_mouse_exited"]
-[connection signal="pressed" from="Interface/Menu/Tower Stats Button" to="." method="_on_tower_stats_button_pressed"]
-[connection signal="pressed" from="Interface/Tower Stats/Close Button" to="Interface/Tower Stats" method="_on_close_button_pressed"]
 [connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]

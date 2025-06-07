@@ -1,25 +1,27 @@
-[gd_scene load_steps=29 format=3 uid="uid://die1k42jfmahn"]
+[gd_scene load_steps=31 format=3 uid="uid://die1k42jfmahn"]
 
 [ext_resource type="Script" uid="uid://dfi0gclyc5igs" path="res://gamedata/scene/main_menu/main_menu.gd" id="1_ab7jh"]
-[ext_resource type="Texture2D" uid="uid://bdbcrxa2815rn" path="res://interface/backgrounds/main_menu.jpeg" id="1_tludv"]
-[ext_resource type="PackedScene" uid="uid://5somsbnrlalg" path="res://gamedata/ui/star/star.tscn" id="2_ndcgm"]
-[ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://interface/backgrounds/ui_border.png" id="3_m4171"]
-[ext_resource type="Texture2D" uid="uid://b5ya13e41k2kt" path="res://interface/buttons/text_default.svg" id="5_c58i8"]
-[ext_resource type="Texture2D" uid="uid://dsh51r6drxmtr" path="res://interface/buttons/text_hover.svg" id="6_si5nj"]
-[ext_resource type="Script" uid="uid://bc6bgbd55qvb3" path="res://gamedata/ui/texture_button/texture_button.gd" id="7_bejr1"]
-[ext_resource type="Texture2D" uid="uid://csq5bonl77fkh" path="res://interface/buttons/text_disabled.svg" id="7_tvwr8"]
-[ext_resource type="FontFile" uid="uid://car2t5itecnhr" path="res://interface/fonts/Bungee-Regular.ttf" id="9_d8en2"]
-[ext_resource type="Texture2D" uid="uid://dy2ndup68fcj0" path="res://interface/buttons/arrow_left_default.svg" id="10_pcypl"]
-[ext_resource type="Theme" uid="uid://dowtsey5pyxwl" path="res://interface/themes/text.tres" id="10_r20pc"]
-[ext_resource type="Texture2D" uid="uid://bndqygcma1us1" path="res://interface/buttons/level_default.svg" id="10_xgh0e"]
-[ext_resource type="Texture2D" uid="uid://eoofx4ysy5gn" path="res://interface/buttons/level_hover.svg" id="11_bbs4v"]
-[ext_resource type="Texture2D" uid="uid://d3p11abw8yorb" path="res://interface/buttons/arrow_left_hover.svg" id="11_jr0j5"]
-[ext_resource type="Texture2D" uid="uid://boeurit6h0hsl" path="res://interface/buttons/level_disabled.svg" id="11_n28j3"]
-[ext_resource type="Script" uid="uid://w4ahvf7okxlu" path="res://gamedata/ui/level_button/level_button.gd" id="13_adb1k"]
-[ext_resource type="Theme" uid="uid://b1dojytjydmpw" path="res://interface/themes/value.tres" id="15_gncvb"]
-[ext_resource type="Texture2D" uid="uid://bi3kg1fix3bcw" path="res://interface/backgrounds/ui_back.svg" id="16_npgut"]
-[ext_resource type="PackedScene" uid="uid://cci0owdbk2fr5" path="res://gamedata/scene/settings/settings.tscn" id="19_inpo7"]
-[ext_resource type="FontFile" uid="uid://5wohy1go68x5" path="res://interface/fonts/Tribal Garamond.ttf" id="19_mmsxt"]
+[ext_resource type="Texture2D" uid="uid://bdbcrxa2815rn" path="res://gui/backgrounds/main_menu.jpeg" id="1_tludv"]
+[ext_resource type="PackedScene" uid="uid://cvwwyafne3ryg" path="res://gamedata/scene/level_1/level_1.tscn" id="2_jx0ix"]
+[ext_resource type="PackedScene" uid="uid://5somsbnrlalg" path="res://gamedata/gui/star/star.tscn" id="2_ndcgm"]
+[ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://gui/backgrounds/ui_border.png" id="3_m4171"]
+[ext_resource type="PackedScene" uid="uid://dtaq5avc8r7f" path="res://gamedata/scene/level_2/level_2.tscn" id="3_rp26q"]
+[ext_resource type="PackedScene" uid="uid://jntda0nfq0ml" path="res://gamedata/scene/level_3/level_3.tscn" id="4_dkdrw"]
+[ext_resource type="Texture2D" uid="uid://b5ya13e41k2kt" path="res://gui/buttons/text_default.svg" id="5_c58i8"]
+[ext_resource type="Texture2D" uid="uid://dsh51r6drxmtr" path="res://gui/buttons/text_hover.svg" id="6_si5nj"]
+[ext_resource type="Script" uid="uid://bc6bgbd55qvb3" path="res://gamedata/gui/texture_button/texture_button.gd" id="7_bejr1"]
+[ext_resource type="Texture2D" uid="uid://csq5bonl77fkh" path="res://gui/buttons/text_disabled.svg" id="7_tvwr8"]
+[ext_resource type="FontFile" uid="uid://car2t5itecnhr" path="res://gui/fonts/Bungee-Regular.ttf" id="9_d8en2"]
+[ext_resource type="Texture2D" uid="uid://dy2ndup68fcj0" path="res://gui/buttons/arrow_left_default.svg" id="10_pcypl"]
+[ext_resource type="Theme" uid="uid://dowtsey5pyxwl" path="res://gui/themes/text.tres" id="10_r20pc"]
+[ext_resource type="Texture2D" uid="uid://bndqygcma1us1" path="res://gui/buttons/level_default.svg" id="10_xgh0e"]
+[ext_resource type="Texture2D" uid="uid://eoofx4ysy5gn" path="res://gui/buttons/level_hover.svg" id="11_bbs4v"]
+[ext_resource type="Texture2D" uid="uid://d3p11abw8yorb" path="res://gui/buttons/arrow_left_hover.svg" id="11_jr0j5"]
+[ext_resource type="Texture2D" uid="uid://boeurit6h0hsl" path="res://gui/buttons/level_disabled.svg" id="11_n28j3"]
+[ext_resource type="Theme" uid="uid://b1dojytjydmpw" path="res://gui/themes/value.tres" id="15_gncvb"]
+[ext_resource type="Texture2D" uid="uid://bi3kg1fix3bcw" path="res://gui/backgrounds/ui_back.svg" id="16_npgut"]
+[ext_resource type="Script" uid="uid://b7ccti8loiw73" path="res://gamedata/scene/main_menu/level_button.gd" id="17_jx0ix"]
+[ext_resource type="FontFile" uid="uid://5wohy1go68x5" path="res://gui/fonts/Tribal Garamond.ttf" id="19_mmsxt"]
 
 [sub_resource type="Theme" id="Theme_ks3a0"]
 Label/colors/font_color = Color(0.784314, 0.572549, 0.372549, 1)
@@ -80,7 +82,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Game Name:position")
+tracks/2/path = NodePath("GameName:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -92,7 +94,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Game Name:modulate")
+tracks/3/path = NodePath("GameName:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -119,7 +121,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Game Name:position")
+tracks/1/path = NodePath("GameName:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -131,7 +133,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Game Name:modulate")
+tracks/2/path = NodePath("GameName:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -140,6 +142,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Explorer:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(527, 248)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0qjj4"]
 _data = {
@@ -147,8 +161,11 @@ _data = {
 &"RESET": SubResource("Animation_3n44e")
 }
 
-[node name="Main Menu" type="Node2D"]
+[node name="MainMenu" type="Node2D"]
 script = ExtResource("1_ab7jh")
+level_1 = ExtResource("2_jx0ix")
+level_2 = ExtResource("3_rp26q")
+level_3 = ExtResource("4_dkdrw")
 star_scene = ExtResource("2_ndcgm")
 
 [node name="Background" type="TextureRect" parent="."]
@@ -157,7 +174,7 @@ offset_bottom = 1462.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_tludv")
 
-[node name="Game Name" type="Label" parent="."]
+[node name="GameName" type="Label" parent="."]
 offset_right = 1280.0
 offset_bottom = 128.0
 pivot_offset = Vector2(640, 0)
@@ -271,6 +288,7 @@ vertical_alignment = 1
 
 [node name="Levels" type="Control" parent="."]
 visible = false
+modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -300,7 +318,8 @@ texture_normal = ExtResource("10_xgh0e")
 texture_pressed = ExtResource("10_xgh0e")
 texture_hover = ExtResource("11_bbs4v")
 texture_disabled = ExtResource("11_n28j3")
-script = ExtResource("13_adb1k")
+script = ExtResource("17_jx0ix")
+level_technical_name = &"LEVEL_1"
 
 [node name="Label" type="Label" parent="Levels/GridContainer/Level 1"]
 layout_mode = 0
@@ -319,7 +338,8 @@ texture_normal = ExtResource("10_xgh0e")
 texture_pressed = ExtResource("10_xgh0e")
 texture_hover = ExtResource("11_bbs4v")
 texture_disabled = ExtResource("11_n28j3")
-script = ExtResource("13_adb1k")
+script = ExtResource("17_jx0ix")
+level_technical_name = &"LEVEL_2"
 
 [node name="Label" type="Label" parent="Levels/GridContainer/Level 2"]
 visible = false
@@ -339,7 +359,8 @@ texture_normal = ExtResource("10_xgh0e")
 texture_pressed = ExtResource("10_xgh0e")
 texture_hover = ExtResource("11_bbs4v")
 texture_disabled = ExtResource("11_n28j3")
-script = ExtResource("13_adb1k")
+script = ExtResource("17_jx0ix")
+level_technical_name = &"LEVEL_3"
 
 [node name="Label" type="Label" parent="Levels/GridContainer/Level 3"]
 visible = false
@@ -359,7 +380,8 @@ texture_normal = ExtResource("10_xgh0e")
 texture_pressed = ExtResource("10_xgh0e")
 texture_hover = ExtResource("11_bbs4v")
 texture_disabled = ExtResource("11_n28j3")
-script = ExtResource("13_adb1k")
+script = ExtResource("17_jx0ix")
+level_technical_name = &"LEVEL_4"
 
 [node name="Label" type="Label" parent="Levels/GridContainer/Level 4"]
 visible = false
@@ -379,7 +401,8 @@ texture_normal = ExtResource("10_xgh0e")
 texture_pressed = ExtResource("10_xgh0e")
 texture_hover = ExtResource("11_bbs4v")
 texture_disabled = ExtResource("11_n28j3")
-script = ExtResource("13_adb1k")
+script = ExtResource("17_jx0ix")
+level_technical_name = &"LEVEL_5"
 
 [node name="Label" type="Label" parent="Levels/GridContainer/Level 5"]
 visible = false
@@ -399,7 +422,8 @@ texture_normal = ExtResource("10_xgh0e")
 texture_pressed = ExtResource("10_xgh0e")
 texture_hover = ExtResource("11_bbs4v")
 texture_disabled = ExtResource("11_n28j3")
-script = ExtResource("13_adb1k")
+script = ExtResource("17_jx0ix")
+level_technical_name = &"LEVEL_6"
 
 [node name="Label" type="Label" parent="Levels/GridContainer/Level 6"]
 visible = false
@@ -423,6 +447,7 @@ texture_hover = ExtResource("11_jr0j5")
 
 [node name="Credits" type="Control" parent="."]
 visible = false
+modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1280.0
@@ -484,11 +509,6 @@ scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("10_pcypl")
 texture_pressed = ExtResource("10_pcypl")
 texture_hover = ExtResource("11_jr0j5")
-
-[node name="Settings" parent="." instance=ExtResource("19_inpo7")]
-visible = false
-offset_right = 0.0
-offset_bottom = 0.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

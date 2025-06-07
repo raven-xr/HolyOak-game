@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://5somsbnrlalg"]
-
-[ext_resource type="Texture2D" uid="uid://4hn4qwe6hh7q" path="res://interface/icons/star.svg" id="1_2d6fq"]
-
-[node name="Star" type="TextureRect"]
-offset_right = 21.0
-offset_bottom = 20.0
-texture = ExtResource("1_2d6fq")

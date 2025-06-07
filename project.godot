@@ -12,26 +12,27 @@ config_version=5
 
 config/name="Holy Oak"
 config/version="0.5.0"
-run/main_scene="res://gamedata/scene/main_menu/main_menu.tscn"
+run/main_scene="uid://b4vwc1l7latan"
 config/features=PackedStringArray("4.4", "Forward Plus")
-boot_splash/image="res://interface/backgrounds/loadscreen.png"
+boot_splash/image="res://gui/backgrounds/loadscreen.png"
 config/icon="res://icon.png"
 
 [audio]
 
-buses/default_bus_layout="res://gamedata/autoload/default_bus_layout.tres"
+buses/default_bus_layout="res://gamedata/autoload/audiobus/audiobus.tres"
 
 [autoload]
 
-UserSettings="*res://gamedata/autoload/user/UserSettings.gd"
-UserData="*res://gamedata/autoload/user/UserData.gd"
-EnemyData="*res://gamedata/autoload/data/EnemyData.gd"
-UnitData="*res://gamedata/autoload/data/UnitData.gd"
-EffectData="*res://gamedata/autoload/data/EffectData.gd"
-LevelData="*res://gamedata/autoload/data/LevelData.gd"
-SoundManager="*res://gamedata/autoload/game/SoundManager.tscn"
-Signals="*res://gamedata/autoload/game/Signals.gd"
-PlayerStats="*res://gamedata/autoload/player/PlayerStats.gd"
+UserSettings="*res://gamedata/autoload/user/user_settings.gd"
+UserData="*res://gamedata/autoload/user/user_data.gd"
+EnemyData="*res://gamedata/autoload/data/enemy_data.gd"
+UnitData="*res://gamedata/autoload/data/unit_data.gd"
+EffectData="*res://gamedata/autoload/data/effect_data.gd"
+LevelData="*res://gamedata/autoload/data/level_data.gd"
+Global="*res://gamedata/autoload/global/global.gd"
+SoundManager="*res://gamedata/autoload/sound_manager/sound_manager.tscn"
+Signals="*res://gamedata/autoload/signals/signals.gd"
+PlayerStats="*res://gamedata/autoload/player/player_stats.gd"
 
 [display]
 
@@ -51,14 +52,6 @@ enabled=PackedStringArray("res://addons/AS2P/plugin.cfg")
 [filesystem]
 
 import/blender/enabled=false
-
-[input]
-
-Pause={
-"deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
-]
-}
 
 [input_devices]
 
