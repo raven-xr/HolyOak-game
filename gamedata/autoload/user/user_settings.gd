@@ -1,71 +1,70 @@
 extends Node
 
-
-
 # Default settings
 const DEFAULT_MASTER_VOLUME: float = 1.0
 const DEFAULT_MUSIC_VOLUME: float = 0.65
 const DEFAULT_SFX_VOLUME: float = 1.0
 #const DEFAULT_GUI_SCALE: float = 1.0
 
-
-
-# Buses
-var master_bus = AudioServer.get_bus_index("Master")
-var music_bus = AudioServer.get_bus_index("Music")
-var sfx_bus = AudioServer.get_bus_index("SFX")
+# Audiobuses
+var master_bus_idx: int = AudioServer.get_bus_index("Master")
+var music_bus_idx: int = AudioServer.get_bus_index("Music")
+var sfx_bus_idx: int = AudioServer.get_bus_index("SFX")
 ## Equals [0.0; 1.0] (linear)
 var master_volume: float = 1.0:
 	set(value):
 		master_volume = value
-		parameter_changed.emit()
-		AudioServer.set_bus_volume_db(master_bus, linear_to_db(value))
+		property_changed.emit()
+		AudioServer.set_bus_volume_db(master_bus_idx, linear_to_db(value))
 ## Equals [0.0; 1.0] (linear)
 var music_volume: float = 0.65:
 	set(value):
 		music_volume = value
-		parameter_changed.emit()
-		AudioServer.set_bus_volume_db(music_bus, linear_to_db(value))
+		property_changed.emit()
+		AudioServer.set_bus_volume_db(music_bus_idx, linear_to_db(value))
 ## Equals [0.0; 1.0] (linear)
 var sfx_volume: float = 1.0:
 	set(value):
 		sfx_volume = value
-		parameter_changed.emit()
-		AudioServer.set_bus_volume_db(sfx_bus, linear_to_db(value))
+		property_changed.emit()
+		AudioServer.set_bus_volume_db(sfx_bus_idx, linear_to_db(value))
 ## Equals {0.8; 1.0; 1.2; 1.4}
 var gui_scale: float = 1.0:
 	set(value):
 		gui_scale = value
-		parameter_changed.emit()
+		property_changed.emit()
 
+signal property_changed()
 
+const SETTINGS_PATH: String = "user://SETTINGS.cfg"
 
-signal parameter_changed()
-
-
-
-func _ready():
-	connect("parameter_changed", Callable(self, "_on_parameter_changed"))
-	if FileAccess.file_exists(UserData.SETTINGS_PATH):
+func _ready() -> void:
+	connect("property_changed", Callable(self, "_on_property_changed"))
+	if FileAccess.file_exists(SETTINGS_PATH):
 		load_settings()
 	else:
-		# Autoscaling
+		# Autoscaling, after autoscaling the "property_changes" signal will be emited
+		# and a ConfigFile with settings will be created
 		gui_scale = match_scale()
 
-func load_settings():
-	print()
-	var settings = FileAccess.open(UserData.SETTINGS_PATH, FileAccess.READ)
-	master_volume = settings.get_var()
-	music_volume = settings.get_var()
-	sfx_volume = settings.get_var()
-	gui_scale = settings.get_var()
+func load_settings() -> void:
+	var settings: ConfigFile = ConfigFile.new()
+	settings.load(SETTINGS_PATH)
+	master_volume = settings.get_value("VOLUME", "MASTER_VOLUME")
+	music_volume = settings.get_value("VOLUME", "MUSIC_VOLUME")
+	sfx_volume = settings.get_value("VOLUME", "SFX_VOLUME")
+	gui_scale = settings.get_value("GUI", "GUI_SCALE")
 
-func _on_parameter_changed():
-	var settings = FileAccess.open(UserData.SETTINGS_PATH, FileAccess.WRITE)
-	settings.store_var(master_volume)
-	settings.store_var(music_volume)
-	settings.store_var(sfx_volume)
-	settings.store_var(gui_scale)
+func save_settings() -> void:
+	var settings: ConfigFile = ConfigFile.new()
+	settings.set_value("VOLUME", "MASTER_VOLUME", master_volume)
+	settings.set_value("VOLUME", "MUSIC_VOLUME", music_volume)
+	settings.set_value("VOLUME", "SFX_VOLUME", sfx_volume)
+	settings.set_value("GUI", "GUI_SCALE", gui_scale)
+	settings.save(SETTINGS_PATH)
+
+func _on_property_changed() -> void:
+	save_settings()
 
 func match_scale() -> float:
 	if OS.get_name() == "Android":

@@ -95,11 +95,7 @@ func victory() -> void:
 	# Save
 	UserData.progress[technical_name]["is_completed"] = true
 	UserData.progress[technical_name]["stars"] = 3
-	var save = FileAccess.open(UserData.SAVE_PATH, FileAccess.WRITE)
-	save.store_var(UserData.progress)
-	Global.game_controller.change_gui_scene("message")
-	Global.game_controller.current_gui_scene.set_text("Автосохранение...")
-	
+	UserData.update_save()
 	var victory_menu = victory_menu_scene.instantiate()
 	gui.add_child(victory_menu)
 	menu_button.disabled = true
