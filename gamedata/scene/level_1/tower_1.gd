@@ -54,9 +54,8 @@ func _on_build_button_pressed() -> void:
 	if PlayerStats.money >= current_cost:
 		upgrade()
 	else:
-		var new_message = message_scene.instantiate()
-		new_message.text = "У вас недостаточно монет. Текущая стоимость строительства — " + str(current_cost) + " монет"
-		add_child(new_message)
+		Global.game_controller.change_gui_scene("message")
+		Global.game_controller.current_gui_scene.set_text("У вас недостаточно монет. Текущая стоимость строительства — " + str(current_cost) + " монет")
 	close_menu()
 	player_built_tower.emit()
 
@@ -66,9 +65,8 @@ func _on_upgrade_button_pressed() -> void:
 	if PlayerStats.money >= current_cost:
 		upgrade()
 	else:
-		var new_message = message_scene.instantiate()
-		new_message.text = "У вас недостаточно монет. Текущая стоимость улучшения — " + str(current_cost) + " монет"
-		add_child(new_message)
+		Global.game_controller.change_gui_scene("message")
+		Global.game_controller.current_gui_scene.set_text("У вас недостаточно монет. Текущая стоимость улучшения — " + str(current_cost) + " монет")
 	close_menu()
 	player_upgraded_tower.emit()
 
