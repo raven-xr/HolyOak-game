@@ -18,7 +18,7 @@ func _input(_event: InputEvent) -> void:
 
 func close() -> void:
 	var tween = create_tween()
-	tween.tween_property(self, "modulate", Color(1.0, 1.0, 1.0, 0.0), 0.15)
+	tween.tween_property(self, "modulate:a", 0.0, 0.15)
 	await tween.finished
 	# Change the value of the "current_gui_scene" variable if this NodeGUI is the current_gui_scene
 	if Global.game_controller.current_gui_scene == self:
