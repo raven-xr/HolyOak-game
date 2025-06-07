@@ -18,6 +18,7 @@ PanelContainer/styles/panel = SubResource("StyleBoxTexture_fjtag")
 anchors_preset = -1
 pivot_offset = Vector2(640, 75)
 script = ExtResource("1_rdkls")
+can_be_closed = false
 
 [node name="PanelContainer" type="PanelContainer" parent="." index="0"]
 modulate = Color(1, 1, 1, 0.784314)
