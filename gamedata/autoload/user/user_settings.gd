@@ -36,7 +36,7 @@ var gui_scale: float = 1.0:
 
 signal property_changed()
 
-const SETTINGS_PATH: String = "user://SETTINGS.cfg"
+const SETTINGS_PATH: String = "user://settings.cfg"
 
 func _ready() -> void:
 	connect("property_changed", Callable(self, "_on_property_changed"))

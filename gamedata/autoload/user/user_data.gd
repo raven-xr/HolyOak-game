@@ -1,6 +1,6 @@
 extends Node
 
-const SAVE_PATH: String = "user://SAVE.cfg"
+const SAVE_PATH: String = "user://save.cfg"
 
 var progress: Dictionary[StringName, Dictionary] = {
 	"LEVEL_1": {
