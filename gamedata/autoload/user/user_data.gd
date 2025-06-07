@@ -29,13 +29,13 @@ var progress: Dictionary[StringName, Dictionary] = {
 	},
 }
 
-func _ready() -> void:
-	if FileAccess.file_exists(UserData.SAVE_PATH):
-		load_save()
-	else:
-		create_save()
-
 func load_save() -> void:
+	# If the save isn't verified, close the game
+	if not verify_save():
+		# Close the game
+		get_viewport().gui_disable_input = true # Makes player unable to interact with the GUI
+		await get_tree().create_timer(5.0).timeout
+		get_tree().quit()
 	var save: ConfigFile = ConfigFile.new()
 	save.load(SAVE_PATH)
 	for level in progress:
@@ -56,3 +56,26 @@ func update_save() -> void:
 		for key in progress[level]:
 			save.set_value(level, key, progress[level][key])
 	save.save(SAVE_PATH)
+
+func verify_save() -> bool:
+	var save: ConfigFile = ConfigFile.new()
+	save.load(SAVE_PATH)
+	# If the save file has more levels than levels, return the error
+	if len(save.get_sections()) > LevelData.COUNT:
+		Global.game_controller.change_gui_scene("message")
+		Global.game_controller.current_gui_scene.set_text("Критическая ошибка! Сохранение повреждено. Игра выключится самостоятельно через 5 секунд")
+		return false
+	# If one of the levels has more than two keys (is_completed, stars), return the error
+	for level in save.get_sections():
+		if len(save.get_section_keys(level)) > 2:
+			Global.game_controller.change_gui_scene("message")
+			Global.game_controller.current_gui_scene.set_text("Критическая ошибка! Сохранение повреждено. Игра выключится самостоятельно через 5 секунд")
+			return false
+	# If the data type of one of the keys does not match the desired data type, return the error
+	for level in save.get_sections():
+		for key in save.get_section_keys(level):
+			if typeof(save.get_value(level, key)) != typeof(UserData.progress[level][key]):
+				Global.game_controller.change_gui_scene("message")
+				Global.game_controller.current_gui_scene.set_text("Критическая ошибка! Сохранение повреждено. Игра выключится самостоятельно через 5 секунд")
+				return false
+	return true

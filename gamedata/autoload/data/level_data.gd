@@ -20,6 +20,8 @@ extends Node
 	#}
 #}
 
+const COUNT: int = 6
+
 const LEVEL_1: Dictionary = {
 	"name": "level_1",
 	"health": 150,
