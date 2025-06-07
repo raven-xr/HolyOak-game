@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cvwwyafne3ryg" path="res://gamedata/scene/level_1/level_1.tscn" id="3_s37df"]
 [ext_resource type="PackedScene" uid="uid://bhby1rfvkkxt0" path="res://gamedata/gui/settings/settings.tscn" id="3_yjbs2"]
 [ext_resource type="PackedScene" uid="uid://dtaq5avc8r7f" path="res://gamedata/scene/level_2/level_2.tscn" id="4_tk0sh"]
-[ext_resource type="PackedScene" uid="uid://du20li6wou6fs" path="res://gamedata/gui/message/message.tscn" id="4_yjbs2"]
+[ext_resource type="PackedScene" uid="uid://de05y3bg8ws76" path="res://gamedata/gui/message/message.tscn" id="4_yjbs2"]
 [ext_resource type="PackedScene" uid="uid://jntda0nfq0ml" path="res://gamedata/scene/level_3/level_3.tscn" id="5_1325v"]
 [ext_resource type="PackedScene" uid="uid://b437ieyw0o13k" path="res://gamedata/gui/confirmation/confirmation.tscn" id="8_tk0sh"]
 

@@ -1,37 +1,39 @@
-[gd_scene load_steps=5 format=3 uid="uid://du20li6wou6fs"]
+[gd_scene load_steps=6 format=3 uid="uid://de05y3bg8ws76"]
 
+[ext_resource type="PackedScene" uid="uid://i7ihkn2i5v5n" path="res://gamedata/gui/common/node_gui.tscn" id="1_g4id3"]
 [ext_resource type="Script" uid="uid://csb0p2u8fij4j" path="res://gamedata/gui/message/message.gd" id="1_rdkls"]
 [ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://gui/backgrounds/ui_border.png" id="2_hyt8o"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fjtag"]
 texture = ExtResource("2_hyt8o")
 texture_margin_left = 25.0
-texture_margin_top = 10.0
+texture_margin_top = 15.0
 texture_margin_right = 25.0
-texture_margin_bottom = 10.0
+texture_margin_bottom = 15.0
 
-[sub_resource type="Theme" id="Theme_vm760"]
+[sub_resource type="Theme" id="Theme_t4an8"]
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_fjtag")
 
-[node name="Message" type="CanvasLayer"]
+[node name="Message" instance=ExtResource("1_g4id3")]
+anchors_preset = -1
+pivot_offset = Vector2(640, 75)
 script = ExtResource("1_rdkls")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="." index="0"]
 modulate = Color(1, 1, 1, 0.784314)
 texture_filter = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -256.0
-offset_top = 64.0
-offset_right = 256.0
-offset_bottom = 144.0
-grow_horizontal = 2
+layout_mode = 1
+offset_left = 384.0
+offset_top = 75.0
+offset_right = 896.0
+offset_bottom = 154.0
 pivot_offset = Vector2(256, 0)
-theme = SubResource("Theme_vm760")
+theme = SubResource("Theme_t4an8")
 
-[node name="Label" type="Label" parent="PanelContainer"]
+[node name="Label" type="Label" parent="PanelContainer" index="0"]
 texture_filter = 2
+custom_minimum_size = Vector2(462, 49)
 layout_mode = 2
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
