@@ -100,11 +100,7 @@ func _on_canceled() -> void:
 
 func _on_confirmed() -> void:
 	# Confirmation... confirmed?
-	for level in UserData.progress.keys():
-		UserData.progress[level]["is_completed"] = false
-		UserData.progress[level]["stars"] = 0
-	var save = FileAccess.open(UserData.SAVE_PATH, FileAccess.WRITE)
-	save.store_var(UserData.progress)
+	DirAccess.remove_absolute(UserData.SAVE_PATH)
 	Global.game_controller.change_gui_scene("message", false, true)
 	Global.game_controller.current_gui_scene.set_text("Сохранение... Нужен перезапуск! Игра выключится самостоятельно через 5 секунд")
 	get_viewport().gui_disable_input = true # Makes player not able to interact with the GUI
