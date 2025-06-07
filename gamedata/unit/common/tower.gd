@@ -3,7 +3,6 @@ extends Node2D
 @export_subgroup("Required Scenes")
 @export var unit_scene: PackedScene
 @export var smoke_scene: PackedScene
-@export var message_scene: PackedScene
 @export var tower_menu_scene: PackedScene
 @export var tower_stats_scene: PackedScene
 
