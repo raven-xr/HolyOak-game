@@ -1,5 +1,5 @@
 extends Control
-## Don't overwrite the "_on_ready", "_input" and "close" functions if you can avoid this
+## Don't overwrite the "_on_ready", "_input" and "close" functions if this isn't a necessary
 class_name NodeGUI
 
 @export var can_be_closed: bool = true
