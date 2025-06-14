@@ -67,9 +67,9 @@ func verify_save() -> bool:
 	# If the save file has more levels than levels, return the error
 	if len(save.get_sections()) > LevelData.COUNT:
 		return false
-	# If one of the levels has more than two keys (is_completed, stars), return the error
+	# If one of the levels has more than usual keys, return the error
 	for level in save.get_sections():
-		if len(save.get_section_keys(level)) > 2:
+		if len(save.get_section_keys(level)) > len(progress["LEVEL_1"].keys()):
 			return false
 	# If there are two keys at each section, but one or both of them do not exist in the progress dictionary, return the error
 	for level in save.get_sections():
