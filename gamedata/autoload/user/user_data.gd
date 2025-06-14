@@ -33,7 +33,7 @@ func load_save() -> void:
 	# If the save isn't verified, close the game
 	if not verify_save():
 		Global.game_controller.change_gui_scene("message")
-		Global.game_controller.current_gui_scene.set_text("Критическая ошибка! Сохранение повреждено. Игра выключится самостоятельно через 5 секунд")
+		Global.game_controller.current_gui_scene.set_text("Критическая ошибка! Сохранение повреждено. Обратитесь к разработчику! Игра выключится самостоятельно через 5 секунд")
 		# Close the game
 		get_viewport().gui_disable_input = true # Makes player unable to interact with the GUI
 		await get_tree().create_timer(5.0).timeout
