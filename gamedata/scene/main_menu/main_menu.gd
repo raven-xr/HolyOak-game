@@ -22,10 +22,6 @@ func _ready() -> void:
 	explorer.scale = gui_scale
 	levels.scale = gui_scale
 	credits.scale = gui_scale
-	# Load save
-	if FileAccess.file_exists(UserData.SAVE_PATH):
-		var save = FileAccess.open(UserData.SAVE_PATH, FileAccess.READ)
-		UserData.progress = save.get_var()
 	# Play music
 	SoundManager.music_main.play()
 	# Unblock levels

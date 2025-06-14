@@ -697,6 +697,7 @@ menu_position = &"R"
 default_view_direction = &"R"
 
 [node name="Hint" parent="GUI" index="1" instance=ExtResource("27_x1t5x")]
+process_mode = 1
 layout_mode = 1
 
 [node name="Start Timer" parent="Timers" index="0"]
