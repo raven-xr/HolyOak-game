@@ -76,4 +76,9 @@ func verify_save() -> bool:
 		for key in save.get_section_keys(level):
 			if typeof(save.get_value(level, key)) != typeof(UserData.progress[level][key]):
 				return false
+	# If one of the levels was "passed" with more than 3 stars, return the error
+	for level in save.get_sections():
+		for key in save.get_section_keys(level):
+			if key == "stars" and save.get_value(level, key) > 3:
+				return false
 	return true
