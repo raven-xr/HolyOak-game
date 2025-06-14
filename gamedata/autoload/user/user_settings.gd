@@ -70,6 +70,10 @@ func verify_settings() -> bool:
 	# If the settings file has more than two sections, return the error
 	if len(settings.get_sections()) != 2:
 		return false
+	# If there is a non-existent section, return the error
+	for section in settings.get_sections():
+		if not section in ["VOLUME", "GUI"]:
+			return false
 	# If one of the levels has more than usual keys, return the error
 	if len(settings.get_section_keys("VOLUME")) != 3:
 		return false

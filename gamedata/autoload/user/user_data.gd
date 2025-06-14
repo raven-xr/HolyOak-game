@@ -67,6 +67,10 @@ func verify_save() -> bool:
 	# If the save file has more or less sections than levels, return the error
 	if len(save.get_sections()) != LevelData.COUNT:
 		return false
+	# If there is a non-existent section, return the error
+	for section in save.get_sections():
+		if progress.get(section) == null:
+			return false
 	# If one of the levels has more than usual keys, return the error
 	for level in save.get_sections():
 		if len(save.get_section_keys(level)) != len(progress["LEVEL_1"].keys()):
