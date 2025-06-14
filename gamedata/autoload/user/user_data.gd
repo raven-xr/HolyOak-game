@@ -64,14 +64,14 @@ func update_save() -> void:
 func verify_save() -> bool:
 	var save: ConfigFile = ConfigFile.new()
 	save.load(SAVE_PATH)
-	# If the save file has more levels than levels, return the error
-	if len(save.get_sections()) > LevelData.COUNT:
+	# If the save file has more or less sections than levels, return the error
+	if len(save.get_sections()) != LevelData.COUNT:
 		return false
 	# If one of the levels has more than usual keys, return the error
 	for level in save.get_sections():
-		if len(save.get_section_keys(level)) > len(progress["LEVEL_1"].keys()):
+		if len(save.get_section_keys(level)) != len(progress["LEVEL_1"].keys()):
 			return false
-	# If there are two keys at each section, but one or both of them do not exist in the progress dictionary, return the error
+	# If there are the usual count of the keys at each section, but one or both of them do not exist in the progress dictionary, return the error
 	for level in save.get_sections():
 		for key in save.get_section_keys(level):
 			if not key in progress[level].keys():
@@ -81,9 +81,10 @@ func verify_save() -> bool:
 		for key in save.get_section_keys(level):
 			if typeof(save.get_value(level, key)) != typeof(UserData.progress[level][key]):
 				return false
-	# If one of the levels was "passed" with more than 3 stars, return the error
+	# If one of the levels was "passed" with more than 3 stars or less than 1 star 
+	# or one of the levels wasn't passed but has more or less than 0 stars, return the error
 	for level in save.get_sections():
-		for key in save.get_section_keys(level):
-			if key == "stars" and save.get_value(level, key) > 3:
-				return false
+		if (save.get_value(level, "is_completed") and (save.get_value(level, "stars") > 3 or save.get_value(level, "stars") < 1)) \
+		or (not save.get_value(level, "is_completed") and save.get_value(level, "stars") != 0):
+			return false
 	return true
