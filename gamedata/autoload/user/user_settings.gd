@@ -40,28 +40,58 @@ const SETTINGS_PATH: String = "user://settings.cfg"
 
 func _ready() -> void:
 	connect("property_changed", Callable(self, "_on_property_changed"))
-	if FileAccess.file_exists(SETTINGS_PATH):
-		load_settings()
-	else:
-		# Autoscaling, after autoscaling the "property_changes" signal will be emited
-		# and a ConfigFile with settings will be created
-		gui_scale = match_scale()
 
 func load_settings() -> void:
+	if not verify_settings():
+		Global.game_controller.change_gui_scene("message")
+		Global.game_controller.current_gui_scene.set_text("Критическая ошибка! Данные настроек повреждены. Обратитесь к разработчику! Игра выключится самостоятельно через 5 секунд")
+		# Close the game
+		get_viewport().gui_disable_input = true # Makes player unable to interact with the GUI
+		await get_tree().create_timer(5.0).timeout
+		get_tree().quit()
 	var settings: ConfigFile = ConfigFile.new()
 	settings.load(SETTINGS_PATH)
-	master_volume = settings.get_value("VOLUME", "MASTER_VOLUME")
-	music_volume = settings.get_value("VOLUME", "MUSIC_VOLUME")
-	sfx_volume = settings.get_value("VOLUME", "SFX_VOLUME")
-	gui_scale = settings.get_value("GUI", "GUI_SCALE")
+	master_volume = settings.get_value("VOLUME", "master_volume")
+	music_volume = settings.get_value("VOLUME", "music_volume")
+	sfx_volume = settings.get_value("VOLUME", "sfx_volume")
+	gui_scale = settings.get_value("GUI", "gui_scale")
 
 func save_settings() -> void:
 	var settings: ConfigFile = ConfigFile.new()
-	settings.set_value("VOLUME", "MASTER_VOLUME", master_volume)
-	settings.set_value("VOLUME", "MUSIC_VOLUME", music_volume)
-	settings.set_value("VOLUME", "SFX_VOLUME", sfx_volume)
-	settings.set_value("GUI", "GUI_SCALE", gui_scale)
+	settings.set_value("VOLUME", "master_volume", master_volume)
+	settings.set_value("VOLUME", "music_volume", music_volume)
+	settings.set_value("VOLUME", "sfx_volume", sfx_volume)
+	settings.set_value("GUI", "gui_scale", gui_scale)
 	settings.save(SETTINGS_PATH)
+
+func verify_settings() -> bool:
+	var settings: ConfigFile = ConfigFile.new()
+	settings.load(SETTINGS_PATH)
+	# If the settings file has more than two sections, return the error
+	if len(settings.get_sections()) != 2:
+		return false
+	# If one of the levels has more than usual keys, return the error
+	if len(settings.get_section_keys("VOLUME")) != 3:
+		return false
+	if len(settings.get_section_keys("GUI")) != 1:
+		return false
+	# If there are usual count of the keys at each section, but one or both of them do not exist in the progress dictionary, return the error
+	for section in settings.get_sections():
+		for key in settings.get_section_keys(section):
+			if get(key) == null:
+				return false
+	# If the data type of one of the keys does not match the desired data type, return the error
+	for section in settings.get_sections():
+		for key in settings.get_section_keys(section):
+			if typeof(settings.get_value(section, key)) != typeof(get(key)):
+				return false
+	# If one of the values isn't real, return the error
+	for volume in settings.get_section_keys("VOLUME"):
+		if settings.get_value("VOLUME", volume) > 1.0 or settings.get_value("VOLUME", volume) < 0.0:
+			return false
+	if not settings.get_value("GUI", "gui_scale") in [0.8, 1.0, 1.2, 1.4]:
+		return false
+	return true
 
 func _on_property_changed() -> void:
 	save_settings()
