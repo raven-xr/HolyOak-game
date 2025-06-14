@@ -71,6 +71,11 @@ func verify_save() -> bool:
 	for level in save.get_sections():
 		if len(save.get_section_keys(level)) > 2:
 			return false
+	# If there are two keys at each section, but one or both of them do not exist in the progress dictionary, return the error
+	for level in save.get_sections():
+		for key in save.get_section_keys(level):
+			if not key in progress[level].keys():
+				return false
 	# If the data type of one of the keys does not match the desired data type, return the error
 	for level in save.get_sections():
 		for key in save.get_section_keys(level):
