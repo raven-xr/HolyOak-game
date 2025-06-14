@@ -14,7 +14,6 @@ var last_music_volume: float = UserSettings.music_volume
 var last_sfx_volume: float = UserSettings.sfx_volume
 var last_gui_scale: float = UserSettings.gui_scale
 
-
 func _ready() -> void:
 	popup_menu.connect("id_pressed", Callable(self, "_on_popup_menu_id_pressed"))
 	# Unless the current scene is the main menu, disables the reset progress button
