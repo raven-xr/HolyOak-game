@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://b6o16t77ww40d"]
+[gd_scene load_steps=76 format=3 uid="uid://b6o16t77ww40d"]
 
 [ext_resource type="PackedScene" uid="uid://dkswfpke4hlux" path="res://gamedata/unit/common/unit.tscn" id="1_1quro"]
 [ext_resource type="PackedScene" uid="uid://bandmxn21iglp" path="res://gamedata/unit/fire_archer/fire_arrow.tscn" id="2_4llkt"]
@@ -833,9 +833,6 @@ _data = {
 &"U_Preattack": SubResource("Animation_gkkpy")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_61r42"]
-resource_local_to_scene = true
-
 [node name="Fire Archer" instance=ExtResource("1_1quro")]
 technical_name = &"FIRE_ARCHER"
 logo = ExtResource("2_cfxvq")
@@ -852,9 +849,6 @@ root_node = NodePath("../AnimatedSprite2D")
 libraries = {
 &"": SubResource("AnimationLibrary_gj228")
 }
-
-[node name="CollisionShape2D" parent="Area2D" index="0"]
-shape = SubResource("CircleShape2D_61r42")
 
 [node name="Preattack" parent="SFX" index="0"]
 stream = ExtResource("15_dnx2x")

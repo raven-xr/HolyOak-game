@@ -1,4 +1,4 @@
-[gd_scene load_steps=134 format=3 uid="uid://lxt2xv2lfkgu"]
+[gd_scene load_steps=135 format=3 uid="uid://lxt2xv2lfkgu"]
 
 [ext_resource type="Script" uid="uid://bdsofk2pt1nov" path="res://gamedata/unit/common/tower.gd" id="1_ga7em"]
 [ext_resource type="Texture2D" uid="uid://dyj1b8lqm8l5x" path="res://gfx/unit/tower/upgrade/1.png" id="2_6xap5"]
@@ -1599,6 +1599,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_th4ks"]
 radius = 54.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_qwakt"]
+resource_local_to_scene = true
+
 [node name="Tower" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_ga7em")
@@ -1644,5 +1647,14 @@ volume_db = -15.0
 bus = &"SFX"
 
 [node name="Smoke" type="Node2D" parent="."]
+
+[node name="AttackRange" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+shape = SubResource("CircleShape2D_qwakt")
+disabled = true
+debug_color = Color(0.00493456, 0.228804, 0.999991, 0.188235)
 
 [connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]

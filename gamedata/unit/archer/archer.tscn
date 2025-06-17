@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://cenxr6q3w2dek"]
+[gd_scene load_steps=76 format=3 uid="uid://cenxr6q3w2dek"]
 
 [ext_resource type="PackedScene" uid="uid://dkswfpke4hlux" path="res://gamedata/unit/common/unit.tscn" id="1_n6yr7"]
 [ext_resource type="PackedScene" uid="uid://oo54cqtpti2t" path="res://gamedata/unit/archer/arrow.tscn" id="2_caila"]
@@ -832,9 +832,6 @@ _data = {
 &"U_Preattack": SubResource("Animation_a6jtm")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3cvyx"]
-resource_local_to_scene = true
-
 [node name="Archer" instance=ExtResource("1_n6yr7")]
 technical_name = &"ARCHER"
 logo = ExtResource("2_jpxeh")
@@ -850,9 +847,6 @@ animation = &"D_Attack"
 libraries = {
 &"": SubResource("AnimationLibrary_28d2e")
 }
-
-[node name="CollisionShape2D" parent="Area2D" index="0"]
-shape = SubResource("CircleShape2D_3cvyx")
 
 [node name="Preattack" parent="SFX" index="0"]
 stream = ExtResource("15_ebld8")

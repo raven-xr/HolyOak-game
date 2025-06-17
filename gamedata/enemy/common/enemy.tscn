@@ -22,6 +22,7 @@ script = ExtResource("2_cx48v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xim26")
+debug_color = Color(1, 0, 0, 0.419608)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -36,6 +37,7 @@ monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot"]
 shape = SubResource("CircleShape2D_rqqu2")
+debug_color = Color(0, 0.662745, 0.592157, 0.419608)
 
 [node name="SFX" type="Node2D" parent="."]
 

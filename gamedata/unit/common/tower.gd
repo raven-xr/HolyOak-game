@@ -13,11 +13,12 @@ extends Node2D
 @onready var logo: Sprite2D = $Logo
 @onready var units: Node2D = $Units
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-
 @onready var touch_screen_button: TouchScreenButton = $TouchScreenButton
-
 @onready var sfx_building: AudioStreamPlayer2D = $Building
 @onready var gfx_smoke: Node2D = $Smoke
+@onready var attack_range: Area2D = $AttackRange
+@onready var attack_range_col: CollisionShape2D = $AttackRange/CollisionShape2D
+
 @onready var unit_stats: Dictionary[StringName, Dictionary] = UnitData.get(unit_scene.instantiate().technical_name)
 
 # GUI of the current level
@@ -121,6 +122,8 @@ func _on_tower_stats_button_pressed() -> void:
 	)
 
 func upgrade() -> void:
+	# Remove the AttackRange
+	attack_range_col.set_deferred("disabled", true)
 	is_upgrading = true
 	remove_units()
 	# Block touch screen button to not let player interact with the interface
@@ -148,8 +151,13 @@ func upgrade() -> void:
 	if not level_gui.has_node("TowerStats") and not level_gui.has_node("TowerMenu"):
 		touch_screen_button.visible = true
 	is_upgrading = false
+	# Set the AttackRange
+	attack_range_col.disabled = false
+	attack_range_col.shape.radius = unit_stats["level_" + str(level)]["attack_range"]
 
 func remove() -> void:
+	# Remove the AttackRange
+	attack_range_col.set_deferred("disabled", true)
 	is_upgrading = true
 	remove_units()
 	# Block touch screen button to not let player interact with the interface
