@@ -16,7 +16,7 @@ func open_menu() -> void:
 	tower_menu = tower_menu_scene.instantiate()
 	tower_menu.unit_name = unit_scene.instantiate().name
 	tower_menu.menu_position = menu_position
-	tower_menu.tower_position = position
+	tower_menu.tower = self
 	# Connects the "opened" and "closed" signals to the level
 	tower_menu.connect("opened", Callable(Global.game_controller.current_2d_scene, "_on_tower_menu_opened"))
 	tower_menu.connect("closed", Callable(Global.game_controller.current_2d_scene, "_on_tower_menu_closed"))
