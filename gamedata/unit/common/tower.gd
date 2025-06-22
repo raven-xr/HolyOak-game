@@ -17,6 +17,7 @@ extends Node2D
 @onready var sfx_building: AudioStreamPlayer2D = $Building
 @onready var gfx_smoke: Node2D = $Smoke
 @onready var attack_range: Area2D = $AttackRange
+@onready var attack_range_sprite_2d: Sprite2D = $AttackRange/Sprite2D
 @onready var attack_range_col: CollisionShape2D = $AttackRange/CollisionShape2D
 
 @onready var unit_stats: Dictionary[StringName, Dictionary] = UnitData.get(unit_scene.instantiate().technical_name)
@@ -53,7 +54,7 @@ func open_menu() -> void:
 	tower_menu = tower_menu_scene.instantiate()
 	tower_menu.unit_name = unit_scene.instantiate().name
 	tower_menu.menu_position = menu_position
-	tower_menu.tower_position = position
+	tower_menu.tower = self
 	# Connects the "opened" and "closed" signals to the level
 	tower_menu.connect("opened", Callable(Global.game_controller.current_2d_scene, "_on_tower_menu_opened"))
 	tower_menu.connect("closed", Callable(Global.game_controller.current_2d_scene, "_on_tower_menu_closed"))
@@ -108,7 +109,7 @@ func _on_tower_stats_button_pressed() -> void:
 	# The dictionary is required for positioning tower stats and offsetting their pivots
 	var tower_stats = tower_stats_scene.instantiate()
 	tower_stats.menu_position = menu_position
-	tower_stats.tower_position = position
+	tower_stats.tower = self
 	# Connects the "opened" and "closed" signals to the level
 	tower_stats.connect("opened", Callable(Global.game_controller.current_2d_scene, "_on_tower_stats_opened"))
 	tower_stats.connect("closed", Callable(Global.game_controller.current_2d_scene, "_on_tower_stats_closed"))
@@ -122,7 +123,7 @@ func _on_tower_stats_button_pressed() -> void:
 	)
 
 func upgrade() -> void:
-	# Remove the AttackRange
+	# Disable the AttackRange
 	attack_range_col.set_deferred("disabled", true)
 	is_upgrading = true
 	remove_units()
@@ -156,7 +157,7 @@ func upgrade() -> void:
 	attack_range_col.shape.radius = unit_stats["level_" + str(level)]["attack_range"]
 
 func remove() -> void:
-	# Remove the AttackRange
+	# Disable the AttackRange
 	attack_range_col.set_deferred("disabled", true)
 	is_upgrading = true
 	remove_units()
@@ -211,3 +212,16 @@ func can_be_upgraded() -> bool:
 	if level in [MAX_LEVEL, PlayerStats.tower_level_limit]:
 		return false
 	return true
+
+func show_attack_range() -> void:
+	if level == 0:
+		return
+	var tween = create_tween()
+	tween.tween_property(attack_range_sprite_2d, "modulate", Color(1.0, 1.0, 1.0, 1.0), 0.15)
+	# Multiply by 2.2 so that the attack range and its sprite match
+	attack_range_sprite_2d.texture.height = attack_range_col.shape.radius * 2.2
+	attack_range_sprite_2d.texture.width = attack_range_col.shape.radius * 2.2
+
+func hide_attack_range() -> void:
+	var tween = create_tween()
+	tween.tween_property(attack_range_sprite_2d, "modulate", Color(1.0, 1.0, 1.0, 0.0), 0.15)
