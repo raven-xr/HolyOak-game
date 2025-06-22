@@ -1,4 +1,4 @@
-[gd_scene load_steps=134 format=3 uid="uid://lxt2xv2lfkgu"]
+[gd_scene load_steps=137 format=3 uid="uid://lxt2xv2lfkgu"]
 
 [ext_resource type="Script" uid="uid://bdsofk2pt1nov" path="res://gamedata/unit/common/tower.gd" id="1_ga7em"]
 [ext_resource type="Texture2D" uid="uid://dyj1b8lqm8l5x" path="res://gfx/unit/tower/upgrade/1.png" id="2_6xap5"]
@@ -1599,6 +1599,20 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_th4ks"]
 radius = 54.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_qwakt"]
+resource_local_to_scene = true
+
+[sub_resource type="Gradient" id="Gradient_qwakt"]
+offsets = PackedFloat32Array(0, 0.287719, 0.624561, 0.638596, 0.642105)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0.152941, 1, 1, 1, 0.635294, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_khjre"]
+gradient = SubResource("Gradient_qwakt")
+width = 20
+height = 20
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Tower" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_ga7em")
@@ -1644,5 +1658,18 @@ volume_db = -15.0
 bus = &"SFX"
 
 [node name="Smoke" type="Node2D" parent="."]
+
+[node name="AttackRange" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+shape = SubResource("CircleShape2D_qwakt")
+disabled = true
+debug_color = Color(0.00493456, 0.228804, 0.999991, 0.188235)
+
+[node name="Sprite2D" type="Sprite2D" parent="AttackRange"]
+modulate = Color(1, 1, 1, 0)
+texture = SubResource("GradientTexture2D_khjre")
 
 [connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]

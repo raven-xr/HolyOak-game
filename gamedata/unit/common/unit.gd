@@ -14,17 +14,16 @@ enum States {
 
 @onready var shell_container: Node2D = Global.game_controller.current_2d_scene.get_node("ShellContainer")
 
+@onready var tower: Node2D = get_parent().get_parent()
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
 @onready var find_timer: Timer = $"Find Timer"
 @onready var attack_sfx: AudioStreamPlayer2D = $SFX/Attack
 
-@onready var default_view_direction: StringName = get_parent().get_parent().default_view_direction
+@onready var default_view_direction: StringName = tower.default_view_direction
 
 @onready var stats: Dictionary[StringName, Dictionary] = UnitData.get(technical_name)
 @onready var damage: int = stats["level_" + str(level)]["damage"]
-@onready var attack_range: int = stats["level_" + str(level)]["attack_range"]
 @onready var shell_speed: int = stats["level_" + str(level)]["shell_speed"]
 
 var available_enemies: Array[Enemy] = []
@@ -52,7 +51,8 @@ var current_view_direction: String
 
 func _ready() -> void:
 	state = States.IDLE
-	collision_shape_2d.shape.radius = attack_range
+	tower.attack_range.connect("body_entered", Callable(self, "_on_attack_range_body_entered"))
+	tower.attack_range.connect("body_exited", Callable(self, "_on_attack_range_body_exited"))
 
 func idle_state() -> void:
 	current_view_direction = default_view_direction
@@ -96,12 +96,12 @@ func shoot() -> void:
 	# Anyway, cooldown
 	state = States.COOLDOWN
 
-func _on_area_2d_body_entered(body: Enemy) -> void:
+func _on_attack_range_body_entered(body: Enemy) -> void:
 	available_enemies.append(body)
 	if state == States.IDLE:
 		state = States.ATTACK
 
-func _on_area_2d_body_exited(body: Enemy) -> void:
+func _on_attack_range_body_exited(body: Enemy) -> void:
 	available_enemies.erase(body)
 	if body == target:
 		target = null
