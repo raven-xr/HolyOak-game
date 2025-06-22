@@ -20,6 +20,8 @@ resource_local_to_scene = true
 size = Vector2(0, 0)
 
 [node name="Hint" instance=ExtResource("1_tpicn")]
+offset_right = -1152.0
+offset_bottom = -656.0
 script = ExtResource("2_3a814")
 can_be_closed = false
 
