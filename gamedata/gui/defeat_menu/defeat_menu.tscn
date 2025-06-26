@@ -20,7 +20,7 @@ PanelContainer/styles/panel = SubResource("StyleBoxTexture_2fqrf")
 pivot_offset = Vector2(640, 360)
 script = ExtResource("1_xr44m")
 
-[node name="PanelContainer" type="PanelContainer" parent="." index="1"]
+[node name="PanelContainer" type="PanelContainer" parent="." index="0"]
 process_mode = 3
 texture_filter = 1
 layout_mode = 0
