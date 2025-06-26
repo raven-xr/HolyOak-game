@@ -6,11 +6,17 @@
 [ext_resource type="Script" uid="uid://bc6bgbd55qvb3" path="res://gamedata/gui/texture_button/texture_button.gd" id="3_hl5yq"]
 [ext_resource type="Theme" uid="uid://dowtsey5pyxwl" path="res://gui/themes/text.tres" id="5_hoxmo"]
 
-[node name="Texture Button" type="TextureButton"]
+[node name="TextureButton" type="TextureButton"]
+editor_description = "Make the scene local for another one to change the text"
+custom_minimum_size = Vector2(196, 84)
+offset_right = 196.0
+offset_bottom = 84.0
 texture_normal = ExtResource("1_k5cgc")
 texture_pressed = ExtResource("1_k5cgc")
 texture_hover = ExtResource("2_oqueo")
 texture_disabled = ExtResource("3_5wmfo")
+ignore_texture_size = true
+stretch_mode = 0
 script = ExtResource("3_hl5yq")
 
 [node name="Label" type="Label" parent="."]

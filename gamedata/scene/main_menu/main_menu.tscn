@@ -207,11 +207,15 @@ layout_mode = 2
 size_flags_vertical = 4
 
 [node name="Play Button" type="TextureButton" parent="Explorer/VBoxContainer"]
+editor_description = "Make the scene local for another one to change the text"
+custom_minimum_size = Vector2(196, 84)
 layout_mode = 2
 texture_normal = ExtResource("5_c58i8")
 texture_pressed = ExtResource("5_c58i8")
 texture_hover = ExtResource("6_si5nj")
 texture_disabled = ExtResource("7_tvwr8")
+ignore_texture_size = true
+stretch_mode = 0
 script = ExtResource("7_bejr1")
 
 [node name="Label" type="Label" parent="Explorer/VBoxContainer/Play Button"]
@@ -222,16 +226,20 @@ offset_right = 187.0
 offset_bottom = 66.0
 theme = ExtResource("10_r20pc")
 theme_override_font_sizes/font_size = 32
-text = "play"
+text = "PLAY"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Credits Button" type="TextureButton" parent="Explorer/VBoxContainer"]
+editor_description = "Make the scene local for another one to change the text"
+custom_minimum_size = Vector2(196, 84)
 layout_mode = 2
 texture_normal = ExtResource("5_c58i8")
 texture_pressed = ExtResource("5_c58i8")
 texture_hover = ExtResource("6_si5nj")
 texture_disabled = ExtResource("7_tvwr8")
+ignore_texture_size = true
+stretch_mode = 0
 script = ExtResource("7_bejr1")
 
 [node name="Label" type="Label" parent="Explorer/VBoxContainer/Credits Button"]
@@ -247,11 +255,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Settings Button" type="TextureButton" parent="Explorer/VBoxContainer"]
+editor_description = "Make the scene local for another one to change the text"
+custom_minimum_size = Vector2(196, 84)
 layout_mode = 2
 texture_normal = ExtResource("5_c58i8")
 texture_pressed = ExtResource("5_c58i8")
 texture_hover = ExtResource("6_si5nj")
 texture_disabled = ExtResource("7_tvwr8")
+ignore_texture_size = true
+stretch_mode = 0
 script = ExtResource("7_bejr1")
 
 [node name="Label" type="Label" parent="Explorer/VBoxContainer/Settings Button"]
@@ -267,11 +279,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Exit Button" type="TextureButton" parent="Explorer/VBoxContainer"]
+editor_description = "Make the scene local for another one to change the text"
+custom_minimum_size = Vector2(196, 84)
 layout_mode = 2
 texture_normal = ExtResource("5_c58i8")
 texture_pressed = ExtResource("5_c58i8")
 texture_hover = ExtResource("6_si5nj")
 texture_disabled = ExtResource("7_tvwr8")
+ignore_texture_size = true
+stretch_mode = 0
 script = ExtResource("7_bejr1")
 
 [node name="Label" type="Label" parent="Explorer/VBoxContainer/Exit Button"]

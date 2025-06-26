@@ -38,6 +38,8 @@ texture_normal = ExtResource("1_87goc")
 texture_pressed = ExtResource("1_87goc")
 texture_hover = ExtResource("2_e5qv2")
 texture_disabled = ExtResource("3_wolsd")
+ignore_texture_size = true
+stretch_mode = 0
 script = ExtResource("4_7e2yb")
 
 [node name="Label" type="Label" parent="Build Button"]
@@ -63,6 +65,8 @@ texture_normal = ExtResource("1_87goc")
 texture_pressed = ExtResource("1_87goc")
 texture_hover = ExtResource("2_e5qv2")
 texture_disabled = ExtResource("3_wolsd")
+ignore_texture_size = true
+stretch_mode = 0
 script = ExtResource("4_7e2yb")
 
 [node name="Label" type="Label" parent="Upgrade Button"]
@@ -88,6 +92,8 @@ texture_normal = ExtResource("1_87goc")
 texture_pressed = ExtResource("1_87goc")
 texture_hover = ExtResource("2_e5qv2")
 texture_disabled = ExtResource("3_wolsd")
+ignore_texture_size = true
+stretch_mode = 0
 script = ExtResource("4_7e2yb")
 
 [node name="Label" type="Label" parent="Remove Button"]
@@ -113,6 +119,8 @@ texture_normal = ExtResource("1_87goc")
 texture_pressed = ExtResource("1_87goc")
 texture_hover = ExtResource("2_e5qv2")
 texture_disabled = ExtResource("3_wolsd")
+ignore_texture_size = true
+stretch_mode = 0
 script = ExtResource("4_7e2yb")
 
 [node name="Label" type="Label" parent="Tower Stats Button"]
