@@ -28,8 +28,8 @@ var sfx_volume: float = 1.0:
 		sfx_volume = value
 		property_changed.emit()
 		AudioServer.set_bus_volume_db(sfx_bus_idx, linear_to_db(value))
-# {0.8; 1.0; 1.2; 1.4}
-var gui_scale: float = 1.0:
+# {0.5; 0.6; 0.7; 0.8; 0.9; 1.0}
+var gui_scale: float = 0.7:
 	set(value):
 		gui_scale = value
 		property_changed.emit()
@@ -93,7 +93,7 @@ func verify_settings() -> bool:
 	for volume in settings.get_section_keys("VOLUME"):
 		if settings.get_value("VOLUME", volume) > 1.0 or settings.get_value("VOLUME", volume) < 0.0:
 			return false
-	if not settings.get_value("GUI", "gui_scale") in [0.8, 1.0, 1.2, 1.4]:
+	if not settings.get_value("GUI", "gui_scale") in [0.5, 0.6, 0.7, 0.8, 0.9, 1.0]:
 		return false
 	return true
 
