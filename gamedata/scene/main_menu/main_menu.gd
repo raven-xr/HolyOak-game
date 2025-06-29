@@ -38,7 +38,7 @@ func _ready() -> void:
 		var level_name: StringName = button.level_technical_name
 		for i in range(UserData.progress[level_name]["stars"]):
 			var star = star_scene.instantiate()
-			star.position = Vector2(13 + 23 * i, 74)
+			star.position = Vector2(17.0 + 32.0 * i, 104.0)
 			button.add_child(star)
 
 func _input(_event: InputEvent) -> void:
