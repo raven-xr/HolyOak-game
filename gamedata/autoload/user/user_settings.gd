@@ -10,25 +10,25 @@ const DEFAULT_SFX_VOLUME: float = 1.0
 var master_bus_idx: int = AudioServer.get_bus_index("Master")
 var music_bus_idx: int = AudioServer.get_bus_index("Music")
 var sfx_bus_idx: int = AudioServer.get_bus_index("SFX")
-## Equals [0.0; 1.0] (linear)
+# [0.0; 1.0]
 var master_volume: float = 1.0:
 	set(value):
 		master_volume = value
 		property_changed.emit()
 		AudioServer.set_bus_volume_db(master_bus_idx, linear_to_db(value))
-## Equals [0.0; 1.0] (linear)
+# [0.0; 1.0]
 var music_volume: float = 0.65:
 	set(value):
 		music_volume = value
 		property_changed.emit()
 		AudioServer.set_bus_volume_db(music_bus_idx, linear_to_db(value))
-## Equals [0.0; 1.0] (linear)
+# [0.0; 1.0]
 var sfx_volume: float = 1.0:
 	set(value):
 		sfx_volume = value
 		property_changed.emit()
 		AudioServer.set_bus_volume_db(sfx_bus_idx, linear_to_db(value))
-## Equals {0.8; 1.0; 1.2; 1.4}
+# {0.8; 1.0; 1.2; 1.4}
 var gui_scale: float = 1.0:
 	set(value):
 		gui_scale = value
