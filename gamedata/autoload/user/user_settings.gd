@@ -4,7 +4,7 @@ extends Node
 const DEFAULT_MASTER_VOLUME: float = 1.0
 const DEFAULT_MUSIC_VOLUME: float = 0.65
 const DEFAULT_SFX_VOLUME: float = 1.0
-#const DEFAULT_GUI_SCALE: float = 1.0
+#const DEFAULT_GUI_SCALE: float = 0.7
 
 # Audiobuses
 var master_bus_idx: int = AudioServer.get_bus_index("Master")
@@ -102,6 +102,6 @@ func _on_property_changed() -> void:
 
 func match_scale() -> float:
 	if OS.get_name() == "Android":
-		return 1.4
-	else:
 		return 1.0
+	else:
+		return 0.7
