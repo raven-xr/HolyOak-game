@@ -6,50 +6,56 @@
 [ext_resource type="Texture2D" uid="uid://bovpfmhts66wt" path="res://gui/icons/restart.svg" id="3_q1ncl"]
 [ext_resource type="Texture2D" uid="uid://c17d2n1jjcd8t" path="res://gui/icons/menu.svg" id="4_ioxxa"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2fqrf"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sgioi"]
 texture = ExtResource("2_i7sav")
-texture_margin_left = 16.0
-texture_margin_top = 10.0
-texture_margin_right = 16.0
-texture_margin_bottom = 10.0
+texture_margin_left = 22.0
+texture_margin_top = 14.0
+texture_margin_right = 22.0
+texture_margin_bottom = 14.0
 
-[sub_resource type="Theme" id="Theme_oedc1"]
-PanelContainer/styles/panel = SubResource("StyleBoxTexture_2fqrf")
+[sub_resource type="Theme" id="Theme_5722v"]
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_sgioi")
 
 [node name="DefeatMenu" instance=ExtResource("1_xpbbb")]
+scale = Vector2(0.7, 0.7)
 pivot_offset = Vector2(640, 360)
 script = ExtResource("1_xr44m")
 
 [node name="PanelContainer" type="PanelContainer" parent="." index="0"]
 process_mode = 3
 texture_filter = 1
-layout_mode = 0
-offset_left = 512.0
-offset_top = 320.0
-offset_right = 768.0
-offset_bottom = 384.0
-theme = SubResource("Theme_oedc1")
+offset_left = 461.0
+offset_top = 304.0
+offset_right = 819.0
+offset_bottom = 392.0
+pivot_offset = Vector2(179, 44)
+theme = SubResource("Theme_5722v")
 
 [node name="Menu Button" type="Button" parent="PanelContainer" index="0"]
 texture_filter = 2
+custom_minimum_size = Vector2(44, 44)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 icon = ExtResource("4_ioxxa")
+expand_icon = true
 
 [node name="Label" type="Label" parent="PanelContainer" index="1"]
 texture_filter = 2
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 22
 text = "Вы проиграли"
 horizontal_alignment = 1
 
 [node name="Restart Button" type="Button" parent="PanelContainer" index="2"]
 texture_filter = 2
+custom_minimum_size = Vector2(44, 44)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 icon = ExtResource("3_q1ncl")
+expand_icon = true
 
 [connection signal="pressed" from="PanelContainer/Menu Button" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="PanelContainer/Restart Button" to="." method="_on_restart_button_pressed"]
