@@ -38,24 +38,23 @@ theme = SubResource("Theme_13or0")
 texture_filter = 2
 custom_minimum_size = Vector2(130, 46)
 layout_mode = 2
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 14
-text = "Здравствуй, вождь"
+theme_override_font_sizes/font_size = 13
+text = "Text"
 horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="TextureRect" type="TextureRect" parent="." index="1"]
 modulate = Color(0.783523, 0.783523, 0.783523, 1)
 layout_mode = 0
-offset_left = 13.0
+offset_left = 11.0
 offset_top = 20.0
 offset_right = 33.0
-offset_bottom = 40.0
+offset_bottom = 42.0
 texture = ExtResource("3_kd84t")
 expand_mode = 1
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="." index="2"]
-position = Vector2(98, 0)
+position = Vector2(93, 0)
 shape = SubResource("RectangleShape2D_23t7m")
 
 [connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
