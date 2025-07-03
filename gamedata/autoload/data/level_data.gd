@@ -25,7 +25,7 @@ const COUNT: int = 6
 const LEVEL_1: Dictionary = {
 	"name": "level_1",
 	"health": 150,
-	"money": 400000,
+	"money": 400,
 	"tower_level_limit": 2,
 	"wave_count": 3,
 	"wave_1": {
@@ -68,7 +68,7 @@ const LEVEL_1: Dictionary = {
 const LEVEL_2: Dictionary = {
 	"name": "level_2",
 	"health": 200,
-	"money": 400000,
+	"money": 400,
 	"tower_level_limit": 3,
 	"wave_count": 5,
 	"wave_1": {
@@ -259,8 +259,8 @@ const LEVEL_2: Dictionary = {
 
 const LEVEL_3: Dictionary = {
 	"name": "level_3",
-	"health": 50000,
-	"money": 500000,
+	"health": 500,
+	"money": 500,
 	"tower_level_limit": 4,
 	"wave_count": 7,
 	"wave_1": {
