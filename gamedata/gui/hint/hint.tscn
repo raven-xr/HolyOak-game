@@ -20,9 +20,10 @@ resource_local_to_scene = true
 size = Vector2(0, 0)
 
 [node name="Hint" instance=ExtResource("1_tpicn")]
-offset_right = -1096.0
+offset_right = -1094.0
 offset_bottom = -632.0
 scale = Vector2(0.7, 0.7)
+pivot_offset = Vector2(93, 44)
 script = ExtResource("2_3a814")
 can_be_closed = false
 
@@ -31,7 +32,6 @@ texture_filter = 1
 layout_mode = 0
 offset_right = 186.0
 offset_bottom = 88.0
-pivot_offset = Vector2(98, 45)
 theme = SubResource("Theme_13or0")
 
 [node name="Label" type="Label" parent="PanelContainer" index="0"]
