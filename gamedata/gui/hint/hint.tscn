@@ -17,24 +17,24 @@ PanelContainer/styles/panel = SubResource("StyleBoxTexture_as0xe")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_23t7m"]
 resource_local_to_scene = true
-size = Vector2(0, 0)
+size = Vector2(192, 88)
 
 [node name="Hint" instance=ExtResource("1_tpicn")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_right = 186.0
-offset_bottom = 88.0
-grow_horizontal = 1
-grow_vertical = 1
+anchors_preset = -1
+anchor_right = 0.15
+anchor_bottom = 0.128
+offset_bottom = -4.16
+pivot_offset = Vector2(96, 44)
 script = ExtResource("2_3a814")
 can_be_closed = false
 
 [node name="PanelContainer" type="PanelContainer" parent="." index="0"]
 texture_filter = 1
-layout_mode = 0
-offset_right = 186.0
-offset_bottom = 88.0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -4.0
 theme = SubResource("Theme_13or0")
 
 [node name="Label" type="Label" parent="PanelContainer" index="0"]
@@ -48,16 +48,21 @@ autowrap_mode = 3
 
 [node name="TextureRect" type="TextureRect" parent="." index="1"]
 modulate = Color(0.783523, 0.783523, 0.783523, 1)
-layout_mode = 0
-offset_left = 11.0
-offset_top = 20.0
-offset_right = 33.0
-offset_bottom = 42.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.057
+anchor_top = 0.227
+anchor_right = 0.172
+anchor_bottom = 0.477
+offset_left = 0.0559998
+offset_top = 0.0239983
+offset_right = -0.0240021
+offset_bottom = 0.0239983
 texture = ExtResource("3_kd84t")
 expand_mode = 1
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="." index="2"]
-position = Vector2(93, 0)
+position = Vector2(96, 44)
 shape = SubResource("RectangleShape2D_23t7m")
 
 [connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
