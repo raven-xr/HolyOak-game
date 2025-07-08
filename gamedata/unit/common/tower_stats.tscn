@@ -12,48 +12,56 @@ texture_margin_left = 15.0
 texture_margin_top = 10.0
 texture_margin_right = 15.0
 texture_margin_bottom = 10.0
-expand_margin_left = 20.0
 
 [sub_resource type="Theme" id="Theme_nogtx"]
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_qpd0x")
 
 [node name="TowerStats" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 260.0
-offset_bottom = 202.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -916.0
+offset_bottom = -438.0
+scale = Vector2(0.7, 0.7)
+pivot_offset = Vector2(182, 141)
 script = ExtResource("1_yyqa1")
 
 [node name="Head" type="PanelContainer" parent="."]
 texture_filter = 1
-layout_mode = 0
-offset_left = 20.0
-offset_right = 260.0
-offset_bottom = 65.0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.317
+offset_bottom = -2.394
 theme = SubResource("Theme_nogtx")
 
 [node name="Label" type="Label" parent="Head"]
 texture_filter = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_5x2aj")
-theme_override_font_sizes/font_size = 32
-text = "Stats"
+theme_override_font_sizes/font_size = 44
+text = "   Stats"
 vertical_alignment = 1
 
 [node name="Keys" type="PanelContainer" parent="."]
 texture_filter = 1
-layout_mode = 0
-offset_top = 55.0
-offset_right = 137.0
-offset_bottom = 202.0
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.277
+anchor_right = 0.523
+anchor_bottom = 1.0
+offset_top = -1.11401
+offset_right = -1.37199
+offset_bottom = -3.0
 theme = ExtResource("3_tk2e0")
 
 [node name="Label" type="Label" parent="Keys"]
 texture_filter = 2
 layout_mode = 2
 size_flags_vertical = 0
+theme_override_constants/line_spacing = 9
 theme_override_fonts/font = ExtResource("3_5x2aj")
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 24
 text = "Attack Range
 Damage
 Units
@@ -63,11 +71,15 @@ horizontal_alignment = 1
 
 [node name="Values" type="PanelContainer" parent="."]
 texture_filter = 1
-layout_mode = 0
-offset_left = 127.0
-offset_top = 55.0
-offset_right = 260.0
-offset_bottom = 202.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.272
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = 0.295998
+offset_bottom = -3.0
 theme = ExtResource("3_tk2e0")
 
 [node name="Label" type="Label" parent="Values"]
@@ -75,18 +87,25 @@ texture_filter = 2
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/line_spacing = 9
 theme_override_fonts/font = ExtResource("3_5x2aj")
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 24
+text = "Number
+Number
+Number
+Number
+Number"
 horizontal_alignment = 1
 
 [node name="Close Button" type="Button" parent="."]
 texture_filter = 2
 layout_mode = 0
-offset_left = 204.0
-offset_top = 16.0
-offset_right = 236.0
-offset_bottom = 48.0
+offset_left = 308.0
+offset_top = 26.0
+offset_right = 342.0
+offset_bottom = 60.0
 theme_override_font_sizes/font_size = 16
 icon = ExtResource("4_uq83t")
+expand_icon = true
 
 [connection signal="pressed" from="Close Button" to="." method="_on_close_button_pressed"]
