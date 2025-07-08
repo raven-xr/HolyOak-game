@@ -18,17 +18,17 @@ func _ready() -> void:
 	# Posite
 	match menu_position:
 		"U":
-			position = tower_position + Vector2(-132.0, -263.0)
-			pivot_offset = Vector2(130.0, 202.0)
+			position = tower_position + Vector2(-184.0, -368.0)
+			pivot_offset = Vector2(182.0, 282.0)
 		"R":
-			position = tower_position + Vector2(61.0, -101.0)
-			pivot_offset = Vector2(10.0, 101.0)
+			position = tower_position + Vector2(90.0, -140.0)
+			pivot_offset = Vector2(14.0, 140.0)
 		"D":
-			position = tower_position + Vector2(-132.0, 61.0)
-			pivot_offset = Vector2(130.0, 0.0)
+			position = tower_position + Vector2(-182.0, 90.0)
+			pivot_offset = Vector2(182.0, 0.0)
 		"L":
-			position = tower_position + Vector2(-321.0, -101.0)
-			pivot_offset = Vector2(260.0, 101.0)
+			position = tower_position + Vector2(-448.0, -140.0)
+			pivot_offset = Vector2(364.0, 140.0)
 
 func close() -> void:
 	# Smooth disappearance
