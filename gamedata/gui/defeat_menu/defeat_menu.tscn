@@ -24,6 +24,7 @@ script = ExtResource("1_xr44m")
 [node name="PanelContainer" type="PanelContainer" parent="." index="0"]
 process_mode = 3
 texture_filter = 1
+layout_mode = 0
 offset_left = 461.0
 offset_top = 304.0
 offset_right = 819.0
