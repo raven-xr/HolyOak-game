@@ -109,7 +109,7 @@ func _on_tower_stats_button_pressed() -> void:
 	# The dictionary is required for positioning tower stats and offsetting their pivots
 	var tower_stats = tower_stats_scene.instantiate()
 	tower_stats.menu_position = menu_position
-	tower_stats.tower = self
+	tower_stats.tower_position = position
 	# Connects the "opened" and "closed" signals to the level
 	tower_stats.connect("opened", Callable(Global.game_controller.current_2d_scene, "_on_tower_stats_opened"))
 	tower_stats.connect("closed", Callable(Global.game_controller.current_2d_scene, "_on_tower_stats_closed"))

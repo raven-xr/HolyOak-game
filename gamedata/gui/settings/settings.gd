@@ -30,7 +30,7 @@ func _ready() -> void:
 	music_h_slider.value = UserSettings.music_volume
 	sfx_h_slider.value = UserSettings.sfx_volume
 	# Selects current option by the index
-	scale_option_button.select({0.8: 0, 1.0: 1, 1.2: 2, 1.4: 3}[UserSettings.gui_scale])
+	scale_option_button.select({0.5: 0, 0.6: 1, 0.7: 2, 0.8: 3, 0.9: 4, 1.0: 5}[UserSettings.gui_scale])
 
 func _on_master_h_slider_value_changed(value: float) -> void:
 	UserSettings.master_volume = value
@@ -55,8 +55,9 @@ func _on_reset_settings_button_pressed() -> void:
 	master_h_slider.value = UserSettings.DEFAULT_MASTER_VOLUME
 	music_h_slider.value = UserSettings.DEFAULT_MUSIC_VOLUME
 	sfx_h_slider.value = UserSettings.DEFAULT_SFX_VOLUME
-	scale_option_button.select({0.8: 0, 1.0: 1, 1.2: 2, 1.4: 3}[UserSettings.match_scale()])
-	scale_option_button.emit_signal("item_selected", {0.8: 0, 1.0: 1, 1.2: 2, 1.4: 3}[UserSettings.match_scale()])
+	if Global.game_controller.current_2d_scene.name == "MainMenu":
+		scale_option_button.select({0.5: 0, 0.6: 1, 0.7: 2, 0.8: 3, 0.9: 4, 1.0: 5}[UserSettings.match_scale()])
+		scale_option_button.emit_signal("item_selected", {0.5: 0, 0.6: 1, 0.7: 2, 0.8: 3, 0.9: 4, 1.0: 5}[UserSettings.match_scale()])
 
 func _on_reset_progress_button_pressed() -> void:
 	SoundManager.click.play()
@@ -117,7 +118,7 @@ func reset() -> void:
 	master_h_slider.value = UserSettings.master_volume
 	music_h_slider.value = UserSettings.music_volume
 	sfx_h_slider.value = UserSettings.sfx_volume
-	scale_option_button.select({0.8: 0, 1.0: 1, 1.2: 2, 1.4: 3}[UserSettings.gui_scale])
+	scale_option_button.select({0.5: 0, 0.6: 1, 0.7: 2, 0.8: 3, 0.9: 4, 1.0: 5}[UserSettings.gui_scale])
 
 func close() -> void:
 	reset()

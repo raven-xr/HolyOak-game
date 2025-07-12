@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ct70ofombeymi" path="res://gamedata/gui/defeat_menu/defeat_menu.tscn" id="5_tbcgi"]
 [ext_resource type="PackedScene" uid="uid://bojk4803caaro" path="res://gamedata/gui/victory_menu/victory_menu.tscn" id="6_r8y5h"]
 [ext_resource type="PackedScene" uid="uid://bwfjylls4graf" path="res://gamedata/gui/game_menu/game_menu.tscn" id="7_165x0"]
-[ext_resource type="PackedScene" uid="uid://c7psph5vsrocc" path="res://gamedata/gui/common/player_stats.tscn" id="8_otqld"]
+[ext_resource type="PackedScene" uid="uid://c7psph5vsrocc" path="res://gamedata/gui/player_stats/player_stats.tscn" id="8_otqld"]
 [ext_resource type="PackedScene" uid="uid://dgsn2o3sm3wgn" path="res://gamedata/scene/common/holy_oak.tscn" id="9_eoj5e"]
 
 [sub_resource type="GDScript" id="GDScript_1jmb8"]
@@ -57,12 +57,14 @@ offset_bottom = 720.0
 
 [node name="MenuButton" type="Button" parent="GUI"]
 layout_mode = 0
-offset_left = 1232.0
+offset_left = 1207.0
 offset_top = 16.0
 offset_right = 1264.0
-offset_bottom = 48.0
-pivot_offset = Vector2(32, 0)
+offset_bottom = 73.0
+scale = Vector2(0.7, 0.7)
+pivot_offset = Vector2(57, 0)
 icon = ExtResource("3_qnfjt")
+expand_icon = true
 
 [node name="Timers" type="Node" parent="."]
 

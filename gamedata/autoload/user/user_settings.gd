@@ -4,32 +4,32 @@ extends Node
 const DEFAULT_MASTER_VOLUME: float = 1.0
 const DEFAULT_MUSIC_VOLUME: float = 0.65
 const DEFAULT_SFX_VOLUME: float = 1.0
-#const DEFAULT_GUI_SCALE: float = 1.0
+#const DEFAULT_GUI_SCALE: float = 0.7
 
 # Audiobuses
 var master_bus_idx: int = AudioServer.get_bus_index("Master")
 var music_bus_idx: int = AudioServer.get_bus_index("Music")
 var sfx_bus_idx: int = AudioServer.get_bus_index("SFX")
-## Equals [0.0; 1.0] (linear)
+# [0.0; 1.0]
 var master_volume: float = 1.0:
 	set(value):
 		master_volume = value
 		property_changed.emit()
 		AudioServer.set_bus_volume_db(master_bus_idx, linear_to_db(value))
-## Equals [0.0; 1.0] (linear)
+# [0.0; 1.0]
 var music_volume: float = 0.65:
 	set(value):
 		music_volume = value
 		property_changed.emit()
 		AudioServer.set_bus_volume_db(music_bus_idx, linear_to_db(value))
-## Equals [0.0; 1.0] (linear)
+# [0.0; 1.0]
 var sfx_volume: float = 1.0:
 	set(value):
 		sfx_volume = value
 		property_changed.emit()
 		AudioServer.set_bus_volume_db(sfx_bus_idx, linear_to_db(value))
-## Equals {0.8; 1.0; 1.2; 1.4}
-var gui_scale: float = 1.0:
+# {0.5; 0.6; 0.7; 0.8; 0.9; 1.0}
+var gui_scale: float = 0.7:
 	set(value):
 		gui_scale = value
 		property_changed.emit()
@@ -93,7 +93,7 @@ func verify_settings() -> bool:
 	for volume in settings.get_section_keys("VOLUME"):
 		if settings.get_value("VOLUME", volume) > 1.0 or settings.get_value("VOLUME", volume) < 0.0:
 			return false
-	if not settings.get_value("GUI", "gui_scale") in [0.8, 1.0, 1.2, 1.4]:
+	if not settings.get_value("GUI", "gui_scale") in [0.5, 0.6, 0.7, 0.8, 0.9, 1.0]:
 		return false
 	return true
 
@@ -102,6 +102,6 @@ func _on_property_changed() -> void:
 
 func match_scale() -> float:
 	if OS.get_name() == "Android":
-		return 1.4
-	else:
 		return 1.0
+	else:
+		return 0.8

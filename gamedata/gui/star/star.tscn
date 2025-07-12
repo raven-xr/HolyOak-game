@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://4hn4qwe6hh7q" path="res://gui/icons/star.svg" id="1_2d6fq"]
 
 [node name="Star" type="TextureRect"]
-offset_right = 21.0
-offset_bottom = 20.0
+custom_minimum_size = Vector2(29, 29)
+offset_right = 29.0
+offset_bottom = 29.0
 texture = ExtResource("1_2d6fq")
+expand_mode = 1

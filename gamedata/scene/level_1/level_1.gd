@@ -9,13 +9,13 @@ func idle_state() -> void:
 
 func tutorial() -> void:
 	# Greet
-	hint.text = "Здравствуй, вождь. Добро пожаловать в Holy Oak!"
+	hint.text = "Здравствуйте, вождь. Добро пожаловать в Holy Oak!"
 	hint.pivot_offset.x = 64.0
 	hint.position = Vector2(576.0, 320.0)
 	hint.show_()
 	await hint.hidden_
 	# Await for player to close the hint
-	hint.text = "В этой игре ваша главная задача - защитить Священный дуб"
+	hint.text = "Ваша задача — защитить Священный дуб"
 	hint.show_()
 	await hint.hidden_
 	# Open the tower menu
@@ -31,21 +31,21 @@ func tutorial() -> void:
 	hint.hide_()
 	await hint.hidden_
 	# Build the tower
-	hint.text = "Теперь нажмите 'Build', чтобы её построить"
+	hint.text = "Теперь нажмите BUILD, чтобы её построить"
 	hint.show_()
 	# Await for player to build the tower
 	await tower_1.player_built_tower
 	hint.hide_()
 	await hint.hidden_
 	# Upgrade the tower
-	hint.text = "Чтобы повысить эффективность защиты, необходимо улучшить башню. Откройте меню и нажмите 'Upgrade'"
+	hint.text = "Для того чтобы повысить эффективность защиты, необходимо улучшить башню. Откройте меню и нажмите UPGRADE"
 	hint.show_()
 	# Await for player to upgrade the tower
 	await tower_1.player_upgraded_tower
 	hint.hide_()
 	await hint.hidden_
 	# Check current stats
-	hint.text = "Отлично. Нажми на кнопку 'Stats', чтобы посмотреть текущие характеристики башни и юнитов"
+	hint.text = "Отлично. Нажмите на кнопку STATS, чтобы посмотреть текущие характеристики башни и юнитов"
 	hint.show_()
 	# Unlock the TowerStats button
 	tower_1.is_tower_stats_button_locked = false
@@ -54,7 +54,7 @@ func tutorial() -> void:
 	hint.hide_()
 	await hint.hidden_
 	# Tell about removing towers
-	hint.text = "Запомни, что в случае, если нужно построить башню в другом месте, а у тебя не хватает денег, ты всегда можешь избавиться от другой, нажав 'Remove' и получив обратно 50% от стоимости (уничтожать эту башню не нужно)"
+	hint.text = "Запомните, что в случае, если нужно построить башню в другом месте, а у вас не хватит денег, вы всегда можете избавиться от другой, нажав REMOVE, и вернуть обратно 50% от стоимости"
 	hint.can_be_skipped = true
 	hint.show_()
 	# Await for player to close the hint

@@ -6,21 +6,34 @@
 [ext_resource type="Script" uid="uid://bc6bgbd55qvb3" path="res://gamedata/gui/texture_button/texture_button.gd" id="3_hl5yq"]
 [ext_resource type="Theme" uid="uid://dowtsey5pyxwl" path="res://gui/themes/text.tres" id="5_hoxmo"]
 
-[node name="Texture Button" type="TextureButton"]
+[node name="TextureButton" type="TextureButton"]
+editor_description = "Make the scene local for another one to change the text"
+custom_minimum_size = Vector2(270, 118)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1010.0
+offset_bottom = -602.0
+grow_horizontal = 2
+grow_vertical = 2
 texture_normal = ExtResource("1_k5cgc")
 texture_pressed = ExtResource("1_k5cgc")
 texture_hover = ExtResource("2_oqueo")
 texture_disabled = ExtResource("3_5wmfo")
+ignore_texture_size = true
+stretch_mode = 0
 script = ExtResource("3_hl5yq")
 
 [node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 9.0
-offset_top = 7.0
-offset_right = 187.0
-offset_bottom = 66.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("5_hoxmo")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 42
 text = "TEXT"
 horizontal_alignment = 1
 vertical_alignment = 1

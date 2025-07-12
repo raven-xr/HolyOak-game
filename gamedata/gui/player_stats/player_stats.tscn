@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://c7psph5vsrocc"]
 
 [ext_resource type="PackedScene" uid="uid://i7ihkn2i5v5n" path="res://gamedata/gui/common/node_gui.tscn" id="1_f6d2y"]
-[ext_resource type="Script" uid="uid://di7jf38l1hpfj" path="res://gamedata/gui/common/player_stats.gd" id="2_ej0be"]
+[ext_resource type="Script" uid="uid://di7jf38l1hpfj" path="res://gamedata/gui/player_stats/player_stats.gd" id="2_ej0be"]
 [ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://gui/backgrounds/ui_border.png" id="3_321it"]
 [ext_resource type="Texture2D" uid="uid://bfilf0dmwlyyq" path="res://gui/icons/heart.png" id="4_0ltoe"]
 [ext_resource type="Texture2D" uid="uid://bx7fukwyv6h5y" path="res://gui/icons/coin.png" id="5_10ji7"]
@@ -24,6 +24,7 @@ texture_margin_left = 8.0
 texture_margin_right = 8.0
 
 [node name="PlayerStats" instance=ExtResource("1_f6d2y")]
+scale = Vector2(0.7, 0.7)
 pivot_offset = Vector2(16, 16)
 script = ExtResource("2_ej0be")
 can_be_closed = false
@@ -34,8 +35,8 @@ texture_filter = 1
 layout_mode = 0
 offset_left = 16.0
 offset_top = 16.0
-offset_right = 266.0
-offset_bottom = 72.0
+offset_right = 366.0
+offset_bottom = 96.0
 theme = SubResource("Theme_8te46")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer" index="0"]
@@ -44,59 +45,59 @@ theme = SubResource("Theme_nuwbn")
 
 [node name="HPIcon" type="TextureRect" parent="PanelContainer/HBoxContainer" index="0"]
 modulate = Color(0.894376, 0, 0.152256, 1)
-custom_minimum_size = Vector2(36, 36)
+custom_minimum_size = Vector2(69, 0)
 layout_mode = 2
-size_flags_horizontal = 11
-size_flags_vertical = 5
+size_flags_horizontal = 3
 texture = ExtResource("4_0ltoe")
+expand_mode = 3
 stretch_mode = 5
 flip_h = true
 
 [node name="HPValue" type="Label" parent="PanelContainer/HBoxContainer" index="1"]
 texture_filter = 2
 layout_mode = 2
-size_flags_horizontal = 11
-size_flags_vertical = 5
-theme_override_font_sizes/font_size = 26
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 37
 theme_override_styles/normal = SubResource("StyleBoxTexture_f6d2y")
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MoneyIcon" type="TextureRect" parent="PanelContainer/HBoxContainer" index="2"]
-custom_minimum_size = Vector2(32, 32)
+custom_minimum_size = Vector2(69, 0)
 layout_mode = 2
-size_flags_horizontal = 11
-size_flags_vertical = 5
+size_flags_horizontal = 3
 texture = ExtResource("5_10ji7")
+expand_mode = 3
 stretch_mode = 5
 
 [node name="MoneyValue" type="Label" parent="PanelContainer/HBoxContainer" index="3"]
 texture_filter = 2
 layout_mode = 2
-size_flags_horizontal = 11
-size_flags_vertical = 5
-theme_override_font_sizes/font_size = 26
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 37
 theme_override_styles/normal = SubResource("StyleBoxTexture_f6d2y")
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="WaveIcon" type="TextureRect" parent="PanelContainer/HBoxContainer" index="4"]
-custom_minimum_size = Vector2(36, 36)
+custom_minimum_size = Vector2(69, 0)
 layout_mode = 2
-size_flags_horizontal = 11
-size_flags_vertical = 5
+size_flags_horizontal = 3
 size_flags_stretch_ratio = 20.0
 texture = ExtResource("6_ygix3")
+expand_mode = 3
 stretch_mode = 5
 
 [node name="WaveValue" type="Label" parent="PanelContainer/HBoxContainer" index="5"]
 texture_filter = 2
 layout_mode = 2
-size_flags_horizontal = 11
-size_flags_vertical = 5
-theme_override_font_sizes/font_size = 26
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 37
 theme_override_styles/normal = SubResource("StyleBoxTexture_f6d2y")
 text = "0"
 horizontal_alignment = 1

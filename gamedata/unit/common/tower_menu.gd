@@ -23,17 +23,17 @@ func _ready() -> void:
 	# Posite the menu
 	match menu_position:
 		"U":
-			position = tower.position + Vector2(-128.0, -160.0)
-			pivot_offset = Vector2(128.0, 128.0)
+			position = tower.position + Vector2(-180.0, -224.0)
+			pivot_offset = Vector2(180.0, 180.0)
 		"R":
-			position = tower.position + Vector2(40.0, -64.0)
-			pivot_offset = Vector2(0.0, 64.0)
+			position = tower.position + Vector2(56.0, -90.0)
+			pivot_offset = Vector2(0.0, 90.0)
 		"D":
-			position = tower.position + Vector2(-128.0, 40.0)
-			pivot_offset = Vector2(128.0, 0.0)
+			position = tower.position + Vector2(-180.0, 56.0)
+			pivot_offset = Vector2(180.0, 0.0)
 		"L":
-			position = tower.position + Vector2(-296.0, -64.0)
-			pivot_offset = Vector2(256.0, 64.0)
+			position = tower.position + Vector2(-414.0, -90.0)
+			pivot_offset = Vector2(358.0, 64.0)
 	# Set the unit name
 	$UnitName.text = unit_name
 
