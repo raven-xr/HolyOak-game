@@ -16,18 +16,32 @@ expand_margin_top = 10.0
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_ecn84")
 
 [node name="Confirmation" instance=ExtResource("1_r5xpi")]
+custom_minimum_size = Vector2(268, 196)
+offset_left = 506.0
+offset_top = 304.0
+offset_right = -506.0
+offset_bottom = -220.0
 scale = Vector2(0.7, 0.7)
-pivot_offset = Vector2(640, 360)
+pivot_offset = Vector2(134, 98)
 script = ExtResource("1_gq6vv")
 can_be_closed = false
 
-[node name="PanelContainer" type="PanelContainer" parent="." index="0"]
+[node name="Control" type="Control" parent="." index="0"]
+anchors_preset = 0
+offset_left = -780.0
+offset_top = -476.0
+offset_right = 1048.0
+offset_bottom = 552.0
+
+[node name="PanelContainer" type="PanelContainer" parent="." index="1"]
 texture_filter = 1
-layout_mode = 0
-offset_left = 506.0
-offset_top = 277.429
-offset_right = 774.0
-offset_bottom = 473.429
+custom_minimum_size = Vector2(268, 197)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = SubResource("Theme_r5xpi")
 
 [node name="Label" type="Label" parent="PanelContainer" index="0"]
@@ -40,21 +54,34 @@ text = "Вы уверены?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Confirm Button" type="Button" parent="." index="1"]
-layout_mode = 0
-offset_left = 530.0
-offset_top = 410.429
-offset_right = 630.0
-offset_bottom = 453.429
+[node name="Confirm Button" type="Button" parent="." index="2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.694
+anchor_right = 0.41
+anchor_bottom = 0.898
+offset_left = 22.0
+offset_top = -0.0240021
+offset_right = 0.119995
+offset_bottom = -0.00801086
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 20
 text = "ОК"
 
-[node name="Cancel Button" type="Button" parent="." index="2"]
-layout_mode = 0
-offset_left = 654.0
-offset_top = 410.429
-offset_right = 754.0
-offset_bottom = 453.429
+[node name="Cancel Button" type="Button" parent="." index="3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.59
+anchor_top = 0.694
+anchor_right = 0.918
+anchor_bottom = 0.898
+offset_left = -0.12001
+offset_top = -0.0240021
+offset_right = -0.0240173
+offset_bottom = -0.00801086
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/font_size = 20
 text = "Отмена"
 
