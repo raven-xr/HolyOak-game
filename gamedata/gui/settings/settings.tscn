@@ -183,7 +183,7 @@ offset_left = 238.0
 offset_right = 406.0
 offset_bottom = 44.0
 theme_override_font_sizes/font_size = 20
-text = "Reset Data"
+text = "Reset Progress"
 
 [node name="Apply or Cancel" type="Control" parent="PanelContainer/VBoxContainer" index="8"]
 custom_minimum_size = Vector2(300, 48)
