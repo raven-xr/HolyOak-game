@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://de05y3bg8ws76"]
+[gd_scene load_steps=7 format=3 uid="uid://de05y3bg8ws76"]
 
 [ext_resource type="PackedScene" uid="uid://i7ihkn2i5v5n" path="res://gamedata/gui/common/node_gui.tscn" id="1_g4id3"]
 [ext_resource type="Script" uid="uid://csb0p2u8fij4j" path="res://gamedata/gui/message/message.gd" id="1_rdkls"]
 [ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://gui/backgrounds/ui_border.png" id="2_hyt8o"]
+[ext_resource type="FontFile" uid="uid://5wohy1go68x5" path="res://gui/fonts/Tribal Garamond.ttf" id="4_4h5y1"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fjtag"]
 texture = ExtResource("2_hyt8o")
@@ -43,7 +44,8 @@ theme = SubResource("Theme_t4an8")
 texture_filter = 2
 custom_minimum_size = Vector2(590, 39)
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_override_fonts/font = ExtResource("4_4h5y1")
+theme_override_font_sizes/font_size = 28
 text = "Text"
 horizontal_alignment = 1
 vertical_alignment = 1
