@@ -59,7 +59,6 @@ pointing/emulate_touch_from_mouse=true
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://gamedata/localization/localization.en.translation", "res://gamedata/localization/localization.ru.translation")
 locale/locale_filter_mode=1
 
 [layer_names]
