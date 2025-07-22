@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bojk4803caaro"]
+[gd_scene load_steps=9 format=3 uid="uid://bojk4803caaro"]
 
 [ext_resource type="Script" uid="uid://cn2tg60vyegps" path="res://gamedata/gui/victory_menu/victory_menu.gd" id="1_di8ui"]
 [ext_resource type="PackedScene" uid="uid://i7ihkn2i5v5n" path="res://gamedata/gui/common/node_gui.tscn" id="1_hofek"]
 [ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://gui/backgrounds/ui_border.png" id="2_f04l1"]
 [ext_resource type="Texture2D" uid="uid://d1oi14t2bwpjl" path="res://gui/icons/next.svg" id="3_0u3n8"]
 [ext_resource type="Texture2D" uid="uid://c17d2n1jjcd8t" path="res://gui/icons/menu.svg" id="4_ax0yb"]
+[ext_resource type="FontFile" uid="uid://5wohy1go68x5" path="res://gui/fonts/Tribal Garamond.ttf" id="5_3ainm"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uv5pi"]
 texture = ExtResource("2_f04l1")
@@ -45,8 +46,9 @@ expand_icon = true
 texture_filter = 2
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 22
-text = "Вы победили!"
+theme_override_fonts/font = ExtResource("5_3ainm")
+theme_override_font_sizes/font_size = 36
+text = "Victory"
 horizontal_alignment = 1
 
 [node name="Next Button" type="Button" parent="PanelContainer" index="2"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://ct70ofombeymi"]
+[gd_scene load_steps=9 format=3 uid="uid://ct70ofombeymi"]
 
 [ext_resource type="PackedScene" uid="uid://i7ihkn2i5v5n" path="res://gamedata/gui/common/node_gui.tscn" id="1_xpbbb"]
 [ext_resource type="Script" uid="uid://c504se88wunti" path="res://gamedata/gui/defeat_menu/defeat_menu.gd" id="1_xr44m"]
 [ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://gui/backgrounds/ui_border.png" id="2_i7sav"]
 [ext_resource type="Texture2D" uid="uid://bovpfmhts66wt" path="res://gui/icons/restart.svg" id="3_q1ncl"]
 [ext_resource type="Texture2D" uid="uid://c17d2n1jjcd8t" path="res://gui/icons/menu.svg" id="4_ioxxa"]
+[ext_resource type="FontFile" uid="uid://5wohy1go68x5" path="res://gui/fonts/Tribal Garamond.ttf" id="5_ge2cg"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sgioi"]
 texture = ExtResource("2_i7sav")
@@ -45,8 +46,9 @@ expand_icon = true
 texture_filter = 2
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 22
-text = "Вы проиграли"
+theme_override_fonts/font = ExtResource("5_ge2cg")
+theme_override_font_sizes/font_size = 36
+text = "Defeat"
 horizontal_alignment = 1
 
 [node name="Restart Button" type="Button" parent="PanelContainer" index="2"]
