@@ -139,7 +139,8 @@ layout_mode = 0
 offset_left = 190.0
 offset_right = 406.0
 offset_bottom = 44.0
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = ExtResource("2_yf67p")
+theme_override_font_sizes/font_size = 24
 selected = 2
 item_count = 6
 popup/item_0/text = "0.5"
@@ -174,7 +175,8 @@ layout_mode = 0
 offset_left = 22.0
 offset_right = 190.0
 offset_bottom = 44.0
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = ExtResource("2_yf67p")
+theme_override_font_sizes/font_size = 24
 text = "Reset Settings"
 
 [node name="Reset Progress Button" type="Button" parent="PanelContainer/VBoxContainer/Data Reset" index="1"]
@@ -182,7 +184,8 @@ layout_mode = 0
 offset_left = 238.0
 offset_right = 406.0
 offset_bottom = 44.0
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = ExtResource("2_yf67p")
+theme_override_font_sizes/font_size = 24
 text = "Reset Progress"
 
 [node name="Apply or Cancel" type="Control" parent="PanelContainer/VBoxContainer" index="8"]
@@ -195,8 +198,9 @@ offset_left = 22.0
 offset_top = 22.0
 offset_right = 166.0
 offset_bottom = 68.0
-theme_override_font_sizes/font_size = 20
-text = "Применить"
+theme_override_fonts/font = ExtResource("2_yf67p")
+theme_override_font_sizes/font_size = 24
+text = "Apply"
 
 [node name="Cancel Button" type="Button" parent="PanelContainer/VBoxContainer/Apply or Cancel" index="1"]
 layout_mode = 0
@@ -204,8 +208,9 @@ offset_left = 262.0
 offset_top = 24.0
 offset_right = 406.0
 offset_bottom = 68.0
-theme_override_font_sizes/font_size = 20
-text = "Отменить"
+theme_override_fonts/font = ExtResource("2_yf67p")
+theme_override_font_sizes/font_size = 24
+text = "Cancel"
 
 [node name="Close Button" type="Button" parent="." index="1"]
 layout_mode = 1
