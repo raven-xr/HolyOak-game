@@ -85,7 +85,7 @@ func _on_build_button_pressed() -> void:
 		upgrade()
 	else:
 		Global.game_controller.change_gui_scene("message")
-		Global.game_controller.current_gui_scene.set_text("У вас недостаточно монет. Текущая стоимость строительства — " + str(current_cost) + " монет")
+		Global.game_controller.current_gui_scene.set_text(tr("MESSAGE_LACK_OF_MONEY").format({"cost": str(current_cost)}))
 	close_menu()
 
 func _on_upgrade_button_pressed() -> void:
@@ -95,7 +95,7 @@ func _on_upgrade_button_pressed() -> void:
 		upgrade()
 	else:
 		Global.game_controller.change_gui_scene("message")
-		Global.game_controller.current_gui_scene.set_text("У вас недостаточно монет. Текущая стоимость улучшения — " + str(current_cost) + " монет")
+		Global.game_controller.current_gui_scene.set_text(tr("MESSAGE_LACK_OF_MONEY").format({"cost": str(current_cost)}))
 	close_menu()
 
 func _on_remove_button_pressed() -> void:

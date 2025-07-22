@@ -1,0 +1,25 @@
+﻿key;ru;en
+HINT_GREETING;Здравствуйте, вождь. Добро пожаловать в Holy Oak!;Hello, Chief. Welcome to Holy Oak!
+HINT_GAME_TASK;Ваша задача — защитить Священный дуб;Your task is to protect the Holy Oak
+HINT_TOWER_MENU;Для начала построим башню. Нажмите на пустое поле справа от подсказки;First, let's build a tower. Click on the empty field to the right of the hint
+HINT_BUILD_TOWER;Теперь нажмите BUILD, чтобы её построить;Press BUILD to create it
+HINT_TOWER_STATS;Отлично. Нажмите на кнопку STATS, чтобы посмотреть текущие характеристики башни и юнитов;Great. Click on the STATS button to view the current stats of the tower and units
+HINT_UPGRADE_TOWER;Для того чтобы повысить эффективность защиты, необходимо улучшить башню. Откройте меню и нажмите UPGRADE;In order to increase the effectiveness of protection, it is necessary to uprade the tower. Open the menu and click UPGRADE
+HINT_REMOVE_TOWER;Запомните, что в случае, если нужно построить башню в другом месте, а у вас не хватит денег, вы всегда можете избавиться от другой, нажав REMOVE, и вернуть обратно 50% от стоимости;Remember that if you need to build a tower elsewhere and you don't have enough money, you can always get rid of the other one by clicking REMOVE and get back 50% of the cost
+HINT_GOODBYE;О, нет! Вы это слышите? Враг надвигается!.. Всё в ваших руках, вождь!;Oh no! Do you hear that? The enemy is coming!.. Everything is in your hands, Chief!
+MESSAGE_LACK_OF_MONEY;У вас недостаточно монет. Текущая стоимость — {cost} монет;You don't have enough coins. Current cost is {cost} coins
+MESSAGE_WAVE;Волна {wave};Wave {wave}
+;;
+;;
+;;
+;;
+;;
+;;
+;;
+;;
+;;
+;;
+;;
+;;
+;;
+;;

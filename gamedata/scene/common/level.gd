@@ -103,7 +103,7 @@ func victory() -> void:
 func new_wave() -> void:
 	# Declare the new wave
 	Global.game_controller.change_gui_scene("message")
-	Global.game_controller.current_gui_scene.set_text("Волна " + str(wave))
+	Global.game_controller.current_gui_scene.set_text(tr("MESSAGE_WAVE").format({"wave": str(wave)}))
 	# Spawn enemies
 	var spawn_cooldown: float = data["wave_" + str(wave)]["spawn_cooldown"]
 	var enemies: Array = data["wave_" + str(wave)]["enemies"]

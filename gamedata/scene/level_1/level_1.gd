@@ -9,17 +9,17 @@ func idle_state() -> void:
 
 func tutorial() -> void:
 	# Greet
-	hint.text = "Здравствуйте, вождь. Добро пожаловать в Holy Oak!"
+	hint.text = tr("HINT_GREETING")
 	hint.pivot_offset.x = 64.0
 	hint.position = Vector2(576.0, 320.0)
 	hint.show_()
 	await hint.hidden_
 	# Await for player to close the hint
-	hint.text = "Ваша задача — защитить Священный дуб"
+	hint.text = tr("HINT_GAME_TASK")
 	hint.show_()
 	await hint.hidden_
 	# Open the tower menu
-	hint.text = "Для начала построим башню. Нажмите на пустое поле справа от подсказки"
+	hint.text = tr("HINT_TOWER_MENU")
 	hint.pivot_offset.x = 128.0
 	hint.position = Vector2(484.0, 128.0)
 	hint.can_be_skipped = false
@@ -31,21 +31,21 @@ func tutorial() -> void:
 	hint.hide_()
 	await hint.hidden_
 	# Build the tower
-	hint.text = "Теперь нажмите BUILD, чтобы её построить"
+	hint.text = tr("HINT_BUILD_TOWER")
 	hint.show_()
 	# Await for player to build the tower
 	await tower_1.player_built_tower
 	hint.hide_()
 	await hint.hidden_
 	# Upgrade the tower
-	hint.text = "Для того чтобы повысить эффективность защиты, необходимо улучшить башню. Откройте меню и нажмите UPGRADE"
+	hint.text = tr("HINT_UPGRADE_TOWER")
 	hint.show_()
 	# Await for player to upgrade the tower
 	await tower_1.player_upgraded_tower
 	hint.hide_()
 	await hint.hidden_
 	# Check current stats
-	hint.text = "Отлично. Нажмите на кнопку STATS, чтобы посмотреть текущие характеристики башни и юнитов"
+	hint.text = tr("HINT_TOWER_STATS")
 	hint.show_()
 	# Unlock the TowerStats button
 	tower_1.is_tower_stats_button_locked = false
@@ -54,13 +54,13 @@ func tutorial() -> void:
 	hint.hide_()
 	await hint.hidden_
 	# Tell about removing towers
-	hint.text = "Запомните, что в случае, если нужно построить башню в другом месте, а у вас не хватит денег, вы всегда можете избавиться от другой, нажав REMOVE, и вернуть обратно 50% от стоимости"
+	hint.text = tr("HINT_REMOVE_TOWER")
 	hint.can_be_skipped = true
 	hint.show_()
 	# Await for player to close the hint
 	await hint.hidden_
 	# Say goodbye
-	hint.text = "О, нет! Вы это слышите? Враг надвигается!.. Всё в ваших руках, вождь!"
+	hint.text = tr("HINT_GOODBYE")
 	hint.pivot_offset.x = 64.0
 	hint.position = Vector2(576.0, 320.0)
 	hint.show_()
