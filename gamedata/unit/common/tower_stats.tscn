@@ -18,11 +18,13 @@ PanelContainer/styles/panel = SubResource("StyleBoxTexture_qpd0x")
 
 [node name="TowerStats" type="Control"]
 layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -916.0
 offset_bottom = -438.0
-scale = Vector2(0.7, 0.7)
+grow_horizontal = 2
+grow_vertical = 2
 pivot_offset = Vector2(182, 141)
 script = ExtResource("1_yyqa1")
 
