@@ -48,7 +48,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("5_3ainm")
 theme_override_font_sizes/font_size = 36
-text = "Victory"
+text = "Victory!"
 horizontal_alignment = 1
 
 [node name="Next Button" type="Button" parent="PanelContainer" index="2"]
