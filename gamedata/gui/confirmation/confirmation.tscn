@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b437ieyw0o13k"]
+[gd_scene load_steps=7 format=3 uid="uid://b437ieyw0o13k"]
 
 [ext_resource type="Script" uid="uid://258wirglcdvq" path="res://gamedata/gui/confirmation/confirmation.gd" id="1_gq6vv"]
 [ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://gui/backgrounds/ui_border.png" id="1_jh8bk"]
 [ext_resource type="PackedScene" uid="uid://i7ihkn2i5v5n" path="res://gamedata/gui/common/node_gui.tscn" id="1_r5xpi"]
+[ext_resource type="FontFile" uid="uid://5wohy1go68x5" path="res://gui/fonts/Tribal Garamond.ttf" id="4_mpy58"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ecn84"]
 texture = ExtResource("1_jh8bk")
@@ -49,25 +50,28 @@ texture_filter = 2
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 24
-text = "Вы уверены?"
+theme_override_fonts/font = ExtResource("4_mpy58")
+theme_override_font_sizes/font_size = 28
+text = "Are you sure? "
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Confirm Button" type="Button" parent="." index="2"]
 layout_mode = 1
 anchors_preset = -1
+anchor_left = 0.082
 anchor_top = 0.694
 anchor_right = 0.41
 anchor_bottom = 0.898
-offset_left = 22.0
+offset_left = 0.0240002
 offset_top = -0.0240021
-offset_right = 0.119995
-offset_bottom = -0.00801086
+offset_right = 0.119987
+offset_bottom = -0.00802612
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 20
-text = "ОК"
+theme_override_fonts/font = ExtResource("4_mpy58")
+theme_override_font_sizes/font_size = 24
+text = "OK"
 
 [node name="Cancel Button" type="Button" parent="." index="3"]
 layout_mode = 1
@@ -82,8 +86,9 @@ offset_right = -0.0240173
 offset_bottom = -0.00801086
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 20
-text = "Отмена"
+theme_override_fonts/font = ExtResource("4_mpy58")
+theme_override_font_sizes/font_size = 24
+text = "Cancel"
 
 [connection signal="pressed" from="Confirm Button" to="." method="_on_confirm_button_pressed"]
 [connection signal="pressed" from="Cancel Button" to="." method="_on_cancel_button_pressed"]
