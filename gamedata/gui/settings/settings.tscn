@@ -12,7 +12,6 @@ offset_left = 416.0
 offset_top = 120.0
 offset_right = -416.0
 offset_bottom = -40.0
-scale = Vector2(0.7, 0.7)
 pivot_offset = Vector2(224, 272)
 script = ExtResource("1_vu2hh")
 
@@ -47,7 +46,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Master Volume" index="0"]
 layout_mode = 0
 offset_left = 22.0
-offset_right = 126.0
+offset_right = 115.0
 offset_bottom = 44.0
 theme_override_fonts/font = ExtResource("2_yf67p")
 theme_override_font_sizes/font_size = 33
@@ -70,7 +69,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Music Volume" index="0"]
 layout_mode = 0
 offset_left = 22.0
-offset_right = 126.0
+offset_right = 105.0
 offset_bottom = 44.0
 theme_override_fonts/font = ExtResource("2_yf67p")
 theme_override_font_sizes/font_size = 33
@@ -93,7 +92,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/SFX Volume" index="0"]
 layout_mode = 0
 offset_left = 22.0
-offset_right = 126.0
+offset_right = 81.0
 offset_bottom = 44.0
 theme_override_fonts/font = ExtResource("2_yf67p")
 theme_override_font_sizes/font_size = 33
@@ -127,7 +126,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/GUI Scale" index="0"]
 layout_mode = 0
 offset_left = 22.0
-offset_right = 126.0
+offset_right = 91.0
 offset_bottom = 44.0
 theme_override_fonts/font = ExtResource("2_yf67p")
 theme_override_font_sizes/font_size = 33
@@ -141,7 +140,7 @@ offset_right = 406.0
 offset_bottom = 44.0
 theme_override_fonts/font = ExtResource("2_yf67p")
 theme_override_font_sizes/font_size = 24
-selected = 2
+selected = 5
 item_count = 6
 popup/item_0/text = "0.5"
 popup/item_0/id = 0
@@ -180,10 +179,12 @@ theme_override_font_sizes/font_size = 24
 text = "Reset Settings"
 
 [node name="Reset Progress Button" type="Button" parent="PanelContainer/VBoxContainer/Data Reset" index="1"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
 offset_left = 238.0
 offset_right = 406.0
 offset_bottom = 44.0
+grow_horizontal = 0
 theme_override_fonts/font = ExtResource("2_yf67p")
 theme_override_font_sizes/font_size = 24
 text = "Reset Progress"
@@ -203,11 +204,13 @@ theme_override_font_sizes/font_size = 24
 text = "Apply"
 
 [node name="Cancel Button" type="Button" parent="PanelContainer/VBoxContainer/Apply or Cancel" index="1"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
 offset_left = 262.0
 offset_top = 24.0
 offset_right = 406.0
 offset_bottom = 68.0
+grow_horizontal = 0
 theme_override_fonts/font = ExtResource("2_yf67p")
 theme_override_font_sizes/font_size = 24
 text = "Cancel"
