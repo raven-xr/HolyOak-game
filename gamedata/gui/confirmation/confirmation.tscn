@@ -51,9 +51,11 @@ layout_mode = 2
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("4_mpy58")
 theme_override_font_sizes/font_size = 28
-text = "Are you sure? "
+text = "Are you sure?
+This cannot be canceled!"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Confirm Button" type="Button" parent="." index="2"]
 layout_mode = 1
