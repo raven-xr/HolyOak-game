@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bwfjylls4graf"]
+[gd_scene load_steps=8 format=3 uid="uid://bwfjylls4graf"]
 
 [ext_resource type="PackedScene" uid="uid://i7ihkn2i5v5n" path="res://gamedata/gui/common/node_gui.tscn" id="1_cftco"]
 [ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://gui/backgrounds/ui_border.png" id="1_tykjn"]
 [ext_resource type="Script" uid="uid://t4uhbvnbg6rv" path="res://gamedata/gui/game_menu/game_menu.gd" id="1_ux5sl"]
 [ext_resource type="FontFile" uid="uid://5wohy1go68x5" path="res://gui/fonts/Tribal Garamond.ttf" id="2_td3s4"]
+[ext_resource type="Shortcut" uid="uid://bnk8rf3lcercs" path="res://gamedata/gui/common/ui_cancel_shortcut.tres" id="5_60yi8"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_60xpl"]
 texture = ExtResource("1_tykjn")
@@ -22,14 +23,13 @@ PanelContainer/styles/panel = SubResource("StyleBoxTexture_60xpl")
 [node name="GameMenu" instance=ExtResource("1_cftco")]
 pivot_offset = Vector2(640, 360)
 script = ExtResource("1_ux5sl")
-can_be_closed = false
 
 [node name="PanelContainer" type="PanelContainer" parent="." index="0"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 552.0
+offset_left = 550.0
 offset_top = 248.0
-offset_right = 732.0
+offset_right = 730.0
 offset_bottom = 454.0
 pivot_offset = Vector2(90, 103)
 theme = SubResource("Theme_sqy7h")
@@ -53,6 +53,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("2_td3s4")
 theme_override_font_sizes/font_size = 22
+shortcut = ExtResource("5_60yi8")
 text = "RESUME"
 
 [node name="Settings Button" type="Button" parent="PanelContainer/VBoxContainer" index="2"]

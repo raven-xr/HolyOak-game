@@ -4,15 +4,8 @@ extends NodeGUI
 @onready var settings_button: Button = $"PanelContainer/VBoxContainer/Settings Button"
 @onready var exit_button: Button = $"PanelContainer/VBoxContainer/Exit Button"
 
-func _input(_event: InputEvent) -> void:
-	# Can't be closed if settings are opened
-	if Input.is_action_just_pressed("ui_cancel") and can_be_closed and not Global.game_controller.gui.has_node("Settings"):
-		SoundManager.click.play()
-		close()
-
 func _ready() -> void:
 	get_tree().paused = true
-	can_be_closed = true
 
 func disable_buttons() -> void:
 	resume_button.disabled = true
