@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhby1rfvkkxt0"]
+[gd_scene load_steps=7 format=3 uid="uid://bhby1rfvkkxt0"]
 
 [ext_resource type="Theme" uid="uid://b1fx26em7338w" path="res://gui/themes/panel_container.tres" id="1_8yuru"]
 [ext_resource type="PackedScene" uid="uid://i7ihkn2i5v5n" path="res://gamedata/gui/common/node_gui.tscn" id="1_sltxs"]
 [ext_resource type="Script" uid="uid://ikwf35se5uyd" path="res://gamedata/gui/settings/settings.gd" id="1_vu2hh"]
 [ext_resource type="FontFile" uid="uid://5wohy1go68x5" path="res://gui/fonts/Tribal Garamond.ttf" id="2_yf67p"]
 [ext_resource type="Texture2D" uid="uid://diotcuia4nehk" path="res://gui/icons/close.svg" id="4_1vq1p"]
+[ext_resource type="Shortcut" uid="uid://bnk8rf3lcercs" path="res://gamedata/gui/common/ui_cancel_shortcut.tres" id="5_clefv"]
 
 [node name="Settings" instance=ExtResource("1_sltxs")]
 custom_minimum_size = Vector2(448, 560)
@@ -226,6 +227,7 @@ offset_left = -0.144012
 offset_top = 0.239998
 offset_right = -0.192017
 offset_bottom = 0.0799942
+shortcut = ExtResource("5_clefv")
 icon = ExtResource("4_1vq1p")
 expand_icon = true
 

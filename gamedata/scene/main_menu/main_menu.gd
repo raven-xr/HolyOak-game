@@ -14,8 +14,10 @@ extends Node2D
 @onready var levels_back_button: TextureButton = $"Levels/Back Button"
 @onready var credits_back_button: TextureButton = $"Credits/Back Button"
 @onready var credits: Control = $Credits
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
+	get_viewport().gui_disable_input = true
 	# Scale GUI
 	var gui_scale = Vector2(UserSettings.gui_scale, UserSettings.gui_scale)
 	game_name.scale = gui_scale
@@ -40,13 +42,8 @@ func _ready() -> void:
 			var star = star_scene.instantiate()
 			star.position = Vector2(17.0 + 32.0 * i, 104.0)
 			button.add_child(star)
-
-func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_cancel"):
-		if levels.visible and not levels_back_button.disabled:
-			levels_back_button.pressed.emit()
-		elif credits.visible:
-			credits_back_button.pressed.emit()
+	await animation_player.animation_finished
+	get_viewport().gui_disable_input = false
 
 func animate_transition() -> void:
 	# Disable buttons
@@ -59,21 +56,21 @@ func animate_transition() -> void:
 	var tween_1 = create_tween()
 	tween_1.tween_property(self, "modulate", Color(0.0, 0.0, 0.0, 1.0), 0.1)
 	var tween_2 = create_tween()
-	tween_2.tween_property(SoundManager.music_main, "volume_db", -100, 0.2)
+	tween_2.tween_property(SoundManager.music_main, "volume_db", -100.0, 0.2)
 
 func _on_play_button_pressed() -> void:
 	SoundManager.click.play()
 	explorer.visible = false
 	levels.visible = true
 	var tween = create_tween()
-	tween.tween_property(levels, "modulate", Color(1, 1, 1, 1), 0.1)
+	tween.tween_property(levels, "modulate", Color(1.0, 1.0, 1.0, 1.0), 0.1)
 
 func _on_credits_button_pressed() -> void:
 	SoundManager.click.play()
 	explorer.visible = false
 	credits.visible = true
 	var tween = create_tween()
-	tween.tween_property(credits, "modulate", Color(1, 1, 1, 1), 0.1)
+	tween.tween_property(credits, "modulate", Color(1.0, 1.0, 1.0, 1.0), 0.1)
 
 func _on_settings_button_pressed() -> void:
 	SoundManager.click.play()
@@ -128,6 +125,6 @@ func _on_credits_back_button_pressed() -> void:
 	SoundManager.click.play()
 	explorer.visible = true
 	var tween = create_tween()
-	tween.tween_property(credits, "modulate", Color(1, 1, 1, 0), 0.1)
+	tween.tween_property(credits, "modulate", Color(1.0, 1.0, 1.0, 0.0), 0.1)
 	await tween.finished
 	credits.visible = false
