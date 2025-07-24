@@ -20,7 +20,6 @@ expand_margin_bottom = 7.0
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_60xpl")
 
 [node name="GameMenu" instance=ExtResource("1_cftco")]
-scale = Vector2(0.7, 0.7)
 pivot_offset = Vector2(640, 360)
 script = ExtResource("1_ux5sl")
 can_be_closed = false

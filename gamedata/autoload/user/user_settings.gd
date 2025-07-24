@@ -29,7 +29,7 @@ var sfx_volume: float = 1.0:
 		property_changed.emit()
 		AudioServer.set_bus_volume_db(sfx_bus_idx, linear_to_db(value))
 # {0.5; 0.6; 0.7; 0.8; 0.9; 1.0}
-var gui_scale: float = 0.7:
+var gui_scale: float = 1.0:
 	set(value):
 		gui_scale = value
 		property_changed.emit()
@@ -99,9 +99,3 @@ func verify_settings() -> bool:
 
 func _on_property_changed() -> void:
 	save_settings()
-
-func match_scale() -> float:
-	if OS.get_name() == "Android":
-		return 1.0
-	else:
-		return 0.8

@@ -17,7 +17,6 @@ texture_margin_bottom = 14.0
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_sgioi")
 
 [node name="DefeatMenu" instance=ExtResource("1_xpbbb")]
-scale = Vector2(0.7, 0.7)
 pivot_offset = Vector2(640, 360)
 script = ExtResource("1_xr44m")
 
@@ -45,8 +44,8 @@ expand_icon = true
 texture_filter = 2
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 22
-text = "Вы проиграли"
+theme_override_font_sizes/font_size = 24
+text = "Вы проиграли!"
 horizontal_alignment = 1
 
 [node name="Restart Button" type="Button" parent="PanelContainer" index="2"]

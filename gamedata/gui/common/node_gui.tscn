@@ -3,9 +3,7 @@
 [ext_resource type="Script" uid="uid://1cmn05vqg4lx" path="res://gamedata/gui/common/node_gui.gd" id="1_tygp5"]
 
 [node name="NodeGUI" type="Control"]
-editor_description = "Do NOT create the \"_on_ready\", \"_input\" and \"close\" functions if this can be avoided. They are used in the script of the NodeGUI
-
-You have to create new NodeGUIs and other Control node at the 1.0 scale but then you should scale it by 0.7 to see what it looks like at the 1920x1080 resolution"
+editor_description = "Do NOT create the \"_on_ready\", \"_input\" and \"close\" functions if this can be avoided. They are used in the script of the NodeGUI"
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

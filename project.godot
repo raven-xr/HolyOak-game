@@ -57,6 +57,10 @@ import/blender/enabled=false
 
 pointing/emulate_touch_from_mouse=true
 
+[internationalization]
+
+locale/locale_filter_mode=1
+
 [layer_names]
 
 2d_physics/layer_1="Enemies << Units"

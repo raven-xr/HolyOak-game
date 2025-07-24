@@ -349,30 +349,6 @@ text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Star" parent="Levels/GridContainer/Level 1" instance=ExtResource("2_ndcgm")]
-custom_minimum_size = Vector2(27, 27)
-layout_mode = 0
-offset_left = 17.0
-offset_top = 104.0
-offset_right = 46.0
-offset_bottom = 133.0
-
-[node name="Star2" parent="Levels/GridContainer/Level 1" instance=ExtResource("2_ndcgm")]
-custom_minimum_size = Vector2(27, 27)
-layout_mode = 0
-offset_left = 49.0
-offset_top = 104.286
-offset_right = 78.0
-offset_bottom = 133.286
-
-[node name="Star3" parent="Levels/GridContainer/Level 1" instance=ExtResource("2_ndcgm")]
-custom_minimum_size = Vector2(27, 27)
-layout_mode = 0
-offset_left = 81.0
-offset_top = 104.286
-offset_right = 110.0
-offset_bottom = 133.286
-
 [node name="Level 2" type="TextureButton" parent="Levels/GridContainer"]
 custom_minimum_size = Vector2(126, 148)
 layout_mode = 2
