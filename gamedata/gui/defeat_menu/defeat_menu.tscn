@@ -17,7 +17,6 @@ texture_margin_bottom = 14.0
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_sgioi")
 
 [node name="DefeatMenu" instance=ExtResource("1_xpbbb")]
-scale = Vector2(0.7, 0.7)
 pivot_offset = Vector2(640, 360)
 script = ExtResource("1_xr44m")
 
