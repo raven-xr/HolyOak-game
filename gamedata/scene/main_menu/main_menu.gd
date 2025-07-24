@@ -41,13 +41,6 @@ func _ready() -> void:
 			star.position = Vector2(17.0 + 32.0 * i, 104.0)
 			button.add_child(star)
 
-func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_cancel"):
-		if levels.visible and not levels_back_button.disabled:
-			levels_back_button.pressed.emit()
-		elif credits.visible:
-			credits_back_button.pressed.emit()
-
 func animate_transition() -> void:
 	# Disable buttons
 	for button in v_box_container.get_children():
