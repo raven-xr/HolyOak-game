@@ -56,7 +56,7 @@ func animate_transition() -> void:
 	var tween_1 = create_tween()
 	tween_1.tween_property(self, "modulate", Color(0.0, 0.0, 0.0, 1.0), 0.1)
 	var tween_2 = create_tween()
-	tween_2.tween_property(SoundManager.music_main, "volume_db", -100, 0.2)
+	tween_2.tween_property(SoundManager.music_main, "volume_db", -100.0, 0.2)
 
 func _on_play_button_pressed() -> void:
 	SoundManager.click.play()
