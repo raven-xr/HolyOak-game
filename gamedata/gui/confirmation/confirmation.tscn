@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b437ieyw0o13k"]
+[gd_scene load_steps=8 format=3 uid="uid://b437ieyw0o13k"]
 
 [ext_resource type="Script" uid="uid://258wirglcdvq" path="res://gamedata/gui/confirmation/confirmation.gd" id="1_gq6vv"]
 [ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://gui/backgrounds/ui_border.png" id="1_jh8bk"]
 [ext_resource type="PackedScene" uid="uid://i7ihkn2i5v5n" path="res://gamedata/gui/common/node_gui.tscn" id="1_r5xpi"]
 [ext_resource type="FontFile" uid="uid://5wohy1go68x5" path="res://gui/fonts/Tribal Garamond.ttf" id="4_mpy58"]
+[ext_resource type="Shortcut" uid="uid://bnk8rf3lcercs" path="res://gamedata/gui/common/ui_cancel_shortcut.tres" id="5_8pwx0"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ecn84"]
 texture = ExtResource("1_jh8bk")
@@ -24,14 +25,15 @@ offset_right = -506.0
 offset_bottom = -220.0
 pivot_offset = Vector2(134, 98)
 script = ExtResource("1_gq6vv")
-can_be_closed = false
 
-[node name="Control" type="Control" parent="." index="0"]
+[node name="Block" type="Control" parent="." index="0"]
+editor_description = "This Control node blocks the interaction with the other GUI nodes"
 anchors_preset = 0
-offset_left = -780.0
-offset_top = -476.0
-offset_right = 1048.0
-offset_bottom = 552.0
+offset_left = -1154.0
+offset_top = -664.0
+offset_right = 1406.0
+offset_bottom = 776.0
+pivot_offset = Vector2(1280, 720)
 
 [node name="PanelContainer" type="PanelContainer" parent="." index="1"]
 texture_filter = 1
@@ -88,6 +90,7 @@ grow_horizontal = 0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_mpy58")
 theme_override_font_sizes/font_size = 24
+shortcut = ExtResource("5_8pwx0")
 text = "Cancel"
 
 [connection signal="pressed" from="Confirm Button" to="." method="_on_confirm_button_pressed"]
