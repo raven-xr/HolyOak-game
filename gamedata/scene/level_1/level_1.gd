@@ -10,8 +10,8 @@ func idle_state() -> void:
 func tutorial() -> void:
 	# Greet
 	hint.text = "Здравствуйте, вождь. Добро пожаловать в Holy Oak!"
-	hint.pivot_offset.x = 64.0
-	hint.position = Vector2(576.0, 320.0)
+	hint.pivot_offset.x = 96.0
+	hint.position = Vector2(544.0, 320.0)
 	hint.show_()
 	await hint.hidden_
 	# Await for player to close the hint
@@ -20,8 +20,8 @@ func tutorial() -> void:
 	await hint.hidden_
 	# Open the tower menu
 	hint.text = "Для начала построим башню. Нажмите на пустое поле справа от подсказки"
-	hint.pivot_offset.x = 128.0
-	hint.position = Vector2(484.0, 128.0)
+	hint.pivot_offset.x = 192.0
+	hint.position = Vector2(432.0, 136.0)
 	hint.can_be_skipped = false
 	hint.show_()
 	# Unlock the tower 1
@@ -61,8 +61,8 @@ func tutorial() -> void:
 	await hint.hidden_
 	# Say goodbye
 	hint.text = "О, нет! Вы это слышите? Враг надвигается!.. Всё в ваших руках, вождь!"
-	hint.pivot_offset.x = 64.0
-	hint.position = Vector2(576.0, 320.0)
+	hint.pivot_offset.x = 96.0
+	hint.position = Vector2(544.0, 320.0)
 	hint.show_()
 	# Await for player to close the hint
 	await hint.hidden_
