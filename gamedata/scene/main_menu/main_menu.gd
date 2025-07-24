@@ -14,8 +14,10 @@ extends Node2D
 @onready var levels_back_button: TextureButton = $"Levels/Back Button"
 @onready var credits_back_button: TextureButton = $"Credits/Back Button"
 @onready var credits: Control = $Credits
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
+	get_viewport().gui_disable_input = true
 	# Scale GUI
 	var gui_scale = Vector2(UserSettings.gui_scale, UserSettings.gui_scale)
 	game_name.scale = gui_scale
@@ -40,6 +42,8 @@ func _ready() -> void:
 			var star = star_scene.instantiate()
 			star.position = Vector2(17.0 + 32.0 * i, 104.0)
 			button.add_child(star)
+	await animation_player.animation_finished
+	get_viewport().gui_disable_input = false
 
 func animate_transition() -> void:
 	# Disable buttons
