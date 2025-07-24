@@ -59,14 +59,14 @@ func _on_play_button_pressed() -> void:
 	explorer.visible = false
 	levels.visible = true
 	var tween = create_tween()
-	tween.tween_property(levels, "modulate", Color(1, 1, 1, 1), 0.1)
+	tween.tween_property(levels, "modulate", Color(1.0, 1.0, 1.0, 1.0), 0.1)
 
 func _on_credits_button_pressed() -> void:
 	SoundManager.click.play()
 	explorer.visible = false
 	credits.visible = true
 	var tween = create_tween()
-	tween.tween_property(credits, "modulate", Color(1, 1, 1, 1), 0.1)
+	tween.tween_property(credits, "modulate", Color(1.0, 1.0, 1.0, 1.0), 0.1)
 
 func _on_settings_button_pressed() -> void:
 	SoundManager.click.play()
@@ -121,6 +121,6 @@ func _on_credits_back_button_pressed() -> void:
 	SoundManager.click.play()
 	explorer.visible = true
 	var tween = create_tween()
-	tween.tween_property(credits, "modulate", Color(1, 1, 1, 0), 0.1)
+	tween.tween_property(credits, "modulate", Color(1.0, 1.0, 1.0, 0.0), 0.1)
 	await tween.finished
 	credits.visible = false
