@@ -24,7 +24,6 @@ texture_margin_left = 8.0
 texture_margin_right = 8.0
 
 [node name="PlayerStats" instance=ExtResource("1_f6d2y")]
-scale = Vector2(0.7, 0.7)
 pivot_offset = Vector2(16, 16)
 script = ExtResource("2_ej0be")
 can_be_closed = false
