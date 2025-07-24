@@ -24,7 +24,6 @@ offset_right = -1088.0
 offset_bottom = -632.0
 pivot_offset = Vector2(96, 44)
 script = ExtResource("2_3a814")
-can_be_closed = false
 
 [node name="PanelContainer" type="PanelContainer" parent="." index="0"]
 texture_filter = 1
