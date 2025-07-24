@@ -58,11 +58,10 @@ func _on_reset_settings_button_pressed() -> void:
 	if Global.game_controller.current_2d_scene.name == "MainMenu":
 		scale_option_button.select({0.5: 0, 0.6: 1, 0.7: 2, 0.8: 3, 0.9: 4, 1.0: 5}[UserSettings.match_scale()])
 		scale_option_button.emit_signal("item_selected", {0.5: 0, 0.6: 1, 0.7: 2, 0.8: 3, 0.9: 4, 1.0: 5}[UserSettings.match_scale()])
-
+	
 func _on_reset_progress_button_pressed() -> void:
 	SoundManager.click.play()
 	Global.game_controller.change_gui_scene("confirmation", false, true)
-	can_be_closed = false
 	var confirmation: NodeGUI = Global.game_controller.current_gui_scene
 	confirmation.connect("confirmed", Callable(self, "_on_confirmed"))
 	confirmation.connect("canceled", Callable(self, "_on_canceled"))
@@ -96,7 +95,6 @@ func _on_canceled() -> void:
 	visible = true
 	var tween = create_tween()
 	tween.tween_property(self, "modulate:a", 1.0, 0.15)
-	can_be_closed = true
 
 func _on_confirmed() -> void:
 	# Confirmation... confirmed?
