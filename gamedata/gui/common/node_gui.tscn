@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://1cmn05vqg4lx" path="res://gamedata/gui/common/node_gui.gd" id="1_tygp5"]
 
 [node name="NodeGUI" type="Control"]
-editor_description = "Do NOT create the \"_on_ready\", \"_input\" and \"close\" functions if this can be avoided. They are used in the script of the NodeGUI"
+editor_description = "Do NOT overwrite the \"_on_ready()\" and \"close()\" functions if you can avoid it. Check the original NodeGUI's script if you need to overwrite one of them"
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
