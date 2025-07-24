@@ -28,9 +28,7 @@ func _ready() -> void:
 	if FileAccess.file_exists(UserSettings.SETTINGS_PATH):
 		UserSettings.load_settings()
 	else:
-		# Autoscaling, after autoscaling the "property_changes" signal will be emited
-		# and a ConfigFile with settings will be created
-		UserSettings.gui_scale = UserSettings.match_scale()
+		UserSettings.save_settings()
 	change_2d_scene("main_menu")
 
 func _input(_event: InputEvent) -> void:
