@@ -31,11 +31,6 @@ func _ready() -> void:
 		UserSettings.save_settings()
 	change_2d_scene("main_menu")
 
-func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_cancel") and current_gui_scene and current_gui_scene.can_be_closed:
-		current_gui_scene.close()
-		current_gui_scene = null
-
 ## Scene name must be determined by the file name without the extension:[br]
 ## e.g. main_menu, level_1
 func change_2d_scene(scene_name: StringName, delete: bool = true, keep_running: bool = false) -> void:
