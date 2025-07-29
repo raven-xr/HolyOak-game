@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://dtaq5avc8r7f"]
+[gd_scene load_steps=34 format=4 uid="uid://dtaq5avc8r7f"]
 
 [ext_resource type="PackedScene" uid="uid://bbsqvqymrojj5" path="res://gamedata/scene/common/level.tscn" id="1_a26ah"]
 [ext_resource type="Texture2D" uid="uid://ciyeb8o1ywukt" path="res://gfx/tilesets/grass.png" id="2_dkgsg"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c4hsbyvxqgyxb" path="res://gfx/object/small_bush.png" id="8_gmu86"]
 [ext_resource type="Texture2D" uid="uid://c7mi2jbynpkv4" path="res://gfx/object/stump.png" id="8_k1w2h"]
 [ext_resource type="Texture2D" uid="uid://d1ygnmgujqnib" path="res://gfx/object/box.png" id="9_6ju2p"]
+[ext_resource type="Texture2D" uid="uid://ch3ur0m58a0hk" path="res://gfx/object/rock.png" id="13_y2u35"]
 [ext_resource type="PackedScene" uid="uid://lxt2xv2lfkgu" path="res://gamedata/unit/common/tower.tscn" id="14_j8r11"]
 [ext_resource type="PackedScene" uid="uid://cenxr6q3w2dek" path="res://gamedata/unit/archer/archer.tscn" id="15_lytkh"]
 
@@ -641,6 +642,46 @@ texture = ExtResource("8_gmu86")
 position = Vector2(463, 639)
 texture = ExtResource("8_gmu86")
 
+[node name="Box 1" type="Sprite2D" parent="Map/Field 1" index="42"]
+position = Vector2(286, 480)
+texture = ExtResource("9_6ju2p")
+
+[node name="Box 2" type="Sprite2D" parent="Map/Field 1" index="43"]
+position = Vector2(301, 480)
+texture = ExtResource("9_6ju2p")
+
+[node name="Box 3" type="Sprite2D" parent="Map/Field 1" index="44"]
+position = Vector2(288, 486)
+texture = ExtResource("9_6ju2p")
+
+[node name="Box 4" type="Sprite2D" parent="Map/Field 1" index="45"]
+position = Vector2(303, 486)
+texture = ExtResource("9_6ju2p")
+
+[node name="Box 5" type="Sprite2D" parent="Map/Field 1" index="46"]
+position = Vector2(293, 478)
+texture = ExtResource("9_6ju2p")
+
+[node name="Box 6" type="Sprite2D" parent="Map/Field 1" index="47"]
+position = Vector2(492, 536)
+texture = ExtResource("9_6ju2p")
+
+[node name="Box 7" type="Sprite2D" parent="Map/Field 1" index="48"]
+position = Vector2(507, 536)
+texture = ExtResource("9_6ju2p")
+
+[node name="Box 8" type="Sprite2D" parent="Map/Field 1" index="49"]
+position = Vector2(494, 542)
+texture = ExtResource("9_6ju2p")
+
+[node name="Box 9" type="Sprite2D" parent="Map/Field 1" index="50"]
+position = Vector2(509, 542)
+texture = ExtResource("9_6ju2p")
+
+[node name="Box 10" type="Sprite2D" parent="Map/Field 1" index="51"]
+position = Vector2(499, 534)
+texture = ExtResource("9_6ju2p")
+
 [node name="Hill 1" type="Node2D" parent="Map" index="2"]
 
 [node name="Stump 1" type="Sprite2D" parent="Map/Hill 1" index="0"]
@@ -888,6 +929,79 @@ position = Vector2(960, 680)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
+[node name="Rock 1" type="Sprite2D" parent="Map/Hill 1" index="53"]
+position = Vector2(688, 368)
+texture = ExtResource("13_y2u35")
+
+[node name="Rock 2" type="Sprite2D" parent="Map/Hill 1" index="54"]
+position = Vector2(752, 472)
+texture = ExtResource("13_y2u35")
+
+[node name="Rock 3" type="Sprite2D" parent="Map/Hill 1" index="55"]
+position = Vector2(776, 424)
+texture = ExtResource("13_y2u35")
+
+[node name="Rock 4" type="Sprite2D" parent="Map/Hill 1" index="56"]
+position = Vector2(784, 584)
+texture = ExtResource("13_y2u35")
+
+[node name="Rock 5" type="Sprite2D" parent="Map/Hill 1" index="57"]
+position = Vector2(912, 440)
+texture = ExtResource("13_y2u35")
+
+[node name="Rock 6" type="Sprite2D" parent="Map/Hill 1" index="58"]
+position = Vector2(728, 584)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("13_y2u35")
+
+[node name="Rock 7" type="Sprite2D" parent="Map/Hill 1" index="59"]
+position = Vector2(672, 728)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("13_y2u35")
+
+[node name="Rock 8" type="Sprite2D" parent="Map/Hill 1" index="60"]
+position = Vector2(800, 600)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("13_y2u35")
+
+[node name="Rock 9" type="Sprite2D" parent="Map/Hill 1" index="61"]
+position = Vector2(804, 575)
+scale = Vector2(2, 2)
+texture = ExtResource("13_y2u35")
+
+[node name="Rock 19" type="Sprite2D" parent="Map/Hill 1" index="62"]
+position = Vector2(1090, 272)
+scale = Vector2(2, 2)
+texture = ExtResource("13_y2u35")
+
+[node name="Rock 20" type="Sprite2D" parent="Map/Hill 1" index="63"]
+position = Vector2(1121, 268)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("13_y2u35")
+
+[node name="Rock 22" type="Sprite2D" parent="Map/Hill 1" index="64"]
+position = Vector2(1069, 259)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("13_y2u35")
+
+[node name="Rock 24" type="Sprite2D" parent="Map/Hill 1" index="65"]
+position = Vector2(897, 304)
+texture = ExtResource("13_y2u35")
+
+[node name="Rock 25" type="Sprite2D" parent="Map/Hill 1" index="66"]
+position = Vector2(1170, 300)
+texture = ExtResource("13_y2u35")
+
+[node name="Rock 26" type="Sprite2D" parent="Map/Hill 1" index="67"]
+position = Vector2(1081, 254)
+scale = Vector2(0.66, 0.66)
+texture = ExtResource("13_y2u35")
+
+[node name="Rock 27" type="Sprite2D" parent="Map/Hill 1" index="68"]
+position = Vector2(1094, 251)
+scale = Vector2(0.77, 0.77)
+texture = ExtResource("13_y2u35")
+
 [node name="Forest 1" type="Node2D" parent="Map" index="3"]
 
 [node name="Stump 1" type="Sprite2D" parent="Map/Forest 1" index="0"]
@@ -1076,6 +1190,46 @@ texture = ExtResource("6_rmyq5")
 position = Vector2(225, 183)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
+
+[node name="Box 13" type="Sprite2D" parent="Map/Forest 1" index="41"]
+position = Vector2(606, 199)
+texture = ExtResource("9_6ju2p")
+
+[node name="Box 14" type="Sprite2D" parent="Map/Forest 1" index="42"]
+position = Vector2(621, 199)
+texture = ExtResource("9_6ju2p")
+
+[node name="Box 15" type="Sprite2D" parent="Map/Forest 1" index="43"]
+position = Vector2(608, 205)
+texture = ExtResource("9_6ju2p")
+
+[node name="Box 16" type="Sprite2D" parent="Map/Forest 1" index="44"]
+position = Vector2(623, 205)
+texture = ExtResource("9_6ju2p")
+
+[node name="Box 17" type="Sprite2D" parent="Map/Forest 1" index="45"]
+position = Vector2(613, 197)
+texture = ExtResource("9_6ju2p")
+
+[node name="Box 18" type="Sprite2D" parent="Map/Forest 1" index="46"]
+position = Vector2(912, 100)
+texture = ExtResource("9_6ju2p")
+
+[node name="Box 19" type="Sprite2D" parent="Map/Forest 1" index="47"]
+position = Vector2(927, 100)
+texture = ExtResource("9_6ju2p")
+
+[node name="Box 20" type="Sprite2D" parent="Map/Forest 1" index="48"]
+position = Vector2(914, 106)
+texture = ExtResource("9_6ju2p")
+
+[node name="Box 21" type="Sprite2D" parent="Map/Forest 1" index="49"]
+position = Vector2(929, 106)
+texture = ExtResource("9_6ju2p")
+
+[node name="Box 22" type="Sprite2D" parent="Map/Forest 1" index="50"]
+position = Vector2(919, 98)
+texture = ExtResource("9_6ju2p")
 
 [node name="Tower 1" parent="Towers" index="0" instance=ExtResource("14_j8r11")]
 position = Vector2(1000, 136)
