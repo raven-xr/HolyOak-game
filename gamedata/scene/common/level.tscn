@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bbsqvqymrojj5"]
+[gd_scene load_steps=12 format=3 uid="uid://bbsqvqymrojj5"]
 
 [ext_resource type="Script" uid="uid://2edsptc0xr5r" path="res://gamedata/scene/common/level.gd" id="1_8vq8d"]
 [ext_resource type="PackedScene" uid="uid://cdb4s0kj5v3yf" path="res://gamedata/enemy/slime/slime.tscn" id="3_36ads"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c7psph5vsrocc" path="res://gamedata/gui/player_stats/player_stats.tscn" id="8_otqld"]
 [ext_resource type="Shortcut" uid="uid://bnk8rf3lcercs" path="res://gamedata/gui/common/ui_cancel_shortcut.tres" id="9_2novx"]
 [ext_resource type="PackedScene" uid="uid://dgsn2o3sm3wgn" path="res://gamedata/scene/common/holy_oak.tscn" id="9_eoj5e"]
+[ext_resource type="PackedScene" uid="uid://bnkmwpcieadla" path="res://gamedata/FX/vignette/vignette.tscn" id="11_1jmb8"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_8vq8d")
@@ -72,6 +73,10 @@ one_shot = true
 
 [node name="Spawn Timer" type="Timer" parent="Timers"]
 one_shot = true
+
+[node name="GFX" type="CanvasLayer" parent="."]
+
+[node name="Vignette" parent="GFX" instance=ExtResource("11_1jmb8")]
 
 [connection signal="pressed" from="GUI/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="timeout" from="Timers/Start Timer" to="." method="_on_start_timer_timeout"]

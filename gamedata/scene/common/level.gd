@@ -64,9 +64,9 @@ func _ready() -> void:
 	# Transition
 	modulate = Color(0, 0, 0, 1)
 	var tween_1 = create_tween()
-	tween_1.parallel().tween_property(self, "modulate", Color(1, 1, 1, 1), 2.0)
+	tween_1.tween_property(self, "modulate", Color(1, 1, 1, 1), 2.0)
 	var tween_2 = create_tween()
-	tween_2.parallel().tween_property(SoundManager.music_idle, "volume_db", -20, 4.0)
+	tween_2.tween_property(SoundManager.music_idle, "volume_db", -20, 4.0)
 	# Start the game
 	state = States.IDLE
 
