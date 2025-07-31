@@ -85,8 +85,8 @@ func fight_state() -> void:
 	# Change the vignette
 	vignette.set_vignette_color(Color(0.0, 0.0, 0.0, 1.0), 4.0)
 	vignette.set_transparency(1.0, 4.0)
-	vignette.set_radius(2.0, 4.0)
 	await tween.finished
+	vignette.pulse = true
 	# Fight
 	wave += 1
 

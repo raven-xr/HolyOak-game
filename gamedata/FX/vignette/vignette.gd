@@ -4,7 +4,7 @@ func _ready() -> void:
 	# Resets shader
 	material.set("shader_parameter/vignette_color", Color(0.251, 0.502, 0.0, 1.0))
 	material.set("shader_parameter/MainAlpha", 0.3)
-	material.set("shater_parameter/outerRadius", 2.5)
+	material.set("shader_parameter/outerRadius", 2.0)
 
 ## Changes color within {duration} seconds[br]
 ## By default, duration = 0.001, so it happens instantly, set the duration if you want to
