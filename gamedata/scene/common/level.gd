@@ -24,6 +24,7 @@ enum States {
 @onready var menu_button: Button = $GUI/MenuButton
 @onready var wave_timer: Timer = $"Timers/Wave Timer"
 @onready var spawn_timer: Timer = $"Timers/Spawn Timer"
+@onready var vignette: ColorRect = $GFX/Vignette
 
 @onready var data: Dictionary = LevelData.get(technical_name)
 
@@ -77,12 +78,15 @@ func idle_state() -> void:
 func fight_state() -> void:
 	# Getting ready
 	SoundManager.music_fight.play()
-	var tween_1 = create_tween()
-	tween_1.parallel().tween_property(SoundManager.music_idle, "volume_db", -100, 4.0)
-	tween_1.connect("finished", SoundManager.music_idle.stop)
-	var tween_2 = create_tween()
-	tween_2.parallel().tween_property(SoundManager.music_fight, "volume_db", -20, 4.0)
-	await tween_2.finished
+	var tween = create_tween()
+	tween.parallel().tween_property(SoundManager.music_idle, "volume_db", -100.0, 4.0)
+	tween.parallel().tween_property(SoundManager.music_fight, "volume_db", -20.0, 4.0)
+	tween.connect("finished", SoundManager.music_idle.stop)
+	# Change the vignette
+	vignette.set_vignette_color(Color(0.0, 0.0, 0.0, 1.0), 4.0)
+	vignette.set_transparency(1.0, 4.0)
+	vignette.set_radius(2.0, 4.0)
+	await tween.finished
 	# Fight
 	wave += 1
 

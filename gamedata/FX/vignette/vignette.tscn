@@ -1,12 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bnkmwpcieadla"]
+[gd_scene load_steps=4 format=3 uid="uid://bnkmwpcieadla"]
 
 [ext_resource type="Shader" uid="uid://csqlqc5tqnnad" path="res://gamedata/FX/vignette/vignette.gdshader" id="1_s6vmy"]
+[ext_resource type="Script" uid="uid://o4ehiblygynj" path="res://gamedata/FX/vignette/vignette.gd" id="2_ufdy3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ufdy3"]
 shader = ExtResource("1_s6vmy")
 shader_parameter/outerRadius = 2.5
-shader_parameter/MainAlpha = 0.5
-shader_parameter/vignette_color = Color(0, 0.12549, 0, 1)
+shader_parameter/MainAlpha = 0.3
+shader_parameter/vignette_color = Color(0.25098, 0.501961, 0, 1)
 
 [node name="Vignette" type="ColorRect"]
 material = SubResource("ShaderMaterial_ufdy3")
@@ -16,3 +17,4 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("2_ufdy3")
