@@ -7,7 +7,7 @@
 shader = ExtResource("1_s6vmy")
 shader_parameter/outerRadius = 2.0
 shader_parameter/MainAlpha = 0.3
-shader_parameter/vignette_color = Color(0.25098, 0.501961, 0, 1)
+shader_parameter/vignette_color = Color(0.251, 0.502, 0, 1)
 
 [node name="Vignette" type="ColorRect"]
 material = SubResource("ShaderMaterial_ufdy3")
