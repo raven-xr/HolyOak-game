@@ -469,10 +469,7 @@ next_roadpoint = NodePath("../Waypoint 4")
 [node name="Waypoint 4" parent="Enemies/Road 2/Waypoints" index="3" instance=ExtResource("8_3rey1")]
 position = Vector2(148, 384)
 
-[node name="Holy Oak" parent="Map" index="0"]
-position = Vector2(80, 328)
-
-[node name="Field 1" type="Node2D" parent="Map" index="1"]
+[node name="Field 1" type="Node2D" parent="Map" index="0"]
 
 [node name="Stump 1" type="Sprite2D" parent="Map/Field 1" index="0"]
 position = Vector2(364, 421)
@@ -682,7 +679,7 @@ texture = ExtResource("9_6ju2p")
 position = Vector2(499, 534)
 texture = ExtResource("9_6ju2p")
 
-[node name="Hill 1" type="Node2D" parent="Map" index="2"]
+[node name="Hill 1" type="Node2D" parent="Map" index="1"]
 
 [node name="Stump 1" type="Sprite2D" parent="Map/Hill 1" index="0"]
 position = Vector2(720, 400)
@@ -1002,7 +999,7 @@ position = Vector2(1094, 251)
 scale = Vector2(0.77, 0.77)
 texture = ExtResource("13_y2u35")
 
-[node name="Forest 1" type="Node2D" parent="Map" index="3"]
+[node name="Forest 1" type="Node2D" parent="Map" index="2"]
 
 [node name="Stump 1" type="Sprite2D" parent="Map/Forest 1" index="0"]
 position = Vector2(279, 270)
@@ -1230,6 +1227,9 @@ texture = ExtResource("9_6ju2p")
 [node name="Box 22" type="Sprite2D" parent="Map/Forest 1" index="50"]
 position = Vector2(919, 98)
 texture = ExtResource("9_6ju2p")
+
+[node name="Holy Oak" parent="Map" index="3"]
+position = Vector2(80, 328)
 
 [node name="Tower 1" parent="Towers" index="0" instance=ExtResource("14_j8r11")]
 position = Vector2(1000, 136)
