@@ -297,10 +297,7 @@ next_roadpoint = NodePath("../Waypoint 5")
 [node name="Waypoint 5" parent="Enemies/Road 2/Waypoints" index="4" instance=ExtResource("9_tghr1")]
 position = Vector2(152, 432)
 
-[node name="Holy Oak" parent="Map" index="0"]
-position = Vector2(72, 376)
-
-[node name="Forest 1" type="Node2D" parent="Map" index="1"]
+[node name="Forest 1" type="Node2D" parent="Map" index="0"]
 
 [node name="Oak 1" type="Sprite2D" parent="Map/Forest 1" index="0"]
 position = Vector2(48, 8)
@@ -525,7 +522,7 @@ texture = ExtResource("13_rlqej")
 position = Vector2(639, 208)
 texture = ExtResource("13_rlqej")
 
-[node name="Forest 2" type="Node2D" parent="Map" index="2"]
+[node name="Forest 2" type="Node2D" parent="Map" index="1"]
 
 [node name="Oak 1" type="Sprite2D" parent="Map/Forest 2" index="0"]
 position = Vector2(1168, 48)
@@ -684,7 +681,7 @@ position = Vector2(1290, 590)
 scale = Vector2(2, 2)
 texture = ExtResource("10_ew2ns")
 
-[node name="Forest 3" type="Node2D" parent="Map" index="3"]
+[node name="Forest 3" type="Node2D" parent="Map" index="2"]
 
 [node name="Tall Bush 1" type="Sprite2D" parent="Map/Forest 3" index="0"]
 position = Vector2(808, 368)
@@ -754,7 +751,7 @@ texture = ExtResource("11_w2twk")
 position = Vector2(816, 504)
 texture = ExtResource("11_w2twk")
 
-[node name="Bridge" type="Node2D" parent="Map" index="4"]
+[node name="Bridge" type="Node2D" parent="Map" index="3"]
 
 [node name="PointLight2D 1" type="PointLight2D" parent="Map/Bridge" index="0"]
 position = Vector2(906.5, 666.008)
@@ -777,6 +774,9 @@ texture_scale = 2.0
 [node name="LightOccluder2D 1" type="LightOccluder2D" parent="Map/Bridge" index="2"]
 position = Vector2(936, 656)
 occluder = SubResource("OccluderPolygon2D_dt85v")
+
+[node name="Holy Oak" parent="Map" index="4"]
+position = Vector2(72, 376)
 
 [node name="Tower 1" parent="Towers" index="0" instance=ExtResource("13_1k0nc")]
 process_mode = 4
