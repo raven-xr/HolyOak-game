@@ -63,11 +63,11 @@ func _ready() -> void:
 	PlayerStats.money = data["money"]
 	PlayerStats.tower_level_limit = data["tower_level_limit"] # Used in tower.tscn
 	# Transition
-	modulate = Color(0, 0, 0, 1)
+	modulate = Color(0.0, 0.0, 0.0, 1.0)
 	var tween_1 = create_tween()
-	tween_1.tween_property(self, "modulate", Color(1, 1, 1, 1), 2.0)
+	tween_1.tween_property(self, "modulate", Color(1.0, 1.0, 1.0, 1.0), 2.0)
 	var tween_2 = create_tween()
-	tween_2.tween_property(SoundManager.music_idle, "volume_db", -20, 4.0)
+	tween_2.tween_property(SoundManager.music_idle, "volume_db", -20.0, 4.0)
 	# Start the game
 	state = States.IDLE
 
