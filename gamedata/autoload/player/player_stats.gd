@@ -7,8 +7,10 @@ var health: int:
 	set(value):
 		if value <= 0:
 			value = 0
-		health = value
+		if value < health:
+			Signals.health_decreased.emit(value)
 		Signals.health_changed.emit(value)
+		health = value
 var money: int = 0:
 	set(value):
 		money = value

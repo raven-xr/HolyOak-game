@@ -56,7 +56,7 @@ func _ready() -> void:
 	# Scale
 	menu_button.scale = Vector2(UserSettings.gui_scale**2, UserSettings.gui_scale**2)
 	# Connect signals
-	Signals.connect("health_changed", Callable(self, "_on_health_changed"))
+	Signals.connect("health_decreased", Callable(self, "_on_health_decreased"))
 	# Get data
 	wave_count = data["wave_count"]
 	PlayerStats.health = data["health"]
@@ -133,9 +133,10 @@ func new_wave() -> void:
 func _on_enemy_died() -> void:
 	current_enemy_count -= 1
 
-func _on_health_changed(value: int) -> void:
+func _on_health_decreased(value: int) -> void:
 	if value <= 0:
 		defeat()
+	vignette.shift_vignette_color(Color(0.05, 0.0, 0.0, 0.0), 0.15)
 
 func _on_menu_button_pressed() -> void:
 	SoundManager.click.play()

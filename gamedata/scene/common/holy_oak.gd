@@ -6,10 +6,12 @@ extends Node2D
 func _ready() -> void:
 	health_bar.scale = Vector2(UserSettings.gui_scale*2, UserSettings.gui_scale*2)
 	Signals.connect("health_changed", Callable(self, "_on_health_changed"))
+	Signals.connect("health_decreased", Callable(self, "_on_health_decreased"))
 
-func _on_health_changed(value) -> void:
-	if value < health_bar.value: # If health decreased, emit the "leaves" particles
-		leaves.emitting = true
+func _on_health_changed(value: int) -> void:
 	if value > health_bar.max_value:
 		health_bar.max_value = value
 	health_bar.value = value
+
+func _on_health_decreased(_value: int) -> void:
+	leaves.emitting = true
