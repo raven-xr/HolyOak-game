@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://brxpkrih41p8f"]
+
+[ext_resource type="Texture2D" uid="uid://b8xyi0plcu0rr" path="res://gfx/FX/orb/orb.png" id="1_f23ek"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rs8yk"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(96, 96, 1)
+spread = 180.0
+initial_velocity_min = 5.0
+initial_velocity_max = 15.0
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 0.0100001
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 1.5
+color = Color(0.25098, 1, 0, 1)
+hue_variation_min = -2.23517e-08
+hue_variation_max = 0.33
+turbulence_enabled = true
+turbulence_noise_strength = 10.0
+
+[node name="Orb" type="GPUParticles2D"]
+texture = ExtResource("1_f23ek")
+lifetime = 10.0
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_rs8yk")
