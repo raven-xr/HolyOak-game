@@ -27,12 +27,6 @@ var vignette_color_shift: Color = Color(0.0, 0.0, 0.0, 0.0):
 		value.a = min(value.a, max_vignette_color_shift.a)
 		vignette_color_shift = value
 
-func _ready() -> void:
-	# Resets shader
-	material.set("shader_parameter/vignette_color", Color(0.251, 0.502, 0.0, 1.0))
-	material.set("shader_parameter/transparency", 0.3)
-	material.set("shader_parameter/radius", 2.0)
-
 ## Changes color within {duration} seconds[br]
 ## Set a small value of the duration if you want to change it instantly
 func set_vignette_color(value: Color, duration: float) -> void:

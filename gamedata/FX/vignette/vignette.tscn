@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://o4ehiblygynj" path="res://gamedata/FX/vignette/vignette.gd" id="2_ufdy3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ufdy3"]
+resource_local_to_scene = true
 shader = ExtResource("1_s6vmy")
 shader_parameter/vignette_color = Color(0.251, 0.502, 0, 1)
 shader_parameter/transparency = 0.3
