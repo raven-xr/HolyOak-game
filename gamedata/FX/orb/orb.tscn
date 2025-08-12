@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://brxpkrih41p8f"]
+[gd_scene load_steps=8 format=3 uid="uid://brxpkrih41p8f"]
 
 [ext_resource type="Texture2D" uid="uid://b8xyi0plcu0rr" path="res://gfx/FX/orb/orb.png" id="1_f23ek"]
+[ext_resource type="Script" uid="uid://djbs7ib4eydqd" path="res://gamedata/FX/orb/orb.gd" id="2_r2iga"]
 
 [sub_resource type="Curve" id="Curve_f23ek"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.113402, 0.926966), 0.0, 0.0, 0, 0, Vector2(0.295533, 0.53441), 0.0, 0.0, 0, 0, Vector2(0.484536, 1), 0.0, 0.0, 0, 0, Vector2(0.618557, 0.552669), 0.0, 0.0, 0, 0, Vector2(0.786942, 1), 0.0, 0.0, 0, 0, Vector2(0.828179, 0.507023), 0.0, 0.0, 0, 0, Vector2(0.927835, 0.625702), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -45,3 +46,4 @@ lifetime = 30.0
 randomness = 0.05
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_r2iga")
+script = ExtResource("2_r2iga")

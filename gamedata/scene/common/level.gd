@@ -52,6 +52,8 @@ var state: int:
 			States.IDLE: idle_state()
 			States.FIGHT: fight_state()
 
+signal fight_started()
+
 func _ready() -> void:
 	# Scale
 	menu_button.scale = Vector2(UserSettings.gui_scale**2, UserSettings.gui_scale**2)
@@ -88,6 +90,7 @@ func fight_state() -> void:
 	await tween.finished
 	vignette.pulse = true
 	# Fight
+	fight_started.emit()
 	wave += 1
 
 func defeat() -> void:
