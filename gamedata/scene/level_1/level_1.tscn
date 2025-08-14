@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://cvwwyafne3ryg"]
+[gd_scene load_steps=46 format=4 uid="uid://cvwwyafne3ryg"]
 
 [ext_resource type="PackedScene" uid="uid://bbsqvqymrojj5" path="res://gamedata/scene/common/level.tscn" id="1_rbgy0"]
 [ext_resource type="Script" uid="uid://yp2vhfmqgtvy" path="res://gamedata/scene/level_1/level_1.gd" id="2_c08mv"]
@@ -18,6 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://cenxr6q3w2dek" path="res://gamedata/unit/archer/archer.tscn" id="14_kietl"]
 [ext_resource type="Texture2D" uid="uid://fbgyur18dijb" path="res://gfx/object/sign.png" id="14_xpqj3"]
 [ext_resource type="Texture2D" uid="uid://cktva0111rdpr" path="res://gfx/object/table.png" id="15_vflmb"]
+[ext_resource type="Shader" uid="uid://csqlqc5tqnnad" path="res://gamedata/FX/vignette/vignette.gdshader" id="20_vflmb"]
+[ext_resource type="PackedScene" uid="uid://brxpkrih41p8f" path="res://gamedata/FX/orb/orb.tscn" id="20_xpqj3"]
 [ext_resource type="PackedScene" uid="uid://7e2pd0k28f4x" path="res://gamedata/gui/hint/hint.tscn" id="27_x1t5x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lj6gp"]
@@ -229,6 +231,68 @@ fill_to = Vector2(0, 0)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_dt85v"]
 resource_local_to_scene = true
 polygon = PackedVector2Array(23, -54, 23, 64, -23, 64, -23, -54)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vgno3"]
+resource_local_to_scene = true
+shader = ExtResource("20_vflmb")
+shader_parameter/vignette_color = Color(0.251, 0.502, 0, 1)
+shader_parameter/transparency = 0.3
+shader_parameter/radius = 2.0
+
+[sub_resource type="Curve" id="Curve_f23ek"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.113402, 0.926966), 0.0, 0.0, 0, 0, Vector2(0.295533, 0.53441), 0.0, 0.0, 0, 0, Vector2(0.484536, 1), 0.0, 0.0, 0, 0, Vector2(0.618557, 0.552669), 0.0, 0.0, 0, 0, Vector2(0.786942, 1), 0.0, 0.0, 0, 0, Vector2(0.828179, 0.507023), 0.0, 0.0, 0, 0, Vector2(0.927835, 0.625702), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 9
+
+[sub_resource type="CurveTexture" id="CurveTexture_r2iga"]
+curve = SubResource("Curve_f23ek")
+
+[sub_resource type="Curve" id="Curve_vflmb"]
+_data = [Vector2(0, 0.863062), 0.0, 0.0, 0, 0, Vector2(0.498282, 0.707865), 0.0, 0.0, 0, 0, Vector2(1, 0.260534), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_iqnet"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 0.0231742), 0.0, 0.0, 0, 0, Vector2(0.501718, -0.0407302), 0.0, 0.0, 0, 0, Vector2(1, 0.634831), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_iqnet"]
+curve_x = SubResource("Curve_vflmb")
+curve_y = SubResource("Curve_iqnet")
+
+[sub_resource type="Curve" id="Curve_xpqj3"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 0.470506), 0.0, 0.0, 0, 0, Vector2(0.189003, 0.908708), 0.0, 0.0, 0, 0, Vector2(0.298969, 0.488764), 0.0, 0.0, 0, 0, Vector2(0.522337, 1), 0.0, 0.0, 0, 0, Vector2(0.725086, 0.543539), 0.0, 0.0, 0, 0, Vector2(1, 0.360955), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="CurveTexture" id="CurveTexture_6bdug"]
+curve = SubResource("Curve_xpqj3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vflmb"]
+resource_local_to_scene = true
+lifetime_randomness = 0.1
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(720, 100, 0)
+spread = 180.0
+initial_velocity_min = 15.0
+initial_velocity_max = 30.0
+angular_velocity_min = -0.500016
+angular_velocity_max = 0.499984
+directional_velocity_min = 9.99998
+directional_velocity_max = 20.0
+directional_velocity_curve = SubResource("CurveXYZTexture_iqnet")
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 0.0100001
+gravity = Vector3(0, 0, 0)
+scale_min = 0.7
+scale_max = 1.5
+color = Color(0.25098, 1, 0, 1)
+alpha_curve = SubResource("CurveTexture_r2iga")
+hue_variation_min = -2.23517e-08
+hue_variation_max = 0.33
+hue_variation_curve = SubResource("CurveTexture_6bdug")
+turbulence_enabled = true
+turbulence_noise_strength = 10.0
 
 [node name="Level 1" instance=ExtResource("1_rbgy0")]
 script = ExtResource("2_c08mv")
@@ -799,6 +863,9 @@ unit_scene = ExtResource("14_kietl")
 menu_position = &"R"
 default_view_direction = &"R"
 
+[node name="PlayerStats" parent="." index="5"]
+visible = false
+
 [node name="Hint" parent="GUI" index="1" instance=ExtResource("27_x1t5x")]
 process_mode = 1
 layout_mode = 1
@@ -807,3 +874,15 @@ offset_bottom = -720.0
 
 [node name="Start Timer" parent="Timers" index="0"]
 autostart = false
+
+[node name="Vignette" parent="GFX" index="0"]
+material = SubResource("ShaderMaterial_vgno3")
+
+[node name="Orb" parent="GFX" index="1" instance=ExtResource("20_xpqj3")]
+position = Vector2(640, 100)
+amount = 24
+randomness = 0.1
+visibility_rect = Rect2(-720, -100, 1440, 200)
+process_material = SubResource("ParticleProcessMaterial_vflmb")
+
+[connection signal="fight_started" from="." to="GFX/Orb" method="_on_fight_started"]
