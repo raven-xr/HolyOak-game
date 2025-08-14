@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bbsqvqymrojj5"]
+[gd_scene load_steps=14 format=3 uid="uid://bbsqvqymrojj5"]
 
 [ext_resource type="Script" uid="uid://2edsptc0xr5r" path="res://gamedata/scene/common/level.gd" id="1_8vq8d"]
 [ext_resource type="PackedScene" uid="uid://cdb4s0kj5v3yf" path="res://gamedata/enemy/slime/slime.tscn" id="3_36ads"]
@@ -11,6 +11,14 @@
 [ext_resource type="Shortcut" uid="uid://bnk8rf3lcercs" path="res://gamedata/gui/common/ui_cancel_shortcut.tres" id="9_2novx"]
 [ext_resource type="PackedScene" uid="uid://dgsn2o3sm3wgn" path="res://gamedata/scene/common/holy_oak.tscn" id="9_eoj5e"]
 [ext_resource type="PackedScene" uid="uid://bnkmwpcieadla" path="res://gamedata/FX/vignette/vignette.tscn" id="11_1jmb8"]
+[ext_resource type="Shader" uid="uid://csqlqc5tqnnad" path="res://gamedata/FX/vignette/vignette.gdshader" id="12_vgno3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vgno3"]
+resource_local_to_scene = true
+shader = ExtResource("12_vgno3")
+shader_parameter/vignette_color = Color(0.251, 0.502, 0, 1)
+shader_parameter/transparency = 0.3
+shader_parameter/radius = 2.0
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_8vq8d")
@@ -77,6 +85,7 @@ one_shot = true
 [node name="GFX" type="CanvasLayer" parent="."]
 
 [node name="Vignette" parent="GFX" instance=ExtResource("11_1jmb8")]
+material = SubResource("ShaderMaterial_vgno3")
 
 [connection signal="pressed" from="GUI/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="timeout" from="Timers/Start Timer" to="." method="_on_start_timer_timeout"]

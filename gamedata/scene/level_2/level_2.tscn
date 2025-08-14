@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://dtaq5avc8r7f"]
+[gd_scene load_steps=36 format=4 uid="uid://dtaq5avc8r7f"]
 
 [ext_resource type="PackedScene" uid="uid://bbsqvqymrojj5" path="res://gamedata/scene/common/level.tscn" id="1_a26ah"]
 [ext_resource type="Texture2D" uid="uid://ciyeb8o1ywukt" path="res://gfx/tilesets/grass.png" id="2_dkgsg"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://ch3ur0m58a0hk" path="res://gfx/object/rock.png" id="13_y2u35"]
 [ext_resource type="PackedScene" uid="uid://lxt2xv2lfkgu" path="res://gamedata/unit/common/tower.tscn" id="14_j8r11"]
 [ext_resource type="PackedScene" uid="uid://cenxr6q3w2dek" path="res://gamedata/unit/archer/archer.tscn" id="15_lytkh"]
+[ext_resource type="Shader" uid="uid://csqlqc5tqnnad" path="res://gamedata/FX/vignette/vignette.gdshader" id="17_j8r11"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7r64l"]
 texture = ExtResource("2_dkgsg")
@@ -393,6 +394,13 @@ texture = ExtResource("6_e7mfh")
 
 [sub_resource type="TileSet" id="TileSet_74scv"]
 sources/0 = SubResource("TileSetAtlasSource_dwpjd")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o86oa"]
+resource_local_to_scene = true
+shader = ExtResource("17_j8r11")
+shader_parameter/vignette_color = Color(0.251, 0.502, 0, 1)
+shader_parameter/transparency = 0.3
+shader_parameter/radius = 2.0
 
 [node name="Level 2" instance=ExtResource("1_a26ah")]
 next_level = &"level_3"
@@ -1251,3 +1259,6 @@ position = Vector2(216, 480)
 unit_scene = ExtResource("15_lytkh")
 menu_position = &"U"
 default_view_direction = &"U"
+
+[node name="Vignette" parent="GFX" index="0"]
+material = SubResource("ShaderMaterial_o86oa")
