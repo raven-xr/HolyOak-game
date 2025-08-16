@@ -24,7 +24,7 @@ enum States {
 @onready var menu_button: Button = $GUI/MenuButton
 @onready var wave_timer: Timer = $"Timers/Wave Timer"
 @onready var spawn_timer: Timer = $"Timers/Spawn Timer"
-@onready var vignette: ColorRect = $GFX/Vignette
+@onready var vignette: ColorRect = $PostFX/Vignette
 
 @onready var data: Dictionary = LevelData.get(technical_name)
 

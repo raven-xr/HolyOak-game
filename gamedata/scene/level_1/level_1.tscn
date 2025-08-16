@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://cvwwyafne3ryg"]
+[gd_scene load_steps=47 format=4 uid="uid://cvwwyafne3ryg"]
 
 [ext_resource type="PackedScene" uid="uid://bbsqvqymrojj5" path="res://gamedata/scene/common/level.tscn" id="1_rbgy0"]
 [ext_resource type="Script" uid="uid://yp2vhfmqgtvy" path="res://gamedata/scene/level_1/level_1.gd" id="2_c08mv"]
@@ -232,42 +232,45 @@ fill_to = Vector2(0, 0)
 resource_local_to_scene = true
 polygon = PackedVector2Array(23, -54, 23, 64, -23, 64, -23, -54)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vgno3"]
-resource_local_to_scene = true
-shader = ExtResource("20_vflmb")
-shader_parameter/vignette_color = Color(0.251, 0.502, 0, 1)
-shader_parameter/transparency = 0.3
-shader_parameter/radius = 2.0
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vflmb"]
+light_mode = 1
 
 [sub_resource type="Curve" id="Curve_f23ek"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.113402, 0.926966), 0.0, 0.0, 0, 0, Vector2(0.295533, 0.53441), 0.0, 0.0, 0, 0, Vector2(0.484536, 1), 0.0, 0.0, 0, 0, Vector2(0.618557, 0.552669), 0.0, 0.0, 0, 0, Vector2(0.786942, 1), 0.0, 0.0, 0, 0, Vector2(0.828179, 0.507023), 0.0, 0.0, 0, 0, Vector2(0.927835, 0.625702), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 9
+resource_local_to_scene = true
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.113402, 0.926966), 0.0, 0.0, 0, 0, Vector2(0.195286, 0.243151), 0.0, 0.0, 0, 0, Vector2(0.289562, 0.866438), 0.0, 0.0, 0, 0, Vector2(0.346801, 0.252055), 0.0, 0.0, 0, 0, Vector2(0.484536, 1), 0.0, 0.0, 0, 0, Vector2(0.521886, 0.260959), 0.0, 0.0, 0, 0, Vector2(0.639731, 0.902055), 0.0, 0.0, 0, 0, Vector2(0.693603, 0.269863), 0.0, 0.0, 0, 0, Vector2(0.786942, 1), 0.0, 0.0, 0, 0, Vector2(0.828179, 0.507023), 0.0, 0.0, 0, 0, Vector2(0.927835, 0.625702), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 13
 
 [sub_resource type="CurveTexture" id="CurveTexture_r2iga"]
+resource_local_to_scene = true
 curve = SubResource("Curve_f23ek")
 
-[sub_resource type="Curve" id="Curve_vflmb"]
+[sub_resource type="Curve" id="Curve_iqnet"]
+resource_local_to_scene = true
 _data = [Vector2(0, 0.863062), 0.0, 0.0, 0, 0, Vector2(0.498282, 0.707865), 0.0, 0.0, 0, 0, Vector2(1, 0.260534), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="Curve" id="Curve_iqnet"]
+[sub_resource type="Curve" id="Curve_m7b5k"]
+resource_local_to_scene = true
 _limits = [-1.0, 1.0, 0.0, 1.0]
 _data = [Vector2(0, 0.0231742), 0.0, 0.0, 0, 0, Vector2(0.501718, -0.0407302), 0.0, 0.0, 0, 0, Vector2(1, 0.634831), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_iqnet"]
-curve_x = SubResource("Curve_vflmb")
-curve_y = SubResource("Curve_iqnet")
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_84l8c"]
+resource_local_to_scene = true
+curve_x = SubResource("Curve_iqnet")
+curve_y = SubResource("Curve_m7b5k")
 
-[sub_resource type="Curve" id="Curve_xpqj3"]
+[sub_resource type="Curve" id="Curve_dlkue"]
+resource_local_to_scene = true
 _limits = [-1.0, 1.0, 0.0, 1.0]
 _data = [Vector2(0, 0.470506), 0.0, 0.0, 0, 0, Vector2(0.189003, 0.908708), 0.0, 0.0, 0, 0, Vector2(0.298969, 0.488764), 0.0, 0.0, 0, 0, Vector2(0.522337, 1), 0.0, 0.0, 0, 0, Vector2(0.725086, 0.543539), 0.0, 0.0, 0, 0, Vector2(1, 0.360955), 0.0, 0.0, 0, 0]
 point_count = 6
 
 [sub_resource type="CurveTexture" id="CurveTexture_6bdug"]
-curve = SubResource("Curve_xpqj3")
+resource_local_to_scene = true
+curve = SubResource("Curve_dlkue")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vflmb"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_84l8c"]
 resource_local_to_scene = true
 lifetime_randomness = 0.1
 particle_flag_disable_z = true
@@ -280,7 +283,7 @@ angular_velocity_min = -0.500016
 angular_velocity_max = 0.499984
 directional_velocity_min = 9.99998
 directional_velocity_max = 20.0
-directional_velocity_curve = SubResource("CurveXYZTexture_iqnet")
+directional_velocity_curve = SubResource("CurveXYZTexture_84l8c")
 orbit_velocity_min = 9.49949e-08
 orbit_velocity_max = 0.0100001
 gravity = Vector3(0, 0, 0)
@@ -293,6 +296,13 @@ hue_variation_max = 0.33
 hue_variation_curve = SubResource("CurveTexture_6bdug")
 turbulence_enabled = true
 turbulence_noise_strength = 10.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vgno3"]
+resource_local_to_scene = true
+shader = ExtResource("20_vflmb")
+shader_parameter/vignette_color = Color(0.251, 0.502, 0, 1)
+shader_parameter/transparency = 0.3
+shader_parameter/radius = 2.0
 
 [node name="Level 1" instance=ExtResource("1_rbgy0")]
 script = ExtResource("2_c08mv")
@@ -863,8 +873,18 @@ unit_scene = ExtResource("14_kietl")
 menu_position = &"R"
 default_view_direction = &"R"
 
-[node name="PlayerStats" parent="." index="5"]
-visible = false
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="GFX" index="0"]
+color = Color(0.69, 0.94, 0.42, 1)
+energy = 0.6
+blend_mode = 1
+
+[node name="Orb" parent="GFX" index="1" instance=ExtResource("20_xpqj3")]
+material = SubResource("CanvasItemMaterial_vflmb")
+position = Vector2(640, 100)
+amount = 20
+randomness = 0.1
+visibility_rect = Rect2(-720, -100, 1440, 200)
+process_material = SubResource("ParticleProcessMaterial_84l8c")
 
 [node name="Hint" parent="GUI" index="1" instance=ExtResource("27_x1t5x")]
 process_mode = 1
@@ -875,14 +895,5 @@ offset_bottom = -720.0
 [node name="Start Timer" parent="Timers" index="0"]
 autostart = false
 
-[node name="Vignette" parent="GFX" index="0"]
+[node name="Vignette" parent="PostFX" index="0"]
 material = SubResource("ShaderMaterial_vgno3")
-
-[node name="Orb" parent="GFX" index="1" instance=ExtResource("20_xpqj3")]
-position = Vector2(640, 100)
-amount = 24
-randomness = 0.1
-visibility_rect = Rect2(-720, -100, 1440, 200)
-process_material = SubResource("ParticleProcessMaterial_vflmb")
-
-[connection signal="fight_started" from="." to="GFX/Orb" method="_on_fight_started"]

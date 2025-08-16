@@ -46,6 +46,8 @@ texture_filter = 1
 
 [node name="ShellContainer" type="Node2D" parent="."]
 
+[node name="GFX" type="Node2D" parent="."]
+
 [node name="PlayerStats" parent="." instance=ExtResource("8_otqld")]
 
 [node name="GUI" type="Control" parent="."]
@@ -82,9 +84,9 @@ one_shot = true
 [node name="Spawn Timer" type="Timer" parent="Timers"]
 one_shot = true
 
-[node name="GFX" type="CanvasLayer" parent="."]
+[node name="PostFX" type="CanvasLayer" parent="."]
 
-[node name="Vignette" parent="GFX" instance=ExtResource("11_1jmb8")]
+[node name="Vignette" parent="PostFX" instance=ExtResource("11_1jmb8")]
 material = SubResource("ShaderMaterial_vgno3")
 
 [connection signal="pressed" from="GUI/MenuButton" to="." method="_on_menu_button_pressed"]
