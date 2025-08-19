@@ -7,17 +7,17 @@
 [ext_resource type="Texture2D" uid="uid://b1ajil2mafxr5" path="res://gfx/tilesets/water.png" id="6_yw1qa"]
 [ext_resource type="Texture2D" uid="uid://4wl2w7feibqx" path="res://gfx/tilesets/walls/walls.png" id="7_t4jy0"]
 [ext_resource type="Texture2D" uid="uid://bcb2hj7qx6c7h" path="res://gfx/tilesets/fences.png" id="7_x25lq"]
-[ext_resource type="Texture2D" uid="uid://dqfm4pmqposiy" path="res://gfx/object/oak.png" id="8_cjtaa"]
+[ext_resource type="Texture2D" uid="uid://dqfm4pmqposiy" path="res://gfx/object/static/oak.png" id="8_cjtaa"]
 [ext_resource type="Texture2D" uid="uid://b0e3u22u8240c" path="res://gfx/tilesets/decor_16x16.png" id="8_jqacd"]
 [ext_resource type="PackedScene" uid="uid://ccqwn6n7il2n2" path="res://gamedata/enemy/waypoint/waypoint.tscn" id="9_tghr1"]
-[ext_resource type="Texture2D" uid="uid://c2hl8w46j70b1" path="res://gfx/object/tall_bush.png" id="10_ew2ns"]
-[ext_resource type="Texture2D" uid="uid://c4hsbyvxqgyxb" path="res://gfx/object/small_bush.png" id="11_w2twk"]
+[ext_resource type="Texture2D" uid="uid://c2hl8w46j70b1" path="res://gfx/object/static/tall_bush.png" id="10_ew2ns"]
+[ext_resource type="Texture2D" uid="uid://c4hsbyvxqgyxb" path="res://gfx/object/static/small_bush.png" id="11_w2twk"]
 [ext_resource type="PackedScene" uid="uid://lxt2xv2lfkgu" path="res://gamedata/unit/common/tower.tscn" id="13_1k0nc"]
-[ext_resource type="Texture2D" uid="uid://d1ygnmgujqnib" path="res://gfx/object/box.png" id="13_rlqej"]
+[ext_resource type="Texture2D" uid="uid://d1ygnmgujqnib" path="res://gfx/object/static/box.png" id="13_rlqej"]
 [ext_resource type="Script" uid="uid://m454krs78c55" path="res://gamedata/scene/level_1/tower_1.gd" id="14_dqg4i"]
 [ext_resource type="PackedScene" uid="uid://cenxr6q3w2dek" path="res://gamedata/unit/archer/archer.tscn" id="14_kietl"]
-[ext_resource type="Texture2D" uid="uid://fbgyur18dijb" path="res://gfx/object/sign.png" id="14_xpqj3"]
-[ext_resource type="Texture2D" uid="uid://cktva0111rdpr" path="res://gfx/object/table.png" id="15_vflmb"]
+[ext_resource type="Texture2D" uid="uid://fbgyur18dijb" path="res://gfx/object/static/sign.png" id="14_xpqj3"]
+[ext_resource type="Texture2D" uid="uid://cktva0111rdpr" path="res://gfx/object/static/table.png" id="15_vflmb"]
 [ext_resource type="Shader" uid="uid://csqlqc5tqnnad" path="res://gamedata/FX/vignette/vignette.gdshader" id="20_vflmb"]
 [ext_resource type="PackedScene" uid="uid://brxpkrih41p8f" path="res://gamedata/FX/orb/orb.tscn" id="20_xpqj3"]
 [ext_resource type="PackedScene" uid="uid://7e2pd0k28f4x" path="res://gamedata/gui/hint/hint.tscn" id="27_x1t5x"]
@@ -241,23 +241,23 @@ point_count = 13
 resource_local_to_scene = true
 curve = SubResource("Curve_f23ek")
 
-[sub_resource type="Curve" id="Curve_vflmb"]
+[sub_resource type="Curve" id="Curve_84l8c"]
 resource_local_to_scene = true
 _data = [Vector2(0, 0.863062), 0.0, 0.0, 0, 0, Vector2(0.498282, 0.707865), 0.0, 0.0, 0, 0, Vector2(1, 0.260534), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="Curve" id="Curve_iqnet"]
+[sub_resource type="Curve" id="Curve_x1t5x"]
 resource_local_to_scene = true
 _limits = [-1.0, 1.0, 0.0, 1.0]
 _data = [Vector2(0, 0.0231742), 0.0, 0.0, 0, 0, Vector2(0.501718, -0.0407302), 0.0, 0.0, 0, 0, Vector2(1, 0.634831), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_m7b5k"]
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_o1gc0"]
 resource_local_to_scene = true
-curve_x = SubResource("Curve_vflmb")
-curve_y = SubResource("Curve_iqnet")
+curve_x = SubResource("Curve_84l8c")
+curve_y = SubResource("Curve_x1t5x")
 
-[sub_resource type="Curve" id="Curve_84l8c"]
+[sub_resource type="Curve" id="Curve_7f11a"]
 resource_local_to_scene = true
 _limits = [-1.0, 1.0, 0.0, 1.0]
 _data = [Vector2(0, 0.470506), 0.0, 0.0, 0, 0, Vector2(0.189003, 0.908708), 0.0, 0.0, 0, 0, Vector2(0.298969, 0.488764), 0.0, 0.0, 0, 0, Vector2(0.522337, 1), 0.0, 0.0, 0, 0, Vector2(0.725086, 0.543539), 0.0, 0.0, 0, 0, Vector2(1, 0.360955), 0.0, 0.0, 0, 0]
@@ -265,7 +265,7 @@ point_count = 6
 
 [sub_resource type="CurveTexture" id="CurveTexture_6bdug"]
 resource_local_to_scene = true
-curve = SubResource("Curve_84l8c")
+curve = SubResource("Curve_7f11a")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_84l8c"]
 resource_local_to_scene = true
@@ -280,7 +280,7 @@ angular_velocity_min = -0.500016
 angular_velocity_max = 0.499984
 directional_velocity_min = 9.99998
 directional_velocity_max = 20.0
-directional_velocity_curve = SubResource("CurveXYZTexture_m7b5k")
+directional_velocity_curve = SubResource("CurveXYZTexture_o1gc0")
 orbit_velocity_min = 9.49949e-08
 orbit_velocity_max = 0.0100001
 gravity = Vector3(0, 0, 0)

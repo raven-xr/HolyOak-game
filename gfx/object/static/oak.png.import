@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7mi2jbynpkv4"
-path="res://.godot/imported/stump.png-5f017c1a53123bd15cdcb8485cc4fb2b.ctex"
+uid="uid://dqfm4pmqposiy"
+path="res://.godot/imported/oak.png-e9038327a91803f401098e86622e9522.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gfx/object/stump.png"
-dest_files=["res://.godot/imported/stump.png-5f017c1a53123bd15cdcb8485cc4fb2b.ctex"]
+source_file="res://gfx/object/static/oak.png"
+dest_files=["res://.godot/imported/oak.png-e9038327a91803f401098e86622e9522.ctex"]
 
 [params]
 

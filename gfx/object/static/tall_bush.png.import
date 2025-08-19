@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ch3ur0m58a0hk"
-path="res://.godot/imported/rock.png-c3f2c21e1a72516ce1bd79c940e31940.ctex"
+uid="uid://c2hl8w46j70b1"
+path="res://.godot/imported/tall_bush.png-f3839b7359639f88c6f02e8195ffc8d7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gfx/object/rock.png"
-dest_files=["res://.godot/imported/rock.png-c3f2c21e1a72516ce1bd79c940e31940.ctex"]
+source_file="res://gfx/object/static/tall_bush.png"
+dest_files=["res://.godot/imported/tall_bush.png-f3839b7359639f88c6f02e8195ffc8d7.ctex"]
 
 [params]
 
