@@ -2,6 +2,9 @@ extends Level
 
 @onready var hint: NodeGUI = $GUI/Hint
 @onready var tower_1: Node2D = $"Towers/Tower 1"
+@onready var light_tower_1: PointLight2D = $GFX/LightTower1
+@onready var light_tower_2: PointLight2D = $GFX/LightTower2
+@onready var light_tower_3: PointLight2D = $GFX/LightTower3
 
 func idle_state() -> void:
 	SoundManager.music_idle.play()
@@ -74,3 +77,39 @@ func tutorial() -> void:
 	$"Towers/Tower 2".set_process_mode(Node.PROCESS_MODE_INHERIT)
 	$"Towers/Tower 3".set_process_mode(Node.PROCESS_MODE_INHERIT)
 	state = States.FIGHT
+
+func _on_tower_1_building_finished() -> void:
+	light_tower_1.color.a = 0.0
+	light_tower_1.enabled = true
+	var tween = create_tween()
+	tween.tween_property(light_tower_1, "color:a", 1.0, 0.15)
+
+func _on_tower_2_building_finished() -> void:
+	light_tower_2.color.a = 0.0
+	light_tower_2.enabled = true
+	var tween = create_tween()
+	tween.tween_property(light_tower_2, "color:a", 1.0, 0.15)
+
+func _on_tower_3_building_finished() -> void:
+	light_tower_3.color.a = 0.0
+	light_tower_3.enabled = true
+	var tween = create_tween()
+	tween.tween_property(light_tower_3, "color:a", 1.0, 0.15)
+
+func _on_tower_1_removing_started() -> void:
+	var tween = create_tween()
+	tween.tween_property(light_tower_1, "color:a", 0.0, 0.5)
+	await tween.finished
+	light_tower_1.enabled = false
+
+func _on_tower_2_removing_started() -> void:
+	var tween = create_tween()
+	tween.tween_property(light_tower_2, "color:a", 0.0, 0.5)
+	await tween.finished
+	light_tower_2.enabled = false
+
+func _on_tower_3_removing_started() -> void:
+	var tween = create_tween()
+	tween.tween_property(light_tower_3, "color:a", 0.0, 0.5)
+	await tween.finished
+	light_tower_3.enabled = false

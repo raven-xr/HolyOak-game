@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=4 uid="uid://cvwwyafne3ryg"]
+[gd_scene load_steps=56 format=4 uid="uid://cvwwyafne3ryg"]
 
 [ext_resource type="PackedScene" uid="uid://bbsqvqymrojj5" path="res://gamedata/scene/common/level.tscn" id="1_rbgy0"]
 [ext_resource type="Script" uid="uid://yp2vhfmqgtvy" path="res://gamedata/scene/level_1/level_1.gd" id="2_c08mv"]
@@ -351,6 +351,17 @@ hue_variation_max = 0.33
 hue_variation_curve = SubResource("CurveTexture_x1t5x")
 turbulence_enabled = true
 turbulence_noise_strength = 10.0
+
+[sub_resource type="Gradient" id="Gradient_dlkue"]
+offsets = PackedFloat32Array(0, 0.380952, 0.552381, 0.707937)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.25098, 1, 1, 1, 0.0627451, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x1rp6"]
+gradient = SubResource("Gradient_dlkue")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vgno3"]
 resource_local_to_scene = true
@@ -946,6 +957,30 @@ amount = 15
 visibility_rect = Rect2(-300, -600, 600, 600)
 process_material = SubResource("ParticleProcessMaterial_o1gc0")
 
+[node name="LightTower1" type="PointLight2D" parent="GFX" index="3"]
+position = Vector2(720, 176)
+enabled = false
+color = Color(1, 1, 0.501961, 1)
+energy = 0.6
+texture = SubResource("GradientTexture2D_x1rp6")
+texture_scale = 2.0
+
+[node name="LightTower2" type="PointLight2D" parent="GFX" index="4"]
+position = Vector2(1080, 80)
+enabled = false
+color = Color(1, 1, 0.501961, 1)
+energy = 0.6
+texture = SubResource("GradientTexture2D_x1rp6")
+texture_scale = 2.0
+
+[node name="LightTower3" type="PointLight2D" parent="GFX" index="5"]
+position = Vector2(232, 320)
+enabled = false
+color = Color(1, 1, 0.501961, 1)
+energy = 0.6
+texture = SubResource("GradientTexture2D_x1rp6")
+texture_scale = 2.0
+
 [node name="Hint" parent="GUI" index="1" instance=ExtResource("27_x1t5x")]
 process_mode = 1
 layout_mode = 1
@@ -960,3 +995,9 @@ material = SubResource("ShaderMaterial_vgno3")
 
 [connection signal="fight_started" from="." to="GFX/UpperOrbs" method="_on_fight_started"]
 [connection signal="fight_started" from="." to="GFX/LowerOrbs" method="_on_fight_started"]
+[connection signal="building_finished" from="Towers/Tower 1" to="." method="_on_tower_1_building_finished"]
+[connection signal="removing_started" from="Towers/Tower 1" to="." method="_on_tower_1_removing_started"]
+[connection signal="building_finished" from="Towers/Tower 2" to="." method="_on_tower_2_building_finished"]
+[connection signal="removing_started" from="Towers/Tower 2" to="." method="_on_tower_2_removing_started"]
+[connection signal="building_finished" from="Towers/Tower 3" to="." method="_on_tower_3_building_finished"]
+[connection signal="removing_started" from="Towers/Tower 3" to="." method="_on_tower_3_removing_started"]
