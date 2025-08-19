@@ -395,7 +395,7 @@ texture = ExtResource("6_e7mfh")
 [sub_resource type="TileSet" id="TileSet_74scv"]
 sources/0 = SubResource("TileSetAtlasSource_dwpjd")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_o86oa"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vgno3"]
 resource_local_to_scene = true
 shader = ExtResource("17_j8r11")
 shader_parameter/vignette_color = Color(0.251, 0.502, 0, 1)
@@ -1260,5 +1260,5 @@ unit_scene = ExtResource("15_lytkh")
 menu_position = &"U"
 default_view_direction = &"U"
 
-[node name="Vignette" parent="GFX" index="0"]
-material = SubResource("ShaderMaterial_o86oa")
+[node name="Vignette" parent="PostFX" index="0"]
+material = SubResource("ShaderMaterial_vgno3")
