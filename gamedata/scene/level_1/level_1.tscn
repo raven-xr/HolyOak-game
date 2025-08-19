@@ -930,7 +930,7 @@ default_view_direction = &"R"
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="GFX" index="0"]
 color = Color(0.69, 0.94, 0.42, 1)
-energy = 0.6
+energy = 0.7
 blend_mode = 1
 
 [node name="UpperOrbs" parent="GFX" index="1" instance=ExtResource("20_xpqj3")]
