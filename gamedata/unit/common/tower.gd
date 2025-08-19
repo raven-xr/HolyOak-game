@@ -39,6 +39,11 @@ var is_upgrading: bool = false
 
 var tower_menu
 
+signal building_finished()
+signal building_started()
+signal removing_finished()
+signal removing_started()
+
 func _ready() -> void:
 	# Set the logo
 	logo.texture = unit_scene.instantiate().logo
@@ -123,6 +128,8 @@ func _on_tower_stats_button_pressed() -> void:
 	)
 
 func upgrade() -> void:
+	if level == 0:
+		building_started.emit()
 	# Disable the AttackRange
 	attack_range_col.set_deferred("disabled", true)
 	is_upgrading = true
@@ -155,8 +162,12 @@ func upgrade() -> void:
 	# Set the AttackRange
 	attack_range_col.disabled = false
 	attack_range_col.shape.radius = unit_stats["level_" + str(level)]["attack_range"]
+	# Emit the signal
+	if level == 1:
+		building_finished.emit()
 
 func remove() -> void:
+	removing_started.emit()
 	# Disable the AttackRange
 	attack_range_col.set_deferred("disabled", true)
 	is_upgrading = true
@@ -177,6 +188,8 @@ func remove() -> void:
 	# Update current cost
 	current_cost = unit_stats["level_1"]["cost"]
 	is_upgrading = false
+	# Emit the signal
+	removing_finished.emit()
 
 func spawn_units(count: int, spawnpoints: Array) -> void:
 	# Spawn units

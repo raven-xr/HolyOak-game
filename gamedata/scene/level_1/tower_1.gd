@@ -1,7 +1,5 @@
 extends "res://gamedata/unit/common/tower.gd"
 
-
-
 @onready var level_1: Level = $"../.."
 
 signal player_opened_menu()
