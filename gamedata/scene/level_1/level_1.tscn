@@ -940,7 +940,7 @@ menu_position = &"R"
 default_view_direction = &"R"
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="GFX" index="0"]
-color = Color(0.501961, 1, 0.788235, 1)
+color = Color(0.25098, 1, 0.882353, 1)
 energy = 0.4
 blend_mode = 1
 
