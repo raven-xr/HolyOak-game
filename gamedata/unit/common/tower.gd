@@ -1,14 +1,18 @@
 extends Node2D
 
-@export_subgroup("Required Scenes")
+@export_group("Required Scenes")
 @export var unit_scene: PackedScene
 @export var smoke_scene: PackedScene
 @export var tower_menu_scene: PackedScene
 @export var tower_stats_scene: PackedScene
 
-@export_subgroup("Misc")
+@export_group("Misc")
 @export var menu_position: StringName = "D"
 @export var default_view_direction: StringName = "D"
+
+@export_group("Lighting")
+## The tower will glow when it is built
+@export var glow: bool = false
 
 @onready var logo: Sprite2D = $Logo
 @onready var units: Node2D = $Units
@@ -19,6 +23,7 @@ extends Node2D
 @onready var attack_range: Area2D = $AttackRange
 @onready var attack_range_sprite_2d: Sprite2D = $AttackRange/Sprite2D
 @onready var attack_range_col: CollisionShape2D = $AttackRange/CollisionShape2D
+@onready var point_light_2d: PointLight2D = $PointLight2D
 
 @onready var unit_stats: Dictionary[StringName, Dictionary] = UnitData.get(unit_scene.instantiate().technical_name)
 
@@ -38,11 +43,6 @@ var last_cost: int = 0
 var is_upgrading: bool = false
 
 var tower_menu
-
-signal building_finished()
-signal building_started()
-signal removing_finished()
-signal removing_started()
 
 func _ready() -> void:
 	# Set the logo
@@ -128,8 +128,6 @@ func _on_tower_stats_button_pressed() -> void:
 	)
 
 func upgrade() -> void:
-	if level == 0:
-		building_started.emit()
 	# Disable the AttackRange
 	attack_range_col.set_deferred("disabled", true)
 	is_upgrading = true
@@ -162,12 +160,21 @@ func upgrade() -> void:
 	# Set the AttackRange
 	attack_range_col.disabled = false
 	attack_range_col.shape.radius = unit_stats["level_" + str(level)]["attack_range"]
-	# Emit the signal
-	if level == 1:
-		building_finished.emit()
+	# Starts glowing
+	if level == 1 and glow:
+		point_light_2d.color.a = 0.0
+		point_light_2d.enabled = true
+		var tween = create_tween()
+		tween.tween_property(point_light_2d, "color:a", 1.0, 0.15)
+		await tween.finished
 
 func remove() -> void:
-	removing_started.emit()
+	# Stops glowing
+	if point_light_2d.enabled:
+		var tween = create_tween()
+		tween.tween_property(point_light_2d, "color:a", 0.0, 0.5)
+		await tween.finished
+		point_light_2d.enabled = false
 	# Disable the AttackRange
 	attack_range_col.set_deferred("disabled", true)
 	is_upgrading = true
@@ -188,8 +195,6 @@ func remove() -> void:
 	# Update current cost
 	current_cost = unit_stats["level_1"]["cost"]
 	is_upgrading = false
-	# Emit the signal
-	removing_finished.emit()
 
 func spawn_units(count: int, spawnpoints: Array) -> void:
 	# Spawn units

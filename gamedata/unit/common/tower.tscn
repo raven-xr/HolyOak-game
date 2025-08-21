@@ -1,4 +1,4 @@
-[gd_scene load_steps=137 format=3 uid="uid://lxt2xv2lfkgu"]
+[gd_scene load_steps=139 format=3 uid="uid://lxt2xv2lfkgu"]
 
 [ext_resource type="Script" uid="uid://bdsofk2pt1nov" path="res://gamedata/unit/common/tower.gd" id="1_ga7em"]
 [ext_resource type="Texture2D" uid="uid://dyj1b8lqm8l5x" path="res://gfx/unit/tower/upgrade/1.png" id="2_6xap5"]
@@ -1613,6 +1613,17 @@ height = 20
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
+[sub_resource type="Gradient" id="Gradient_khjre"]
+offsets = PackedFloat32Array(0, 0.380952, 0.552381, 0.707937)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.25098, 1, 1, 1, 0.0627451, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rxukx"]
+gradient = SubResource("Gradient_khjre")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Tower" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_ga7em")
@@ -1671,5 +1682,12 @@ debug_color = Color(0.00493456, 0.228804, 0.999991, 0.188235)
 [node name="Sprite2D" type="Sprite2D" parent="AttackRange"]
 modulate = Color(1, 1, 1, 0)
 texture = SubResource("GradientTexture2D_khjre")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+enabled = false
+color = Color(1, 1, 0.501961, 1)
+energy = 0.6
+texture = SubResource("GradientTexture2D_rxukx")
+texture_scale = 2.0
 
 [connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
