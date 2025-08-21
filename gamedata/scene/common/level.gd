@@ -86,7 +86,7 @@ func fight_state() -> void:
 	tween.connect("finished", SoundManager.music_idle.stop)
 	# Change the vignette
 	vignette.set_vignette_color(Color(0.0, 0.0, 0.0, 1.0), 4.0)
-	vignette.set_transparency(1.0, 4.0)
+	vignette.set_transparency(0.8, 4.0)
 	await tween.finished
 	vignette.pulse = true
 	# Fight
