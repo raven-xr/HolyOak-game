@@ -1260,5 +1260,10 @@ unit_scene = ExtResource("15_lytkh")
 menu_position = &"U"
 default_view_direction = &"U"
 
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="GFX" index="0"]
+color = Color(0.878431, 0.941176, 0.419608, 1)
+energy = 0.6
+blend_mode = 1
+
 [node name="Vignette" parent="PostFX" index="0"]
 material = SubResource("ShaderMaterial_vgno3")
