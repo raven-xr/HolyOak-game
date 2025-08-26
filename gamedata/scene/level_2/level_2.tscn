@@ -1243,22 +1243,26 @@ position = Vector2(80, 328)
 position = Vector2(1000, 136)
 unit_scene = ExtResource("15_lytkh")
 default_view_direction = &"R"
+glow = true
 
 [node name="Tower 2" parent="Towers" index="1" instance=ExtResource("14_j8r11")]
 position = Vector2(552, 600)
 unit_scene = ExtResource("15_lytkh")
 menu_position = &"U"
 default_view_direction = &"R"
+glow = true
 
 [node name="Tower 3" parent="Towers" index="2" instance=ExtResource("14_j8r11")]
 position = Vector2(536, 200)
 unit_scene = ExtResource("15_lytkh")
+glow = true
 
 [node name="Tower 4" parent="Towers" index="3" instance=ExtResource("14_j8r11")]
 position = Vector2(216, 480)
 unit_scene = ExtResource("15_lytkh")
 menu_position = &"U"
 default_view_direction = &"U"
+glow = true
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="GFX" index="0"]
 color = Color(0.878431, 0.941176, 0.419608, 1)
