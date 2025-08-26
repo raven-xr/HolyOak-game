@@ -172,9 +172,8 @@ func remove() -> void:
 	# Stops glowing
 	if point_light_2d.enabled:
 		var tween = create_tween()
-		tween.tween_property(point_light_2d, "color:a", 0.0, 0.5)
-		await tween.finished
-		point_light_2d.enabled = false
+		tween.tween_property(point_light_2d, "color:a", 0.0, 1.0)
+		tween.finished.connect(point_light_2d.set_enabled.bind(false))
 	# Disable the AttackRange
 	attack_range_col.set_deferred("disabled", true)
 	is_upgrading = true
