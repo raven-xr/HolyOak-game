@@ -56,8 +56,8 @@ func _on_reset_settings_button_pressed() -> void:
 	music_h_slider.value = UserSettings.DEFAULT_MUSIC_VOLUME
 	sfx_h_slider.value = UserSettings.DEFAULT_SFX_VOLUME
 	if Global.game_controller.current_2d_scene.name == "MainMenu":
-		scale_option_button.select({0.5: 0, 0.6: 1, 0.7: 2, 0.8: 3, 0.9: 4, 1.0: 5}[UserSettings.match_scale()])
-		scale_option_button.emit_signal("item_selected", {0.5: 0, 0.6: 1, 0.7: 2, 0.8: 3, 0.9: 4, 1.0: 5}[UserSettings.match_scale()])
+		scale_option_button.select(5)
+		scale_option_button.emit_signal("item_selected", 5)
 	
 func _on_reset_progress_button_pressed() -> void:
 	SoundManager.click.play()

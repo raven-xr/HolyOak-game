@@ -4,7 +4,7 @@ extends Node
 const DEFAULT_MASTER_VOLUME: float = 1.0
 const DEFAULT_MUSIC_VOLUME: float = 0.65
 const DEFAULT_SFX_VOLUME: float = 1.0
-#const DEFAULT_GUI_SCALE: float = 0.7
+#const DEFAULT_GUI_SCALE: float = 1.0
 
 # Audiobuses
 var master_bus_idx: int = AudioServer.get_bus_index("Master")
