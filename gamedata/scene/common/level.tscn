@@ -87,6 +87,7 @@ one_shot = true
 one_shot = true
 
 [node name="PostFX" type="CanvasLayer" parent="."]
+process_mode = 3
 
 [node name="Vignette" parent="PostFX" instance=ExtResource("11_1jmb8")]
 material = SubResource("ShaderMaterial_vgno3")
