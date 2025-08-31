@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://dtaq5avc8r7f"]
+[gd_scene load_steps=47 format=4 uid="uid://dtaq5avc8r7f"]
 
 [ext_resource type="PackedScene" uid="uid://bbsqvqymrojj5" path="res://gamedata/scene/common/level.tscn" id="1_a26ah"]
 [ext_resource type="Texture2D" uid="uid://ciyeb8o1ywukt" path="res://gfx/tilesets/grass.png" id="2_dkgsg"]
@@ -16,7 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://ch3ur0m58a0hk" path="res://gfx/object/static/rock.png" id="13_y2u35"]
 [ext_resource type="PackedScene" uid="uid://lxt2xv2lfkgu" path="res://gamedata/unit/common/tower.tscn" id="14_j8r11"]
 [ext_resource type="PackedScene" uid="uid://cenxr6q3w2dek" path="res://gamedata/unit/archer/archer.tscn" id="15_lytkh"]
+[ext_resource type="PackedScene" uid="uid://6ne5vmapnqs1" path="res://gamedata/FX/rain/rain.tscn" id="17_35boa"]
 [ext_resource type="Shader" uid="uid://csqlqc5tqnnad" path="res://gamedata/FX/vignette/vignette.gdshader" id="17_j8r11"]
+[ext_resource type="AudioStream" uid="uid://djw1ngxh6a3ko" path="res://audio/sfx/rain.mp3" id="18_o63ri"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7r64l"]
 texture = ExtResource("2_dkgsg")
@@ -394,6 +396,57 @@ texture = ExtResource("6_e7mfh")
 
 [sub_resource type="TileSet" id="TileSet_74scv"]
 sources/0 = SubResource("TileSetAtlasSource_dwpjd")
+
+[sub_resource type="Curve" id="Curve_o63ri"]
+resource_local_to_scene = true
+_data = [Vector2(0, 0.519178), 0.0, 1.46805, 0, 0, Vector2(0.501683, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.465753), -1.5544, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_bljxm"]
+resource_local_to_scene = true
+curve = SubResource("Curve_o63ri")
+
+[sub_resource type="Gradient" id="Gradient_g3nya"]
+resource_local_to_scene = true
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wjref"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_g3nya")
+
+[sub_resource type="Curve" id="Curve_38o7y"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_xlrpv"]
+_limits = [0.0, 30.0, 0.0, 1.0]
+_data = [Vector2(0, 15.0411), 0.0, 163.63, 0, 0, Vector2(0.249158, 30), 0.0, 0.0, 0, 0, Vector2(1, 30), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_a3xei"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_uvaci"]
+resource_local_to_scene = true
+curve_x = SubResource("Curve_38o7y")
+curve_y = SubResource("Curve_xlrpv")
+curve_z = SubResource("Curve_a3xei")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cmltk"]
+resource_local_to_scene = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(960, 64, 1)
+angle_min = -20.0
+angle_max = -20.0
+gravity = Vector3(-342, 940, 0)
+scale_min = 0.2
+scale_over_velocity_curve = SubResource("CurveXYZTexture_uvaci")
+color_initial_ramp = SubResource("GradientTexture1D_wjref")
+alpha_curve = SubResource("CurveTexture_bljxm")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vgno3"]
 resource_local_to_scene = true
@@ -1268,6 +1321,20 @@ glow = true
 color = Color(0.878431, 0.941176, 0.419608, 1)
 energy = 0.6
 blend_mode = 1
+
+[node name="Rain" parent="GFX" index="1" instance=ExtResource("17_35boa")]
+position = Vector2(640, -64)
+amount = 2000
+speed_scale = 1.5
+process_material = SubResource("ParticleProcessMaterial_cmltk")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SFX" index="0"]
+stream = ExtResource("18_o63ri")
+volume_db = -30.0
+pitch_scale = 0.8
+autoplay = true
+bus = &"SFX"
+parameters/looping = true
 
 [node name="Vignette" parent="PostFX" index="0"]
 material = SubResource("ShaderMaterial_vgno3")

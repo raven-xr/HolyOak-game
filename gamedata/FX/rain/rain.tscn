@@ -50,7 +50,9 @@ color_initial_ramp = SubResource("GradientTexture1D_6yruv")
 alpha_curve = SubResource("CurveTexture_o8pqi")
 
 [node name="Rain" type="GPUParticles2D"]
-editor_description = "If you don't change the drawing and spawning rects, then put the scene in the X center and the 64 in the Y"
+editor_description = "1. If you don't change the drawing and spawning rects, then put the scene in the X center and the 64 in the Y
+
+2. If you want to set an angle and save the speed, multiply the gravity.x by the sin(angle) and gravity.y by the abs(cos(angle))"
 amount = 1000
 lifetime = 1.3
 preprocess = 1.3
