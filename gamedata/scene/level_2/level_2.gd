@@ -4,9 +4,6 @@ extends Level
 @onready var rain_ambient: AudioStreamPlayer = $SFX/RainAmbient
 
 func victory() -> void:
-	vignette.pulse = false
-	vignette.set_vignette_color(Color(0.251, 0.502, 0.0, 1.0), 4.0)
-	vignette.set_transparency(0.3, 4.0)
 	var tween = create_tween().set_parallel()
 	tween.tween_property(rain, "modulate:a", 0.0, 4.0)
 	tween.tween_property(rain_ambient, "volume_linear", 0.0, 4.0)
