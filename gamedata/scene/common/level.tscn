@@ -48,6 +48,8 @@ texture_filter = 1
 
 [node name="GFX" type="Node2D" parent="."]
 
+[node name="SFX" type="Node2D" parent="."]
+
 [node name="PlayerStats" parent="." instance=ExtResource("8_otqld")]
 
 [node name="GUI" type="Control" parent="."]
