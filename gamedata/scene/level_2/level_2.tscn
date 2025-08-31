@@ -1318,17 +1318,20 @@ default_view_direction = &"U"
 glow = true
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="GFX" index="0"]
+process_mode = 3
 color = Color(0.878431, 0.941176, 0.419608, 1)
 energy = 0.6
 blend_mode = 1
 
 [node name="Rain" parent="GFX" index="1" instance=ExtResource("17_35boa")]
+process_mode = 3
 position = Vector2(640, -64)
 amount = 2000
 speed_scale = 1.5
 process_material = SubResource("ParticleProcessMaterial_cmltk")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SFX" index="0"]
+process_mode = 3
 stream = ExtResource("18_o63ri")
 volume_db = -30.0
 pitch_scale = 0.8
