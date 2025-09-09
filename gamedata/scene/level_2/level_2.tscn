@@ -1335,7 +1335,7 @@ process_material = SubResource("ParticleProcessMaterial_cmltk")
 [node name="RainAmbient" type="AudioStreamPlayer" parent="SFX" index="0"]
 process_mode = 3
 stream = ExtResource("18_o63ri")
-volume_db = -30.0
+volume_db = -20.0
 pitch_scale = 0.8
 autoplay = true
 bus = &"SFX"
