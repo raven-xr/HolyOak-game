@@ -242,23 +242,23 @@ point_count = 13
 resource_local_to_scene = true
 curve = SubResource("Curve_f23ek")
 
-[sub_resource type="Curve" id="Curve_84l8c"]
+[sub_resource type="Curve" id="Curve_iqnet"]
 resource_local_to_scene = true
 _data = [Vector2(0, 0.863062), 0.0, 0.0, 0, 0, Vector2(0.498282, 0.707865), 0.0, 0.0, 0, 0, Vector2(1, 0.260534), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="Curve" id="Curve_x1t5x"]
+[sub_resource type="Curve" id="Curve_84l8c"]
 resource_local_to_scene = true
 _limits = [-1.0, 1.0, 0.0, 1.0]
 _data = [Vector2(0, 0.0231742), 0.0, 0.0, 0, 0, Vector2(0.501718, -0.0407302), 0.0, 0.0, 0, 0, Vector2(1, 0.634831), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_o1gc0"]
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_dlkue"]
 resource_local_to_scene = true
-curve_x = SubResource("Curve_84l8c")
-curve_y = SubResource("Curve_x1t5x")
+curve_x = SubResource("Curve_iqnet")
+curve_y = SubResource("Curve_84l8c")
 
-[sub_resource type="Curve" id="Curve_7f11a"]
+[sub_resource type="Curve" id="Curve_x1t5x"]
 resource_local_to_scene = true
 _limits = [-1.0, 1.0, 0.0, 1.0]
 _data = [Vector2(0, 0.470506), 0.0, 0.0, 0, 0, Vector2(0.189003, 0.908708), 0.0, 0.0, 0, 0, Vector2(0.298969, 0.488764), 0.0, 0.0, 0, 0, Vector2(0.522337, 1), 0.0, 0.0, 0, 0, Vector2(0.725086, 0.543539), 0.0, 0.0, 0, 0, Vector2(1, 0.360955), 0.0, 0.0, 0, 0]
@@ -266,7 +266,7 @@ point_count = 6
 
 [sub_resource type="CurveTexture" id="CurveTexture_6bdug"]
 resource_local_to_scene = true
-curve = SubResource("Curve_7f11a")
+curve = SubResource("Curve_x1t5x")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_84l8c"]
 resource_local_to_scene = true
@@ -281,7 +281,7 @@ angular_velocity_min = -0.500016
 angular_velocity_max = 0.499984
 directional_velocity_min = 9.99998
 directional_velocity_max = 20.0
-directional_velocity_curve = SubResource("CurveXYZTexture_o1gc0")
+directional_velocity_curve = SubResource("CurveXYZTexture_dlkue")
 orbit_velocity_min = 9.49949e-08
 orbit_velocity_max = 0.0100001
 gravity = Vector3(0, 0, 0)
