@@ -92,6 +92,11 @@ process_mode = 3
 [node name="Vignette" parent="PostFX" instance=ExtResource("11_1jmb8")]
 material = SubResource("ShaderMaterial_vgno3")
 
+[node name="Theme" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+editor_description = "This music is played after the fight started"
+bus = &"Music"
+
 [connection signal="pressed" from="GUI/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="timeout" from="Timers/Start Timer" to="." method="_on_start_timer_timeout"]
 [connection signal="timeout" from="Timers/Wave Timer" to="." method="_on_wave_timer_timeout"]

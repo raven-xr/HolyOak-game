@@ -25,6 +25,7 @@ enum States {
 @onready var wave_timer: Timer = $"Timers/Wave Timer"
 @onready var spawn_timer: Timer = $"Timers/Spawn Timer"
 @onready var vignette: ColorRect = $PostFX/Vignette
+@onready var theme: AudioStreamPlayer = $Theme
 
 @onready var data: Dictionary = LevelData.get(technical_name)
 
@@ -79,10 +80,9 @@ func idle_state() -> void:
 
 func fight_state() -> void:
 	# Getting ready
-	SoundManager.music_fight.play()
+	theme.play()
 	var tween = create_tween()
-	tween.parallel().tween_property(SoundManager.music_idle, "volume_db", -100.0, 4.0)
-	tween.parallel().tween_property(SoundManager.music_fight, "volume_db", -20.0, 4.0)
+	tween.tween_property(SoundManager.music_idle, "volume_db", -100.0, 4.0)
 	tween.connect("finished", SoundManager.music_idle.stop)
 	# Change the vignette
 	vignette.set_vignette_color(Color(0.0, 0.0, 0.0, 1.0), 4.0)

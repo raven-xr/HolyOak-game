@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://jntda0nfq0ml"]
+[gd_scene load_steps=25 format=4 uid="uid://jntda0nfq0ml"]
 
 [ext_resource type="PackedScene" uid="uid://bbsqvqymrojj5" path="res://gamedata/scene/common/level.tscn" id="1_6eesv"]
 [ext_resource type="Texture2D" uid="uid://ciyeb8o1ywukt" path="res://gfx/tilesets/grass.png" id="2_j5uvo"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cenxr6q3w2dek" path="res://gamedata/unit/archer/archer.tscn" id="15_s48e1"]
 [ext_resource type="PackedScene" uid="uid://b6o16t77ww40d" path="res://gamedata/unit/fire_archer/fire_archer.tscn" id="17_d1wd8"]
 [ext_resource type="Shader" uid="uid://csqlqc5tqnnad" path="res://gamedata/FX/vignette/vignette.gdshader" id="17_jklqj"]
+[ext_resource type="AudioStream" uid="uid://b11tpu11bsbb8" path="res://audio/music/alexander_nakarada-borgar_2023.mp3" id="18_2nx52"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x7p3s"]
 texture = ExtResource("2_j5uvo")
@@ -1347,3 +1348,7 @@ default_view_direction = &"R"
 
 [node name="Vignette" parent="PostFX" index="0"]
 material = SubResource("ShaderMaterial_vgno3")
+
+[node name="Theme" parent="." index="11"]
+stream = ExtResource("18_2nx52")
+volume_db = -20.0

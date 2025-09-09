@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://dtaq5avc8r7f"]
+[gd_scene load_steps=49 format=4 uid="uid://dtaq5avc8r7f"]
 
 [ext_resource type="PackedScene" uid="uid://bbsqvqymrojj5" path="res://gamedata/scene/common/level.tscn" id="1_a26ah"]
 [ext_resource type="Script" uid="uid://b2308ywkybvi2" path="res://gamedata/scene/level_2/level_2.gd" id="2_bljxm"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://6ne5vmapnqs1" path="res://gamedata/FX/rain/rain.tscn" id="17_35boa"]
 [ext_resource type="Shader" uid="uid://csqlqc5tqnnad" path="res://gamedata/FX/vignette/vignette.gdshader" id="17_j8r11"]
 [ext_resource type="AudioStream" uid="uid://djw1ngxh6a3ko" path="res://audio/sfx/rain.mp3" id="18_o63ri"]
+[ext_resource type="AudioStream" uid="uid://ck7bql6gmh1vr" path="res://audio/music/alexander_nakarada-heartbeat.mp3" id="21_g3nya"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7r64l"]
 texture = ExtResource("2_dkgsg")
@@ -1343,3 +1344,7 @@ parameters/looping = true
 
 [node name="Vignette" parent="PostFX" index="0"]
 material = SubResource("ShaderMaterial_vgno3")
+
+[node name="Theme" parent="." index="11"]
+stream = ExtResource("21_g3nya")
+volume_db = -20.0
