@@ -28,7 +28,7 @@ pivot_offset = Vector2(16, 16)
 script = ExtResource("2_ej0be")
 
 [node name="PanelContainer" type="PanelContainer" parent="." index="0"]
-modulate = Color(1, 1, 1, 0.784314)
+modulate = Color(1, 1, 1, 0.882353)
 texture_filter = 1
 layout_mode = 0
 offset_left = 16.0

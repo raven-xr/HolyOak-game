@@ -24,7 +24,8 @@ enum States {
 @onready var menu_button: Button = $GUI/MenuButton
 @onready var wave_timer: Timer = $"Timers/Wave Timer"
 @onready var spawn_timer: Timer = $"Timers/Spawn Timer"
-@onready var vignette: ColorRect = $GFX/Vignette
+@onready var vignette: ColorRect = $PostFX/Vignette
+@onready var theme: AudioStreamPlayer = $Theme
 
 @onready var data: Dictionary = LevelData.get(technical_name)
 
@@ -52,6 +53,8 @@ var state: int:
 			States.IDLE: idle_state()
 			States.FIGHT: fight_state()
 
+signal fight_started()
+
 func _ready() -> void:
 	# Scale
 	menu_button.scale = Vector2(UserSettings.gui_scale**2, UserSettings.gui_scale**2)
@@ -77,17 +80,17 @@ func idle_state() -> void:
 
 func fight_state() -> void:
 	# Getting ready
-	SoundManager.music_fight.play()
+	theme.play()
 	var tween = create_tween()
-	tween.parallel().tween_property(SoundManager.music_idle, "volume_db", -100.0, 4.0)
-	tween.parallel().tween_property(SoundManager.music_fight, "volume_db", -20.0, 4.0)
+	tween.tween_property(SoundManager.music_idle, "volume_db", -100.0, 4.0)
 	tween.connect("finished", SoundManager.music_idle.stop)
 	# Change the vignette
 	vignette.set_vignette_color(Color(0.0, 0.0, 0.0, 1.0), 4.0)
-	vignette.set_transparency(1.0, 4.0)
+	vignette.set_transparency(0.8, 4.0)
 	await tween.finished
 	vignette.pulse = true
 	# Fight
+	fight_started.emit()
 	wave += 1
 
 func defeat() -> void:
@@ -96,6 +99,9 @@ func defeat() -> void:
 	menu_button.disabled = true
 
 func victory() -> void:
+	vignette.pulse = false
+	vignette.set_vignette_color(Color(0.251, 0.502, 0.0, 1.0), 4.0)
+	vignette.set_transparency(0.3, 4.0)
 	# Save
 	UserData.progress[technical_name]["is_completed"] = true
 	UserData.progress[technical_name]["stars"] = 3

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dnjjg6o58r201"]
+[gd_scene load_steps=17 format=3 uid="uid://dnjjg6o58r201"]
 
 [ext_resource type="Script" uid="uid://deko67i3qled4" path="res://gamedata/effect/arson/arson.gd" id="1_bq1jb"]
 [ext_resource type="Texture2D" uid="uid://b0cuabe1ontyj" path="res://gfx/effect/arson/arson.png" id="2_cmu8b"]
@@ -69,6 +69,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.580392)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0.8, 0.3, 0), Color(1, 0.8, 0.3, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_uqqb0"]
 resource_name = "Expire"
@@ -85,6 +97,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0.580392), Color(1, 1, 1, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0.8, 0.3, 1), Color(1, 0.8, 0.3, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_ldpm8"]
 length = 0.001
@@ -100,6 +124,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0.580392)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.8, 0.3, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ldpm8"]
 _data = {
@@ -107,6 +143,17 @@ _data = {
 &"Expire": SubResource("Animation_uqqb0"),
 &"RESET": SubResource("Animation_ldpm8")
 }
+
+[sub_resource type="Gradient" id="Gradient_uqqb0"]
+offsets = PackedFloat32Array(0, 0.380952, 0.552381, 0.707937)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.25098, 1, 1, 1, 0.0627451, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uqqb0"]
+gradient = SubResource("Gradient_uqqb0")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="Arson" type="Node2D"]
 script = ExtResource("1_bq1jb")
@@ -135,5 +182,10 @@ volume_db = -37.5
 pitch_scale = 1.5
 autoplay = true
 bus = &"SFX"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 0.8, 0.3, 1)
+energy = 0.15
+texture = SubResource("GradientTexture2D_uqqb0")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

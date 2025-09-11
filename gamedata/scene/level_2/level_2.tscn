@@ -1,21 +1,27 @@
-[gd_scene load_steps=34 format=4 uid="uid://dtaq5avc8r7f"]
+[gd_scene load_steps=55 format=4 uid="uid://dtaq5avc8r7f"]
 
 [ext_resource type="PackedScene" uid="uid://bbsqvqymrojj5" path="res://gamedata/scene/common/level.tscn" id="1_a26ah"]
+[ext_resource type="Script" uid="uid://b2308ywkybvi2" path="res://gamedata/scene/level_2/level_2.gd" id="2_bljxm"]
 [ext_resource type="Texture2D" uid="uid://ciyeb8o1ywukt" path="res://gfx/tilesets/grass.png" id="2_dkgsg"]
 [ext_resource type="Texture2D" uid="uid://sasruh3frvel" path="res://gfx/tilesets/plains.png" id="3_abpvc"]
 [ext_resource type="Texture2D" uid="uid://bcb2hj7qx6c7h" path="res://gfx/tilesets/fences.png" id="4_cev16"]
 [ext_resource type="Texture2D" uid="uid://b1ajil2mafxr5" path="res://gfx/tilesets/water.png" id="5_oh2iy"]
 [ext_resource type="Texture2D" uid="uid://b0e3u22u8240c" path="res://gfx/tilesets/decor_16x16.png" id="6_e7mfh"]
-[ext_resource type="Texture2D" uid="uid://dqfm4pmqposiy" path="res://gfx/object/oak.png" id="6_rmyq5"]
-[ext_resource type="Texture2D" uid="uid://c2hl8w46j70b1" path="res://gfx/object/tall_bush.png" id="7_4ktqa"]
+[ext_resource type="Texture2D" uid="uid://dqfm4pmqposiy" path="res://gfx/object/static/oak.png" id="6_rmyq5"]
+[ext_resource type="Texture2D" uid="uid://c2hl8w46j70b1" path="res://gfx/object/static/tall_bush.png" id="7_4ktqa"]
 [ext_resource type="Texture2D" uid="uid://4wl2w7feibqx" path="res://gfx/tilesets/walls/walls.png" id="7_sswbo"]
 [ext_resource type="PackedScene" uid="uid://ccqwn6n7il2n2" path="res://gamedata/enemy/waypoint/waypoint.tscn" id="8_3rey1"]
-[ext_resource type="Texture2D" uid="uid://c4hsbyvxqgyxb" path="res://gfx/object/small_bush.png" id="8_gmu86"]
-[ext_resource type="Texture2D" uid="uid://c7mi2jbynpkv4" path="res://gfx/object/stump.png" id="8_k1w2h"]
-[ext_resource type="Texture2D" uid="uid://d1ygnmgujqnib" path="res://gfx/object/box.png" id="9_6ju2p"]
-[ext_resource type="Texture2D" uid="uid://ch3ur0m58a0hk" path="res://gfx/object/rock.png" id="13_y2u35"]
+[ext_resource type="Texture2D" uid="uid://c4hsbyvxqgyxb" path="res://gfx/object/static/small_bush.png" id="8_gmu86"]
+[ext_resource type="Texture2D" uid="uid://c7mi2jbynpkv4" path="res://gfx/object/static/stump.png" id="8_k1w2h"]
+[ext_resource type="Texture2D" uid="uid://d1ygnmgujqnib" path="res://gfx/object/static/box.png" id="9_6ju2p"]
+[ext_resource type="Texture2D" uid="uid://ch3ur0m58a0hk" path="res://gfx/object/static/rock.png" id="13_y2u35"]
 [ext_resource type="PackedScene" uid="uid://lxt2xv2lfkgu" path="res://gamedata/unit/common/tower.tscn" id="14_j8r11"]
 [ext_resource type="PackedScene" uid="uid://cenxr6q3w2dek" path="res://gamedata/unit/archer/archer.tscn" id="15_lytkh"]
+[ext_resource type="PackedScene" uid="uid://6ne5vmapnqs1" path="res://gamedata/FX/rain/rain.tscn" id="17_35boa"]
+[ext_resource type="Shader" uid="uid://csqlqc5tqnnad" path="res://gamedata/FX/vignette/vignette.gdshader" id="17_j8r11"]
+[ext_resource type="AudioStream" uid="uid://djw1ngxh6a3ko" path="res://audio/sfx/rain.mp3" id="18_o63ri"]
+[ext_resource type="PackedScene" uid="uid://brxpkrih41p8f" path="res://gamedata/FX/orb/orb.tscn" id="19_wjref"]
+[ext_resource type="AudioStream" uid="uid://ck7bql6gmh1vr" path="res://audio/music/alexander_nakarada-heartbeat.mp3" id="21_g3nya"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7r64l"]
 texture = ExtResource("2_dkgsg")
@@ -394,7 +400,108 @@ texture = ExtResource("6_e7mfh")
 [sub_resource type="TileSet" id="TileSet_74scv"]
 sources/0 = SubResource("TileSetAtlasSource_dwpjd")
 
+[sub_resource type="Curve" id="Curve_o63ri"]
+resource_local_to_scene = true
+_data = [Vector2(0, 0.519178), 0.0, 1.46805, 0, 0, Vector2(0.501683, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.465753), -1.5544, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_bljxm"]
+resource_local_to_scene = true
+curve = SubResource("Curve_o63ri")
+
+[sub_resource type="Gradient" id="Gradient_g3nya"]
+resource_local_to_scene = true
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wjref"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_g3nya")
+
+[sub_resource type="Curve" id="Curve_38o7y"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_xlrpv"]
+_limits = [0.0, 30.0, 0.0, 1.0]
+_data = [Vector2(0, 15.0411), 0.0, 163.63, 0, 0, Vector2(0.249158, 30), 0.0, 0.0, 0, 0, Vector2(1, 30), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_a3xei"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_uvaci"]
+resource_local_to_scene = true
+curve_x = SubResource("Curve_38o7y")
+curve_y = SubResource("Curve_xlrpv")
+curve_z = SubResource("Curve_a3xei")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cmltk"]
+resource_local_to_scene = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(960, 64, 1)
+angle_min = -20.0
+angle_max = -20.0
+gravity = Vector3(-342, 940, 0)
+scale_min = 0.2
+scale_over_velocity_curve = SubResource("CurveXYZTexture_uvaci")
+color_initial_ramp = SubResource("GradientTexture1D_wjref")
+alpha_curve = SubResource("CurveTexture_bljxm")
+
+[sub_resource type="Curve" id="Curve_uvaci"]
+resource_local_to_scene = true
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.113402, 0.926966), 0.0, 0.0, 0, 0, Vector2(0.295533, 0.53441), 0.0, 0.0, 0, 0, Vector2(0.484536, 1), 0.0, 0.0, 0, 0, Vector2(0.618557, 0.552669), 0.0, 0.0, 0, 0, Vector2(0.786942, 1), 0.0, 0.0, 0, 0, Vector2(0.828179, 0.507023), 0.0, 0.0, 0, 0, Vector2(0.927835, 0.625702), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 9
+
+[sub_resource type="CurveTexture" id="CurveTexture_cmltk"]
+resource_local_to_scene = true
+curve = SubResource("Curve_uvaci")
+
+[sub_resource type="Curve" id="Curve_r2iga"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 0.470506), 0.0, 0.0, 0, 0, Vector2(0.189003, 0.908708), 0.0, 0.0, 0, 0, Vector2(0.298969, 0.488764), 0.0, 0.0, 0, 0, Vector2(0.522337, 1), 0.0, 0.0, 0, 0, Vector2(0.725086, 0.543539), 0.0, 0.0, 0, 0, Vector2(1, 0.360955), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="CurveTexture" id="CurveTexture_252hl"]
+resource_local_to_scene = true
+curve = SubResource("Curve_r2iga")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qb6s2"]
+resource_local_to_scene = true
+lifetime_randomness = 0.1
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(200, 175, 1)
+spread = 180.0
+initial_velocity_min = 15.0
+initial_velocity_max = 30.0
+angular_velocity_min = -0.500016
+angular_velocity_max = 0.499984
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 0.0100001
+gravity = Vector3(0, 0, 0)
+scale_min = 0.7
+scale_max = 1.5
+color = Color(0.25098, 1, 0, 1)
+alpha_curve = SubResource("CurveTexture_cmltk")
+hue_variation_min = -2.23517e-08
+hue_variation_max = 0.33
+hue_variation_curve = SubResource("CurveTexture_252hl")
+turbulence_enabled = true
+turbulence_noise_strength = 10.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vgno3"]
+resource_local_to_scene = true
+shader = ExtResource("17_j8r11")
+shader_parameter/vignette_color = Color(0.251, 0.502, 0, 1)
+shader_parameter/transparency = 0.3
+shader_parameter/radius = 2.0
+
 [node name="Level 2" instance=ExtResource("1_a26ah")]
+script = ExtResource("2_bljxm")
 next_level = &"level_3"
 technical_name = &"LEVEL_2"
 
@@ -1235,19 +1342,58 @@ position = Vector2(80, 328)
 position = Vector2(1000, 136)
 unit_scene = ExtResource("15_lytkh")
 default_view_direction = &"R"
+glow = true
 
 [node name="Tower 2" parent="Towers" index="1" instance=ExtResource("14_j8r11")]
 position = Vector2(552, 600)
 unit_scene = ExtResource("15_lytkh")
 menu_position = &"U"
 default_view_direction = &"R"
+glow = true
 
 [node name="Tower 3" parent="Towers" index="2" instance=ExtResource("14_j8r11")]
 position = Vector2(536, 200)
 unit_scene = ExtResource("15_lytkh")
+glow = true
 
 [node name="Tower 4" parent="Towers" index="3" instance=ExtResource("14_j8r11")]
 position = Vector2(216, 480)
 unit_scene = ExtResource("15_lytkh")
 menu_position = &"U"
 default_view_direction = &"U"
+glow = true
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="GFX" index="0"]
+process_mode = 3
+color = Color(0.878431, 0.941176, 0.419608, 1)
+energy = 0.6
+blend_mode = 1
+
+[node name="Rain" parent="GFX" index="1" instance=ExtResource("17_35boa")]
+process_mode = 3
+position = Vector2(640, -64)
+amount = 2000
+speed_scale = 1.5
+process_material = SubResource("ParticleProcessMaterial_cmltk")
+
+[node name="Orb" parent="GFX" index="2" instance=ExtResource("19_wjref")]
+position = Vector2(1024, 488)
+amount = 3
+visibility_rect = Rect2(-200, -175, 400, 350)
+process_material = SubResource("ParticleProcessMaterial_qb6s2")
+
+[node name="RainAmbient" type="AudioStreamPlayer" parent="SFX" index="0"]
+process_mode = 3
+stream = ExtResource("18_o63ri")
+volume_db = -20.0
+pitch_scale = 0.8
+autoplay = true
+bus = &"SFX"
+parameters/looping = true
+
+[node name="Vignette" parent="PostFX" index="0"]
+material = SubResource("ShaderMaterial_vgno3")
+
+[node name="Theme" parent="." index="11"]
+stream = ExtResource("21_g3nya")
+volume_db = -20.0

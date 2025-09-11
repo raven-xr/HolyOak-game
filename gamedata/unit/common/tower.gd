@@ -1,14 +1,18 @@
 extends Node2D
 
-@export_subgroup("Required Scenes")
+@export_group("Required Scenes")
 @export var unit_scene: PackedScene
 @export var smoke_scene: PackedScene
 @export var tower_menu_scene: PackedScene
 @export var tower_stats_scene: PackedScene
 
-@export_subgroup("Misc")
+@export_group("Misc")
 @export var menu_position: StringName = "D"
 @export var default_view_direction: StringName = "D"
+
+@export_group("Lighting")
+## The tower will glow when it is built
+@export var glow: bool = false
 
 @onready var logo: Sprite2D = $Logo
 @onready var units: Node2D = $Units
@@ -19,6 +23,7 @@ extends Node2D
 @onready var attack_range: Area2D = $AttackRange
 @onready var attack_range_sprite_2d: Sprite2D = $AttackRange/Sprite2D
 @onready var attack_range_col: CollisionShape2D = $AttackRange/CollisionShape2D
+@onready var point_light_2d: PointLight2D = $PointLight2D
 
 @onready var unit_stats: Dictionary[StringName, Dictionary] = UnitData.get(unit_scene.instantiate().technical_name)
 
@@ -155,8 +160,20 @@ func upgrade() -> void:
 	# Set the AttackRange
 	attack_range_col.disabled = false
 	attack_range_col.shape.radius = unit_stats["level_" + str(level)]["attack_range"]
+	# Starts glowing
+	if level == 1 and glow:
+		point_light_2d.color.a = 0.0
+		point_light_2d.enabled = true
+		var tween = create_tween()
+		tween.tween_property(point_light_2d, "color:a", 1.0, 0.15)
+		await tween.finished
 
 func remove() -> void:
+	# Stops glowing
+	if point_light_2d.enabled:
+		var tween = create_tween()
+		tween.tween_property(point_light_2d, "color:a", 0.0, 1.0)
+		tween.finished.connect(point_light_2d.set_enabled.bind(false))
 	# Disable the AttackRange
 	attack_range_col.set_deferred("disabled", true)
 	is_upgrading = true
