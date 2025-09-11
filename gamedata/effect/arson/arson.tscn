@@ -144,12 +144,12 @@ _data = {
 &"RESET": SubResource("Animation_ldpm8")
 }
 
-[sub_resource type="Gradient" id="Gradient_khjre"]
+[sub_resource type="Gradient" id="Gradient_uqqb0"]
 offsets = PackedFloat32Array(0, 0.380952, 0.552381, 0.707937)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.25098, 1, 1, 1, 0.0627451, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_uqqb0"]
-gradient = SubResource("Gradient_khjre")
+gradient = SubResource("Gradient_uqqb0")
 width = 128
 height = 128
 fill = 1
