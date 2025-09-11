@@ -1308,43 +1308,56 @@ position = Vector2(88, 632)
 unit_scene = ExtResource("15_s48e1")
 menu_position = &"R"
 default_view_direction = &"R"
+glow = true
 
 [node name="Tower 2" parent="Towers" index="1" instance=ExtResource("14_ru426")]
 position = Vector2(136, 432)
 unit_scene = ExtResource("15_s48e1")
 menu_position = &"R"
 default_view_direction = &"L"
+glow = true
 
 [node name="Tower 3" parent="Towers" index="2" instance=ExtResource("14_ru426")]
 position = Vector2(320, 320)
 unit_scene = ExtResource("17_d1wd8")
 default_view_direction = &"L"
+glow = true
 
 [node name="Tower 4" parent="Towers" index="3" instance=ExtResource("14_ru426")]
 position = Vector2(584, 216)
 unit_scene = ExtResource("15_s48e1")
+glow = true
 
 [node name="Tower 5" parent="Towers" index="4" instance=ExtResource("14_ru426")]
 position = Vector2(624, 528)
 unit_scene = ExtResource("15_s48e1")
 menu_position = &"U"
 default_view_direction = &"U"
+glow = true
 
 [node name="Tower 6" parent="Towers" index="5" instance=ExtResource("14_ru426")]
 position = Vector2(864, 168)
 unit_scene = ExtResource("17_d1wd8")
 default_view_direction = &"R"
+glow = true
 
 [node name="Tower 7" parent="Towers" index="6" instance=ExtResource("14_ru426")]
 position = Vector2(1072, 80)
 unit_scene = ExtResource("15_s48e1")
 default_view_direction = &"R"
+glow = true
 
 [node name="Tower 8" parent="Towers" index="7" instance=ExtResource("14_ru426")]
 position = Vector2(856, 384)
 unit_scene = ExtResource("17_d1wd8")
 menu_position = &"U"
 default_view_direction = &"R"
+glow = true
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="GFX" index="0"]
+color = Color(0.878431, 0.941176, 0.419608, 1)
+energy = 0.8
+blend_mode = 1
 
 [node name="Vignette" parent="PostFX" index="0"]
 material = SubResource("ShaderMaterial_vgno3")
