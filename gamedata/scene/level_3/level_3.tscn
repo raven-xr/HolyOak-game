@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://jntda0nfq0ml"]
+[gd_scene load_steps=34 format=4 uid="uid://jntda0nfq0ml"]
 
 [ext_resource type="PackedScene" uid="uid://bbsqvqymrojj5" path="res://gamedata/scene/common/level.tscn" id="1_6eesv"]
 [ext_resource type="Texture2D" uid="uid://ciyeb8o1ywukt" path="res://gfx/tilesets/grass.png" id="2_j5uvo"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cenxr6q3w2dek" path="res://gamedata/unit/archer/archer.tscn" id="15_s48e1"]
 [ext_resource type="PackedScene" uid="uid://b6o16t77ww40d" path="res://gamedata/unit/fire_archer/fire_archer.tscn" id="17_d1wd8"]
 [ext_resource type="Shader" uid="uid://csqlqc5tqnnad" path="res://gamedata/FX/vignette/vignette.gdshader" id="17_jklqj"]
+[ext_resource type="PackedScene" uid="uid://brxpkrih41p8f" path="res://gamedata/FX/orb/orb.tscn" id="17_ru426"]
 [ext_resource type="AudioStream" uid="uid://b11tpu11bsbb8" path="res://audio/music/alexander_nakarada-borgar_2023.mp3" id="18_2nx52"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x7p3s"]
@@ -99,6 +100,63 @@ texture = ExtResource("4_nubkq")
 
 [sub_resource type="TileSet" id="TileSet_hxrqg"]
 sources/0 = SubResource("TileSetAtlasSource_ekwkv")
+
+[sub_resource type="Curve" id="Curve_wmj11"]
+resource_local_to_scene = true
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.113402, 0.926966), 0.0, 0.0, 0, 0, Vector2(0.295533, 0.53441), 0.0, 0.0, 0, 0, Vector2(0.484536, 1), 0.0, 0.0, 0, 0, Vector2(0.618557, 0.552669), 0.0, 0.0, 0, 0, Vector2(0.786942, 1), 0.0, 0.0, 0, 0, Vector2(0.828179, 0.507023), 0.0, 0.0, 0, 0, Vector2(0.927835, 0.625702), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 9
+
+[sub_resource type="CurveTexture" id="CurveTexture_kln85"]
+resource_local_to_scene = true
+curve = SubResource("Curve_wmj11")
+
+[sub_resource type="Curve" id="Curve_ru426"]
+_data = [Vector2(0, 0.0294521), 0.0, 0.0, 0, 0, Vector2(0.242424, 0.528082), 0.0, 0.0, 0, 0, Vector2(0.309764, 0.0917808), 0.0, 0.0, 0, 0, Vector2(0.511784, 0.19863), 0.0, 0.0, 0, 0, Vector2(0.740741, 0.670548), 0.0, 0.0, 0, 0, Vector2(0.949495, 0.243151), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="Curve" id="Curve_kln85"]
+_limits = [-1.0, 0.0237314, 0.0, 1.0]
+_data = [Vector2(0, -0.190138), 0.0, 0.0, 0, 0, Vector2(0.205387, 0.0237314), 0.0, 0.0, 0, 0, Vector2(0.363636, -0.141531), 0.0, 0.0, 0, 0, Vector2(0.56229, 0.0140101), 0.0, 0.0, 0, 0, Vector2(0.710438, -0.617877), 0.0, 0.0, 0, 0, Vector2(0.892256, -0.0540392), 0.0, 0.0, 0, 0, Vector2(0.96633, -0.549827), 0.0, 0.0, 0, 0]
+point_count = 7
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_wmj11"]
+curve_x = SubResource("Curve_ru426")
+curve_y = SubResource("Curve_kln85")
+
+[sub_resource type="Curve" id="Curve_r2iga"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 0.470506), 0.0, 0.0, 0, 0, Vector2(0.189003, 0.908708), 0.0, 0.0, 0, 0, Vector2(0.298969, 0.488764), 0.0, 0.0, 0, 0, Vector2(0.522337, 1), 0.0, 0.0, 0, 0, Vector2(0.725086, 0.543539), 0.0, 0.0, 0, 0, Vector2(1, 0.360955), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="CurveTexture" id="CurveTexture_k16lo"]
+resource_local_to_scene = true
+curve = SubResource("Curve_r2iga")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ru426"]
+resource_local_to_scene = true
+lifetime_randomness = 0.1
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(450, 100, 1)
+spread = 180.0
+initial_velocity_min = 15.0
+initial_velocity_max = 30.0
+angular_velocity_min = -0.500016
+angular_velocity_max = 0.499984
+directional_velocity_min = 30.0
+directional_velocity_max = 45.0
+directional_velocity_curve = SubResource("CurveXYZTexture_wmj11")
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 0.0100001
+gravity = Vector3(0, 0, 0)
+scale_min = 0.7
+color = Color(0.25098, 1, 0, 1)
+alpha_curve = SubResource("CurveTexture_kln85")
+hue_variation_min = -2.23517e-08
+hue_variation_max = 0.33
+hue_variation_curve = SubResource("CurveTexture_k16lo")
+turbulence_enabled = true
+turbulence_noise_strength = 10.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vgno3"]
 resource_local_to_scene = true
@@ -1359,9 +1417,17 @@ color = Color(0.878431, 0.941176, 0.419608, 1)
 energy = 0.8
 blend_mode = 1
 
+[node name="Orb" parent="GFX" index="1" instance=ExtResource("17_ru426")]
+position = Vector2(808, 624)
+amount = 16
+visibility_rect = Rect2(-450, -100, 900, 200)
+process_material = SubResource("ParticleProcessMaterial_ru426")
+
 [node name="Vignette" parent="PostFX" index="0"]
 material = SubResource("ShaderMaterial_vgno3")
 
 [node name="Theme" parent="." index="11"]
 stream = ExtResource("18_2nx52")
 volume_db = -20.0
+
+[connection signal="fight_started" from="." to="GFX/Orb" method="_on_fight_started"]
