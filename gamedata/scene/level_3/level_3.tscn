@@ -111,13 +111,13 @@ resource_local_to_scene = true
 curve = SubResource("Curve_wmj11")
 
 [sub_resource type="Curve" id="Curve_ru426"]
-_data = [Vector2(0, 0.0294521), 0.0, 0.0, 0, 0, Vector2(0.242424, 0.528082), 0.0, 0.0, 0, 0, Vector2(0.309764, 0.0917808), 0.0, 0.0, 0, 0, Vector2(0.511784, 0.19863), 0.0, 0.0, 0, 0, Vector2(0.740741, 0.670548), 0.0, 0.0, 0, 0, Vector2(0.949495, 0.243151), 0.0, 0.0, 0, 0]
-point_count = 6
+_data = [Vector2(0, 0.0294521), 0.0, 0.0, 0, 0, Vector2(0.171717, 0.50137), 0.0, 0.0, 0, 0, Vector2(0.323232, 0.323288), 0.0, 0.0, 0, 0, Vector2(0.498316, 0.519178), 0.0, 0.0, 0, 0, Vector2(0.734007, 0.341096), 0.0, 0.0, 0, 0, Vector2(0.86532, 0.50137), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 7
 
 [sub_resource type="Curve" id="Curve_kln85"]
-_limits = [-1.0, 0.0237314, 0.0, 1.0]
-_data = [Vector2(0, -0.190138), 0.0, 0.0, 0, 0, Vector2(0.205387, 0.0237314), 0.0, 0.0, 0, 0, Vector2(0.363636, -0.141531), 0.0, 0.0, 0, 0, Vector2(0.56229, 0.0140101), 0.0, 0.0, 0, 0, Vector2(0.710438, -0.617877), 0.0, 0.0, 0, 0, Vector2(0.892256, -0.0540392), 0.0, 0.0, 0, 0, Vector2(0.96633, -0.549827), 0.0, 0.0, 0, 0]
-point_count = 7
+_limits = [-1.0, 0.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.198653, -0.103884), 0.0, 0.0, 0, 0, Vector2(0.390572, -0.249315), 0.0, 0.0, 0, 0, Vector2(0.632997, -0.142466), 0.0, 0.0, 0, 0, Vector2(0.868687, -0.320548), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 6
 
 [sub_resource type="CurveXYZTexture" id="CurveXYZTexture_wmj11"]
 curve_x = SubResource("Curve_ru426")
@@ -139,12 +139,12 @@ particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(450, 100, 1)
 spread = 180.0
-initial_velocity_min = 15.0
-initial_velocity_max = 30.0
+initial_velocity_min = 25.0
+initial_velocity_max = 40.0
 angular_velocity_min = -0.500016
 angular_velocity_max = 0.499984
-directional_velocity_min = 30.0
-directional_velocity_max = 45.0
+directional_velocity_min = 15.0
+directional_velocity_max = 30.0
 directional_velocity_curve = SubResource("CurveXYZTexture_wmj11")
 orbit_velocity_min = 9.49949e-08
 orbit_velocity_max = 0.0100001
@@ -156,7 +156,7 @@ hue_variation_min = -2.23517e-08
 hue_variation_max = 0.33
 hue_variation_curve = SubResource("CurveTexture_k16lo")
 turbulence_enabled = true
-turbulence_noise_strength = 10.0
+turbulence_noise_strength = 5.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vgno3"]
 resource_local_to_scene = true
@@ -1420,6 +1420,8 @@ blend_mode = 1
 [node name="Orb" parent="GFX" index="1" instance=ExtResource("17_ru426")]
 position = Vector2(808, 624)
 amount = 16
+lifetime = 120.0
+speed_scale = 1.25
 visibility_rect = Rect2(-450, -100, 900, 200)
 process_material = SubResource("ParticleProcessMaterial_ru426")
 
