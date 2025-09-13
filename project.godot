@@ -32,7 +32,6 @@ EffectData="*res://gamedata/autoload/data/effect_data.gd"
 LevelData="*res://gamedata/autoload/data/level_data.gd"
 SoundManager="*res://gamedata/autoload/sound_manager/sound_manager.tscn"
 Signals="*res://gamedata/autoload/signals/signals.gd"
-PlayerStats="*res://gamedata/autoload/player/player_stats.gd"
 
 [display]
 

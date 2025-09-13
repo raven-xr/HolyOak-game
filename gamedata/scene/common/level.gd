@@ -7,16 +7,16 @@ enum States {
 	FIGHT
 }
 
+@export_group("Required Scenes")
 @export var ork_scene: PackedScene
 @export var slime_scene: PackedScene
-
 @export var defeat_menu_scene: PackedScene
 @export var victory_menu_scene: PackedScene
 @export var game_menu_scene: PackedScene
 
-## Leave this field if there are no levels left
+@export_group("Technical Data")
+## Don't change this field if there are no levels left
 @export var next_level: StringName = "main_menu"
-
 @export var technical_name: StringName
 
 @onready var towers: Node2D = $Towers
@@ -53,6 +53,20 @@ var state: int:
 			States.IDLE: idle_state()
 			States.FIGHT: fight_state()
 
+var health: int:
+	set(value):
+		if value <= 0:
+			value = 0
+		if value < health:
+			Signals.health_decreased.emit(value)
+		Signals.health_changed.emit(value)
+		health = value
+var money: int:
+	set(value):
+		money = value
+		Signals.money_changed.emit(value)
+var tower_level_limit: int
+
 signal fight_started()
 
 func _ready() -> void:
@@ -62,9 +76,9 @@ func _ready() -> void:
 	Signals.connect("health_decreased", Callable(self, "_on_health_decreased"))
 	# Get data
 	wave_count = data["wave_count"]
-	PlayerStats.health = data["health"]
-	PlayerStats.money = data["money"]
-	PlayerStats.tower_level_limit = data["tower_level_limit"] # Used in tower.tscn
+	health = data["health"]
+	money = data["money"]
+	tower_level_limit = data["tower_level_limit"] # Used in tower.tscn
 	# Transition
 	modulate = Color(0.0, 0.0, 0.0, 1.0)
 	var tween_1 = create_tween()

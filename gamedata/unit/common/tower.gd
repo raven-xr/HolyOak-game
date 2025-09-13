@@ -86,7 +86,7 @@ func close_menu() -> void:
 func _on_build_button_pressed() -> void:
 	SoundManager.click.play()
 	# Check whether player has enough money
-	if PlayerStats.money >= current_cost:
+	if Global.game_controller.current_2d_scene.money >= current_cost:
 		upgrade()
 	else:
 		Global.game_controller.change_gui_scene("message")
@@ -96,7 +96,7 @@ func _on_build_button_pressed() -> void:
 func _on_upgrade_button_pressed() -> void:
 	SoundManager.click.play()
 	# Check whether player has enough money
-	if PlayerStats.money >= current_cost:
+	if Global.game_controller.current_2d_scene.money >= current_cost:
 		upgrade()
 	else:
 		Global.game_controller.change_gui_scene("message")
@@ -124,7 +124,7 @@ func _on_tower_stats_button_pressed() -> void:
 		unit_stats["level_" + str(level)]["damage"], "\n",
 		unit_stats["level_" + str(level)]["count"], "\n",
 		current_cost, "\n",
-		min(MAX_LEVEL, PlayerStats.tower_level_limit)
+		min(MAX_LEVEL, Global.game_controller.current_2d_scene.tower_level_limit)
 	)
 
 func upgrade() -> void:
@@ -139,7 +139,7 @@ func upgrade() -> void:
 	unit_count = unit_stats["level_" + str(level)]["count"]
 	unit_spawnpoints = unit_stats["level_" + str(level)]["spawnpoints"]
 	# Take away money from player
-	PlayerStats.money -= current_cost
+	Global.game_controller.current_2d_scene.money -= current_cost
 	# Update cost
 	last_cost = current_cost
 	if not can_be_upgraded():
@@ -182,7 +182,7 @@ func remove() -> void:
 	touch_screen_button.visible = false
 	level = 0
 	# Give half of the money back player spent last time
-	PlayerStats.money += int(float(last_cost) / 2)
+	Global.game_controller.current_2d_scene.money += int(float(last_cost) / 2)
 	# Play animation, SFX, GFX
 	sfx_building.play()
 	animation_player.play("Destruct")
@@ -226,7 +226,7 @@ func remove_smoke() -> void:
 		smoke.is_active = false
 
 func can_be_upgraded() -> bool:
-	if level in [MAX_LEVEL, PlayerStats.tower_level_limit]:
+	if level in [MAX_LEVEL, Global.game_controller.current_2d_scene.tower_level_limit]:
 		return false
 	return true
 

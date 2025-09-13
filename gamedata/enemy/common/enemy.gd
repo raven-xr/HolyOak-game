@@ -65,7 +65,7 @@ func attack() -> void:
 	animation_player.play(view_direction + "_Attack")
 
 func hit() -> void:
-	PlayerStats.health -= damage
+	Global.game_controller.current_2d_scene.health -= damage
 	hit_sfx.play()
 
 func die() -> void:
@@ -73,7 +73,7 @@ func die() -> void:
 	collision_shape_2d.set_deferred("disabled", true)
 	death.play()
 	died.emit()
-	PlayerStats.money += reward
+	Global.game_controller.current_2d_scene.money += reward
 	animation_player.play(view_direction + "_Death")
 	await animation_player.animation_finished
 	queue_free()

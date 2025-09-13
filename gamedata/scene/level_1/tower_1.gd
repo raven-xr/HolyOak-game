@@ -49,7 +49,7 @@ func _on_touch_screen_button_pressed() -> void:
 func _on_build_button_pressed() -> void:
 	SoundManager.click.play()
 	# Check whether player has enough money
-	if PlayerStats.money >= current_cost:
+	if Global.game_controller.current_2d_scene.money >= current_cost:
 		upgrade()
 	else:
 		Global.game_controller.change_gui_scene("message")
@@ -60,7 +60,7 @@ func _on_build_button_pressed() -> void:
 func _on_upgrade_button_pressed() -> void:
 	SoundManager.click.play()
 	# Check whether player has enough money
-	if PlayerStats.money >= current_cost:
+	if Global.game_controller.current_2d_scene.money >= current_cost:
 		upgrade()
 	else:
 		Global.game_controller.change_gui_scene("message")
@@ -83,7 +83,7 @@ func _on_tower_stats_button_pressed() -> void:
 		unit_stats["level_" + str(level)]["damage"], "\n",
 		unit_stats["level_" + str(level)]["count"], "\n",
 		current_cost, "\n",
-		min(MAX_LEVEL, PlayerStats.tower_level_limit)
+		min(MAX_LEVEL, Global.game_controller.current_2d_scene.tower_level_limit)
 	)
 	close_menu()
 	player_opened_tower_stats.emit()
