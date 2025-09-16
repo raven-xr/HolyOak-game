@@ -11,7 +11,7 @@ class_name Enemy
 @onready var effects: Node2D = $Effects
 
 @onready var stats: Dictionary = EnemyData.get(technical_name)
-@onready var speed: int = stats["speed"]
+@onready var speed: float = stats["speed"]
 @onready var health: int = stats["health"]:
 	set(value):
 		if value <= 0 and health > 0:
