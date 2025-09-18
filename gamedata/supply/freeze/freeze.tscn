@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://xbpqagdioqdt"]
+[gd_scene load_steps=12 format=3 uid="uid://xbpqagdioqdt"]
 
 [ext_resource type="Script" uid="uid://bh020p6ue0sp1" path="res://gamedata/supply/freeze/freeze.gd" id="1_exxr5"]
 
@@ -16,6 +16,42 @@ fill_from = Vector2(0.5, 0.5)
 [sub_resource type="CircleShape2D" id="CircleShape2D_exxr5"]
 radius = 40.0
 
+[sub_resource type="Gradient" id="Gradient_tjqha"]
+offsets = PackedFloat32Array(0, 0.5305466, 0.5562701)
+colors = PackedColorArray(1, 1, 1, 1, 0.7882353, 0.7882353, 0.7882353, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x1d74"]
+gradient = SubResource("Gradient_tjqha")
+width = 8
+height = 8
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Curve" id="Curve_exxr5"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.25597268, 0.9637884), 0.0, 0.0, 0, 0, Vector2(0.3651877, 0.35724235), 0.0, 0.0, 0, 0, Vector2(0.50511944, 0.9456825), 0.0, 0.0, 0, 0, Vector2(0.63139933, 0.36629528), 0.0, 0.0, 0, 0, Vector2(0.7235495, 0.9728413), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 7
+
+[sub_resource type="CurveTexture" id="CurveTexture_tjqha"]
+curve = SubResource("Curve_exxr5")
+
+[sub_resource type="Gradient" id="Gradient_x1d74"]
+offsets = PackedFloat32Array(0, 0.25468165, 0.4681648, 0.670412, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.6039216, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_l2t04"]
+gradient = SubResource("Gradient_x1d74")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x1d74"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -48, 0)
+emission_shape = 3
+emission_box_extents = Vector3(32, 1, 1)
+orbit_velocity_min = -0.019999906
+orbit_velocity_max = 0.020000096
+gravity = Vector3(0, 3, 0)
+color_ramp = SubResource("GradientTexture1D_l2t04")
+alpha_curve = SubResource("CurveTexture_tjqha")
+
 [node name="Freeze" type="Node2D"]
 script = ExtResource("1_exxr5")
 
@@ -28,6 +64,15 @@ texture = SubResource("GradientTexture2D_tjqha")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_exxr5")
 debug_color = Color(0, 0.3882353, 0, 0.41960785)
+
+[node name="Snow" type="GPUParticles2D" parent="."]
+texture_filter = 1
+amount = 18
+texture = SubResource("GradientTexture2D_x1d74")
+lifetime = 8.0
+preprocess = 8.0
+visibility_rect = Rect2(-60, -60, 120, 120)
+process_material = SubResource("ParticleProcessMaterial_x1d74")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
