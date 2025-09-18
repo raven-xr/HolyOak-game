@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://wqtdplmq8cnu"]
+
+[ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://gui/backgrounds/ui_border.png" id="1_fabix"]
+[ext_resource type="Texture2D" uid="uid://w8cwepba8cet" path="res://gfx/supply/freeze/freeze.png" id="2_uxide"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ptevb"]
+texture = ExtResource("1_fabix")
+texture_margin_left = 15.0
+texture_margin_top = 10.0
+texture_margin_right = 15.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="Theme" id="Theme_tlqor"]
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_ptevb")
+
+[sub_resource type="Theme" id="Theme_y0jwr"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w1mc3"]
+texture_margin_left = 8.0
+texture_margin_right = 8.0
+
+[node name="PanelContainer" type="PanelContainer"]
+modulate = Color(1, 1, 1, 0.882353)
+texture_filter = 1
+offset_right = 140.0
+offset_bottom = 80.0
+theme = SubResource("Theme_tlqor")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme = SubResource("Theme_y0jwr")
+
+[node name="Freeze Spell" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(69, 0)
+layout_mode = 2
+icon = ExtResource("2_uxide")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Freeze Count" type="Label" parent="HBoxContainer"]
+texture_filter = 2
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 37
+theme_override_styles/normal = SubResource("StyleBoxTexture_w1mc3")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
