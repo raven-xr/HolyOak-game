@@ -1,8 +1,8 @@
-extends NodeGUI
+extends PanelContainer
 
-@onready var hp_value: Label = $PanelContainer/HBoxContainer/HPValue
-@onready var money_value: Label = $PanelContainer/HBoxContainer/MoneyValue
-@onready var wave_value: Label = $PanelContainer/HBoxContainer/WaveValue
+@onready var hp_value: Label = $HBoxContainer/HPValue
+@onready var money_value: Label = $HBoxContainer/MoneyValue
+@onready var wave_value: Label = $HBoxContainer/WaveValue
 
 func _ready() -> void:
 	# Scale even more
