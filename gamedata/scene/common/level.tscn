@@ -38,6 +38,8 @@ e.g. Road 1
 e.g. Road 2
 and etc"
 
+[node name="Spells" type="Node2D" parent="."]
+
 [node name="Map" type="Node2D" parent="."]
 texture_filter = 1
 

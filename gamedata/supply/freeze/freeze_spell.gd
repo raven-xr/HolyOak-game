@@ -1,4 +1,4 @@
-extends Node2D
+extends Spell
 
 func _on_area_2d_body_entered(body: Enemy) -> void:
 	body.speed /= 3
