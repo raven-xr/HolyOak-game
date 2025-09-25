@@ -34,6 +34,7 @@ script = ExtResource("1_2puhw")
 [node name="PointLight2D" type="PointLight2D" parent="."]
 editor_description = "This PointLight2D has to be disabled by default if the item isn't selected"
 position = Vector2(34, 30)
+enabled = false
 texture = SubResource("GradientTexture2D_2puhw")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]
