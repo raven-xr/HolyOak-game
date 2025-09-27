@@ -1,11 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://bjkcyj2r7i454"]
+[gd_scene load_steps=15 format=3 uid="uid://bjkcyj2r7i454"]
 
 [ext_resource type="PackedScene" uid="uid://bn67wft0ukn1l" path="res://gamedata/supply/common/spell.tscn" id="1_8ryg7"]
 [ext_resource type="Script" uid="uid://t3yw5w8xyj3r" path="res://gamedata/supply/freeze/freeze_spell.gd" id="1_exxr5"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8ryg7"]
+light_mode = 1
+
 [sub_resource type="Gradient" id="Gradient_exxr5"]
-offsets = PackedFloat32Array(0, 0.25080386, 0.62700963, 0.63022506, 0.65273315)
-colors = PackedColorArray(0, 0.93333334, 1, 0.1254902, 0, 1, 1, 0.1254902, 0, 1, 1, 0.3764706, 0, 1, 1, 1, 1, 1, 1, 0)
+offsets = PackedFloat32Array(0, 0.25080386, 0.61736333, 0.63022506, 0.65273315)
+colors = PackedColorArray(0, 0.93333334, 1, 0.1254902, 0, 1, 1, 0.1254902, 1, 1, 1, 0.37600002, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_tjqha"]
 gradient = SubResource("Gradient_exxr5")
@@ -16,6 +19,9 @@ fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tjqha"]
 radius = 40.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xqx1s"]
+light_mode = 1
 
 [sub_resource type="Gradient" id="Gradient_tjqha"]
 offsets = PackedFloat32Array(0, 0.5305466, 0.5562701)
@@ -57,6 +63,8 @@ alpha_curve = SubResource("CurveTexture_tjqha")
 script = ExtResource("1_exxr5")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+modulate = Color(0.037521772, 0.2753775, 1, 1)
+material = SubResource("CanvasItemMaterial_8ryg7")
 scale = Vector2(0.5, 0.5)
 texture = SubResource("GradientTexture2D_tjqha")
 
@@ -69,10 +77,10 @@ shape = SubResource("CircleShape2D_tjqha")
 
 [node name="Snow" type="GPUParticles2D" parent="." index="2"]
 texture_filter = 1
+material = SubResource("CanvasItemMaterial_xqx1s")
 amount = 18
 texture = SubResource("GradientTexture2D_x1d74")
 lifetime = 8.0
-preprocess = 8.0
 visibility_rect = Rect2(-60, -60, 120, 120)
 process_material = SubResource("ParticleProcessMaterial_5ykp8")
 
