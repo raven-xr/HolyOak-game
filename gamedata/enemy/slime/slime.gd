@@ -1,7 +1,5 @@
 extends Enemy
 
-
-
 # AnimationPlayer
 func rest(): # Cooldown between jumps
 	is_available = true
@@ -10,3 +8,5 @@ func rest(): # Cooldown between jumps
 func jump():
 	is_available = false
 	speed = stats["speed"]
+	if is_frozen:
+		speed /= 3

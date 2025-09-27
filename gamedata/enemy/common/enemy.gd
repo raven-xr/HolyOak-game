@@ -51,6 +51,7 @@ var is_available: bool = true:
 ## If the enemy previously dies (future_health <= 0),
 ## it becomes less of a priority for units
 var is_previously_died: bool = false
+var is_frozen: bool = false
 
 signal moved()
 signal died()
