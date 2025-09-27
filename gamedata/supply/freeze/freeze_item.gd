@@ -30,3 +30,4 @@ func _on_spell_placed() -> void:
 	is_selected = false
 	var tween = create_tween()
 	tween.tween_property(point_light_2d, "color:a", 0.0, 0.15)
+	get_parent().get_parent().freeze_item_count -= 1

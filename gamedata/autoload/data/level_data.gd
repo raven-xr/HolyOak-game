@@ -3,11 +3,13 @@ extends Node
 #const EXAMPLE = {
 	#"name": "level"
 	#HP of the Holy Oak at the start
-	#"health": 100, 
+	#"health": int, 
 	#Player's money at the start
 	#"money": int,
 	#The max level a tower can be upgraded to
 	#"tower_level_limit": int,
+	#Is there the inventory in the level
+	#"inventory": bool,
 	#The count of waves
 	#"wave_count": int,
 	#All waves from 1 to wave_count
@@ -27,6 +29,7 @@ const LEVEL_1: Dictionary = {
 	"health": 150,
 	"money": 400,
 	"tower_level_limit": 2,
+	"inventory": false,
 	"wave_count": 3,
 	"wave_1": {
 		"spawn_cooldown": 2.0,
@@ -70,6 +73,10 @@ const LEVEL_2: Dictionary = {
 	"health": 200,
 	"money": 400,
 	"tower_level_limit": 3,
+	"inventory": true,
+	"items": {
+		"freeze_item": 1
+	},
 	"wave_count": 5,
 	"wave_1": {
 		"spawn_cooldown": 2.0,
@@ -262,6 +269,10 @@ const LEVEL_3: Dictionary = {
 	"health": 500,
 	"money": 500,
 	"tower_level_limit": 4,
+	"inventory": true,
+	"items": {
+		"freeze_item": 2
+	},
 	"wave_count": 7,
 	"wave_1": {
 		"spawn_cooldown": 1.35,

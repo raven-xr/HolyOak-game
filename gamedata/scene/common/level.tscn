@@ -11,7 +11,7 @@
 [ext_resource type="Shortcut" uid="uid://bnk8rf3lcercs" path="res://gamedata/gui/common/ui_cancel_shortcut.tres" id="9_2novx"]
 [ext_resource type="PackedScene" uid="uid://dgsn2o3sm3wgn" path="res://gamedata/scene/common/holy_oak.tscn" id="9_eoj5e"]
 [ext_resource type="PackedScene" uid="uid://bnkmwpcieadla" path="res://gamedata/FX/vignette/vignette.tscn" id="11_1jmb8"]
-[ext_resource type="PackedScene" uid="uid://wqtdplmq8cnu" path="res://gamedata/supply/common/supply_panel.tscn" id="11_o86oa"]
+[ext_resource type="PackedScene" uid="uid://wqtdplmq8cnu" path="res://gamedata/supply/common/inventory.tscn" id="11_o86oa"]
 [ext_resource type="Shader" uid="uid://csqlqc5tqnnad" path="res://gamedata/FX/vignette/vignette.gdshader" id="12_vgno3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vgno3"]
@@ -81,13 +81,13 @@ layout_mode = 0
 offset_left = 24.0
 offset_top = 24.0
 offset_right = 536.0
-offset_bottom = 95.0
+offset_bottom = 104.0
 focus_behavior_recursive = 1
 
 [node name="PlayerStats" parent="GUI/HBoxContainer" instance=ExtResource("8_otqld")]
 layout_mode = 2
 
-[node name="SupplyPanel" parent="GUI/HBoxContainer" instance=ExtResource("11_o86oa")]
+[node name="Inventory" parent="GUI/HBoxContainer" instance=ExtResource("11_o86oa")]
 layout_mode = 2
 
 [node name="Timers" type="Node" parent="."]
