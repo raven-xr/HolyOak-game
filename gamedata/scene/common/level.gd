@@ -54,6 +54,7 @@ var state: int:
 			States.IDLE: idle_state()
 			States.FIGHT: fight_state()
 # Main Stats
+var max_health: int
 var health: int:
 	set(value):
 		if value <= 0:
@@ -83,6 +84,7 @@ func _ready() -> void:
 	# Get data
 	wave_count = data["wave_count"]
 	health = data["health"]
+	max_health = data["health"]
 	money = data["money"]
 	tower_level_limit = data["tower_level_limit"] # Used in tower.tscn
 	# Fill the inventory
@@ -90,6 +92,7 @@ func _ready() -> void:
 		inventory.visible = false
 	else:
 		inventory.freeze_item_count = data["items"]["freeze_item"]
+		inventory.heal_item_count = data["items"]["heal_item"]
 	# Transition
 	modulate = Color(0.0, 0.0, 0.0, 1.0)
 	var tween_1 = create_tween()

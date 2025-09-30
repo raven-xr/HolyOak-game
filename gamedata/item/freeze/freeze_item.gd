@@ -2,7 +2,7 @@ extends Item
 
 @export var freeze_spell_scene: PackedScene
 
-@onready var spells: Node2D = $"../../../../../Spells"
+@onready var spells: Node2D = Global.game_controller.current_2d_scene.get_node("Spells")
 
 var current_spell: Spell
 

@@ -75,7 +75,8 @@ const LEVEL_2: Dictionary = {
 	"tower_level_limit": 3,
 	"inventory": true,
 	"items": {
-		"freeze_item": 1
+		"freeze_item": 1,
+		"heal_item": 1
 	},
 	"wave_count": 5,
 	"wave_1": {
@@ -271,7 +272,8 @@ const LEVEL_3: Dictionary = {
 	"tower_level_limit": 4,
 	"inventory": true,
 	"items": {
-		"freeze_item": 2
+		"freeze_item": 2,
+		"heal_item": 2
 	},
 	"wave_count": 7,
 	"wave_1": {

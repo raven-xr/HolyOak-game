@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://8qe3larsqgb7"]
+
+[ext_resource type="PackedScene" uid="uid://cu6uweaafm8pi" path="res://gamedata/item/common/item.tscn" id="1_8r5g1"]
+[ext_resource type="Script" uid="uid://bkm3b6281brfn" path="res://gamedata/item/heal/heal_item.gd" id="2_hwsqv"]
+[ext_resource type="Texture2D" uid="uid://d384padklphwu" path="res://gfx/item/heal/heal_item.png" id="2_opveq"]
+[ext_resource type="AudioStream" uid="uid://cs857a7vlcaro" path="res://audio/sfx/heal.mp3" id="4_jgtt0"]
+
+[node name="HealItem" instance=ExtResource("1_8r5g1")]
+icon = ExtResource("2_opveq")
+script = ExtResource("2_hwsqv")
+
+[node name="PointLight2D" parent="." index="0"]
+color = Color(1, 0, 0, 1)
+energy = 0.8
+texture_scale = 0.7
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="2"]
+stream = ExtResource("4_jgtt0")
+volume_db = -10.0
+bus = &"SFX"
+
+[connection signal="used" from="." to="." method="_on_used"]
