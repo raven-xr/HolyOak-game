@@ -14,4 +14,4 @@ energy = 0.8
 texture_scale = 0.7
 
 [connection signal="deselected" from="." to="." method="_on_deselected"]
-[connection signal="selected" from="." to="." method="_on_selected"]
+[connection signal="used" from="." to="." method="_on_used"]

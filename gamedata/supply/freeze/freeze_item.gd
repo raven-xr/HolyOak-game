@@ -6,7 +6,7 @@ extends Item
 
 var current_spell: Spell
 
-func _on_selected() -> void:
+func _on_used() -> void:
 	disabled = true # Disables the button so that player can't broke anything
 	current_spell = freeze_spell_scene.instantiate()
 	current_spell.global_position = get_global_mouse_position()
@@ -20,14 +20,16 @@ func _on_selected() -> void:
 
 func _on_deselected() -> void:
 	disabled = true # Disables the button so that player can't broke anything
-	var tween = create_tween()
-	tween.tween_property(current_spell, "modulate:a", 0.0, 0.15)
-	await tween.finished
-	current_spell.queue_free()
+	if current_spell:
+		var tween = create_tween()
+		tween.tween_property(current_spell, "modulate:a", 0.0, 0.15)
+		await tween.finished
+		current_spell.queue_free()
 	disabled = false
 
 func _on_spell_placed() -> void:
 	is_selected = false
+	current_spell = null
 	var tween = create_tween()
 	tween.tween_property(point_light_2d, "color:a", 0.0, 0.15)
 	get_parent().get_parent().freeze_item_count -= 1
