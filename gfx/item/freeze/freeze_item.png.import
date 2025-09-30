@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://w8cwepba8cet"
-path="res://.godot/imported/freeze_item.png-e60795efd9c29c0e6c1cf7574b490923.ctex"
+path="res://.godot/imported/freeze_item.png-da8c0c2f9dbae293ee97726d6a63cef1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gfx/supply/freeze/freeze_item.png"
-dest_files=["res://.godot/imported/freeze_item.png-e60795efd9c29c0e6c1cf7574b490923.ctex"]
+source_file="res://gfx/item/freeze/freeze_item.png"
+dest_files=["res://.godot/imported/freeze_item.png-da8c0c2f9dbae293ee97726d6a63cef1.ctex"]
 
 [params]
 

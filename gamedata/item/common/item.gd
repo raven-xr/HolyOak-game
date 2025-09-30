@@ -15,6 +15,7 @@ signal used()
 signal deselected()
 
 func _ready() -> void:
+	v_box_container.modulate.a = 0.0
 	point_light_2d.color.a = 0.0
 
 func select() -> void:

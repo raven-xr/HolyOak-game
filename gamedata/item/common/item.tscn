@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cu6uweaafm8pi"]
+[gd_scene load_steps=5 format=3 uid="uid://cu6uweaafm8pi"]
 
-[ext_resource type="Texture2D" uid="uid://w8cwepba8cet" path="res://gfx/supply/freeze/freeze_item.png" id="1_2f87e"]
-[ext_resource type="Script" uid="uid://psrwmrq3u4dg" path="res://gamedata/supply/common/item.gd" id="1_2puhw"]
+[ext_resource type="Script" uid="uid://psrwmrq3u4dg" path="res://gamedata/item/common/item.gd" id="1_2puhw"]
 
 [sub_resource type="Theme" id="Theme_02y4t"]
 Button/colors/icon_disabled_color = Color(1, 1, 1, 1)
@@ -25,7 +24,6 @@ custom_minimum_size = Vector2(69, 60)
 offset_right = 69.0
 offset_bottom = 60.0
 theme = SubResource("Theme_02y4t")
-icon = ExtResource("1_2f87e")
 flat = true
 icon_alignment = 1
 expand_icon = true
@@ -38,7 +36,6 @@ enabled = false
 texture = SubResource("GradientTexture2D_2puhw")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = -24.0
 offset_top = 72.0

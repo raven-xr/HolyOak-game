@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bn67wft0ukn1l"]
 
-[ext_resource type="Script" uid="uid://b5kt6qqcfba5k" path="res://gamedata/supply/common/spell.gd" id="2_yom16"]
+[ext_resource type="Script" uid="uid://b5kt6qqcfba5k" path="res://gamedata/item/common/spell.gd" id="2_yom16"]
 
 [node name="Spell" type="Node2D"]
 script = ExtResource("2_yom16")

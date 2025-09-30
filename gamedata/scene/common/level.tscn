@@ -11,7 +11,7 @@
 [ext_resource type="Shortcut" uid="uid://bnk8rf3lcercs" path="res://gamedata/gui/common/ui_cancel_shortcut.tres" id="9_2novx"]
 [ext_resource type="PackedScene" uid="uid://dgsn2o3sm3wgn" path="res://gamedata/scene/common/holy_oak.tscn" id="9_eoj5e"]
 [ext_resource type="PackedScene" uid="uid://bnkmwpcieadla" path="res://gamedata/FX/vignette/vignette.tscn" id="11_1jmb8"]
-[ext_resource type="PackedScene" uid="uid://wqtdplmq8cnu" path="res://gamedata/supply/common/inventory.tscn" id="11_o86oa"]
+[ext_resource type="PackedScene" uid="uid://wqtdplmq8cnu" path="res://gamedata/item/common/inventory.tscn" id="11_o86oa"]
 [ext_resource type="Shader" uid="uid://csqlqc5tqnnad" path="res://gamedata/FX/vignette/vignette.gdshader" id="12_vgno3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vgno3"]

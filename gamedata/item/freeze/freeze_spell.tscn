@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://bjkcyj2r7i454"]
 
-[ext_resource type="PackedScene" uid="uid://bn67wft0ukn1l" path="res://gamedata/supply/common/spell.tscn" id="1_8ryg7"]
-[ext_resource type="Script" uid="uid://t3yw5w8xyj3r" path="res://gamedata/supply/freeze/freeze_spell.gd" id="1_exxr5"]
+[ext_resource type="PackedScene" uid="uid://bn67wft0ukn1l" path="res://gamedata/item/common/spell.tscn" id="1_8ryg7"]
+[ext_resource type="Script" uid="uid://t3yw5w8xyj3r" path="res://gamedata/item/freeze/freeze_spell.gd" id="1_exxr5"]
 [ext_resource type="AudioStream" uid="uid://stt227m8wrhe" path="res://audio/sfx/freeze.mp3" id="3_xqx1s"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8ryg7"]

@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://wqtdplmq8cnu"]
 
 [ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://gui/backgrounds/ui_border.png" id="1_uutbo"]
-[ext_resource type="Script" uid="uid://c0ysb3841j128" path="res://gamedata/supply/common/inventory.gd" id="2_lgwfn"]
-[ext_resource type="PackedScene" uid="uid://du0malj6qtloj" path="res://gamedata/supply/freeze/freeze_item.tscn" id="3_8c8im"]
+[ext_resource type="Script" uid="uid://c0ysb3841j128" path="res://gamedata/item/common/inventory.gd" id="2_lgwfn"]
+[ext_resource type="PackedScene" uid="uid://du0malj6qtloj" path="res://gamedata/item/freeze/freeze_item.tscn" id="3_8c8im"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ptevb"]
 texture = ExtResource("1_uutbo")

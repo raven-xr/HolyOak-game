@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://du0malj6qtloj"]
+
+[ext_resource type="PackedScene" uid="uid://cu6uweaafm8pi" path="res://gamedata/item/common/item.tscn" id="1_yina8"]
+[ext_resource type="Texture2D" uid="uid://w8cwepba8cet" path="res://gfx/item/freeze/freeze_item.png" id="2_3tbuj"]
+[ext_resource type="Script" uid="uid://io8hsy77ck51" path="res://gamedata/item/freeze/freeze_item.gd" id="2_yina8"]
+[ext_resource type="PackedScene" uid="uid://bjkcyj2r7i454" path="res://gamedata/item/freeze/freeze_spell.tscn" id="3_bu7go"]
+
+[node name="FreezeItem" instance=ExtResource("1_yina8")]
+icon = ExtResource("2_3tbuj")
+script = ExtResource("2_yina8")
+freeze_spell_scene = ExtResource("3_bu7go")
+
+[node name="PointLight2D" parent="." index="0"]
+color = Color(0.07016479, 0.30748522, 1, 1)
+energy = 0.8
+texture_scale = 0.7
+
+[connection signal="deselected" from="." to="." method="_on_deselected"]
+[connection signal="used" from="." to="." method="_on_used"]
