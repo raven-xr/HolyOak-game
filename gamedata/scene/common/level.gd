@@ -61,6 +61,8 @@ var health: int:
 			value = 0
 		if value < health:
 			Signals.health_decreased.emit(value)
+		else:
+			Signals.health_increased.emit(value)
 		Signals.health_changed.emit(value)
 		health = value
 var money: int:
