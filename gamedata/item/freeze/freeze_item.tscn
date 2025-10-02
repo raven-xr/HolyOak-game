@@ -15,5 +15,14 @@ color = Color(0.07016479, 0.30748522, 1, 1)
 energy = 0.8
 texture_scale = 0.7
 
-[connection signal="deselected" from="." to="." method="_on_deselected"]
+[node name="VBoxContainer" parent="." index="1"]
+texture_filter = 2
+
+[node name="CancelButton" type="Button" parent="VBoxContainer" index="1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "CANCEL"
+
 [connection signal="used" from="." to="." method="_on_used"]
+[connection signal="pressed" from="VBoxContainer/CancelButton" to="." method="_on_cancel_button_pressed"]

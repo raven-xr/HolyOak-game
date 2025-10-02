@@ -21,6 +21,9 @@ func _on_heal_item_pressed() -> void:
 func press_item(item: Item, count: int) -> void:
 	if count > 0:
 		if not item.is_selected:
+			for item_ in [freeze_item, heal_item]:
+				if item_.is_selected:
+					item_.deselect()
 			item.select()
 		else:
 			item.deselect()
