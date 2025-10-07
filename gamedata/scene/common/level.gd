@@ -26,6 +26,7 @@ enum States {
 @onready var spawn_timer: Timer = $"Timers/Spawn Timer"
 @onready var vignette: ColorRect = $PostFX/Vignette
 @onready var theme: AudioStreamPlayer = $Theme
+@onready var inventory: PanelContainer = $GUI/HBoxContainer/Inventory
 
 @onready var data: Dictionary = LevelData.get(technical_name)
 
@@ -52,13 +53,16 @@ var state: int:
 		match state:
 			States.IDLE: idle_state()
 			States.FIGHT: fight_state()
-
+# Main Stats
+var max_health: int
 var health: int:
 	set(value):
 		if value <= 0:
 			value = 0
 		if value < health:
 			Signals.health_decreased.emit(value)
+		else:
+			Signals.health_increased.emit(value)
 		Signals.health_changed.emit(value)
 		health = value
 var money: int:
@@ -66,6 +70,11 @@ var money: int:
 		money = value
 		Signals.money_changed.emit(value)
 var tower_level_limit: int
+# Inventory
+var freeze_count: int:
+	set(value):
+		$GUI/HBoxContainer/Inventory.freeze_count = value
+		freeze_count = value
 
 signal fight_started()
 
@@ -77,8 +86,15 @@ func _ready() -> void:
 	# Get data
 	wave_count = data["wave_count"]
 	health = data["health"]
+	max_health = data["health"]
 	money = data["money"]
 	tower_level_limit = data["tower_level_limit"] # Used in tower.tscn
+	# Fill the inventory
+	if not data["inventory"]:
+		inventory.visible = false
+	else:
+		inventory.freeze_item_count = data["items"]["freeze_item"]
+		inventory.heal_item_count = data["items"]["heal_item"]
 	# Transition
 	modulate = Color(0.0, 0.0, 0.0, 1.0)
 	var tween_1 = create_tween()

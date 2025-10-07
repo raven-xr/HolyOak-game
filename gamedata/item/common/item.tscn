@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://cu6uweaafm8pi"]
+
+[ext_resource type="Script" uid="uid://psrwmrq3u4dg" path="res://gamedata/item/common/item.gd" id="1_2puhw"]
+
+[sub_resource type="Theme" id="Theme_02y4t"]
+Button/colors/icon_disabled_color = Color(1, 1, 1, 1)
+Button/styles/pressed = null
+
+[sub_resource type="Gradient" id="Gradient_khjre"]
+offsets = PackedFloat32Array(0, 0.380952, 0.552381, 0.707937)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.25098, 1, 1, 1, 0.0627451, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2puhw"]
+gradient = SubResource("Gradient_khjre")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Item" type="Button"]
+editor_description = "You have to connect the \"selected\" and the \"deseleceted\" signals to determine the behavior of the item"
+texture_filter = 1
+custom_minimum_size = Vector2(69, 60)
+offset_right = 69.0
+offset_bottom = 60.0
+theme = SubResource("Theme_02y4t")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("1_2puhw")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+editor_description = "This PointLight2D has to be disabled by default if the item isn't selected"
+position = Vector2(34, 30)
+enabled = false
+texture = SubResource("GradientTexture2D_2puhw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -24.0
+offset_top = 72.0
+offset_right = 88.0
+offset_bottom = 114.0
+
+[node name="UseButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "USE"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/UseButton" to="." method="_on_use_button_pressed"]

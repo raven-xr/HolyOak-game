@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bbsqvqymrojj5"]
+[gd_scene load_steps=15 format=3 uid="uid://bbsqvqymrojj5"]
 
 [ext_resource type="Script" uid="uid://2edsptc0xr5r" path="res://gamedata/scene/common/level.gd" id="1_8vq8d"]
 [ext_resource type="PackedScene" uid="uid://cdb4s0kj5v3yf" path="res://gamedata/enemy/slime/slime.tscn" id="3_36ads"]
@@ -11,6 +11,7 @@
 [ext_resource type="Shortcut" uid="uid://bnk8rf3lcercs" path="res://gamedata/gui/common/ui_cancel_shortcut.tres" id="9_2novx"]
 [ext_resource type="PackedScene" uid="uid://dgsn2o3sm3wgn" path="res://gamedata/scene/common/holy_oak.tscn" id="9_eoj5e"]
 [ext_resource type="PackedScene" uid="uid://bnkmwpcieadla" path="res://gamedata/FX/vignette/vignette.tscn" id="11_1jmb8"]
+[ext_resource type="PackedScene" uid="uid://wqtdplmq8cnu" path="res://gamedata/item/common/inventory.tscn" id="11_o86oa"]
 [ext_resource type="Shader" uid="uid://csqlqc5tqnnad" path="res://gamedata/FX/vignette/vignette.gdshader" id="12_vgno3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vgno3"]
@@ -37,6 +38,8 @@ e.g. Road 1
 e.g. Road 2
 and etc"
 
+[node name="Spells" type="Node2D" parent="."]
+
 [node name="Map" type="Node2D" parent="."]
 texture_filter = 1
 
@@ -50,15 +53,16 @@ texture_filter = 1
 
 [node name="SFX" type="Node2D" parent="."]
 
-[node name="PlayerStats" parent="." instance=ExtResource("8_otqld")]
-
 [node name="GUI" type="Control" parent="."]
 process_mode = 3
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_right = 1280.0
 offset_bottom = 720.0
-mouse_filter = 2
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="MenuButton" type="Button" parent="GUI"]
 layout_mode = 0
@@ -71,6 +75,20 @@ pivot_offset = Vector2(57, 0)
 shortcut = ExtResource("9_2novx")
 icon = ExtResource("3_qnfjt")
 expand_icon = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GUI"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 536.0
+offset_bottom = 104.0
+focus_behavior_recursive = 1
+
+[node name="PlayerStats" parent="GUI/HBoxContainer" instance=ExtResource("8_otqld")]
+layout_mode = 2
+
+[node name="Inventory" parent="GUI/HBoxContainer" instance=ExtResource("11_o86oa")]
+layout_mode = 2
 
 [node name="Timers" type="Node" parent="."]
 
