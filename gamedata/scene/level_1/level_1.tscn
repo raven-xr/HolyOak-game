@@ -378,6 +378,7 @@ tile_map_data = PackedByteArray("AAA5ACcAAAABAAEAAAA5ACgAAAABAAEAAAA5ACkAAAABAAE
 tile_set = SubResource("TileSet_cuabb")
 
 [node name="Road 1" type="Node2D" parent="Enemies" index="0"]
+y_sort_enabled = true
 
 [node name="Waypoints" type="Node" parent="Enemies/Road 1" index="0"]
 
@@ -397,6 +398,7 @@ next_roadpoint = NodePath("../Waypoint 3")
 position = Vector2(152, 432)
 
 [node name="Road 2" type="Node2D" parent="Enemies" index="1"]
+y_sort_enabled = true
 
 [node name="Waypoints" type="Node" parent="Enemies/Road 2" index="0"]
 

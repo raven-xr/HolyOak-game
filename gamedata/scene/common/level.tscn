@@ -37,6 +37,7 @@ editor_description = "When you create a new Path2D, you have to name it \"Road N
 e.g. Road 1
 e.g. Road 2
 and etc"
+y_sort_enabled = true
 
 [node name="Spells" type="Node2D" parent="."]
 
