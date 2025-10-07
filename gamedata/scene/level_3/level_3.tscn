@@ -177,6 +177,7 @@ tile_map_data = PackedByteArray("AABDABAAAAAAAAQAAABDABMAAAAAAAQAAABGABIAAAAAAAQ
 tile_set = SubResource("TileSet_hxrqg")
 
 [node name="Road 1" type="Node2D" parent="Enemies" index="0"]
+y_sort_enabled = true
 
 [node name="Waypoints" type="Node" parent="Enemies/Road 1" index="0"]
 
@@ -213,6 +214,7 @@ rotation = 0.715585
 new_direction = "R"
 
 [node name="Road 2" type="Node2D" parent="Enemies" index="1"]
+y_sort_enabled = true
 
 [node name="Waypoints" type="Node" parent="Enemies/Road 2" index="0"]
 
@@ -251,6 +253,7 @@ rotation = 0.750492
 new_direction = "R"
 
 [node name="Road 3" type="Node2D" parent="Enemies" index="2"]
+y_sort_enabled = true
 
 [node name="Waypoints" type="Node" parent="Enemies/Road 3" index="0"]
 
@@ -288,6 +291,7 @@ rotation = 0.785398
 new_direction = "R"
 
 [node name="Road 4" type="Node2D" parent="Enemies" index="3"]
+y_sort_enabled = true
 
 [node name="Waypoints" type="Node" parent="Enemies/Road 4" index="0"]
 
@@ -330,6 +334,7 @@ rotation = -0.733038
 new_direction = "L"
 
 [node name="Road 5" type="Node2D" parent="Enemies" index="4"]
+y_sort_enabled = true
 
 [node name="Waypoints" type="Node" parent="Enemies/Road 5" index="0"]
 
@@ -381,6 +386,12 @@ next_roadpoint = NodePath("../Waypoint 9")
 position = Vector2(528, 480)
 rotation = -0.733038
 new_direction = "L"
+
+[node name="Spells" parent="." index="2"]
+y_sort_enabled = true
+
+[node name="Map" parent="." index="3"]
+y_sort_enabled = true
 
 [node name="Forest 1" type="Node2D" parent="Map" index="0"]
 
@@ -1361,6 +1372,9 @@ texture = ExtResource("11_6wnts")
 [node name="Holy Oak" parent="Map" index="4"]
 position = Vector2(472, 416)
 
+[node name="Towers" parent="." index="4"]
+y_sort_enabled = true
+
 [node name="Tower 1" parent="Towers" index="0" instance=ExtResource("14_ru426")]
 position = Vector2(88, 632)
 unit_scene = ExtResource("15_s48e1")
@@ -1411,6 +1425,9 @@ unit_scene = ExtResource("17_d1wd8")
 menu_position = &"U"
 default_view_direction = &"R"
 glow = true
+
+[node name="ShellContainer" parent="." index="5"]
+y_sort_enabled = true
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="GFX" index="0"]
 color = Color(0.878431, 0.941176, 0.419608, 1)
