@@ -1,10 +1,10 @@
 extends NodeGUI
 
-@onready var master_h_slider: HSlider = $"PanelContainer/VBoxContainer/Master Volume/Master HSlider"
-@onready var music_h_slider: HSlider = $"PanelContainer/VBoxContainer/Music Volume/Music HSlider"
-@onready var sfx_h_slider: HSlider = $"PanelContainer/VBoxContainer/SFX Volume/SFX HSlider"
-@onready var scale_option_button: OptionButton = $"PanelContainer/VBoxContainer/GUI Scale/Scale OptionButton"
-@onready var reset_progress_button: Button = $"PanelContainer/VBoxContainer/Data Reset/Reset Progress Button"
+@onready var master_h_slider: HSlider = $"Panel/ScrollContainer/VBoxContainer/Master Volume/Master HSlider"
+@onready var music_h_slider: HSlider = $"Panel/ScrollContainer/VBoxContainer/Music Volume/Music HSlider"
+@onready var sfx_h_slider: HSlider = $"Panel/ScrollContainer/VBoxContainer/SFX Volume/SFX HSlider"
+@onready var scale_option_button: OptionButton = $"Panel/ScrollContainer/VBoxContainer/GUI Scale/Scale OptionButton"
+@onready var reset_progress_button: Button = $"Panel/ScrollContainer/VBoxContainer/Data Reset/Reset Progress Button"
 @onready var popup_menu: PopupMenu = scale_option_button.get_popup()
 
 # Previous settings (will be used, if player didn't apply settings)
