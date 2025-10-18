@@ -1430,8 +1430,8 @@ glow = true
 y_sort_enabled = true
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="GFX" index="0"]
-color = Color(0.878431, 0.941176, 0.419608, 1)
-energy = 0.8
+color = Color(0.8784314, 1, 0.41960785, 1)
+energy = 0.5
 blend_mode = 1
 
 [node name="Orb" parent="GFX" index="1" instance=ExtResource("17_ru426")]

@@ -1368,7 +1368,7 @@ glow = true
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="GFX" index="0"]
 process_mode = 3
 color = Color(0.878431, 0.941176, 0.419608, 1)
-energy = 0.6
+energy = 0.4
 blend_mode = 1
 
 [node name="Rain" parent="GFX" index="1" instance=ExtResource("17_35boa")]

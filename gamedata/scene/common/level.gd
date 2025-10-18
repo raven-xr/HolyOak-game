@@ -131,7 +131,7 @@ func defeat() -> void:
 func victory() -> void:
 	vignette.pulse = false
 	vignette.set_vignette_color(Color(0.251, 0.502, 0.0, 1.0), 4.0)
-	vignette.set_transparency(0.3, 4.0)
+	vignette.set_transparency(0.15, 4.0)
 	# Save
 	UserData.progress[technical_name]["is_completed"] = true
 	UserData.progress[technical_name]["stars"] = 3
