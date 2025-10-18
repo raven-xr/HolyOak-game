@@ -2,22 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqfm4pmqposiy"
-path="res://.godot/imported/oak.png-e9038327a91803f401098e86622e9522.ctex"
+uid="uid://ch3ur0m58a0hk"
+path="res://.godot/imported/rock.png-5c6a50cbe9bd4e07e031c1f426a37dd4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gfx/object/static/oak.png"
-dest_files=["res://.godot/imported/oak.png-e9038327a91803f401098e86622e9522.ctex"]
+source_file="res://gfx/object/static/decoration/rock.png"
+dest_files=["res://.godot/imported/rock.png-5c6a50cbe9bd4e07e031c1f426a37dd4.ctex"]
 
 [params]
 
 compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
@@ -25,6 +27,10 @@ mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
