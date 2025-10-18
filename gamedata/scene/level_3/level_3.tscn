@@ -1,9 +1,9 @@
 [gd_scene load_steps=34 format=4 uid="uid://jntda0nfq0ml"]
 
 [ext_resource type="PackedScene" uid="uid://bbsqvqymrojj5" path="res://gamedata/scene/common/level.tscn" id="1_6eesv"]
-[ext_resource type="Texture2D" uid="uid://ciyeb8o1ywukt" path="res://gfx/tilesets/grass.png" id="2_j5uvo"]
-[ext_resource type="Texture2D" uid="uid://b0e3u22u8240c" path="res://gfx/tilesets/decor_16x16.png" id="4_nubkq"]
-[ext_resource type="Texture2D" uid="uid://sasruh3frvel" path="res://gfx/tilesets/plains.png" id="4_yoaft"]
+[ext_resource type="Texture2D" uid="uid://ciyeb8o1ywukt" path="res://gfx/tileset/grass.png" id="2_j5uvo"]
+[ext_resource type="Texture2D" uid="uid://b0e3u22u8240c" path="res://gfx/tileset/decor_16x16.png" id="4_nubkq"]
+[ext_resource type="Texture2D" uid="uid://sasruh3frvel" path="res://gfx/tileset/plains.png" id="4_yoaft"]
 [ext_resource type="PackedScene" uid="uid://ccqwn6n7il2n2" path="res://gamedata/enemy/waypoint/waypoint.tscn" id="5_fqwq1"]
 [ext_resource type="Texture2D" uid="uid://dqfm4pmqposiy" path="res://gfx/object/static/oak.png" id="5_pd1fw"]
 [ext_resource type="Texture2D" uid="uid://cktva0111rdpr" path="res://gfx/object/static/table.png" id="6_mx3ml"]
