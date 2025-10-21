@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://cvwwyafne3ryg"]
+[gd_scene load_steps=62 format=4 uid="uid://cvwwyafne3ryg"]
 
 [ext_resource type="PackedScene" uid="uid://bbsqvqymrojj5" path="res://gamedata/scene/common/level.tscn" id="1_rbgy0"]
 [ext_resource type="Script" uid="uid://yp2vhfmqgtvy" path="res://gamedata/scene/level_1/level_1.gd" id="2_c08mv"]
@@ -18,6 +18,11 @@
 [ext_resource type="PackedScene" uid="uid://cenxr6q3w2dek" path="res://gamedata/unit/archer/archer.tscn" id="14_kietl"]
 [ext_resource type="Texture2D" uid="uid://fbgyur18dijb" path="res://gfx/object/static/decoration/sign.png" id="14_xpqj3"]
 [ext_resource type="Texture2D" uid="uid://cktva0111rdpr" path="res://gfx/object/static/decoration/table.png" id="15_vflmb"]
+[ext_resource type="Texture2D" uid="uid://c5dy0l4gnlmxh" path="res://gfx/object/static/pointer/pointer_2.png" id="16_84l8c"]
+[ext_resource type="Texture2D" uid="uid://d1r5dc6jn71fm" path="res://gfx/object/animated/flag/flag_2.png" id="16_m7b5k"]
+[ext_resource type="Texture2D" uid="uid://dl3vngkwb0x2c" path="res://gfx/object/static/pointer/pointer_3.png" id="17_x1rp6"]
+[ext_resource type="Texture2D" uid="uid://dgresbig7sojj" path="res://gfx/object/animated/flag/flag_5.png" id="18_o1gc0"]
+[ext_resource type="Texture2D" uid="uid://cpb1cs37tyys6" path="res://gfx/object/static/pointer/pointer_1.png" id="18_x1t5x"]
 [ext_resource type="Shader" uid="uid://csqlqc5tqnnad" path="res://gamedata/FX/vignette/vignette.gdshader" id="20_vflmb"]
 [ext_resource type="PackedScene" uid="uid://brxpkrih41p8f" path="res://gamedata/FX/orb/orb.tscn" id="20_xpqj3"]
 [ext_resource type="AudioStream" uid="uid://dx2gq0qwtk4a4" path="res://audio/music/alexander_nakarada-leaving_for_valhalla.mp3" id="22_iqnet"]
@@ -233,6 +238,21 @@ fill_to = Vector2(0, 0)
 resource_local_to_scene = true
 polygon = PackedVector2Array(23, -54, 23, 64, -23, 64, -23, -54)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_84l8c"]
+atlas = ExtResource("16_m7b5k")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u6xlo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_84l8c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="Curve" id="Curve_f23ek"]
 resource_local_to_scene = true
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.113402, 0.926966), 0.0, 0.0, 0, 0, Vector2(0.195286, 0.243151), 0.0, 0.0, 0, 0, Vector2(0.289562, 0.866438), 0.0, 0.0, 0, 0, Vector2(0.346801, 0.252055), 0.0, 0.0, 0, 0, Vector2(0.484536, 1), 0.0, 0.0, 0, 0, Vector2(0.521886, 0.260959), 0.0, 0.0, 0, 0, Vector2(0.639731, 0.902055), 0.0, 0.0, 0, 0, Vector2(0.693603, 0.269863), 0.0, 0.0, 0, 0, Vector2(0.786942, 1), 0.0, 0.0, 0, 0, Vector2(0.828179, 0.507023), 0.0, 0.0, 0, 0, Vector2(0.927835, 0.625702), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -242,23 +262,23 @@ point_count = 13
 resource_local_to_scene = true
 curve = SubResource("Curve_f23ek")
 
-[sub_resource type="Curve" id="Curve_iqnet"]
+[sub_resource type="Curve" id="Curve_h1f5v"]
 resource_local_to_scene = true
 _data = [Vector2(0, 0.863062), 0.0, 0.0, 0, 0, Vector2(0.498282, 0.707865), 0.0, 0.0, 0, 0, Vector2(1, 0.260534), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="Curve" id="Curve_84l8c"]
+[sub_resource type="Curve" id="Curve_7bbng"]
 resource_local_to_scene = true
 _limits = [-1.0, 1.0, 0.0, 1.0]
 _data = [Vector2(0, 0.0231742), 0.0, 0.0, 0, 0, Vector2(0.501718, -0.0407302), 0.0, 0.0, 0, 0, Vector2(1, 0.634831), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_dlkue"]
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_vkedb"]
 resource_local_to_scene = true
-curve_x = SubResource("Curve_iqnet")
-curve_y = SubResource("Curve_84l8c")
+curve_x = SubResource("Curve_h1f5v")
+curve_y = SubResource("Curve_7bbng")
 
-[sub_resource type="Curve" id="Curve_x1t5x"]
+[sub_resource type="Curve" id="Curve_irttu"]
 resource_local_to_scene = true
 _limits = [-1.0, 1.0, 0.0, 1.0]
 _data = [Vector2(0, 0.470506), 0.0, 0.0, 0, 0, Vector2(0.189003, 0.908708), 0.0, 0.0, 0, 0, Vector2(0.298969, 0.488764), 0.0, 0.0, 0, 0, Vector2(0.522337, 1), 0.0, 0.0, 0, 0, Vector2(0.725086, 0.543539), 0.0, 0.0, 0, 0, Vector2(1, 0.360955), 0.0, 0.0, 0, 0]
@@ -266,7 +286,7 @@ point_count = 6
 
 [sub_resource type="CurveTexture" id="CurveTexture_6bdug"]
 resource_local_to_scene = true
-curve = SubResource("Curve_x1t5x")
+curve = SubResource("Curve_irttu")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_84l8c"]
 resource_local_to_scene = true
@@ -281,7 +301,7 @@ angular_velocity_min = -0.500016
 angular_velocity_max = 0.499984
 directional_velocity_min = 9.99998
 directional_velocity_max = 20.0
-directional_velocity_curve = SubResource("CurveXYZTexture_dlkue")
+directional_velocity_curve = SubResource("CurveXYZTexture_vkedb")
 orbit_velocity_min = 9.49949e-08
 orbit_velocity_max = 0.0100001
 gravity = Vector3(0, 0, 0)
@@ -774,7 +794,7 @@ position = Vector2(1015, 128)
 texture = ExtResource("13_rlqej")
 
 [node name="Sign 1" type="Sprite2D" parent="Map/Forest 2" index="25"]
-position = Vector2(976, 576)
+position = Vector2(1099, 529)
 texture = ExtResource("14_xpqj3")
 
 [node name="Table 1" type="Sprite2D" parent="Map/Forest 2" index="26"]
@@ -812,6 +832,21 @@ texture = ExtResource("10_ew2ns")
 position = Vector2(1290, 590)
 scale = Vector2(2, 2)
 texture = ExtResource("10_ew2ns")
+
+[node name="Pointer 1" type="Sprite2D" parent="Map/Forest 2" index="34"]
+position = Vector2(975, 552)
+texture = ExtResource("16_84l8c")
+
+[node name="Pointer 2" type="Sprite2D" parent="Map/Forest 2" index="35"]
+position = Vector2(879, 277)
+texture = ExtResource("17_x1rp6")
+
+[node name="Flag" type="Sprite2D" parent="Map/Forest 2" index="36"]
+position = Vector2(1001, 541)
+texture = ExtResource("18_o1gc0")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(0, 0, 31, 64)
 
 [node name="Forest 3" type="Node2D" parent="Map" index="2"]
 
@@ -883,6 +918,15 @@ texture = ExtResource("11_w2twk")
 position = Vector2(816, 504)
 texture = ExtResource("11_w2twk")
 
+[node name="Pointer 1" type="Sprite2D" parent="Map/Forest 3" index="17"]
+position = Vector2(888, 554)
+texture = ExtResource("16_84l8c")
+flip_h = true
+
+[node name="Pointer 2" type="Sprite2D" parent="Map/Forest 3" index="18"]
+position = Vector2(804, 327)
+texture = ExtResource("18_x1t5x")
+
 [node name="Bridge" type="Node2D" parent="Map" index="3"]
 
 [node name="PointLight2D 1" type="PointLight2D" parent="Map/Bridge" index="0"]
@@ -906,6 +950,39 @@ texture_scale = 2.0
 [node name="LightOccluder2D 1" type="LightOccluder2D" parent="Map/Bridge" index="2"]
 position = Vector2(936, 656)
 occluder = SubResource("OccluderPolygon2D_dt85v")
+
+[node name="Flag 1" type="AnimatedSprite2D" parent="Map/Bridge" index="3"]
+position = Vector2(956, 591)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_u6xlo")
+
+[node name="Flag 2" type="AnimatedSprite2D" parent="Map/Bridge" index="4"]
+position = Vector2(916, 591)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_u6xlo")
+flip_h = true
+
+[node name="Flag 3" type="AnimatedSprite2D" parent="Map/Bridge" index="5"]
+position = Vector2(956, 641)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_u6xlo")
+
+[node name="Flag 4" type="AnimatedSprite2D" parent="Map/Bridge" index="6"]
+position = Vector2(916, 641)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_u6xlo")
+flip_h = true
+
+[node name="Flag 5" type="AnimatedSprite2D" parent="Map/Bridge" index="7"]
+position = Vector2(956, 691)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_u6xlo")
+
+[node name="Flag 6" type="AnimatedSprite2D" parent="Map/Bridge" index="8"]
+position = Vector2(916, 691)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_u6xlo")
+flip_h = true
 
 [node name="Holy Oak" parent="Map" index="4"]
 position = Vector2(72, 376)
