@@ -662,6 +662,7 @@ next_roadpoint = NodePath("../Waypoint 4")
 position = Vector2(148, 384)
 
 [node name="Field 1" type="Node2D" parent="Map" index="0"]
+y_sort_enabled = true
 
 [node name="Stump 1" type="Sprite2D" parent="Map/Field 1" index="0"]
 position = Vector2(364, 421)
@@ -879,43 +880,46 @@ texture = ExtResource("14_1p0d8")
 [node name="Flickering Light" parent="Map/Field 1/Lamp" index="0" instance=ExtResource("15_qxe20")]
 position = Vector2(6, -5.333354)
 
-[node name="Log 1" type="Sprite2D" parent="Map/Field 1" index="53"]
+[node name="Logs" type="Node2D" parent="Map/Field 1" index="53"]
 position = Vector2(365, 497)
+
+[node name="Log 1" type="Sprite2D" parent="Map/Field 1/Logs" index="0"]
 texture = ExtResource("15_40obn")
 
-[node name="Log 2" type="Sprite2D" parent="Map/Field 1" index="54"]
-position = Vector2(357, 499)
+[node name="Log 2" type="Sprite2D" parent="Map/Field 1/Logs" index="1"]
+position = Vector2(-8, 2)
 texture = ExtResource("15_40obn")
 
-[node name="Log 3" type="Sprite2D" parent="Map/Field 1" index="55"]
-position = Vector2(349, 503)
+[node name="Log 3" type="Sprite2D" parent="Map/Field 1/Logs" index="2"]
+position = Vector2(-16, 6)
 texture = ExtResource("15_40obn")
 
-[node name="Log 4" type="Sprite2D" parent="Map/Field 1" index="56"]
-position = Vector2(340, 507)
+[node name="Log 4" type="Sprite2D" parent="Map/Field 1/Logs" index="3"]
+position = Vector2(-25, 10)
 texture = ExtResource("15_40obn")
 
-[node name="Log 5" type="Sprite2D" parent="Map/Field 1" index="57"]
-position = Vector2(362, 492)
+[node name="Log 5" type="Sprite2D" parent="Map/Field 1/Logs" index="4"]
+position = Vector2(-3, -5)
 texture = ExtResource("15_40obn")
 
-[node name="Log 6" type="Sprite2D" parent="Map/Field 1" index="58"]
-position = Vector2(351, 494)
+[node name="Log 6" type="Sprite2D" parent="Map/Field 1/Logs" index="5"]
+position = Vector2(-14, -3)
 texture = ExtResource("15_40obn")
 
-[node name="Log 7" type="Sprite2D" parent="Map/Field 1" index="59"]
-position = Vector2(343, 498)
+[node name="Log 7" type="Sprite2D" parent="Map/Field 1/Logs" index="6"]
+position = Vector2(-22, 1)
 texture = ExtResource("15_40obn")
 
-[node name="Log 8" type="Sprite2D" parent="Map/Field 1" index="60"]
-position = Vector2(356, 487)
+[node name="Log 8" type="Sprite2D" parent="Map/Field 1/Logs" index="7"]
+position = Vector2(-9, -10)
 texture = ExtResource("15_40obn")
 
-[node name="Log 9" type="Sprite2D" parent="Map/Field 1" index="61"]
-position = Vector2(347, 489)
+[node name="Log 9" type="Sprite2D" parent="Map/Field 1/Logs" index="8"]
+position = Vector2(-18, -8)
 texture = ExtResource("15_40obn")
 
 [node name="Hill 1" type="Node2D" parent="Map" index="1"]
+y_sort_enabled = true
 
 [node name="Stump 1" type="Sprite2D" parent="Map/Hill 1" index="0"]
 position = Vector2(720, 400)
@@ -1059,49 +1063,51 @@ scale = Vector2(1.525, 1.525)
 texture = ExtResource("17_ijtuk")
 flip_h = true
 
-[node name="Firewood 1" type="Sprite2D" parent="Map/Hill 1" index="32"]
+[node name="Firewood" type="Node2D" parent="Map/Hill 1" index="32"]
+
+[node name="Firewood 1" type="Sprite2D" parent="Map/Hill 1/Firewood" index="0"]
 position = Vector2(1177.4375, 477.625)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("19_ow5tc")
 flip_h = true
 
-[node name="Firewood 2" type="Sprite2D" parent="Map/Hill 1" index="33"]
+[node name="Firewood 2" type="Sprite2D" parent="Map/Hill 1/Firewood" index="1"]
 position = Vector2(1175.4375, 481.625)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("19_ow5tc")
 flip_h = true
 
-[node name="Firewood 3" type="Sprite2D" parent="Map/Hill 1" index="34"]
+[node name="Firewood 3" type="Sprite2D" parent="Map/Hill 1/Firewood" index="2"]
 position = Vector2(1168.4375, 482.625)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("19_ow5tc")
 flip_h = true
 
-[node name="Firewood 4" type="Sprite2D" parent="Map/Hill 1" index="35"]
+[node name="Firewood 4" type="Sprite2D" parent="Map/Hill 1/Firewood" index="3"]
 position = Vector2(1168.4375, 475.62503)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("19_ow5tc")
 flip_h = true
 
-[node name="Firewood 5" type="Sprite2D" parent="Map/Hill 1" index="36"]
+[node name="Firewood 5" type="Sprite2D" parent="Map/Hill 1/Firewood" index="4"]
 position = Vector2(1168.4375, 479.62503)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("19_ow5tc")
 flip_h = true
 
-[node name="Firewood 6" type="Sprite2D" parent="Map/Hill 1" index="37"]
+[node name="Firewood 6" type="Sprite2D" parent="Map/Hill 1/Firewood" index="5"]
 position = Vector2(1172.4375, 475.625)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("19_ow5tc")
 flip_h = true
 
-[node name="Firewood 7" type="Sprite2D" parent="Map/Hill 1" index="38"]
+[node name="Firewood 7" type="Sprite2D" parent="Map/Hill 1/Firewood" index="6"]
 position = Vector2(1166.4375, 482.625)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("19_ow5tc")
 flip_h = true
 
-[node name="Campfire" type="Sprite2D" parent="Map/Hill 1" index="39"]
+[node name="Campfire" type="Sprite2D" parent="Map/Hill 1" index="33"]
 position = Vector2(1157, 508)
 scale = Vector2(1.33, 1.33)
 texture = ExtResource("18_fabom")
@@ -1118,173 +1124,174 @@ wait_time = 15.0
 one_shot = true
 autostart = true
 
-[node name="Oak 13" type="Sprite2D" parent="Map/Hill 1" index="40"]
+[node name="Oak 13" type="Sprite2D" parent="Map/Hill 1" index="34"]
 position = Vector2(940, 390)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 14" type="Sprite2D" parent="Map/Hill 1" index="41"]
+[node name="Oak 14" type="Sprite2D" parent="Map/Hill 1" index="35"]
 position = Vector2(880, 400)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 15" type="Sprite2D" parent="Map/Hill 1" index="42"]
+[node name="Oak 15" type="Sprite2D" parent="Map/Hill 1" index="36"]
 position = Vector2(872, 456)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 16" type="Sprite2D" parent="Map/Hill 1" index="43"]
+[node name="Oak 16" type="Sprite2D" parent="Map/Hill 1" index="37"]
 position = Vector2(896, 496)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 18" type="Sprite2D" parent="Map/Hill 1" index="44"]
+[node name="Oak 18" type="Sprite2D" parent="Map/Hill 1" index="38"]
 position = Vector2(1272, 440)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 20" type="Sprite2D" parent="Map/Hill 1" index="45"]
+[node name="Oak 20" type="Sprite2D" parent="Map/Hill 1" index="39"]
 position = Vector2(1096, 416)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 22" type="Sprite2D" parent="Map/Hill 1" index="46"]
+[node name="Oak 22" type="Sprite2D" parent="Map/Hill 1" index="40"]
 position = Vector2(976, 472)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 23" type="Sprite2D" parent="Map/Hill 1" index="47"]
+[node name="Oak 23" type="Sprite2D" parent="Map/Hill 1" index="41"]
 position = Vector2(1048, 488)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 25" type="Sprite2D" parent="Map/Hill 1" index="48"]
+[node name="Oak 25" type="Sprite2D" parent="Map/Hill 1" index="42"]
 position = Vector2(1088, 552)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 26" type="Sprite2D" parent="Map/Hill 1" index="49"]
+[node name="Oak 26" type="Sprite2D" parent="Map/Hill 1" index="43"]
 position = Vector2(984, 544)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 27" type="Sprite2D" parent="Map/Hill 1" index="50"]
+[node name="Oak 27" type="Sprite2D" parent="Map/Hill 1" index="44"]
 position = Vector2(912, 544)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 28" type="Sprite2D" parent="Map/Hill 1" index="51"]
+[node name="Oak 28" type="Sprite2D" parent="Map/Hill 1" index="45"]
 position = Vector2(888, 608)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 29" type="Sprite2D" parent="Map/Hill 1" index="52"]
+[node name="Oak 29" type="Sprite2D" parent="Map/Hill 1" index="46"]
 position = Vector2(888, 672)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 30" type="Sprite2D" parent="Map/Hill 1" index="53"]
+[node name="Oak 30" type="Sprite2D" parent="Map/Hill 1" index="47"]
 position = Vector2(840, 736)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 31" type="Sprite2D" parent="Map/Hill 1" index="54"]
+[node name="Oak 31" type="Sprite2D" parent="Map/Hill 1" index="48"]
 position = Vector2(968, 608)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 32" type="Sprite2D" parent="Map/Hill 1" index="55"]
+[node name="Oak 32" type="Sprite2D" parent="Map/Hill 1" index="49"]
 position = Vector2(1032, 624)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 33" type="Sprite2D" parent="Map/Hill 1" index="56"]
+[node name="Oak 33" type="Sprite2D" parent="Map/Hill 1" index="50"]
 position = Vector2(960, 680)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Rock 1" type="Sprite2D" parent="Map/Hill 1" index="57"]
+[node name="Rock 1" type="Sprite2D" parent="Map/Hill 1" index="51"]
 position = Vector2(688, 368)
 texture = ExtResource("13_y2u35")
 
-[node name="Rock 2" type="Sprite2D" parent="Map/Hill 1" index="58"]
+[node name="Rock 2" type="Sprite2D" parent="Map/Hill 1" index="52"]
 position = Vector2(752, 472)
 texture = ExtResource("13_y2u35")
 
-[node name="Rock 3" type="Sprite2D" parent="Map/Hill 1" index="59"]
+[node name="Rock 3" type="Sprite2D" parent="Map/Hill 1" index="53"]
 position = Vector2(776, 424)
 texture = ExtResource("13_y2u35")
 
-[node name="Rock 4" type="Sprite2D" parent="Map/Hill 1" index="60"]
+[node name="Rock 4" type="Sprite2D" parent="Map/Hill 1" index="54"]
 position = Vector2(784, 584)
 texture = ExtResource("13_y2u35")
 
-[node name="Rock 5" type="Sprite2D" parent="Map/Hill 1" index="61"]
+[node name="Rock 5" type="Sprite2D" parent="Map/Hill 1" index="55"]
 position = Vector2(912, 440)
 texture = ExtResource("13_y2u35")
 
-[node name="Rock 6" type="Sprite2D" parent="Map/Hill 1" index="62"]
+[node name="Rock 6" type="Sprite2D" parent="Map/Hill 1" index="56"]
 position = Vector2(728, 584)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("13_y2u35")
 
-[node name="Rock 7" type="Sprite2D" parent="Map/Hill 1" index="63"]
+[node name="Rock 7" type="Sprite2D" parent="Map/Hill 1" index="57"]
 position = Vector2(672, 728)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("13_y2u35")
 
-[node name="Rock 8" type="Sprite2D" parent="Map/Hill 1" index="64"]
+[node name="Rock 8" type="Sprite2D" parent="Map/Hill 1" index="58"]
 position = Vector2(800, 600)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("13_y2u35")
 
-[node name="Rock 9" type="Sprite2D" parent="Map/Hill 1" index="65"]
+[node name="Rock 9" type="Sprite2D" parent="Map/Hill 1" index="59"]
 position = Vector2(804, 575)
 scale = Vector2(2, 2)
 texture = ExtResource("13_y2u35")
 
-[node name="Rock 19" type="Sprite2D" parent="Map/Hill 1" index="66"]
+[node name="Rock 19" type="Sprite2D" parent="Map/Hill 1" index="60"]
 position = Vector2(1090, 272)
 scale = Vector2(2, 2)
 texture = ExtResource("13_y2u35")
 
-[node name="Rock 20" type="Sprite2D" parent="Map/Hill 1" index="67"]
+[node name="Rock 20" type="Sprite2D" parent="Map/Hill 1" index="61"]
 position = Vector2(1121, 268)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("13_y2u35")
 
-[node name="Rock 22" type="Sprite2D" parent="Map/Hill 1" index="68"]
+[node name="Rock 22" type="Sprite2D" parent="Map/Hill 1" index="62"]
 position = Vector2(1069, 259)
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("13_y2u35")
 
-[node name="Rock 24" type="Sprite2D" parent="Map/Hill 1" index="69"]
+[node name="Rock 24" type="Sprite2D" parent="Map/Hill 1" index="63"]
 position = Vector2(897, 304)
 texture = ExtResource("13_y2u35")
 
-[node name="Rock 25" type="Sprite2D" parent="Map/Hill 1" index="70"]
+[node name="Rock 25" type="Sprite2D" parent="Map/Hill 1" index="64"]
 position = Vector2(1170, 300)
 texture = ExtResource("13_y2u35")
 
-[node name="Rock 26" type="Sprite2D" parent="Map/Hill 1" index="71"]
+[node name="Rock 26" type="Sprite2D" parent="Map/Hill 1" index="65"]
 position = Vector2(1081, 254)
 scale = Vector2(0.66, 0.66)
 texture = ExtResource("13_y2u35")
 
-[node name="Rock 27" type="Sprite2D" parent="Map/Hill 1" index="72"]
+[node name="Rock 27" type="Sprite2D" parent="Map/Hill 1" index="66"]
 position = Vector2(1094, 251)
 scale = Vector2(0.77, 0.77)
 texture = ExtResource("13_y2u35")
 
-[node name="Stump" type="Sprite2D" parent="Map/Hill 1" index="73"]
+[node name="Stump" type="Sprite2D" parent="Map/Hill 1" index="67"]
 position = Vector2(1175, 446)
 texture = ExtResource("8_k1w2h")
 
-[node name="Log" type="Sprite2D" parent="Map/Hill 1" index="74"]
+[node name="Log" type="Sprite2D" parent="Map/Hill 1" index="68"]
 position = Vector2(1182, 526)
 texture = ExtResource("21_ijtuk")
 
 [node name="Forest 1" type="Node2D" parent="Map" index="2"]
+y_sort_enabled = true
 
 [node name="Stump 1" type="Sprite2D" parent="Map/Forest 1" index="0"]
 position = Vector2(279, 270)
