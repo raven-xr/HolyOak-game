@@ -413,7 +413,7 @@ texture = ExtResource("6_e7mfh")
 sources/0 = SubResource("TileSetAtlasSource_dwpjd")
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_1p0d8"]
-polygon = PackedVector2Array(-3.2786865, 19.67215, -0.6557617, -1.3114624, 8.524597, 15.737701, 0, 0.6557312)
+polygon = PackedVector2Array(-5.2459106, 19.67215, -1.9672241, -4.590149, 9.180298, 15.08197, -1.3114624, -1.3114624)
 
 [sub_resource type="Curve" id="Curve_40obn"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.7169433, 0.0, 0, 0]
@@ -1068,7 +1068,6 @@ flip_h = true
 
 [node name="Flickering Light" parent="Map/Hill 1/Camp" index="0" instance=ExtResource("15_qxe20")]
 position = Vector2(17.049183, 5.90162)
-energy = 0.4
 shadow_enabled = true
 shadow_filter = 2
 shadow_filter_smooth = 9.8
