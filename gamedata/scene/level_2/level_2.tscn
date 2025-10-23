@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=4 uid="uid://dtaq5avc8r7f"]
+[gd_scene load_steps=78 format=4 uid="uid://dtaq5avc8r7f"]
 
 [ext_resource type="PackedScene" uid="uid://bbsqvqymrojj5" path="res://gamedata/scene/common/level.tscn" id="1_a26ah"]
 [ext_resource type="Script" uid="uid://b2308ywkybvi2" path="res://gamedata/scene/level_2/level_2.gd" id="2_bljxm"]
@@ -411,6 +411,9 @@ texture = ExtResource("6_e7mfh")
 
 [sub_resource type="TileSet" id="TileSet_74scv"]
 sources/0 = SubResource("TileSetAtlasSource_dwpjd")
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_1p0d8"]
+polygon = PackedVector2Array(-3.2786865, 19.67215, -0.6557617, -1.3114624, 8.524597, 15.737701, 0, 0.6557312)
 
 [sub_resource type="Curve" id="Curve_40obn"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.7169433, 0.0, 0, 0]
@@ -1062,6 +1065,19 @@ position = Vector2(1087, 484.00003)
 scale = Vector2(1.525, 1.525)
 texture = ExtResource("17_ijtuk")
 flip_h = true
+
+[node name="Flickering Light" parent="Map/Hill 1/Camp" index="0" instance=ExtResource("15_qxe20")]
+position = Vector2(17.049183, 5.90162)
+energy = 0.4
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 9.8
+texture_scale = 0.5
+target_texture_scale = 0.5
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Map/Hill 1/Camp" index="1"]
+position = Vector2(15.737706, -11.8033)
+occluder = SubResource("OccluderPolygon2D_1p0d8")
 
 [node name="Firewood" type="Node2D" parent="Map/Hill 1" index="32"]
 
