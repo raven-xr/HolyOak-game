@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://jntda0nfq0ml"]
+[gd_scene load_steps=57 format=4 uid="uid://jntda0nfq0ml"]
 
 [ext_resource type="PackedScene" uid="uid://bbsqvqymrojj5" path="res://gamedata/scene/common/level.tscn" id="1_6eesv"]
 [ext_resource type="Texture2D" uid="uid://ciyeb8o1ywukt" path="res://gfx/tileset/grass.png" id="2_j5uvo"]
@@ -25,6 +25,8 @@
 [ext_resource type="PackedScene" uid="uid://brxpkrih41p8f" path="res://gamedata/FX/orb/orb.tscn" id="17_ru426"]
 [ext_resource type="AudioStream" uid="uid://b11tpu11bsbb8" path="res://audio/music/alexander_nakarada-borgar_2023.mp3" id="18_2nx52"]
 [ext_resource type="Texture2D" uid="uid://b2xw6hw0q2cpu" path="res://gfx/object/animated/flag/flag_1.png" id="18_5wspy"]
+[ext_resource type="Texture2D" uid="uid://sb20gghgnpn2" path="res://gfx/object/static/vegetation/log_4.png" id="19_5wspy"]
+[ext_resource type="Texture2D" uid="uid://qek8bqinjylq" path="res://gfx/object/static/vegetation/log_3.png" id="20_mqosu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x7p3s"]
 texture = ExtResource("2_j5uvo")
@@ -1410,11 +1412,105 @@ texture = ExtResource("11_6wnts")
 position = Vector2(1044, 658)
 texture = ExtResource("17_73y64")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Map/Forest 3" index="72"]
+[node name="Flag" type="AnimatedSprite2D" parent="Map/Forest 3" index="72"]
 position = Vector2(1072, 615)
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_nxwfe")
 autoplay = "default"
+
+[node name="Logs" type="Node2D" parent="Map/Forest 3" index="73"]
+position = Vector2(1072, 615)
+scale = Vector2(0.7, 0.7)
+
+[node name="Log 1" type="Sprite2D" parent="Map/Forest 3/Logs" index="0"]
+position = Vector2(81.428566, 71.42859)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("19_5wspy")
+
+[node name="Log 2" type="Sprite2D" parent="Map/Forest 3/Logs" index="1"]
+position = Vector2(68.57143, 70.000015)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("19_5wspy")
+
+[node name="Log 3" type="Sprite2D" parent="Map/Forest 3/Logs" index="2"]
+position = Vector2(57.142857, 68.57144)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("19_5wspy")
+
+[node name="Log 4" type="Sprite2D" parent="Map/Forest 3/Logs" index="3"]
+position = Vector2(44.285713, 68.57144)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("19_5wspy")
+
+[node name="Log 5" type="Sprite2D" parent="Map/Forest 3/Logs" index="4"]
+position = Vector2(74.28571, 65.7143)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("19_5wspy")
+
+[node name="Log 6" type="Sprite2D" parent="Map/Forest 3/Logs" index="5"]
+position = Vector2(64.28571, 61.42859)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("19_5wspy")
+
+[node name="Log 7" type="Sprite2D" parent="Map/Forest 3/Logs" index="6"]
+position = Vector2(54.285713, 61.42859)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("19_5wspy")
+
+[node name="Log 8" type="Sprite2D" parent="Map/Forest 3/Logs" index="7"]
+position = Vector2(54.285713, 61.42859)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("19_5wspy")
+
+[node name="Log 9" type="Sprite2D" parent="Map/Forest 3/Logs" index="8"]
+position = Vector2(-14.285707, 65.7143)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("19_5wspy")
+
+[node name="Firewood" type="Node2D" parent="Map/Forest 3" index="74"]
+position = Vector2(1072, 615)
+scale = Vector2(0.7, 0.7)
+
+[node name="Firewood 1" type="Sprite2D" parent="Map/Forest 3/Firewood" index="0"]
+position = Vector2(-195.7143, 95.714294)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("20_mqosu")
+
+[node name="Firewood 2" type="Sprite2D" parent="Map/Forest 3/Firewood" index="1"]
+position = Vector2(-194.28572, 102.857155)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("20_mqosu")
+
+[node name="Firewood 3" type="Sprite2D" parent="Map/Forest 3/Firewood" index="2"]
+position = Vector2(-192.85715, 110.000015)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("20_mqosu")
+
+[node name="Firewood 4" type="Sprite2D" parent="Map/Forest 3/Firewood" index="3"]
+position = Vector2(-192.85715, 97.14287)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("20_mqosu")
+
+[node name="Firewood 5" type="Sprite2D" parent="Map/Forest 3/Firewood" index="4"]
+position = Vector2(-191.42857, 102.857155)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("20_mqosu")
+
+[node name="Stump 5" type="Sprite2D" parent="Map/Forest 3" index="75"]
+position = Vector2(1106, 700)
+texture = ExtResource("11_6wnts")
+
+[node name="Stump 6" type="Sprite2D" parent="Map/Forest 3" index="76"]
+position = Vector2(986, 579)
+texture = ExtResource("11_6wnts")
+
+[node name="Stump 7" type="Sprite2D" parent="Map/Forest 3" index="77"]
+position = Vector2(894, 551)
+texture = ExtResource("11_6wnts")
+
+[node name="Stump 8" type="Sprite2D" parent="Map/Forest 3" index="78"]
+position = Vector2(821, 677)
+texture = ExtResource("11_6wnts")
 
 [node name="Forest 4" type="Node2D" parent="Map" index="3"]
 y_sort_enabled = true
