@@ -1537,7 +1537,6 @@ texture = ExtResource("19_ow5tc")
 position = Vector2(688, 16)
 sprite_frames = SubResource("SpriteFrames_ijtuk")
 autoplay = "default"
-frame_progress = 0.20417665
 
 [node name="Pointer" type="Sprite2D" parent="Map/Forest 1" index="56"]
 position = Vector2(1103, 119)
