@@ -1568,11 +1568,7 @@ speed_scale = 1.25
 visibility_rect = Rect2(-450, -100, 900, 200)
 process_material = SubResource("ParticleProcessMaterial_ru426")
 
-[node name="GUI" parent="." index="8"]
-visible = false
-
 [node name="Vignette" parent="PostFX" index="0"]
-visible = false
 material = SubResource("ShaderMaterial_vgno3")
 
 [node name="Theme" parent="." index="11"]
