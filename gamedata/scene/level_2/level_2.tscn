@@ -24,7 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://bqlrtfn1vq6ax" path="res://gfx/object/static/camp/camp_1.png" id="17_ijtuk"]
 [ext_resource type="Shader" uid="uid://csqlqc5tqnnad" path="res://gamedata/FX/vignette/vignette.gdshader" id="17_j8r11"]
 [ext_resource type="Texture2D" uid="uid://b33uyrqluyrjb" path="res://gfx/object/static/camp/campfire_1.png" id="18_fabom"]
-[ext_resource type="AudioStream" uid="uid://djw1ngxh6a3ko" path="res://audio/sfx/rain.mp3" id="18_o63ri"]
+[ext_resource type="AudioStream" uid="uid://djw1ngxh6a3ko" path="res://audio/sfx/ambience/level_2_ambience.mp3" id="18_o63ri"]
 [ext_resource type="Texture2D" uid="uid://c71ki6ussap3h" path="res://gfx/object/static/lamp/lamp_4.png" id="18_qb6s2"]
 [ext_resource type="Texture2D" uid="uid://qek8bqinjylq" path="res://gfx/object/static/vegetation/log_3.png" id="19_ow5tc"]
 [ext_resource type="Texture2D" uid="uid://dtl6ib3espqqv" path="res://gfx/object/static/lamp/lamp_5.png" id="19_rlui4"]
@@ -1611,13 +1611,13 @@ amount = 3
 visibility_rect = Rect2(-200, -175, 400, 350)
 process_material = SubResource("ParticleProcessMaterial_qb6s2")
 
-[node name="RainAmbient" type="AudioStreamPlayer" parent="SFX" index="0"]
+[node name="Ambience" type="AudioStreamPlayer" parent="SFX" index="0"]
 process_mode = 3
 stream = ExtResource("18_o63ri")
-volume_db = -20.0
+volume_db = -10.0
 pitch_scale = 0.8
 autoplay = true
-bus = &"SFX"
+bus = &"Music"
 parameters/looping = true
 
 [node name="Vignette" parent="PostFX" index="0"]

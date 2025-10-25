@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=4 uid="uid://cvwwyafne3ryg"]
+[gd_scene load_steps=63 format=4 uid="uid://cvwwyafne3ryg"]
 
 [ext_resource type="PackedScene" uid="uid://bbsqvqymrojj5" path="res://gamedata/scene/common/level.tscn" id="1_rbgy0"]
 [ext_resource type="Script" uid="uid://yp2vhfmqgtvy" path="res://gamedata/scene/level_1/level_1.gd" id="2_c08mv"]
@@ -26,6 +26,7 @@
 [ext_resource type="Shader" uid="uid://csqlqc5tqnnad" path="res://gamedata/FX/vignette/vignette.gdshader" id="20_vflmb"]
 [ext_resource type="PackedScene" uid="uid://brxpkrih41p8f" path="res://gamedata/FX/orb/orb.tscn" id="20_xpqj3"]
 [ext_resource type="AudioStream" uid="uid://dx2gq0qwtk4a4" path="res://audio/music/alexander_nakarada-leaving_for_valhalla.mp3" id="22_iqnet"]
+[ext_resource type="AudioStream" uid="uid://dx51xiq4em3ch" path="res://audio/sfx/ambience/level_1_ambience.mp3" id="25_o1gc0"]
 [ext_resource type="PackedScene" uid="uid://7e2pd0k28f4x" path="res://gamedata/gui/hint/hint.tscn" id="27_x1t5x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lj6gp"]
@@ -262,23 +263,23 @@ point_count = 13
 resource_local_to_scene = true
 curve = SubResource("Curve_f23ek")
 
-[sub_resource type="Curve" id="Curve_x1t5x"]
+[sub_resource type="Curve" id="Curve_7f11a"]
 resource_local_to_scene = true
 _data = [Vector2(0, 0.863062), 0.0, 0.0, 0, 0, Vector2(0.498282, 0.707865), 0.0, 0.0, 0, 0, Vector2(1, 0.260534), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="Curve" id="Curve_o1gc0"]
+[sub_resource type="Curve" id="Curve_u6xlo"]
 resource_local_to_scene = true
 _limits = [-1.0, 1.0, 0.0, 1.0]
 _data = [Vector2(0, 0.0231742), 0.0, 0.0, 0, 0, Vector2(0.501718, -0.0407302), 0.0, 0.0, 0, 0, Vector2(1, 0.634831), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_7f11a"]
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_h1f5v"]
 resource_local_to_scene = true
-curve_x = SubResource("Curve_x1t5x")
-curve_y = SubResource("Curve_o1gc0")
+curve_x = SubResource("Curve_7f11a")
+curve_y = SubResource("Curve_u6xlo")
 
-[sub_resource type="Curve" id="Curve_u6xlo"]
+[sub_resource type="Curve" id="Curve_7bbng"]
 resource_local_to_scene = true
 _limits = [-1.0, 1.0, 0.0, 1.0]
 _data = [Vector2(0, 0.470506), 0.0, 0.0, 0, 0, Vector2(0.189003, 0.908708), 0.0, 0.0, 0, 0, Vector2(0.298969, 0.488764), 0.0, 0.0, 0, 0, Vector2(0.522337, 1), 0.0, 0.0, 0, 0, Vector2(0.725086, 0.543539), 0.0, 0.0, 0, 0, Vector2(1, 0.360955), 0.0, 0.0, 0, 0]
@@ -286,7 +287,7 @@ point_count = 6
 
 [sub_resource type="CurveTexture" id="CurveTexture_6bdug"]
 resource_local_to_scene = true
-curve = SubResource("Curve_u6xlo")
+curve = SubResource("Curve_7bbng")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_84l8c"]
 resource_local_to_scene = true
@@ -301,7 +302,7 @@ angular_velocity_min = -0.500016
 angular_velocity_max = 0.499984
 directional_velocity_min = 9.99998
 directional_velocity_max = 20.0
-directional_velocity_curve = SubResource("CurveXYZTexture_7f11a")
+directional_velocity_curve = SubResource("CurveXYZTexture_h1f5v")
 orbit_velocity_min = 9.49949e-08
 orbit_velocity_max = 0.0100001
 gravity = Vector3(0, 0, 0)
@@ -1150,6 +1151,14 @@ position = Vector2(980, 820)
 amount = 15
 visibility_rect = Rect2(-300, -600, 600, 600)
 process_material = SubResource("ParticleProcessMaterial_o1gc0")
+
+[node name="Ambience" type="AudioStreamPlayer" parent="SFX" index="0"]
+process_mode = 3
+stream = ExtResource("25_o1gc0")
+volume_db = -5.0
+pitch_scale = 0.5
+autoplay = true
+bus = &"Music"
 
 [node name="Hint" parent="GUI" index="1" instance=ExtResource("27_x1t5x")]
 process_mode = 1
