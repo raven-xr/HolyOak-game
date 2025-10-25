@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=4 uid="uid://jntda0nfq0ml"]
+[gd_scene load_steps=63 format=4 uid="uid://jntda0nfq0ml"]
 
 [ext_resource type="PackedScene" uid="uid://bbsqvqymrojj5" path="res://gamedata/scene/common/level.tscn" id="1_6eesv"]
 [ext_resource type="Texture2D" uid="uid://ciyeb8o1ywukt" path="res://gfx/tileset/grass.png" id="2_j5uvo"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://qek8bqinjylq" path="res://gfx/object/static/vegetation/log_3.png" id="20_mqosu"]
 [ext_resource type="Texture2D" uid="uid://b8e4cfy5py1ug" path="res://gfx/object/static/lamp/lamp_2.png" id="21_mqosu"]
 [ext_resource type="Texture2D" uid="uid://6vle5408rcq5" path="res://gfx/object/static/lamp/lamp_3.png" id="22_vgl8t"]
+[ext_resource type="AudioStream" uid="uid://dub6tqdrurkm3" path="res://audio/sfx/ambience/level_3_ambience.mp3" id="28_4ge51"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x7p3s"]
 texture = ExtResource("2_j5uvo")
@@ -1712,6 +1713,13 @@ lifetime = 120.0
 speed_scale = 1.25
 visibility_rect = Rect2(-450, -100, 900, 200)
 process_material = SubResource("ParticleProcessMaterial_ru426")
+
+[node name="Ambience" type="AudioStreamPlayer" parent="SFX" index="0"]
+process_mode = 3
+stream = ExtResource("28_4ge51")
+volume_db = 15.0
+autoplay = true
+bus = &"Music"
 
 [node name="Vignette" parent="PostFX" index="0"]
 material = SubResource("ShaderMaterial_vgno3")
