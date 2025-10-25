@@ -419,7 +419,7 @@ polygon = PackedVector2Array(-5.2459106, 19.67215, -1.9672241, -4.590149, 9.1802
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.7169433, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_ijtuk"]
+[sub_resource type="CurveTexture" id="CurveTexture_1p0d8"]
 curve = SubResource("Curve_40obn")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fabom"]
@@ -434,7 +434,7 @@ gravity = Vector3(0, 1.5, 0)
 scale_min = 2.0
 scale_max = 2.0
 color = Color(0.6666667, 0.6666667, 0.6666667, 1)
-alpha_curve = SubResource("CurveTexture_ijtuk")
+alpha_curve = SubResource("CurveTexture_1p0d8")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ow5tc"]
 atlas = ExtResource("25_fabom")
