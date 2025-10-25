@@ -15,3 +15,6 @@ func victory() -> void:
 	var victory_menu = victory_menu_scene.instantiate()
 	gui.add_child(victory_menu)
 	menu_button.disabled = true
+
+func _on_campfire_timer_timeout() -> void:
+	$"Map/Hill 1/Campfire/GPUParticles2D".one_shot = true
