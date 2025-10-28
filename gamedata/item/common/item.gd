@@ -45,7 +45,10 @@ func _on_use_button_pressed() -> void:
 	tween.tween_property(point_light_2d, "color:a", 0.0, 0.15)
 	tween.tween_property(v_box_container, "modulate:a", 0.0, 0.15)
 	is_selected = false
-	used.emit()
+	use()
 	await tween.finished
 	point_light_2d.enabled = false
 	v_box_container.visible = false
+
+func use() -> void:
+	used.emit()
