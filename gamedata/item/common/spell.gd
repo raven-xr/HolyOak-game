@@ -25,6 +25,6 @@ func _physics_process(_delta: float) -> void:
 
 func _on_duration_timeout() -> void:
 	var tween = create_tween()
-	tween.tween_property(self, "modulate:a", 0.0, 0.15)
+	tween.tween_property(self, "modulate:a", 0.0, 0.5)
 	await tween.finished
 	queue_free()
