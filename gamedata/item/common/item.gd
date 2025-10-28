@@ -41,6 +41,7 @@ func _on_pressed() -> void:
 	SoundManager.click.play()
 
 func _on_use_button_pressed() -> void:
+	SoundManager.click.play()
 	var tween = create_tween().set_parallel()
 	tween.tween_property(point_light_2d, "color:a", 0.0, 0.15)
 	tween.tween_property(v_box_container, "modulate:a", 0.0, 0.15)

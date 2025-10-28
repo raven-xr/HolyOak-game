@@ -40,6 +40,7 @@ func _on_spell_placed() -> void:
 		#deselect()
 
 func _on_cancel_button_pressed() -> void:
+	SoundManager.click.play()
 	deselect()
 	var tween = create_tween()
 	tween.tween_property(current_spell, "modulate:a", 0.0, 0.15)
