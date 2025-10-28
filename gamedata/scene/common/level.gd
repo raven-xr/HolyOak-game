@@ -57,14 +57,15 @@ var state: int:
 var max_health: int
 var health: int:
 	set(value):
+		var previous_health: int = health
+		health = value
 		if value <= 0:
 			value = 0
-		if value < health:
+		if value < previous_health:
 			Signals.health_decreased.emit(value)
 		else:
 			Signals.health_increased.emit(value)
 		Signals.health_changed.emit(value)
-		health = value
 var money: int:
 	set(value):
 		money = value
@@ -90,11 +91,8 @@ func _ready() -> void:
 	money = data["money"]
 	tower_level_limit = data["tower_level_limit"] # Used in tower.tscn
 	# Fill the inventory
-	if not data["inventory"]:
-		inventory.visible = false
-	else:
-		inventory.freeze_item_count = data["items"]["freeze_item"]
-		inventory.heal_item_count = data["items"]["heal_item"]
+	inventory.freeze_item_count = data["items"]["freeze_item"]
+	inventory.heal_item_count = data["items"]["heal_item"]
 	# Transition
 	modulate = Color(0.0, 0.0, 0.0, 1.0)
 	var tween_1 = create_tween()
@@ -170,8 +168,11 @@ func _on_enemy_died() -> void:
 	current_enemy_count -= 1
 
 func _on_health_decreased(value: int) -> void:
-	if value <= 0:
-		defeat()
+	if value == 0:
+		if inventory.heal_item_count > 0:
+			inventory.heal_item.use()
+		else:
+			defeat()
 	vignette.shift_vignette_color(Color(0.05, 0.0, 0.0, 0.0), 0.15)
 
 func _on_menu_button_pressed() -> void:
