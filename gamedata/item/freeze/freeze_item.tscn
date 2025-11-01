@@ -15,14 +15,21 @@ color = Color(0.07016479, 0.30748522, 1, 1)
 energy = 0.8
 texture_scale = 0.7
 
-[node name="VBoxContainer" parent="." index="1"]
-texture_filter = 2
-
 [node name="CancelButton" type="Button" parent="VBoxContainer" index="1"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 disabled = true
 text = "CANCEL"
+
+[node name="Label" parent="VBoxContainer/InfoButton/Info/Head" index="0"]
+text = "❄️ Заклинание заморозки ❄️"
+
+[node name="Label" parent="VBoxContainer/InfoButton/Info/Text" index="0"]
+text = "Враг движется к вашей крепости, сокровищнице (что за идиоты вообще оставляют сокровищницу посреди леса?) или Священному Дубу? Используйте заклинание заморозки и замедлите врага!
+
+- Передвиньте курсор в место, которое вы хотите окутать заклинанием, и нажмите Enter
+- Замедляет врагов в 3 раза
+- Заклинание действует в течение 60 секунд"
 
 [connection signal="used" from="." to="." method="_on_used"]
 [connection signal="pressed" from="VBoxContainer/CancelButton" to="." method="_on_cancel_button_pressed"]
