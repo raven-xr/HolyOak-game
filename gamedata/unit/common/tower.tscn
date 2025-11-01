@@ -1,4 +1,4 @@
-[gd_scene load_steps=139 format=3 uid="uid://lxt2xv2lfkgu"]
+[gd_scene load_steps=138 format=3 uid="uid://lxt2xv2lfkgu"]
 
 [ext_resource type="Script" uid="uid://bdsofk2pt1nov" path="res://gamedata/unit/common/tower.gd" id="1_ga7em"]
 [ext_resource type="Texture2D" uid="uid://dyj1b8lqm8l5x" path="res://gfx/unit/tower/upgrade/1.png" id="2_6xap5"]
@@ -1596,9 +1596,6 @@ animations = [{
 "speed": 0.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_th4ks"]
-radius = 54.0
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_qwakt"]
 resource_local_to_scene = true
 
@@ -1660,8 +1657,13 @@ position = Vector2(0, -56)
 scale = Vector2(1.72308, 1.72308)
 sprite_frames = SubResource("SpriteFrames_y2klm")
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
-shape = SubResource("CircleShape2D_th4ks")
+[node name="TouchButton" type="Button" parent="."]
+editor_description = "Used to interact with the tower's GUI"
+modulate = Color(1, 1, 1, 0)
+offset_left = -48.0
+offset_top = -48.0
+offset_right = 48.0
+offset_bottom = 48.0
 
 [node name="Building" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("22_y2klm")
@@ -1690,4 +1692,4 @@ energy = 0.6
 texture = SubResource("GradientTexture2D_rxukx")
 texture_scale = 2.0
 
-[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
+[connection signal="pressed" from="TouchButton" to="." method="_on_touch_button_pressed"]

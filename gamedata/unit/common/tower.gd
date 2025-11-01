@@ -17,7 +17,7 @@ extends Node2D
 @onready var logo: Sprite2D = $Logo
 @onready var units: Node2D = $Units
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var touch_screen_button: TouchScreenButton = $TouchScreenButton
+@onready var touch_button: Button = $TouchButton
 @onready var sfx_building: AudioStreamPlayer2D = $Building
 @onready var gfx_smoke: Node2D = $Smoke
 @onready var attack_range: Area2D = $AttackRange
@@ -48,7 +48,7 @@ func _ready() -> void:
 	# Set the logo
 	logo.texture = unit_scene.instantiate().logo
 
-func _on_touch_screen_button_pressed() -> void:
+func _on_touch_button_pressed() -> void:
 	SoundManager.click.play()
 	if tower_menu:
 		close_menu()
@@ -132,8 +132,8 @@ func upgrade() -> void:
 	attack_range_col.set_deferred("disabled", true)
 	is_upgrading = true
 	remove_units()
-	# Block touch screen button to not let player interact with the interface
-	touch_screen_button.visible = false
+	# Block button to not let player interact with the interface
+	touch_button.visible = false
 	level += 1
 	# Update stats
 	unit_count = unit_stats["level_" + str(level)]["count"]
@@ -155,7 +155,7 @@ func upgrade() -> void:
 	spawn_units(unit_count, unit_spawnpoints)
 	# Unless there is an opened TowerStats in the level GUI, enable the TouchScreenButton
 	if not level_gui.has_node("TowerStats") and not level_gui.has_node("TowerMenu"):
-		touch_screen_button.visible = true
+		touch_button.visible = true
 	is_upgrading = false
 	# Set the AttackRange
 	attack_range_col.disabled = false
@@ -178,19 +178,19 @@ func remove() -> void:
 	attack_range_col.set_deferred("disabled", true)
 	is_upgrading = true
 	remove_units()
-	# Block touch screen button to not let player interact with the interface
-	touch_screen_button.visible = false
+	# Block button to not let player interact with the interface
+	touch_button.visible = false
 	level = 0
 	# Give half of the money back player spent last time
 	Global.game_controller.current_2d_scene.money += int(float(last_cost) / 2)
 	# Play animation, SFX, GFX
 	sfx_building.play()
 	animation_player.play("Destruct")
-	# Unblock touch screen button
+	# Unblock button
 	await animation_player.animation_finished
 	# Unless there is an opened TowerStats or TowerMenu in the level GUI, enable the TouchScreenButton
 	if not level_gui.has_node("TowerStats") and not level_gui.has_node("TowerMenu"):
-		touch_screen_button.visible = true
+		touch_button.visible = true
 	# Update current cost
 	current_cost = unit_stats["level_1"]["cost"]
 	is_upgrading = false
