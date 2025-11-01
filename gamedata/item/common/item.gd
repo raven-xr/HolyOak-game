@@ -8,6 +8,12 @@ class_name Item
 @onready var point_light_2d: PointLight2D = $PointLight2D
 @onready var v_box_container: VBoxContainer = $VBoxContainer
 
+@onready var info_button: Button = $VBoxContainer/InfoButton
+
+@onready var info: Control = $VBoxContainer/InfoButton/Info
+
+@onready var close_button: Button = $VBoxContainer/InfoButton/Info/CloseButton
+
 var is_selected: bool = false
 
 signal selected()
@@ -53,3 +59,20 @@ func _on_use_button_pressed() -> void:
 
 func use() -> void:
 	used.emit()
+
+func _on_info_button_pressed() -> void:
+	SoundManager.click.play()
+	info.visible = true
+	close_button.disabled = false
+	var tween = create_tween()
+	tween.tween_property(info, "modulate:a", 1.0, 0.15)
+	info_button.disabled = true
+
+func _on_close_button_pressed() -> void:
+	SoundManager.click.play()
+	close_button.disabled = true
+	var tween = create_tween()
+	tween.tween_property(info, "modulate:a", 0.0, 0.15)
+	await tween.finished
+	info.visible = false
+	info_button.disabled = false
