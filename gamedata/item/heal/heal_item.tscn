@@ -14,6 +14,15 @@ color = Color(1, 0, 0, 1)
 energy = 0.8
 texture_scale = 0.7
 
+[node name="Label" parent="VBoxContainer/InfoButton/Info/Head" index="0"]
+text = "❤️ Зелье исцеления ❤️"
+
+[node name="Label" parent="VBoxContainer/InfoButton/Info/Text" index="0"]
+text = "Враг всё-таки добрался до вашего идола? Дело плохо! Но зелье исцеления всё исправит!
+
+- Автоматически используется, если вы на грани поражения
+- Увеличивает здоровье на 50 HP единоразово"
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="2"]
 stream = ExtResource("4_jgtt0")
 volume_db = -10.0
