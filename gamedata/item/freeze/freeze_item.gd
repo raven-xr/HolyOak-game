@@ -28,6 +28,7 @@ func _on_used() -> void:
 	disabled = false
 
 func _on_spell_placed() -> void:
+	cancel_button.disabled = true
 	get_parent().get_parent().freeze_item_count -= 1
 	if get_parent().get_parent().freeze_item_count > 0:
 		use_button.disabled = false
@@ -39,6 +40,7 @@ func _on_spell_placed() -> void:
 		#deselect()
 
 func _on_cancel_button_pressed() -> void:
+	current_spell.set_physics_process(false)
 	SoundManager.click.play()
 	deselect()
 	var tween = create_tween()
