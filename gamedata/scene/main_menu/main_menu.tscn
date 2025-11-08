@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://die1k42jfmahn"]
+[gd_scene load_steps=31 format=3 uid="uid://die1k42jfmahn"]
 
 [ext_resource type="Script" uid="uid://dfi0gclyc5igs" path="res://gamedata/scene/main_menu/main_menu.gd" id="1_ab7jh"]
 [ext_resource type="Texture2D" uid="uid://bdbcrxa2815rn" path="res://gui/backgrounds/main_menu.jpeg" id="1_tludv"]
@@ -50,9 +50,6 @@ texture_margin_top = 28.0
 texture_margin_right = 28.0
 texture_margin_bottom = 28.0
 expand_margin_top = 28.0
-
-[sub_resource type="Theme" id="Theme_qx40b"]
-PanelContainer/styles/panel = SubResource("StyleBoxTexture_23fp8")
 
 [sub_resource type="Animation" id="Animation_dy4fm"]
 resource_name = "Popup"
@@ -484,41 +481,55 @@ modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 0
 offset_left = 208.0
-offset_top = 168.0
+offset_top = 92.000015
 offset_right = 1072.0
-offset_bottom = 752.0
+offset_bottom = 676.0
 scale = Vector2(0.7, 0.7)
 pivot_offset = Vector2(432, 292)
 
-[node name="PanelContainer" type="PanelContainer" parent="Credits"]
+[node name="Panel" type="Panel" parent="Credits"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -424.0
-offset_top = -256.0
-offset_right = 424.0
-offset_bottom = 248.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(424, 278)
-theme = SubResource("Theme_qx40b")
+anchors_preset = -1
+anchor_left = -0.056
+anchor_top = 0.079
+anchor_right = 0.989
+anchor_bottom = 0.77400005
+offset_left = 0.38397217
+offset_top = 0.14970398
+offset_right = 0.36114502
+offset_bottom = -0.016052246
+theme_override_styles/panel = SubResource("StyleBoxTexture_23fp8")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Credits/PanelContainer"]
-layout_mode = 2
-theme_override_constants/separation = 48
-
-[node name="Head" type="Label" parent="Credits/PanelContainer/VBoxContainer"]
+[node name="Head" type="Label" parent="Credits/Panel"]
 texture_filter = 2
-layout_mode = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.013
+anchor_top = 0.014
+anchor_right = 0.98700005
+anchor_bottom = 0.14
+offset_left = -0.30855465
+offset_top = 0.034270763
+offset_right = 0.3085327
+offset_bottom = -0.08572388
 theme_override_fonts/font = ExtResource("19_mmsxt")
 theme_override_font_sizes/font_size = 42
-text = "Thanks a lot for"
+text = "Credits"
 horizontal_alignment = 1
 
-[node name="MainText" type="Label" parent="Credits/PanelContainer/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Credits/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.089
+anchor_top = 0.18
+anchor_right = 0.9620001
+anchor_bottom = 0.94400007
+offset_left = -0.35429382
+offset_top = 0.051445007
+offset_right = 0.022705078
+offset_bottom = -0.13720703
+
+[node name="Label" type="Label" parent="Credits/Panel/ScrollContainer"]
 texture_filter = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("19_mmsxt")
