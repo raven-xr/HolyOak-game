@@ -4,7 +4,6 @@ extends Item
 
 @onready var spells: Node2D = Global.game_controller.current_2d_scene.get_node("Spells")
 
-@onready var use_button: Button = $VBoxContainer/UseButton
 @onready var cancel_button: Button = $VBoxContainer/CancelButton
 
 var current_spell: Spell:
@@ -29,14 +28,20 @@ func _on_used() -> void:
 	disabled = false
 
 func _on_spell_placed() -> void:
-	use_button.disabled = false
-	is_selected = false
-	current_spell = null
-	var tween = create_tween()
-	tween.tween_property(point_light_2d, "color:a", 0.0, 0.15)
+	cancel_button.disabled = true
 	get_parent().get_parent().freeze_item_count -= 1
+	if get_parent().get_parent().freeze_item_count > 0:
+		use_button.disabled = false
+		is_selected = false
+		current_spell = null
+		var tween = create_tween()
+		tween.tween_property(point_light_2d, "color:a", 0.0, 0.15)
+	#else: The inventory deselects this item itself (check inventory.gd and the items' setters)
+		#deselect()
 
 func _on_cancel_button_pressed() -> void:
+	current_spell.set_physics_process(false)
+	SoundManager.click.play()
 	deselect()
 	var tween = create_tween()
 	tween.tween_property(current_spell, "modulate:a", 0.0, 0.15)

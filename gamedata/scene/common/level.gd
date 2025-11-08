@@ -175,11 +175,6 @@ func _on_health_decreased(value: int) -> void:
 			defeat()
 	vignette.shift_vignette_color(Color(0.05, 0.0, 0.0, 0.0), 0.15)
 
-func _on_menu_button_pressed() -> void:
-	SoundManager.click.play()
-	gui.add_child(game_menu_scene.instantiate())
-	menu_button.disabled = true
-
 func _on_start_timer_timeout() -> void:
 	state = States.FIGHT
 
@@ -196,7 +191,7 @@ func _on_tower_menu_opened(tower_menu: Control) -> void:
 		# leave its TouchScreenButton enabled
 		if tower.tower_menu == tower_menu:
 			continue
-		tower.touch_screen_button.visible = false
+		tower.touch_button.visible = false
 
 func _on_tower_menu_closed(tower_menu: Control) -> void:
 	# Do not turn TouchScreenButtons on if a TowerStats has just been opened
@@ -209,14 +204,19 @@ func _on_tower_menu_closed(tower_menu: Control) -> void:
 		# (depends on whether you started building/upgrading it now)
 		if tower.tower_menu == tower_menu or tower.is_upgrading:
 			continue
-		tower.touch_screen_button.visible = true
+		tower.touch_button.visible = true
 
 func _on_tower_stats_opened() -> void:
 	for tower in towers.get_children():
-		tower.touch_screen_button.visible = false
+		tower.touch_button.visible = false
 
 func _on_tower_stats_closed() -> void:
 	for tower in towers.get_children():
 		if tower.is_upgrading:
 			continue
-		tower.touch_screen_button.visible = true
+		tower.touch_button.visible = true
+
+func _on_menu_button_pressed() -> void:
+	SoundManager.click.play()
+	gui.add_child(game_menu_scene.instantiate())
+	menu_button.disabled = true

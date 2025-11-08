@@ -22,3 +22,9 @@ func _physics_process(_delta: float) -> void:
 	global_position = get_global_mouse_position()
 	if Input.is_action_just_released("ui_accept"):
 		is_placed = true
+
+func _on_duration_timeout() -> void:
+	var tween = create_tween()
+	tween.tween_property(self, "modulate:a", 0.0, 0.5)
+	await tween.finished
+	queue_free()
