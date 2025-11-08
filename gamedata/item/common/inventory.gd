@@ -8,12 +8,14 @@ var freeze_item_count: int = 0:
 		$"HBoxContainer/Freeze Count".text = str(value)
 		freeze_item_count = value
 		if value == 0:
+			freeze_item.use_button.disabled = true
 			freeze_item.deselect()
 var heal_item_count: int = 0:
 	set(value):
 		$"HBoxContainer/Heal Count".text = str(value)
 		heal_item_count = value
 		if value == 0:
+			heal_item.use_button.disabled = true
 			heal_item.deselect()
 
 func _on_freeze_item_pressed() -> void:

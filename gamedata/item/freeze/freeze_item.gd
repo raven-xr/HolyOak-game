@@ -4,7 +4,6 @@ extends Item
 
 @onready var spells: Node2D = Global.game_controller.current_2d_scene.get_node("Spells")
 
-@onready var use_button: Button = $VBoxContainer/UseButton
 @onready var cancel_button: Button = $VBoxContainer/CancelButton
 
 var current_spell: Spell:

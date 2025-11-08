@@ -12,6 +12,7 @@ class_name Item
 
 @onready var info: Control = $VBoxContainer/InfoButton/Info
 
+@onready var use_button: Button = $VBoxContainer/UseButton
 @onready var close_button: Button = $VBoxContainer/InfoButton/Info/CloseButton
 
 var is_selected: bool = false
