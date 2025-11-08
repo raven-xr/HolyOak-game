@@ -34,12 +34,14 @@ func select() -> void:
 	selected.emit()
 
 func deselect() -> void:
+	disabled = true
 	var tween = create_tween().set_parallel()
 	tween.tween_property(point_light_2d, "color:a", 0.0, 0.15)
 	tween.tween_property(v_box_container, "modulate:a", 0.0, 0.15)
 	is_selected = false
 	deselected.emit()
 	await tween.finished
+	disabled = false
 	point_light_2d.enabled = false
 	v_box_container.visible = false
 
