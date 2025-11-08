@@ -9,6 +9,7 @@
 icon = ExtResource("2_3tbuj")
 script = ExtResource("2_yina8")
 freeze_spell_scene = ExtResource("3_bu7go")
+glow = null
 
 [node name="PointLight2D" parent="." index="0"]
 color = Color(0.07016479, 0.30748522, 1, 1)
