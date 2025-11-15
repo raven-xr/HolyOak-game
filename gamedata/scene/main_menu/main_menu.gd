@@ -78,8 +78,12 @@ func _on_settings_button_pressed() -> void:
 
 func _on_exit_button_pressed() -> void:
 	SoundManager.click.play()
+	Global.game_controller.change_gui_scene("confirmation")
+	Global.game_controller.current_gui_scene.connect("confirmed", Callable(self, "_on_exit_confirmed"))
+
+func _on_exit_confirmed() -> void:
 	animate_transition()
-	await SoundManager.click.finished
+	await get_tree().create_timer(0.3).timeout
 	get_tree().quit()
 
 func _on_levels_back_button_pressed() -> void:
