@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://i7ihkn2i5v5n" path="res://gamedata/gui/common/node_gui.tscn" id="1_cftco"]
 [ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://gui/backgrounds/ui_border.png" id="1_tykjn"]
-[ext_resource type="Script" uid="uid://t4uhbvnbg6rv" path="res://gamedata/gui/game_menu/game_menu.gd" id="1_ux5sl"]
+[ext_resource type="Script" uid="uid://t4uhbvnbg6rv" path="res://gamedata/scene/common/game_menu.gd" id="1_ux5sl"]
 [ext_resource type="FontFile" uid="uid://5wohy1go68x5" path="res://gui/fonts/Tribal Garamond.ttf" id="2_td3s4"]
 [ext_resource type="Shortcut" uid="uid://bnk8rf3lcercs" path="res://gamedata/gui/common/ui_cancel_shortcut.tres" id="5_60yi8"]
 

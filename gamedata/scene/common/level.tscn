@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c17d2n1jjcd8t" path="res://gui/icons/menu.svg" id="3_qnfjt"]
 [ext_resource type="PackedScene" uid="uid://ct70ofombeymi" path="res://gamedata/gui/defeat_menu/defeat_menu.tscn" id="5_tbcgi"]
 [ext_resource type="PackedScene" uid="uid://bojk4803caaro" path="res://gamedata/gui/victory_menu/victory_menu.tscn" id="6_r8y5h"]
-[ext_resource type="PackedScene" uid="uid://bwfjylls4graf" path="res://gamedata/gui/game_menu/game_menu.tscn" id="7_165x0"]
+[ext_resource type="PackedScene" uid="uid://bwfjylls4graf" path="res://gamedata/scene/common/game_menu.tscn" id="7_165x0"]
 [ext_resource type="PackedScene" uid="uid://c7psph5vsrocc" path="res://gamedata/gui/player_stats/player_stats.tscn" id="8_otqld"]
 [ext_resource type="Shortcut" uid="uid://bnk8rf3lcercs" path="res://gamedata/gui/common/ui_cancel_shortcut.tres" id="9_2novx"]
 [ext_resource type="PackedScene" uid="uid://dgsn2o3sm3wgn" path="res://gamedata/scene/common/holy_oak.tscn" id="9_eoj5e"]
