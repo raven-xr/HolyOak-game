@@ -26,66 +26,65 @@ offset_bottom = -220.0
 pivot_offset = Vector2(134, 98)
 script = ExtResource("1_gq6vv")
 
-[node name="Block" type="Control" parent="." index="0"]
-editor_description = "This Control node blocks the interaction with the other GUI nodes"
-anchors_preset = 0
-offset_left = -1154.0
-offset_top = -664.0
-offset_right = 1406.0
-offset_bottom = 776.0
-pivot_offset = Vector2(1280, 720)
-
-[node name="PanelContainer" type="PanelContainer" parent="." index="1"]
+[node name="PanelContainer" type="PanelContainer" parent="." index="0"]
 texture_filter = 1
 custom_minimum_size = Vector2(268, 197)
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_r5xpi")
 
-[node name="Label" type="Label" parent="PanelContainer" index="0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" index="0"]
 texture_filter = 2
-custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer" index="0"]
+custom_minimum_size = Vector2(248, 108)
+layout_mode = 2
+size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("4_mpy58")
 theme_override_font_sizes/font_size = 28
-text = "Are you sure?
-This cannot be canceled!"
+text = "Are you sure?"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Confirm Button" type="Button" parent="." index="2"]
+[node name="Buttons" type="Control" parent="PanelContainer/VBoxContainer" index="1"]
+custom_minimum_size = Vector2(248, 64)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Confirm Button" type="Button" parent="PanelContainer/VBoxContainer/Buttons" index="0"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.082
-anchor_top = 0.694
-anchor_right = 0.41
-anchor_bottom = 0.898
-offset_left = 0.0240002
-offset_top = -0.0240021
-offset_right = 0.119987
-offset_bottom = -0.00802612
+anchor_top = 0.177
+anchor_right = 0.41000003
+anchor_bottom = 0.74700004
+offset_left = 0.024000168
+offset_top = 3.3030071
+offset_right = 0.11997986
+offset_bottom = -3.2989998
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_mpy58")
 theme_override_font_sizes/font_size = 24
 text = "OK"
 
-[node name="Cancel Button" type="Button" parent="." index="3"]
+[node name="Cancel Button" type="Button" parent="PanelContainer/VBoxContainer/Buttons" index="1"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.59
-anchor_top = 0.694
-anchor_right = 0.918
-anchor_bottom = 0.898
-offset_left = -0.12001
-offset_top = -0.0240021
-offset_right = -0.0240173
-offset_bottom = -0.00801086
+anchor_left = 0.59000003
+anchor_top = 0.177
+anchor_right = 0.919
+anchor_bottom = 0.74700004
+offset_left = -0.120025635
+offset_top = 3.3030148
+offset_right = -0.27201843
+offset_bottom = -3.2989922
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_mpy58")
@@ -93,5 +92,5 @@ theme_override_font_sizes/font_size = 24
 shortcut = ExtResource("5_8pwx0")
 text = "Cancel"
 
-[connection signal="pressed" from="Confirm Button" to="." method="_on_confirm_button_pressed"]
-[connection signal="pressed" from="Cancel Button" to="." method="_on_cancel_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Buttons/Confirm Button" to="." method="_on_confirm_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Buttons/Cancel Button" to="." method="_on_cancel_button_pressed"]
