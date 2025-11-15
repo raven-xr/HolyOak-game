@@ -17,3 +17,6 @@ func _on_cancel_button_pressed() -> void:
 	canceled.emit()
 	Global.game_controller.current_2d_scene.set_process_mode(Node.PROCESS_MODE_INHERIT)
 	close()
+
+func set_text(text: String) -> void:
+	$PanelContainer/VBoxContainer/Label.text = text
