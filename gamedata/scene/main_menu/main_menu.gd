@@ -79,6 +79,7 @@ func _on_settings_button_pressed() -> void:
 func _on_exit_button_pressed() -> void:
 	SoundManager.click.play()
 	Global.game_controller.change_gui_scene("confirmation")
+	Global.game_controller.current_gui_scene.set_text("Вы уверены?")
 	Global.game_controller.current_gui_scene.connect("confirmed", Callable(self, "_on_exit_confirmed"))
 
 func _on_exit_confirmed() -> void:
