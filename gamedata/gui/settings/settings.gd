@@ -63,8 +63,24 @@ func _on_reset_progress_button_pressed() -> void:
 	SoundManager.click.play()
 	Global.game_controller.change_gui_scene("confirmation", false, true)
 	var confirmation: NodeGUI = Global.game_controller.current_gui_scene
-	confirmation.connect("confirmed", Callable(self, "_on_confirmed"))
-	confirmation.connect("canceled", Callable(self, "_on_canceled"))
+	Global.game_controller.current_2d_scene.set_process_mode(Node.PROCESS_MODE_DISABLED)
+	confirmation.connect("confirmed", Callable(self, "_on_reset_progress_confirmed"))
+	confirmation.connect("canceled", Callable(self, "_on_reset_progress_canceled"))
+
+func _on_reset_progress_canceled() -> void:
+	Global.game_controller.current_2d_scene.set_process_mode(Node.PROCESS_MODE_INHERIT)
+	visible = true
+	var tween = create_tween()
+	tween.tween_property(self, "modulate:a", 1.0, 0.15)
+
+func _on_reset_progress_confirmed() -> void:
+	Global.game_controller.current_2d_scene.set_process_mode(Node.PROCESS_MODE_INHERIT)
+	DirAccess.remove_absolute(UserData.SAVE_PATH)
+	Global.game_controller.change_gui_scene("message", false, true)
+	Global.game_controller.current_gui_scene.set_text("Сохранение... Нужен перезапуск! Игра выключится самостоятельно через 5 секунд")
+	get_viewport().gui_disable_input = true # Makes player not able to interact with the GUI
+	await get_tree().create_timer(5.0).timeout
+	get_tree().quit()
 
 func _on_apply_button_pressed() -> void:
 	SoundManager.click.play()
@@ -88,22 +104,6 @@ func _on_close_button_pressed() -> void:
 	SoundManager.click.play()
 	reset()
 	close()
-
-func _on_canceled() -> void:
-	# Confirmation canceled
-	SoundManager.click.play()
-	visible = true
-	var tween = create_tween()
-	tween.tween_property(self, "modulate:a", 1.0, 0.15)
-
-func _on_confirmed() -> void:
-	# Confirmation... confirmed?
-	DirAccess.remove_absolute(UserData.SAVE_PATH)
-	Global.game_controller.change_gui_scene("message", false, true)
-	Global.game_controller.current_gui_scene.set_text("Сохранение... Нужен перезапуск! Игра выключится самостоятельно через 5 секунд")
-	get_viewport().gui_disable_input = true # Makes player not able to interact with the GUI
-	await get_tree().create_timer(5.0).timeout
-	get_tree().quit()
 
 func reset() -> void:
 	# If settings weren't applied, cancel them
