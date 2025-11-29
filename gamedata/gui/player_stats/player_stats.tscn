@@ -25,8 +25,13 @@ texture_margin_right = 8.0
 [node name="PanelContainer" type="PanelContainer"]
 modulate = Color(1, 1, 1, 0.882353)
 texture_filter = 1
-offset_right = 368.0
-offset_bottom = 80.0
+anchors_preset = -1
+anchor_left = 0.019000001
+anchor_top = 0.033
+anchor_right = 0.45000002
+anchor_bottom = 0.2
+offset_left = -0.3200016
+offset_top = 0.23999977
 theme = SubResource("Theme_8te46")
 script = ExtResource("2_ej0be")
 
@@ -46,8 +51,9 @@ flip_h = true
 [node name="HPValue" type="Label" parent="HBoxContainer"]
 texture_filter = 2
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 37
+theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxTexture_f6d2y")
 text = "0"
 horizontal_alignment = 1
@@ -63,8 +69,9 @@ stretch_mode = 5
 [node name="MoneyValue" type="Label" parent="HBoxContainer"]
 texture_filter = 2
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 37
+theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxTexture_f6d2y")
 text = "0"
 horizontal_alignment = 1
@@ -81,8 +88,9 @@ stretch_mode = 5
 [node name="WaveValue" type="Label" parent="HBoxContainer"]
 texture_filter = 2
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 37
+theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxTexture_f6d2y")
 text = "0"
 horizontal_alignment = 1
