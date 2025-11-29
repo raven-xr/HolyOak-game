@@ -26,12 +26,10 @@ texture_margin_right = 8.0
 modulate = Color(1, 1, 1, 0.882353)
 texture_filter = 1
 anchors_preset = -1
-anchor_left = 0.019000001
-anchor_top = 0.033
-anchor_right = 0.45000002
-anchor_bottom = 0.2
-offset_left = -0.3200016
-offset_top = 0.23999977
+anchor_right = 0.43100002
+anchor_bottom = 0.16700001
+offset_right = 0.3199463
+offset_bottom = -0.2400055
 theme = SubResource("Theme_8te46")
 script = ExtResource("2_ej0be")
 
