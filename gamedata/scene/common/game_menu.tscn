@@ -21,21 +21,29 @@ expand_margin_bottom = 7.0
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_60xpl")
 
 [node name="GameMenu" instance=ExtResource("1_cftco")]
-offset_left = 477.0
-offset_top = 252.0
-offset_right = -544.0
-offset_bottom = -265.0
-pivot_offset = Vector2(640, 360)
+anchors_preset = -1
+anchor_left = 0.423
+anchor_top = 0.367
+anchor_right = 0.564
+anchor_bottom = 0.65300006
+offset_left = -81.44
+offset_top = -136.24002
+offset_right = 98.079956
+offset_bottom = 57.839966
+pivot_offset = Vector2(180, 200)
 script = ExtResource("1_ux5sl")
 
 [node name="PanelContainer" type="PanelContainer" parent="." index="0"]
 texture_filter = 1
-layout_mode = 0
-offset_left = 550.0
-offset_top = 248.0
-offset_right = 730.0
-offset_bottom = 454.0
-pivot_offset = Vector2(90, 103)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 47.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(180, 200)
 theme = SubResource("Theme_sqy7h")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" index="0"]
@@ -48,15 +56,16 @@ texture_filter = 2
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("2_td3s4")
-theme_override_font_sizes/font_size = 34
+theme_override_font_sizes/font_size = 64
 text = "PAUSE"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Resume Button" type="Button" parent="PanelContainer/VBoxContainer" index="1"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("2_td3s4")
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 36
 shortcut = ExtResource("5_60yi8")
 text = "RESUME"
 
@@ -64,14 +73,14 @@ text = "RESUME"
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("2_td3s4")
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 36
 text = "SETTINGS"
 
 [node name="Exit Button" type="Button" parent="PanelContainer/VBoxContainer" index="3"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("2_td3s4")
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 36
 text = "EXIT"
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Resume Button" to="." method="_on_resume_button_pressed"]
