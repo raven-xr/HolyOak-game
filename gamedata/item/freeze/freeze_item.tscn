@@ -1,11 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://du0malj6qtloj"]
+[gd_scene load_steps=6 format=3 uid="uid://du0malj6qtloj"]
 
 [ext_resource type="PackedScene" uid="uid://cu6uweaafm8pi" path="res://gamedata/item/common/item.tscn" id="1_yina8"]
 [ext_resource type="Texture2D" uid="uid://w8cwepba8cet" path="res://gfx/item/freeze/freeze_item.png" id="2_3tbuj"]
 [ext_resource type="Script" uid="uid://io8hsy77ck51" path="res://gamedata/item/freeze/freeze_item.gd" id="2_yina8"]
 [ext_resource type="PackedScene" uid="uid://bjkcyj2r7i454" path="res://gamedata/item/freeze/freeze_spell.tscn" id="3_bu7go"]
+[ext_resource type="FontFile" uid="uid://5wohy1go68x5" path="res://gui/fonts/Tribal Garamond.ttf" id="5_4iwt5"]
 
 [node name="FreezeItem" instance=ExtResource("1_yina8")]
+custom_minimum_size = Vector2(84, 100)
+anchors_preset = -1
+anchor_right = 0.066
+anchor_bottom = 0.13900001
+offset_right = -15.479996
+offset_bottom = -40.08001
 icon = ExtResource("2_3tbuj")
 script = ExtResource("2_yina8")
 freeze_spell_scene = ExtResource("3_bu7go")
@@ -16,21 +23,53 @@ color = Color(0.07016479, 0.30748522, 1, 1)
 energy = 0.8
 texture_scale = 0.7
 
+[node name="VBoxContainer" parent="." index="1"]
+anchor_left = -0.476
+anchor_top = 1.1400001
+anchor_right = 1.524
+anchor_bottom = 3.1200001
+offset_left = -0.01599884
+offset_right = -0.01600647
+offset_bottom = 3.0
+pivot_offset = Vector2(84, 0)
+
 [node name="CancelButton" type="Button" parent="VBoxContainer" index="1"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("5_4iwt5")
+theme_override_font_sizes/font_size = 34
 disabled = true
 text = "CANCEL"
 
-[node name="Label" parent="VBoxContainer/InfoButton/Info/Head" index="0"]
+[node name="Info" parent="VBoxContainer/InfoButton" index="0"]
+anchor_left = -1.363
+anchor_top = -0.031000001
+anchor_right = 2.0300002
+anchor_bottom = 3.785
+offset_left = 31.984009
+offset_top = -15.985
+offset_right = 31.95996
+offset_bottom = -16.02501
+
+[node name="Label" parent="VBoxContainer/InfoButton/Info/VBoxContainer/Head" index="0"]
 text = "❄️ Заклинание заморозки ❄️"
 
-[node name="Label" parent="VBoxContainer/InfoButton/Info/Text" index="0"]
+[node name="Label" parent="VBoxContainer/InfoButton/Info/VBoxContainer/Text" index="0"]
 text = "Враг движется к вашей крепости, сокровищнице (что за идиоты вообще оставляют сокровищницу посреди леса?) или Священному Дубу? Используйте заклинание заморозки и замедлите врага!
 
 - Передвиньте курсор в место, которое вы хотите окутать заклинанием, и нажмите Enter
 - Замедляет врагов в 3 раза
 - Заклинание действует в течение 60 секунд"
+
+[node name="CloseButton" parent="VBoxContainer/InfoButton/Info" index="1"]
+anchor_left = 0.93500006
+anchor_top = 0.141
+anchor_right = 0.99600005
+anchor_bottom = 0.141
+offset_left = 0.049987793
+offset_top = -18.968002
+offset_right = 0.27996826
+offset_bottom = 19.031998
 
 [connection signal="used" from="." to="." method="_on_used"]
 [connection signal="pressed" from="VBoxContainer/CancelButton" to="." method="_on_cancel_button_pressed"]

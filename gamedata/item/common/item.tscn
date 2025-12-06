@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cu6uweaafm8pi"]
+[gd_scene load_steps=12 format=3 uid="uid://cu6uweaafm8pi"]
 
 [ext_resource type="Script" uid="uid://psrwmrq3u4dg" path="res://gamedata/item/common/item.gd" id="1_2puhw"]
+[ext_resource type="FontFile" uid="uid://5wohy1go68x5" path="res://gui/fonts/Tribal Garamond.ttf" id="2_1gj5a"]
 [ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://gui/backgrounds/ui_border.png" id="2_wa10l"]
 [ext_resource type="Texture2D" uid="uid://diotcuia4nehk" path="res://gui/icons/close.svg" id="3_j67vm"]
 
@@ -40,7 +41,7 @@ texture_margin_top = 10.0
 texture_margin_right = 10.0
 texture_margin_bottom = 10.0
 expand_margin_left = 20.0
-expand_margin_top = 20.0
+expand_margin_top = 10.0
 expand_margin_right = 20.0
 expand_margin_bottom = 20.0
 
@@ -68,87 +69,95 @@ texture = SubResource("GradientTexture2D_2puhw")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 texture_filter = 2
-layout_mode = 0
-offset_left = -24.0
-offset_top = 72.0
-offset_right = 88.0
-offset_bottom = 114.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.34800002
+anchor_top = 1.9000001
+anchor_right = 2.0870001
+anchor_bottom = 4.1000004
+offset_left = 0.012001038
+offset_right = -0.0030059814
+offset_bottom = -3.0517578e-05
 
 [node name="UseButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_1gj5a")
+theme_override_font_sizes/font_size = 34
 text = "USE"
 
 [node name="InfoButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_1gj5a")
+theme_override_font_sizes/font_size = 34
 text = "INFO"
 
 [node name="Info" type="Control" parent="VBoxContainer/InfoButton"]
 visible = false
 modulate = Color(1, 1, 1, 0)
-anchors_preset = 0
-offset_left = -229.0
-offset_top = 138.0
-offset_right = 341.0
-offset_bottom = 246.0
+layout_mode = 1
+anchor_left = -1.1730001
+anchor_top = 0.28100002
+anchor_right = 2.22
+anchor_bottom = 1.9690001
+offset_left = 0.06401062
+offset_top = 0.01599884
+offset_right = 0.040008545
+offset_bottom = -0.01600647
 pivot_offset = Vector2(285, 0)
 
-[node name="Head" type="PanelContainer" parent="VBoxContainer/InfoButton/Info"]
-texture_filter = 1
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/InfoButton/Info"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.033
 anchor_right = 1.0
-anchor_bottom = 0.47700003
-offset_top = -0.014012098
-offset_bottom = 0.033985138
-grow_vertical = 0
+anchor_bottom = 1.0830001
+offset_right = -530.0
+offset_bottom = -76.964005
+
+[node name="Head" type="PanelContainer" parent="VBoxContainer/InfoButton/Info/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
 theme = SubResource("Theme_g6n6t")
 
-[node name="Label" type="Label" parent="VBoxContainer/InfoButton/Info/Head"]
+[node name="Label" type="Label" parent="VBoxContainer/InfoButton/Info/VBoxContainer/Head"]
 texture_filter = 2
 custom_minimum_size = Vector2(550, 28)
 layout_mode = 2
 size_flags_vertical = 0
 mouse_filter = 0
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 32
 text = "⚔️ Предмет ⚔️"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Text" type="PanelContainer" parent="VBoxContainer/InfoButton/Info"]
+[node name="Text" type="PanelContainer" parent="VBoxContainer/InfoButton/Info/VBoxContainer"]
 texture_filter = 1
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.61700004
-anchor_right = 1.0
-anchor_bottom = 1.024
-offset_top = -0.036026
-offset_bottom = 0.007972717
+layout_mode = 2
 theme = SubResource("Theme_1gj5a")
 
-[node name="Label" type="Label" parent="VBoxContainer/InfoButton/Info/Text"]
+[node name="Label" type="Label" parent="VBoxContainer/InfoButton/Info/VBoxContainer/Text"]
 texture_filter = 2
 custom_minimum_size = Vector2(550, 24)
 layout_mode = 2
 size_flags_vertical = 0
 mouse_filter = 0
+theme_override_font_sizes/font_size = 20
 text = "Это предмет. Его можно использовать!"
 autowrap_mode = 3
 
 [node name="CloseButton" type="Button" parent="VBoxContainer/InfoButton/Info"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.94000006
-anchor_top = 0.093
-anchor_right = 0.99300003
-anchor_bottom = 0.37
-offset_left = 0.19995117
-offset_top = -0.044000626
-offset_right = -0.010009766
-offset_bottom = -0.010017395
+anchor_left = 0.92100006
+anchor_top = 0.26900002
+anchor_right = 0.98200005
+anchor_bottom = 0.26900002
+offset_left = 0.029968262
+offset_top = -19.052002
+offset_right = 0.25994873
+offset_bottom = 18.947998
 icon = ExtResource("3_j67vm")
 expand_icon = true
 
