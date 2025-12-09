@@ -90,9 +90,10 @@ func _ready() -> void:
 	max_health = data["health"]
 	money = data["money"]
 	tower_level_limit = data["tower_level_limit"] # Used in tower.tscn
-	# Fill the inventory
-	inventory.freeze_item_count = data["items"]["freeze_item"]
-	inventory.heal_item_count = data["items"]["heal_item"]
+	# Fill the inventory if it's available in this level
+	if data["inventory"]:
+		inventory.freeze_item_count = data["items"]["freeze_item"]
+		inventory.heal_item_count = data["items"]["heal_item"]
 	# Transition
 	modulate = Color(0.0, 0.0, 0.0, 1.0)
 	var tween_1 = create_tween()

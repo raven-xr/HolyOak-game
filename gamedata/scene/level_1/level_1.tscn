@@ -1115,7 +1115,6 @@ process_mode = 4
 position = Vector2(720, 176)
 script = ExtResource("14_dqg4i")
 unit_scene = ExtResource("14_kietl")
-menu_position = &"R"
 default_view_direction = &"R"
 glow = true
 
