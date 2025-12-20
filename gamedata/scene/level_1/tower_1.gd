@@ -40,10 +40,10 @@ func open_menu() -> void:
 
 func _on_touch_button_pressed() -> void:
 	SoundManager.click.play()
-	if not level_gui.has_node("TowerMenu"):
-		open_menu()
-	else:
+	if tower_menu:
 		close_menu()
+	else:
+		open_menu()
 	player_opened_menu.emit()
 
 func _on_build_button_pressed() -> void:
