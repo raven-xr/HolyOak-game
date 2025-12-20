@@ -18,17 +18,17 @@ expand_margin_top = 10.0
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_ecn84")
 
 [node name="Confirmation" instance=ExtResource("1_r5xpi")]
-custom_minimum_size = Vector2(268, 196)
-offset_left = 506.0
-offset_top = 304.0
-offset_right = -506.0
-offset_bottom = -220.0
-pivot_offset = Vector2(134, 98)
+custom_minimum_size = Vector2(402, 294)
+offset_left = 440.0
+offset_top = 200.0
+offset_right = -438.0
+offset_bottom = -226.0
+pivot_offset = Vector2(201, 147.5)
 script = ExtResource("1_gq6vv")
 
 [node name="PanelContainer" type="PanelContainer" parent="." index="0"]
 texture_filter = 1
-custom_minimum_size = Vector2(268, 197)
+custom_minimum_size = Vector2(402, 295)
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -43,18 +43,18 @@ texture_filter = 2
 layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer" index="0"]
-custom_minimum_size = Vector2(248, 108)
+custom_minimum_size = Vector2(382, 135)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("4_mpy58")
-theme_override_font_sizes/font_size = 28
-text = "Are you sure?"
+theme_override_font_sizes/font_size = 44
+text = "Вы уверены?"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Buttons" type="Control" parent="PanelContainer/VBoxContainer" index="1"]
-custom_minimum_size = Vector2(248, 64)
+custom_minimum_size = Vector2(382, 135)
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -62,33 +62,34 @@ size_flags_vertical = 3
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.082
-anchor_top = 0.177
+anchor_top = 0.43600002
 anchor_right = 0.41000003
-anchor_bottom = 0.74700004
-offset_left = 0.024000168
-offset_top = 3.3030071
+anchor_bottom = 0.846
+offset_left = 0.02399826
+offset_top = -0.03998947
 offset_right = 0.11997986
-offset_bottom = -3.2989998
+offset_bottom = 0.30500793
+grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_mpy58")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 36
 text = "OK"
 
 [node name="Cancel Button" type="Button" parent="PanelContainer/VBoxContainer/Buttons" index="1"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.59000003
-anchor_top = 0.177
-anchor_right = 0.919
-anchor_bottom = 0.74700004
-offset_left = -0.120025635
-offset_top = 3.3030148
-offset_right = -0.27201843
-offset_bottom = -3.2989922
-grow_horizontal = 0
+anchor_top = 0.43400002
+anchor_right = 0.91600007
+anchor_bottom = 0.846
+offset_left = -0.12004089
+offset_top = 0.071014404
+offset_right = 0.7399597
+offset_bottom = 0.4670105
+grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_mpy58")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 36
 shortcut = ExtResource("5_8pwx0")
 text = "Cancel"
 

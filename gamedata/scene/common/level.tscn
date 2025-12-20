@@ -68,12 +68,11 @@ mouse_filter = 2
 
 [node name="MenuButton" type="Button" parent="GUI"]
 layout_mode = 0
-offset_left = 1207.0
+offset_left = 1184.0
 offset_top = 16.0
 offset_right = 1264.0
-offset_bottom = 73.0
-scale = Vector2(0.7, 0.7)
-pivot_offset = Vector2(57, 0)
+offset_bottom = 96.0
+pivot_offset = Vector2(80, 0)
 shortcut = ExtResource("9_2novx")
 icon = ExtResource("3_qnfjt")
 expand_icon = true
@@ -90,6 +89,7 @@ focus_behavior_recursive = 1
 layout_mode = 2
 
 [node name="Inventory" parent="GUI/HBoxContainer" instance=ExtResource("11_o86oa")]
+process_mode = 1
 layout_mode = 2
 
 [node name="Timers" type="Node" parent="."]

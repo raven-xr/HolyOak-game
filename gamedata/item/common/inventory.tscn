@@ -20,8 +20,8 @@ PanelContainer/styles/panel = SubResource("StyleBoxTexture_ptevb")
 [node name="Inventory" type="PanelContainer"]
 modulate = Color(1, 1, 1, 0.882353)
 texture_filter = 1
-offset_right = 140.0
-offset_bottom = 80.0
+offset_right = 381.0
+offset_bottom = 120.0
 theme = SubResource("Theme_tlqor")
 script = ExtResource("2_lgwfn")
 
@@ -30,12 +30,15 @@ layout_mode = 2
 theme = SubResource("Theme_y0jwr")
 
 [node name="FreezeItem" parent="HBoxContainer" instance=ExtResource("3_8c8im")]
+custom_minimum_size = Vector2(84, 100)
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Freeze Count" type="Label" parent="HBoxContainer"]
 texture_filter = 2
 custom_minimum_size = Vector2(37, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 37
 text = "0"
@@ -43,12 +46,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="HealItem" parent="HBoxContainer" instance=ExtResource("4_16tjp")]
+custom_minimum_size = Vector2(84, 100)
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Heal Count" type="Label" parent="HBoxContainer"]
 texture_filter = 2
 custom_minimum_size = Vector2(37, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 37
 text = "0"

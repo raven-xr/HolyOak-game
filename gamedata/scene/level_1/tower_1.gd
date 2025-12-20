@@ -38,7 +38,7 @@ func open_menu() -> void:
 		tower_menu.remove_button.disabled = true
 		tower_menu.upgrade_button.disabled = true
 
-func _on_touch_screen_button_pressed() -> void:
+func _on_touch_button_pressed() -> void:
 	SoundManager.click.play()
 	if not level_gui.has_node("TowerMenu"):
 		open_menu()
