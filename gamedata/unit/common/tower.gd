@@ -37,9 +37,9 @@ var unit_spawnpoints: Array
 ## Not always integer, when level equals MAX_LEVEL, it becomes the "-" string to
 ## show player he can't upgrade the tower anymore.
 @onready var current_cost = unit_stats["level_1"]["cost"]
-## Used to give half of the money back player
-## spent on the last upgrade after the pressing Remove Button.
-var last_cost: int = 0
+## Used to give all the money player spent on this tower back
+## after the pressing Remove Button.
+var total_cost: int = 0
 var is_upgrading: bool = false
 
 var tower_menu
@@ -141,7 +141,7 @@ func upgrade() -> void:
 	# Take away money from player
 	Global.game_controller.current_2d_scene.money -= current_cost
 	# Update cost
-	last_cost = current_cost
+	total_cost += current_cost
 	if not can_be_upgraded():
 		current_cost = "—"
 	else:
@@ -182,7 +182,7 @@ func remove() -> void:
 	touch_button.visible = false
 	level = 0
 	# Give half of the money back player spent last time
-	Global.game_controller.current_2d_scene.money += int(float(last_cost) / 2)
+	Global.game_controller.current_2d_scene.money += total_cost
 	# Play animation, SFX, GFX
 	sfx_building.play()
 	animation_player.play("Destruct")
