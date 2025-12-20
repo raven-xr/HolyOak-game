@@ -81,6 +81,7 @@ signal fight_started()
 
 func _ready() -> void:
 	# Scale
+	$GUI/HBoxContainer.scale = Vector2(UserSettings.gui_scale, UserSettings.gui_scale)
 	menu_button.scale = Vector2(UserSettings.gui_scale**2, UserSettings.gui_scale**2)
 	# Connect signals
 	Signals.connect("health_decreased", Callable(self, "_on_health_decreased"))
