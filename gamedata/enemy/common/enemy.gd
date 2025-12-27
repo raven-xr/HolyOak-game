@@ -3,6 +3,7 @@ class_name Enemy
 
 @export var technical_name: StringName
 
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var pivot: Area2D = $Pivot
