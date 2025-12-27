@@ -2,7 +2,7 @@ extends Node
 
 #const EXAMPLE = {
 	#"level_1": {
-		#"shell_speed": 7000, # float or int
+		#"shell_speed": 9500, # float or int
 		#"damage": 10, # int
 		#"cost": 100, # int
 		#"count": 1, # int
@@ -13,7 +13,7 @@ extends Node
 
 const ARCHER: Dictionary[StringName, Dictionary] = {
 	"level_1": {
-		"shell_speed": 7000,
+		"shell_speed": 9500,
 		"damage": 10,
 		"cost": 100,
 		"count": 1,
@@ -21,7 +21,7 @@ const ARCHER: Dictionary[StringName, Dictionary] = {
 		"attack_range": 200
 	},
 	"level_2": {
-		"shell_speed": 7000,
+		"shell_speed": 9500,
 		"damage": 20,
 		"cost": 300,
 		"count": 1,
@@ -29,7 +29,7 @@ const ARCHER: Dictionary[StringName, Dictionary] = {
 		"attack_range": 225
 	},
 	"level_3": {
-		"shell_speed": 7000,
+		"shell_speed": 9500,
 		"damage": 20,
 		"cost": 1000,
 		"count": 2,
@@ -37,7 +37,7 @@ const ARCHER: Dictionary[StringName, Dictionary] = {
 		"attack_range": 250
 	},
 	"level_4": {
-		"shell_speed": 7000,
+		"shell_speed": 9500,
 		"damage": 30,
 		"cost": 1800,
 		"count": 2,
@@ -45,7 +45,7 @@ const ARCHER: Dictionary[StringName, Dictionary] = {
 		"attack_range": 275
 	},
 	"level_5": {
-		"shell_speed": 7000,
+		"shell_speed": 9500,
 		"damage": 30,
 		"cost": 3600,
 		"count": 3,
@@ -53,7 +53,7 @@ const ARCHER: Dictionary[StringName, Dictionary] = {
 		"attack_range": 300
 	},
 	"level_6": {
-		"shell_speed": 7000,
+		"shell_speed": 9500,
 		"damage": 40,
 		"cost": 4800,
 		"count": 3,
@@ -61,7 +61,7 @@ const ARCHER: Dictionary[StringName, Dictionary] = {
 		"attack_range": 325
 	},
 	"level_7": {
-		"shell_speed": 7000,
+		"shell_speed": 9500,
 		"damage": 50,
 		"cost": 9600,
 		"count": 3,
@@ -72,7 +72,7 @@ const ARCHER: Dictionary[StringName, Dictionary] = {
 
 const FIRE_ARCHER: Dictionary[StringName, Dictionary] = {
 	"level_1": {
-		"shell_speed": 7000,
+		"shell_speed": 9500,
 		"damage": 10,
 		"cost": 150,
 		"count": 1,
@@ -80,7 +80,7 @@ const FIRE_ARCHER: Dictionary[StringName, Dictionary] = {
 		"attack_range": 200
 	},
 	"level_2": {
-		"shell_speed": 7000,
+		"shell_speed": 9500,
 		"damage": 20,
 		"cost": 450,
 		"count": 1,
@@ -88,7 +88,7 @@ const FIRE_ARCHER: Dictionary[StringName, Dictionary] = {
 		"attack_range": 225
 	},
 	"level_3": {
-		"shell_speed": 7000,
+		"shell_speed": 9500,
 		"damage": 20,
 		"cost": 1500,
 		"count": 2,
@@ -96,7 +96,7 @@ const FIRE_ARCHER: Dictionary[StringName, Dictionary] = {
 		"attack_range": 250
 	},
 	"level_4": {
-		"shell_speed": 7000,
+		"shell_speed": 9500,
 		"damage": 30,
 		"cost": 2700,
 		"count": 2,
@@ -104,7 +104,7 @@ const FIRE_ARCHER: Dictionary[StringName, Dictionary] = {
 		"attack_range": 275
 	},
 	"level_5": {
-		"shell_speed": 7000,
+		"shell_speed": 9500,
 		"damage": 30,
 		"cost": 5400,
 		"count": 3,
@@ -112,7 +112,7 @@ const FIRE_ARCHER: Dictionary[StringName, Dictionary] = {
 		"attack_range": 300
 	},
 	"level_6": {
-		"shell_speed": 7000,
+		"shell_speed": 9500,
 		"damage": 40,
 		"cost": 7200,
 		"count": 3,
@@ -120,7 +120,7 @@ const FIRE_ARCHER: Dictionary[StringName, Dictionary] = {
 		"attack_range": 325
 	},
 	"level_7": {
-		"shell_speed": 7000,
+		"shell_speed": 9500,
 		"damage": 50,
 		"cost": 14400,
 		"count": 3,
