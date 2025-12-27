@@ -1,7 +1,9 @@
 extends CharacterBody2D
 class_name Shell
 
+@export_group("Required Scenes")
 @export var effect_scene: PackedScene
+@export var hit_effect: PackedScene
 
 @onready var hit: AudioStreamPlayer2D = $SFX/Hit
 @onready var area_2d: Area2D = $Area2D
@@ -42,6 +44,7 @@ func _physics_process(delta: float) -> void:
 func _on_area_2d_body_entered(body: Enemy) -> void:
 	if body != target: return
 	body.health -= damage
+	body.animated_sprite_2d.add_child(hit_effect.instantiate())
 	hit.play()
 	if effect_scene and body.health > 0:
 		body.affect(effect_scene.instantiate())

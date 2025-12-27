@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://o8gktvpjtfgh"]
+[gd_scene load_steps=5 format=3 uid="uid://o8gktvpjtfgh"]
 
 [ext_resource type="Script" uid="uid://pv82d81qfut2" path="res://gamedata/enemy/common/enemy.gd" id="2_cx48v"]
-[ext_resource type="PackedScene" uid="uid://bcqk0ofauj0uf" path="res://gamedata/enemy/common/hit_effect.tscn" id="2_p06fv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xim26"]
 resource_local_to_scene = true
@@ -20,7 +19,6 @@ U_Death"
 collision_layer = 5
 collision_mask = 0
 script = ExtResource("2_cx48v")
-hit_effect = ExtResource("2_p06fv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xim26")
