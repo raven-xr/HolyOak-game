@@ -2,6 +2,8 @@ extends CharacterBody2D
 class_name Enemy
 
 @export var technical_name: StringName
+@export_group("Required Scenes")
+@export var hit_effect: PackedScene
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
@@ -17,6 +19,7 @@ class_name Enemy
 		if value <= 0 and health > 0:
 			die()
 		health = value
+		$AnimatedSprite2D.add_child(hit_effect.instantiate())
 @onready var damage: int = stats["damage"]
 @onready var reward: int = stats["reward"]
 
