@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bbsqvqymrojj5"]
+[gd_scene load_steps=16 format=3 uid="uid://bbsqvqymrojj5"]
 
 [ext_resource type="Script" uid="uid://2edsptc0xr5r" path="res://gamedata/scene/common/level.gd" id="1_8vq8d"]
 [ext_resource type="PackedScene" uid="uid://cdb4s0kj5v3yf" path="res://gamedata/enemy/slime/slime.tscn" id="3_36ads"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bnkmwpcieadla" path="res://gamedata/FX/vignette/vignette.tscn" id="11_1jmb8"]
 [ext_resource type="PackedScene" uid="uid://wqtdplmq8cnu" path="res://gamedata/item/common/inventory.tscn" id="11_o86oa"]
 [ext_resource type="Shader" uid="uid://csqlqc5tqnnad" path="res://gamedata/FX/vignette/vignette.gdshader" id="12_vgno3"]
+[ext_resource type="Script" uid="uid://bi1ae4vnrdxk6" path="res://gamedata/scene/common/camera_2d.gd" id="14_0gr3r"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vgno3"]
 resource_local_to_scene = true
@@ -116,6 +117,19 @@ material = SubResource("ShaderMaterial_vgno3")
 process_mode = 3
 editor_description = "This music is played after the fight started"
 bus = &"Music"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 368)
+ignore_rotation = false
+limit_left = 0
+limit_top = 0
+limit_right = 1280
+limit_bottom = 720
+limit_smoothed = true
+position_smoothing_speed = 100.0
+rotation_smoothing_enabled = true
+rotation_smoothing_speed = 25.0
+script = ExtResource("14_0gr3r")
 
 [connection signal="pressed" from="GUI/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="timeout" from="Timers/Start Timer" to="." method="_on_start_timer_timeout"]
