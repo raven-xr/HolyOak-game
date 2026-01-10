@@ -26,6 +26,8 @@ enum States {
 @onready var wave_timer: Timer = $"Timers/Wave Timer"
 @onready var spawn_timer: Timer = $"Timers/Spawn Timer"
 @onready var vignette: ColorRect = $PostFX/Vignette
+@onready var camera: Camera2D = $Camera2D
+
 @onready var theme: AudioStreamPlayer = $Theme
 @onready var inventory: PanelContainer = $LocalGUI/HBoxContainer/Inventory
 
