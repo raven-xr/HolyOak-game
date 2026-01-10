@@ -2,6 +2,7 @@ extends Camera2D
 
 @export_category("Shaking")
 @export var random_strength: float = 5.0
+### Never set the shake fade <= 0.5 if you don't want the endless shaking
 @export var shake_fade: float = 10.0
 
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
