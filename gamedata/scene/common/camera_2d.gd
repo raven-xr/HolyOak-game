@@ -11,6 +11,8 @@ func _process(_delta: float) -> void:
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_wheel_up"):
+		if zoom.x == 1.0:
+			position = get_viewport().get_mouse_position()
 		zoom.x += 0.025
 		zoom.y += 0.025
 		if zoom.x > 2.0:
