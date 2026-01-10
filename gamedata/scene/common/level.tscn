@@ -55,8 +55,7 @@ texture_filter = 1
 
 [node name="SFX" type="Node2D" parent="."]
 
-[node name="GUI" type="Control" parent="."]
-process_mode = 3
+[node name="GlobalGUI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -67,8 +66,10 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="MenuButton" type="Button" parent="GUI"]
-layout_mode = 0
+[node name="LocalGUI" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="MenuButton" type="Button" parent="LocalGUI"]
 offset_left = 1184.0
 offset_top = 16.0
 offset_right = 1264.0
@@ -78,20 +79,25 @@ shortcut = ExtResource("9_2novx")
 icon = ExtResource("3_qnfjt")
 expand_icon = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="GUI"]
-layout_mode = 0
+[node name="HBoxContainer" type="HBoxContainer" parent="LocalGUI"]
 offset_left = 24.0
 offset_top = 24.0
-offset_right = 536.0
-offset_bottom = 104.0
+offset_right = 812.0
+offset_bottom = 144.0
 focus_behavior_recursive = 1
 
-[node name="PlayerStats" parent="GUI/HBoxContainer" instance=ExtResource("8_otqld")]
+[node name="PlayerStats" parent="LocalGUI/HBoxContainer" instance=ExtResource("8_otqld")]
 layout_mode = 2
 
-[node name="Inventory" parent="GUI/HBoxContainer" instance=ExtResource("11_o86oa")]
+[node name="Inventory" parent="LocalGUI/HBoxContainer" instance=ExtResource("11_o86oa")]
 process_mode = 1
 layout_mode = 2
+
+[node name="PostFX" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="Vignette" parent="PostFX" instance=ExtResource("11_1jmb8")]
+material = SubResource("ShaderMaterial_vgno3")
 
 [node name="Timers" type="Node" parent="."]
 
@@ -106,12 +112,6 @@ one_shot = true
 
 [node name="Spawn Timer" type="Timer" parent="Timers"]
 one_shot = true
-
-[node name="PostFX" type="CanvasLayer" parent="."]
-process_mode = 3
-
-[node name="Vignette" parent="PostFX" instance=ExtResource("11_1jmb8")]
-material = SubResource("ShaderMaterial_vgno3")
 
 [node name="Theme" type="AudioStreamPlayer" parent="."]
 process_mode = 3
@@ -131,6 +131,6 @@ rotation_smoothing_enabled = true
 rotation_smoothing_speed = 25.0
 script = ExtResource("14_0gr3r")
 
-[connection signal="pressed" from="GUI/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="LocalGUI/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="timeout" from="Timers/Start Timer" to="." method="_on_start_timer_timeout"]
 [connection signal="timeout" from="Timers/Wave Timer" to="." method="_on_wave_timer_timeout"]

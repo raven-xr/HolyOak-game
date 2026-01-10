@@ -20,13 +20,14 @@ enum States {
 @export var technical_name: StringName
 
 @onready var towers: Node2D = $Towers
-@onready var gui: Control = $GUI
-@onready var menu_button: Button = $GUI/MenuButton
+@onready var local_gui: CanvasLayer = $LocalGUI
+@onready var global_gui: Control = $GlobalGUI
+@onready var menu_button: Button = $LocalGUI/MenuButton
 @onready var wave_timer: Timer = $"Timers/Wave Timer"
 @onready var spawn_timer: Timer = $"Timers/Spawn Timer"
 @onready var vignette: ColorRect = $PostFX/Vignette
 @onready var theme: AudioStreamPlayer = $Theme
-@onready var inventory: PanelContainer = $GUI/HBoxContainer/Inventory
+@onready var inventory: PanelContainer = $LocalGUI/HBoxContainer/Inventory
 
 @onready var data: Dictionary = LevelData.get(technical_name)
 
@@ -74,14 +75,14 @@ var tower_level_limit: int
 # Inventory
 var freeze_count: int:
 	set(value):
-		$GUI/HBoxContainer/Inventory.freeze_count = value
+		$LocalGUI/HBoxContainer/Inventory.freeze_count = value
 		freeze_count = value
 
 signal fight_started()
 
 func _ready() -> void:
 	# Scale
-	$GUI/HBoxContainer.scale = Vector2(UserSettings.gui_scale, UserSettings.gui_scale)
+	$LocalGUI/HBoxContainer.scale = Vector2(UserSettings.gui_scale, UserSettings.gui_scale)
 	menu_button.scale = Vector2(UserSettings.gui_scale**2, UserSettings.gui_scale**2)
 	# Connect signals
 	Signals.connect("health_decreased", Callable(self, "_on_health_decreased"))
@@ -97,8 +98,12 @@ func _ready() -> void:
 		inventory.heal_item_count = data["items"]["heal_item"]
 	# Transition
 	modulate = Color(0.0, 0.0, 0.0, 1.0)
+	for child in local_gui.get_children():
+		child.modulate = Color(0.0, 0.0, 0.0, 1.0)
 	var tween_1 = create_tween()
 	tween_1.tween_property(self, "modulate", Color(1.0, 1.0, 1.0, 1.0), 2.0)
+	for child in local_gui.get_children():
+		create_tween().tween_property(child, "modulate", Color(1.0, 1.0, 1.0, 1.0), 2.0)
 	var tween_2 = create_tween()
 	tween_2.tween_property(SoundManager.music_idle, "volume_db", -20.0, 4.0)
 	# Start the game
@@ -125,7 +130,7 @@ func fight_state() -> void:
 
 func defeat() -> void:
 	var defeat_menu = defeat_menu_scene.instantiate()
-	gui.add_child(defeat_menu)
+	local_gui.add_child(defeat_menu)
 	menu_button.disabled = true
 
 func victory() -> void:
@@ -137,7 +142,7 @@ func victory() -> void:
 	UserData.progress[technical_name]["stars"] = 3
 	UserData.update_save()
 	var victory_menu = victory_menu_scene.instantiate()
-	gui.add_child(victory_menu)
+	local_gui.add_child(victory_menu)
 	menu_button.disabled = true
 
 func new_wave() -> void:
@@ -197,7 +202,7 @@ func _on_tower_menu_opened(tower_menu: Control) -> void:
 
 func _on_tower_menu_closed(tower_menu: Control) -> void:
 	# Do not turn TouchScreenButtons on if a TowerStats has just been opened
-	if gui.has_node("TowerStats"):
+	if global_gui.has_node("TowerStats"):
 		return
 	# If the tower menu was closed, enable the other ones
 	for tower in towers.get_children():
@@ -220,5 +225,5 @@ func _on_tower_stats_closed() -> void:
 
 func _on_menu_button_pressed() -> void:
 	SoundManager.click.play()
-	gui.add_child(game_menu_scene.instantiate())
+	local_gui.add_child(game_menu_scene.instantiate())
 	menu_button.disabled = true

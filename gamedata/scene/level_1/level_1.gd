@@ -1,6 +1,6 @@
 extends Level
 
-@onready var hint: NodeGUI = $GUI/Hint
+@onready var hint: NodeGUI = $GlobalGUI/Hint
 @onready var tower_1: Node2D = $"Towers/Tower 1"
 
 func idle_state() -> void:
