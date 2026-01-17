@@ -24,6 +24,14 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		if event.button_mask == MOUSE_BUTTON_MASK_LEFT:
 			position -= event.relative * zoom * 0.25
+			if position.x < 640 / zoom.x:
+				position.x = 640 / zoom.x
+			elif position.x > 1280 - 640 / zoom.x:
+				position.x = 1280 - 640 / zoom.x
+			if position.y < 360 / zoom.y:
+				position.y = 360 / zoom.y
+			elif position.y > 720 - 360 / zoom.y:
+				position.y = 720 - 360 / zoom.y
 	if event is InputEventMouseButton:
 		if event.is_pressed():
 			if event.button_index == MOUSE_BUTTON_WHEEL_UP:
