@@ -132,7 +132,7 @@ func fight_state() -> void:
 
 func defeat() -> void:
 	var defeat_menu = defeat_menu_scene.instantiate()
-	camera.set_process_input(false)
+	camera.set_process_unhandled_input(false)
 	camera.set_process_mode(Node.PROCESS_MODE_ALWAYS)
 	camera.shake_strength = 1.0
 	camera.shake_fade = 0.0
