@@ -32,7 +32,6 @@ func _on_settings_button_pressed() -> void:
 func _on_exit_button_pressed() -> void:
 	set_buttons_disabled()
 	SoundManager.click.play()
-	SoundManager.disable_music()
 	Global.game_controller.change_gui_scene("confirmation")
 	Global.game_controller.current_gui_scene.set_text("Вы уверены? Весь прогресс будет безвозвратно утерян!")
 	Global.game_controller.current_gui_scene.connect("confirmed", Callable(self, "_on_exit_confirmed"))
@@ -40,6 +39,7 @@ func _on_exit_button_pressed() -> void:
 
 func _on_exit_confirmed() -> void:
 	get_tree().paused = false
+	SoundManager.disable_music()
 	Global.game_controller.change_2d_scene("main_menu")
 
 func _on_exit_canceled() -> void:
