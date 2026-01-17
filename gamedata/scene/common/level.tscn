@@ -119,7 +119,7 @@ editor_description = "This music is played after the fight started"
 bus = &"Music"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(640, 368)
+position = Vector2(640, 360)
 ignore_rotation = false
 limit_left = 0
 limit_top = 0
