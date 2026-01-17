@@ -19,6 +19,7 @@ enum States {
 @export var next_level: StringName = "main_menu"
 @export var technical_name: StringName
 
+@onready var map: Node2D = $Map
 @onready var towers: Node2D = $Towers
 @onready var local_gui: CanvasLayer = $LocalGUI
 @onready var global_gui: Control = $GlobalGUI
