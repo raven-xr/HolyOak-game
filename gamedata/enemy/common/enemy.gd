@@ -68,6 +68,7 @@ func attack() -> void:
 
 func hit() -> void:
 	Global.game_controller.current_2d_scene.health -= damage
+	Global.game_controller.current_2d_scene.camera.shake()
 	hit_sfx.play()
 
 func die() -> void:

@@ -13,7 +13,7 @@ func victory() -> void:
 	UserData.update_save()
 	await tween.finished
 	var victory_menu = victory_menu_scene.instantiate()
-	gui.add_child(victory_menu)
+	local_gui.add_child(victory_menu)
 	menu_button.disabled = true
 
 func _on_campfire_timer_timeout() -> void:

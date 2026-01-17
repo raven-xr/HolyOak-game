@@ -28,7 +28,7 @@ extends Node2D
 @onready var unit_stats: Dictionary[StringName, Dictionary] = UnitData.get(unit_scene.instantiate().technical_name)
 
 # GUI of the current level
-@onready var level_gui: Control = Global.game_controller.current_2d_scene.get_node("GUI")
+@onready var global_gui: Control = Global.game_controller.current_2d_scene.get_node("GlobalGUI")
 
 const MAX_LEVEL: int = 7
 var level: int = 0
@@ -63,7 +63,7 @@ func open_menu() -> void:
 	# Connects the "opened" and "closed" signals to the level
 	tower_menu.connect("opened", Callable(Global.game_controller.current_2d_scene, "_on_tower_menu_opened"))
 	tower_menu.connect("closed", Callable(Global.game_controller.current_2d_scene, "_on_tower_menu_closed"))
-	level_gui.add_child(tower_menu) # Enters the tree
+	global_gui.add_child(tower_menu) # Enters the tree
 	# Connects the other signals
 	tower_menu.build_button.connect("pressed", Callable(self, "_on_build_button_pressed"))
 	tower_menu.upgrade_button.connect("pressed", Callable(self, "_on_upgrade_button_pressed"))
@@ -118,7 +118,7 @@ func _on_tower_stats_button_pressed() -> void:
 	# Connects the "opened" and "closed" signals to the level
 	tower_stats.connect("opened", Callable(Global.game_controller.current_2d_scene, "_on_tower_stats_opened"))
 	tower_stats.connect("closed", Callable(Global.game_controller.current_2d_scene, "_on_tower_stats_closed"))
-	level_gui.add_child(tower_stats) # Enters the tree
+	global_gui.add_child(tower_stats) # Enters the tree
 	tower_stats.values_label.text = str(
 		unit_stats["level_" + str(level)]["attack_range"], "\n",
 		unit_stats["level_" + str(level)]["damage"], "\n",
@@ -154,7 +154,7 @@ func upgrade() -> void:
 	# Create units
 	spawn_units(unit_count, unit_spawnpoints)
 	# Unless there is an opened TowerStats in the level GUI, enable the TouchScreenButton
-	if not level_gui.has_node("TowerStats") and not level_gui.has_node("TowerMenu"):
+	if not global_gui.has_node("TowerStats") and not global_gui.has_node("TowerMenu"):
 		touch_button.visible = true
 	is_upgrading = false
 	# Set the AttackRange
@@ -189,7 +189,7 @@ func remove() -> void:
 	# Unblock button
 	await animation_player.animation_finished
 	# Unless there is an opened TowerStats or TowerMenu in the level GUI, enable the TouchScreenButton
-	if not level_gui.has_node("TowerStats") and not level_gui.has_node("TowerMenu"):
+	if not global_gui.has_node("TowerStats") and not global_gui.has_node("TowerMenu"):
 		touch_button.visible = true
 	# Update current cost
 	current_cost = unit_stats["level_1"]["cost"]

@@ -12,7 +12,7 @@ class_name GameController
 @export var confirmation: PackedScene
 
 @onready var world_2d: Node2D = $World2D
-@onready var gui: Control = $GUI
+@onready var gui: CanvasLayer = $GUI
 
 var current_2d_scene
 var current_gui_scene
