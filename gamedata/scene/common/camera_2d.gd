@@ -5,40 +5,39 @@ extends Camera2D
 ### Never set the shake fade <= 0.5 if you don't want the endless shaking
 @export var shake_fade: float = 10.0
 
-var rng: RandomNumberGenerator = RandomNumberGenerator.new()
+const MAX_ZOOM: float = 2.0
+const MIN_ZOOM: float = 1.0
+const ZOOM_INCREMENT: float = 0.25
+const ZOOM_RATE: float = 8.0
 
+var target_zoom: float = 1.0
+var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 var shake_strength: float = 0.0
 
-var last_mouse_position: Vector2
-var moving: bool = false
-
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if shake_strength > 0:
 		shake_strength = lerpf(shake_strength, 0, shake_fade * delta)
 		offset = random_offset()
-	if moving:
-		var current_mouse_position: Vector2 = get_viewport().get_mouse_position()
-		position += (last_mouse_position - current_mouse_position) * 0.33
-		last_mouse_position = current_mouse_position
+	zoom = lerp(zoom, target_zoom * Vector2.ONE, ZOOM_RATE * delta)
 
-func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_wheel_up"):
-		if zoom.x == 1.0:
-			position = get_viewport().get_mouse_position()
-		zoom.x += 0.025
-		zoom.y += 0.025
-		if zoom.x > 2.0:
-			zoom = Vector2(2.0, 2.0)
-	if Input.is_action_just_pressed("ui_wheel_down"):
-		zoom.x -= 0.025
-		zoom.y -= 0.025
-		if zoom.x < 1.0:
-			zoom = Vector2(1.0, 1.0)
-	if Input.is_action_just_pressed("ui_click"):
-		moving = true
-		last_mouse_position = get_viewport().get_mouse_position()
-	if Input.is_action_just_released("ui_click"):
-		moving = false
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		if event.button_mask == MOUSE_BUTTON_MASK_LEFT:
+			position -= event.relative * zoom * 0.25
+	if event is InputEventMouseButton:
+		if event.is_pressed():
+			if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+				if 0.99 <= zoom.x and zoom.x <= 1.01:
+					position = get_global_mouse_position()
+				zoom_in()
+			if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+				zoom_out()
+
+func zoom_in() -> void:
+	target_zoom = min(target_zoom + ZOOM_INCREMENT, MAX_ZOOM)
+
+func zoom_out() -> void:
+	target_zoom = max(target_zoom - ZOOM_INCREMENT, MIN_ZOOM)
 
 func shake():
 	shake_strength = random_strength
