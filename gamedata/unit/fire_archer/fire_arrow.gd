@@ -21,5 +21,10 @@ func self_destruct() -> void:
 	var tween = create_tween()
 	tween.parallel().tween_property(self, "modulate", Color(1.0, 1.0, 1.0, 0.0), 0.15)
 	tween.parallel().tween_property(point_light_2d, "color:a", 0.0, 0.15)
+	await get_tree().create_timer(0.11).timeout
+	if not hit_enemy:
+		var new_hit_effect: AnimatedSprite2D = hit_effect.instantiate()
+		new_hit_effect.position = position
+		Global.game_controller.current_2d_scene.map.add_child(new_hit_effect)
 	await tween.finished
 	queue_free()
