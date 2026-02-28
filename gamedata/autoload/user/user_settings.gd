@@ -4,32 +4,29 @@ extends Node
 const DEFAULT_MASTER_VOLUME: float = 1.0
 const DEFAULT_MUSIC_VOLUME: float = 0.65
 const DEFAULT_SFX_VOLUME: float = 1.0
-#const DEFAULT_GUI_SCALE: float = 0.7
+#const DEFAULT_GUI_SCALE: float = 1.0
 
 # Audiobuses
 var master_bus_idx: int = AudioServer.get_bus_index("Master")
 var music_bus_idx: int = AudioServer.get_bus_index("Music")
 var sfx_bus_idx: int = AudioServer.get_bus_index("SFX")
-# [0.0; 1.0]
-var master_volume: float = 1.0:
+
+var master_volume: float = 1.0: # [0.0; 1.0]
 	set(value):
 		master_volume = value
 		property_changed.emit()
 		AudioServer.set_bus_volume_db(master_bus_idx, linear_to_db(value))
-# [0.0; 1.0]
-var music_volume: float = 0.65:
+var music_volume: float = 0.65: # [0.0; 1.0]
 	set(value):
 		music_volume = value
 		property_changed.emit()
 		AudioServer.set_bus_volume_db(music_bus_idx, linear_to_db(value))
-# [0.0; 1.0]
-var sfx_volume: float = 1.0:
+var sfx_volume: float = 1.0: # [0.0; 1.0]
 	set(value):
 		sfx_volume = value
 		property_changed.emit()
 		AudioServer.set_bus_volume_db(sfx_bus_idx, linear_to_db(value))
-# {0.5; 0.6; 0.7; 0.8; 0.9; 1.0}
-var gui_scale: float = 1.0:
+var gui_scale: float = 1.0: # {0.5; 0.6; 0.7; 0.8; 0.9; 1.0}
 	set(value):
 		gui_scale = value
 		property_changed.emit()
@@ -49,12 +46,13 @@ func load_settings() -> void:
 		get_viewport().gui_disable_input = true # Makes player unable to interact with the GUI
 		await get_tree().create_timer(5.0).timeout
 		get_tree().quit()
-	var settings: ConfigFile = ConfigFile.new()
-	settings.load(SETTINGS_PATH)
-	master_volume = settings.get_value("VOLUME", "master_volume")
-	music_volume = settings.get_value("VOLUME", "music_volume")
-	sfx_volume = settings.get_value("VOLUME", "sfx_volume")
-	gui_scale = settings.get_value("GUI", "gui_scale")
+	else:
+		var settings: ConfigFile = ConfigFile.new()
+		settings.load(SETTINGS_PATH)
+		master_volume = settings.get_value("VOLUME", "master_volume")
+		music_volume = settings.get_value("VOLUME", "music_volume")
+		sfx_volume = settings.get_value("VOLUME", "sfx_volume")
+		gui_scale = settings.get_value("GUI", "gui_scale")
 
 func save_settings() -> void:
 	var settings: ConfigFile = ConfigFile.new()

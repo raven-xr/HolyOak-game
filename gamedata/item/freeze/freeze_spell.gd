@@ -1,0 +1,15 @@
+extends Spell
+
+func _on_area_2d_body_entered(body: Enemy) -> void:
+	body.is_frozen = true
+	body.speed /= 3
+	body.animation_player.speed_scale = 0.33
+
+func _on_area_2d_body_exited(body: Enemy) -> void:
+	body.is_frozen = false
+	body.speed *= 3
+	body.animation_player.speed_scale = 1
+
+func _on_placed() -> void:
+	$Snow.emitting = true
+	$AudioStreamPlayer2D.play()

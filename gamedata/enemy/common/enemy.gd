@@ -3,6 +3,7 @@ class_name Enemy
 
 @export var technical_name: StringName
 
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var pivot: Area2D = $Pivot
@@ -11,7 +12,7 @@ class_name Enemy
 @onready var effects: Node2D = $Effects
 
 @onready var stats: Dictionary = EnemyData.get(technical_name)
-@onready var speed: int = stats["speed"]
+@onready var speed: float = stats["speed"]
 @onready var health: int = stats["health"]:
 	set(value):
 		if value <= 0 and health > 0:
@@ -51,6 +52,7 @@ var is_available: bool = true:
 ## If the enemy previously dies (future_health <= 0),
 ## it becomes less of a priority for units
 var is_previously_died: bool = false
+var is_frozen: bool = false
 
 signal moved()
 signal died()
@@ -65,7 +67,8 @@ func attack() -> void:
 	animation_player.play(view_direction + "_Attack")
 
 func hit() -> void:
-	PlayerStats.health -= damage
+	Global.game_controller.current_2d_scene.health -= damage
+	Global.game_controller.current_2d_scene.camera.shake()
 	hit_sfx.play()
 
 func die() -> void:
@@ -73,7 +76,7 @@ func die() -> void:
 	collision_shape_2d.set_deferred("disabled", true)
 	death.play()
 	died.emit()
-	PlayerStats.money += reward
+	Global.game_controller.current_2d_scene.money += reward
 	animation_player.play(view_direction + "_Death")
 	await animation_player.animation_finished
 	queue_free()

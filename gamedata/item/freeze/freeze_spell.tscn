@@ -1,0 +1,99 @@
+[gd_scene load_steps=16 format=3 uid="uid://bjkcyj2r7i454"]
+
+[ext_resource type="PackedScene" uid="uid://bn67wft0ukn1l" path="res://gamedata/item/common/spell.tscn" id="1_8ryg7"]
+[ext_resource type="Script" uid="uid://t3yw5w8xyj3r" path="res://gamedata/item/freeze/freeze_spell.gd" id="1_exxr5"]
+[ext_resource type="AudioStream" uid="uid://stt227m8wrhe" path="res://audio/sfx/freeze.mp3" id="3_xqx1s"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8ryg7"]
+light_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_exxr5"]
+offsets = PackedFloat32Array(0, 0.25080386, 0.61736333, 0.63022506, 0.65273315)
+colors = PackedColorArray(0, 0.93333334, 1, 0.1254902, 0, 1, 1, 0.1254902, 1, 1, 1, 0.37600002, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tjqha"]
+gradient = SubResource("Gradient_exxr5")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tjqha"]
+radius = 40.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xqx1s"]
+light_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_tjqha"]
+offsets = PackedFloat32Array(0, 0.5305466, 0.5562701)
+colors = PackedColorArray(1, 1, 1, 1, 0.7882353, 0.7882353, 0.7882353, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x1d74"]
+gradient = SubResource("Gradient_tjqha")
+width = 8
+height = 8
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Curve" id="Curve_l2t04"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.25597268, 0.9637884), 0.0, 0.0, 0, 0, Vector2(0.3651877, 0.35724235), 0.0, 0.0, 0, 0, Vector2(0.50511944, 0.9456825), 0.0, 0.0, 0, 0, Vector2(0.63139933, 0.36629528), 0.0, 0.0, 0, 0, Vector2(0.7235495, 0.9728413), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 7
+
+[sub_resource type="CurveTexture" id="CurveTexture_tjqha"]
+curve = SubResource("Curve_l2t04")
+
+[sub_resource type="Gradient" id="Gradient_45ywh"]
+offsets = PackedFloat32Array(0, 0.25468165, 0.4681648, 0.670412, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.6039216, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_l2t04"]
+gradient = SubResource("Gradient_45ywh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5ykp8"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -48, 0)
+emission_shape = 3
+emission_box_extents = Vector3(32, 1, 1)
+orbit_velocity_min = -0.019999906
+orbit_velocity_max = 0.020000096
+gravity = Vector3(0, 3, 0)
+color_ramp = SubResource("GradientTexture1D_l2t04")
+alpha_curve = SubResource("CurveTexture_tjqha")
+
+[node name="FreezeSpell" instance=ExtResource("1_8ryg7")]
+script = ExtResource("1_exxr5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+modulate = Color(0.037521772, 0.2753775, 1, 1)
+material = SubResource("CanvasItemMaterial_8ryg7")
+scale = Vector2(0.5, 0.5)
+texture = SubResource("GradientTexture2D_tjqha")
+
+[node name="Area2D" type="Area2D" parent="." index="1"]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("CircleShape2D_tjqha")
+
+[node name="Snow" type="GPUParticles2D" parent="." index="2"]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_xqx1s")
+emitting = false
+amount = 18
+texture = SubResource("GradientTexture2D_x1d74")
+lifetime = 8.0
+visibility_rect = Rect2(-60, -60, 120, 120)
+process_material = SubResource("ParticleProcessMaterial_5ykp8")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="3"]
+stream = ExtResource("3_xqx1s")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="Duration" parent="." index="4"]
+wait_time = 60.0
+
+[connection signal="placed" from="." to="." method="_on_placed"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

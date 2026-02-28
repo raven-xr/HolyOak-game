@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnkmwpcieadla"]
+
+[ext_resource type="Shader" uid="uid://csqlqc5tqnnad" path="res://gamedata/FX/vignette/vignette.gdshader" id="1_s6vmy"]
+[ext_resource type="Script" uid="uid://o4ehiblygynj" path="res://gamedata/FX/vignette/vignette.gd" id="2_ufdy3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ufdy3"]
+resource_local_to_scene = true
+shader = ExtResource("1_s6vmy")
+shader_parameter/vignette_color = Color(0.251, 0.502, 0, 1)
+shader_parameter/transparency = 0.3
+shader_parameter/radius = 2.0
+
+[node name="Vignette" type="ColorRect"]
+material = SubResource("ShaderMaterial_ufdy3")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2_ufdy3")
+max_vignette_color_shift = Color(0.7, 1, 1, 1)
+
+[node name="Shift Timer" type="Timer" parent="."]
+editor_description = "Resets the shift of the color/transparency/radius"
+wait_time = 7.5
+one_shot = true
+
+[connection signal="timeout" from="Shift Timer" to="." method="_on_shift_timer_timeout"]

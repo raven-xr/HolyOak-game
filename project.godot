@@ -13,7 +13,7 @@ config_version=5
 config/name="Holy Oak"
 config/version="0.5.0"
 run/main_scene="uid://b4vwc1l7latan"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/image="res://gui/backgrounds/loadscreen.png"
 config/icon="res://icon.png"
 
@@ -32,7 +32,6 @@ EffectData="*res://gamedata/autoload/data/effect_data.gd"
 LevelData="*res://gamedata/autoload/data/level_data.gd"
 SoundManager="*res://gamedata/autoload/sound_manager/sound_manager.tscn"
 Signals="*res://gamedata/autoload/signals/signals.gd"
-PlayerStats="*res://gamedata/autoload/player/player_stats.gd"
 
 [display]
 
@@ -53,6 +52,24 @@ enabled=PackedStringArray("res://addons/AS2P/plugin.cfg")
 
 import/blender/enabled=false
 
+[input]
+
+ui_click={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
+ui_wheel_up={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":4,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
+ui_wheel_down={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":5,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
+
 [input_devices]
 
 pointing/emulate_touch_from_mouse=true
@@ -63,11 +80,12 @@ locale/locale_filter_mode=1
 
 [layer_names]
 
-2d_physics/layer_1="Enemies << Units"
+2d_physics/layer_1="Enemies << Units & Spells"
 2d_physics/layer_2="Holy Oak << Enemies"
 2d_physics/layer_3="Enemies << Shells"
 2d_physics/layer_4="Enemy Pivots << Waypoints"
 
 [rendering]
 
+renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true

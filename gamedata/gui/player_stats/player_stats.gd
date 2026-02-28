@@ -1,12 +1,10 @@
-extends NodeGUI
+extends PanelContainer
 
-@onready var hp_value: Label = $PanelContainer/HBoxContainer/HPValue
-@onready var money_value: Label = $PanelContainer/HBoxContainer/MoneyValue
-@onready var wave_value: Label = $PanelContainer/HBoxContainer/WaveValue
+@onready var hp_value: Label = $HBoxContainer/HPValue
+@onready var money_value: Label = $HBoxContainer/MoneyValue
+@onready var wave_value: Label = $HBoxContainer/WaveValue
 
 func _ready() -> void:
-	# Scale even more
-	scale *= 2
 	# Connect global signals of the "PlayerStats" autoloading script
 	Signals.connect("money_changed", Callable(self, "_on_money_changed"))
 	Signals.connect("wave_changed", Callable(self, "_on_wave_changed"))

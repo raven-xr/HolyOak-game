@@ -1,10 +1,10 @@
-[gd_scene load_steps=137 format=3 uid="uid://lxt2xv2lfkgu"]
+[gd_scene load_steps=138 format=3 uid="uid://lxt2xv2lfkgu"]
 
 [ext_resource type="Script" uid="uid://bdsofk2pt1nov" path="res://gamedata/unit/common/tower.gd" id="1_ga7em"]
 [ext_resource type="Texture2D" uid="uid://dyj1b8lqm8l5x" path="res://gfx/unit/tower/upgrade/1.png" id="2_6xap5"]
 [ext_resource type="Texture2D" uid="uid://cjyvn46nwilg0" path="res://gfx/unit/tower/foundation.png" id="2_bv0xj"]
 [ext_resource type="Texture2D" uid="uid://t8vwtgwke7jr" path="res://gfx/unit/tower/upgrade/4_roof.png" id="2_pq2nx"]
-[ext_resource type="PackedScene" uid="uid://fp8vxfd5r20l" path="res://gamedata/FX/smoke/smoke.tscn" id="2_th4ks"]
+[ext_resource type="PackedScene" uid="uid://fp8vxfd5r20l" path="res://gamedata/FX/construction_smoke/construction_smoke.tscn" id="2_th4ks"]
 [ext_resource type="Texture2D" uid="uid://bqk852lqxeo15" path="res://gfx/unit/tower/idle/1.png" id="3_0tv8s"]
 [ext_resource type="Texture2D" uid="uid://cnyq7sevn2fmk" path="res://gfx/unit/tower/upgrade/5_roof.png" id="3_8es61"]
 [ext_resource type="Texture2D" uid="uid://5txqbqpyebun" path="res://gfx/unit/tower/upgrade/2.png" id="3_fbeod"]
@@ -1596,9 +1596,6 @@ animations = [{
 "speed": 0.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_th4ks"]
-radius = 54.0
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_qwakt"]
 resource_local_to_scene = true
 
@@ -1610,6 +1607,17 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0.152941, 1, 1, 1, 0.
 gradient = SubResource("Gradient_qwakt")
 width = 20
 height = 20
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_khjre"]
+offsets = PackedFloat32Array(0, 0.380952, 0.552381, 0.707937)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.25098, 1, 1, 1, 0.0627451, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rxukx"]
+gradient = SubResource("Gradient_khjre")
+width = 128
+height = 128
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
@@ -1649,8 +1657,13 @@ position = Vector2(0, -56)
 scale = Vector2(1.72308, 1.72308)
 sprite_frames = SubResource("SpriteFrames_y2klm")
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
-shape = SubResource("CircleShape2D_th4ks")
+[node name="TouchButton" type="Button" parent="."]
+editor_description = "Used to interact with the tower's GUI"
+modulate = Color(1, 1, 1, 0)
+offset_left = -48.0
+offset_top = -48.0
+offset_right = 48.0
+offset_bottom = 48.0
 
 [node name="Building" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("22_y2klm")
@@ -1672,4 +1685,11 @@ debug_color = Color(0.00493456, 0.228804, 0.999991, 0.188235)
 modulate = Color(1, 1, 1, 0)
 texture = SubResource("GradientTexture2D_khjre")
 
-[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
+[node name="PointLight2D" type="PointLight2D" parent="."]
+enabled = false
+color = Color(1, 1, 0.501961, 1)
+energy = 0.6
+texture = SubResource("GradientTexture2D_rxukx")
+texture_scale = 2.0
+
+[connection signal="pressed" from="TouchButton" to="." method="_on_touch_button_pressed"]

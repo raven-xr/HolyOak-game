@@ -1,21 +1,35 @@
-[gd_scene load_steps=22 format=4 uid="uid://jntda0nfq0ml"]
+[gd_scene load_steps=63 format=4 uid="uid://jntda0nfq0ml"]
 
 [ext_resource type="PackedScene" uid="uid://bbsqvqymrojj5" path="res://gamedata/scene/common/level.tscn" id="1_6eesv"]
-[ext_resource type="Texture2D" uid="uid://ciyeb8o1ywukt" path="res://gfx/tilesets/grass.png" id="2_j5uvo"]
-[ext_resource type="Texture2D" uid="uid://b0e3u22u8240c" path="res://gfx/tilesets/decor_16x16.png" id="4_nubkq"]
-[ext_resource type="Texture2D" uid="uid://sasruh3frvel" path="res://gfx/tilesets/plains.png" id="4_yoaft"]
+[ext_resource type="Texture2D" uid="uid://ciyeb8o1ywukt" path="res://gfx/tileset/grass.png" id="2_j5uvo"]
+[ext_resource type="Texture2D" uid="uid://b0e3u22u8240c" path="res://gfx/tileset/decor_16x16.png" id="4_nubkq"]
+[ext_resource type="Texture2D" uid="uid://sasruh3frvel" path="res://gfx/tileset/plains.png" id="4_yoaft"]
 [ext_resource type="PackedScene" uid="uid://ccqwn6n7il2n2" path="res://gamedata/enemy/waypoint/waypoint.tscn" id="5_fqwq1"]
-[ext_resource type="Texture2D" uid="uid://dqfm4pmqposiy" path="res://gfx/object/oak.png" id="5_pd1fw"]
-[ext_resource type="Texture2D" uid="uid://cktva0111rdpr" path="res://gfx/object/table.png" id="6_mx3ml"]
-[ext_resource type="Texture2D" uid="uid://c4hsbyvxqgyxb" path="res://gfx/object/small_bush.png" id="7_rrcrb"]
-[ext_resource type="Texture2D" uid="uid://c2hl8w46j70b1" path="res://gfx/object/tall_bush.png" id="8_uukl5"]
-[ext_resource type="Texture2D" uid="uid://d1ygnmgujqnib" path="res://gfx/object/box.png" id="9_froo7"]
-[ext_resource type="Texture2D" uid="uid://fbgyur18dijb" path="res://gfx/object/sign.png" id="9_uhlv7"]
-[ext_resource type="Texture2D" uid="uid://c7mi2jbynpkv4" path="res://gfx/object/stump.png" id="11_6wnts"]
-[ext_resource type="Texture2D" uid="uid://ch3ur0m58a0hk" path="res://gfx/object/rock.png" id="12_ugjxr"]
+[ext_resource type="Texture2D" uid="uid://dqfm4pmqposiy" path="res://gfx/object/static/vegetation/oak.png" id="5_pd1fw"]
+[ext_resource type="Texture2D" uid="uid://cktva0111rdpr" path="res://gfx/object/static/decoration/table.png" id="6_mx3ml"]
+[ext_resource type="Texture2D" uid="uid://c4hsbyvxqgyxb" path="res://gfx/object/static/vegetation/small_bush.png" id="7_rrcrb"]
+[ext_resource type="Texture2D" uid="uid://c2hl8w46j70b1" path="res://gfx/object/static/vegetation/tall_bush.png" id="8_uukl5"]
+[ext_resource type="Texture2D" uid="uid://d1ygnmgujqnib" path="res://gfx/object/static/decoration/box.png" id="9_froo7"]
+[ext_resource type="Texture2D" uid="uid://c7mi2jbynpkv4" path="res://gfx/object/static/vegetation/stump.png" id="11_6wnts"]
+[ext_resource type="Texture2D" uid="uid://ch3ur0m58a0hk" path="res://gfx/object/static/decoration/rock.png" id="12_ugjxr"]
+[ext_resource type="Texture2D" uid="uid://dtl6ib3espqqv" path="res://gfx/object/static/lamp/lamp_5.png" id="13_4weji"]
+[ext_resource type="Texture2D" uid="uid://bqlrtfn1vq6ax" path="res://gfx/object/static/camp/camp_1.png" id="14_21xjk"]
 [ext_resource type="PackedScene" uid="uid://lxt2xv2lfkgu" path="res://gamedata/unit/common/tower.tscn" id="14_ru426"]
+[ext_resource type="Texture2D" uid="uid://b7rlcau3m8jsw" path="res://gfx/object/animated/campfire/campfire_2.png" id="15_1o6nx"]
 [ext_resource type="PackedScene" uid="uid://cenxr6q3w2dek" path="res://gamedata/unit/archer/archer.tscn" id="15_s48e1"]
+[ext_resource type="PackedScene" uid="uid://i6xrwjcwdrt" path="res://gamedata/FX/flickering_light/flickering_light.tscn" id="16_73y64"]
+[ext_resource type="Texture2D" uid="uid://cttnn3fgn255i" path="res://gfx/object/static/vegetation/log_2.png" id="17_5wspy"]
+[ext_resource type="Texture2D" uid="uid://cr7p6pa7qu8in" path="res://gfx/object/static/pointer/pointer_5.png" id="17_73y64"]
 [ext_resource type="PackedScene" uid="uid://b6o16t77ww40d" path="res://gamedata/unit/fire_archer/fire_archer.tscn" id="17_d1wd8"]
+[ext_resource type="Shader" uid="uid://csqlqc5tqnnad" path="res://gamedata/FX/vignette/vignette.gdshader" id="17_jklqj"]
+[ext_resource type="PackedScene" uid="uid://brxpkrih41p8f" path="res://gamedata/FX/orb/orb.tscn" id="17_ru426"]
+[ext_resource type="AudioStream" uid="uid://b11tpu11bsbb8" path="res://audio/music/alexander_nakarada-borgar_2023.mp3" id="18_2nx52"]
+[ext_resource type="Texture2D" uid="uid://b2xw6hw0q2cpu" path="res://gfx/object/animated/flag/flag_1.png" id="18_5wspy"]
+[ext_resource type="Texture2D" uid="uid://sb20gghgnpn2" path="res://gfx/object/static/vegetation/log_4.png" id="19_5wspy"]
+[ext_resource type="Texture2D" uid="uid://qek8bqinjylq" path="res://gfx/object/static/vegetation/log_3.png" id="20_mqosu"]
+[ext_resource type="Texture2D" uid="uid://b8e4cfy5py1ug" path="res://gfx/object/static/lamp/lamp_2.png" id="21_mqosu"]
+[ext_resource type="Texture2D" uid="uid://6vle5408rcq5" path="res://gfx/object/static/lamp/lamp_3.png" id="22_vgl8t"]
+[ext_resource type="AudioStream" uid="uid://dub6tqdrurkm3" path="res://audio/sfx/ambience/level_3_ambience.mp3" id="28_4ge51"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x7p3s"]
 texture = ExtResource("2_j5uvo")
@@ -98,6 +112,194 @@ texture = ExtResource("4_nubkq")
 [sub_resource type="TileSet" id="TileSet_hxrqg"]
 sources/0 = SubResource("TileSetAtlasSource_ekwkv")
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_73y64"]
+polygon = PackedVector2Array(4, 2, -1, -21, -10, -2, -1, -19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqosu"]
+atlas = ExtResource("15_1o6nx")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgl8t"]
+atlas = ExtResource("15_1o6nx")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4weji"]
+atlas = ExtResource("15_1o6nx")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ge51"]
+atlas = ExtResource("15_1o6nx")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2g2ii"]
+atlas = ExtResource("15_1o6nx")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pglg"]
+atlas = ExtResource("15_1o6nx")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xxhi5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqosu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgl8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4weji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ge51")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2g2ii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pglg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="Curve" id="Curve_vgl8t"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1e-05, 0), 7.5817637, 7.5817637, 0, 0, Vector2(0.25255972, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.7169433, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_ijtuk"]
+curve = SubResource("Curve_vgl8t")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4weji"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(6, 1, 1)
+direction = Vector3(0, -1, 0)
+spread = 10.0
+initial_velocity_min = 20.0
+initial_velocity_max = 20.0
+gravity = Vector3(0, 1.5, 0)
+scale_min = 2.0
+scale_max = 2.0
+color = Color(0.6666667, 0.6666667, 0.6666667, 1)
+alpha_curve = SubResource("CurveTexture_ijtuk")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxhi5"]
+atlas = ExtResource("18_5wspy")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsi7e"]
+atlas = ExtResource("18_5wspy")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2c1e"]
+atlas = ExtResource("18_5wspy")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5kcpu"]
+atlas = ExtResource("18_5wspy")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4tds"]
+atlas = ExtResource("18_5wspy")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxctu"]
+atlas = ExtResource("18_5wspy")
+region = Rect2(160, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nxwfe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxhi5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsi7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2c1e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5kcpu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4tds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxctu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="Curve" id="Curve_wmj11"]
+resource_local_to_scene = true
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.113402, 0.926966), 0.0, 0.0, 0, 0, Vector2(0.295533, 0.53441), 0.0, 0.0, 0, 0, Vector2(0.484536, 1), 0.0, 0.0, 0, 0, Vector2(0.618557, 0.552669), 0.0, 0.0, 0, 0, Vector2(0.786942, 1), 0.0, 0.0, 0, 0, Vector2(0.828179, 0.507023), 0.0, 0.0, 0, 0, Vector2(0.927835, 0.625702), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 9
+
+[sub_resource type="CurveTexture" id="CurveTexture_kln85"]
+resource_local_to_scene = true
+curve = SubResource("Curve_wmj11")
+
+[sub_resource type="Curve" id="Curve_ru426"]
+_data = [Vector2(0, 0.0294521), 0.0, 0.0, 0, 0, Vector2(0.171717, 0.50137), 0.0, 0.0, 0, 0, Vector2(0.323232, 0.323288), 0.0, 0.0, 0, 0, Vector2(0.498316, 0.519178), 0.0, 0.0, 0, 0, Vector2(0.734007, 0.341096), 0.0, 0.0, 0, 0, Vector2(0.86532, 0.50137), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 7
+
+[sub_resource type="Curve" id="Curve_kln85"]
+_limits = [-1.0, 0.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.198653, -0.103884), 0.0, 0.0, 0, 0, Vector2(0.390572, -0.249315), 0.0, 0.0, 0, 0, Vector2(0.632997, -0.142466), 0.0, 0.0, 0, 0, Vector2(0.868687, -0.320548), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_wmj11"]
+curve_x = SubResource("Curve_ru426")
+curve_y = SubResource("Curve_kln85")
+
+[sub_resource type="Curve" id="Curve_r2iga"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 0.470506), 0.0, 0.0, 0, 0, Vector2(0.189003, 0.908708), 0.0, 0.0, 0, 0, Vector2(0.298969, 0.488764), 0.0, 0.0, 0, 0, Vector2(0.522337, 1), 0.0, 0.0, 0, 0, Vector2(0.725086, 0.543539), 0.0, 0.0, 0, 0, Vector2(1, 0.360955), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="CurveTexture" id="CurveTexture_k16lo"]
+resource_local_to_scene = true
+curve = SubResource("Curve_r2iga")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ru426"]
+resource_local_to_scene = true
+lifetime_randomness = 0.1
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(450, 100, 1)
+spread = 180.0
+initial_velocity_min = 25.0
+initial_velocity_max = 40.0
+angular_velocity_min = -0.500016
+angular_velocity_max = 0.499984
+directional_velocity_min = 15.0
+directional_velocity_max = 30.0
+directional_velocity_curve = SubResource("CurveXYZTexture_wmj11")
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 0.0100001
+gravity = Vector3(0, 0, 0)
+scale_min = 0.7
+color = Color(0.25098, 1, 0, 1)
+alpha_curve = SubResource("CurveTexture_kln85")
+hue_variation_min = -2.23517e-08
+hue_variation_max = 0.33
+hue_variation_curve = SubResource("CurveTexture_k16lo")
+turbulence_enabled = true
+turbulence_noise_strength = 5.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vgno3"]
+resource_local_to_scene = true
+shader = ExtResource("17_jklqj")
+shader_parameter/vignette_color = Color(0.251, 0.502, 0, 1)
+shader_parameter/transparency = 0.3
+shader_parameter/radius = 2.0
+
 [node name="Level 3" instance=ExtResource("1_6eesv")]
 technical_name = &"LEVEL_3"
 
@@ -110,6 +312,7 @@ tile_map_data = PackedByteArray("AABDABAAAAAAAAQAAABDABMAAAAAAAQAAABGABIAAAAAAAQ
 tile_set = SubResource("TileSet_hxrqg")
 
 [node name="Road 1" type="Node2D" parent="Enemies" index="0"]
+y_sort_enabled = true
 
 [node name="Waypoints" type="Node" parent="Enemies/Road 1" index="0"]
 
@@ -146,6 +349,7 @@ rotation = 0.715585
 new_direction = "R"
 
 [node name="Road 2" type="Node2D" parent="Enemies" index="1"]
+y_sort_enabled = true
 
 [node name="Waypoints" type="Node" parent="Enemies/Road 2" index="0"]
 
@@ -184,6 +388,7 @@ rotation = 0.750492
 new_direction = "R"
 
 [node name="Road 3" type="Node2D" parent="Enemies" index="2"]
+y_sort_enabled = true
 
 [node name="Waypoints" type="Node" parent="Enemies/Road 3" index="0"]
 
@@ -221,6 +426,7 @@ rotation = 0.785398
 new_direction = "R"
 
 [node name="Road 4" type="Node2D" parent="Enemies" index="3"]
+y_sort_enabled = true
 
 [node name="Waypoints" type="Node" parent="Enemies/Road 4" index="0"]
 
@@ -263,6 +469,7 @@ rotation = -0.733038
 new_direction = "L"
 
 [node name="Road 5" type="Node2D" parent="Enemies" index="4"]
+y_sort_enabled = true
 
 [node name="Waypoints" type="Node" parent="Enemies/Road 5" index="0"]
 
@@ -315,7 +522,14 @@ position = Vector2(528, 480)
 rotation = -0.733038
 new_direction = "L"
 
+[node name="Spells" parent="." index="2"]
+y_sort_enabled = true
+
+[node name="Map" parent="." index="3"]
+y_sort_enabled = true
+
 [node name="Forest 1" type="Node2D" parent="Map" index="0"]
+y_sort_enabled = true
 
 [node name="Oak 1" type="Sprite2D" parent="Map/Forest 1" index="0"]
 position = Vector2(1064, 752)
@@ -537,9 +751,10 @@ position = Vector2(16, 272)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Table 1" type="Sprite2D" parent="Map/Forest 1" index="44"]
-position = Vector2(1236, 131)
-texture = ExtResource("6_mx3ml")
+[node name="Log" type="Sprite2D" parent="Map/Forest 1" index="44"]
+position = Vector2(1171, 127)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("20_mqosu")
 
 [node name="Small Bush 1" type="Sprite2D" parent="Map/Forest 1" index="45"]
 position = Vector2(580, 287)
@@ -769,93 +984,16 @@ position = Vector2(851, 103)
 scale = Vector2(1.33, 1.33)
 texture = ExtResource("12_ugjxr")
 
-[node name="Park" type="Node2D" parent="Map" index="1"]
+[node name="Lamp 1" type="Sprite2D" parent="Map/Forest 1" index="99"]
+position = Vector2(240, 264)
+scale = Vector2(1.33, 1.33)
+texture = ExtResource("13_4weji")
 
-[node name="Table 1" type="Sprite2D" parent="Map/Park" index="0"]
-position = Vector2(1152, 224)
-texture = ExtResource("6_mx3ml")
+[node name="Flickering Light" parent="Map/Forest 1/Lamp 1" index="0" instance=ExtResource("16_73y64")]
+position = Vector2(6.766917, 5.263158)
 
-[node name="Table 2" type="Sprite2D" parent="Map/Park" index="1"]
-position = Vector2(1256, 419)
-texture = ExtResource("6_mx3ml")
-
-[node name="Small Bush 1" type="Sprite2D" parent="Map/Park" index="2"]
-position = Vector2(1030, 317)
-texture = ExtResource("7_rrcrb")
-
-[node name="Poplar 1" type="Sprite2D" parent="Map/Park" index="3"]
-position = Vector2(1088, 218)
-scale = Vector2(2, 2)
-texture = ExtResource("8_uukl5")
-
-[node name="Poplar 2" type="Sprite2D" parent="Map/Park" index="4"]
-position = Vector2(1221, 215)
-scale = Vector2(2, 2)
-texture = ExtResource("8_uukl5")
-
-[node name="Poplar 3" type="Sprite2D" parent="Map/Park" index="5"]
-position = Vector2(1025, 259)
-scale = Vector2(2, 2)
-texture = ExtResource("8_uukl5")
-
-[node name="Poplar 4" type="Sprite2D" parent="Map/Park" index="6"]
-position = Vector2(1109, 258)
-scale = Vector2(2, 2)
-texture = ExtResource("8_uukl5")
-
-[node name="Poplar 5" type="Sprite2D" parent="Map/Park" index="7"]
-position = Vector2(1174, 254)
-scale = Vector2(2, 2)
-texture = ExtResource("8_uukl5")
-
-[node name="Poplar 6" type="Sprite2D" parent="Map/Park" index="8"]
-position = Vector2(1255, 255)
-scale = Vector2(2, 2)
-texture = ExtResource("8_uukl5")
-
-[node name="Poplar 7" type="Sprite2D" parent="Map/Park" index="9"]
-position = Vector2(1081, 304)
-scale = Vector2(2, 2)
-texture = ExtResource("8_uukl5")
-
-[node name="Poplar 8" type="Sprite2D" parent="Map/Park" index="10"]
-position = Vector2(1154, 300)
-scale = Vector2(2, 2)
-texture = ExtResource("8_uukl5")
-
-[node name="Poplar 9" type="Sprite2D" parent="Map/Park" index="11"]
-position = Vector2(1218, 292)
-scale = Vector2(2, 2)
-texture = ExtResource("8_uukl5")
-
-[node name="Poplar 10" type="Sprite2D" parent="Map/Park" index="12"]
-position = Vector2(1270, 332)
-scale = Vector2(2, 2)
-texture = ExtResource("8_uukl5")
-
-[node name="Poplar 11" type="Sprite2D" parent="Map/Park" index="13"]
-position = Vector2(1209, 340)
-scale = Vector2(2, 2)
-texture = ExtResource("8_uukl5")
-
-[node name="Sign 1" type="Sprite2D" parent="Map/Park" index="14"]
-position = Vector2(1119, 355)
-texture = ExtResource("9_uhlv7")
-
-[node name="Rock 1" type="Sprite2D" parent="Map/Park" index="15"]
-position = Vector2(1239, 340)
-texture = ExtResource("12_ugjxr")
-
-[node name="Rock 2" type="Sprite2D" parent="Map/Park" index="16"]
-position = Vector2(1285, 219)
-texture = ExtResource("12_ugjxr")
-
-[node name="Rock 3" type="Sprite2D" parent="Map/Park" index="17"]
-position = Vector2(982, 286)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("12_ugjxr")
-
-[node name="Forest 2" type="Node2D" parent="Map" index="2"]
+[node name="Forest 2" type="Node2D" parent="Map" index="1"]
+y_sort_enabled = true
 
 [node name="Oak 1" type="Sprite2D" parent="Map/Forest 2" index="0"]
 position = Vector2(154, 334)
@@ -949,7 +1087,8 @@ texture = ExtResource("9_froo7")
 position = Vector2(7, 613)
 texture = ExtResource("9_froo7")
 
-[node name="Forest 3" type="Node2D" parent="Map" index="3"]
+[node name="Forest 3" type="Node2D" parent="Map" index="2"]
+y_sort_enabled = true
 
 [node name="Oak 1" type="Sprite2D" parent="Map/Forest 3" index="0"]
 position = Vector2(296, 464)
@@ -1116,223 +1255,477 @@ position = Vector2(880, 592)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 34" type="Sprite2D" parent="Map/Forest 3" index="33"]
-position = Vector2(984, 600)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 35" type="Sprite2D" parent="Map/Forest 3" index="34"]
-position = Vector2(1048, 632)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 36" type="Sprite2D" parent="Map/Forest 3" index="35"]
-position = Vector2(1112, 656)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 37" type="Sprite2D" parent="Map/Forest 3" index="36"]
+[node name="Oak 37" type="Sprite2D" parent="Map/Forest 3" index="33"]
 position = Vector2(1184, 648)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 38" type="Sprite2D" parent="Map/Forest 3" index="37"]
-position = Vector2(1000, 672)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 39" type="Sprite2D" parent="Map/Forest 3" index="38"]
-position = Vector2(928, 640)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Oak 40" type="Sprite2D" parent="Map/Forest 3" index="39"]
+[node name="Oak 40" type="Sprite2D" parent="Map/Forest 3" index="34"]
 position = Vector2(864, 672)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 41" type="Sprite2D" parent="Map/Forest 3" index="40"]
+[node name="Oak 41" type="Sprite2D" parent="Map/Forest 3" index="35"]
 position = Vector2(784, 680)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 42" type="Sprite2D" parent="Map/Forest 3" index="41"]
+[node name="Oak 42" type="Sprite2D" parent="Map/Forest 3" index="36"]
 position = Vector2(712, 682)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 43" type="Sprite2D" parent="Map/Forest 3" index="42"]
+[node name="Oak 43" type="Sprite2D" parent="Map/Forest 3" index="37"]
 position = Vector2(1264, 720)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 44" type="Sprite2D" parent="Map/Forest 3" index="43"]
+[node name="Oak 44" type="Sprite2D" parent="Map/Forest 3" index="38"]
 position = Vector2(1176, 720)
 scale = Vector2(1.3, 1.3)
 texture = ExtResource("5_pd1fw")
 
-[node name="Oak 45" type="Sprite2D" parent="Map/Forest 3" index="44"]
-position = Vector2(1064, 752)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("5_pd1fw")
-
-[node name="Table 1" type="Sprite2D" parent="Map/Forest 3" index="45"]
+[node name="Table 1" type="Sprite2D" parent="Map/Forest 3" index="39"]
 position = Vector2(1100, 448)
 texture = ExtResource("6_mx3ml")
 
-[node name="Small Bush 1" type="Sprite2D" parent="Map/Forest 3" index="46"]
+[node name="Small Bush 1" type="Sprite2D" parent="Map/Forest 3" index="40"]
 position = Vector2(1019, 456)
 texture = ExtResource("7_rrcrb")
 
-[node name="Small Bush 2" type="Sprite2D" parent="Map/Forest 3" index="47"]
+[node name="Small Bush 2" type="Sprite2D" parent="Map/Forest 3" index="41"]
 position = Vector2(1122, 473)
 texture = ExtResource("7_rrcrb")
 
-[node name="Small Bush 5" type="Sprite2D" parent="Map/Forest 3" index="48"]
+[node name="Small Bush 5" type="Sprite2D" parent="Map/Forest 3" index="42"]
 position = Vector2(390, 721)
 texture = ExtResource("7_rrcrb")
 
-[node name="Small Bush 6" type="Sprite2D" parent="Map/Forest 3" index="49"]
+[node name="Small Bush 6" type="Sprite2D" parent="Map/Forest 3" index="43"]
 position = Vector2(922, 719)
 texture = ExtResource("7_rrcrb")
 
-[node name="Poplar 1" type="Sprite2D" parent="Map/Forest 3" index="50"]
+[node name="Poplar 1" type="Sprite2D" parent="Map/Forest 3" index="44"]
 position = Vector2(764, 444)
 scale = Vector2(2, 2)
 texture = ExtResource("8_uukl5")
 
-[node name="Poplar 2" type="Sprite2D" parent="Map/Forest 3" index="51"]
+[node name="Poplar 2" type="Sprite2D" parent="Map/Forest 3" index="45"]
 position = Vector2(934, 392)
 scale = Vector2(2, 2)
 texture = ExtResource("8_uukl5")
 
-[node name="Box 1" type="Sprite2D" parent="Map/Forest 3" index="52"]
+[node name="Box 1" type="Sprite2D" parent="Map/Forest 3" index="46"]
 position = Vector2(536, 536)
 texture = ExtResource("9_froo7")
 
-[node name="Box 2" type="Sprite2D" parent="Map/Forest 3" index="53"]
+[node name="Box 2" type="Sprite2D" parent="Map/Forest 3" index="47"]
 position = Vector2(551, 536)
 texture = ExtResource("9_froo7")
 
-[node name="Box 3" type="Sprite2D" parent="Map/Forest 3" index="54"]
+[node name="Box 3" type="Sprite2D" parent="Map/Forest 3" index="48"]
 position = Vector2(538, 542)
 texture = ExtResource("9_froo7")
 
-[node name="Box 4" type="Sprite2D" parent="Map/Forest 3" index="55"]
+[node name="Box 4" type="Sprite2D" parent="Map/Forest 3" index="49"]
 position = Vector2(553, 542)
 texture = ExtResource("9_froo7")
 
-[node name="Box 5" type="Sprite2D" parent="Map/Forest 3" index="56"]
+[node name="Box 5" type="Sprite2D" parent="Map/Forest 3" index="50"]
 position = Vector2(543, 534)
 texture = ExtResource("9_froo7")
 
-[node name="Box 6" type="Sprite2D" parent="Map/Forest 3" index="57"]
+[node name="Box 6" type="Sprite2D" parent="Map/Forest 3" index="51"]
 position = Vector2(897, 441)
 texture = ExtResource("9_froo7")
 
-[node name="Box 7" type="Sprite2D" parent="Map/Forest 3" index="58"]
+[node name="Box 7" type="Sprite2D" parent="Map/Forest 3" index="52"]
 position = Vector2(912, 441)
 texture = ExtResource("9_froo7")
 
-[node name="Box 8" type="Sprite2D" parent="Map/Forest 3" index="59"]
+[node name="Box 8" type="Sprite2D" parent="Map/Forest 3" index="53"]
 position = Vector2(899, 447)
 texture = ExtResource("9_froo7")
 
-[node name="Box 9" type="Sprite2D" parent="Map/Forest 3" index="60"]
+[node name="Box 9" type="Sprite2D" parent="Map/Forest 3" index="54"]
 position = Vector2(914, 447)
 texture = ExtResource("9_froo7")
 
-[node name="Box 10" type="Sprite2D" parent="Map/Forest 3" index="61"]
+[node name="Box 10" type="Sprite2D" parent="Map/Forest 3" index="55"]
 position = Vector2(904, 439)
 texture = ExtResource("9_froo7")
 
-[node name="Rock 1" type="Sprite2D" parent="Map/Forest 3" index="62"]
+[node name="Rock 1" type="Sprite2D" parent="Map/Forest 3" index="56"]
 position = Vector2(333, 491)
 texture = ExtResource("12_ugjxr")
 
-[node name="Rock 2" type="Sprite2D" parent="Map/Forest 3" index="63"]
+[node name="Rock 2" type="Sprite2D" parent="Map/Forest 3" index="57"]
 position = Vector2(961, 690)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("12_ugjxr")
 
-[node name="Rock 3" type="Sprite2D" parent="Map/Forest 3" index="64"]
+[node name="Rock 3" type="Sprite2D" parent="Map/Forest 3" index="58"]
 position = Vector2(1282, 657)
 scale = Vector2(2, 2)
 texture = ExtResource("12_ugjxr")
 
-[node name="Rock 4" type="Sprite2D" parent="Map/Forest 3" index="65"]
+[node name="Rock 4" type="Sprite2D" parent="Map/Forest 3" index="59"]
 position = Vector2(669, 423)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("12_ugjxr")
 
-[node name="Rock 5" type="Sprite2D" parent="Map/Forest 3" index="66"]
+[node name="Rock 5" type="Sprite2D" parent="Map/Forest 3" index="60"]
 position = Vector2(724, 415)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("12_ugjxr")
 
-[node name="Rock 6" type="Sprite2D" parent="Map/Forest 3" index="67"]
+[node name="Rock 6" type="Sprite2D" parent="Map/Forest 3" index="61"]
 position = Vector2(695, 383)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("12_ugjxr")
 
-[node name="Stump 1" type="Sprite2D" parent="Map/Forest 3" index="68"]
+[node name="Stump 1" type="Sprite2D" parent="Map/Forest 3" index="62"]
 position = Vector2(686, 469)
 texture = ExtResource("11_6wnts")
 
-[node name="Stump 2" type="Sprite2D" parent="Map/Forest 3" index="69"]
+[node name="Stump 2" type="Sprite2D" parent="Map/Forest 3" index="63"]
 position = Vector2(726, 442)
 texture = ExtResource("11_6wnts")
 
-[node name="Stump 3" type="Sprite2D" parent="Map/Forest 3" index="70"]
+[node name="Stump 3" type="Sprite2D" parent="Map/Forest 3" index="64"]
 position = Vector2(644, 457)
 texture = ExtResource("11_6wnts")
 
-[node name="Stump 4" type="Sprite2D" parent="Map/Forest 3" index="71"]
+[node name="Stump 4" type="Sprite2D" parent="Map/Forest 3" index="65"]
 position = Vector2(769, 387)
 texture = ExtResource("11_6wnts")
 
+[node name="Camp" type="Sprite2D" parent="Map/Forest 3" index="66"]
+position = Vector2(1017, 627)
+texture = ExtResource("14_21xjk")
+
+[node name="Flickering Light" parent="Map/Forest 3/Camp" index="0" instance=ExtResource("16_73y64")]
+position = Vector2(-17, 5)
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 9.8
+texture_scale = 0.5
+target_texture_scale = 0.5
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Map/Forest 3/Camp" index="1"]
+position = Vector2(-14, 6)
+occluder = SubResource("OccluderPolygon2D_73y64")
+
+[node name="Campfire" type="AnimatedSprite2D" parent="Map/Forest 3" index="67"]
+position = Vector2(944, 640)
+sprite_frames = SubResource("SpriteFrames_xxhi5")
+autoplay = "default"
+
+[node name="Flickering Light" parent="Map/Forest 3/Campfire" index="0" instance=ExtResource("16_73y64")]
+position = Vector2(0, 8)
+texture_scale = 1.0
+target_texture_scale = 1.0
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Map/Forest 3/Campfire" index="1"]
+position = Vector2(-1.0000248, 9)
+amount = 24
+lifetime = 7.0
+preprocess = 7.0
+process_material = SubResource("ParticleProcessMaterial_4weji")
+
+[node name="Log" type="Sprite2D" parent="Map/Forest 3" index="68"]
+position = Vector2(908, 662)
+texture = ExtResource("17_5wspy")
+
+[node name="Table" type="Sprite2D" parent="Map/Forest 3" index="69"]
+position = Vector2(941, 615)
+texture = ExtResource("6_mx3ml")
+
+[node name="Stump" type="Sprite2D" parent="Map/Forest 3" index="70"]
+position = Vector2(942, 605)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_6wnts")
+
+[node name="Broken Pointer" type="Sprite2D" parent="Map/Forest 3" index="71"]
+position = Vector2(1044, 658)
+texture = ExtResource("17_73y64")
+
+[node name="Flag" type="AnimatedSprite2D" parent="Map/Forest 3" index="72"]
+position = Vector2(1072, 615)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_nxwfe")
+autoplay = "default"
+
+[node name="Logs" type="Node2D" parent="Map/Forest 3" index="73"]
+position = Vector2(1072, 615)
+scale = Vector2(0.7, 0.7)
+
+[node name="Log 1" type="Sprite2D" parent="Map/Forest 3/Logs" index="0"]
+position = Vector2(81.428566, 71.42859)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("19_5wspy")
+
+[node name="Log 2" type="Sprite2D" parent="Map/Forest 3/Logs" index="1"]
+position = Vector2(68.57143, 70.000015)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("19_5wspy")
+
+[node name="Log 3" type="Sprite2D" parent="Map/Forest 3/Logs" index="2"]
+position = Vector2(57.142857, 68.57144)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("19_5wspy")
+
+[node name="Log 4" type="Sprite2D" parent="Map/Forest 3/Logs" index="3"]
+position = Vector2(44.285713, 68.57144)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("19_5wspy")
+
+[node name="Log 5" type="Sprite2D" parent="Map/Forest 3/Logs" index="4"]
+position = Vector2(74.28571, 65.7143)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("19_5wspy")
+
+[node name="Log 6" type="Sprite2D" parent="Map/Forest 3/Logs" index="5"]
+position = Vector2(64.28571, 61.42859)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("19_5wspy")
+
+[node name="Log 7" type="Sprite2D" parent="Map/Forest 3/Logs" index="6"]
+position = Vector2(54.285713, 61.42859)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("19_5wspy")
+
+[node name="Log 8" type="Sprite2D" parent="Map/Forest 3/Logs" index="7"]
+position = Vector2(54.285713, 61.42859)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("19_5wspy")
+
+[node name="Log 9" type="Sprite2D" parent="Map/Forest 3/Logs" index="8"]
+position = Vector2(-14.285707, 65.7143)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("19_5wspy")
+
+[node name="Firewood" type="Node2D" parent="Map/Forest 3" index="74"]
+position = Vector2(1072, 615)
+scale = Vector2(0.7, 0.7)
+
+[node name="Firewood 1" type="Sprite2D" parent="Map/Forest 3/Firewood" index="0"]
+position = Vector2(-195.7143, 95.714294)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("20_mqosu")
+
+[node name="Firewood 2" type="Sprite2D" parent="Map/Forest 3/Firewood" index="1"]
+position = Vector2(-194.28572, 102.857155)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("20_mqosu")
+
+[node name="Firewood 3" type="Sprite2D" parent="Map/Forest 3/Firewood" index="2"]
+position = Vector2(-192.85715, 110.000015)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("20_mqosu")
+
+[node name="Firewood 4" type="Sprite2D" parent="Map/Forest 3/Firewood" index="3"]
+position = Vector2(-192.85715, 97.14287)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("20_mqosu")
+
+[node name="Firewood 5" type="Sprite2D" parent="Map/Forest 3/Firewood" index="4"]
+position = Vector2(-191.42857, 102.857155)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("20_mqosu")
+
+[node name="Stump 5" type="Sprite2D" parent="Map/Forest 3" index="75"]
+position = Vector2(1106, 700)
+texture = ExtResource("11_6wnts")
+
+[node name="Stump 6" type="Sprite2D" parent="Map/Forest 3" index="76"]
+position = Vector2(986, 579)
+texture = ExtResource("11_6wnts")
+
+[node name="Stump 7" type="Sprite2D" parent="Map/Forest 3" index="77"]
+position = Vector2(894, 551)
+texture = ExtResource("11_6wnts")
+
+[node name="Stump 8" type="Sprite2D" parent="Map/Forest 3" index="78"]
+position = Vector2(821, 677)
+texture = ExtResource("11_6wnts")
+
+[node name="Forest 4" type="Node2D" parent="Map" index="3"]
+y_sort_enabled = true
+
+[node name="Small Bush 1" type="Sprite2D" parent="Map/Forest 4" index="0"]
+position = Vector2(1030, 317)
+texture = ExtResource("7_rrcrb")
+
+[node name="Poplar 1" type="Sprite2D" parent="Map/Forest 4" index="1"]
+position = Vector2(1088, 218)
+scale = Vector2(2, 2)
+texture = ExtResource("8_uukl5")
+
+[node name="Poplar 2" type="Sprite2D" parent="Map/Forest 4" index="2"]
+position = Vector2(1221, 215)
+scale = Vector2(2, 2)
+texture = ExtResource("8_uukl5")
+
+[node name="Poplar 3" type="Sprite2D" parent="Map/Forest 4" index="3"]
+position = Vector2(1025, 259)
+scale = Vector2(2, 2)
+texture = ExtResource("8_uukl5")
+
+[node name="Poplar 4" type="Sprite2D" parent="Map/Forest 4" index="4"]
+position = Vector2(1109, 258)
+scale = Vector2(2, 2)
+texture = ExtResource("8_uukl5")
+
+[node name="Poplar 5" type="Sprite2D" parent="Map/Forest 4" index="5"]
+position = Vector2(1174, 254)
+scale = Vector2(2, 2)
+texture = ExtResource("8_uukl5")
+
+[node name="Poplar 6" type="Sprite2D" parent="Map/Forest 4" index="6"]
+position = Vector2(1255, 255)
+scale = Vector2(2, 2)
+texture = ExtResource("8_uukl5")
+
+[node name="Poplar 7" type="Sprite2D" parent="Map/Forest 4" index="7"]
+position = Vector2(1081, 304)
+scale = Vector2(2, 2)
+texture = ExtResource("8_uukl5")
+
+[node name="Poplar 8" type="Sprite2D" parent="Map/Forest 4" index="8"]
+position = Vector2(1154, 300)
+scale = Vector2(2, 2)
+texture = ExtResource("8_uukl5")
+
+[node name="Poplar 9" type="Sprite2D" parent="Map/Forest 4" index="9"]
+position = Vector2(1218, 292)
+scale = Vector2(2, 2)
+texture = ExtResource("8_uukl5")
+
+[node name="Poplar 10" type="Sprite2D" parent="Map/Forest 4" index="10"]
+position = Vector2(1270, 332)
+scale = Vector2(2, 2)
+texture = ExtResource("8_uukl5")
+
+[node name="Poplar 11" type="Sprite2D" parent="Map/Forest 4" index="11"]
+position = Vector2(1209, 340)
+scale = Vector2(2, 2)
+texture = ExtResource("8_uukl5")
+
+[node name="Rock 1" type="Sprite2D" parent="Map/Forest 4" index="12"]
+position = Vector2(1239, 340)
+texture = ExtResource("12_ugjxr")
+
+[node name="Rock 2" type="Sprite2D" parent="Map/Forest 4" index="13"]
+position = Vector2(1285, 219)
+texture = ExtResource("12_ugjxr")
+
+[node name="Rock 3" type="Sprite2D" parent="Map/Forest 4" index="14"]
+position = Vector2(982, 286)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("12_ugjxr")
+
+[node name="Lamp 1" type="Sprite2D" parent="Map/Forest 4" index="15"]
+position = Vector2(1248, 379)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("21_mqosu")
+
+[node name="Flickering Light" parent="Map/Forest 4/Lamp 1" index="0" instance=ExtResource("16_73y64")]
+position = Vector2(1.3333334, -1.3333334)
+
+[node name="Lamp 2" type="Sprite2D" parent="Map/Forest 4" index="16"]
+position = Vector2(1142, 209)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("22_vgl8t")
+
+[node name="Flickering Light" parent="Map/Forest 4/Lamp 2" index="0" instance=ExtResource("16_73y64")]
+position = Vector2(-4, -8.666667)
+
 [node name="Holy Oak" parent="Map" index="4"]
 position = Vector2(472, 416)
+
+[node name="Towers" parent="." index="4"]
+y_sort_enabled = true
 
 [node name="Tower 1" parent="Towers" index="0" instance=ExtResource("14_ru426")]
 position = Vector2(88, 632)
 unit_scene = ExtResource("15_s48e1")
 menu_position = &"R"
 default_view_direction = &"R"
+glow = true
 
 [node name="Tower 2" parent="Towers" index="1" instance=ExtResource("14_ru426")]
 position = Vector2(136, 432)
 unit_scene = ExtResource("15_s48e1")
 menu_position = &"R"
 default_view_direction = &"L"
+glow = true
 
 [node name="Tower 3" parent="Towers" index="2" instance=ExtResource("14_ru426")]
 position = Vector2(320, 320)
 unit_scene = ExtResource("17_d1wd8")
 default_view_direction = &"L"
+glow = true
 
 [node name="Tower 4" parent="Towers" index="3" instance=ExtResource("14_ru426")]
 position = Vector2(584, 216)
 unit_scene = ExtResource("15_s48e1")
+glow = true
 
 [node name="Tower 5" parent="Towers" index="4" instance=ExtResource("14_ru426")]
 position = Vector2(624, 528)
 unit_scene = ExtResource("15_s48e1")
 menu_position = &"U"
 default_view_direction = &"U"
+glow = true
 
 [node name="Tower 6" parent="Towers" index="5" instance=ExtResource("14_ru426")]
 position = Vector2(864, 168)
 unit_scene = ExtResource("17_d1wd8")
 default_view_direction = &"R"
+glow = true
 
 [node name="Tower 7" parent="Towers" index="6" instance=ExtResource("14_ru426")]
 position = Vector2(1072, 80)
 unit_scene = ExtResource("15_s48e1")
 default_view_direction = &"R"
+glow = true
 
 [node name="Tower 8" parent="Towers" index="7" instance=ExtResource("14_ru426")]
 position = Vector2(856, 384)
 unit_scene = ExtResource("17_d1wd8")
 menu_position = &"U"
 default_view_direction = &"R"
+glow = true
+
+[node name="ShellContainer" parent="." index="5"]
+y_sort_enabled = true
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="GFX" index="0"]
+color = Color(0.8784314, 1, 0.41960785, 1)
+energy = 0.7
+blend_mode = 1
+
+[node name="Orb" parent="GFX" index="1" instance=ExtResource("17_ru426")]
+position = Vector2(808, 624)
+amount = 16
+lifetime = 120.0
+speed_scale = 1.25
+visibility_rect = Rect2(-450, -100, 900, 200)
+process_material = SubResource("ParticleProcessMaterial_ru426")
+
+[node name="Ambience" type="AudioStreamPlayer" parent="SFX" index="0"]
+process_mode = 3
+stream = ExtResource("28_4ge51")
+volume_db = 15.0
+autoplay = true
+bus = &"Music"
+
+[node name="Vignette" parent="PostFX" index="0"]
+material = SubResource("ShaderMaterial_vgno3")
+
+[node name="Theme" parent="." index="11"]
+stream = ExtResource("18_2nx52")
+volume_db = -20.0
+
+[connection signal="fight_started" from="." to="GFX/Orb" method="_on_fight_started"]

@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/alexander_nakarada-adventure_beyond.mp3-fd021
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

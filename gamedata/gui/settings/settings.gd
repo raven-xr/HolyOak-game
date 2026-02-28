@@ -1,10 +1,10 @@
 extends NodeGUI
 
-@onready var master_h_slider: HSlider = $"PanelContainer/VBoxContainer/Master Volume/Master HSlider"
-@onready var music_h_slider: HSlider = $"PanelContainer/VBoxContainer/Music Volume/Music HSlider"
-@onready var sfx_h_slider: HSlider = $"PanelContainer/VBoxContainer/SFX Volume/SFX HSlider"
-@onready var scale_option_button: OptionButton = $"PanelContainer/VBoxContainer/GUI Scale/Scale OptionButton"
-@onready var reset_progress_button: Button = $"PanelContainer/VBoxContainer/Data Reset/Reset Progress Button"
+@onready var master_h_slider: HSlider = $"Panel/ScrollContainer/VBoxContainer/Master Volume/Master HSlider"
+@onready var music_h_slider: HSlider = $"Panel/ScrollContainer/VBoxContainer/Music Volume/Music HSlider"
+@onready var sfx_h_slider: HSlider = $"Panel/ScrollContainer/VBoxContainer/SFX Volume/SFX HSlider"
+@onready var scale_option_button: OptionButton = $"Panel/ScrollContainer/VBoxContainer/GUI Scale/Scale OptionButton"
+@onready var reset_progress_button: Button = $"Panel/ScrollContainer/VBoxContainer/Data Reset/Reset Progress Button"
 @onready var popup_menu: PopupMenu = scale_option_button.get_popup()
 
 # Previous settings (will be used, if player didn't apply settings)
@@ -56,15 +56,31 @@ func _on_reset_settings_button_pressed() -> void:
 	music_h_slider.value = UserSettings.DEFAULT_MUSIC_VOLUME
 	sfx_h_slider.value = UserSettings.DEFAULT_SFX_VOLUME
 	if Global.game_controller.current_2d_scene.name == "MainMenu":
-		scale_option_button.select({0.5: 0, 0.6: 1, 0.7: 2, 0.8: 3, 0.9: 4, 1.0: 5}[UserSettings.match_scale()])
-		scale_option_button.emit_signal("item_selected", {0.5: 0, 0.6: 1, 0.7: 2, 0.8: 3, 0.9: 4, 1.0: 5}[UserSettings.match_scale()])
+		scale_option_button.select(5)
+		scale_option_button.emit_signal("item_selected", 5)
 	
 func _on_reset_progress_button_pressed() -> void:
 	SoundManager.click.play()
 	Global.game_controller.change_gui_scene("confirmation", false, true)
 	var confirmation: NodeGUI = Global.game_controller.current_gui_scene
-	confirmation.connect("confirmed", Callable(self, "_on_confirmed"))
-	confirmation.connect("canceled", Callable(self, "_on_canceled"))
+	Global.game_controller.current_2d_scene.set_process_mode(Node.PROCESS_MODE_DISABLED)
+	confirmation.connect("confirmed", Callable(self, "_on_reset_progress_confirmed"))
+	confirmation.connect("canceled", Callable(self, "_on_reset_progress_canceled"))
+
+func _on_reset_progress_canceled() -> void:
+	Global.game_controller.current_2d_scene.set_process_mode(Node.PROCESS_MODE_INHERIT)
+	visible = true
+	var tween = create_tween()
+	tween.tween_property(self, "modulate:a", 1.0, 0.15)
+
+func _on_reset_progress_confirmed() -> void:
+	Global.game_controller.current_2d_scene.set_process_mode(Node.PROCESS_MODE_INHERIT)
+	DirAccess.remove_absolute(UserData.SAVE_PATH)
+	Global.game_controller.change_gui_scene("message", false, true)
+	Global.game_controller.current_gui_scene.set_text("Сохранение... Нужен перезапуск! Игра выключится самостоятельно через 5 секунд")
+	get_viewport().gui_disable_input = true # Makes player not able to interact with the GUI
+	await get_tree().create_timer(5.0).timeout
+	get_tree().quit()
 
 func _on_apply_button_pressed() -> void:
 	SoundManager.click.play()
@@ -88,22 +104,6 @@ func _on_close_button_pressed() -> void:
 	SoundManager.click.play()
 	reset()
 	close()
-
-func _on_canceled() -> void:
-	# Confirmation canceled
-	SoundManager.click.play()
-	visible = true
-	var tween = create_tween()
-	tween.tween_property(self, "modulate:a", 1.0, 0.15)
-
-func _on_confirmed() -> void:
-	# Confirmation... confirmed?
-	DirAccess.remove_absolute(UserData.SAVE_PATH)
-	Global.game_controller.change_gui_scene("message", false, true)
-	Global.game_controller.current_gui_scene.set_text("Сохранение... Нужен перезапуск! Игра выключится самостоятельно через 5 секунд")
-	get_viewport().gui_disable_input = true # Makes player not able to interact with the GUI
-	await get_tree().create_timer(5.0).timeout
-	get_tree().quit()
 
 func reset() -> void:
 	# If settings weren't applied, cancel them

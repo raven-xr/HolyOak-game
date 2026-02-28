@@ -7,23 +7,30 @@ enum States {
 	FIGHT
 }
 
+@export_group("Required Scenes")
 @export var ork_scene: PackedScene
 @export var slime_scene: PackedScene
-
 @export var defeat_menu_scene: PackedScene
 @export var victory_menu_scene: PackedScene
 @export var game_menu_scene: PackedScene
 
-## Leave this field if there are no levels left
+@export_group("Technical Data")
+## Don't change this field if there are no levels left
 @export var next_level: StringName = "main_menu"
-
 @export var technical_name: StringName
 
+@onready var map: Node2D = $Map
 @onready var towers: Node2D = $Towers
-@onready var gui: Control = $GUI
-@onready var menu_button: Button = $GUI/MenuButton
+@onready var local_gui: CanvasLayer = $LocalGUI
+@onready var global_gui: Control = $GlobalGUI
+@onready var menu_button: Button = $LocalGUI/MenuButton
 @onready var wave_timer: Timer = $"Timers/Wave Timer"
 @onready var spawn_timer: Timer = $"Timers/Spawn Timer"
+@onready var vignette: ColorRect = $PostFX/Vignette
+@onready var camera: Camera2D = $Camera2D
+
+@onready var theme: AudioStreamPlayer = $Theme
+@onready var inventory: PanelContainer = $LocalGUI/HBoxContainer/Inventory
 
 @onready var data: Dictionary = LevelData.get(technical_name)
 
@@ -50,23 +57,58 @@ var state: int:
 		match state:
 			States.IDLE: idle_state()
 			States.FIGHT: fight_state()
+# Main Stats
+var max_health: int
+var health: int:
+	set(value):
+		var previous_health: int = health
+		health = value
+		if value <= 0:
+			value = 0
+		if value < previous_health:
+			Signals.health_decreased.emit(value)
+		else:
+			Signals.health_increased.emit(value)
+		Signals.health_changed.emit(value)
+var money: int:
+	set(value):
+		money = value
+		Signals.money_changed.emit(value)
+var tower_level_limit: int
+# Inventory
+var freeze_count: int:
+	set(value):
+		$LocalGUI/HBoxContainer/Inventory.freeze_count = value
+		freeze_count = value
+
+signal fight_started()
 
 func _ready() -> void:
 	# Scale
+	$LocalGUI/HBoxContainer.scale = Vector2(UserSettings.gui_scale, UserSettings.gui_scale)
 	menu_button.scale = Vector2(UserSettings.gui_scale**2, UserSettings.gui_scale**2)
 	# Connect signals
-	Signals.connect("health_changed", Callable(self, "_on_health_changed"))
+	Signals.connect("health_decreased", Callable(self, "_on_health_decreased"))
 	# Get data
 	wave_count = data["wave_count"]
-	PlayerStats.health = data["health"]
-	PlayerStats.money = data["money"]
-	PlayerStats.tower_level_limit = data["tower_level_limit"] # Used in tower.tscn
+	health = data["health"]
+	max_health = data["health"]
+	money = data["money"]
+	tower_level_limit = data["tower_level_limit"] # Used in tower.tscn
+	# Fill the inventory if it's available in this level
+	if data["inventory"]:
+		inventory.freeze_item_count = data["items"]["freeze_item"]
+		inventory.heal_item_count = data["items"]["heal_item"]
 	# Transition
-	modulate = Color(0, 0, 0, 1)
+	modulate = Color(0.0, 0.0, 0.0, 1.0)
+	for child in local_gui.get_children():
+		child.modulate = Color(0.0, 0.0, 0.0, 1.0)
 	var tween_1 = create_tween()
-	tween_1.parallel().tween_property(self, "modulate", Color(1, 1, 1, 1), 2.0)
+	tween_1.tween_property(self, "modulate", Color(1.0, 1.0, 1.0, 1.0), 2.0)
+	for child in local_gui.get_children():
+		create_tween().tween_property(child, "modulate", Color(1.0, 1.0, 1.0, 1.0), 2.0)
 	var tween_2 = create_tween()
-	tween_2.parallel().tween_property(SoundManager.music_idle, "volume_db", -20, 4.0)
+	tween_2.tween_property(SoundManager.music_idle, "volume_db", -20.0, 4.0)
 	# Start the game
 	state = States.IDLE
 
@@ -76,28 +118,39 @@ func idle_state() -> void:
 
 func fight_state() -> void:
 	# Getting ready
-	SoundManager.music_fight.play()
-	var tween_1 = create_tween()
-	tween_1.parallel().tween_property(SoundManager.music_idle, "volume_db", -100, 4.0)
-	tween_1.connect("finished", SoundManager.music_idle.stop)
-	var tween_2 = create_tween()
-	tween_2.parallel().tween_property(SoundManager.music_fight, "volume_db", -20, 4.0)
-	await tween_2.finished
+	theme.play()
+	var tween = create_tween()
+	tween.tween_property(SoundManager.music_idle, "volume_db", -100.0, 4.0)
+	tween.connect("finished", SoundManager.music_idle.stop)
+	# Change the vignette
+	vignette.set_vignette_color(Color(0.0, 0.0, 0.0, 1.0), 4.0)
+	vignette.set_transparency(0.8, 4.0)
+	await tween.finished
+	vignette.pulse = true
 	# Fight
+	fight_started.emit()
 	wave += 1
 
 func defeat() -> void:
 	var defeat_menu = defeat_menu_scene.instantiate()
-	gui.add_child(defeat_menu)
+	camera.set_process_unhandled_input(false)
+	camera.set_process_mode(Node.PROCESS_MODE_ALWAYS)
+	camera.shake_strength = 1.0
+	camera.shake_fade = 0.0
+	camera.shake()
+	local_gui.add_child(defeat_menu)
 	menu_button.disabled = true
 
 func victory() -> void:
+	vignette.pulse = false
+	vignette.set_vignette_color(Color(0.251, 0.502, 0.0, 1.0), 4.0)
+	vignette.set_transparency(0.15, 4.0)
 	# Save
 	UserData.progress[technical_name]["is_completed"] = true
 	UserData.progress[technical_name]["stars"] = 3
 	UserData.update_save()
 	var victory_menu = victory_menu_scene.instantiate()
-	gui.add_child(victory_menu)
+	local_gui.add_child(victory_menu)
 	menu_button.disabled = true
 
 func new_wave() -> void:
@@ -129,14 +182,13 @@ func new_wave() -> void:
 func _on_enemy_died() -> void:
 	current_enemy_count -= 1
 
-func _on_health_changed(value: int) -> void:
-	if value <= 0:
-		defeat()
-
-func _on_menu_button_pressed() -> void:
-	SoundManager.click.play()
-	gui.add_child(game_menu_scene.instantiate())
-	menu_button.disabled = true
+func _on_health_decreased(value: int) -> void:
+	if value == 0:
+		if inventory.heal_item_count > 0:
+			inventory.heal_item.use()
+		else:
+			defeat()
+	vignette.shift_vignette_color(Color(0.05, 0.0, 0.0, 0.0), 0.15)
 
 func _on_start_timer_timeout() -> void:
 	state = States.FIGHT
@@ -154,11 +206,11 @@ func _on_tower_menu_opened(tower_menu: Control) -> void:
 		# leave its TouchScreenButton enabled
 		if tower.tower_menu == tower_menu:
 			continue
-		tower.touch_screen_button.visible = false
+		tower.touch_button.visible = false
 
 func _on_tower_menu_closed(tower_menu: Control) -> void:
 	# Do not turn TouchScreenButtons on if a TowerStats has just been opened
-	if gui.has_node("TowerStats"):
+	if global_gui.has_node("TowerStats"):
 		return
 	# If the tower menu was closed, enable the other ones
 	for tower in towers.get_children():
@@ -167,14 +219,19 @@ func _on_tower_menu_closed(tower_menu: Control) -> void:
 		# (depends on whether you started building/upgrading it now)
 		if tower.tower_menu == tower_menu or tower.is_upgrading:
 			continue
-		tower.touch_screen_button.visible = true
+		tower.touch_button.visible = true
 
 func _on_tower_stats_opened() -> void:
 	for tower in towers.get_children():
-		tower.touch_screen_button.visible = false
+		tower.touch_button.visible = false
 
 func _on_tower_stats_closed() -> void:
 	for tower in towers.get_children():
 		if tower.is_upgrading:
 			continue
-		tower.touch_screen_button.visible = true
+		tower.touch_button.visible = true
+
+func _on_menu_button_pressed() -> void:
+	SoundManager.click.play()
+	local_gui.add_child(game_menu_scene.instantiate())
+	menu_button.disabled = true

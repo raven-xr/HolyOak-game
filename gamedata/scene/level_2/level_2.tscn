@@ -1,21 +1,39 @@
-[gd_scene load_steps=34 format=4 uid="uid://dtaq5avc8r7f"]
+[gd_scene load_steps=78 format=4 uid="uid://dtaq5avc8r7f"]
 
 [ext_resource type="PackedScene" uid="uid://bbsqvqymrojj5" path="res://gamedata/scene/common/level.tscn" id="1_a26ah"]
-[ext_resource type="Texture2D" uid="uid://ciyeb8o1ywukt" path="res://gfx/tilesets/grass.png" id="2_dkgsg"]
-[ext_resource type="Texture2D" uid="uid://sasruh3frvel" path="res://gfx/tilesets/plains.png" id="3_abpvc"]
-[ext_resource type="Texture2D" uid="uid://bcb2hj7qx6c7h" path="res://gfx/tilesets/fences.png" id="4_cev16"]
-[ext_resource type="Texture2D" uid="uid://b1ajil2mafxr5" path="res://gfx/tilesets/water.png" id="5_oh2iy"]
-[ext_resource type="Texture2D" uid="uid://b0e3u22u8240c" path="res://gfx/tilesets/decor_16x16.png" id="6_e7mfh"]
-[ext_resource type="Texture2D" uid="uid://dqfm4pmqposiy" path="res://gfx/object/oak.png" id="6_rmyq5"]
-[ext_resource type="Texture2D" uid="uid://c2hl8w46j70b1" path="res://gfx/object/tall_bush.png" id="7_4ktqa"]
-[ext_resource type="Texture2D" uid="uid://4wl2w7feibqx" path="res://gfx/tilesets/walls/walls.png" id="7_sswbo"]
+[ext_resource type="Script" uid="uid://b2308ywkybvi2" path="res://gamedata/scene/level_2/level_2.gd" id="2_bljxm"]
+[ext_resource type="Texture2D" uid="uid://ciyeb8o1ywukt" path="res://gfx/tileset/grass.png" id="2_dkgsg"]
+[ext_resource type="Texture2D" uid="uid://sasruh3frvel" path="res://gfx/tileset/plains.png" id="3_abpvc"]
+[ext_resource type="Texture2D" uid="uid://bcb2hj7qx6c7h" path="res://gfx/tileset/fences.png" id="4_cev16"]
+[ext_resource type="Texture2D" uid="uid://b1ajil2mafxr5" path="res://gfx/tileset/water.png" id="5_oh2iy"]
+[ext_resource type="Texture2D" uid="uid://b0e3u22u8240c" path="res://gfx/tileset/decor_16x16.png" id="6_e7mfh"]
+[ext_resource type="Texture2D" uid="uid://dqfm4pmqposiy" path="res://gfx/object/static/vegetation/oak.png" id="6_rmyq5"]
+[ext_resource type="Texture2D" uid="uid://c2hl8w46j70b1" path="res://gfx/object/static/vegetation/tall_bush.png" id="7_4ktqa"]
+[ext_resource type="Texture2D" uid="uid://4wl2w7feibqx" path="res://gfx/tileset/walls.png" id="7_sswbo"]
 [ext_resource type="PackedScene" uid="uid://ccqwn6n7il2n2" path="res://gamedata/enemy/waypoint/waypoint.tscn" id="8_3rey1"]
-[ext_resource type="Texture2D" uid="uid://c4hsbyvxqgyxb" path="res://gfx/object/small_bush.png" id="8_gmu86"]
-[ext_resource type="Texture2D" uid="uid://c7mi2jbynpkv4" path="res://gfx/object/stump.png" id="8_k1w2h"]
-[ext_resource type="Texture2D" uid="uid://d1ygnmgujqnib" path="res://gfx/object/box.png" id="9_6ju2p"]
-[ext_resource type="Texture2D" uid="uid://ch3ur0m58a0hk" path="res://gfx/object/rock.png" id="13_y2u35"]
+[ext_resource type="Texture2D" uid="uid://c4hsbyvxqgyxb" path="res://gfx/object/static/vegetation/small_bush.png" id="8_gmu86"]
+[ext_resource type="Texture2D" uid="uid://c7mi2jbynpkv4" path="res://gfx/object/static/vegetation/stump.png" id="8_k1w2h"]
+[ext_resource type="Texture2D" uid="uid://d1ygnmgujqnib" path="res://gfx/object/static/decoration/box.png" id="9_6ju2p"]
+[ext_resource type="Texture2D" uid="uid://ch3ur0m58a0hk" path="res://gfx/object/static/decoration/rock.png" id="13_y2u35"]
+[ext_resource type="Texture2D" uid="uid://cf40w6n64f5q" path="res://gfx/object/static/lamp/lamp_1.png" id="14_1p0d8"]
 [ext_resource type="PackedScene" uid="uid://lxt2xv2lfkgu" path="res://gamedata/unit/common/tower.tscn" id="14_j8r11"]
+[ext_resource type="Texture2D" uid="uid://cttnn3fgn255i" path="res://gfx/object/static/vegetation/log_2.png" id="15_40obn"]
 [ext_resource type="PackedScene" uid="uid://cenxr6q3w2dek" path="res://gamedata/unit/archer/archer.tscn" id="15_lytkh"]
+[ext_resource type="PackedScene" uid="uid://i6xrwjcwdrt" path="res://gamedata/FX/flickering_light/flickering_light.tscn" id="15_qxe20"]
+[ext_resource type="PackedScene" uid="uid://6ne5vmapnqs1" path="res://gamedata/FX/rain/rain.tscn" id="17_35boa"]
+[ext_resource type="Texture2D" uid="uid://bqlrtfn1vq6ax" path="res://gfx/object/static/camp/camp_1.png" id="17_ijtuk"]
+[ext_resource type="Shader" uid="uid://csqlqc5tqnnad" path="res://gamedata/FX/vignette/vignette.gdshader" id="17_j8r11"]
+[ext_resource type="Texture2D" uid="uid://b33uyrqluyrjb" path="res://gfx/object/static/camp/campfire_1.png" id="18_fabom"]
+[ext_resource type="AudioStream" uid="uid://djw1ngxh6a3ko" path="res://audio/sfx/ambience/level_2_ambience.mp3" id="18_o63ri"]
+[ext_resource type="Texture2D" uid="uid://c71ki6ussap3h" path="res://gfx/object/static/lamp/lamp_4.png" id="18_qb6s2"]
+[ext_resource type="Texture2D" uid="uid://qek8bqinjylq" path="res://gfx/object/static/vegetation/log_3.png" id="19_ow5tc"]
+[ext_resource type="Texture2D" uid="uid://dtl6ib3espqqv" path="res://gfx/object/static/lamp/lamp_5.png" id="19_rlui4"]
+[ext_resource type="PackedScene" uid="uid://brxpkrih41p8f" path="res://gamedata/FX/orb/orb.tscn" id="19_wjref"]
+[ext_resource type="AudioStream" uid="uid://ck7bql6gmh1vr" path="res://audio/music/alexander_nakarada-heartbeat.mp3" id="21_g3nya"]
+[ext_resource type="Texture2D" uid="uid://i16mdifcxjhn" path="res://gfx/object/static/vegetation/log_1.png" id="21_ijtuk"]
+[ext_resource type="Texture2D" uid="uid://b8e4cfy5py1ug" path="res://gfx/object/static/lamp/lamp_2.png" id="23_ejk56"]
+[ext_resource type="Texture2D" uid="uid://b2xw6hw0q2cpu" path="res://gfx/object/animated/flag/flag_1.png" id="25_fabom"]
+[ext_resource type="Texture2D" uid="uid://dl3vngkwb0x2c" path="res://gfx/object/static/pointer/pointer_3.png" id="26_ow5tc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7r64l"]
 texture = ExtResource("2_dkgsg")
@@ -394,7 +412,182 @@ texture = ExtResource("6_e7mfh")
 [sub_resource type="TileSet" id="TileSet_74scv"]
 sources/0 = SubResource("TileSetAtlasSource_dwpjd")
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_1p0d8"]
+polygon = PackedVector2Array(-5.2459106, 19.67215, -1.9672241, -4.590149, 9.180298, 15.08197, -1.3114624, -1.3114624)
+
+[sub_resource type="Curve" id="Curve_40obn"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.7169433, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_1p0d8"]
+curve = SubResource("Curve_40obn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fabom"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(6, 1, 1)
+direction = Vector3(0, -1, 0)
+spread = 10.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 1.5, 0)
+scale_min = 2.0
+scale_max = 2.0
+color = Color(0.6666667, 0.6666667, 0.6666667, 1)
+alpha_curve = SubResource("CurveTexture_1p0d8")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ow5tc"]
+atlas = ExtResource("25_fabom")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1p0d8"]
+atlas = ExtResource("25_fabom")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxe20"]
+atlas = ExtResource("25_fabom")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejk56"]
+atlas = ExtResource("25_fabom")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnsfx"]
+atlas = ExtResource("25_fabom")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udb7w"]
+atlas = ExtResource("25_fabom")
+region = Rect2(160, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ijtuk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ow5tc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1p0d8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxe20")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejk56")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qnsfx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udb7w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="Curve" id="Curve_o63ri"]
+resource_local_to_scene = true
+_data = [Vector2(0, 0.519178), 0.0, 1.46805, 0, 0, Vector2(0.501683, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.465753), -1.5544, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_bljxm"]
+resource_local_to_scene = true
+curve = SubResource("Curve_o63ri")
+
+[sub_resource type="Gradient" id="Gradient_g3nya"]
+resource_local_to_scene = true
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wjref"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_g3nya")
+
+[sub_resource type="Curve" id="Curve_38o7y"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_xlrpv"]
+_limits = [0.0, 30.0, 0.0, 1.0]
+_data = [Vector2(0, 15.0411), 0.0, 163.63, 0, 0, Vector2(0.249158, 30), 0.0, 0.0, 0, 0, Vector2(1, 30), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_a3xei"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_uvaci"]
+resource_local_to_scene = true
+curve_x = SubResource("Curve_38o7y")
+curve_y = SubResource("Curve_xlrpv")
+curve_z = SubResource("Curve_a3xei")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cmltk"]
+resource_local_to_scene = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(960, 64, 1)
+angle_min = -20.0
+angle_max = -20.0
+gravity = Vector3(-342, 940, 0)
+scale_min = 0.2
+scale_over_velocity_curve = SubResource("CurveXYZTexture_uvaci")
+color_initial_ramp = SubResource("GradientTexture1D_wjref")
+alpha_curve = SubResource("CurveTexture_bljxm")
+
+[sub_resource type="Curve" id="Curve_uvaci"]
+resource_local_to_scene = true
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.113402, 0.926966), 0.0, 0.0, 0, 0, Vector2(0.295533, 0.53441), 0.0, 0.0, 0, 0, Vector2(0.484536, 1), 0.0, 0.0, 0, 0, Vector2(0.618557, 0.552669), 0.0, 0.0, 0, 0, Vector2(0.786942, 1), 0.0, 0.0, 0, 0, Vector2(0.828179, 0.507023), 0.0, 0.0, 0, 0, Vector2(0.927835, 0.625702), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 9
+
+[sub_resource type="CurveTexture" id="CurveTexture_cmltk"]
+resource_local_to_scene = true
+curve = SubResource("Curve_uvaci")
+
+[sub_resource type="Curve" id="Curve_r2iga"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 0.470506), 0.0, 0.0, 0, 0, Vector2(0.189003, 0.908708), 0.0, 0.0, 0, 0, Vector2(0.298969, 0.488764), 0.0, 0.0, 0, 0, Vector2(0.522337, 1), 0.0, 0.0, 0, 0, Vector2(0.725086, 0.543539), 0.0, 0.0, 0, 0, Vector2(1, 0.360955), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="CurveTexture" id="CurveTexture_252hl"]
+resource_local_to_scene = true
+curve = SubResource("Curve_r2iga")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qb6s2"]
+resource_local_to_scene = true
+lifetime_randomness = 0.1
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(200, 175, 1)
+spread = 180.0
+initial_velocity_min = 15.0
+initial_velocity_max = 30.0
+angular_velocity_min = -0.500016
+angular_velocity_max = 0.499984
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 0.0100001
+gravity = Vector3(0, 0, 0)
+scale_min = 0.7
+scale_max = 1.5
+color = Color(0.25098, 1, 0, 1)
+alpha_curve = SubResource("CurveTexture_cmltk")
+hue_variation_min = -2.23517e-08
+hue_variation_max = 0.33
+hue_variation_curve = SubResource("CurveTexture_252hl")
+turbulence_enabled = true
+turbulence_noise_strength = 10.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vgno3"]
+resource_local_to_scene = true
+shader = ExtResource("17_j8r11")
+shader_parameter/vignette_color = Color(0.251, 0.502, 0, 1)
+shader_parameter/transparency = 0.3
+shader_parameter/radius = 2.0
+
 [node name="Level 2" instance=ExtResource("1_a26ah")]
+script = ExtResource("2_bljxm")
 next_level = &"level_3"
 technical_name = &"LEVEL_2"
 
@@ -417,10 +610,11 @@ tile_map_data = PackedByteArray("AAAtACwAAAABAAQAAAAuACwAAAACAAQAAAAvACsAAAABAAU
 tile_set = SubResource("TileSet_e4nw2")
 
 [node name="Layer 5" type="TileMapLayer" parent="Tilemap" index="4"]
-tile_map_data = PackedByteArray("AAA0ABkAAAABAAAAAAA2ABYAAAABAAAAAAA2ABkAAAABAAAAAAA2ABsAAAABAAAAAAA2ACEAAAABAAAAAAA3ABYAAAABAAAAAAA3ABgAAAABAAAAAAA4AB4AAAABAAAAAAA5AB0AAAABAAAAAAA5AB8AAAAAAAAAAAA6ABcAAAADAAAAAAA8AB0AAAACAAAAAAA9AB0AAAADAAAAAAA+ABcAAAAAAAAAAAA+AB4AAAABAAAAAAA/AB0AAAADAAAAAAA/AB4AAAADAAAAAABAABgAAAADAAAAAABAAB0AAAACAAAAAABBABYAAAAAAAAAAABBABcAAAAAAAAAAABBABsAAAAAAAAAAABBACEAAAAAAAAAAABCABkAAAAAAAAAAABCABoAAAACAAAAAABDABwAAAAAAAAAAABEABUAAAADAAAAAABEABgAAAAAAAAAAABHABgAAAADAAAAAABHAB8AAAADAAAAAABIABcAAAACAAAAAABJABUAAAADAAAAAABJACEAAAABAAAAAABKABYAAAAAAAAAAABKABkAAAABAAQAAABKACAAAAAAAAAAAABLAB4AAAACAAAAAABMABcAAAACAAAAAABNABoAAAADAAAAAABNABwAAAACAAAAAABPACEAAAAAAAAAAAA1ACUAAAACAAAAAAA1ACcAAAACAAAAAAA1ACgAAAADAAAAAAA2ACQAAAACAAAAAAA4ACoAAAABAAAAAAA7ACkAAAAAAAAAAAA8ACsAAAACAAAAAAA+ACgAAAAAAAAAAAA/ACUAAAAAAAAAAABAACQAAAABAAAAAABBACcAAAAAAAAAAABCACcAAAADAAAAAAA6ABYAAAADAAQAAABMAB0AAAADAAQAAABOAB4AAAADAAQAAAA4ACYAAAABAAQAAAA6ACAAAAAAAAQAAAA6ACkAAAACAAQAAAA7ACAAAAADAAQAAAA8ACMAAAABAAQAAAA=")
+tile_map_data = PackedByteArray("AAA0ABkAAAABAAAAAAA2ABYAAAABAAAAAAA2ABkAAAABAAAAAAA2ABsAAAABAAAAAAA2ACEAAAABAAAAAAA3ABYAAAABAAAAAAA3ABgAAAABAAAAAAA4AB4AAAABAAAAAAA5AB0AAAABAAAAAAA5AB8AAAAAAAAAAAA6ABcAAAADAAAAAAA8AB0AAAACAAAAAAA9AB0AAAADAAAAAAA+ABcAAAAAAAAAAAA+AB4AAAABAAAAAAA/AB0AAAADAAAAAAA/AB4AAAADAAAAAABAABgAAAADAAAAAABAAB0AAAACAAAAAABBABYAAAAAAAAAAABBABcAAAAAAAAAAABBABsAAAAAAAAAAABBACEAAAAAAAAAAABCABkAAAAAAAAAAABCABoAAAACAAAAAABDABwAAAAAAAAAAABEABUAAAADAAAAAABEABgAAAAAAAAAAABHABgAAAADAAAAAABHAB8AAAADAAAAAABIABcAAAACAAAAAABJABUAAAADAAAAAABJACEAAAABAAAAAABKABYAAAAAAAAAAABKABkAAAABAAQAAABKACAAAAAAAAAAAABLAB4AAAACAAAAAABMABcAAAACAAAAAABNABoAAAADAAAAAABNABwAAAACAAAAAABPACEAAAAAAAAAAAA1ACUAAAACAAAAAAA1ACcAAAACAAAAAAA1ACgAAAADAAAAAAA2ACQAAAACAAAAAAA4ACoAAAABAAAAAAA7ACkAAAAAAAAAAAA8ACsAAAACAAAAAAA+ACgAAAAAAAAAAAA/ACUAAAAAAAAAAABAACQAAAABAAAAAABBACcAAAAAAAAAAABCACcAAAADAAAAAAA6ABYAAAADAAQAAABMAB0AAAADAAQAAABOAB4AAAADAAQAAAA4ACYAAAABAAQAAAA6ACAAAAAAAAQAAAA6ACkAAAACAAQAAAA7ACAAAAADAAQAAAA8ACMAAAABAAQAAABIAB4AAAACAAQAAABIACMAAAAAAAQAAAA=")
 tile_set = SubResource("TileSet_74scv")
 
 [node name="Road 1" type="Node2D" parent="Enemies" index="0"]
+y_sort_enabled = true
 
 [node name="Waypoints" type="Node" parent="Enemies/Road 1" index="0"]
 
@@ -445,6 +639,7 @@ next_roadpoint = NodePath("../Waypoint 4")
 position = Vector2(148, 384)
 
 [node name="Road 2" type="Node2D" parent="Enemies" index="1"]
+y_sort_enabled = true
 
 [node name="Waypoints" type="Node" parent="Enemies/Road 2" index="0"]
 
@@ -469,10 +664,8 @@ next_roadpoint = NodePath("../Waypoint 4")
 [node name="Waypoint 4" parent="Enemies/Road 2/Waypoints" index="3" instance=ExtResource("8_3rey1")]
 position = Vector2(148, 384)
 
-[node name="Holy Oak" parent="Map" index="0"]
-position = Vector2(80, 328)
-
-[node name="Field 1" type="Node2D" parent="Map" index="1"]
+[node name="Field 1" type="Node2D" parent="Map" index="0"]
+y_sort_enabled = true
 
 [node name="Stump 1" type="Sprite2D" parent="Map/Field 1" index="0"]
 position = Vector2(364, 421)
@@ -682,7 +875,54 @@ texture = ExtResource("9_6ju2p")
 position = Vector2(499, 534)
 texture = ExtResource("9_6ju2p")
 
-[node name="Hill 1" type="Node2D" parent="Map" index="2"]
+[node name="Lamp" type="Sprite2D" parent="Map/Field 1" index="52"]
+position = Vector2(569, 489.00003)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("14_1p0d8")
+
+[node name="Flickering Light" parent="Map/Field 1/Lamp" index="0" instance=ExtResource("15_qxe20")]
+position = Vector2(6, -5.333354)
+
+[node name="Logs" type="Node2D" parent="Map/Field 1" index="53"]
+position = Vector2(365, 497)
+
+[node name="Log 1" type="Sprite2D" parent="Map/Field 1/Logs" index="0"]
+texture = ExtResource("15_40obn")
+
+[node name="Log 2" type="Sprite2D" parent="Map/Field 1/Logs" index="1"]
+position = Vector2(-8, 2)
+texture = ExtResource("15_40obn")
+
+[node name="Log 3" type="Sprite2D" parent="Map/Field 1/Logs" index="2"]
+position = Vector2(-16, 6)
+texture = ExtResource("15_40obn")
+
+[node name="Log 4" type="Sprite2D" parent="Map/Field 1/Logs" index="3"]
+position = Vector2(-25, 10)
+texture = ExtResource("15_40obn")
+
+[node name="Log 5" type="Sprite2D" parent="Map/Field 1/Logs" index="4"]
+position = Vector2(-3, -5)
+texture = ExtResource("15_40obn")
+
+[node name="Log 6" type="Sprite2D" parent="Map/Field 1/Logs" index="5"]
+position = Vector2(-14, -3)
+texture = ExtResource("15_40obn")
+
+[node name="Log 7" type="Sprite2D" parent="Map/Field 1/Logs" index="6"]
+position = Vector2(-22, 1)
+texture = ExtResource("15_40obn")
+
+[node name="Log 8" type="Sprite2D" parent="Map/Field 1/Logs" index="7"]
+position = Vector2(-9, -10)
+texture = ExtResource("15_40obn")
+
+[node name="Log 9" type="Sprite2D" parent="Map/Field 1/Logs" index="8"]
+position = Vector2(-18, -8)
+texture = ExtResource("15_40obn")
+
+[node name="Hill 1" type="Node2D" parent="Map" index="1"]
+y_sort_enabled = true
 
 [node name="Stump 1" type="Sprite2D" parent="Map/Hill 1" index="0"]
 position = Vector2(720, 400)
@@ -728,134 +968,199 @@ texture = ExtResource("8_k1w2h")
 position = Vector2(703, 715)
 texture = ExtResource("8_k1w2h")
 
-[node name="Tall Bush 1" type="Sprite2D" parent="Map/Hill 1" index="11"]
-position = Vector2(1215, 557)
-texture = ExtResource("7_4ktqa")
-
-[node name="Tall Bush 2" type="Sprite2D" parent="Map/Hill 1" index="12"]
+[node name="Tall Bush 2" type="Sprite2D" parent="Map/Hill 1" index="11"]
 position = Vector2(1026, 555)
 texture = ExtResource("7_4ktqa")
 
-[node name="Tall Bush 3" type="Sprite2D" parent="Map/Hill 1" index="13"]
+[node name="Tall Bush 3" type="Sprite2D" parent="Map/Hill 1" index="12"]
 position = Vector2(1211, 253)
 texture = ExtResource("7_4ktqa")
 
-[node name="Tall Bush 4" type="Sprite2D" parent="Map/Hill 1" index="14"]
+[node name="Tall Bush 4" type="Sprite2D" parent="Map/Hill 1" index="13"]
 position = Vector2(1257, 193)
 texture = ExtResource("7_4ktqa")
 
-[node name="Tall Bush 5" type="Sprite2D" parent="Map/Hill 1" index="15"]
+[node name="Tall Bush 5" type="Sprite2D" parent="Map/Hill 1" index="14"]
 position = Vector2(1249, 237)
 texture = ExtResource("7_4ktqa")
 
-[node name="Tall Bush 6" type="Sprite2D" parent="Map/Hill 1" index="16"]
+[node name="Tall Bush 6" type="Sprite2D" parent="Map/Hill 1" index="15"]
 position = Vector2(705, 485)
 texture = ExtResource("7_4ktqa")
 
-[node name="Tall Bush 7" type="Sprite2D" parent="Map/Hill 1" index="17"]
+[node name="Tall Bush 7" type="Sprite2D" parent="Map/Hill 1" index="16"]
 position = Vector2(920, 312)
 texture = ExtResource("7_4ktqa")
 
-[node name="Tall Bush 8" type="Sprite2D" parent="Map/Hill 1" index="18"]
+[node name="Tall Bush 8" type="Sprite2D" parent="Map/Hill 1" index="17"]
 position = Vector2(848, 536)
 texture = ExtResource("7_4ktqa")
 
-[node name="Tall Bush 9" type="Sprite2D" parent="Map/Hill 1" index="19"]
+[node name="Tall Bush 9" type="Sprite2D" parent="Map/Hill 1" index="18"]
 position = Vector2(1272, 528)
 texture = ExtResource("7_4ktqa")
 
-[node name="Oak 1" type="Sprite2D" parent="Map/Hill 1" index="20"]
+[node name="Oak 1" type="Sprite2D" parent="Map/Hill 1" index="19"]
 position = Vector2(856, 312)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 2" type="Sprite2D" parent="Map/Hill 1" index="21"]
+[node name="Oak 2" type="Sprite2D" parent="Map/Hill 1" index="20"]
 position = Vector2(824, 368)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 3" type="Sprite2D" parent="Map/Hill 1" index="22"]
+[node name="Oak 3" type="Sprite2D" parent="Map/Hill 1" index="21"]
 position = Vector2(976, 296)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 4" type="Sprite2D" parent="Map/Hill 1" index="23"]
+[node name="Oak 4" type="Sprite2D" parent="Map/Hill 1" index="22"]
 position = Vector2(1048, 312)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 5" type="Sprite2D" parent="Map/Hill 1" index="24"]
+[node name="Oak 5" type="Sprite2D" parent="Map/Hill 1" index="23"]
 position = Vector2(1128, 320)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 6" type="Sprite2D" parent="Map/Hill 1" index="25"]
+[node name="Oak 6" type="Sprite2D" parent="Map/Hill 1" index="24"]
 position = Vector2(1216, 336)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 7" type="Sprite2D" parent="Map/Hill 1" index="26"]
+[node name="Oak 7" type="Sprite2D" parent="Map/Hill 1" index="25"]
 position = Vector2(1296, 344)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 8" type="Sprite2D" parent="Map/Hill 1" index="27"]
+[node name="Oak 8" type="Sprite2D" parent="Map/Hill 1" index="26"]
 position = Vector2(984, 360)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 9" type="Sprite2D" parent="Map/Hill 1" index="28"]
+[node name="Oak 9" type="Sprite2D" parent="Map/Hill 1" index="27"]
 position = Vector2(1088, 360)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 10" type="Sprite2D" parent="Map/Hill 1" index="29"]
+[node name="Oak 10" type="Sprite2D" parent="Map/Hill 1" index="28"]
 position = Vector2(1232, 400)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 11" type="Sprite2D" parent="Map/Hill 1" index="30"]
+[node name="Oak 11" type="Sprite2D" parent="Map/Hill 1" index="29"]
 position = Vector2(1152, 368)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 12" type="Sprite2D" parent="Map/Hill 1" index="31"]
+[node name="Oak 12" type="Sprite2D" parent="Map/Hill 1" index="30"]
 position = Vector2(1040, 392)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 13" type="Sprite2D" parent="Map/Hill 1" index="32"]
+[node name="Camp" type="Sprite2D" parent="Map/Hill 1" index="31"]
+position = Vector2(1087, 484.00003)
+scale = Vector2(1.525, 1.525)
+texture = ExtResource("17_ijtuk")
+flip_h = true
+
+[node name="Flickering Light" parent="Map/Hill 1/Camp" index="0" instance=ExtResource("15_qxe20")]
+position = Vector2(17.049183, 5.90162)
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 9.8
+texture_scale = 0.5
+target_texture_scale = 0.5
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Map/Hill 1/Camp" index="1"]
+position = Vector2(15.737706, -11.8033)
+occluder = SubResource("OccluderPolygon2D_1p0d8")
+
+[node name="Firewood" type="Node2D" parent="Map/Hill 1" index="32"]
+
+[node name="Firewood 1" type="Sprite2D" parent="Map/Hill 1/Firewood" index="0"]
+position = Vector2(1177.4375, 477.625)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("19_ow5tc")
+flip_h = true
+
+[node name="Firewood 2" type="Sprite2D" parent="Map/Hill 1/Firewood" index="1"]
+position = Vector2(1175.4375, 481.625)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("19_ow5tc")
+flip_h = true
+
+[node name="Firewood 3" type="Sprite2D" parent="Map/Hill 1/Firewood" index="2"]
+position = Vector2(1168.4375, 482.625)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("19_ow5tc")
+flip_h = true
+
+[node name="Firewood 4" type="Sprite2D" parent="Map/Hill 1/Firewood" index="3"]
+position = Vector2(1168.4375, 475.62503)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("19_ow5tc")
+flip_h = true
+
+[node name="Firewood 5" type="Sprite2D" parent="Map/Hill 1/Firewood" index="4"]
+position = Vector2(1168.4375, 479.62503)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("19_ow5tc")
+flip_h = true
+
+[node name="Firewood 6" type="Sprite2D" parent="Map/Hill 1/Firewood" index="5"]
+position = Vector2(1172.4375, 475.625)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("19_ow5tc")
+flip_h = true
+
+[node name="Firewood 7" type="Sprite2D" parent="Map/Hill 1/Firewood" index="6"]
+position = Vector2(1166.4375, 482.625)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("19_ow5tc")
+flip_h = true
+
+[node name="Campfire" type="Sprite2D" parent="Map/Hill 1" index="33"]
+position = Vector2(1157, 508)
+scale = Vector2(1.33, 1.33)
+texture = ExtResource("18_fabom")
+flip_h = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Map/Hill 1/Campfire" index="0"]
+position = Vector2(0.7518673, 0)
+lifetime = 7.0
+preprocess = 7.0
+process_material = SubResource("ParticleProcessMaterial_fabom")
+
+[node name="CampfireTimer" type="Timer" parent="Map/Hill 1/Campfire/GPUParticles2D" index="0"]
+wait_time = 15.0
+one_shot = true
+autostart = true
+
+[node name="Oak 13" type="Sprite2D" parent="Map/Hill 1" index="34"]
 position = Vector2(940, 390)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 14" type="Sprite2D" parent="Map/Hill 1" index="33"]
+[node name="Oak 14" type="Sprite2D" parent="Map/Hill 1" index="35"]
 position = Vector2(880, 400)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 15" type="Sprite2D" parent="Map/Hill 1" index="34"]
+[node name="Oak 15" type="Sprite2D" parent="Map/Hill 1" index="36"]
 position = Vector2(872, 456)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 16" type="Sprite2D" parent="Map/Hill 1" index="35"]
+[node name="Oak 16" type="Sprite2D" parent="Map/Hill 1" index="37"]
 position = Vector2(896, 496)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 17" type="Sprite2D" parent="Map/Hill 1" index="36"]
-position = Vector2(1168, 440)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("6_rmyq5")
-
-[node name="Oak 18" type="Sprite2D" parent="Map/Hill 1" index="37"]
+[node name="Oak 18" type="Sprite2D" parent="Map/Hill 1" index="38"]
 position = Vector2(1272, 440)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("6_rmyq5")
-
-[node name="Oak 19" type="Sprite2D" parent="Map/Hill 1" index="38"]
-position = Vector2(1232, 488)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
@@ -864,145 +1169,144 @@ position = Vector2(1096, 416)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 21" type="Sprite2D" parent="Map/Hill 1" index="40"]
-position = Vector2(1120, 488)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("6_rmyq5")
-
-[node name="Oak 22" type="Sprite2D" parent="Map/Hill 1" index="41"]
+[node name="Oak 22" type="Sprite2D" parent="Map/Hill 1" index="40"]
 position = Vector2(976, 472)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 23" type="Sprite2D" parent="Map/Hill 1" index="42"]
+[node name="Oak 23" type="Sprite2D" parent="Map/Hill 1" index="41"]
 position = Vector2(1048, 488)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 24" type="Sprite2D" parent="Map/Hill 1" index="43"]
-position = Vector2(1168, 528)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("6_rmyq5")
-
-[node name="Oak 25" type="Sprite2D" parent="Map/Hill 1" index="44"]
+[node name="Oak 25" type="Sprite2D" parent="Map/Hill 1" index="42"]
 position = Vector2(1088, 552)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 26" type="Sprite2D" parent="Map/Hill 1" index="45"]
+[node name="Oak 26" type="Sprite2D" parent="Map/Hill 1" index="43"]
 position = Vector2(984, 544)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 27" type="Sprite2D" parent="Map/Hill 1" index="46"]
+[node name="Oak 27" type="Sprite2D" parent="Map/Hill 1" index="44"]
 position = Vector2(912, 544)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 28" type="Sprite2D" parent="Map/Hill 1" index="47"]
+[node name="Oak 28" type="Sprite2D" parent="Map/Hill 1" index="45"]
 position = Vector2(888, 608)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 29" type="Sprite2D" parent="Map/Hill 1" index="48"]
+[node name="Oak 29" type="Sprite2D" parent="Map/Hill 1" index="46"]
 position = Vector2(888, 672)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 30" type="Sprite2D" parent="Map/Hill 1" index="49"]
+[node name="Oak 30" type="Sprite2D" parent="Map/Hill 1" index="47"]
 position = Vector2(840, 736)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 31" type="Sprite2D" parent="Map/Hill 1" index="50"]
+[node name="Oak 31" type="Sprite2D" parent="Map/Hill 1" index="48"]
 position = Vector2(968, 608)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 32" type="Sprite2D" parent="Map/Hill 1" index="51"]
+[node name="Oak 32" type="Sprite2D" parent="Map/Hill 1" index="49"]
 position = Vector2(1032, 624)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Oak 33" type="Sprite2D" parent="Map/Hill 1" index="52"]
+[node name="Oak 33" type="Sprite2D" parent="Map/Hill 1" index="50"]
 position = Vector2(960, 680)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_rmyq5")
 
-[node name="Rock 1" type="Sprite2D" parent="Map/Hill 1" index="53"]
+[node name="Rock 1" type="Sprite2D" parent="Map/Hill 1" index="51"]
 position = Vector2(688, 368)
 texture = ExtResource("13_y2u35")
 
-[node name="Rock 2" type="Sprite2D" parent="Map/Hill 1" index="54"]
+[node name="Rock 2" type="Sprite2D" parent="Map/Hill 1" index="52"]
 position = Vector2(752, 472)
 texture = ExtResource("13_y2u35")
 
-[node name="Rock 3" type="Sprite2D" parent="Map/Hill 1" index="55"]
+[node name="Rock 3" type="Sprite2D" parent="Map/Hill 1" index="53"]
 position = Vector2(776, 424)
 texture = ExtResource("13_y2u35")
 
-[node name="Rock 4" type="Sprite2D" parent="Map/Hill 1" index="56"]
+[node name="Rock 4" type="Sprite2D" parent="Map/Hill 1" index="54"]
 position = Vector2(784, 584)
 texture = ExtResource("13_y2u35")
 
-[node name="Rock 5" type="Sprite2D" parent="Map/Hill 1" index="57"]
+[node name="Rock 5" type="Sprite2D" parent="Map/Hill 1" index="55"]
 position = Vector2(912, 440)
 texture = ExtResource("13_y2u35")
 
-[node name="Rock 6" type="Sprite2D" parent="Map/Hill 1" index="58"]
+[node name="Rock 6" type="Sprite2D" parent="Map/Hill 1" index="56"]
 position = Vector2(728, 584)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("13_y2u35")
 
-[node name="Rock 7" type="Sprite2D" parent="Map/Hill 1" index="59"]
+[node name="Rock 7" type="Sprite2D" parent="Map/Hill 1" index="57"]
 position = Vector2(672, 728)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("13_y2u35")
 
-[node name="Rock 8" type="Sprite2D" parent="Map/Hill 1" index="60"]
+[node name="Rock 8" type="Sprite2D" parent="Map/Hill 1" index="58"]
 position = Vector2(800, 600)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("13_y2u35")
 
-[node name="Rock 9" type="Sprite2D" parent="Map/Hill 1" index="61"]
+[node name="Rock 9" type="Sprite2D" parent="Map/Hill 1" index="59"]
 position = Vector2(804, 575)
 scale = Vector2(2, 2)
 texture = ExtResource("13_y2u35")
 
-[node name="Rock 19" type="Sprite2D" parent="Map/Hill 1" index="62"]
+[node name="Rock 19" type="Sprite2D" parent="Map/Hill 1" index="60"]
 position = Vector2(1090, 272)
 scale = Vector2(2, 2)
 texture = ExtResource("13_y2u35")
 
-[node name="Rock 20" type="Sprite2D" parent="Map/Hill 1" index="63"]
+[node name="Rock 20" type="Sprite2D" parent="Map/Hill 1" index="61"]
 position = Vector2(1121, 268)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("13_y2u35")
 
-[node name="Rock 22" type="Sprite2D" parent="Map/Hill 1" index="64"]
+[node name="Rock 22" type="Sprite2D" parent="Map/Hill 1" index="62"]
 position = Vector2(1069, 259)
 scale = Vector2(0.9, 0.9)
 texture = ExtResource("13_y2u35")
 
-[node name="Rock 24" type="Sprite2D" parent="Map/Hill 1" index="65"]
+[node name="Rock 24" type="Sprite2D" parent="Map/Hill 1" index="63"]
 position = Vector2(897, 304)
 texture = ExtResource("13_y2u35")
 
-[node name="Rock 25" type="Sprite2D" parent="Map/Hill 1" index="66"]
+[node name="Rock 25" type="Sprite2D" parent="Map/Hill 1" index="64"]
 position = Vector2(1170, 300)
 texture = ExtResource("13_y2u35")
 
-[node name="Rock 26" type="Sprite2D" parent="Map/Hill 1" index="67"]
+[node name="Rock 26" type="Sprite2D" parent="Map/Hill 1" index="65"]
 position = Vector2(1081, 254)
 scale = Vector2(0.66, 0.66)
 texture = ExtResource("13_y2u35")
 
-[node name="Rock 27" type="Sprite2D" parent="Map/Hill 1" index="68"]
+[node name="Rock 27" type="Sprite2D" parent="Map/Hill 1" index="66"]
 position = Vector2(1094, 251)
 scale = Vector2(0.77, 0.77)
 texture = ExtResource("13_y2u35")
 
-[node name="Forest 1" type="Node2D" parent="Map" index="3"]
+[node name="Stump" type="Sprite2D" parent="Map/Hill 1" index="67"]
+position = Vector2(1175, 446)
+texture = ExtResource("8_k1w2h")
+
+[node name="Log" type="Sprite2D" parent="Map/Hill 1" index="68"]
+position = Vector2(1182, 526)
+texture = ExtResource("21_ijtuk")
+
+[node name="Forest 1" type="Node2D" parent="Map" index="2"]
+y_sort_enabled = true
 
 [node name="Stump 1" type="Sprite2D" parent="Map/Forest 1" index="0"]
 position = Vector2(279, 270)
@@ -1231,23 +1535,96 @@ texture = ExtResource("9_6ju2p")
 position = Vector2(919, 98)
 texture = ExtResource("9_6ju2p")
 
+[node name="Lamp" type="Sprite2D" parent="Map/Forest 1" index="51"]
+position = Vector2(678, 203)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("23_ejk56")
+
+[node name="Flickering Light" parent="Map/Forest 1/Lamp" index="0" instance=ExtResource("15_qxe20")]
+position = Vector2(1.3333334, -1.3333334)
+
+[node name="DestroyedLamp 1" type="Sprite2D" parent="Map/Forest 1" index="52"]
+position = Vector2(1126.5, 91.5)
+texture = ExtResource("18_qb6s2")
+
+[node name="DestroyedLamp 2" type="Sprite2D" parent="Map/Forest 1" index="53"]
+position = Vector2(1143.5, 101.5)
+texture = ExtResource("19_rlui4")
+
+[node name="Log" type="Sprite2D" parent="Map/Forest 1" index="54"]
+position = Vector2(795, 211)
+texture = ExtResource("19_ow5tc")
+
+[node name="Flag" type="AnimatedSprite2D" parent="Map/Forest 1" index="55"]
+position = Vector2(688, 16)
+sprite_frames = SubResource("SpriteFrames_ijtuk")
+autoplay = "default"
+
+[node name="Pointer" type="Sprite2D" parent="Map/Forest 1" index="56"]
+position = Vector2(1103, 119)
+texture = ExtResource("26_ow5tc")
+
+[node name="Holy Oak" parent="Map" index="3"]
+position = Vector2(80, 328)
+
 [node name="Tower 1" parent="Towers" index="0" instance=ExtResource("14_j8r11")]
 position = Vector2(1000, 136)
 unit_scene = ExtResource("15_lytkh")
 default_view_direction = &"R"
+glow = true
 
 [node name="Tower 2" parent="Towers" index="1" instance=ExtResource("14_j8r11")]
 position = Vector2(552, 600)
 unit_scene = ExtResource("15_lytkh")
 menu_position = &"U"
 default_view_direction = &"R"
+glow = true
 
 [node name="Tower 3" parent="Towers" index="2" instance=ExtResource("14_j8r11")]
 position = Vector2(536, 200)
 unit_scene = ExtResource("15_lytkh")
+glow = true
 
 [node name="Tower 4" parent="Towers" index="3" instance=ExtResource("14_j8r11")]
 position = Vector2(216, 480)
 unit_scene = ExtResource("15_lytkh")
 menu_position = &"U"
 default_view_direction = &"U"
+glow = true
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="GFX" index="0"]
+process_mode = 3
+color = Color(0.878431, 0.941176, 0.419608, 1)
+energy = 0.4
+blend_mode = 1
+
+[node name="Rain" parent="GFX" index="1" instance=ExtResource("17_35boa")]
+process_mode = 3
+position = Vector2(640, -64)
+amount = 2000
+speed_scale = 1.5
+process_material = SubResource("ParticleProcessMaterial_cmltk")
+
+[node name="Orb" parent="GFX" index="2" instance=ExtResource("19_wjref")]
+position = Vector2(1024, 488)
+amount = 3
+visibility_rect = Rect2(-200, -175, 400, 350)
+process_material = SubResource("ParticleProcessMaterial_qb6s2")
+
+[node name="Ambience" type="AudioStreamPlayer" parent="SFX" index="0"]
+process_mode = 3
+stream = ExtResource("18_o63ri")
+volume_db = -10.0
+pitch_scale = 0.8
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[node name="Vignette" parent="PostFX" index="0"]
+material = SubResource("ShaderMaterial_vgno3")
+
+[node name="Theme" parent="." index="12"]
+stream = ExtResource("21_g3nya")
+volume_db = -20.0
+
+[connection signal="timeout" from="Map/Hill 1/Campfire/GPUParticles2D/CampfireTimer" to="." method="_on_campfire_timer_timeout"]

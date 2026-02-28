@@ -1,29 +1,34 @@
 extends Node2D
 
-@export_subgroup("Required Scenes")
+@export_group("Required Scenes")
 @export var unit_scene: PackedScene
 @export var smoke_scene: PackedScene
 @export var tower_menu_scene: PackedScene
 @export var tower_stats_scene: PackedScene
 
-@export_subgroup("Misc")
+@export_group("Misc")
 @export var menu_position: StringName = "D"
 @export var default_view_direction: StringName = "D"
+
+@export_group("Lighting")
+## The tower will glow when it is built
+@export var glow: bool = false
 
 @onready var logo: Sprite2D = $Logo
 @onready var units: Node2D = $Units
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var touch_screen_button: TouchScreenButton = $TouchScreenButton
+@onready var touch_button: Button = $TouchButton
 @onready var sfx_building: AudioStreamPlayer2D = $Building
 @onready var gfx_smoke: Node2D = $Smoke
 @onready var attack_range: Area2D = $AttackRange
 @onready var attack_range_sprite_2d: Sprite2D = $AttackRange/Sprite2D
 @onready var attack_range_col: CollisionShape2D = $AttackRange/CollisionShape2D
+@onready var point_light_2d: PointLight2D = $PointLight2D
 
 @onready var unit_stats: Dictionary[StringName, Dictionary] = UnitData.get(unit_scene.instantiate().technical_name)
 
 # GUI of the current level
-@onready var level_gui: Control = Global.game_controller.current_2d_scene.get_node("GUI")
+@onready var global_gui: Control = Global.game_controller.current_2d_scene.get_node("GlobalGUI")
 
 const MAX_LEVEL: int = 7
 var level: int = 0
@@ -32,9 +37,9 @@ var unit_spawnpoints: Array
 ## Not always integer, when level equals MAX_LEVEL, it becomes the "-" string to
 ## show player he can't upgrade the tower anymore.
 @onready var current_cost = unit_stats["level_1"]["cost"]
-## Used to give half of the money back player
-## spent on the last upgrade after the pressing Remove Button.
-var last_cost: int = 0
+## Used to give all the money player spent on this tower back
+## after the pressing Remove Button.
+var total_cost: int = 0
 var is_upgrading: bool = false
 
 var tower_menu
@@ -43,7 +48,7 @@ func _ready() -> void:
 	# Set the logo
 	logo.texture = unit_scene.instantiate().logo
 
-func _on_touch_screen_button_pressed() -> void:
+func _on_touch_button_pressed() -> void:
 	SoundManager.click.play()
 	if tower_menu:
 		close_menu()
@@ -58,7 +63,7 @@ func open_menu() -> void:
 	# Connects the "opened" and "closed" signals to the level
 	tower_menu.connect("opened", Callable(Global.game_controller.current_2d_scene, "_on_tower_menu_opened"))
 	tower_menu.connect("closed", Callable(Global.game_controller.current_2d_scene, "_on_tower_menu_closed"))
-	level_gui.add_child(tower_menu) # Enters the tree
+	global_gui.add_child(tower_menu) # Enters the tree
 	# Connects the other signals
 	tower_menu.build_button.connect("pressed", Callable(self, "_on_build_button_pressed"))
 	tower_menu.upgrade_button.connect("pressed", Callable(self, "_on_upgrade_button_pressed"))
@@ -81,7 +86,7 @@ func close_menu() -> void:
 func _on_build_button_pressed() -> void:
 	SoundManager.click.play()
 	# Check whether player has enough money
-	if PlayerStats.money >= current_cost:
+	if Global.game_controller.current_2d_scene.money >= current_cost:
 		upgrade()
 	else:
 		Global.game_controller.change_gui_scene("message")
@@ -91,7 +96,7 @@ func _on_build_button_pressed() -> void:
 func _on_upgrade_button_pressed() -> void:
 	SoundManager.click.play()
 	# Check whether player has enough money
-	if PlayerStats.money >= current_cost:
+	if Global.game_controller.current_2d_scene.money >= current_cost:
 		upgrade()
 	else:
 		Global.game_controller.change_gui_scene("message")
@@ -113,13 +118,13 @@ func _on_tower_stats_button_pressed() -> void:
 	# Connects the "opened" and "closed" signals to the level
 	tower_stats.connect("opened", Callable(Global.game_controller.current_2d_scene, "_on_tower_stats_opened"))
 	tower_stats.connect("closed", Callable(Global.game_controller.current_2d_scene, "_on_tower_stats_closed"))
-	level_gui.add_child(tower_stats) # Enters the tree
+	global_gui.add_child(tower_stats) # Enters the tree
 	tower_stats.values_label.text = str(
 		unit_stats["level_" + str(level)]["attack_range"], "\n",
 		unit_stats["level_" + str(level)]["damage"], "\n",
 		unit_stats["level_" + str(level)]["count"], "\n",
 		current_cost, "\n",
-		min(MAX_LEVEL, PlayerStats.tower_level_limit)
+		min(MAX_LEVEL, Global.game_controller.current_2d_scene.tower_level_limit)
 	)
 
 func upgrade() -> void:
@@ -127,16 +132,16 @@ func upgrade() -> void:
 	attack_range_col.set_deferred("disabled", true)
 	is_upgrading = true
 	remove_units()
-	# Block touch screen button to not let player interact with the interface
-	touch_screen_button.visible = false
+	# Block button to not let player interact with the interface
+	touch_button.visible = false
 	level += 1
 	# Update stats
 	unit_count = unit_stats["level_" + str(level)]["count"]
 	unit_spawnpoints = unit_stats["level_" + str(level)]["spawnpoints"]
 	# Take away money from player
-	PlayerStats.money -= current_cost
+	Global.game_controller.current_2d_scene.money -= current_cost
 	# Update cost
-	last_cost = current_cost
+	total_cost += current_cost
 	if not can_be_upgraded():
 		current_cost = "—"
 	else:
@@ -149,31 +154,43 @@ func upgrade() -> void:
 	# Create units
 	spawn_units(unit_count, unit_spawnpoints)
 	# Unless there is an opened TowerStats in the level GUI, enable the TouchScreenButton
-	if not level_gui.has_node("TowerStats") and not level_gui.has_node("TowerMenu"):
-		touch_screen_button.visible = true
+	if not global_gui.has_node("TowerStats") and not global_gui.has_node("TowerMenu"):
+		touch_button.visible = true
 	is_upgrading = false
 	# Set the AttackRange
 	attack_range_col.disabled = false
 	attack_range_col.shape.radius = unit_stats["level_" + str(level)]["attack_range"]
+	# Starts glowing
+	if level == 1 and glow:
+		point_light_2d.color.a = 0.0
+		point_light_2d.enabled = true
+		var tween = create_tween()
+		tween.tween_property(point_light_2d, "color:a", 1.0, 0.15)
+		await tween.finished
 
 func remove() -> void:
+	# Stops glowing
+	if point_light_2d.enabled:
+		var tween = create_tween()
+		tween.tween_property(point_light_2d, "color:a", 0.0, 1.0)
+		tween.finished.connect(point_light_2d.set_enabled.bind(false))
 	# Disable the AttackRange
 	attack_range_col.set_deferred("disabled", true)
 	is_upgrading = true
 	remove_units()
-	# Block touch screen button to not let player interact with the interface
-	touch_screen_button.visible = false
+	# Block button to not let player interact with the interface
+	touch_button.visible = false
 	level = 0
 	# Give half of the money back player spent last time
-	PlayerStats.money += int(float(last_cost) / 2)
+	Global.game_controller.current_2d_scene.money += total_cost
 	# Play animation, SFX, GFX
 	sfx_building.play()
 	animation_player.play("Destruct")
-	# Unblock touch screen button
+	# Unblock button
 	await animation_player.animation_finished
 	# Unless there is an opened TowerStats or TowerMenu in the level GUI, enable the TouchScreenButton
-	if not level_gui.has_node("TowerStats") and not level_gui.has_node("TowerMenu"):
-		touch_screen_button.visible = true
+	if not global_gui.has_node("TowerStats") and not global_gui.has_node("TowerMenu"):
+		touch_button.visible = true
 	# Update current cost
 	current_cost = unit_stats["level_1"]["cost"]
 	is_upgrading = false
@@ -209,7 +226,7 @@ func remove_smoke() -> void:
 		smoke.is_active = false
 
 func can_be_upgraded() -> bool:
-	if level in [MAX_LEVEL, PlayerStats.tower_level_limit]:
+	if level in [MAX_LEVEL, Global.game_controller.current_2d_scene.tower_level_limit]:
 		return false
 	return true
 

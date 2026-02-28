@@ -12,3 +12,6 @@ func _on_cancel_button_pressed() -> void:
 	SoundManager.click.play()
 	canceled.emit()
 	close()
+
+func set_text(text: String) -> void:
+	$PanelContainer/VBoxContainer/Label.text = text

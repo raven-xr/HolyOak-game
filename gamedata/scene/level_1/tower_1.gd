@@ -1,7 +1,5 @@
 extends "res://gamedata/unit/common/tower.gd"
 
-
-
 @onready var level_1: Level = $"../.."
 
 signal player_opened_menu()
@@ -20,7 +18,7 @@ func open_menu() -> void:
 	# Connects the "opened" and "closed" signals to the level
 	tower_menu.connect("opened", Callable(Global.game_controller.current_2d_scene, "_on_tower_menu_opened"))
 	tower_menu.connect("closed", Callable(Global.game_controller.current_2d_scene, "_on_tower_menu_closed"))
-	level_gui.add_child(tower_menu) # Enters the tree
+	global_gui.add_child(tower_menu) # Enters the tree
 	# Connects the other signals
 	tower_menu.build_button.connect("pressed", Callable(self, "_on_build_button_pressed"))
 	tower_menu.upgrade_button.connect("pressed", Callable(self, "_on_upgrade_button_pressed"))
@@ -40,18 +38,18 @@ func open_menu() -> void:
 		tower_menu.remove_button.disabled = true
 		tower_menu.upgrade_button.disabled = true
 
-func _on_touch_screen_button_pressed() -> void:
+func _on_touch_button_pressed() -> void:
 	SoundManager.click.play()
-	if not level_gui.has_node("TowerMenu"):
-		open_menu()
-	else:
+	if tower_menu:
 		close_menu()
+	else:
+		open_menu()
 	player_opened_menu.emit()
 
 func _on_build_button_pressed() -> void:
 	SoundManager.click.play()
 	# Check whether player has enough money
-	if PlayerStats.money >= current_cost:
+	if Global.game_controller.current_2d_scene.money >= current_cost:
 		upgrade()
 	else:
 		Global.game_controller.change_gui_scene("message")
@@ -62,7 +60,7 @@ func _on_build_button_pressed() -> void:
 func _on_upgrade_button_pressed() -> void:
 	SoundManager.click.play()
 	# Check whether player has enough money
-	if PlayerStats.money >= current_cost:
+	if Global.game_controller.current_2d_scene.money >= current_cost:
 		upgrade()
 	else:
 		Global.game_controller.change_gui_scene("message")
@@ -79,13 +77,13 @@ func _on_tower_stats_button_pressed() -> void:
 	# Connects the "opened" and "closed" signals to the level
 	tower_stats.connect("opened", Callable(Global.game_controller.current_2d_scene, "_on_tower_stats_opened"))
 	tower_stats.connect("closed", Callable(Global.game_controller.current_2d_scene, "_on_tower_stats_closed"))
-	level_gui.add_child(tower_stats) # Enters the tree
+	global_gui.add_child(tower_stats) # Enters the tree
 	tower_stats.values_label.text = str(
 		unit_stats["level_" + str(level)]["attack_range"], "\n",
 		unit_stats["level_" + str(level)]["damage"], "\n",
 		unit_stats["level_" + str(level)]["count"], "\n",
 		current_cost, "\n",
-		min(MAX_LEVEL, PlayerStats.tower_level_limit)
+		min(MAX_LEVEL, Global.game_controller.current_2d_scene.tower_level_limit)
 	)
 	close_menu()
 	player_opened_tower_stats.emit()

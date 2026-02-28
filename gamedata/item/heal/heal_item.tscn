@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://8qe3larsqgb7"]
+
+[ext_resource type="PackedScene" uid="uid://cu6uweaafm8pi" path="res://gamedata/item/common/item.tscn" id="1_8r5g1"]
+[ext_resource type="Script" uid="uid://bkm3b6281brfn" path="res://gamedata/item/heal/heal_item.gd" id="2_hwsqv"]
+[ext_resource type="Texture2D" uid="uid://d384padklphwu" path="res://gfx/item/heal/heal_item.png" id="2_opveq"]
+[ext_resource type="AudioStream" uid="uid://cs857a7vlcaro" path="res://audio/sfx/heal.mp3" id="4_jgtt0"]
+
+[node name="HealItem" instance=ExtResource("1_8r5g1")]
+anchors_preset = -1
+anchor_right = 0.066
+anchor_bottom = 0.13900001
+offset_right = -0.47999573
+offset_bottom = -0.08000946
+icon = ExtResource("2_opveq")
+script = ExtResource("2_hwsqv")
+
+[node name="PointLight2D" parent="." index="0"]
+color = Color(1, 0, 0, 1)
+energy = 0.8
+texture_scale = 0.7
+
+[node name="VBoxContainer" parent="." index="1"]
+anchor_left = -0.476
+anchor_top = 1.1400001
+anchor_right = 1.524
+anchor_bottom = 2.46
+offset_left = -0.01599884
+offset_right = -0.01600647
+offset_bottom = 0.0
+pivot_offset = Vector2(84, 0)
+
+[node name="UseButton" parent="VBoxContainer" index="0"]
+theme_override_font_sizes/font_size = 32
+
+[node name="InfoButton" parent="VBoxContainer" index="1"]
+theme_override_font_sizes/font_size = 32
+
+[node name="Label" parent="VBoxContainer/InfoButton/Info/VBoxContainer/Head" index="0"]
+text = "❤️ Зелье исцеления ❤️"
+
+[node name="Label" parent="VBoxContainer/InfoButton/Info/VBoxContainer/Text" index="0"]
+text = "Враг всё-таки добрался до вашего идола? Дело плохо! Но зелье исцеления всё исправит!
+
+- Автоматически используется, если вы на грани поражения
+- Увеличивает здоровье на 50 HP единоразово"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="2"]
+stream = ExtResource("4_jgtt0")
+volume_db = -10.0
+bus = &"SFX"
+
+[connection signal="used" from="." to="." method="_on_used"]

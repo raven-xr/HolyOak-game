@@ -1,13 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://c7psph5vsrocc"]
+[gd_scene load_steps=10 format=3 uid="uid://c7psph5vsrocc"]
 
-[ext_resource type="PackedScene" uid="uid://i7ihkn2i5v5n" path="res://gamedata/gui/common/node_gui.tscn" id="1_f6d2y"]
 [ext_resource type="Script" uid="uid://di7jf38l1hpfj" path="res://gamedata/gui/player_stats/player_stats.gd" id="2_ej0be"]
 [ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://gui/backgrounds/ui_border.png" id="3_321it"]
 [ext_resource type="Texture2D" uid="uid://bfilf0dmwlyyq" path="res://gui/icons/heart.png" id="4_0ltoe"]
 [ext_resource type="Texture2D" uid="uid://bx7fukwyv6h5y" path="res://gui/icons/coin.png" id="5_10ji7"]
 [ext_resource type="Texture2D" uid="uid://bmx3rer36d7pi" path="res://gui/icons/saber.png" id="6_ygix3"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ptevb"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ej0be"]
 texture = ExtResource("3_321it")
 texture_margin_left = 15.0
 texture_margin_top = 10.0
@@ -15,7 +14,7 @@ texture_margin_right = 15.0
 texture_margin_bottom = 10.0
 
 [sub_resource type="Theme" id="Theme_8te46"]
-PanelContainer/styles/panel = SubResource("StyleBoxTexture_ptevb")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_ej0be")
 
 [sub_resource type="Theme" id="Theme_nuwbn"]
 
@@ -23,25 +22,22 @@ PanelContainer/styles/panel = SubResource("StyleBoxTexture_ptevb")
 texture_margin_left = 8.0
 texture_margin_right = 8.0
 
-[node name="PlayerStats" instance=ExtResource("1_f6d2y")]
-pivot_offset = Vector2(16, 16)
+[node name="PlayerStats" type="PanelContainer"]
+modulate = Color(1, 1, 1, 0.882353)
+texture_filter = 1
+anchors_preset = -1
+anchor_right = 0.43100002
+anchor_bottom = 0.16700001
+offset_right = 8.319946
+offset_bottom = 7.7599945
+theme = SubResource("Theme_8te46")
 script = ExtResource("2_ej0be")
 
-[node name="PanelContainer" type="PanelContainer" parent="." index="0"]
-modulate = Color(1, 1, 1, 0.784314)
-texture_filter = 1
-layout_mode = 0
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 366.0
-offset_bottom = 96.0
-theme = SubResource("Theme_8te46")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer" index="0"]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
 theme = SubResource("Theme_nuwbn")
 
-[node name="HPIcon" type="TextureRect" parent="PanelContainer/HBoxContainer" index="0"]
+[node name="HPIcon" type="TextureRect" parent="HBoxContainer"]
 modulate = Color(0.894376, 0, 0.152256, 1)
 custom_minimum_size = Vector2(69, 0)
 layout_mode = 2
@@ -51,51 +47,49 @@ expand_mode = 3
 stretch_mode = 5
 flip_h = true
 
-[node name="HPValue" type="Label" parent="PanelContainer/HBoxContainer" index="1"]
+[node name="HPValue" type="Label" parent="HBoxContainer"]
 texture_filter = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 37
+theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxTexture_f6d2y")
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MoneyIcon" type="TextureRect" parent="PanelContainer/HBoxContainer" index="2"]
+[node name="MoneyIcon" type="TextureRect" parent="HBoxContainer"]
 custom_minimum_size = Vector2(69, 0)
 layout_mode = 2
-size_flags_horizontal = 3
 texture = ExtResource("5_10ji7")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="MoneyValue" type="Label" parent="PanelContainer/HBoxContainer" index="3"]
+[node name="MoneyValue" type="Label" parent="HBoxContainer"]
 texture_filter = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 37
+theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxTexture_f6d2y")
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="WaveIcon" type="TextureRect" parent="PanelContainer/HBoxContainer" index="4"]
+[node name="WaveIcon" type="TextureRect" parent="HBoxContainer"]
 custom_minimum_size = Vector2(69, 0)
 layout_mode = 2
-size_flags_horizontal = 3
 size_flags_stretch_ratio = 20.0
 texture = ExtResource("6_ygix3")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="WaveValue" type="Label" parent="PanelContainer/HBoxContainer" index="5"]
+[node name="WaveValue" type="Label" parent="HBoxContainer"]
 texture_filter = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 37
+theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxTexture_f6d2y")
 text = "0"
 horizontal_alignment = 1

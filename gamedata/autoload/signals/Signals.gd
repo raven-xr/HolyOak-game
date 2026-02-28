@@ -8,3 +8,9 @@ signal wave_changed()
 
 @warning_ignore("unused_signal")
 signal health_changed()
+
+@warning_ignore("unused_signal")
+signal health_decreased()
+
+@warning_ignore("unused_signal")
+signal health_increased()
