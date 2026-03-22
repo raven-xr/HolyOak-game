@@ -14,6 +14,10 @@ var target_zoom: float = 1.0
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 var shake_strength: float = 0.0
 
+signal zoomed_in()
+signal zoomed_out()
+signal moved()
+
 func _physics_process(delta: float) -> void:
 	if shake_strength > 0:
 		shake_strength = lerpf(shake_strength, 0, shake_fade * delta)
@@ -32,6 +36,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				position.y = 360 / zoom.y
 			elif position.y > 720 - 360 / zoom.y:
 				position.y = 720 - 360 / zoom.y
+			moved.emit()
 	if event is InputEventMouseButton:
 		if event.is_pressed():
 			if event.button_index == MOUSE_BUTTON_WHEEL_UP:
@@ -42,9 +47,11 @@ func _unhandled_input(event: InputEvent) -> void:
 				zoom_out()
 
 func zoom_in() -> void:
+	zoomed_in.emit()
 	target_zoom = min(target_zoom + ZOOM_INCREMENT, MAX_ZOOM)
 
 func zoom_out() -> void:
+	zoomed_out.emit()
 	target_zoom = max(target_zoom - ZOOM_INCREMENT, MIN_ZOOM)
 
 func shake():
