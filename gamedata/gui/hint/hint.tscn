@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://7e2pd0k28f4x"]
+[gd_scene format=3 uid="uid://7e2pd0k28f4x"]
 
 [ext_resource type="PackedScene" uid="uid://i7ihkn2i5v5n" path="res://gamedata/gui/common/node_gui.tscn" id="1_tpicn"]
 [ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://gui/backgrounds/ui_border.png" id="1_u3aa6"]
@@ -19,13 +19,13 @@ PanelContainer/styles/panel = SubResource("StyleBoxTexture_as0xe")
 resource_local_to_scene = true
 size = Vector2(192, 88)
 
-[node name="Hint" instance=ExtResource("1_tpicn")]
+[node name="Hint" unique_id=1377049869 instance=ExtResource("1_tpicn")]
 offset_right = -1088.0
 offset_bottom = -632.0
 pivot_offset = Vector2(96, 44)
 script = ExtResource("2_3a814")
 
-[node name="PanelContainer" type="PanelContainer" parent="." index="0"]
+[node name="PanelContainer" type="PanelContainer" parent="." index="0" unique_id=1868842487]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
@@ -33,7 +33,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 theme = SubResource("Theme_13or0")
 
-[node name="Label" type="Label" parent="PanelContainer" index="0"]
+[node name="Label" type="Label" parent="PanelContainer" index="0" unique_id=2125136502]
 texture_filter = 2
 custom_minimum_size = Vector2(130, 46)
 layout_mode = 2
@@ -42,7 +42,7 @@ text = "Text"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="TextureRect" type="TextureRect" parent="." index="1"]
+[node name="TextureRect" type="TextureRect" parent="." index="1" unique_id=1654805835]
 modulate = Color(0.783523, 0.783523, 0.783523, 1)
 layout_mode = 1
 offset_left = 11.0
@@ -52,7 +52,7 @@ offset_bottom = 39.0
 texture = ExtResource("3_kd84t")
 expand_mode = 1
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="." index="2"]
+[node name="TouchScreenButton" type="TouchScreenButton" parent="." index="2" unique_id=434721364]
 position = Vector2(96, 44)
 shape = SubResource("RectangleShape2D_23t7m")
 

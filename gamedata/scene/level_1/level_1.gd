@@ -8,18 +8,55 @@ func idle_state() -> void:
 	tutorial()
 
 func tutorial() -> void:
-	# Greet
+	# Greeting
 	hint.text = "Здравствуйте, вождь. Добро пожаловать в Holy Oak!"
 	hint.pivot_offset.x = 96.0
 	hint.position = Vector2(544.0, 320.0)
 	hint.show_()
 	await hint.hidden_
-	# Await for player to close the hint
-	hint.text = "Ваша задача — защитить Священный дуб"
+	
+	# Point of the game
+	hint.text = "Ваша задача — любыми способами защитить Священный Дуб"
 	hint.show_()
 	await hint.hidden_
+	
+	hint.text = "Если наши злостные враги его уничтожат, то наша земля будет под серьёзной угрозой"
+	hint.show_()
+	await hint.hidden_
+	
+	# Camera zooming in
+	hint.text = "Вы можете управлять камерой. Вращайте колёсико мыши вперёд, чтобы приблизить камеру"
+	hint.can_be_skipped = false
+	hint.show_()
+	await camera.zoomed_in
+	SoundManager.click.play()
+	hint.hide_()
+	await hint.hidden_
+	
+	# Camera movement
+	hint.text = "Чтобы перемещаться по карте, зажмите ЛКМ и двигайте курсор в противоположном направлении"
+	hint.show_()
+	await camera.moved
+	SoundManager.click.play()
+	hint.hide_()
+	await hint.hidden_
+	
+	# Camera zooming out
+	hint.text = "Вы можете и отдалить камеру. Для этого вращайте колёсико мыши назад"
+	hint.show_()
+	await camera.zoomed_out
+	SoundManager.click.play()
+	hint.hide_()
+	await hint.hidden_
+	
+	# How to defend
+	hint.text = "Есть разные способы защитить сердце нашего королевства. Но мы выберем самый эффективный"
+	hint.can_be_skipped = true
+	hint.show_()
+	await hint.hidden_
+	
 	# Open the tower menu
-	hint.text = "Для начала построим башню. Нажмите на пустое поле справа от подсказки"
+	hint.text = "Нажмите на пустое поле справа, рядом с подсказкой"
 	hint.pivot_offset.x = 192.0
 	hint.position = Vector2(432.0, 136.0)
 	hint.can_be_skipped = false
