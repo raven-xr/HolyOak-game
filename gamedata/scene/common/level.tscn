@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bbsqvqymrojj5"]
+[gd_scene format=3 uid="uid://bbsqvqymrojj5"]
 
 [ext_resource type="Script" uid="uid://2edsptc0xr5r" path="res://gamedata/scene/common/level.gd" id="1_8vq8d"]
 [ext_resource type="PackedScene" uid="uid://cdb4s0kj5v3yf" path="res://gamedata/enemy/slime/slime.tscn" id="3_36ads"]
@@ -15,14 +15,14 @@
 [ext_resource type="Shader" uid="uid://csqlqc5tqnnad" path="res://gamedata/FX/vignette/vignette.gdshader" id="12_vgno3"]
 [ext_resource type="Script" uid="uid://bi1ae4vnrdxk6" path="res://gamedata/scene/common/camera_2d.gd" id="14_0gr3r"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vgno3"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0gr3r"]
 resource_local_to_scene = true
 shader = ExtResource("12_vgno3")
 shader_parameter/vignette_color = Color(0.251, 0.502, 0, 1)
 shader_parameter/transparency = 0.3
 shader_parameter/radius = 2.0
 
-[node name="Level" type="Node2D"]
+[node name="Level" type="Node2D" unique_id=977039186]
 script = ExtResource("1_8vq8d")
 ork_scene = ExtResource("3_72mh5")
 slime_scene = ExtResource("3_36ads")
@@ -30,32 +30,32 @@ defeat_menu_scene = ExtResource("5_tbcgi")
 victory_menu_scene = ExtResource("6_r8y5h")
 game_menu_scene = ExtResource("7_165x0")
 
-[node name="Tilemap" type="Node2D" parent="."]
+[node name="Tilemap" type="Node2D" parent="." unique_id=2139767787]
 texture_filter = 1
 
-[node name="Enemies" type="Node2D" parent="."]
+[node name="Enemies" type="Node2D" parent="." unique_id=1339050481]
 editor_description = "When you create a new Path2D, you have to name it \"Road N\" (N is the number of the road in LevelData that contains waves)
 e.g. Road 1
 e.g. Road 2
 and etc"
 y_sort_enabled = true
 
-[node name="Spells" type="Node2D" parent="."]
+[node name="Spells" type="Node2D" parent="." unique_id=1714390112]
 
-[node name="Map" type="Node2D" parent="."]
+[node name="Map" type="Node2D" parent="." unique_id=1583069035]
 texture_filter = 1
 
-[node name="Holy Oak" parent="Map" instance=ExtResource("9_eoj5e")]
+[node name="Holy Oak" parent="Map" unique_id=826028338 instance=ExtResource("9_eoj5e")]
 
-[node name="Towers" type="Node2D" parent="."]
+[node name="Towers" type="Node2D" parent="." unique_id=1930573416]
 
-[node name="ShellContainer" type="Node2D" parent="."]
+[node name="Shells" type="Node2D" parent="." unique_id=515479999]
 
-[node name="GFX" type="Node2D" parent="."]
+[node name="GFX" type="Node2D" parent="." unique_id=455089517]
 
-[node name="SFX" type="Node2D" parent="."]
+[node name="SFX" type="Node2D" parent="." unique_id=1019105291]
 
-[node name="GlobalGUI" type="Control" parent="."]
+[node name="GlobalGUI" type="Control" parent="." unique_id=1548391341]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -66,10 +66,10 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="LocalGUI" type="CanvasLayer" parent="."]
+[node name="LocalGUI" type="CanvasLayer" parent="." unique_id=1100285918]
 process_mode = 3
 
-[node name="MenuButton" type="Button" parent="LocalGUI"]
+[node name="MenuButton" type="Button" parent="LocalGUI" unique_id=1281015969]
 offset_left = 1184.0
 offset_top = 16.0
 offset_right = 1264.0
@@ -79,46 +79,46 @@ shortcut = ExtResource("9_2novx")
 icon = ExtResource("3_qnfjt")
 expand_icon = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="LocalGUI"]
+[node name="HBoxContainer" type="HBoxContainer" parent="LocalGUI" unique_id=1516507674]
 offset_left = 24.0
 offset_top = 24.0
 offset_right = 812.0
 offset_bottom = 144.0
 focus_behavior_recursive = 1
 
-[node name="PlayerStats" parent="LocalGUI/HBoxContainer" instance=ExtResource("8_otqld")]
+[node name="PlayerStats" parent="LocalGUI/HBoxContainer" unique_id=682796168 instance=ExtResource("8_otqld")]
 layout_mode = 2
 
-[node name="Inventory" parent="LocalGUI/HBoxContainer" instance=ExtResource("11_o86oa")]
+[node name="Inventory" parent="LocalGUI/HBoxContainer" unique_id=745718984 instance=ExtResource("11_o86oa")]
 process_mode = 1
 layout_mode = 2
 
-[node name="PostFX" type="CanvasLayer" parent="."]
+[node name="PostFX" type="CanvasLayer" parent="." unique_id=1236486416]
 process_mode = 3
 
-[node name="Vignette" parent="PostFX" instance=ExtResource("11_1jmb8")]
-material = SubResource("ShaderMaterial_vgno3")
+[node name="Vignette" parent="PostFX" unique_id=1964784082 instance=ExtResource("11_1jmb8")]
+material = SubResource("ShaderMaterial_0gr3r")
 
-[node name="Timers" type="Node" parent="."]
+[node name="Timers" type="Node" parent="." unique_id=945899873]
 
-[node name="Start Timer" type="Timer" parent="Timers"]
+[node name="Start Timer" type="Timer" parent="Timers" unique_id=1562823371]
 wait_time = 10.0
 one_shot = true
 autostart = true
 
-[node name="Wave Timer" type="Timer" parent="Timers"]
+[node name="Wave Timer" type="Timer" parent="Timers" unique_id=781457826]
 wait_time = 5.0
 one_shot = true
 
-[node name="Spawn Timer" type="Timer" parent="Timers"]
+[node name="Spawn Timer" type="Timer" parent="Timers" unique_id=685254629]
 one_shot = true
 
-[node name="Theme" type="AudioStreamPlayer" parent="."]
+[node name="Theme" type="AudioStreamPlayer" parent="." unique_id=739852950]
 process_mode = 3
 editor_description = "This music is played after the fight started"
 bus = &"Music"
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1960706891]
 position = Vector2(640, 360)
 ignore_rotation = false
 limit_left = 0

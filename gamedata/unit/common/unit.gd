@@ -12,7 +12,7 @@ enum States {
 @export var logo: Texture
 @export var shell_scene: PackedScene
 
-@onready var shell_container: Node2D = Global.game_controller.current_2d_scene.get_node("ShellContainer")
+@onready var shells: Node2D = Global.game_controller.current_2d_scene.get_node("Shells")
 
 @onready var tower: Node2D = get_parent().get_parent()
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -91,7 +91,7 @@ func shoot() -> void:
 		new_shell.speed = shell_speed
 		new_shell.target = target
 		new_shell.target_global_position = target.global_position
-		shell_container.add_child(new_shell)
+		shells.add_child(new_shell)
 		attack_sfx.play()
 	# Anyway, cooldown
 	state = States.COOLDOWN
