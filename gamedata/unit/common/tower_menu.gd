@@ -13,6 +13,14 @@ signal opened()
 signal closed()
 
 func _ready() -> void:
+	if tower.level == 0:
+		$"Upgrade Button/HBoxContainer".visible = false
+		$"Build Button/HBoxContainer".visible = true
+		$"Build Button/HBoxContainer/Label".text = str(tower.current_cost)
+	else:
+		$"Upgrade Button/HBoxContainer".visible = true
+		$"Build Button/HBoxContainer".visible = false
+		$"Upgrade Button/HBoxContainer/Label".text = str(tower.current_cost)
 	opened.emit(self)
 	tower.show_attack_range()
 	scale = Vector2(UserSettings.gui_scale**1.5, UserSettings.gui_scale**1.5)
