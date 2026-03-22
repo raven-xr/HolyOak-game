@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c06g6da1scixg"]
+[gd_scene format=3 uid="uid://c06g6da1scixg"]
 
 [ext_resource type="Script" uid="uid://2eicort0wiyk" path="res://gamedata/unit/common/tower_stats.gd" id="1_yyqa1"]
 [ext_resource type="Texture2D" uid="uid://ugr5rw8wsgu" path="res://gui/backgrounds/ui_border.png" id="2_jyck6"]
@@ -16,7 +16,7 @@ texture_margin_bottom = 10.0
 [sub_resource type="Theme" id="Theme_nogtx"]
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_qpd0x")
 
-[node name="TowerStats" type="Control"]
+[node name="TowerStats" type="Control" unique_id=1606337216]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,7 +28,7 @@ grow_vertical = 2
 pivot_offset = Vector2(182, 141)
 script = ExtResource("1_yyqa1")
 
-[node name="Head" type="PanelContainer" parent="."]
+[node name="Head" type="PanelContainer" parent="." unique_id=822337278]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
@@ -37,27 +37,27 @@ anchor_bottom = 0.317
 offset_bottom = -2.394
 theme = SubResource("Theme_nogtx")
 
-[node name="Label" type="Label" parent="Head"]
+[node name="Label" type="Label" parent="Head" unique_id=569665728]
 texture_filter = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_5x2aj")
 theme_override_font_sizes/font_size = 44
-text = "   Stats"
+text = "🎯 Stats"
 vertical_alignment = 1
 
-[node name="Keys" type="PanelContainer" parent="."]
+[node name="Keys" type="PanelContainer" parent="." unique_id=1431754095]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.277
-anchor_right = 0.523
-anchor_bottom = 1.0
-offset_top = -1.11401
-offset_right = -1.37199
-offset_bottom = -3.0
+anchor_right = 0.51900005
+anchor_bottom = 0.851
+offset_top = -1.1140137
+offset_right = 0.083984375
+offset_bottom = 0.017990112
 theme = ExtResource("3_tk2e0")
 
-[node name="Label" type="Label" parent="Keys"]
+[node name="Label" type="Label" parent="Keys" unique_id=890687931]
 texture_filter = 2
 layout_mode = 2
 size_flags_vertical = 0
@@ -67,24 +67,23 @@ theme_override_font_sizes/font_size = 24
 text = "Attack Range
 Damage
 Units
-Upgrade Cost
 Max Level"
 horizontal_alignment = 1
 
-[node name="Values" type="PanelContainer" parent="."]
+[node name="Values" type="PanelContainer" parent="." unique_id=558856090]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.272
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.851
 offset_left = -3.0
-offset_top = 0.295998
-offset_bottom = -3.0
+offset_top = 0.29599762
+offset_bottom = 0.017990112
 theme = ExtResource("3_tk2e0")
 
-[node name="Label" type="Label" parent="Values"]
+[node name="Label" type="Label" parent="Values" unique_id=2013726841]
 texture_filter = 2
 layout_mode = 2
 size_flags_vertical = 0
@@ -95,11 +94,10 @@ theme_override_font_sizes/font_size = 24
 text = "Number
 Number
 Number
-Number
 Number"
 horizontal_alignment = 1
 
-[node name="Close Button" type="Button" parent="."]
+[node name="Close Button" type="Button" parent="." unique_id=1708411287]
 texture_filter = 2
 layout_mode = 0
 offset_left = 308.0

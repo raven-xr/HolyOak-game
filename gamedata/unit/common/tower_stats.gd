@@ -1,5 +1,7 @@
 extends Control
 
+# The text of values_label is installed by the tower
+
 @onready var values_label: Label = $Values/Label
 
 var menu_position: StringName
