@@ -142,7 +142,7 @@ func upgrade() -> void:
 	# Update cost
 	total_cost += current_cost
 	if not can_be_upgraded():
-		current_cost = "—"
+		current_cost = "-1"
 	else:
 		current_cost = unit_stats["level_" + str(level + 1)]["cost"]
 	# Play animation, SFX and GFX
