@@ -1,4 +1,4 @@
-[gd_scene load_steps=138 format=3 uid="uid://lxt2xv2lfkgu"]
+[gd_scene format=3 uid="uid://lxt2xv2lfkgu"]
 
 [ext_resource type="Script" uid="uid://bdsofk2pt1nov" path="res://gamedata/unit/common/tower.gd" id="1_ga7em"]
 [ext_resource type="Texture2D" uid="uid://dyj1b8lqm8l5x" path="res://gfx/unit/tower/upgrade/1.png" id="2_6xap5"]
@@ -1621,43 +1621,41 @@ height = 128
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
-[node name="Tower" type="Node2D"]
+[node name="Tower" type="Node2D" unique_id=683650291]
 texture_filter = 1
 script = ExtResource("1_ga7em")
 smoke_scene = ExtResource("2_th4ks")
 tower_menu_scene = ExtResource("4_khjre")
 tower_stats_scene = ExtResource("5_rxukx")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_pj6w1")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1977440429]
+libraries/ = SubResource("AnimationLibrary_pj6w1")
 
-[node name="Foundation" type="Sprite2D" parent="."]
+[node name="Foundation" type="Sprite2D" parent="." unique_id=920199255]
 editor_description = "Used when player removes tower to provide the best view of the animation"
 position = Vector2(0, -56)
 scale = Vector2(1.723, 1.723)
 texture = ExtResource("2_bv0xj")
 
-[node name="Tower" type="AnimatedSprite2D" parent="."]
+[node name="Tower" type="AnimatedSprite2D" parent="." unique_id=894835351]
 position = Vector2(0, -56)
 scale = Vector2(1.72308, 1.72308)
 sprite_frames = SubResource("SpriteFrames_t6ovq")
 
-[node name="Logo" type="Sprite2D" parent="."]
+[node name="Logo" type="Sprite2D" parent="." unique_id=433662233]
 editor_description = "Usually, it's the unit's shell"
 modulate = Color(1, 1, 1, 0.784314)
 position = Vector2(0, -9)
 texture = ExtResource("17_tv0p2")
 
-[node name="Units" type="Node2D" parent="."]
+[node name="Units" type="Node2D" parent="." unique_id=2061777957]
 
-[node name="Roof" type="AnimatedSprite2D" parent="."]
+[node name="Roof" type="AnimatedSprite2D" parent="." unique_id=2120598946]
 position = Vector2(0, -56)
 scale = Vector2(1.72308, 1.72308)
 sprite_frames = SubResource("SpriteFrames_y2klm")
 
-[node name="TouchButton" type="Button" parent="."]
+[node name="TouchButton" type="Button" parent="." unique_id=388121604]
 editor_description = "Used to interact with the tower's GUI"
 modulate = Color(1, 1, 1, 0)
 offset_left = -48.0
@@ -1665,27 +1663,27 @@ offset_top = -48.0
 offset_right = 48.0
 offset_bottom = 48.0
 
-[node name="Building" type="AudioStreamPlayer2D" parent="."]
+[node name="Building" type="AudioStreamPlayer2D" parent="." unique_id=623630155]
 stream = ExtResource("22_y2klm")
 volume_db = -15.0
 bus = &"SFX"
 
-[node name="Smoke" type="Node2D" parent="."]
+[node name="Smoke" type="Node2D" parent="." unique_id=926832640]
 
-[node name="AttackRange" type="Area2D" parent="."]
+[node name="AttackRange" type="Area2D" parent="." unique_id=1428118918]
 collision_layer = 0
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange" unique_id=517652057]
 shape = SubResource("CircleShape2D_qwakt")
 disabled = true
 debug_color = Color(0.00493456, 0.228804, 0.999991, 0.188235)
 
-[node name="Sprite2D" type="Sprite2D" parent="AttackRange"]
+[node name="Sprite2D" type="Sprite2D" parent="AttackRange" unique_id=973637889]
 modulate = Color(1, 1, 1, 0)
 texture = SubResource("GradientTexture2D_khjre")
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1875212640]
 enabled = false
 color = Color(1, 1, 0.501961, 1)
 energy = 0.6

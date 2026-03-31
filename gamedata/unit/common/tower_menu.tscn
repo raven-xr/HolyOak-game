@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cshahv76xkg1e"]
+[gd_scene format=3 uid="uid://cshahv76xkg1e"]
 
 [ext_resource type="Texture2D" uid="uid://b5ya13e41k2kt" path="res://gui/buttons/text_default.svg" id="1_87goc"]
 [ext_resource type="Script" uid="uid://cas7svkvuq7n" path="res://gamedata/unit/common/tower_menu.gd" id="1_wolsd"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bc6bgbd55qvb3" path="res://gamedata/gui/texture_button/texture_button.gd" id="4_7e2yb"]
 [ext_resource type="FontFile" uid="uid://car2t5itecnhr" path="res://gui/fonts/Bungee-Regular.ttf" id="5_mntfm"]
 [ext_resource type="FontFile" uid="uid://5wohy1go68x5" path="res://gui/fonts/Tribal Garamond.ttf" id="6_e5qv2"]
+[ext_resource type="Texture2D" uid="uid://bx7fukwyv6h5y" path="res://gui/icons/coin.png" id="7_7e2yb"]
 
 [sub_resource type="Theme" id="Theme_linbm"]
 Label/colors/font_color = Color(0.784314, 0.572549, 0.372549, 1)
@@ -16,7 +17,7 @@ Label/constants/shadow_offset_y = 2
 Label/constants/shadow_outline_size = 0
 Label/fonts/font = ExtResource("5_mntfm")
 
-[node name="TowerMenu" type="Control"]
+[node name="TowerMenu" type="Control" unique_id=1359083059]
 process_mode = 1
 layout_mode = 3
 anchors_preset = 15
@@ -29,7 +30,7 @@ grow_vertical = 2
 pivot_offset = Vector2(179, 90)
 script = ExtResource("1_wolsd")
 
-[node name="Build Button" type="TextureButton" parent="."]
+[node name="Build Button" type="TextureButton" parent="." unique_id=110176114]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.067
@@ -47,7 +48,7 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("4_7e2yb")
 
-[node name="Label" type="Label" parent="Build Button"]
+[node name="Label" type="Label" parent="Build Button" unique_id=1623434013]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -64,7 +65,29 @@ text = "BUILD"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Upgrade Button" type="TextureButton" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="Build Button" unique_id=110466813]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.116000004
+anchor_top = -0.69000006
+anchor_right = 0.754
+offset_left = -0.0080013275
+offset_top = 0.020004272
+offset_right = -0.052001953
+
+[node name="TextureRect" type="TextureRect" parent="Build Button/HBoxContainer" unique_id=371343980]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("7_7e2yb")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="Build Button/HBoxContainer" unique_id=1276288471]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_e5qv2")
+theme_override_font_sizes/font_size = 29
+text = "100"
+
+[node name="Upgrade Button" type="TextureButton" parent="." unique_id=710794701]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.553
@@ -84,7 +107,7 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("4_7e2yb")
 
-[node name="Label" type="Label" parent="Upgrade Button"]
+[node name="Label" type="Label" parent="Upgrade Button" unique_id=1619298452]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -101,7 +124,29 @@ text = "UPGRADE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Remove Button" type="TextureButton" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="Upgrade Button" unique_id=569894386]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.17400001
+anchor_top = -0.69000006
+anchor_right = 0.81200004
+offset_left = -0.01199913
+offset_top = 0.020004272
+offset_right = -0.056007385
+
+[node name="TextureRect" type="TextureRect" parent="Upgrade Button/HBoxContainer" unique_id=1960376196]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("7_7e2yb")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="Upgrade Button/HBoxContainer" unique_id=261583930]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_e5qv2")
+theme_override_font_sizes/font_size = 29
+text = "100"
+
+[node name="Remove Button" type="TextureButton" parent="." unique_id=742768732]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.179
@@ -120,7 +165,7 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("4_7e2yb")
 
-[node name="Label" type="Label" parent="Remove Button"]
+[node name="Label" type="Label" parent="Remove Button" unique_id=353437828]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -136,7 +181,7 @@ text = "REMOVE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Tower Stats Button" type="TextureButton" parent="."]
+[node name="Tower Stats Button" type="TextureButton" parent="." unique_id=394124733]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.531
@@ -155,7 +200,7 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("4_7e2yb")
 
-[node name="Label" type="Label" parent="Tower Stats Button"]
+[node name="Label" type="Label" parent="Tower Stats Button" unique_id=1362257146]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -171,7 +216,7 @@ text = "STATS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UnitName" type="Label" parent="."]
+[node name="UnitName" type="Label" parent="." unique_id=59421539]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0

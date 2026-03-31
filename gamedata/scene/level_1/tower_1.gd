@@ -82,7 +82,6 @@ func _on_tower_stats_button_pressed() -> void:
 		unit_stats["level_" + str(level)]["attack_range"], "\n",
 		unit_stats["level_" + str(level)]["damage"], "\n",
 		unit_stats["level_" + str(level)]["count"], "\n",
-		current_cost, "\n",
 		min(MAX_LEVEL, Global.game_controller.current_2d_scene.tower_level_limit)
 	)
 	close_menu()

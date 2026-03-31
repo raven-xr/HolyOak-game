@@ -123,7 +123,6 @@ func _on_tower_stats_button_pressed() -> void:
 		unit_stats["level_" + str(level)]["attack_range"], "\n",
 		unit_stats["level_" + str(level)]["damage"], "\n",
 		unit_stats["level_" + str(level)]["count"], "\n",
-		current_cost, "\n",
 		min(MAX_LEVEL, Global.game_controller.current_2d_scene.tower_level_limit)
 	)
 
@@ -143,7 +142,7 @@ func upgrade() -> void:
 	# Update cost
 	total_cost += current_cost
 	if not can_be_upgraded():
-		current_cost = "—"
+		current_cost = "-1"
 	else:
 		current_cost = unit_stats["level_" + str(level + 1)]["cost"]
 	# Play animation, SFX and GFX
