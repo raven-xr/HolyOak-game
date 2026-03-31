@@ -13,14 +13,19 @@ signal opened()
 signal closed()
 
 func _ready() -> void:
+	# Show or hide the cost of upgrade/building
 	if tower.level == 0:
-		$"Upgrade Button/HBoxContainer".visible = false
 		$"Build Button/HBoxContainer".visible = true
 		$"Build Button/HBoxContainer/Label".text = str(tower.current_cost)
+		$"Upgrade Button/HBoxContainer".visible = false
 	else:
-		$"Upgrade Button/HBoxContainer".visible = true
 		$"Build Button/HBoxContainer".visible = false
-		$"Upgrade Button/HBoxContainer/Label".text = str(tower.current_cost)
+		if tower.can_be_upgraded():
+			$"Upgrade Button/HBoxContainer".visible = true
+			$"Upgrade Button/HBoxContainer/Label".text = str(tower.current_cost)
+		else:
+			$"Upgrade Button/HBoxContainer".visible = false
+	# Displaying the tower menu
 	opened.emit(self)
 	tower.show_attack_range()
 	scale = Vector2(UserSettings.gui_scale**1.5, UserSettings.gui_scale**1.5)
