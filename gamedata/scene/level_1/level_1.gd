@@ -91,7 +91,7 @@ func tutorial() -> void:
 	hint.hide_()
 	await hint.hidden_
 	# Tell about removing towers
-	hint.text = "Запомните, что в случае, если нужно построить башню в другом месте, а у вас не хватит денег, вы всегда можете избавиться от другой, нажав REMOVE, и вернуть обратно 50% от стоимости"
+	hint.text = "Запомните, что в случае, если нужно построить башню в другом месте, а у вас не хватит монет, вы всегда можете избавиться от другой, нажав REMOVE и вернув все потраченные на неё средства"
 	hint.can_be_skipped = true
 	hint.show_()
 	# Await for player to close the hint
