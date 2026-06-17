@@ -1157,7 +1157,7 @@ stream = ExtResource("25_o1gc0")
 volume_db = -5.0
 pitch_scale = 0.5
 autoplay = true
-bus = &"Music"
+bus = &"Ambience"
 
 [node name="Hint" parent="GlobalGUI" parent_id_path=PackedInt32Array(1548391341) index="0" unique_id=2051330224 instance=ExtResource("27_x1t5x")]
 process_mode = 3
