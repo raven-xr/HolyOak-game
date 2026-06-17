@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bhby1rfvkkxt0"]
+[gd_scene format=3 uid="uid://bhby1rfvkkxt0"]
 
 [ext_resource type="PackedScene" uid="uid://i7ihkn2i5v5n" path="res://gamedata/gui/common/node_gui.tscn" id="1_sltxs"]
 [ext_resource type="Script" uid="uid://ikwf35se5uyd" path="res://gamedata/gui/settings/settings.gd" id="1_vu2hh"]
@@ -26,7 +26,7 @@ corner_radius_top_right = 24
 corner_radius_bottom_right = 24
 corner_radius_bottom_left = 24
 
-[node name="Settings" instance=ExtResource("1_sltxs")]
+[node name="Settings" unique_id=621661489 instance=ExtResource("1_sltxs")]
 custom_minimum_size = Vector2(448, 560)
 offset_left = 416.0
 offset_top = 120.0
@@ -35,14 +35,14 @@ offset_bottom = -40.0
 pivot_offset = Vector2(224, 272)
 script = ExtResource("1_vu2hh")
 
-[node name="Panel" type="Panel" parent="." index="0"]
+[node name="Panel" type="Panel" parent="." index="0" unique_id=371011708]
 layout_mode = 0
 offset_left = -16.0
 offset_right = 448.0
 offset_bottom = 544.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_ldalu")
 
-[node name="Panel" type="Panel" parent="Panel" index="0"]
+[node name="Panel" type="Panel" parent="Panel" index="0" unique_id=1434099117]
 texture_filter = 1
 layout_mode = 0
 offset_left = 8.0
@@ -51,7 +51,7 @@ offset_right = 456.0
 offset_bottom = 464.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_clefv")
 
-[node name="Settings" type="Label" parent="Panel" index="1"]
+[node name="Settings" type="Label" parent="Panel" index="1" unique_id=313819080]
 custom_minimum_size = Vector2(428, 68)
 layout_mode = 0
 offset_right = 464.0
@@ -63,7 +63,7 @@ text = "Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Close Button" type="Button" parent="Panel" index="2"]
+[node name="Close Button" type="Button" parent="Panel" index="2" unique_id=1905779656]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.845
@@ -78,7 +78,7 @@ shortcut = ExtResource("5_clefv")
 icon = ExtResource("4_1vq1p")
 expand_icon = true
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Panel" index="3"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel" index="3" unique_id=1403295364]
 modulate = Color(1, 1, 1, 0.8)
 layout_mode = 0
 offset_left = 16.0
@@ -88,11 +88,11 @@ offset_bottom = 448.0
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer" index="0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer" index="0" unique_id=1831686303]
 texture_filter = 2
 layout_mode = 2
 
-[node name="Volume" type="Label" parent="Panel/ScrollContainer/VBoxContainer" index="0"]
+[node name="Volume" type="Label" parent="Panel/ScrollContainer/VBoxContainer" index="0" unique_id=1312033149]
 custom_minimum_size = Vector2(428, 68)
 layout_mode = 2
 size_flags_vertical = 1
@@ -102,11 +102,11 @@ text = "Volume"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Master Volume" type="Control" parent="Panel/ScrollContainer/VBoxContainer" index="1"]
+[node name="Master Volume" type="Control" parent="Panel/ScrollContainer/VBoxContainer" index="1" unique_id=1405134817]
 custom_minimum_size = Vector2(428, 44)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/Master Volume" index="0"]
+[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/Master Volume" index="0" unique_id=1472232985]
 layout_mode = 0
 offset_left = 22.0
 offset_right = 115.0
@@ -116,7 +116,7 @@ theme_override_font_sizes/font_size = 33
 text = "Master"
 vertical_alignment = 1
 
-[node name="Master HSlider" type="HSlider" parent="Panel/ScrollContainer/VBoxContainer/Master Volume" index="1"]
+[node name="Master HSlider" type="HSlider" parent="Panel/ScrollContainer/VBoxContainer/Master Volume" index="1" unique_id=2078344450]
 layout_mode = 0
 offset_left = 190.0
 offset_right = 406.0
@@ -125,11 +125,11 @@ max_value = 1.0
 step = 0.001
 value = 1.0
 
-[node name="Music Volume" type="Control" parent="Panel/ScrollContainer/VBoxContainer" index="2"]
+[node name="Music Volume" type="Control" parent="Panel/ScrollContainer/VBoxContainer" index="2" unique_id=1341051815]
 custom_minimum_size = Vector2(428, 44)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/Music Volume" index="0"]
+[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/Music Volume" index="0" unique_id=1779886377]
 layout_mode = 0
 offset_left = 22.0
 offset_right = 105.0
@@ -139,7 +139,7 @@ theme_override_font_sizes/font_size = 33
 text = "Music"
 vertical_alignment = 1
 
-[node name="Music HSlider" type="HSlider" parent="Panel/ScrollContainer/VBoxContainer/Music Volume" index="1"]
+[node name="Music HSlider" type="HSlider" parent="Panel/ScrollContainer/VBoxContainer/Music Volume" index="1" unique_id=1083544098]
 layout_mode = 0
 offset_left = 190.0
 offset_right = 406.0
@@ -148,11 +148,11 @@ max_value = 1.0
 step = 0.001
 value = 1.0
 
-[node name="SFX Volume" type="Control" parent="Panel/ScrollContainer/VBoxContainer" index="3"]
+[node name="SFX Volume" type="Control" parent="Panel/ScrollContainer/VBoxContainer" index="3" unique_id=2066705685]
 custom_minimum_size = Vector2(428, 44)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/SFX Volume" index="0"]
+[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/SFX Volume" index="0" unique_id=668136682]
 layout_mode = 0
 offset_left = 22.0
 offset_right = 81.0
@@ -162,7 +162,7 @@ theme_override_font_sizes/font_size = 33
 text = "SFX"
 vertical_alignment = 1
 
-[node name="SFX HSlider" type="HSlider" parent="Panel/ScrollContainer/VBoxContainer/SFX Volume" index="1"]
+[node name="SFX HSlider" type="HSlider" parent="Panel/ScrollContainer/VBoxContainer/SFX Volume" index="1" unique_id=20063999]
 layout_mode = 0
 offset_left = 190.0
 offset_right = 406.0
@@ -171,7 +171,30 @@ max_value = 1.0
 step = 0.001
 value = 1.0
 
-[node name="GUI" type="Label" parent="Panel/ScrollContainer/VBoxContainer" index="4"]
+[node name="Ambience Volume" type="Control" parent="Panel/ScrollContainer/VBoxContainer" index="4" unique_id=759045477]
+custom_minimum_size = Vector2(428, 44)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/Ambience Volume" index="0" unique_id=1841371135]
+layout_mode = 0
+offset_left = 22.0
+offset_right = 81.0
+offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("2_yf67p")
+theme_override_font_sizes/font_size = 33
+text = "Ambience"
+vertical_alignment = 1
+
+[node name="Ambience HSlider" type="HSlider" parent="Panel/ScrollContainer/VBoxContainer/Ambience Volume" index="1" unique_id=660672751]
+layout_mode = 0
+offset_left = 190.0
+offset_right = 406.0
+offset_bottom = 44.0
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="GUI" type="Label" parent="Panel/ScrollContainer/VBoxContainer" index="5" unique_id=2020557173]
 custom_minimum_size = Vector2(428, 68)
 layout_mode = 2
 size_flags_vertical = 1
@@ -181,12 +204,12 @@ text = "GUI"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GUI Scale" type="Control" parent="Panel/ScrollContainer/VBoxContainer" index="5"]
+[node name="GUI Scale" type="Control" parent="Panel/ScrollContainer/VBoxContainer" index="6" unique_id=1809634758]
 texture_filter = 2
 custom_minimum_size = Vector2(428, 44)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/GUI Scale" index="0"]
+[node name="Label" type="Label" parent="Panel/ScrollContainer/VBoxContainer/GUI Scale" index="0" unique_id=86306108]
 layout_mode = 0
 offset_left = 22.0
 offset_right = 91.0
@@ -196,7 +219,7 @@ theme_override_font_sizes/font_size = 33
 text = "Scale"
 vertical_alignment = 1
 
-[node name="Scale OptionButton" type="OptionButton" parent="Panel/ScrollContainer/VBoxContainer/GUI Scale" index="1"]
+[node name="Scale OptionButton" type="OptionButton" parent="Panel/ScrollContainer/VBoxContainer/GUI Scale" index="1" unique_id=1171676552]
 layout_mode = 0
 offset_left = 190.0
 offset_right = 406.0
@@ -218,7 +241,7 @@ popup/item_4/id = 4
 popup/item_5/text = "1.0"
 popup/item_5/id = 5
 
-[node name="Data" type="Label" parent="Panel/ScrollContainer/VBoxContainer" index="6"]
+[node name="Data" type="Label" parent="Panel/ScrollContainer/VBoxContainer" index="7" unique_id=527620058]
 custom_minimum_size = Vector2(428, 68)
 layout_mode = 2
 size_flags_vertical = 1
@@ -228,11 +251,11 @@ text = "Data"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Data Reset" type="Control" parent="Panel/ScrollContainer/VBoxContainer" index="7"]
+[node name="Data Reset" type="Control" parent="Panel/ScrollContainer/VBoxContainer" index="8" unique_id=883786642]
 custom_minimum_size = Vector2(428, 60)
 layout_mode = 2
 
-[node name="Reset Settings Button" type="Button" parent="Panel/ScrollContainer/VBoxContainer/Data Reset" index="0"]
+[node name="Reset Settings Button" type="Button" parent="Panel/ScrollContainer/VBoxContainer/Data Reset" index="0" unique_id=1422541227]
 layout_mode = 0
 offset_left = 22.0
 offset_right = 190.0
@@ -241,7 +264,7 @@ theme_override_fonts/font = ExtResource("2_yf67p")
 theme_override_font_sizes/font_size = 24
 text = "Reset Settings"
 
-[node name="Reset Progress Button" type="Button" parent="Panel/ScrollContainer/VBoxContainer/Data Reset" index="1"]
+[node name="Reset Progress Button" type="Button" parent="Panel/ScrollContainer/VBoxContainer/Data Reset" index="1" unique_id=984737946]
 layout_mode = 1
 anchors_preset = -1
 offset_left = 238.0
@@ -252,7 +275,7 @@ theme_override_fonts/font = ExtResource("2_yf67p")
 theme_override_font_sizes/font_size = 24
 text = "Reset Progress"
 
-[node name="Apply or Cancel" type="Control" parent="Panel" index="4"]
+[node name="Apply or Cancel" type="Control" parent="Panel" index="4" unique_id=1033011478]
 custom_minimum_size = Vector2(300, 48)
 anchors_preset = 0
 offset_left = 16.0
@@ -260,7 +283,7 @@ offset_top = 461.168
 offset_right = 448.0
 offset_bottom = 525.16797
 
-[node name="Apply Button" type="Button" parent="Panel/Apply or Cancel" index="0"]
+[node name="Apply Button" type="Button" parent="Panel/Apply or Cancel" index="0" unique_id=1665846888]
 layout_mode = 0
 offset_left = 24.0
 offset_top = 8.0
@@ -270,7 +293,7 @@ theme_override_fonts/font = ExtResource("2_yf67p")
 theme_override_font_sizes/font_size = 24
 text = "Apply"
 
-[node name="Cancel Button" type="Button" parent="Panel/Apply or Cancel" index="1"]
+[node name="Cancel Button" type="Button" parent="Panel/Apply or Cancel" index="1" unique_id=520565260]
 layout_mode = 1
 anchors_preset = -1
 offset_left = 264.0
@@ -286,6 +309,7 @@ text = "Cancel"
 [connection signal="value_changed" from="Panel/ScrollContainer/VBoxContainer/Master Volume/Master HSlider" to="." method="_on_master_h_slider_value_changed"]
 [connection signal="value_changed" from="Panel/ScrollContainer/VBoxContainer/Music Volume/Music HSlider" to="." method="_on_music_h_slider_value_changed"]
 [connection signal="value_changed" from="Panel/ScrollContainer/VBoxContainer/SFX Volume/SFX HSlider" to="." method="_on_sfx_h_slider_value_changed"]
+[connection signal="value_changed" from="Panel/ScrollContainer/VBoxContainer/Ambience Volume/Ambience HSlider" to="." method="_on_ambience_h_slider_value_changed"]
 [connection signal="item_selected" from="Panel/ScrollContainer/VBoxContainer/GUI Scale/Scale OptionButton" to="." method="_on_scale_option_button_item_selected"]
 [connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/GUI Scale/Scale OptionButton" to="." method="_on_scale_option_button_pressed"]
 [connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/Data Reset/Reset Settings Button" to="." method="_on_reset_settings_button_pressed"]

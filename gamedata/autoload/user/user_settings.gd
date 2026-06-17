@@ -4,12 +4,14 @@ extends Node
 const DEFAULT_MASTER_VOLUME: float = 1.0
 const DEFAULT_MUSIC_VOLUME: float = 0.65
 const DEFAULT_SFX_VOLUME: float = 1.0
+const DEFAULT_AMBIENCE_VOLUME: float = 1.0
 #const DEFAULT_GUI_SCALE: float = 1.0
 
 # Audiobuses
 var master_bus_idx: int = AudioServer.get_bus_index("Master")
 var music_bus_idx: int = AudioServer.get_bus_index("Music")
 var sfx_bus_idx: int = AudioServer.get_bus_index("SFX")
+var ambience_bus_idx: int = AudioServer.get_bus_index("Ambience")
 
 var master_volume: float = 1.0: # [0.0; 1.0]
 	set(value):
@@ -26,6 +28,11 @@ var sfx_volume: float = 1.0: # [0.0; 1.0]
 		sfx_volume = value
 		property_changed.emit()
 		AudioServer.set_bus_volume_db(sfx_bus_idx, linear_to_db(value))
+var ambience_volume: float = 1.0: # [0.0; 1.0]
+	set(value):
+		ambience_volume = value
+		property_changed.emit()
+		AudioServer.set_bus_volume_db(ambience_bus_idx, linear_to_db(value))
 var gui_scale: float = 1.0: # {0.5; 0.6; 0.7; 0.8; 0.9; 1.0}
 	set(value):
 		gui_scale = value
@@ -52,6 +59,7 @@ func load_settings() -> void:
 		master_volume = settings.get_value("VOLUME", "master_volume")
 		music_volume = settings.get_value("VOLUME", "music_volume")
 		sfx_volume = settings.get_value("VOLUME", "sfx_volume")
+		ambience_volume = settings.get_value("VOLUME", "ambience_volume")
 		gui_scale = settings.get_value("GUI", "gui_scale")
 
 func save_settings() -> void:
@@ -59,6 +67,7 @@ func save_settings() -> void:
 	settings.set_value("VOLUME", "master_volume", master_volume)
 	settings.set_value("VOLUME", "music_volume", music_volume)
 	settings.set_value("VOLUME", "sfx_volume", sfx_volume)
+	settings.set_value("VOLUME", "ambience_volume", ambience_volume)
 	settings.set_value("GUI", "gui_scale", gui_scale)
 	settings.save(SETTINGS_PATH)
 
@@ -73,7 +82,7 @@ func verify_settings() -> bool:
 		if not section in ["VOLUME", "GUI"]:
 			return false
 	# If one of the levels has more than usual keys, return the error
-	if len(settings.get_section_keys("VOLUME")) != 3:
+	if len(settings.get_section_keys("VOLUME")) != 4:
 		return false
 	if len(settings.get_section_keys("GUI")) != 1:
 		return false

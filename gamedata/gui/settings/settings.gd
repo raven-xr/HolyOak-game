@@ -3,6 +3,7 @@ extends NodeGUI
 @onready var master_h_slider: HSlider = $"Panel/ScrollContainer/VBoxContainer/Master Volume/Master HSlider"
 @onready var music_h_slider: HSlider = $"Panel/ScrollContainer/VBoxContainer/Music Volume/Music HSlider"
 @onready var sfx_h_slider: HSlider = $"Panel/ScrollContainer/VBoxContainer/SFX Volume/SFX HSlider"
+@onready var ambience_h_slider: HSlider = $"Panel/ScrollContainer/VBoxContainer/Ambience Volume/Ambience HSlider"
 @onready var scale_option_button: OptionButton = $"Panel/ScrollContainer/VBoxContainer/GUI Scale/Scale OptionButton"
 @onready var reset_progress_button: Button = $"Panel/ScrollContainer/VBoxContainer/Data Reset/Reset Progress Button"
 @onready var popup_menu: PopupMenu = scale_option_button.get_popup()
@@ -12,6 +13,7 @@ extends NodeGUI
 var last_master_volume: float = UserSettings.master_volume
 var last_music_volume: float = UserSettings.music_volume
 var last_sfx_volume: float = UserSettings.sfx_volume
+var last_ambience_volume: float = UserSettings.ambience_volume
 var last_gui_scale: float = UserSettings.gui_scale
 
 func _ready() -> void:
@@ -24,11 +26,13 @@ func _ready() -> void:
 	last_master_volume = UserSettings.master_volume
 	last_music_volume = UserSettings.music_volume
 	last_sfx_volume = UserSettings.sfx_volume
+	last_ambience_volume = UserSettings.ambience_volume
 	last_gui_scale = UserSettings.gui_scale
 	# Loads settings
 	master_h_slider.value = UserSettings.master_volume
 	music_h_slider.value = UserSettings.music_volume
 	sfx_h_slider.value = UserSettings.sfx_volume
+	ambience_h_slider.value = UserSettings.ambience_volume
 	# Selects current option by the index
 	scale_option_button.select({0.5: 0, 0.6: 1, 0.7: 2, 0.8: 3, 0.9: 4, 1.0: 5}[UserSettings.gui_scale])
 
@@ -40,6 +44,9 @@ func _on_music_h_slider_value_changed(value: float) -> void:
 
 func _on_sfx_h_slider_value_changed(value: float) -> void:
 	UserSettings.sfx_volume = value
+
+func _on_ambience_h_slider_value_changed(value: float) -> void:
+	UserSettings.ambience_volume = value
 
 func _on_scale_option_button_item_selected(index: int) -> void:
 	UserSettings.gui_scale = float(scale_option_button.get_item_text(index))
@@ -94,6 +101,7 @@ func _on_apply_button_pressed() -> void:
 	last_master_volume = UserSettings.master_volume
 	last_music_volume = UserSettings.music_volume
 	last_sfx_volume = UserSettings.sfx_volume
+	last_ambience_volume = UserSettings.ambience_volume
 	last_gui_scale = UserSettings.gui_scale
 
 func _on_cancel_button_pressed() -> void:
@@ -111,11 +119,13 @@ func reset() -> void:
 	UserSettings.master_volume = last_master_volume
 	UserSettings.music_volume = last_music_volume
 	UserSettings.sfx_volume = last_sfx_volume
+	UserSettings.ambience_volume = last_ambience_volume
 	UserSettings.gui_scale = last_gui_scale
 	# Load settings
 	master_h_slider.value = UserSettings.master_volume
 	music_h_slider.value = UserSettings.music_volume
 	sfx_h_slider.value = UserSettings.sfx_volume
+	ambience_h_slider.value = UserSettings.ambience_volume
 	scale_option_button.select({0.5: 0, 0.6: 1, 0.7: 2, 0.8: 3, 0.9: 4, 1.0: 5}[UserSettings.gui_scale])
 
 func close() -> void:
