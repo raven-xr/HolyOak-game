@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bcqk0ofauj0uf"]
+[gd_scene format=3 uid="uid://bcqk0ofauj0uf"]
 
 [ext_resource type="Texture2D" uid="uid://3xjsyjypa6r1" path="res://gfx/FX/smoke/smoke_06.png" id="1_vpdyw"]
 [ext_resource type="Script" uid="uid://duesrm2nacorg" path="res://gamedata/enemy/common/hit_effect.gd" id="2_0uvlt"]
@@ -267,9 +267,9 @@ animations = [{
 "speed": 24.0
 }]
 
-[node name="HitEffect" type="AnimatedSprite2D"]
+[node name="HitEffect" type="AnimatedSprite2D" unique_id=1343602361]
 modulate = Color(1, 0.6666667, 0.6666667, 0.7529412)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.33, 0.33)
 sprite_frames = SubResource("SpriteFrames_o2lc2")
 animation = &"3"
 frame = 10
