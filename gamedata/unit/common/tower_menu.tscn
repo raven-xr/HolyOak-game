@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://tcj8yo0ufo34" path="res://gui/icons/hammer.png" id="2_fsqoh"]
 [ext_resource type="Texture2D" uid="uid://uqadfaeecmjw" path="res://gui/icons/axe.png" id="3_2akmi"]
 [ext_resource type="Texture2D" uid="uid://dsu7i1jhrial5" path="res://gui/icons/round_shield.png" id="3_fsqoh"]
+[ext_resource type="Texture2D" uid="uid://bx7fukwyv6h5y" path="res://gui/icons/coin.png" id="6_e5qv2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u3el4"]
 bg_color = Color(0.1, 0.1, 0.1, 0.6)
@@ -182,3 +183,72 @@ offset_bottom = 28.0
 texture = ExtResource("3_fsqoh")
 expand_mode = 1
 stretch_mode = 4
+
+[node name="Build Cost" type="HBoxContainer" parent="." unique_id=376732939]
+layout_mode = 0
+offset_left = 168.0
+offset_right = 228.0
+offset_bottom = 28.0
+theme_override_constants/separation = 2
+
+[node name="Cost" type="Label" parent="Build Cost" unique_id=744682802]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.5710682, 0.50889343, 1)
+text = "−100"
+
+[node name="Coin" type="TextureRect" parent="Build Cost" unique_id=1818929027]
+texture_filter = 1
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+texture = ExtResource("6_e5qv2")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Upgrade Cost" type="HBoxContainer" parent="." unique_id=1812760411]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 32.0
+offset_right = 226.0
+offset_bottom = 60.0
+theme_override_constants/separation = 2
+
+[node name="Cost" type="Label" parent="Upgrade Cost" unique_id=360847640]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.5710682, 0.50889343, 1)
+text = "−100"
+
+[node name="Coin" type="TextureRect" parent="Upgrade Cost" unique_id=592107444]
+texture_filter = 1
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+texture = ExtResource("6_e5qv2")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Remove Compensation" type="HBoxContainer" parent="." unique_id=891974249]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 64.0
+offset_right = 226.0
+offset_bottom = 92.0
+theme_override_constants/separation = 2
+
+[node name="Size" type="Label" parent="Remove Compensation" unique_id=1652836588]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.33333334, 0.8, 0.3254902, 1)
+text = "+100"
+
+[node name="Coin" type="TextureRect" parent="Remove Compensation" unique_id=1280818707]
+texture_filter = 1
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+texture = ExtResource("6_e5qv2")
+expand_mode = 1
+stretch_mode = 4
+
+[connection signal="mouse_entered" from="PanelContainer/VBoxContainer/Build Button" to="." method="_on_build_button_mouse_entered"]
+[connection signal="mouse_exited" from="PanelContainer/VBoxContainer/Build Button" to="." method="_on_build_button_mouse_exited"]
+[connection signal="mouse_entered" from="PanelContainer/VBoxContainer/Upgrade Button" to="." method="_on_upgrade_button_mouse_entered"]
+[connection signal="mouse_exited" from="PanelContainer/VBoxContainer/Upgrade Button" to="." method="_on_upgrade_button_mouse_exited"]
+[connection signal="mouse_entered" from="PanelContainer/VBoxContainer/Remove Button" to="." method="_on_remove_button_mouse_entered"]
+[connection signal="mouse_exited" from="PanelContainer/VBoxContainer/Remove Button" to="." method="_on_remove_button_mouse_exited"]
