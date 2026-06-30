@@ -7,8 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://dsu7i1jhrial5" path="res://gui/icons/round_shield.png" id="3_fsqoh"]
 [ext_resource type="Texture2D" uid="uid://bx7fukwyv6h5y" path="res://gui/icons/coin.png" id="6_e5qv2"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_e5qv2"]
+light_mode = 1
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u3el4"]
 bg_color = Color(0.1, 0.1, 0.1, 0.6)
+border_color = Color(0.11764706, 0.11764706, 0.11764706, 1)
+border_blend = true
 corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
@@ -68,6 +73,7 @@ corner_radius_bottom_left = 2
 corner_detail = 16
 
 [node name="Tower Menu" type="Control" unique_id=1701807351]
+material = SubResource("CanvasItemMaterial_e5qv2")
 layout_mode = 3
 anchors_preset = 0
 offset_right = 160.0
@@ -75,6 +81,7 @@ offset_bottom = 128.0
 script = ExtResource("1_87goc")
 
 [node name="Name" type="Label" parent="." unique_id=1360577075]
+use_parent_material = true
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -88,19 +95,23 @@ text = "Название"
 horizontal_alignment = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1528438701]
+use_parent_material = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_u3el4")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=423178892]
+use_parent_material = true
 layout_mode = 2
 theme_override_constants/separation = 1
 
 [node name="Build Button" type="Button" parent="PanelContainer/VBoxContainer" unique_id=2131742012]
+use_parent_material = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxFlat_fsqoh")
@@ -112,6 +123,7 @@ alignment = 0
 
 [node name="Icon" type="TextureRect" parent="PanelContainer/VBoxContainer/Build Button" unique_id=1815816512]
 texture_filter = 1
+use_parent_material = true
 layout_mode = 0
 offset_left = 5.0
 offset_top = 2.0
@@ -122,6 +134,7 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="Upgrade Button" type="Button" parent="PanelContainer/VBoxContainer" unique_id=836917189]
+use_parent_material = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxFlat_fsqoh")
@@ -133,6 +146,7 @@ alignment = 0
 
 [node name="Icon" type="TextureRect" parent="PanelContainer/VBoxContainer/Upgrade Button" unique_id=895014350]
 texture_filter = 1
+use_parent_material = true
 layout_mode = 0
 offset_left = 10.0
 offset_top = 6.0
@@ -143,6 +157,7 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="Remove Button" type="Button" parent="PanelContainer/VBoxContainer" unique_id=362318490]
+use_parent_material = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxFlat_fsqoh")
@@ -154,6 +169,7 @@ alignment = 0
 
 [node name="Icon" type="TextureRect" parent="PanelContainer/VBoxContainer/Remove Button" unique_id=781645470]
 texture_filter = 1
+use_parent_material = true
 layout_mode = 0
 offset_left = 9.0
 offset_top = 4.0
@@ -164,6 +180,7 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="Info Button" type="Button" parent="PanelContainer/VBoxContainer" unique_id=624985298]
+use_parent_material = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxFlat_fsqoh")
@@ -175,6 +192,7 @@ alignment = 0
 
 [node name="Icon" type="TextureRect" parent="PanelContainer/VBoxContainer/Info Button" unique_id=240055730]
 texture_filter = 1
+use_parent_material = true
 layout_mode = 0
 offset_left = 9.0
 offset_top = 6.0
@@ -185,6 +203,7 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="Build Cost" type="HBoxContainer" parent="." unique_id=376732939]
+use_parent_material = true
 layout_mode = 0
 offset_left = 168.0
 offset_right = 228.0
@@ -192,12 +211,14 @@ offset_bottom = 28.0
 theme_override_constants/separation = 2
 
 [node name="Cost" type="Label" parent="Build Cost" unique_id=744682802]
+use_parent_material = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.5710682, 0.50889343, 1)
 text = "−100"
 
 [node name="Coin" type="TextureRect" parent="Build Cost" unique_id=1818929027]
 texture_filter = 1
+use_parent_material = true
 custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
 texture = ExtResource("6_e5qv2")
@@ -205,6 +226,7 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="Upgrade Cost" type="HBoxContainer" parent="." unique_id=1812760411]
+use_parent_material = true
 layout_mode = 0
 offset_left = 168.0
 offset_top = 32.0
@@ -213,12 +235,14 @@ offset_bottom = 60.0
 theme_override_constants/separation = 2
 
 [node name="Cost" type="Label" parent="Upgrade Cost" unique_id=360847640]
+use_parent_material = true
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.5710682, 0.50889343, 1)
 text = "−100"
 
 [node name="Coin" type="TextureRect" parent="Upgrade Cost" unique_id=592107444]
 texture_filter = 1
+use_parent_material = true
 custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
 texture = ExtResource("6_e5qv2")
@@ -226,6 +250,7 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="Remove Compensation" type="HBoxContainer" parent="." unique_id=891974249]
+use_parent_material = true
 layout_mode = 0
 offset_left = 168.0
 offset_top = 64.0
@@ -234,12 +259,14 @@ offset_bottom = 92.0
 theme_override_constants/separation = 2
 
 [node name="Size" type="Label" parent="Remove Compensation" unique_id=1652836588]
+use_parent_material = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.33333334, 0.8, 0.3254902, 1)
 text = "+100"
 
 [node name="Coin" type="TextureRect" parent="Remove Compensation" unique_id=1280818707]
 texture_filter = 1
+use_parent_material = true
 custom_minimum_size = Vector2(28, 28)
 layout_mode = 2
 texture = ExtResource("6_e5qv2")
