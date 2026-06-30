@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://b6o16t77ww40d"]
+[gd_scene format=3 uid="uid://b6o16t77ww40d"]
 
 [ext_resource type="PackedScene" uid="uid://dkswfpke4hlux" path="res://gamedata/unit/common/unit.tscn" id="1_1quro"]
 [ext_resource type="PackedScene" uid="uid://bandmxn21iglp" path="res://gamedata/unit/fire_archer/fire_arrow.tscn" id="2_4llkt"]
@@ -833,8 +833,9 @@ _data = {
 &"U_Preattack": SubResource("Animation_gkkpy")
 }
 
-[node name="Fire Archer" instance=ExtResource("1_1quro")]
+[node name="Fire Archer" unique_id=822604459 instance=ExtResource("1_1quro")]
 technical_name = &"FIRE_ARCHER"
+display_name = &"Огненный Лучник"
 logo = ExtResource("2_cfxvq")
 shell_scene = ExtResource("2_4llkt")
 
@@ -844,11 +845,9 @@ scale = Vector2(1.125, 1.125)
 sprite_frames = SubResource("SpriteFrames_q13p6")
 animation = &"D_Attack"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=89003345]
 root_node = NodePath("../AnimatedSprite2D")
-libraries = {
-&"": SubResource("AnimationLibrary_gj228")
-}
+libraries/ = SubResource("AnimationLibrary_gj228")
 
 [node name="Preattack" parent="SFX" index="0"]
 stream = ExtResource("15_dnx2x")

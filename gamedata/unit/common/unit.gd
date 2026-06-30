@@ -8,6 +8,7 @@ enum States {
 }
 
 @export var technical_name: StringName
+@export var display_name: StringName
 
 @export var logo: Texture
 @export var shell_scene: PackedScene
