@@ -10,6 +10,7 @@ extends Control
 @onready var remove_compensation: HBoxContainer = $"Remove Compensation"
 
 var unit_name: String
+var unit_logo: Texture2D
 var menu_position: StringName
 var tower: Node2D
 
@@ -17,6 +18,8 @@ signal opened()
 signal closed()
 
 func _ready() -> void:
+	$"Name/Logo 1".texture = unit_logo
+	$"Name/Logo 2".texture = unit_logo
 	build_cost.visible = false
 	upgrade_cost.visible = false
 	remove_compensation.visible = false

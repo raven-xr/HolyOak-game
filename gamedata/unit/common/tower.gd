@@ -58,6 +58,7 @@ func _on_touch_button_pressed() -> void:
 func open_menu() -> void:
 	tower_menu = tower_menu_scene.instantiate()
 	tower_menu.unit_name = unit_scene.instantiate().name
+	tower_menu.unit_logo = logo.texture
 	tower_menu.menu_position = menu_position
 	tower_menu.tower = self
 	# Connects the "opened" and "closed" signals to the level
