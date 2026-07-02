@@ -70,21 +70,17 @@ func _on_upgrade_button_pressed() -> void:
 
 func _on_info_button_pressed() -> void:
 	SoundManager.click.play()
-	# The dictionary is required for positioning tower stats and offsetting their pivots
-	var info = info_scene.instantiate()
-	info.menu_position = menu_position
-	info.tower_position = position
-	# Connects the "opened" and "closed" signals to the level
-	info.connect("opened", Callable(Global.game_controller.current_2d_scene, "_on_info_opened"))
-	info.connect("closed", Callable(Global.game_controller.current_2d_scene, "_on_info_closed"))
-	global_gui.add_child(info) # Enters the tree
-	info.values_label.text = str(
-		unit_stats["level_" + str(level)]["attack_range"], "\n",
-		unit_stats["level_" + str(level)]["damage"], "\n",
-		unit_stats["level_" + str(level)]["count"], "\n",
-		min(MAX_LEVEL, Global.game_controller.current_2d_scene.tower_level_limit)
-	)
 	close_menu()
+	Global.game_controller.change_gui_scene("info_tab", false, true)
+	var info_tab: NodeGUI = Global.game_controller.current_gui_scene
+	var stats: Array[int] = [
+		unit_stats["level_" + str(level)]["attack_range"],
+		unit_stats["level_" + str(level)]["damage"],
+		unit_stats["level_" + str(level)]["count"],
+		level,
+		min(MAX_LEVEL, Global.game_controller.current_2d_scene.tower_level_limit)
+	]
+	info_tab.set_text(unit_stats["description"] + "Урон — %d\nДальность атаки — %d\nКоличество юнитов — %d\nУровень — %d\nМакс. уровень — %d" % stats)
 	player_opened_info.emit()
 
 func _on_level_1_player_ended_tutorial() -> void:

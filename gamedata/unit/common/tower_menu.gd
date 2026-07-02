@@ -20,6 +20,11 @@ signal closed()
 func _ready() -> void:
 	$"Name/Logo 1".texture = unit_logo
 	$"Name/Logo 2".texture = unit_logo
+	
+	$"Build Cost/Cost".text = str("−", tower.current_cost)
+	$"Upgrade Cost/Cost".text = str("−", tower.current_cost)
+	$"Remove Compensation/Size".text = str("+", tower.total_cost)
+	
 	build_cost.visible = false
 	upgrade_cost.visible = false
 	remove_compensation.visible = false

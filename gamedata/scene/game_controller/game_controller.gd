@@ -10,6 +10,7 @@ class_name GameController
 @export var settings: PackedScene
 @export var message: PackedScene
 @export var confirmation: PackedScene
+@export var info_tab: PackedScene
 
 @onready var world_2d: Node2D = $World2D
 @onready var gui: CanvasLayer = $GUI
