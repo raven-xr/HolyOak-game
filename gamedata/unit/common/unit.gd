@@ -8,6 +8,7 @@ enum States {
 }
 
 @export var technical_name: StringName
+@export var display_name: StringName
 
 @export var logo: Texture
 @export var shell_scene: PackedScene
@@ -22,7 +23,7 @@ enum States {
 
 @onready var default_view_direction: StringName = tower.default_view_direction
 
-@onready var stats: Dictionary[StringName, Dictionary] = UnitData.get(technical_name)
+@onready var stats: Dictionary = UnitData.get(technical_name)
 @onready var damage: int = stats["level_" + str(level)]["damage"]
 @onready var shell_speed: int = stats["level_" + str(level)]["shell_speed"]
 

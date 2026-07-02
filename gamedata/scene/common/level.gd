@@ -221,16 +221,6 @@ func _on_tower_menu_closed(tower_menu: Control) -> void:
 			continue
 		tower.touch_button.visible = true
 
-func _on_tower_stats_opened() -> void:
-	for tower in towers.get_children():
-		tower.touch_button.visible = false
-
-func _on_tower_stats_closed() -> void:
-	for tower in towers.get_children():
-		if tower.is_upgrading:
-			continue
-		tower.touch_button.visible = true
-
 func _on_menu_button_pressed() -> void:
 	SoundManager.click.play()
 	local_gui.add_child(game_menu_scene.instantiate())

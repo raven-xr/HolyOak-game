@@ -84,10 +84,10 @@ func tutorial() -> void:
 	# Check current stats
 	hint.text = "Отлично. Нажмите на кнопку STATS, чтобы посмотреть текущие характеристики башни и юнитов"
 	hint.show_()
-	# Unlock the TowerStats button
-	tower_1.is_tower_stats_button_locked = false
+	# Unlock the Info button
+	tower_1.is_info_button_locked = false
 	# Await for player to check current stats
-	await tower_1.player_opened_tower_stats
+	await tower_1.player_opened_info
 	hint.hide_()
 	await hint.hidden_
 	# Tell about removing towers

@@ -4,7 +4,6 @@ extends Node2D
 @export var unit_scene: PackedScene
 @export var smoke_scene: PackedScene
 @export var tower_menu_scene: PackedScene
-@export var tower_stats_scene: PackedScene
 
 @export_group("Misc")
 @export var menu_position: StringName = "D"
@@ -25,7 +24,7 @@ extends Node2D
 @onready var attack_range_col: CollisionShape2D = $AttackRange/CollisionShape2D
 @onready var point_light_2d: PointLight2D = $PointLight2D
 
-@onready var unit_stats: Dictionary[StringName, Dictionary] = UnitData.get(unit_scene.instantiate().technical_name)
+@onready var unit_stats: Dictionary = UnitData.get(unit_scene.instantiate().technical_name)
 
 # GUI of the current level
 @onready var global_gui: Control = Global.game_controller.current_2d_scene.get_node("GlobalGUI")
@@ -57,7 +56,8 @@ func _on_touch_button_pressed() -> void:
 
 func open_menu() -> void:
 	tower_menu = tower_menu_scene.instantiate()
-	tower_menu.unit_name = unit_scene.instantiate().name
+	tower_menu.unit_name = unit_scene.instantiate().display_name
+	tower_menu.unit_logo = logo.texture
 	tower_menu.menu_position = menu_position
 	tower_menu.tower = self
 	# Connects the "opened" and "closed" signals to the level
@@ -68,7 +68,7 @@ func open_menu() -> void:
 	tower_menu.build_button.connect("pressed", Callable(self, "_on_build_button_pressed"))
 	tower_menu.upgrade_button.connect("pressed", Callable(self, "_on_upgrade_button_pressed"))
 	tower_menu.remove_button.connect("pressed", Callable(self, "_on_remove_button_pressed"))
-	tower_menu.tower_stats_button.connect("pressed", Callable(self, "_on_tower_stats_button_pressed"))
+	tower_menu.info_button.connect("pressed", Callable(self, "_on_info_button_pressed"))
 	# Disable buttons
 	if level > 0:
 		tower_menu.build_button.disabled = true
@@ -77,7 +77,7 @@ func open_menu() -> void:
 	else:
 		tower_menu.upgrade_button.disabled = true
 		tower_menu.remove_button.disabled = true
-		tower_menu.tower_stats_button.disabled = true
+		tower_menu.info_button.disabled = true
 
 func close_menu() -> void:
 	tower_menu.close()
@@ -108,23 +108,21 @@ func _on_remove_button_pressed() -> void:
 	remove()
 	close_menu()
 
-func _on_tower_stats_button_pressed() -> void:
+func _on_info_button_pressed() -> void:
 	SoundManager.click.play()
 	close_menu()
-	# The dictionary is required for positioning tower stats and offsetting their pivots
-	var tower_stats = tower_stats_scene.instantiate()
-	tower_stats.menu_position = menu_position
-	tower_stats.tower_position = position
-	# Connects the "opened" and "closed" signals to the level
-	tower_stats.connect("opened", Callable(Global.game_controller.current_2d_scene, "_on_tower_stats_opened"))
-	tower_stats.connect("closed", Callable(Global.game_controller.current_2d_scene, "_on_tower_stats_closed"))
-	global_gui.add_child(tower_stats) # Enters the tree
-	tower_stats.values_label.text = str(
-		unit_stats["level_" + str(level)]["attack_range"], "\n",
-		unit_stats["level_" + str(level)]["damage"], "\n",
-		unit_stats["level_" + str(level)]["count"], "\n",
+	Global.game_controller.change_gui_scene("info_tab", false, true)
+	var info_tab: NodeGUI = Global.game_controller.current_gui_scene
+	var stats: Array[int] = [
+		unit_stats["level_" + str(level)]["attack_range"],
+		unit_stats["level_" + str(level)]["damage"],
+		unit_stats["level_" + str(level)]["count"],
+		level,
 		min(MAX_LEVEL, Global.game_controller.current_2d_scene.tower_level_limit)
-	)
+	]
+	info_tab.set_head(unit_scene.instantiate().display_name)
+	info_tab.set_description(unit_stats["description"])
+	info_tab.set_stats_text("Урон — %d\nДальность атаки — %d\nКоличество юнитов — %d\nУровень — %d\nМакс. уровень — %d" % stats)
 
 func upgrade() -> void:
 	# Disable the AttackRange

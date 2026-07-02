@@ -1,242 +1,314 @@
-[gd_scene format=3 uid="uid://cshahv76xkg1e"]
+[gd_scene format=3 uid="uid://cfaiqiq6lb44y"]
 
-[ext_resource type="Texture2D" uid="uid://b5ya13e41k2kt" path="res://gui/buttons/text_default.svg" id="1_87goc"]
-[ext_resource type="Script" uid="uid://cas7svkvuq7n" path="res://gamedata/unit/common/tower_menu.gd" id="1_wolsd"]
-[ext_resource type="Texture2D" uid="uid://dsh51r6drxmtr" path="res://gui/buttons/text_hover.svg" id="2_e5qv2"]
-[ext_resource type="Texture2D" uid="uid://csq5bonl77fkh" path="res://gui/buttons/text_disabled.svg" id="3_wolsd"]
-[ext_resource type="Script" uid="uid://bc6bgbd55qvb3" path="res://gamedata/gui/texture_button/texture_button.gd" id="4_7e2yb"]
-[ext_resource type="FontFile" uid="uid://car2t5itecnhr" path="res://gui/fonts/Bungee-Regular.ttf" id="5_mntfm"]
-[ext_resource type="FontFile" uid="uid://5wohy1go68x5" path="res://gui/fonts/Tribal Garamond.ttf" id="6_e5qv2"]
-[ext_resource type="Texture2D" uid="uid://bx7fukwyv6h5y" path="res://gui/icons/coin.png" id="7_7e2yb"]
+[ext_resource type="Script" uid="uid://bj6btut64qxws" path="res://gamedata/unit/common/tower_menu.gd" id="1_87goc"]
+[ext_resource type="Texture2D" uid="uid://d3h4ugvrsklj7" path="res://gfx/unit/archer/logo/logo.png" id="1_t5yy4"]
+[ext_resource type="Texture2D" uid="uid://kiwegpvo6toj" path="res://gui/icons/green_arrow.png" id="2_2akmi"]
+[ext_resource type="Texture2D" uid="uid://tcj8yo0ufo34" path="res://gui/icons/hammer.png" id="2_fsqoh"]
+[ext_resource type="Texture2D" uid="uid://uqadfaeecmjw" path="res://gui/icons/axe.png" id="3_2akmi"]
+[ext_resource type="Texture2D" uid="uid://dsu7i1jhrial5" path="res://gui/icons/round_shield.png" id="3_fsqoh"]
+[ext_resource type="Texture2D" uid="uid://bx7fukwyv6h5y" path="res://gui/icons/coin.png" id="6_e5qv2"]
 
-[sub_resource type="Theme" id="Theme_linbm"]
-Label/colors/font_color = Color(0.784314, 0.572549, 0.372549, 1)
-Label/colors/font_shadow_color = Color(0.427451, 0.392157, 0.298039, 1)
-Label/constants/shadow_offset_x = 0
-Label/constants/shadow_offset_y = 2
-Label/constants/shadow_outline_size = 0
-Label/fonts/font = ExtResource("5_mntfm")
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_e5qv2"]
+light_mode = 1
 
-[node name="TowerMenu" type="Control" unique_id=1359083059]
-process_mode = 1
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u3el4"]
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+border_color = Color(0.11764706, 0.11764706, 0.11764706, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fsqoh"]
+content_margin_left = 40.0
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0.7372549)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.11764706, 0.11764706, 0.11764706, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_87goc"]
+content_margin_left = 40.0
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0.5019608)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.11764706, 0.11764706, 0.11764706, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e5qv2"]
+content_margin_left = 40.0
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.13319641, 0.13319638, 0.13319644, 0.7372549)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.11764706, 0.11764706, 0.11764706, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 16
+
+[node name="Tower Menu" type="Control" unique_id=1701807351]
+material = SubResource("CanvasItemMaterial_e5qv2")
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -922.0
-offset_bottom = -540.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(179, 90)
-script = ExtResource("1_wolsd")
+anchors_preset = 0
+offset_right = 160.0
+offset_bottom = 128.0
+script = ExtResource("1_87goc")
 
-[node name="Build Button" type="TextureButton" parent="." unique_id=110176114]
+[node name="Name" type="Label" parent="." unique_id=1360577075]
+use_parent_material = true
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.067
-anchor_top = 0.178
-anchor_right = 0.453
-anchor_bottom = 0.5
-offset_left = 0.0139999
-offset_top = -0.0400009
-offset_right = -0.173996
-texture_normal = ExtResource("1_87goc")
-texture_pressed = ExtResource("1_87goc")
-texture_hover = ExtResource("2_e5qv2")
-texture_disabled = ExtResource("3_wolsd")
-ignore_texture_size = true
-stretch_mode = 0
-script = ExtResource("4_7e2yb")
-
-[node name="Label" type="Label" parent="Build Button" unique_id=1623434013]
-layout_mode = 1
-anchors_preset = -1
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 4.0
-offset_right = 138.0
-offset_bottom = 34.0
+offset_left = 71.0
+offset_top = -59.0
+offset_right = -71.0
+offset_bottom = -14.0
 grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.5, 0.5)
-theme = SubResource("Theme_linbm")
-theme_override_font_sizes/font_size = 44
-text = "BUILD"
+theme_override_font_sizes/font_size = 32
+text = "0"
 horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Build Button" unique_id=110466813]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.116000004
-anchor_top = -0.69000006
-anchor_right = 0.754
-offset_left = -0.0080013275
-offset_top = 0.020004272
-offset_right = -0.052001953
-
-[node name="TextureRect" type="TextureRect" parent="Build Button/HBoxContainer" unique_id=371343980]
+[node name="Logo 1" type="TextureRect" parent="Name" unique_id=2138514564]
 texture_filter = 1
-layout_mode = 2
-texture = ExtResource("7_7e2yb")
-expand_mode = 3
-
-[node name="Label" type="Label" parent="Build Button/HBoxContainer" unique_id=1276288471]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("6_e5qv2")
-theme_override_font_sizes/font_size = 29
-text = "100"
-
-[node name="Upgrade Button" type="TextureButton" parent="." unique_id=710794701]
+use_parent_material = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.553
-anchor_top = 0.178
-anchor_right = 0.939
-anchor_bottom = 0.5
-offset_left = 0.0259857
-offset_top = -0.0400009
-offset_right = -0.162018
-grow_horizontal = 2
+anchor_top = 0.51100004
+anchor_bottom = 0.51100004
+offset_left = -37.357
+offset_top = -13.995001
+offset_right = -9.357
+offset_bottom = 14.004999
 grow_vertical = 2
-texture_normal = ExtResource("1_87goc")
-texture_pressed = ExtResource("1_87goc")
-texture_hover = ExtResource("2_e5qv2")
-texture_disabled = ExtResource("3_wolsd")
-ignore_texture_size = true
-stretch_mode = 0
-script = ExtResource("4_7e2yb")
+texture = ExtResource("1_t5yy4")
+flip_h = true
 
-[node name="Label" type="Label" parent="Upgrade Button" unique_id=1619298452]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 4.0
-offset_right = 138.0
-offset_bottom = 34.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.5, 0.5)
-theme = SubResource("Theme_linbm")
-theme_override_font_sizes/font_size = 44
-text = "UPGRADE"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Upgrade Button" unique_id=569894386]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.17400001
-anchor_top = -0.69000006
-anchor_right = 0.81200004
-offset_left = -0.01199913
-offset_top = 0.020004272
-offset_right = -0.056007385
-
-[node name="TextureRect" type="TextureRect" parent="Upgrade Button/HBoxContainer" unique_id=1960376196]
+[node name="Logo 2" type="TextureRect" parent="Name" unique_id=2043136564]
 texture_filter = 1
-layout_mode = 2
-texture = ExtResource("7_7e2yb")
-expand_mode = 3
-
-[node name="Label" type="Label" parent="Upgrade Button/HBoxContainer" unique_id=261583930]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("6_e5qv2")
-theme_override_font_sizes/font_size = 29
-text = "100"
-
-[node name="Remove Button" type="TextureButton" parent="." unique_id=742768732]
+use_parent_material = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.179
-anchor_top = 0.578
-anchor_right = 0.475
-anchor_bottom = 0.833
-offset_left = -0.0820007
-offset_top = -0.0400009
-offset_right = -0.0500031
-offset_bottom = 0.0599823
-texture_normal = ExtResource("1_87goc")
-texture_pressed = ExtResource("1_87goc")
-texture_hover = ExtResource("2_e5qv2")
-texture_disabled = ExtResource("3_wolsd")
-ignore_texture_size = true
-stretch_mode = 0
-script = ExtResource("4_7e2yb")
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 9.0
+offset_top = -13.5
+offset_right = 37.0
+offset_bottom = 14.5
+texture = ExtResource("1_t5yy4")
+expand_mode = 1
+stretch_mode = 4
 
-[node name="Label" type="Label" parent="Remove Button" unique_id=353437828]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1528438701]
+use_parent_material = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 106.0
-offset_bottom = 32.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.5, 0.5)
-theme = SubResource("Theme_linbm")
-theme_override_font_sizes/font_size = 36
-text = "REMOVE"
-horizontal_alignment = 1
-vertical_alignment = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_u3el4")
 
-[node name="Tower Stats Button" type="TextureButton" parent="." unique_id=394124733]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.531
-anchor_top = 0.578
-anchor_right = 0.827
-anchor_bottom = 0.833
-offset_left = -0.0980072
-offset_top = -0.0400009
-offset_right = -0.0660095
-offset_bottom = 0.0599823
-texture_normal = ExtResource("1_87goc")
-texture_pressed = ExtResource("1_87goc")
-texture_hover = ExtResource("2_e5qv2")
-texture_disabled = ExtResource("3_wolsd")
-ignore_texture_size = true
-stretch_mode = 0
-script = ExtResource("4_7e2yb")
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=423178892]
+use_parent_material = true
+layout_mode = 2
+theme_override_constants/separation = 1
 
-[node name="Label" type="Label" parent="Tower Stats Button" unique_id=1362257146]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 106.0
-offset_bottom = 32.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.5, 0.5)
-theme = SubResource("Theme_linbm")
-theme_override_font_sizes/font_size = 36
-text = "STATS"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Build Button" type="Button" parent="PanelContainer/VBoxContainer" unique_id=2131742012]
+use_parent_material = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_fsqoh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_87goc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_e5qv2")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_fsqoh")
+text = "Построить"
+alignment = 0
 
-[node name="UnitName" type="Label" parent="." unique_id=59421539]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 83.0
-offset_bottom = -72.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_shadow_color = Color(0.099986, 0.099986, 0.099986, 1)
-theme_override_fonts/font = ExtResource("6_e5qv2")
-theme_override_font_sizes/font_size = 28
-text = "Unit's Name"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Icon" type="TextureRect" parent="PanelContainer/VBoxContainer/Build Button" unique_id=1815816512]
+texture_filter = 1
+use_parent_material = true
+layout_mode = 0
+offset_left = 5.0
+offset_top = 2.0
+offset_right = 33.0
+offset_bottom = 30.0
+texture = ExtResource("2_fsqoh")
+expand_mode = 1
+stretch_mode = 4
 
-[connection signal="mouse_entered" from="Build Button" to="Build Button" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Build Button" to="Build Button" method="_on_mouse_exited"]
-[connection signal="mouse_entered" from="Upgrade Button" to="Upgrade Button" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Upgrade Button" to="Upgrade Button" method="_on_mouse_exited"]
-[connection signal="mouse_entered" from="Remove Button" to="Remove Button" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Remove Button" to="Remove Button" method="_on_mouse_exited"]
-[connection signal="mouse_entered" from="Tower Stats Button" to="Tower Stats Button" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Tower Stats Button" to="Tower Stats Button" method="_on_mouse_exited"]
+[node name="Upgrade Button" type="Button" parent="PanelContainer/VBoxContainer" unique_id=836917189]
+use_parent_material = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_fsqoh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_87goc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_e5qv2")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_fsqoh")
+text = "Улучшить"
+alignment = 0
+
+[node name="Icon" type="TextureRect" parent="PanelContainer/VBoxContainer/Upgrade Button" unique_id=895014350]
+texture_filter = 1
+use_parent_material = true
+layout_mode = 0
+offset_left = 10.0
+offset_top = 6.0
+offset_right = 30.0
+offset_bottom = 26.0
+texture = ExtResource("2_2akmi")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Remove Button" type="Button" parent="PanelContainer/VBoxContainer" unique_id=362318490]
+use_parent_material = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_fsqoh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_87goc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_e5qv2")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_fsqoh")
+text = "Разрушить"
+alignment = 0
+
+[node name="Icon" type="TextureRect" parent="PanelContainer/VBoxContainer/Remove Button" unique_id=781645470]
+texture_filter = 1
+use_parent_material = true
+layout_mode = 0
+offset_left = 9.0
+offset_top = 4.0
+offset_right = 31.0
+offset_bottom = 26.0
+texture = ExtResource("3_2akmi")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Info Button" type="Button" parent="PanelContainer/VBoxContainer" unique_id=624985298]
+use_parent_material = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_fsqoh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_87goc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_e5qv2")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_fsqoh")
+text = "Информация"
+alignment = 0
+
+[node name="Icon" type="TextureRect" parent="PanelContainer/VBoxContainer/Info Button" unique_id=240055730]
+texture_filter = 1
+use_parent_material = true
+layout_mode = 0
+offset_left = 9.0
+offset_top = 6.0
+offset_right = 31.0
+offset_bottom = 28.0
+texture = ExtResource("3_fsqoh")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Build Cost" type="HBoxContainer" parent="." unique_id=376732939]
+use_parent_material = true
+layout_mode = 0
+offset_left = 168.0
+offset_right = 228.0
+offset_bottom = 28.0
+theme_override_constants/separation = 2
+
+[node name="Cost" type="Label" parent="Build Cost" unique_id=744682802]
+use_parent_material = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.5710682, 0.50889343, 1)
+text = "−100"
+
+[node name="Coin" type="TextureRect" parent="Build Cost" unique_id=1818929027]
+texture_filter = 1
+use_parent_material = true
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+texture = ExtResource("6_e5qv2")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Upgrade Cost" type="HBoxContainer" parent="." unique_id=1812760411]
+use_parent_material = true
+layout_mode = 0
+offset_left = 168.0
+offset_top = 32.0
+offset_right = 226.0
+offset_bottom = 60.0
+theme_override_constants/separation = 2
+
+[node name="Cost" type="Label" parent="Upgrade Cost" unique_id=360847640]
+use_parent_material = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.5710682, 0.50889343, 1)
+text = "−100"
+
+[node name="Coin" type="TextureRect" parent="Upgrade Cost" unique_id=592107444]
+texture_filter = 1
+use_parent_material = true
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+texture = ExtResource("6_e5qv2")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Remove Compensation" type="HBoxContainer" parent="." unique_id=891974249]
+use_parent_material = true
+layout_mode = 0
+offset_left = 168.0
+offset_top = 64.0
+offset_right = 226.0
+offset_bottom = 92.0
+theme_override_constants/separation = 2
+
+[node name="Size" type="Label" parent="Remove Compensation" unique_id=1652836588]
+use_parent_material = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.33333334, 0.8, 0.3254902, 1)
+text = "+100"
+
+[node name="Coin" type="TextureRect" parent="Remove Compensation" unique_id=1280818707]
+texture_filter = 1
+use_parent_material = true
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+texture = ExtResource("6_e5qv2")
+expand_mode = 1
+stretch_mode = 4
+
+[connection signal="mouse_entered" from="PanelContainer/VBoxContainer/Build Button" to="." method="_on_build_button_mouse_entered"]
+[connection signal="mouse_exited" from="PanelContainer/VBoxContainer/Build Button" to="." method="_on_build_button_mouse_exited"]
+[connection signal="mouse_entered" from="PanelContainer/VBoxContainer/Upgrade Button" to="." method="_on_upgrade_button_mouse_entered"]
+[connection signal="mouse_exited" from="PanelContainer/VBoxContainer/Upgrade Button" to="." method="_on_upgrade_button_mouse_exited"]
+[connection signal="mouse_entered" from="PanelContainer/VBoxContainer/Remove Button" to="." method="_on_remove_button_mouse_entered"]
+[connection signal="mouse_exited" from="PanelContainer/VBoxContainer/Remove Button" to="." method="_on_remove_button_mouse_exited"]

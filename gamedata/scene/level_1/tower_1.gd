@@ -5,9 +5,9 @@ extends "res://gamedata/unit/common/tower.gd"
 signal player_opened_menu()
 signal player_built_tower()
 signal player_upgraded_tower()
-signal player_opened_tower_stats()
+signal player_opened_info()
 
-var is_tower_stats_button_locked: bool = true
+var is_info_button_locked: bool = true
 var is_remove_button_locked: bool = true
 
 func open_menu() -> void:
@@ -23,18 +23,18 @@ func open_menu() -> void:
 	tower_menu.build_button.connect("pressed", Callable(self, "_on_build_button_pressed"))
 	tower_menu.upgrade_button.connect("pressed", Callable(self, "_on_upgrade_button_pressed"))
 	tower_menu.remove_button.connect("pressed", Callable(self, "_on_remove_button_pressed"))
-	tower_menu.tower_stats_button.connect("pressed", Callable(self, "_on_tower_stats_button_pressed"))
+	tower_menu.info_button.connect("pressed", Callable(self, "_on_info_button_pressed"))
 	# Disable buttons (unique for this tower)
 	if level > 0:
 		tower_menu.build_button.disabled = true
 		if not can_be_upgraded():
 			tower_menu.upgrade_button.disabled = true
-		if is_tower_stats_button_locked:
-			tower_menu.tower_stats_button.disabled = true
+		if is_info_button_locked:
+			tower_menu.info_button.disabled = true
 		if is_remove_button_locked:
 			tower_menu.remove_button.disabled = true
 	else:
-		tower_menu.tower_stats_button.disabled = true
+		tower_menu.info_button.disabled = true
 		tower_menu.remove_button.disabled = true
 		tower_menu.upgrade_button.disabled = true
 
@@ -68,24 +68,20 @@ func _on_upgrade_button_pressed() -> void:
 	close_menu()
 	player_upgraded_tower.emit()
 
-func _on_tower_stats_button_pressed() -> void:
+func _on_info_button_pressed() -> void:
 	SoundManager.click.play()
-	# The dictionary is required for positioning tower stats and offsetting their pivots
-	var tower_stats = tower_stats_scene.instantiate()
-	tower_stats.menu_position = menu_position
-	tower_stats.tower_position = position
-	# Connects the "opened" and "closed" signals to the level
-	tower_stats.connect("opened", Callable(Global.game_controller.current_2d_scene, "_on_tower_stats_opened"))
-	tower_stats.connect("closed", Callable(Global.game_controller.current_2d_scene, "_on_tower_stats_closed"))
-	global_gui.add_child(tower_stats) # Enters the tree
-	tower_stats.values_label.text = str(
-		unit_stats["level_" + str(level)]["attack_range"], "\n",
-		unit_stats["level_" + str(level)]["damage"], "\n",
-		unit_stats["level_" + str(level)]["count"], "\n",
-		min(MAX_LEVEL, Global.game_controller.current_2d_scene.tower_level_limit)
-	)
 	close_menu()
-	player_opened_tower_stats.emit()
+	Global.game_controller.change_gui_scene("info_tab", false, true)
+	var info_tab: NodeGUI = Global.game_controller.current_gui_scene
+	var stats: Array[int] = [
+		unit_stats["level_" + str(level)]["attack_range"],
+		unit_stats["level_" + str(level)]["damage"],
+		unit_stats["level_" + str(level)]["count"],
+		level,
+		min(MAX_LEVEL, Global.game_controller.current_2d_scene.tower_level_limit)
+	]
+	info_tab.set_text(unit_stats["description"] + "Урон — %d\nДальность атаки — %d\nКоличество юнитов — %d\nУровень — %d\nМакс. уровень — %d" % stats)
+	player_opened_info.emit()
 
 func _on_level_1_player_ended_tutorial() -> void:
 	# Enable the remove button if the menu is opened

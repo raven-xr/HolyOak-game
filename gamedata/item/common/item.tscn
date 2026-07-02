@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cu6uweaafm8pi"]
+[gd_scene format=3 uid="uid://cu6uweaafm8pi"]
 
 [ext_resource type="Script" uid="uid://psrwmrq3u4dg" path="res://gamedata/item/common/item.gd" id="1_2puhw"]
 [ext_resource type="FontFile" uid="uid://5wohy1go68x5" path="res://gui/fonts/Tribal Garamond.ttf" id="2_1gj5a"]
@@ -20,7 +20,7 @@ height = 128
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j67vm"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1gj5a"]
 texture = ExtResource("2_wa10l")
 texture_margin_left = 10.0
 texture_margin_top = 10.0
@@ -32,9 +32,9 @@ expand_margin_right = 20.0
 expand_margin_bottom = 5.0
 
 [sub_resource type="Theme" id="Theme_g6n6t"]
-PanelContainer/styles/panel = SubResource("StyleBoxTexture_j67vm")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_1gj5a")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ecn84"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g6n6t"]
 texture = ExtResource("2_wa10l")
 texture_margin_left = 10.0
 texture_margin_top = 10.0
@@ -46,9 +46,9 @@ expand_margin_right = 20.0
 expand_margin_bottom = 20.0
 
 [sub_resource type="Theme" id="Theme_1gj5a"]
-PanelContainer/styles/panel = SubResource("StyleBoxTexture_ecn84")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_g6n6t")
 
-[node name="Item" type="Button"]
+[node name="Item" type="Button" unique_id=1693210020]
 editor_description = "You have to connect the \"selected\" and the \"deseleceted\" signals to determine the behavior of the item"
 texture_filter = 1
 custom_minimum_size = Vector2(69, 60)
@@ -60,14 +60,14 @@ icon_alignment = 1
 expand_icon = true
 script = ExtResource("1_2puhw")
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1545827221]
 editor_description = "This PointLight2D has to be disabled by default if the item isn't selected"
 texture_filter = 2
 position = Vector2(34, 30)
 enabled = false
 texture = SubResource("GradientTexture2D_2puhw")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1669983756]
 visible = false
 texture_filter = 2
 layout_mode = 1
@@ -80,21 +80,21 @@ offset_left = 0.012001038
 offset_right = -0.0030059814
 offset_bottom = -3.0517578e-05
 
-[node name="UseButton" type="Button" parent="VBoxContainer"]
+[node name="UseButton" type="Button" parent="VBoxContainer" unique_id=1621820978]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("2_1gj5a")
 theme_override_font_sizes/font_size = 34
 text = "USE"
 
-[node name="InfoButton" type="Button" parent="VBoxContainer"]
+[node name="InfoButton" type="Button" parent="VBoxContainer" unique_id=790548475]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("2_1gj5a")
 theme_override_font_sizes/font_size = 34
 text = "INFO"
 
-[node name="Info" type="Control" parent="VBoxContainer/InfoButton"]
+[node name="Info" type="Control" parent="VBoxContainer/InfoButton" unique_id=1603918592]
 visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
@@ -108,7 +108,7 @@ offset_right = 0.040008545
 offset_bottom = -0.01600647
 pivot_offset = Vector2(285, 0)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/InfoButton/Info"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/InfoButton/Info" unique_id=1133386070]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -116,12 +116,12 @@ anchor_bottom = 1.0830001
 offset_right = -530.0
 offset_bottom = -76.964005
 
-[node name="Head" type="PanelContainer" parent="VBoxContainer/InfoButton/Info/VBoxContainer"]
+[node name="Head" type="PanelContainer" parent="VBoxContainer/InfoButton/Info/VBoxContainer" unique_id=1832092530]
 texture_filter = 1
 layout_mode = 2
 theme = SubResource("Theme_g6n6t")
 
-[node name="Label" type="Label" parent="VBoxContainer/InfoButton/Info/VBoxContainer/Head"]
+[node name="Label" type="Label" parent="VBoxContainer/InfoButton/Info/VBoxContainer/Head" unique_id=1168841298]
 texture_filter = 2
 custom_minimum_size = Vector2(550, 28)
 layout_mode = 2
@@ -133,12 +133,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Text" type="PanelContainer" parent="VBoxContainer/InfoButton/Info/VBoxContainer"]
+[node name="Text" type="PanelContainer" parent="VBoxContainer/InfoButton/Info/VBoxContainer" unique_id=1567098266]
 texture_filter = 1
 layout_mode = 2
 theme = SubResource("Theme_1gj5a")
 
-[node name="Label" type="Label" parent="VBoxContainer/InfoButton/Info/VBoxContainer/Text"]
+[node name="Label" type="Label" parent="VBoxContainer/InfoButton/Info/VBoxContainer/Text" unique_id=1284074532]
 texture_filter = 2
 custom_minimum_size = Vector2(550, 24)
 layout_mode = 2
@@ -148,16 +148,16 @@ theme_override_font_sizes/font_size = 20
 text = "Это предмет. Его можно использовать!"
 autowrap_mode = 3
 
-[node name="CloseButton" type="Button" parent="VBoxContainer/InfoButton/Info"]
+[node name="CloseButton" type="Button" parent="VBoxContainer/InfoButton/Info" unique_id=1766710877]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.92100006
 anchor_top = 0.26900002
-anchor_right = 0.98200005
+anchor_right = 0.98800004
 anchor_bottom = 0.26900002
 offset_left = 0.029968262
 offset_top = -19.052002
-offset_right = 0.25994873
+offset_right = -0.16003418
 offset_bottom = 18.947998
 icon = ExtResource("3_j67vm")
 expand_icon = true

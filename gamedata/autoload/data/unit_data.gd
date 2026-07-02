@@ -11,7 +11,7 @@ extends Node
 	#}
 #}
 
-const ARCHER: Dictionary[StringName, Dictionary] = {
+const ARCHER: Dictionary = {
 	"level_1": {
 		"shell_speed": 9500,
 		"damage": 10,
@@ -67,10 +67,11 @@ const ARCHER: Dictionary[StringName, Dictionary] = {
 		"count": 3,
 		"spawnpoints": [Vector2(0, -44), Vector2(-16, -34), Vector2(16, -34)],
 		"attack_range": 350
-	}
+	},
+	"description": "Эти меткие воины, взращённые в западных лесах в окружении хищных волков Сарцу и медведей Гапта могут остановить любого врага — дайте лишь время. Используйте их, чтобы остановить монстров из Долины Мудрой Реки."
 }
 
-const FIRE_ARCHER: Dictionary[StringName, Dictionary] = {
+const FIRE_ARCHER: Dictionary = {
 	"level_1": {
 		"shell_speed": 9500,
 		"damage": 10,
@@ -126,5 +127,6 @@ const FIRE_ARCHER: Dictionary[StringName, Dictionary] = {
 		"count": 3,
 		"spawnpoints": [Vector2(0, -44), Vector2(-16, -34), Vector2(16, -34)],
 		"attack_range": 350
-	}
+	},
+	"description": "На Огненной земле молодых лучников обучают магии пламени. С её помощью они поджигают врагов и заставляют погибать их мучительной смертью."
 }
