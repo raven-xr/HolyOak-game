@@ -61,11 +61,11 @@ theme = SubResource("Theme_n78l4")
 
 [node name="Label" type="Label" parent="VBoxContainer/Head" index="0" unique_id=1241165599]
 texture_filter = 2
-custom_minimum_size = Vector2(550, 28)
+custom_minimum_size = Vector2(550, 34)
 layout_mode = 2
 size_flags_vertical = 0
 mouse_filter = 0
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 24
 text = "⚔️ Объект ⚔️"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -78,11 +78,11 @@ theme = SubResource("Theme_wfkn4")
 
 [node name="Label" type="Label" parent="VBoxContainer/Description" index="0" unique_id=528270829]
 texture_filter = 2
-custom_minimum_size = Vector2(550, 24)
+custom_minimum_size = Vector2(550, 20)
 layout_mode = 2
 size_flags_vertical = 0
 mouse_filter = 0
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 14
 text = "Описание объекта"
 autowrap_mode = 3
 
@@ -93,11 +93,11 @@ theme = SubResource("Theme_w87hx")
 
 [node name="Label" type="Label" parent="VBoxContainer/StatsText" index="0" unique_id=371281143]
 texture_filter = 2
-custom_minimum_size = Vector2(550, 24)
+custom_minimum_size = Vector2(550, 20)
 layout_mode = 2
 size_flags_vertical = 0
 mouse_filter = 0
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 14
 text = "Характеристики объекта"
 autowrap_mode = 3
 
