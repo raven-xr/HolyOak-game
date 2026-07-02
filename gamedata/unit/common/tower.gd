@@ -125,12 +125,14 @@ func _on_info_button_pressed() -> void:
 	info_tab.set_stats_text("Урон — %d\nДальность атаки — %d\nКоличество юнитов — %d\nУровень — %d\nМакс. уровень — %d" % stats)
 
 func upgrade() -> void:
+	# Was touch button disabled before due the other reasons?
+	var was_touch_button_disabled: bool = not touch_button.disabled
 	# Disable the AttackRange
 	attack_range_col.set_deferred("disabled", true)
 	is_upgrading = true
 	remove_units()
 	# Block button to not let player interact with the interface
-	touch_button.visible = false
+	touch_button.disabled = true
 	level += 1
 	# Update stats
 	unit_count = unit_stats["level_" + str(level)]["count"]
@@ -151,8 +153,8 @@ func upgrade() -> void:
 	# Create units
 	spawn_units(unit_count, unit_spawnpoints)
 	# Unless there is an opened TowerStats in the level GUI, enable the TouchScreenButton
-	if not global_gui.has_node("TowerStats") and not global_gui.has_node("TowerMenu"):
-		touch_button.visible = true
+	if not was_touch_button_disabled:
+		touch_button.disabled = false
 	is_upgrading = false
 	# Set the AttackRange
 	attack_range_col.disabled = false
@@ -166,6 +168,8 @@ func upgrade() -> void:
 		await tween.finished
 
 func remove() -> void:
+	# Was touch button disabled before due the other reasons?
+	var was_touch_button_disabled: bool = not touch_button.disabled
 	# Stops glowing
 	if point_light_2d.enabled:
 		var tween = create_tween()
@@ -176,7 +180,7 @@ func remove() -> void:
 	is_upgrading = true
 	remove_units()
 	# Block button to not let player interact with the interface
-	touch_button.visible = false
+	touch_button.disabled = true
 	level = 0
 	# Give half of the money back player spent last time
 	Global.game_controller.current_2d_scene.money += total_cost
@@ -186,8 +190,8 @@ func remove() -> void:
 	# Unblock button
 	await animation_player.animation_finished
 	# Unless there is an opened TowerStats or TowerMenu in the level GUI, enable the TouchScreenButton
-	if not global_gui.has_node("TowerStats") and not global_gui.has_node("TowerMenu"):
-		touch_button.visible = true
+	if not was_touch_button_disabled:
+		touch_button.disabled = false
 	# Update current cost
 	current_cost = unit_stats["level_1"]["cost"]
 	is_upgrading = false
