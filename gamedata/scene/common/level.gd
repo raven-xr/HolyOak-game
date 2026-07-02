@@ -206,12 +206,9 @@ func _on_tower_menu_opened(tower_menu: Control) -> void:
 		# leave its TouchScreenButton enabled
 		if tower.tower_menu == tower_menu:
 			continue
-		tower.touch_button.visible = false
+		tower.touch_button.disabled = true
 
 func _on_tower_menu_closed(tower_menu: Control) -> void:
-	# Do not turn TouchScreenButtons on if a TowerStats has just been opened
-	if global_gui.has_node("TowerStats"):
-		return
 	# If the tower menu was closed, enable the other ones
 	for tower in towers.get_children():
 		# If the opened tower menu is the tower menu of the tower of the current iteration
@@ -219,7 +216,7 @@ func _on_tower_menu_closed(tower_menu: Control) -> void:
 		# (depends on whether you started building/upgrading it now)
 		if tower.tower_menu == tower_menu or tower.is_upgrading:
 			continue
-		tower.touch_button.visible = true
+		tower.touch_button.disabled = false
 
 func _on_menu_button_pressed() -> void:
 	SoundManager.click.play()
