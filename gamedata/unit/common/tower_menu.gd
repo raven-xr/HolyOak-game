@@ -25,9 +25,6 @@ func _ready() -> void:
 	$"Upgrade Cost/Cost".text = str("−", tower.current_cost)
 	$"Remove Compensation/Size".text = str("+", tower.total_cost)
 	
-	build_cost.visible = false
-	upgrade_cost.visible = false
-	remove_compensation.visible = false
 	build_cost.modulate = Color.TRANSPARENT
 	upgrade_cost.modulate = Color.TRANSPARENT
 	remove_compensation.modulate = Color.TRANSPARENT
@@ -69,40 +66,31 @@ func close() -> void:
 
 func _on_build_button_mouse_entered() -> void:
 	if not build_button.disabled:
-		build_cost.visible = true
 		var tween = create_tween()
 		tween.tween_property(build_cost, "modulate", Color.WHITE, 0.15)
-
+		
 func _on_build_button_mouse_exited() -> void:
 	var tween = create_tween()
 	tween.tween_property(build_cost, "modulate", Color.TRANSPARENT, 0.15)
-	await tween.finished
-	build_cost.visible = false
 
 
 
 func _on_upgrade_button_mouse_entered() -> void:
 	if not upgrade_button.disabled:
-		upgrade_cost.visible = true
 		var tween = create_tween()
 		tween.tween_property(upgrade_cost, "modulate", Color.WHITE, 0.15)
 
 func _on_upgrade_button_mouse_exited() -> void:
 	var tween = create_tween()
 	tween.tween_property(upgrade_cost, "modulate", Color.TRANSPARENT, 0.15)
-	await tween.finished
-	upgrade_cost.visible = false
 
 
 
 func _on_remove_button_mouse_entered() -> void:
 	if not remove_button.disabled:
-		remove_compensation.visible = true
 		var tween = create_tween()
 		tween.tween_property(remove_compensation, "modulate", Color.WHITE, 0.15)
 
 func _on_remove_button_mouse_exited() -> void:
 	var tween = create_tween()
 	tween.tween_property(remove_compensation, "modulate", Color.TRANSPARENT, 0.15)
-	await tween.finished
-	remove_compensation.visible = false
