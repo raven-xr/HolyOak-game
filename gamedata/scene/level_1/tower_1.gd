@@ -11,14 +11,18 @@ var is_info_button_locked: bool = true
 var is_remove_button_locked: bool = true
 
 func open_menu() -> void:
+	# If Tower Menu of one of the towers is already opened,
+	# close previous one and open new one
+	for node in global_gui.get_children():
+		if node.get("tower"): # If node has the "tower" var, then this node is Tower Menu
+			node.close()
+	# Tower Menu enters the tree
 	tower_menu = tower_menu_scene.instantiate()
-	tower_menu.unit_name = unit_scene.instantiate().name
+	tower_menu.unit_name = unit_scene.instantiate().display_name
+	tower_menu.unit_logo = logo.texture
 	tower_menu.menu_position = menu_position
 	tower_menu.tower = self
-	# Connects the "opened" and "closed" signals to the level
-	tower_menu.connect("opened", Callable(Global.game_controller.current_2d_scene, "_on_tower_menu_opened"))
-	tower_menu.connect("closed", Callable(Global.game_controller.current_2d_scene, "_on_tower_menu_closed"))
-	global_gui.add_child(tower_menu) # Enters the tree
+	global_gui.add_child(tower_menu)
 	# Connects the other signals
 	tower_menu.build_button.connect("pressed", Callable(self, "_on_build_button_pressed"))
 	tower_menu.upgrade_button.connect("pressed", Callable(self, "_on_upgrade_button_pressed"))
@@ -80,7 +84,9 @@ func _on_info_button_pressed() -> void:
 		level,
 		min(MAX_LEVEL, Global.game_controller.current_2d_scene.tower_level_limit)
 	]
-	info_tab.set_text(unit_stats["description"] + "Урон — %d\nДальность атаки — %d\nКоличество юнитов — %d\nУровень — %d\nМакс. уровень — %d" % stats)
+	info_tab.set_head(unit_scene.instantiate().display_name)
+	info_tab.set_description(unit_stats["description"])
+	info_tab.set_stats_text("Урон — %d\nДальность атаки — %d\nКоличество юнитов — %d\nУровень — %d\nМакс. уровень — %d" % stats)
 	player_opened_info.emit()
 
 func _on_level_1_player_ended_tutorial() -> void:
