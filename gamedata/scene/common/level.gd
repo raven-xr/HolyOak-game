@@ -199,25 +199,6 @@ func _on_wave_timer_timeout() -> void:
 # -------------------------------------------------------------------------------- #
 # ----------------------------------GUI------------------------------------------- #
 
-func _on_tower_menu_opened(tower_menu: Control) -> void:
-	# If any tower menu was opened, disable the other ones
-	for tower in towers.get_children():
-		# If the opened tower menu is the tower menu of the tower of the current iteration,
-		# leave its TouchScreenButton enabled
-		if tower.tower_menu == tower_menu:
-			continue
-		tower.touch_button.disabled = true
-
-func _on_tower_menu_closed(tower_menu: Control) -> void:
-	# If the tower menu was closed, enable the other ones
-	for tower in towers.get_children():
-		# If the opened tower menu is the tower menu of the tower of the current iteration
-		# or the tower is upgrading, leave its TouchScreenButton disabled/enabled
-		# (depends on whether you started building/upgrading it now)
-		if tower.tower_menu == tower_menu or tower.is_upgrading:
-			continue
-		tower.touch_button.disabled = false
-
 func _on_menu_button_pressed() -> void:
 	SoundManager.click.play()
 	local_gui.add_child(game_menu_scene.instantiate())

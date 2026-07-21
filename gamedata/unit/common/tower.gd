@@ -55,15 +55,18 @@ func _on_touch_button_pressed() -> void:
 		open_menu()
 
 func open_menu() -> void:
+	# If Tower Menu of one of the towers is already opened,
+	# close previous one and open new one
+	for node in global_gui.get_children():
+		if node.get("tower"): # If node has the "tower" var, then this node is Tower Menu
+			node.close()
+	# Tower Menu enters the tree
 	tower_menu = tower_menu_scene.instantiate()
 	tower_menu.unit_name = unit_scene.instantiate().display_name
 	tower_menu.unit_logo = logo.texture
 	tower_menu.menu_position = menu_position
 	tower_menu.tower = self
-	# Connects the "opened" and "closed" signals to the level
-	tower_menu.connect("opened", Callable(Global.game_controller.current_2d_scene, "_on_tower_menu_opened"))
-	tower_menu.connect("closed", Callable(Global.game_controller.current_2d_scene, "_on_tower_menu_closed"))
-	global_gui.add_child(tower_menu) # Enters the tree
+	global_gui.add_child(tower_menu)
 	# Connects the other signals
 	tower_menu.build_button.connect("pressed", Callable(self, "_on_build_button_pressed"))
 	tower_menu.upgrade_button.connect("pressed", Callable(self, "_on_upgrade_button_pressed"))
@@ -125,8 +128,6 @@ func _on_info_button_pressed() -> void:
 	info_tab.set_stats_text("Урон — %d\nДальность атаки — %d\nКоличество юнитов — %d\nУровень — %d\nМакс. уровень — %d" % stats)
 
 func upgrade() -> void:
-	# Was touch button disabled before due the other reasons?
-	var was_touch_button_disabled: bool = not touch_button.disabled
 	# Disable the AttackRange
 	attack_range_col.set_deferred("disabled", true)
 	is_upgrading = true
@@ -152,9 +153,8 @@ func upgrade() -> void:
 	SoundManager.success.play()
 	# Create units
 	spawn_units(unit_count, unit_spawnpoints)
-	# Unless there is an opened TowerStats in the level GUI, enable the TouchScreenButton
-	if not was_touch_button_disabled:
-		touch_button.disabled = false
+	# Unblock button
+	touch_button.disabled = false
 	is_upgrading = false
 	# Set the AttackRange
 	attack_range_col.disabled = false
@@ -168,8 +168,6 @@ func upgrade() -> void:
 		await tween.finished
 
 func remove() -> void:
-	# Was touch button disabled before due the other reasons?
-	var was_touch_button_disabled: bool = not touch_button.disabled
 	# Stops glowing
 	if point_light_2d.enabled:
 		var tween = create_tween()
@@ -189,9 +187,7 @@ func remove() -> void:
 	animation_player.play("Destruct")
 	# Unblock button
 	await animation_player.animation_finished
-	# Unless there is an opened TowerStats or TowerMenu in the level GUI, enable the TouchScreenButton
-	if not was_touch_button_disabled:
-		touch_button.disabled = false
+	touch_button.disabled = false
 	# Update current cost
 	current_cost = unit_stats["level_1"]["cost"]
 	is_upgrading = false
